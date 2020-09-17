@@ -321,8 +321,7 @@ namespace Regula.OpenApi.WebClient.Client
             // at this point, it must be a model (json)
             try
             {
-                var r = JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
-                return r;
+                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
             }
             catch (Exception e)
             {

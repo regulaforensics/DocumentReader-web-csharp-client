@@ -13,18 +13,18 @@ namespace Regula.OpenApi.WebClient.Model.Ext
         
         public Status Status() 
         {
-            var result = ResultByType<StatusResult>((int)Result.STATUS);
+            var result = ResultByType<StatusResult>(Result.STATUS);
             return result?.Status;
         }
         
         public Text Text() {
-            var result = ResultByType<TextResult>((int)Result.TEXT);
+            var result = ResultByType<TextResult>(Result.TEXT);
             return result?.Text;
         }
         
         public Images Images() 
         {
-            var result = ResultByType<ImagesResult>((int) Result.IMAGES);
+            var result = ResultByType<ImagesResult>(Result.IMAGES);
             return result?.Images;
         }
 

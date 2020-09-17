@@ -23,16 +23,16 @@ namespace Regula.OpenApi.WebClient.Model
     /// Common fields for all result objects
     /// </summary>
     [DataContract]
-    [JsonConverter(typeof(JsonSubtypes), "resultType")]
-    [JsonSubtypes.KnownSubType(typeof(ImagesResult), "ImagesResult")]
-    [JsonSubtypes.KnownSubType(typeof(LexicalAnalysisResult), "LexicalAnalysisResult")]
-    [JsonSubtypes.KnownSubType(typeof(DocumentImageResult), "DocumentImageResult")]
-    [JsonSubtypes.KnownSubType(typeof(TextDataResult), "TextDataResult")]
-    [JsonSubtypes.KnownSubType(typeof(DocumentTypesCandidatesResult), "DocumentTypesCandidatesResult")]
-    [JsonSubtypes.KnownSubType(typeof(StatusResult), "StatusResult")]
-    [JsonSubtypes.KnownSubType(typeof(ChosenDocumentTypeResult), "ChosenDocumentTypeResult")]
-    [JsonSubtypes.KnownSubType(typeof(TextResult), "TextResult")]
-    [JsonSubtypes.KnownSubType(typeof(GraphicsResult), "GraphicsResult")]
+    [JsonConverter(typeof(JsonSubtypes), "result_type")]
+    [JsonSubtypes.KnownSubType(typeof(ImagesResult), Result.IMAGES)]
+    [JsonSubtypes.KnownSubType(typeof(LexicalAnalysisResult), Result.LEXICAL_ANALYSIS)]
+    [JsonSubtypes.KnownSubType(typeof(DocumentImageResult), Result.DOCUMENT_IMAGE)]
+    [JsonSubtypes.KnownSubType(typeof(TextDataResult), Result.VISUAL_TEXT)]
+    [JsonSubtypes.KnownSubType(typeof(DocumentTypesCandidatesResult), Result.DOCUMENT_TYPE_CANDIDATES)]
+    [JsonSubtypes.KnownSubType(typeof(StatusResult), Result.STATUS)]
+    [JsonSubtypes.KnownSubType(typeof(ChosenDocumentTypeResult), Result.DOCUMENT_TYPE)]
+    [JsonSubtypes.KnownSubType(typeof(TextResult), Result.TEXT)]
+    [JsonSubtypes.KnownSubType(typeof(GraphicsResult), Result.VISUAL_GRAPHICS)]
     public partial class ResultItem :  IEquatable<ResultItem>, IValidatableObject
     {
         /// <summary>

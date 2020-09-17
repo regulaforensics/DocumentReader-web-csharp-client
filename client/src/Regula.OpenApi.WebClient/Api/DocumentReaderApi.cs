@@ -29,7 +29,7 @@ namespace Regula.OpenApi.WebClient.Api
         
         public DocumentReaderApi WithLicense(byte[] license) 
         {
-            License = Convert.ToBase64String(license);
+            License = license != null ? Convert.ToBase64String(license) : null;
             return this;
         }
     }
