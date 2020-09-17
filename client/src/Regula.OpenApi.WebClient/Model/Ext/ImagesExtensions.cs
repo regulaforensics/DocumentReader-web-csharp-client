@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+
+namespace Regula.OpenApi.WebClient.Model.Ext
+{
+    public static class ImagesExtensions
+    {
+        public static ImagesField GetField(this Images imgs, int fieldType) 
+        {
+            foreach (var field in imgs.FieldList) 
+            {
+                if (field.FieldType == fieldType) return field;
+            }
+            
+            return null;
+        }
+        
+        public static List<ImagesField> GetFields(this Images imgs, int fieldType) 
+        {
+            var fields = new List<ImagesField>();
+            
+            foreach (var field in imgs.FieldList) 
+            {
+                if (field.FieldType == fieldType)
+                    fields.Add(field);
+            }
+            
+            return fields;
+        }
+    }
+}

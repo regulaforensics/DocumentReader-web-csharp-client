@@ -6,16 +6,18 @@ namespace Regula.OpenApi.WebClient.Api
 {
     public class DocumentReaderApi : DefaultApi
     {
-        public DocumentReaderApi(string basePath) 
-            : base(basePath)
-        {
-        }
-        
-        public string License { get; set; }
+        public DocumentReaderApi(string basePath)
+            : base(basePath) { }
+
+        private string License { get; set; }
         
         public RecognitionResponse Process(ProcessRequest processRequest) 
         {
-            processRequest.SystemInfo.License = License;
+            if (processRequest.SystemInfo == null)
+                processRequest.SystemInfo = new ProcessSystemInfo(License);
+            else
+                processRequest.SystemInfo.License = License;
+
             return new RecognitionResponse(ApiProcess(processRequest));
         }
         
@@ -25,9 +27,10 @@ namespace Regula.OpenApi.WebClient.Api
             return this;
         }
         
-        public void SetLicense(byte[] license) 
+        public DocumentReaderApi WithLicense(byte[] license) 
         {
             License = Convert.ToBase64String(license);
+            return this;
         }
     }
 }

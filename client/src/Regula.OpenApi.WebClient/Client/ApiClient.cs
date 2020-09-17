@@ -132,7 +132,7 @@ namespace Regula.OpenApi.WebClient.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
@@ -321,7 +321,8 @@ namespace Regula.OpenApi.WebClient.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                var r = JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                return r;
             }
             catch (Exception e)
             {
