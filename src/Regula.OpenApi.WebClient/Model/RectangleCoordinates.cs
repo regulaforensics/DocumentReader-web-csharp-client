@@ -39,45 +39,17 @@ namespace Regula.OpenApi.WebClient.Model
         public RectangleCoordinates(int left = default(int), int top = default(int), int right = default(int), int bottom = default(int))
         {
             // to ensure "left" is required (not null)
-            if (left == null)
-            {
-                throw new InvalidDataException("left is a required property for RectangleCoordinates and cannot be null");
-            }
-            else
-            {
-                this.Left = left;
-            }
-            
+            this.Left = left;
+
             // to ensure "top" is required (not null)
-            if (top == null)
-            {
-                throw new InvalidDataException("top is a required property for RectangleCoordinates and cannot be null");
-            }
-            else
-            {
-                this.Top = top;
-            }
-            
+            this.Top = top;
+
             // to ensure "right" is required (not null)
-            if (right == null)
-            {
-                throw new InvalidDataException("right is a required property for RectangleCoordinates and cannot be null");
-            }
-            else
-            {
-                this.Right = right;
-            }
-            
+            this.Right = right;
+
             // to ensure "bottom" is required (not null)
-            if (bottom == null)
-            {
-                throw new InvalidDataException("bottom is a required property for RectangleCoordinates and cannot be null");
-            }
-            else
-            {
-                this.Bottom = bottom;
-            }
-            
+            this.Bottom = bottom;
+
         }
         
         /// <summary>
@@ -152,23 +124,19 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.Left == input.Left ||
-                    (this.Left != null &&
-                    this.Left.Equals(input.Left))
+                    (this.Left.Equals(input.Left))
                 ) && 
                 (
                     this.Top == input.Top ||
-                    (this.Top != null &&
-                    this.Top.Equals(input.Top))
+                    (this.Top.Equals(input.Top))
                 ) && 
                 (
                     this.Right == input.Right ||
-                    (this.Right != null &&
-                    this.Right.Equals(input.Right))
+                    (this.Right.Equals(input.Right))
                 ) && 
                 (
                     this.Bottom == input.Bottom ||
-                    (this.Bottom != null &&
-                    this.Bottom.Equals(input.Bottom))
+                    (this.Bottom.Equals(input.Bottom))
                 );
         }
 
@@ -181,14 +149,10 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Left != null)
-                    hashCode = hashCode * 59 + this.Left.GetHashCode();
-                if (this.Top != null)
-                    hashCode = hashCode * 59 + this.Top.GetHashCode();
-                if (this.Right != null)
-                    hashCode = hashCode * 59 + this.Right.GetHashCode();
-                if (this.Bottom != null)
-                    hashCode = hashCode * 59 + this.Bottom.GetHashCode();
+                hashCode = hashCode * 59 + this.Left.GetHashCode();
+                hashCode = hashCode * 59 + this.Top.GetHashCode();
+                hashCode = hashCode * 59 + this.Right.GetHashCode();
+                hashCode = hashCode * 59 + this.Bottom.GetHashCode();
                 return hashCode;
             }
         }

@@ -39,25 +39,11 @@ namespace Regula.OpenApi.WebClient.Model
         public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo))
         {
             // to ensure "chipPage" is required (not null)
-            if (chipPage == null)
-            {
-                throw new InvalidDataException("chipPage is a required property for ProcessResponse and cannot be null");
-            }
-            else
-            {
-                this.ChipPage = chipPage;
-            }
-            
+            this.ChipPage = chipPage;
+
             // to ensure "processingFinished" is required (not null)
-            if (processingFinished == null)
-            {
-                throw new InvalidDataException("processingFinished is a required property for ProcessResponse and cannot be null");
-            }
-            else
-            {
-                this.ProcessingFinished = processingFinished;
-            }
-            
+            this.ProcessingFinished = processingFinished;
+
             // to ensure "containerList" is required (not null)
             if (containerList == null)
             {
@@ -152,13 +138,11 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.ChipPage == input.ChipPage ||
-                    (this.ChipPage != null &&
-                    this.ChipPage.Equals(input.ChipPage))
+                    (this.ChipPage.Equals(input.ChipPage))
                 ) && 
                 (
                     this.ProcessingFinished == input.ProcessingFinished ||
-                    (this.ProcessingFinished != null &&
-                    this.ProcessingFinished.Equals(input.ProcessingFinished))
+                    (this.ProcessingFinished.Equals(input.ProcessingFinished))
                 ) && 
                 (
                     this.ContainerList == input.ContainerList ||
@@ -181,10 +165,8 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ChipPage != null)
-                    hashCode = hashCode * 59 + this.ChipPage.GetHashCode();
-                if (this.ProcessingFinished != null)
-                    hashCode = hashCode * 59 + this.ProcessingFinished.GetHashCode();
+                hashCode = hashCode * 59 + this.ChipPage.GetHashCode();
+                hashCode = hashCode * 59 + this.ProcessingFinished.GetHashCode();
                 if (this.ContainerList != null)
                     hashCode = hashCode * 59 + this.ContainerList.GetHashCode();
                 if (this.TransactionInfo != null)

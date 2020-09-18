@@ -45,45 +45,17 @@ namespace Regula.OpenApi.WebClient.Model
         public TextField(int fieldType = default(int), int lcid = default(int), int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
         {
             // to ensure "fieldType" is required (not null)
-            if (fieldType == null)
-            {
-                throw new InvalidDataException("fieldType is a required property for TextField and cannot be null");
-            }
-            else
-            {
-                this.FieldType = fieldType;
-            }
-            
+            this.FieldType = fieldType;
+
             // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new InvalidDataException("status is a required property for TextField and cannot be null");
-            }
-            else
-            {
-                this.Status = status;
-            }
-            
+            this.Status = status;
+
             // to ensure "validityStatus" is required (not null)
-            if (validityStatus == null)
-            {
-                throw new InvalidDataException("validityStatus is a required property for TextField and cannot be null");
-            }
-            else
-            {
-                this.ValidityStatus = validityStatus;
-            }
-            
+            this.ValidityStatus = validityStatus;
+
             // to ensure "comparisonStatus" is required (not null)
-            if (comparisonStatus == null)
-            {
-                throw new InvalidDataException("comparisonStatus is a required property for TextField and cannot be null");
-            }
-            else
-            {
-                this.ComparisonStatus = comparisonStatus;
-            }
-            
+            this.ComparisonStatus = comparisonStatus;
+
             // to ensure "value" is required (not null)
             if (value == null)
             {
@@ -236,28 +208,23 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.FieldType == input.FieldType ||
-                    (this.FieldType != null &&
-                    this.FieldType.Equals(input.FieldType))
+                    (this.FieldType.Equals(input.FieldType))
                 ) && 
                 (
                     this.Lcid == input.Lcid ||
-                    (this.Lcid != null &&
-                    this.Lcid.Equals(input.Lcid))
+                    (this.Lcid.Equals(input.Lcid))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    (this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.ValidityStatus == input.ValidityStatus ||
-                    (this.ValidityStatus != null &&
-                    this.ValidityStatus.Equals(input.ValidityStatus))
+                    (this.ValidityStatus.Equals(input.ValidityStatus))
                 ) && 
                 (
                     this.ComparisonStatus == input.ComparisonStatus ||
-                    (this.ComparisonStatus != null &&
-                    this.ComparisonStatus.Equals(input.ComparisonStatus))
+                    (this.ComparisonStatus.Equals(input.ComparisonStatus))
                 ) && 
                 (
                     this.Value == input.Value ||
@@ -293,16 +260,11 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FieldType != null)
-                    hashCode = hashCode * 59 + this.FieldType.GetHashCode();
-                if (this.Lcid != null)
-                    hashCode = hashCode * 59 + this.Lcid.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.ValidityStatus != null)
-                    hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
-                if (this.ComparisonStatus != null)
-                    hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.FieldType.GetHashCode();
+                hashCode = hashCode * 59 + this.Lcid.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.ValueList != null)

@@ -49,15 +49,8 @@ namespace Regula.OpenApi.WebClient.Model
             }
             
             // to ensure "fieldType" is required (not null)
-            if (fieldType == null)
-            {
-                throw new InvalidDataException("fieldType is a required property for ImagesField and cannot be null");
-            }
-            else
-            {
-                this.FieldType = fieldType;
-            }
-            
+            this.FieldType = fieldType;
+
             // to ensure "valueList" is required (not null)
             if (valueList == null)
             {
@@ -141,8 +134,7 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.FieldType == input.FieldType ||
-                    (this.FieldType != null &&
-                    this.FieldType.Equals(input.FieldType))
+                    (this.FieldType.Equals(input.FieldType))
                 ) && 
                 (
                     this.ValueList == input.ValueList ||
@@ -163,8 +155,7 @@ namespace Regula.OpenApi.WebClient.Model
                 int hashCode = 41;
                 if (this.FieldName != null)
                     hashCode = hashCode * 59 + this.FieldName.GetHashCode();
-                if (this.FieldType != null)
-                    hashCode = hashCode * 59 + this.FieldType.GetHashCode();
+                hashCode = hashCode * 59 + this.FieldType.GetHashCode();
                 if (this.ValueList != null)
                     hashCode = hashCode * 59 + this.ValueList.GetHashCode();
                 return hashCode;

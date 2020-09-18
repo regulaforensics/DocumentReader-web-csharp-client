@@ -184,18 +184,15 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.DType == input.DType ||
-                    (this.DType != null &&
-                    this.DType.Equals(input.DType))
+                    (this.DType.Equals(input.DType))
                 ) && 
                 (
                     this.DFormat == input.DFormat ||
-                    (this.DFormat != null &&
-                    this.DFormat.Equals(input.DFormat))
+                    (this.DFormat.Equals(input.DFormat))
                 ) && 
                 (
                     this.DMRZ == input.DMRZ ||
-                    (this.DMRZ != null &&
-                    this.DMRZ.Equals(input.DMRZ))
+                    (this.DMRZ.Equals(input.DMRZ))
                 ) && 
                 (
                     this.DDescription == input.DDescription ||
@@ -237,12 +234,9 @@ namespace Regula.OpenApi.WebClient.Model
                     hashCode = hashCode * 59 + this.ICAO.GetHashCode();
                 if (this.List != null)
                     hashCode = hashCode * 59 + this.List.GetHashCode();
-                if (this.DType != null)
-                    hashCode = hashCode * 59 + this.DType.GetHashCode();
-                if (this.DFormat != null)
-                    hashCode = hashCode * 59 + this.DFormat.GetHashCode();
-                if (this.DMRZ != null)
-                    hashCode = hashCode * 59 + this.DMRZ.GetHashCode();
+                hashCode = hashCode * 59 + this.DType.GetHashCode();
+                hashCode = hashCode * 59 + this.DFormat.GetHashCode();
+                hashCode = hashCode * 59 + this.DMRZ.GetHashCode();
                 if (this.DDescription != null)
                     hashCode = hashCode * 59 + this.DDescription.GetHashCode();
                 if (this.DYear != null)

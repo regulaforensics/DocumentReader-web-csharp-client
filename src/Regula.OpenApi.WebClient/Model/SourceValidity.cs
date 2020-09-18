@@ -47,15 +47,8 @@ namespace Regula.OpenApi.WebClient.Model
             }
             
             // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new InvalidDataException("status is a required property for SourceValidity and cannot be null");
-            }
-            else
-            {
-                this.Status = status;
-            }
-            
+            this.Status = status;
+
         }
         
         /// <summary>
@@ -121,8 +114,7 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    (this.Status.Equals(input.Status))
                 );
         }
 
@@ -137,8 +129,7 @@ namespace Regula.OpenApi.WebClient.Model
                 int hashCode = 41;
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

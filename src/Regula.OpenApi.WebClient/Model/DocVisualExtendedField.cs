@@ -43,25 +43,11 @@ namespace Regula.OpenApi.WebClient.Model
         public DocVisualExtendedField(int wFieldType = default(int), int wLCID = default(int), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), string bufText = default(string), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginTagEntry = default(int))
         {
             // to ensure "wFieldType" is required (not null)
-            if (wFieldType == null)
-            {
-                throw new InvalidDataException("wFieldType is a required property for DocVisualExtendedField and cannot be null");
-            }
-            else
-            {
-                this.WFieldType = wFieldType;
-            }
-            
+            this.WFieldType = wFieldType;
+
             // to ensure "wLCID" is required (not null)
-            if (wLCID == null)
-            {
-                throw new InvalidDataException("wLCID is a required property for DocVisualExtendedField and cannot be null");
-            }
-            else
-            {
-                this.WLCID = wLCID;
-            }
-            
+            this.WLCID = wLCID;
+
             // to ensure "bufText" is required (not null)
             if (bufText == null)
             {
@@ -175,13 +161,11 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.WFieldType == input.WFieldType ||
-                    (this.WFieldType != null &&
-                    this.WFieldType.Equals(input.WFieldType))
+                    (this.WFieldType.Equals(input.WFieldType))
                 ) && 
                 (
                     this.WLCID == input.WLCID ||
-                    (this.WLCID != null &&
-                    this.WLCID.Equals(input.WLCID))
+                    (this.WLCID.Equals(input.WLCID))
                 ) && 
                 (
                     this.StringsResult == input.StringsResult ||
@@ -201,13 +185,11 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.RFIDOriginDG == input.RFIDOriginDG ||
-                    (this.RFIDOriginDG != null &&
-                    this.RFIDOriginDG.Equals(input.RFIDOriginDG))
+                    (this.RFIDOriginDG.Equals(input.RFIDOriginDG))
                 ) && 
                 (
                     this.RFIDOriginTagEntry == input.RFIDOriginTagEntry ||
-                    (this.RFIDOriginTagEntry != null &&
-                    this.RFIDOriginTagEntry.Equals(input.RFIDOriginTagEntry))
+                    (this.RFIDOriginTagEntry.Equals(input.RFIDOriginTagEntry))
                 );
         }
 
@@ -220,20 +202,16 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.WFieldType != null)
-                    hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
-                if (this.WLCID != null)
-                    hashCode = hashCode * 59 + this.WLCID.GetHashCode();
+                hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
+                hashCode = hashCode * 59 + this.WLCID.GetHashCode();
                 if (this.StringsResult != null)
                     hashCode = hashCode * 59 + this.StringsResult.GetHashCode();
                 if (this.BufText != null)
                     hashCode = hashCode * 59 + this.BufText.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
-                if (this.RFIDOriginDG != null)
-                    hashCode = hashCode * 59 + this.RFIDOriginDG.GetHashCode();
-                if (this.RFIDOriginTagEntry != null)
-                    hashCode = hashCode * 59 + this.RFIDOriginTagEntry.GetHashCode();
+                hashCode = hashCode * 59 + this.RFIDOriginDG.GetHashCode();
+                hashCode = hashCode * 59 + this.RFIDOriginTagEntry.GetHashCode();
                 return hashCode;
             }
         }

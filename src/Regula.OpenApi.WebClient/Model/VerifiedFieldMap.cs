@@ -143,13 +143,11 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.WFieldType == input.WFieldType ||
-                    (this.WFieldType != null &&
-                    this.WFieldType.Equals(input.WFieldType))
+                    (this.WFieldType.Equals(input.WFieldType))
                 ) && 
                 (
                     this.WLCID == input.WLCID ||
-                    (this.WLCID != null &&
-                    this.WLCID.Equals(input.WLCID))
+                    (this.WLCID.Equals(input.WLCID))
                 ) && 
                 (
                     this.FieldMRZ == input.FieldMRZ ||
@@ -188,10 +186,8 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.WFieldType != null)
-                    hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
-                if (this.WLCID != null)
-                    hashCode = hashCode * 59 + this.WLCID.GetHashCode();
+                hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
+                hashCode = hashCode * 59 + this.WLCID.GetHashCode();
                 if (this.FieldMRZ != null)
                     hashCode = hashCode * 59 + this.FieldMRZ.GetHashCode();
                 if (this.FieldVisual != null)

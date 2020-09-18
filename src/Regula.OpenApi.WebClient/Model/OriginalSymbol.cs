@@ -103,13 +103,11 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    (this.Code.Equals(input.Code))
                 ) && 
                 (
                     this.Probability == input.Probability ||
-                    (this.Probability != null &&
-                    this.Probability.Equals(input.Probability))
+                    (this.Probability.Equals(input.Probability))
                 ) && 
                 (
                     this.Rect == input.Rect ||
@@ -127,10 +125,8 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Probability != null)
-                    hashCode = hashCode * 59 + this.Probability.GetHashCode();
+                hashCode = hashCode * 59 + this.Code.GetHashCode();
+                hashCode = hashCode * 59 + this.Probability.GetHashCode();
                 if (this.Rect != null)
                     hashCode = hashCode * 59 + this.Rect.GetHashCode();
                 return hashCode;
