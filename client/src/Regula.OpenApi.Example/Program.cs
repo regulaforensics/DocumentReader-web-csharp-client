@@ -12,7 +12,7 @@ namespace Regula.OpenApi.Example
         private const string ApiBasePath = "API_BASE_PATH";
         private const string TestLicense = "TEST_LICENSE";
         private const string LicenseFileName = "regula.license";
-
+        
         public static void Main()
         {
             string apiBaseUrl = Environment.GetEnvironmentVariable(ApiBasePath) ?? "http://localhost:8083";
