@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Regula.OpenApi.WebClient" Version="1.0.0" />
+      <PackageReference Include="Regula.DocumentReader.WebClient" Version="1.0.0" />
     </ItemGroup>
 
 </Project>

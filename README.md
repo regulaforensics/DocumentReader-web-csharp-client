@@ -1,4 +1,4 @@
-# Regula.OpenAPI.WebClient - the C# library for the Regula Document Reader Web API
+# Regula.DocumentReader.WebClient - the C# library for the Regula Document Reader Web API
 
 [![NuGet version (Regula.OpenApi.WebClient)](https://img.shields.io/nuget/v/Regula.OpenApi.WebClient.svg?style=flat-square)](https://www.nuget.org/packages/Regula.OpenApi.WebClient/)
 
@@ -21,10 +21,10 @@ We are always thrilled to receive pull requests, and do our best to process them
 - .Net Core 2.0 or later
 
 ## Install package
-`Regula.OpenAPI.WebClient` is on the NuGet Package Index:
+`Regula.DocumentReader.WebClient` is on the NuGet Package Index:
 
 ```bash
-PM> Install-Package Regula.OpenApi.WebClient -Version 1.0.0
+PM> Install-Package Regula.DocumentReader.WebClient -Version 1.0.0
 ```
 
 ## Example

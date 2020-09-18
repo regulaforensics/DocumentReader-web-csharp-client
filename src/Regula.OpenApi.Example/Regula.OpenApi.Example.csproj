@@ -51,7 +51,7 @@
       </None>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Regula.OpenApi.WebClient" Version="1.0.0" />
+      <PackageReference Include="Regula.DocumentReader.WebClient" Version="1.0.0" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
