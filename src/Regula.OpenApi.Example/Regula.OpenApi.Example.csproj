@@ -51,14 +51,7 @@
       </None>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Regula.OpenApi.WebClient\Regula.OpenApi.WebClient.csproj">
-        <Project>{21fc9582-ea65-4043-abf6-bd436e3ccd10}</Project>
-        <Name>Regula.OpenApi.WebClient</Name>
-      </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-      <PackageReference Include="JsonSubTypes" Version="1.7.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="Regula.OpenApi.WebClient" Version="1.0.0" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
