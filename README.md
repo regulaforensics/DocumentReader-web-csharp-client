@@ -68,4 +68,4 @@ var documentImage = response.Images().GetField(GraphicFieldType.DOCUMENT_FRONT).
 var portraitField = response.Images().GetField(GraphicFieldType.PORTRAIT);
 var portraitFromVisual = portraitField.GetValue(Source.VISUAL);
 ```
-You can find this sample in `Regula.OpenApi.Examples.sln`.
+You can find this sample in `Regula.DocumentReader.Examples.sln`.
