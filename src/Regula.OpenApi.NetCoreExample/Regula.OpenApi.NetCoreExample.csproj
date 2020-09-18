@@ -6,13 +6,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Regula.OpenApi.WebClient\Regula.OpenApi.WebClient.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Update="australia_passport.jpg">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Regula.OpenApi.WebClient" Version="1.0.0" />
     </ItemGroup>
 
 </Project>

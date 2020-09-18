@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Alexander Satsukevich</Authors>
+    <Company>Regula Ltd.</Company>
+    <Product>DocumentReader Web OpenApi Client</Product>
+    <PackageTags>regula document processing id card rfid ocr barcode ipi</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.7.0" />
