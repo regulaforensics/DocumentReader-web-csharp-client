@@ -7,7 +7,7 @@ using Regula.OpenApi.WebClient.Model.Ext;
 
 namespace Regula.OpenApi.NetCoreExample
 {
-    internal class Program
+    internal static class Program
     {
         private const string ApiBasePath = "API_BASE_PATH";
         private const string TestLicense = "TEST_LICENSE";
