@@ -37,25 +37,11 @@ namespace Regula.OpenApi.WebClient.Model
         public SymbolCandidate(int symbolCode = default(int), int symbolProbability = default(int))
         {
             // to ensure "symbolCode" is required (not null)
-            if (symbolCode == null)
-            {
-                throw new InvalidDataException("symbolCode is a required property for SymbolCandidate and cannot be null");
-            }
-            else
-            {
-                this.SymbolCode = symbolCode;
-            }
-            
+            this.SymbolCode = symbolCode;
+
             // to ensure "symbolProbability" is required (not null)
-            if (symbolProbability == null)
-            {
-                throw new InvalidDataException("symbolProbability is a required property for SymbolCandidate and cannot be null");
-            }
-            else
-            {
-                this.SymbolProbability = symbolProbability;
-            }
-            
+            this.SymbolProbability = symbolProbability;
+
         }
         
         /// <summary>
@@ -118,13 +104,11 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.SymbolCode == input.SymbolCode ||
-                    (this.SymbolCode != null &&
-                    this.SymbolCode.Equals(input.SymbolCode))
+                    (this.SymbolCode.Equals(input.SymbolCode))
                 ) && 
                 (
                     this.SymbolProbability == input.SymbolProbability ||
-                    (this.SymbolProbability != null &&
-                    this.SymbolProbability.Equals(input.SymbolProbability))
+                    (this.SymbolProbability.Equals(input.SymbolProbability))
                 );
         }
 
@@ -137,10 +121,8 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SymbolCode != null)
-                    hashCode = hashCode * 59 + this.SymbolCode.GetHashCode();
-                if (this.SymbolProbability != null)
-                    hashCode = hashCode * 59 + this.SymbolProbability.GetHashCode();
+                hashCode = hashCode * 59 + this.SymbolCode.GetHashCode();
+                hashCode = hashCode * 59 + this.SymbolProbability.GetHashCode();
                 return hashCode;
             }
         }

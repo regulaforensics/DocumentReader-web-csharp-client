@@ -22,7 +22,7 @@ namespace Regula.OpenApi.WebClient.Model
     /// CrossSourceValueComparison
     /// </summary>
     [DataContract]
-    public partial class CrossSourceValueComparison :  IEquatable<CrossSourceValueComparison>, IValidatableObject
+    public class CrossSourceValueComparison :  IEquatable<CrossSourceValueComparison>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
@@ -35,7 +35,7 @@ namespace Regula.OpenApi.WebClient.Model
         /// <param name="sourceLeft">sourceLeft (required).</param>
         /// <param name="sourceRight">sourceRight (required).</param>
         /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(string sourceLeft = default(string), string sourceRight = default(string), int status = default(int))
+        public CrossSourceValueComparison(string sourceLeft = default, string sourceRight = default, int status = default)
         {
             // to ensure "sourceLeft" is required (not null)
             if (sourceLeft == null)
@@ -58,15 +58,8 @@ namespace Regula.OpenApi.WebClient.Model
             }
             
             // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new InvalidDataException("status is a required property for CrossSourceValueComparison and cannot be null");
-            }
-            else
-            {
-                this.Status = status;
-            }
-            
+            this.Status = status;
+
         }
         
         /// <summary>
@@ -144,8 +137,7 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -162,8 +154,7 @@ namespace Regula.OpenApi.WebClient.Model
                     hashCode = hashCode * 59 + this.SourceLeft.GetHashCode();
                 if (this.SourceRight != null)
                     hashCode = hashCode * 59 + this.SourceRight.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }
@@ -173,7 +164,7 @@ namespace Regula.OpenApi.WebClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

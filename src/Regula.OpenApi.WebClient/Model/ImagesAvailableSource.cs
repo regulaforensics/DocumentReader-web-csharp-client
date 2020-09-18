@@ -108,8 +108,7 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.ContainerType == input.ContainerType ||
-                    (this.ContainerType != null &&
-                    this.ContainerType.Equals(input.ContainerType))
+                    (this.ContainerType.Equals(input.ContainerType))
                 ) && 
                 (
                     this.Source == input.Source ||
@@ -127,8 +126,7 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ContainerType != null)
-                    hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
+                hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;

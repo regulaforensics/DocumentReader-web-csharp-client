@@ -39,15 +39,8 @@ namespace Regula.OpenApi.WebClient.Model
         public RfidOrigin(int dg = default(int), int dgTag = default(int), int tagEntry = default(int), int entryView = default(int))
         {
             // to ensure "dg" is required (not null)
-            if (dg == null)
-            {
-                throw new InvalidDataException("dg is a required property for RfidOrigin and cannot be null");
-            }
-            else
-            {
-                this.Dg = dg;
-            }
-            
+            this.Dg = dg;
+
             this.DgTag = dgTag;
             this.TagEntry = tagEntry;
             this.EntryView = entryView;
@@ -129,23 +122,19 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.Dg == input.Dg ||
-                    (this.Dg != null &&
-                    this.Dg.Equals(input.Dg))
+                    (this.Dg.Equals(input.Dg))
                 ) && 
                 (
                     this.DgTag == input.DgTag ||
-                    (this.DgTag != null &&
-                    this.DgTag.Equals(input.DgTag))
+                    (this.DgTag.Equals(input.DgTag))
                 ) && 
                 (
                     this.TagEntry == input.TagEntry ||
-                    (this.TagEntry != null &&
-                    this.TagEntry.Equals(input.TagEntry))
+                    (this.TagEntry.Equals(input.TagEntry))
                 ) && 
                 (
                     this.EntryView == input.EntryView ||
-                    (this.EntryView != null &&
-                    this.EntryView.Equals(input.EntryView))
+                    (this.EntryView.Equals(input.EntryView))
                 );
         }
 
@@ -158,14 +147,10 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Dg != null)
-                    hashCode = hashCode * 59 + this.Dg.GetHashCode();
-                if (this.DgTag != null)
-                    hashCode = hashCode * 59 + this.DgTag.GetHashCode();
-                if (this.TagEntry != null)
-                    hashCode = hashCode * 59 + this.TagEntry.GetHashCode();
-                if (this.EntryView != null)
-                    hashCode = hashCode * 59 + this.EntryView.GetHashCode();
+                hashCode = hashCode * 59 + this.Dg.GetHashCode();
+                hashCode = hashCode * 59 + this.DgTag.GetHashCode();
+                hashCode = hashCode * 59 + this.TagEntry.GetHashCode();
+                hashCode = hashCode * 59 + this.EntryView.GetHashCode();
                 return hashCode;
             }
         }

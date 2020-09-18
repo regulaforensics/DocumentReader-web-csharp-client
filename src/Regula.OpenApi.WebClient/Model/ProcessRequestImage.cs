@@ -49,14 +49,7 @@ namespace Regula.OpenApi.WebClient.Model
             
             this.LightIndex = lightIndex;
             // use default value if no "pageIdx" provided
-            if (pageIdx == null)
-            {
-                this.PageIdx = 0;
-            }
-            else
-            {
-                this.PageIdx = pageIdx;
-            }
+            this.PageIdx = pageIdx;
         }
         
         /// <summary>
@@ -130,13 +123,11 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.LightIndex == input.LightIndex ||
-                    (this.LightIndex != null &&
-                    this.LightIndex.Equals(input.LightIndex))
+                    (this.LightIndex.Equals(input.LightIndex))
                 ) && 
                 (
                     this.PageIdx == input.PageIdx ||
-                    (this.PageIdx != null &&
-                    this.PageIdx.Equals(input.PageIdx))
+                    (this.PageIdx.Equals(input.PageIdx))
                 );
         }
 
@@ -151,10 +142,8 @@ namespace Regula.OpenApi.WebClient.Model
                 int hashCode = 41;
                 if (this.ImageData != null)
                     hashCode = hashCode * 59 + this.ImageData.GetHashCode();
-                if (this.LightIndex != null)
-                    hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
-                if (this.PageIdx != null)
-                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
                 return hashCode;
             }
         }

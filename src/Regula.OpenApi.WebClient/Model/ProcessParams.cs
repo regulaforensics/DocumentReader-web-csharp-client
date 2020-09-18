@@ -180,8 +180,7 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.DoublePageSpread == input.DoublePageSpread ||
-                    (this.DoublePageSpread != null &&
-                    this.DoublePageSpread.Equals(input.DoublePageSpread))
+                    (this.DoublePageSpread.Equals(input.DoublePageSpread))
                 ) && 
                 (
                     this.FieldTypesFilter == input.FieldTypesFilter ||
@@ -196,13 +195,11 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.ImageDpiOutMax == input.ImageDpiOutMax ||
-                    (this.ImageDpiOutMax != null &&
-                    this.ImageDpiOutMax.Equals(input.ImageDpiOutMax))
+                    (this.ImageDpiOutMax.Equals(input.ImageDpiOutMax))
                 ) && 
                 (
                     this.AlreadyCropped == input.AlreadyCropped ||
-                    (this.AlreadyCropped != null &&
-                    this.AlreadyCropped.Equals(input.AlreadyCropped))
+                    (this.AlreadyCropped.Equals(input.AlreadyCropped))
                 ) && 
                 (
                     this.CustomParams == input.CustomParams ||
@@ -225,16 +222,13 @@ namespace Regula.OpenApi.WebClient.Model
                     hashCode = hashCode * 59 + this.Scenario.GetHashCode();
                 if (this.ResultTypeOutput != null)
                     hashCode = hashCode * 59 + this.ResultTypeOutput.GetHashCode();
-                if (this.DoublePageSpread != null)
-                    hashCode = hashCode * 59 + this.DoublePageSpread.GetHashCode();
+                hashCode = hashCode * 59 + this.DoublePageSpread.GetHashCode();
                 if (this.FieldTypesFilter != null)
                     hashCode = hashCode * 59 + this.FieldTypesFilter.GetHashCode();
                 if (this.DateFormat != null)
                     hashCode = hashCode * 59 + this.DateFormat.GetHashCode();
-                if (this.ImageDpiOutMax != null)
-                    hashCode = hashCode * 59 + this.ImageDpiOutMax.GetHashCode();
-                if (this.AlreadyCropped != null)
-                    hashCode = hashCode * 59 + this.AlreadyCropped.GetHashCode();
+                hashCode = hashCode * 59 + this.ImageDpiOutMax.GetHashCode();
+                hashCode = hashCode * 59 + this.AlreadyCropped.GetHashCode();
                 if (this.CustomParams != null)
                     hashCode = hashCode * 59 + this.CustomParams.GetHashCode();
                 return hashCode;

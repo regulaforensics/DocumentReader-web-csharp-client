@@ -41,35 +41,14 @@ namespace Regula.OpenApi.WebClient.Model
         public Text(int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
         {
             // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new InvalidDataException("status is a required property for Text and cannot be null");
-            }
-            else
-            {
-                this.Status = status;
-            }
-            
+            this.Status = status;
+
             // to ensure "validityStatus" is required (not null)
-            if (validityStatus == null)
-            {
-                throw new InvalidDataException("validityStatus is a required property for Text and cannot be null");
-            }
-            else
-            {
-                this.ValidityStatus = validityStatus;
-            }
-            
+            this.ValidityStatus = validityStatus;
+
             // to ensure "comparisonStatus" is required (not null)
-            if (comparisonStatus == null)
-            {
-                throw new InvalidDataException("comparisonStatus is a required property for Text and cannot be null");
-            }
-            else
-            {
-                this.ComparisonStatus = comparisonStatus;
-            }
-            
+            this.ComparisonStatus = comparisonStatus;
+
             // to ensure "fieldList" is required (not null)
             if (fieldList == null)
             {
@@ -171,18 +150,15 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    (this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.ValidityStatus == input.ValidityStatus ||
-                    (this.ValidityStatus != null &&
-                    this.ValidityStatus.Equals(input.ValidityStatus))
+                    (this.ValidityStatus.Equals(input.ValidityStatus))
                 ) && 
                 (
                     this.ComparisonStatus == input.ComparisonStatus ||
-                    (this.ComparisonStatus != null &&
-                    this.ComparisonStatus.Equals(input.ComparisonStatus))
+                    (this.ComparisonStatus.Equals(input.ComparisonStatus))
                 ) && 
                 (
                     this.FieldList == input.FieldList ||
@@ -207,12 +183,9 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.ValidityStatus != null)
-                    hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
-                if (this.ComparisonStatus != null)
-                    hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
                 if (this.FieldList != null)
                     hashCode = hashCode * 59 + this.FieldList.GetHashCode();
                 if (this.AvailableSourceList != null)

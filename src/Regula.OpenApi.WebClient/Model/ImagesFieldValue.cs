@@ -63,35 +63,14 @@ namespace Regula.OpenApi.WebClient.Model
             }
             
             // to ensure "pageIndex" is required (not null)
-            if (pageIndex == null)
-            {
-                throw new InvalidDataException("pageIndex is a required property for ImagesFieldValue and cannot be null");
-            }
-            else
-            {
-                this.PageIndex = pageIndex;
-            }
-            
+            this.PageIndex = pageIndex;
+
             // to ensure "lightIndex" is required (not null)
-            if (lightIndex == null)
-            {
-                throw new InvalidDataException("lightIndex is a required property for ImagesFieldValue and cannot be null");
-            }
-            else
-            {
-                this.LightIndex = lightIndex;
-            }
-            
+            this.LightIndex = lightIndex;
+
             // to ensure "containerType" is required (not null)
-            if (containerType == null)
-            {
-                throw new InvalidDataException("containerType is a required property for ImagesFieldValue and cannot be null");
-            }
-            else
-            {
-                this.ContainerType = containerType;
-            }
-            
+            this.ContainerType = containerType;
+
             this.OriginalValue = originalValue;
             this.FieldRect = fieldRect;
             this.RfidOrigin = rfidOrigin;
@@ -216,18 +195,15 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.PageIndex == input.PageIndex ||
-                    (this.PageIndex != null &&
-                    this.PageIndex.Equals(input.PageIndex))
+                    (this.PageIndex.Equals(input.PageIndex))
                 ) && 
                 (
                     this.LightIndex == input.LightIndex ||
-                    (this.LightIndex != null &&
-                    this.LightIndex.Equals(input.LightIndex))
+                    (this.LightIndex.Equals(input.LightIndex))
                 ) && 
                 (
                     this.ContainerType == input.ContainerType ||
-                    (this.ContainerType != null &&
-                    this.ContainerType.Equals(input.ContainerType))
+                    (this.ContainerType.Equals(input.ContainerType))
                 ) && 
                 (
                     this.FieldRect == input.FieldRect ||
@@ -256,12 +232,9 @@ namespace Regula.OpenApi.WebClient.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.OriginalValue != null)
                     hashCode = hashCode * 59 + this.OriginalValue.GetHashCode();
-                if (this.PageIndex != null)
-                    hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
-                if (this.LightIndex != null)
-                    hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
-                if (this.ContainerType != null)
-                    hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
+                hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
                 if (this.RfidOrigin != null)

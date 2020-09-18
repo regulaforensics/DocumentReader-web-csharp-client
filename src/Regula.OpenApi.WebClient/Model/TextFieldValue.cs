@@ -64,15 +64,8 @@ namespace Regula.OpenApi.WebClient.Model
             }
             
             // to ensure "pageIndex" is required (not null)
-            if (pageIndex == null)
-            {
-                throw new InvalidDataException("pageIndex is a required property for TextFieldValue and cannot be null");
-            }
-            else
-            {
-                this.PageIndex = pageIndex;
-            }
-            
+            this.PageIndex = pageIndex;
+
             this.OriginalValue = originalValue;
             this.OriginalSymbols = originalSymbols;
             this.Probability = probability;
@@ -205,13 +198,11 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.PageIndex == input.PageIndex ||
-                    (this.PageIndex != null &&
-                    this.PageIndex.Equals(input.PageIndex))
+                    (this.PageIndex.Equals(input.PageIndex))
                 ) && 
                 (
                     this.Probability == input.Probability ||
-                    (this.Probability != null &&
-                    this.Probability.Equals(input.Probability))
+                    (this.Probability.Equals(input.Probability))
                 ) && 
                 (
                     this.FieldRect == input.FieldRect ||
@@ -242,10 +233,8 @@ namespace Regula.OpenApi.WebClient.Model
                     hashCode = hashCode * 59 + this.OriginalValue.GetHashCode();
                 if (this.OriginalSymbols != null)
                     hashCode = hashCode * 59 + this.OriginalSymbols.GetHashCode();
-                if (this.PageIndex != null)
-                    hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
-                if (this.Probability != null)
-                    hashCode = hashCode * 59 + this.Probability.GetHashCode();
+                hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.Probability.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
                 if (this.RfidOrigin != null)

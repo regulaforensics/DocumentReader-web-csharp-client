@@ -51,15 +51,8 @@ namespace Regula.OpenApi.WebClient.Model
         public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = default(int))
         {
             // to ensure "resultType" is required (not null)
-            if (resultType == null)
-            {
-                throw new InvalidDataException("resultType is a required property for ResultItem and cannot be null");
-            }
-            else
-            {
-                this.ResultType = resultType;
-            }
-            
+            this.ResultType = resultType;
+
             this.BufLength = bufLength;
             this.Light = light;
             this.ListIdx = listIdx;
@@ -146,28 +139,23 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.BufLength == input.BufLength ||
-                    (this.BufLength != null &&
-                    this.BufLength.Equals(input.BufLength))
+                    (this.BufLength.Equals(input.BufLength))
                 ) && 
                 (
                     this.Light == input.Light ||
-                    (this.Light != null &&
-                    this.Light.Equals(input.Light))
+                    (this.Light.Equals(input.Light))
                 ) && 
                 (
                     this.ListIdx == input.ListIdx ||
-                    (this.ListIdx != null &&
-                    this.ListIdx.Equals(input.ListIdx))
+                    (this.ListIdx.Equals(input.ListIdx))
                 ) && 
                 (
                     this.PageIdx == input.PageIdx ||
-                    (this.PageIdx != null &&
-                    this.PageIdx.Equals(input.PageIdx))
+                    (this.PageIdx.Equals(input.PageIdx))
                 ) && 
                 (
                     this.ResultType == input.ResultType ||
-                    (this.ResultType != null &&
-                    this.ResultType.Equals(input.ResultType))
+                    (this.ResultType.Equals(input.ResultType))
                 );
         }
 
@@ -180,16 +168,11 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BufLength != null)
-                    hashCode = hashCode * 59 + this.BufLength.GetHashCode();
-                if (this.Light != null)
-                    hashCode = hashCode * 59 + this.Light.GetHashCode();
-                if (this.ListIdx != null)
-                    hashCode = hashCode * 59 + this.ListIdx.GetHashCode();
-                if (this.PageIdx != null)
-                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
-                if (this.ResultType != null)
-                    hashCode = hashCode * 59 + this.ResultType.GetHashCode();
+                hashCode = hashCode * 59 + this.BufLength.GetHashCode();
+                hashCode = hashCode * 59 + this.Light.GetHashCode();
+                hashCode = hashCode * 59 + this.ListIdx.GetHashCode();
+                hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                hashCode = hashCode * 59 + this.ResultType.GetHashCode();
                 return hashCode;
             }
         }

@@ -167,18 +167,15 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.ID == input.ID ||
-                    (this.ID != null &&
-                    this.ID.Equals(input.ID))
+                    (this.ID.Equals(input.ID))
                 ) && 
                 (
                     this.P == input.P ||
-                    (this.P != null &&
-                    this.P.Equals(input.P))
+                    (this.P.Equals(input.P))
                 ) && 
                 (
                     this.RFIDPresence == input.RFIDPresence ||
-                    (this.RFIDPresence != null &&
-                    this.RFIDPresence.Equals(input.RFIDPresence))
+                    (this.RFIDPresence.Equals(input.RFIDPresence))
                 ) && 
                 (
                     this.FDSIDList == input.FDSIDList ||
@@ -187,23 +184,19 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.NecessaryLights == input.NecessaryLights ||
-                    (this.NecessaryLights != null &&
-                    this.NecessaryLights.Equals(input.NecessaryLights))
+                    (this.NecessaryLights.Equals(input.NecessaryLights))
                 ) && 
                 (
                     this.CheckAuthenticity == input.CheckAuthenticity ||
-                    (this.CheckAuthenticity != null &&
-                    this.CheckAuthenticity.Equals(input.CheckAuthenticity))
+                    (this.CheckAuthenticity.Equals(input.CheckAuthenticity))
                 ) && 
                 (
                     this.UVExp == input.UVExp ||
-                    (this.UVExp != null &&
-                    this.UVExp.Equals(input.UVExp))
+                    (this.UVExp.Equals(input.UVExp))
                 ) && 
                 (
                     this.AuthenticityNecessaryLights == input.AuthenticityNecessaryLights ||
-                    (this.AuthenticityNecessaryLights != null &&
-                    this.AuthenticityNecessaryLights.Equals(input.AuthenticityNecessaryLights))
+                    (this.AuthenticityNecessaryLights.Equals(input.AuthenticityNecessaryLights))
                 );
         }
 
@@ -218,22 +211,15 @@ namespace Regula.OpenApi.WebClient.Model
                 int hashCode = 41;
                 if (this.DocumentName != null)
                     hashCode = hashCode * 59 + this.DocumentName.GetHashCode();
-                if (this.ID != null)
-                    hashCode = hashCode * 59 + this.ID.GetHashCode();
-                if (this.P != null)
-                    hashCode = hashCode * 59 + this.P.GetHashCode();
-                if (this.RFIDPresence != null)
-                    hashCode = hashCode * 59 + this.RFIDPresence.GetHashCode();
+                hashCode = hashCode * 59 + this.ID.GetHashCode();
+                hashCode = hashCode * 59 + this.P.GetHashCode();
+                hashCode = hashCode * 59 + this.RFIDPresence.GetHashCode();
                 if (this.FDSIDList != null)
                     hashCode = hashCode * 59 + this.FDSIDList.GetHashCode();
-                if (this.NecessaryLights != null)
-                    hashCode = hashCode * 59 + this.NecessaryLights.GetHashCode();
-                if (this.CheckAuthenticity != null)
-                    hashCode = hashCode * 59 + this.CheckAuthenticity.GetHashCode();
-                if (this.UVExp != null)
-                    hashCode = hashCode * 59 + this.UVExp.GetHashCode();
-                if (this.AuthenticityNecessaryLights != null)
-                    hashCode = hashCode * 59 + this.AuthenticityNecessaryLights.GetHashCode();
+                hashCode = hashCode * 59 + this.NecessaryLights.GetHashCode();
+                hashCode = hashCode * 59 + this.CheckAuthenticity.GetHashCode();
+                hashCode = hashCode * 59 + this.UVExp.GetHashCode();
+                hashCode = hashCode * 59 + this.AuthenticityNecessaryLights.GetHashCode();
                 return hashCode;
             }
         }

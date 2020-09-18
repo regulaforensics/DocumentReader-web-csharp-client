@@ -48,15 +48,8 @@ namespace Regula.OpenApi.WebClient.Model
             }
             
             // to ensure "validityStatus" is required (not null)
-            if (validityStatus == null)
-            {
-                throw new InvalidDataException("validityStatus is a required property for TextAvailableSource and cannot be null");
-            }
-            else
-            {
-                this.ValidityStatus = validityStatus;
-            }
-            
+            this.ValidityStatus = validityStatus;
+
             this.ContainerType = containerType;
         }
         
@@ -131,13 +124,11 @@ namespace Regula.OpenApi.WebClient.Model
                 ) && 
                 (
                     this.ValidityStatus == input.ValidityStatus ||
-                    (this.ValidityStatus != null &&
-                    this.ValidityStatus.Equals(input.ValidityStatus))
+                    (this.ValidityStatus.Equals(input.ValidityStatus))
                 ) && 
                 (
                     this.ContainerType == input.ContainerType ||
-                    (this.ContainerType != null &&
-                    this.ContainerType.Equals(input.ContainerType))
+                    (this.ContainerType.Equals(input.ContainerType))
                 );
         }
 
@@ -152,10 +143,8 @@ namespace Regula.OpenApi.WebClient.Model
                 int hashCode = 41;
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
-                if (this.ValidityStatus != null)
-                    hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
-                if (this.ContainerType != null)
-                    hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
+                hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
                 return hashCode;
             }
         }

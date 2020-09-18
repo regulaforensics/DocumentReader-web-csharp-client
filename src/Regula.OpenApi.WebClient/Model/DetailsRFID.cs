@@ -22,7 +22,7 @@ namespace Regula.OpenApi.WebClient.Model
     /// DetailsRFID
     /// </summary>
     [DataContract]
-    public partial class DetailsRFID :  IEquatable<DetailsRFID>, IValidatableObject
+    public class DetailsRFID :  IEquatable<DetailsRFID>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DetailsRFID" /> class.
@@ -42,75 +42,26 @@ namespace Regula.OpenApi.WebClient.Model
         public DetailsRFID(int overallStatus = default(int), int aA = default(int), int bAC = default(int), int cA = default(int), int pA = default(int), int pACE = default(int), int tA = default(int))
         {
             // to ensure "overallStatus" is required (not null)
-            if (overallStatus == null)
-            {
-                throw new InvalidDataException("overallStatus is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.OverallStatus = overallStatus;
-            }
-            
+            this.OverallStatus = overallStatus;
+
             // to ensure "aA" is required (not null)
-            if (aA == null)
-            {
-                throw new InvalidDataException("aA is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.AA = aA;
-            }
-            
+            this.AA = aA;
+
             // to ensure "bAC" is required (not null)
-            if (bAC == null)
-            {
-                throw new InvalidDataException("bAC is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.BAC = bAC;
-            }
-            
+            this.BAC = bAC;
+
             // to ensure "cA" is required (not null)
-            if (cA == null)
-            {
-                throw new InvalidDataException("cA is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.CA = cA;
-            }
-            
+            this.CA = cA;
+
             // to ensure "pA" is required (not null)
-            if (pA == null)
-            {
-                throw new InvalidDataException("pA is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.PA = pA;
-            }
-            
+            this.PA = pA;
+
             // to ensure "pACE" is required (not null)
-            if (pACE == null)
-            {
-                throw new InvalidDataException("pACE is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.PACE = pACE;
-            }
-            
+            this.PACE = pACE;
+
             // to ensure "tA" is required (not null)
-            if (tA == null)
-            {
-                throw new InvalidDataException("tA is a required property for DetailsRFID and cannot be null");
-            }
-            else
-            {
-                this.TA = tA;
-            }
-            
+            this.TA = tA;
+
         }
         
         /// <summary>
@@ -206,38 +157,31 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.OverallStatus == input.OverallStatus ||
-                    (this.OverallStatus != null &&
-                    this.OverallStatus.Equals(input.OverallStatus))
+                    (this.OverallStatus.Equals(input.OverallStatus))
                 ) && 
                 (
                     this.AA == input.AA ||
-                    (this.AA != null &&
-                    this.AA.Equals(input.AA))
+                    (this.AA.Equals(input.AA))
                 ) && 
                 (
                     this.BAC == input.BAC ||
-                    (this.BAC != null &&
-                    this.BAC.Equals(input.BAC))
+                    (this.BAC.Equals(input.BAC))
                 ) && 
                 (
                     this.CA == input.CA ||
-                    (this.CA != null &&
-                    this.CA.Equals(input.CA))
+                    (this.CA.Equals(input.CA))
                 ) && 
                 (
                     this.PA == input.PA ||
-                    (this.PA != null &&
-                    this.PA.Equals(input.PA))
+                    (this.PA.Equals(input.PA))
                 ) && 
                 (
                     this.PACE == input.PACE ||
-                    (this.PACE != null &&
-                    this.PACE.Equals(input.PACE))
+                    (this.PACE.Equals(input.PACE))
                 ) && 
                 (
                     this.TA == input.TA ||
-                    (this.TA != null &&
-                    this.TA.Equals(input.TA))
+                    (this.TA.Equals(input.TA))
                 );
         }
 
@@ -250,20 +194,13 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.OverallStatus != null)
-                    hashCode = hashCode * 59 + this.OverallStatus.GetHashCode();
-                if (this.AA != null)
-                    hashCode = hashCode * 59 + this.AA.GetHashCode();
-                if (this.BAC != null)
-                    hashCode = hashCode * 59 + this.BAC.GetHashCode();
-                if (this.CA != null)
-                    hashCode = hashCode * 59 + this.CA.GetHashCode();
-                if (this.PA != null)
-                    hashCode = hashCode * 59 + this.PA.GetHashCode();
-                if (this.PACE != null)
-                    hashCode = hashCode * 59 + this.PACE.GetHashCode();
-                if (this.TA != null)
-                    hashCode = hashCode * 59 + this.TA.GetHashCode();
+                hashCode = hashCode * 59 + this.OverallStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.AA.GetHashCode();
+                hashCode = hashCode * 59 + this.BAC.GetHashCode();
+                hashCode = hashCode * 59 + this.CA.GetHashCode();
+                hashCode = hashCode * 59 + this.PA.GetHashCode();
+                hashCode = hashCode * 59 + this.PACE.GetHashCode();
+                hashCode = hashCode * 59 + this.TA.GetHashCode();
                 return hashCode;
             }
         }

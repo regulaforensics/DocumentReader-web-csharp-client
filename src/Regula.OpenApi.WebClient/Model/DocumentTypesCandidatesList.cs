@@ -93,8 +93,7 @@ namespace Regula.OpenApi.WebClient.Model
             return 
                 (
                     this.RecResult == input.RecResult ||
-                    (this.RecResult != null &&
-                    this.RecResult.Equals(input.RecResult))
+                    (this.RecResult.Equals(input.RecResult))
                 ) && 
                 (
                     this.Candidates == input.Candidates ||
@@ -113,8 +112,7 @@ namespace Regula.OpenApi.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RecResult != null)
-                    hashCode = hashCode * 59 + this.RecResult.GetHashCode();
+                hashCode = hashCode * 59 + this.RecResult.GetHashCode();
                 if (this.Candidates != null)
                     hashCode = hashCode * 59 + this.Candidates.GetHashCode();
                 return hashCode;
