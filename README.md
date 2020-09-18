@@ -1,6 +1,6 @@
 # Regula.DocumentReader.WebClient - the C# library for the Regula Document Reader Web API
 
-[![NuGet version (Regula.OpenApi.WebClient)](https://img.shields.io/nuget/v/Regula.OpenApi.WebClient.svg?style=flat-square)](https://www.nuget.org/packages/Regula.OpenApi.WebClient/)
+[![NuGet version (Regula.OpenApi.WebClient)](https://img.shields.io/nuget/v/Regula.DocumentReader.WebClient.svg?style=flat-square)](https://www.nuget.org/packages/Regula.DocumentReader.WebClient/)
 
 Documents recognition as easy as reading two bytes.
 
