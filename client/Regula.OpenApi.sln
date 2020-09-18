@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.OpenApi.WebClient", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.OpenApi.Example", "src\Regula.OpenApi.Example\Regula.OpenApi.Example.csproj", "{82676663-B0DF-45A5-BB31-701EC98D6CE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.OpenApi.NetCoreExample", "src\Regula.OpenApi.NetCoreExample\Regula.OpenApi.NetCoreExample.csproj", "{327BC4A9-EDDD-4860-8959-417BC94D96F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{82676663-B0DF-45A5-BB31-701EC98D6CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82676663-B0DF-45A5-BB31-701EC98D6CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82676663-B0DF-45A5-BB31-701EC98D6CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327BC4A9-EDDD-4860-8959-417BC94D96F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327BC4A9-EDDD-4860-8959-417BC94D96F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327BC4A9-EDDD-4860-8959-417BC94D96F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327BC4A9-EDDD-4860-8959-417BC94D96F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
