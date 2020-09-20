@@ -71,4 +71,4 @@ var documentImage = response.Images().GetField(GraphicFieldType.DOCUMENT_FRONT).
 var portraitField = response.Images().GetField(GraphicFieldType.PORTRAIT);
 var portraitFromVisual = portraitField.GetValue(Source.VISUAL);
 ```
-You can find this sample in `Regula.DocumentReader.Examples.sln`.
+You can find this sample in [`Regula.DocumentReader.Examples.sln`](https://github.com/regulaforensics/DocumentReader-web-csharp-client/blob/master/Regula.DocumentReader.Examples.sln).
