@@ -1,6 +1,10 @@
 # Regula.DocumentReader.WebClient - the C# library for the Regula Document Reader Web API
 
 [![NuGet version (Regula.OpenApi.WebClient)](https://img.shields.io/nuget/v/Regula.DocumentReader.WebClient.svg?style=flat-square)](https://www.nuget.org/packages/Regula.DocumentReader.WebClient/)
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-defs-8c0a56?style=flat-square)](https://github.com/regulaforensics/DocumentReader-web-openapi)
+[![documentation](https://img.shields.io/badge/docs-en-f6858d?style=flat-square)](https://support.regulaforensics.com/hc/en-us/articles/115000916306-Documentation)
+[![live](https://img.shields.io/badge/live-demo-0a8c42?style=flat-square)](https://api.regulaforensics.com/)
+
 
 Documents recognition as easy as reading two bytes.
 
@@ -12,7 +16,6 @@ We are always thrilled to receive pull requests, and do our best to process them
 ## Regula Document Reader Web API
 
 - API version: 5.2.0
-- SDK version: 1.0.0
 
 ## Frameworks supported
 
