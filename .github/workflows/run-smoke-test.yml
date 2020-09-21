@@ -1,0 +1,24 @@
+name: run smoke test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  run_smoke_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - run: dotnet build src/Regula.DocumentReader.NetCoreExample -c Release
+      - working-directory: src/Regula.DocumentReader.NetCoreExample/bin/Release/netcoreapp3.1/
+        run: ./Regula.DocumentReader.NetCoreExample
+        env:
+          API_BASE_PATH: "http://test-api.regulaforensics.com"
+          TEST_LICENSE: ${{secrets.TEST_LICENSE}}
