@@ -1,4 +1,4 @@
-name: publish maven package
+name: publish nuget package
 
 on:
   release:
