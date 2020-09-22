@@ -27,7 +27,7 @@ We are always thrilled to receive pull requests, and do our best to process them
 `Regula.DocumentReader.WebClient` is on the NuGet Package Index:
 
 ```bash
-PM> Install-Package Regula.DocumentReader.WebClient -Version 1.0.0
+PM> Install-Package Regula.DocumentReader.WebClient -Version 5.2.0
 ```
 
 ## Example

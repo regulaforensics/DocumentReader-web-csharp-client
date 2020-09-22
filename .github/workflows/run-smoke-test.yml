@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v1.6.0
         with:
           dotnet-version: '3.1.x'
       - run: dotnet build src/Regula.DocumentReader.NetCoreExample -c Release
