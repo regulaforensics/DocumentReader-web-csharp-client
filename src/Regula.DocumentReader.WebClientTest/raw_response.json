@@ -1,0 +1,50 @@
+{
+    "ChipPage": 2,
+    "ContainerList": {
+        "Count": 4,
+        "List": [
+            {
+                "Raw": {
+                    "detailsOptical": {
+                        "docType": 1,
+                        "expiry": 0,
+                        "imageQA": 1,
+                        "mrz": 0,
+                        "overallStatus": 0,
+                        "pagesCount": 2,
+                        "security": 2,
+                        "text": 0
+                    },
+                    "detailsRFID": {
+                        "AA": 2,
+                        "BAC": 2,
+                        "CA": 2,
+                        "PA": 2,
+                        "PACE": 2,
+                        "TA": 2,
+                        "overallStatus": 2
+                    },
+                    "optical": 0,
+                    "overallStatus": 0,
+                    "portrait": 2,
+                    "rfid": 2,
+                    "stopList": 2
+                },
+                "buf_length": 80,
+                "light": 0,
+                "list_idx": 0,
+                "page_idx": 0,
+                "result_type": 0
+            }    
+        ]
+    },
+    "ProcessingFinished": 1,
+    "TransactionInfo": {
+        "ComputerName": "SATSUKEVICH877",
+        "DateTime": "2020-09-17T13:27:46.296Z",
+        "TransactionID": "c08681b6-80b1-4070-b6b8-efb80ec38f9c",
+        "UserName": "SYSTEM"
+    },
+    "elapsedTime": 391,
+    "morePagesAvailable": 0
+}

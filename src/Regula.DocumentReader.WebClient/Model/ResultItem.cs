@@ -32,7 +32,8 @@ namespace Regula.DocumentReader.WebClient.Model
     [JsonSubtypes.KnownSubType(typeof(ChosenDocumentTypeResult), Result.DOCUMENT_TYPE)]
     [JsonSubtypes.KnownSubType(typeof(TextResult), Result.TEXT)]
     [JsonSubtypes.KnownSubType(typeof(GraphicsResult), Result.VISUAL_GRAPHICS)]
-    public partial class ResultItem :  IEquatable<ResultItem>, IValidatableObject
+    [JsonSubtypes.FallBackSubType(typeof(RawResultItem))]
+    public partial class ResultItem : IEquatable<ResultItem>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultItem" /> class.

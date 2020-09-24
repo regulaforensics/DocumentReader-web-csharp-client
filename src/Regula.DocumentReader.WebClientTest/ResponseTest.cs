@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
@@ -28,7 +30,15 @@ namespace Regula.DocumentReader.WebClientTest
         [Test]
         public void ShouldProcessRawResultType()
         {
-            Assert.Fail();
+            var response = GetResponseFromFile("raw_response.json");
+            var rawResultItem = response.OriginalResponse.ContainerList.List[0] as IDictionary<string, object>;
+            
+            Assert.IsNotNull(rawResultItem);
+            Assert.AreEqual(6, rawResultItem.Count);
+
+            var jsonObj = rawResultItem["Raw"] as JObject;
+            Assert.IsNotNull(jsonObj);
+            Assert.AreEqual(0, (int)jsonObj["overallStatus"]);
         }
 
         private static RecognitionResponse GetResponseFromFile(string fileName)
