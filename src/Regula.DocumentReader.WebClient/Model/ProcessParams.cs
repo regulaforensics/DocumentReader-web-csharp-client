@@ -9,13 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -28,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ProcessParams() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
@@ -41,7 +46,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageDpiOutMax">This option controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi..</param>
         /// <param name="alreadyCropped">This option can be set to true if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. By default is set to false..</param>
         /// <param name="customParams">This option allows to pass custom processing parameters that can be implemented in future without changing API..</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>))
+        /// <param name="log">This option can be set to true if you need to get base64 string of transaction processing log..</param>
+        /// <param name="forceDocID">Force use of specific template ID and skip document type identification step..</param>
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -60,6 +67,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ImageDpiOutMax = imageDpiOutMax;
             this.AlreadyCropped = alreadyCropped;
             this.CustomParams = customParams;
+            this.Log = log;
+            this.ForceDocID = forceDocID;
         }
         
         /// <summary>
@@ -118,6 +127,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public Dictionary<string, Object> CustomParams { get; set; }
 
         /// <summary>
+        /// This option can be set to true if you need to get base64 string of transaction processing log.
+        /// </summary>
+        /// <value>This option can be set to true if you need to get base64 string of transaction processing log.</value>
+        [DataMember(Name="log", EmitDefaultValue=false)]
+        public bool Log { get; set; }
+
+        /// <summary>
+        /// Force use of specific template ID and skip document type identification step.
+        /// </summary>
+        /// <value>Force use of specific template ID and skip document type identification step.</value>
+        [DataMember(Name="forceDocID", EmitDefaultValue=false)]
+        public int ForceDocID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +156,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ImageDpiOutMax: ").Append(ImageDpiOutMax).Append("\n");
             sb.Append("  AlreadyCropped: ").Append(AlreadyCropped).Append("\n");
             sb.Append("  CustomParams: ").Append(CustomParams).Append("\n");
+            sb.Append("  Log: ").Append(Log).Append("\n");
+            sb.Append("  ForceDocID: ").Append(ForceDocID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,7 +205,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.DoublePageSpread == input.DoublePageSpread ||
-                    (this.DoublePageSpread.Equals(input.DoublePageSpread))
+                    (this.DoublePageSpread != null &&
+                    this.DoublePageSpread.Equals(input.DoublePageSpread))
                 ) && 
                 (
                     this.FieldTypesFilter == input.FieldTypesFilter ||
@@ -195,17 +221,29 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.ImageDpiOutMax == input.ImageDpiOutMax ||
-                    (this.ImageDpiOutMax.Equals(input.ImageDpiOutMax))
+                    (this.ImageDpiOutMax != null &&
+                    this.ImageDpiOutMax.Equals(input.ImageDpiOutMax))
                 ) && 
                 (
                     this.AlreadyCropped == input.AlreadyCropped ||
-                    (this.AlreadyCropped.Equals(input.AlreadyCropped))
+                    (this.AlreadyCropped != null &&
+                    this.AlreadyCropped.Equals(input.AlreadyCropped))
                 ) && 
                 (
                     this.CustomParams == input.CustomParams ||
                     this.CustomParams != null &&
                     input.CustomParams != null &&
                     this.CustomParams.SequenceEqual(input.CustomParams)
+                ) && 
+                (
+                    this.Log == input.Log ||
+                    (this.Log != null &&
+                    this.Log.Equals(input.Log))
+                ) && 
+                (
+                    this.ForceDocID == input.ForceDocID ||
+                    (this.ForceDocID != null &&
+                    this.ForceDocID.Equals(input.ForceDocID))
                 );
         }
 
@@ -222,15 +260,22 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.Scenario.GetHashCode();
                 if (this.ResultTypeOutput != null)
                     hashCode = hashCode * 59 + this.ResultTypeOutput.GetHashCode();
-                hashCode = hashCode * 59 + this.DoublePageSpread.GetHashCode();
+                if (this.DoublePageSpread != null)
+                    hashCode = hashCode * 59 + this.DoublePageSpread.GetHashCode();
                 if (this.FieldTypesFilter != null)
                     hashCode = hashCode * 59 + this.FieldTypesFilter.GetHashCode();
                 if (this.DateFormat != null)
                     hashCode = hashCode * 59 + this.DateFormat.GetHashCode();
-                hashCode = hashCode * 59 + this.ImageDpiOutMax.GetHashCode();
-                hashCode = hashCode * 59 + this.AlreadyCropped.GetHashCode();
+                if (this.ImageDpiOutMax != null)
+                    hashCode = hashCode * 59 + this.ImageDpiOutMax.GetHashCode();
+                if (this.AlreadyCropped != null)
+                    hashCode = hashCode * 59 + this.AlreadyCropped.GetHashCode();
                 if (this.CustomParams != null)
                     hashCode = hashCode * 59 + this.CustomParams.GetHashCode();
+                if (this.Log != null)
+                    hashCode = hashCode * 59 + this.Log.GetHashCode();
+                if (this.ForceDocID != null)
+                    hashCode = hashCode * 59 + this.ForceDocID.GetHashCode();
                 return hashCode;
             }
         }

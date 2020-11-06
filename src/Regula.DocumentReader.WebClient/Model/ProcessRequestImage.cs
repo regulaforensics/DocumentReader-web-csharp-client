@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ProcessRequestImage() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
@@ -49,7 +55,14 @@ namespace Regula.DocumentReader.WebClient.Model
             
             this.LightIndex = lightIndex;
             // use default value if no "pageIdx" provided
-            this.PageIdx = pageIdx;
+            if (pageIdx == null)
+            {
+                this.PageIdx = 0;
+            }
+            else
+            {
+                this.PageIdx = pageIdx;
+            }
         }
         
         /// <summary>
@@ -123,11 +136,13 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.LightIndex == input.LightIndex ||
-                    (this.LightIndex.Equals(input.LightIndex))
+                    (this.LightIndex != null &&
+                    this.LightIndex.Equals(input.LightIndex))
                 ) && 
                 (
                     this.PageIdx == input.PageIdx ||
-                    (this.PageIdx.Equals(input.PageIdx))
+                    (this.PageIdx != null &&
+                    this.PageIdx.Equals(input.PageIdx))
                 );
         }
 
@@ -142,8 +157,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 int hashCode = 41;
                 if (this.ImageData != null)
                     hashCode = hashCode * 59 + this.ImageData.GetHashCode();
-                hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
-                hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.LightIndex != null)
+                    hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
+                if (this.PageIdx != null)
+                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
                 return hashCode;
             }
         }

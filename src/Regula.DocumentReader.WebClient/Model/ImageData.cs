@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageData" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ImageData() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageData" /> class.

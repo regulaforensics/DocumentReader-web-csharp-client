@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImagesFieldValue" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ImagesFieldValue() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ImagesFieldValue" /> class.
@@ -37,10 +43,10 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="originalValue">Base64 encoded image.</param>
         /// <param name="pageIndex">Page index of the image from input list (required).</param>
         /// <param name="lightIndex">lightIndex (required).</param>
-        /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required).</param>
+        /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rfidOrigin">rfidOrigin.</param>
-        public ImagesFieldValue(string source = default(string), byte[] value = default(byte[]), byte[] originalValue = default(byte[]), int pageIndex = default(int), int lightIndex = default(int), int containerType = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
+        public ImagesFieldValue(string source = default(string), byte[] value = default(byte[]), byte[] originalValue = default(byte[]), int pageIndex = default(int), int lightIndex = default(int), int containerType = 0, RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -63,14 +69,35 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             
             // to ensure "pageIndex" is required (not null)
-            this.PageIndex = pageIndex;
-
+            if (pageIndex == null)
+            {
+                throw new InvalidDataException("pageIndex is a required property for ImagesFieldValue and cannot be null");
+            }
+            else
+            {
+                this.PageIndex = pageIndex;
+            }
+            
             // to ensure "lightIndex" is required (not null)
-            this.LightIndex = lightIndex;
-
+            if (lightIndex == null)
+            {
+                throw new InvalidDataException("lightIndex is a required property for ImagesFieldValue and cannot be null");
+            }
+            else
+            {
+                this.LightIndex = lightIndex;
+            }
+            
             // to ensure "containerType" is required (not null)
-            this.ContainerType = containerType;
-
+            if (containerType == null)
+            {
+                throw new InvalidDataException("containerType is a required property for ImagesFieldValue and cannot be null");
+            }
+            else
+            {
+                this.ContainerType = containerType;
+            }
+            
             this.OriginalValue = originalValue;
             this.FieldRect = fieldRect;
             this.RfidOrigin = rfidOrigin;
@@ -195,15 +222,18 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.PageIndex == input.PageIndex ||
-                    (this.PageIndex.Equals(input.PageIndex))
+                    (this.PageIndex != null &&
+                    this.PageIndex.Equals(input.PageIndex))
                 ) && 
                 (
                     this.LightIndex == input.LightIndex ||
-                    (this.LightIndex.Equals(input.LightIndex))
+                    (this.LightIndex != null &&
+                    this.LightIndex.Equals(input.LightIndex))
                 ) && 
                 (
                     this.ContainerType == input.ContainerType ||
-                    (this.ContainerType.Equals(input.ContainerType))
+                    (this.ContainerType != null &&
+                    this.ContainerType.Equals(input.ContainerType))
                 ) && 
                 (
                     this.FieldRect == input.FieldRect ||
@@ -232,9 +262,12 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.OriginalValue != null)
                     hashCode = hashCode * 59 + this.OriginalValue.GetHashCode();
-                hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
-                hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
-                hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
+                if (this.PageIndex != null)
+                    hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
+                if (this.LightIndex != null)
+                    hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
+                if (this.ContainerType != null)
+                    hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
                 if (this.RfidOrigin != null)

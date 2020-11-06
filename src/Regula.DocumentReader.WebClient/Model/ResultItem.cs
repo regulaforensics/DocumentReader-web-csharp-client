@@ -9,12 +9,19 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
+using System.Linq;
+using System.IO;
 using System.Text;
-using JsonSubTypes;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using JsonSubTypes;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -22,23 +29,22 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Common fields for all result objects
     /// </summary>
     [DataContract]
-    [JsonConverter(typeof(JsonSubtypes), "result_type")]
-    [JsonSubtypes.KnownSubType(typeof(ImagesResult), Result.IMAGES)]
-    [JsonSubtypes.KnownSubType(typeof(LexicalAnalysisResult), Result.LEXICAL_ANALYSIS)]
-    [JsonSubtypes.KnownSubType(typeof(DocumentImageResult), Result.DOCUMENT_IMAGE)]
-    [JsonSubtypes.KnownSubType(typeof(TextDataResult), Result.VISUAL_TEXT)]
-    [JsonSubtypes.KnownSubType(typeof(DocumentTypesCandidatesResult), Result.DOCUMENT_TYPE_CANDIDATES)]
-    [JsonSubtypes.KnownSubType(typeof(StatusResult), Result.STATUS)]
-    [JsonSubtypes.KnownSubType(typeof(ChosenDocumentTypeResult), Result.DOCUMENT_TYPE)]
-    [JsonSubtypes.KnownSubType(typeof(TextResult), Result.TEXT)]
-    [JsonSubtypes.KnownSubType(typeof(GraphicsResult), Result.VISUAL_GRAPHICS)]
-    [JsonSubtypes.FallBackSubType(typeof(RawResultItem))]
-    public partial class ResultItem : IEquatable<ResultItem>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "resultType")]
+    [JsonSubtypes.KnownSubType(typeof(ImagesResult), "ImagesResult")]
+    [JsonSubtypes.KnownSubType(typeof(LexicalAnalysisResult), "LexicalAnalysisResult")]
+    [JsonSubtypes.KnownSubType(typeof(DocumentImageResult), "DocumentImageResult")]
+    [JsonSubtypes.KnownSubType(typeof(TextDataResult), "TextDataResult")]
+    [JsonSubtypes.KnownSubType(typeof(DocumentTypesCandidatesResult), "DocumentTypesCandidatesResult")]
+    [JsonSubtypes.KnownSubType(typeof(StatusResult), "StatusResult")]
+    [JsonSubtypes.KnownSubType(typeof(ChosenDocumentTypeResult), "ChosenDocumentTypeResult")]
+    [JsonSubtypes.KnownSubType(typeof(TextResult), "TextResult")]
+    [JsonSubtypes.KnownSubType(typeof(GraphicsResult), "GraphicsResult")]
+    public partial class ResultItem :  IEquatable<ResultItem>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultItem" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ResultItem() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultItem" /> class.
@@ -47,12 +53,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required).</param>
-        public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = default(int))
+        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
+        public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0)
         {
             // to ensure "resultType" is required (not null)
-            this.ResultType = resultType;
-
+            if (resultType == null)
+            {
+                throw new InvalidDataException("resultType is a required property for ResultItem and cannot be null");
+            }
+            else
+            {
+                this.ResultType = resultType;
+            }
+            
             this.BufLength = bufLength;
             this.Light = light;
             this.ListIdx = listIdx;
@@ -139,23 +152,28 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.BufLength == input.BufLength ||
-                    (this.BufLength.Equals(input.BufLength))
+                    (this.BufLength != null &&
+                    this.BufLength.Equals(input.BufLength))
                 ) && 
                 (
                     this.Light == input.Light ||
-                    (this.Light.Equals(input.Light))
+                    (this.Light != null &&
+                    this.Light.Equals(input.Light))
                 ) && 
                 (
                     this.ListIdx == input.ListIdx ||
-                    (this.ListIdx.Equals(input.ListIdx))
+                    (this.ListIdx != null &&
+                    this.ListIdx.Equals(input.ListIdx))
                 ) && 
                 (
                     this.PageIdx == input.PageIdx ||
-                    (this.PageIdx.Equals(input.PageIdx))
+                    (this.PageIdx != null &&
+                    this.PageIdx.Equals(input.PageIdx))
                 ) && 
                 (
                     this.ResultType == input.ResultType ||
-                    (this.ResultType.Equals(input.ResultType))
+                    (this.ResultType != null &&
+                    this.ResultType.Equals(input.ResultType))
                 );
         }
 
@@ -168,11 +186,16 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.BufLength.GetHashCode();
-                hashCode = hashCode * 59 + this.Light.GetHashCode();
-                hashCode = hashCode * 59 + this.ListIdx.GetHashCode();
-                hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
-                hashCode = hashCode * 59 + this.ResultType.GetHashCode();
+                if (this.BufLength != null)
+                    hashCode = hashCode * 59 + this.BufLength.GetHashCode();
+                if (this.Light != null)
+                    hashCode = hashCode * 59 + this.Light.GetHashCode();
+                if (this.ListIdx != null)
+                    hashCode = hashCode * 59 + this.ListIdx.GetHashCode();
+                if (this.PageIdx != null)
+                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.ResultType != null)
+                    hashCode = hashCode * 59 + this.ResultType.GetHashCode();
                 return hashCode;
             }
         }

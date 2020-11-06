@@ -9,11 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
+using System.Linq;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -103,11 +110,13 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.Code == input.Code ||
-                    (this.Code.Equals(input.Code))
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
                     this.Probability == input.Probability ||
-                    (this.Probability.Equals(input.Probability))
+                    (this.Probability != null &&
+                    this.Probability.Equals(input.Probability))
                 ) && 
                 (
                     this.Rect == input.Rect ||
@@ -125,8 +134,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Code.GetHashCode();
-                hashCode = hashCode * 59 + this.Probability.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Probability != null)
+                    hashCode = hashCode * 59 + this.Probability.GetHashCode();
                 if (this.Rect != null)
                     hashCode = hashCode * 59 + this.Rect.GetHashCode();
                 return hashCode;

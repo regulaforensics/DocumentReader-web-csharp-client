@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -22,12 +28,12 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Status
     /// </summary>
     [DataContract]
-    public class Status :  IEquatable<Status>, IValidatableObject
+    public partial class Status :  IEquatable<Status>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Status" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected Status() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="Status" /> class.
@@ -37,16 +43,30 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="portrait">portrait.</param>
         /// <param name="rfid">rfid.</param>
         /// <param name="stopList">stopList.</param>
-        /// <param name="detailsRfid">detailsRFID.</param>
+        /// <param name="detailsRFID">detailsRFID.</param>
         /// <param name="detailsOptical">detailsOptical (required).</param>
-        public Status(int overallStatus = default, int optical = default, int portrait = default, int rfid = default, int stopList = default, DetailsRFID detailsRfid = default, DetailsOptical detailsOptical = default)
+        public Status(int overallStatus = default(int), int optical = default(int), int portrait = default(int), int rfid = default(int), int stopList = default(int), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical))
         {
             // to ensure "overallStatus" is required (not null)
-            this.OverallStatus = overallStatus;
-
+            if (overallStatus == null)
+            {
+                throw new InvalidDataException("overallStatus is a required property for Status and cannot be null");
+            }
+            else
+            {
+                this.OverallStatus = overallStatus;
+            }
+            
             // to ensure "optical" is required (not null)
-            this.Optical = optical;
-
+            if (optical == null)
+            {
+                throw new InvalidDataException("optical is a required property for Status and cannot be null");
+            }
+            else
+            {
+                this.Optical = optical;
+            }
+            
             // to ensure "detailsOptical" is required (not null)
             if (detailsOptical == null)
             {
@@ -60,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Portrait = portrait;
             this.Rfid = rfid;
             this.StopList = stopList;
-            this.DetailsRfid = detailsRfid;
+            this.DetailsRFID = detailsRFID;
         }
         
         /// <summary>
@@ -97,7 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DetailsRFID
         /// </summary>
         [DataMember(Name="detailsRFID", EmitDefaultValue=false)]
-        public DetailsRFID DetailsRfid { get; set; }
+        public DetailsRFID DetailsRFID { get; set; }
 
         /// <summary>
         /// Gets or Sets DetailsOptical
@@ -118,7 +138,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Portrait: ").Append(Portrait).Append("\n");
             sb.Append("  Rfid: ").Append(Rfid).Append("\n");
             sb.Append("  StopList: ").Append(StopList).Append("\n");
-            sb.Append("  DetailsRFID: ").Append(DetailsRfid).Append("\n");
+            sb.Append("  DetailsRFID: ").Append(DetailsRFID).Append("\n");
             sb.Append("  DetailsOptical: ").Append(DetailsOptical).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -156,28 +176,33 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.OverallStatus == input.OverallStatus ||
-                    (this.OverallStatus.Equals(input.OverallStatus))
+                    (this.OverallStatus != null &&
+                    this.OverallStatus.Equals(input.OverallStatus))
                 ) && 
                 (
                     this.Optical == input.Optical ||
-                    (this.Optical.Equals(input.Optical))
+                    (this.Optical != null &&
+                    this.Optical.Equals(input.Optical))
                 ) && 
                 (
                     this.Portrait == input.Portrait ||
-                    (this.Portrait.Equals(input.Portrait))
+                    (this.Portrait != null &&
+                    this.Portrait.Equals(input.Portrait))
                 ) && 
                 (
                     this.Rfid == input.Rfid ||
-                    (this.Rfid.Equals(input.Rfid))
+                    (this.Rfid != null &&
+                    this.Rfid.Equals(input.Rfid))
                 ) && 
                 (
                     this.StopList == input.StopList ||
-                    (this.StopList.Equals(input.StopList))
+                    (this.StopList != null &&
+                    this.StopList.Equals(input.StopList))
                 ) && 
                 (
-                    this.DetailsRfid == input.DetailsRfid ||
-                    (this.DetailsRfid != null &&
-                    this.DetailsRfid.Equals(input.DetailsRfid))
+                    this.DetailsRFID == input.DetailsRFID ||
+                    (this.DetailsRFID != null &&
+                    this.DetailsRFID.Equals(input.DetailsRFID))
                 ) && 
                 (
                     this.DetailsOptical == input.DetailsOptical ||
@@ -195,13 +220,18 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.OverallStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.Optical.GetHashCode();
-                hashCode = hashCode * 59 + this.Portrait.GetHashCode();
-                hashCode = hashCode * 59 + this.Rfid.GetHashCode();
-                hashCode = hashCode * 59 + this.StopList.GetHashCode();
-                if (this.DetailsRfid != null)
-                    hashCode = hashCode * 59 + this.DetailsRfid.GetHashCode();
+                if (this.OverallStatus != null)
+                    hashCode = hashCode * 59 + this.OverallStatus.GetHashCode();
+                if (this.Optical != null)
+                    hashCode = hashCode * 59 + this.Optical.GetHashCode();
+                if (this.Portrait != null)
+                    hashCode = hashCode * 59 + this.Portrait.GetHashCode();
+                if (this.Rfid != null)
+                    hashCode = hashCode * 59 + this.Rfid.GetHashCode();
+                if (this.StopList != null)
+                    hashCode = hashCode * 59 + this.StopList.GetHashCode();
+                if (this.DetailsRFID != null)
+                    hashCode = hashCode * 59 + this.DetailsRFID.GetHashCode();
                 if (this.DetailsOptical != null)
                     hashCode = hashCode * 59 + this.DetailsOptical.GetHashCode();
                 return hashCode;

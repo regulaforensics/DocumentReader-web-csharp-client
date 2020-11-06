@@ -9,11 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
+using System.Linq;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -26,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolCandidate" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected SymbolCandidate() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolCandidate" /> class.
@@ -36,11 +43,25 @@ namespace Regula.DocumentReader.WebClient.Model
         public SymbolCandidate(int symbolCode = default(int), int symbolProbability = default(int))
         {
             // to ensure "symbolCode" is required (not null)
-            this.SymbolCode = symbolCode;
-
+            if (symbolCode == null)
+            {
+                throw new InvalidDataException("symbolCode is a required property for SymbolCandidate and cannot be null");
+            }
+            else
+            {
+                this.SymbolCode = symbolCode;
+            }
+            
             // to ensure "symbolProbability" is required (not null)
-            this.SymbolProbability = symbolProbability;
-
+            if (symbolProbability == null)
+            {
+                throw new InvalidDataException("symbolProbability is a required property for SymbolCandidate and cannot be null");
+            }
+            else
+            {
+                this.SymbolProbability = symbolProbability;
+            }
+            
         }
         
         /// <summary>
@@ -103,11 +124,13 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.SymbolCode == input.SymbolCode ||
-                    (this.SymbolCode.Equals(input.SymbolCode))
+                    (this.SymbolCode != null &&
+                    this.SymbolCode.Equals(input.SymbolCode))
                 ) && 
                 (
                     this.SymbolProbability == input.SymbolProbability ||
-                    (this.SymbolProbability.Equals(input.SymbolProbability))
+                    (this.SymbolProbability != null &&
+                    this.SymbolProbability.Equals(input.SymbolProbability))
                 );
         }
 
@@ -120,8 +143,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SymbolCode.GetHashCode();
-                hashCode = hashCode * 59 + this.SymbolProbability.GetHashCode();
+                if (this.SymbolCode != null)
+                    hashCode = hashCode * 59 + this.SymbolCode.GetHashCode();
+                if (this.SymbolProbability != null)
+                    hashCode = hashCode * 59 + this.SymbolProbability.GetHashCode();
                 return hashCode;
             }
         }

@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -93,7 +99,8 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.RecResult == input.RecResult ||
-                    (this.RecResult.Equals(input.RecResult))
+                    (this.RecResult != null &&
+                    this.RecResult.Equals(input.RecResult))
                 ) && 
                 (
                     this.Candidates == input.Candidates ||
@@ -112,7 +119,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.RecResult.GetHashCode();
+                if (this.RecResult != null)
+                    hashCode = hashCode * 59 + this.RecResult.GetHashCode();
                 if (this.Candidates != null)
                     hashCode = hashCode * 59 + this.Candidates.GetHashCode();
                 return hashCode;
