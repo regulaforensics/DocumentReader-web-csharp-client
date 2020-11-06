@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphicField" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected GraphicField() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphicField" /> class.
@@ -42,8 +48,15 @@ namespace Regula.DocumentReader.WebClient.Model
         public GraphicField(int fieldType = default(int), ImageData image = default(ImageData), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginDGTag = default(int), int rFIDOriginTagEntry = default(int), int rFIDOriginEntryView = default(int))
         {
             // to ensure "fieldType" is required (not null)
-            this.FieldType = fieldType;
-
+            if (fieldType == null)
+            {
+                throw new InvalidDataException("fieldType is a required property for GraphicField and cannot be null");
+            }
+            else
+            {
+                this.FieldType = fieldType;
+            }
+            
             // to ensure "image" is required (not null)
             if (image == null)
             {
@@ -158,7 +171,8 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.FieldType == input.FieldType ||
-                    (this.FieldType.Equals(input.FieldType))
+                    (this.FieldType != null &&
+                    this.FieldType.Equals(input.FieldType))
                 ) && 
                 (
                     this.Image == input.Image ||
@@ -172,19 +186,23 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.RFIDOriginDG == input.RFIDOriginDG ||
-                    (this.RFIDOriginDG.Equals(input.RFIDOriginDG))
+                    (this.RFIDOriginDG != null &&
+                    this.RFIDOriginDG.Equals(input.RFIDOriginDG))
                 ) && 
                 (
                     this.RFIDOriginDGTag == input.RFIDOriginDGTag ||
-                    (this.RFIDOriginDGTag.Equals(input.RFIDOriginDGTag))
+                    (this.RFIDOriginDGTag != null &&
+                    this.RFIDOriginDGTag.Equals(input.RFIDOriginDGTag))
                 ) && 
                 (
                     this.RFIDOriginTagEntry == input.RFIDOriginTagEntry ||
-                    (this.RFIDOriginTagEntry.Equals(input.RFIDOriginTagEntry))
+                    (this.RFIDOriginTagEntry != null &&
+                    this.RFIDOriginTagEntry.Equals(input.RFIDOriginTagEntry))
                 ) && 
                 (
                     this.RFIDOriginEntryView == input.RFIDOriginEntryView ||
-                    (this.RFIDOriginEntryView.Equals(input.RFIDOriginEntryView))
+                    (this.RFIDOriginEntryView != null &&
+                    this.RFIDOriginEntryView.Equals(input.RFIDOriginEntryView))
                 );
         }
 
@@ -197,15 +215,20 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.FieldType.GetHashCode();
+                if (this.FieldType != null)
+                    hashCode = hashCode * 59 + this.FieldType.GetHashCode();
                 if (this.Image != null)
                     hashCode = hashCode * 59 + this.Image.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
-                hashCode = hashCode * 59 + this.RFIDOriginDG.GetHashCode();
-                hashCode = hashCode * 59 + this.RFIDOriginDGTag.GetHashCode();
-                hashCode = hashCode * 59 + this.RFIDOriginTagEntry.GetHashCode();
-                hashCode = hashCode * 59 + this.RFIDOriginEntryView.GetHashCode();
+                if (this.RFIDOriginDG != null)
+                    hashCode = hashCode * 59 + this.RFIDOriginDG.GetHashCode();
+                if (this.RFIDOriginDGTag != null)
+                    hashCode = hashCode * 59 + this.RFIDOriginDGTag.GetHashCode();
+                if (this.RFIDOriginTagEntry != null)
+                    hashCode = hashCode * 59 + this.RFIDOriginTagEntry.GetHashCode();
+                if (this.RFIDOriginEntryView != null)
+                    hashCode = hashCode * 59 + this.RFIDOriginEntryView.GetHashCode();
                 return hashCode;
             }
         }

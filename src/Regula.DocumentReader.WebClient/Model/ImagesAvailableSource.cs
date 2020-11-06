@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,14 +33,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImagesAvailableSource" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ImagesAvailableSource() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ImagesAvailableSource" /> class.
         /// </summary>
-        /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type..</param>
+        /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
         /// <param name="source">source (required).</param>
-        public ImagesAvailableSource(int containerType = default(int), string source = default(string))
+        public ImagesAvailableSource(int containerType = 0, string source = default(string))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -46,7 +52,15 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.Source = source;
             }
             
-            this.ContainerType = containerType;
+            // use default value if no "containerType" provided
+            if (containerType == null)
+            {
+                this.ContainerType = 0;
+            }
+            else
+            {
+                this.ContainerType = containerType;
+            }
         }
         
         /// <summary>
@@ -108,7 +122,8 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.ContainerType == input.ContainerType ||
-                    (this.ContainerType.Equals(input.ContainerType))
+                    (this.ContainerType != null &&
+                    this.ContainerType.Equals(input.ContainerType))
                 ) && 
                 (
                     this.Source == input.Source ||
@@ -126,7 +141,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
+                if (this.ContainerType != null)
+                    hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;

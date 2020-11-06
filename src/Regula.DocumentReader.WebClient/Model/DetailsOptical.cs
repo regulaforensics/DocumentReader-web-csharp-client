@@ -9,11 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
+using System.Linq;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -26,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DetailsOptical" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected DetailsOptical() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="DetailsOptical" /> class.
@@ -42,29 +49,85 @@ namespace Regula.DocumentReader.WebClient.Model
         public DetailsOptical(int overallStatus = default(int), int docType = default(int), int expiry = default(int), int imageQA = default(int), int mrz = default(int), int pagesCount = default(int), int security = default(int), int text = default(int))
         {
             // to ensure "overallStatus" is required (not null)
-            this.OverallStatus = overallStatus;
-
+            if (overallStatus == null)
+            {
+                throw new InvalidDataException("overallStatus is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.OverallStatus = overallStatus;
+            }
+            
             // to ensure "docType" is required (not null)
-            this.DocType = docType;
-
+            if (docType == null)
+            {
+                throw new InvalidDataException("docType is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.DocType = docType;
+            }
+            
             // to ensure "expiry" is required (not null)
-            this.Expiry = expiry;
-
+            if (expiry == null)
+            {
+                throw new InvalidDataException("expiry is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.Expiry = expiry;
+            }
+            
             // to ensure "imageQA" is required (not null)
-            this.ImageQA = imageQA;
-
+            if (imageQA == null)
+            {
+                throw new InvalidDataException("imageQA is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.ImageQA = imageQA;
+            }
+            
             // to ensure "mrz" is required (not null)
-            this.Mrz = mrz;
-
+            if (mrz == null)
+            {
+                throw new InvalidDataException("mrz is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.Mrz = mrz;
+            }
+            
             // to ensure "pagesCount" is required (not null)
-            this.PagesCount = pagesCount;
-
+            if (pagesCount == null)
+            {
+                throw new InvalidDataException("pagesCount is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.PagesCount = pagesCount;
+            }
+            
             // to ensure "security" is required (not null)
-            this.Security = security;
-
+            if (security == null)
+            {
+                throw new InvalidDataException("security is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.Security = security;
+            }
+            
             // to ensure "text" is required (not null)
-            this.Text = text;
-
+            if (text == null)
+            {
+                throw new InvalidDataException("text is a required property for DetailsOptical and cannot be null");
+            }
+            else
+            {
+                this.Text = text;
+            }
+            
         }
         
         /// <summary>
@@ -168,35 +231,43 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.OverallStatus == input.OverallStatus ||
-                    (this.OverallStatus.Equals(input.OverallStatus))
+                    (this.OverallStatus != null &&
+                    this.OverallStatus.Equals(input.OverallStatus))
                 ) && 
                 (
                     this.DocType == input.DocType ||
-                    (this.DocType.Equals(input.DocType))
+                    (this.DocType != null &&
+                    this.DocType.Equals(input.DocType))
                 ) && 
                 (
                     this.Expiry == input.Expiry ||
-                    (this.Expiry.Equals(input.Expiry))
+                    (this.Expiry != null &&
+                    this.Expiry.Equals(input.Expiry))
                 ) && 
                 (
                     this.ImageQA == input.ImageQA ||
-                    (this.ImageQA.Equals(input.ImageQA))
+                    (this.ImageQA != null &&
+                    this.ImageQA.Equals(input.ImageQA))
                 ) && 
                 (
                     this.Mrz == input.Mrz ||
-                    (this.Mrz.Equals(input.Mrz))
+                    (this.Mrz != null &&
+                    this.Mrz.Equals(input.Mrz))
                 ) && 
                 (
                     this.PagesCount == input.PagesCount ||
-                    (this.PagesCount.Equals(input.PagesCount))
+                    (this.PagesCount != null &&
+                    this.PagesCount.Equals(input.PagesCount))
                 ) && 
                 (
                     this.Security == input.Security ||
-                    (this.Security.Equals(input.Security))
+                    (this.Security != null &&
+                    this.Security.Equals(input.Security))
                 ) && 
                 (
                     this.Text == input.Text ||
-                    (this.Text.Equals(input.Text))
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -209,14 +280,22 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.OverallStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.DocType.GetHashCode();
-                hashCode = hashCode * 59 + this.Expiry.GetHashCode();
-                hashCode = hashCode * 59 + this.ImageQA.GetHashCode();
-                hashCode = hashCode * 59 + this.Mrz.GetHashCode();
-                hashCode = hashCode * 59 + this.PagesCount.GetHashCode();
-                hashCode = hashCode * 59 + this.Security.GetHashCode();
-                hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.OverallStatus != null)
+                    hashCode = hashCode * 59 + this.OverallStatus.GetHashCode();
+                if (this.DocType != null)
+                    hashCode = hashCode * 59 + this.DocType.GetHashCode();
+                if (this.Expiry != null)
+                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
+                if (this.ImageQA != null)
+                    hashCode = hashCode * 59 + this.ImageQA.GetHashCode();
+                if (this.Mrz != null)
+                    hashCode = hashCode * 59 + this.Mrz.GetHashCode();
+                if (this.PagesCount != null)
+                    hashCode = hashCode * 59 + this.PagesCount.GetHashCode();
+                if (this.Security != null)
+                    hashCode = hashCode * 59 + this.Security.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }

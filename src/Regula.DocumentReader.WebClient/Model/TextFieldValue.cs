@@ -9,13 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -28,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TextFieldValue" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected TextFieldValue() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="TextFieldValue" /> class.
@@ -64,8 +69,15 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             
             // to ensure "pageIndex" is required (not null)
-            this.PageIndex = pageIndex;
-
+            if (pageIndex == null)
+            {
+                throw new InvalidDataException("pageIndex is a required property for TextFieldValue and cannot be null");
+            }
+            else
+            {
+                this.PageIndex = pageIndex;
+            }
+            
             this.OriginalValue = originalValue;
             this.OriginalSymbols = originalSymbols;
             this.Probability = probability;
@@ -104,7 +116,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Page index of the image from input list</value>
         [DataMember(Name="pageIndex", EmitDefaultValue=true)]
-        public long PageIndex { get; set; }
+        public int PageIndex { get; set; }
 
         /// <summary>
         /// Min recognition probability. Combined minimum probability from single characters probabilities
@@ -198,11 +210,13 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.PageIndex == input.PageIndex ||
-                    (this.PageIndex.Equals(input.PageIndex))
+                    (this.PageIndex != null &&
+                    this.PageIndex.Equals(input.PageIndex))
                 ) && 
                 (
                     this.Probability == input.Probability ||
-                    (this.Probability.Equals(input.Probability))
+                    (this.Probability != null &&
+                    this.Probability.Equals(input.Probability))
                 ) && 
                 (
                     this.FieldRect == input.FieldRect ||
@@ -233,8 +247,10 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.OriginalValue.GetHashCode();
                 if (this.OriginalSymbols != null)
                     hashCode = hashCode * 59 + this.OriginalSymbols.GetHashCode();
-                hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
-                hashCode = hashCode * 59 + this.Probability.GetHashCode();
+                if (this.PageIndex != null)
+                    hashCode = hashCode * 59 + this.PageIndex.GetHashCode();
+                if (this.Probability != null)
+                    hashCode = hashCode * 59 + this.Probability.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
                 if (this.RfidOrigin != null)

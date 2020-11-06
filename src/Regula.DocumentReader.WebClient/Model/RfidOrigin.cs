@@ -9,11 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
+using System.Linq;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -26,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RfidOrigin" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected RfidOrigin() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="RfidOrigin" /> class.
@@ -38,8 +45,15 @@ namespace Regula.DocumentReader.WebClient.Model
         public RfidOrigin(int dg = default(int), int dgTag = default(int), int tagEntry = default(int), int entryView = default(int))
         {
             // to ensure "dg" is required (not null)
-            this.Dg = dg;
-
+            if (dg == null)
+            {
+                throw new InvalidDataException("dg is a required property for RfidOrigin and cannot be null");
+            }
+            else
+            {
+                this.Dg = dg;
+            }
+            
             this.DgTag = dgTag;
             this.TagEntry = tagEntry;
             this.EntryView = entryView;
@@ -121,19 +135,23 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.Dg == input.Dg ||
-                    (this.Dg.Equals(input.Dg))
+                    (this.Dg != null &&
+                    this.Dg.Equals(input.Dg))
                 ) && 
                 (
                     this.DgTag == input.DgTag ||
-                    (this.DgTag.Equals(input.DgTag))
+                    (this.DgTag != null &&
+                    this.DgTag.Equals(input.DgTag))
                 ) && 
                 (
                     this.TagEntry == input.TagEntry ||
-                    (this.TagEntry.Equals(input.TagEntry))
+                    (this.TagEntry != null &&
+                    this.TagEntry.Equals(input.TagEntry))
                 ) && 
                 (
                     this.EntryView == input.EntryView ||
-                    (this.EntryView.Equals(input.EntryView))
+                    (this.EntryView != null &&
+                    this.EntryView.Equals(input.EntryView))
                 );
         }
 
@@ -146,10 +164,14 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Dg.GetHashCode();
-                hashCode = hashCode * 59 + this.DgTag.GetHashCode();
-                hashCode = hashCode * 59 + this.TagEntry.GetHashCode();
-                hashCode = hashCode * 59 + this.EntryView.GetHashCode();
+                if (this.Dg != null)
+                    hashCode = hashCode * 59 + this.Dg.GetHashCode();
+                if (this.DgTag != null)
+                    hashCode = hashCode * 59 + this.DgTag.GetHashCode();
+                if (this.TagEntry != null)
+                    hashCode = hashCode * 59 + this.TagEntry.GetHashCode();
+                if (this.EntryView != null)
+                    hashCode = hashCode * 59 + this.EntryView.GetHashCode();
                 return hashCode;
             }
         }

@@ -9,13 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -28,26 +33,51 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocVisualExtendedField" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected DocVisualExtendedField() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="DocVisualExtendedField" /> class.
         /// </summary>
         /// <param name="wFieldType">wFieldType (required).</param>
+        /// <param name="fieldName">Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use wFieldType for lookup. (required).</param>
         /// <param name="wLCID">wLCID (required).</param>
         /// <param name="stringsResult">Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results..</param>
         /// <param name="bufText">Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39; (required).</param>
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rFIDOriginDG">Origin data group information. Only for Result.RFID_TEXT results..</param>
         /// <param name="rFIDOriginTagEntry">Index of the text field record in origin data group. Only for Result.RFID_TEXT results..</param>
-        public DocVisualExtendedField(int wFieldType = default(int), int wLCID = default(int), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), string bufText = default(string), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginTagEntry = default(int))
+        public DocVisualExtendedField(int wFieldType = default(int), string fieldName = default(string), int wLCID = default(int), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), string bufText = default(string), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginTagEntry = default(int))
         {
             // to ensure "wFieldType" is required (not null)
-            this.WFieldType = wFieldType;
-
+            if (wFieldType == null)
+            {
+                throw new InvalidDataException("wFieldType is a required property for DocVisualExtendedField and cannot be null");
+            }
+            else
+            {
+                this.WFieldType = wFieldType;
+            }
+            
+            // to ensure "fieldName" is required (not null)
+            if (fieldName == null)
+            {
+                throw new InvalidDataException("fieldName is a required property for DocVisualExtendedField and cannot be null");
+            }
+            else
+            {
+                this.FieldName = fieldName;
+            }
+            
             // to ensure "wLCID" is required (not null)
-            this.WLCID = wLCID;
-
+            if (wLCID == null)
+            {
+                throw new InvalidDataException("wLCID is a required property for DocVisualExtendedField and cannot be null");
+            }
+            else
+            {
+                this.WLCID = wLCID;
+            }
+            
             // to ensure "bufText" is required (not null)
             if (bufText == null)
             {
@@ -69,6 +99,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name="wFieldType", EmitDefaultValue=true)]
         public int WFieldType { get; set; }
+
+        /// <summary>
+        /// Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use wFieldType for lookup.
+        /// </summary>
+        /// <value>Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use wFieldType for lookup.</value>
+        [DataMember(Name="FieldName", EmitDefaultValue=true)]
+        public string FieldName { get; set; }
 
         /// <summary>
         /// Gets or Sets WLCID
@@ -119,6 +156,7 @@ namespace Regula.DocumentReader.WebClient.Model
             var sb = new StringBuilder();
             sb.Append("class DocVisualExtendedField {\n");
             sb.Append("  WFieldType: ").Append(WFieldType).Append("\n");
+            sb.Append("  FieldName: ").Append(FieldName).Append("\n");
             sb.Append("  WLCID: ").Append(WLCID).Append("\n");
             sb.Append("  StringsResult: ").Append(StringsResult).Append("\n");
             sb.Append("  BufText: ").Append(BufText).Append("\n");
@@ -161,11 +199,18 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.WFieldType == input.WFieldType ||
-                    (this.WFieldType.Equals(input.WFieldType))
+                    (this.WFieldType != null &&
+                    this.WFieldType.Equals(input.WFieldType))
+                ) && 
+                (
+                    this.FieldName == input.FieldName ||
+                    (this.FieldName != null &&
+                    this.FieldName.Equals(input.FieldName))
                 ) && 
                 (
                     this.WLCID == input.WLCID ||
-                    (this.WLCID.Equals(input.WLCID))
+                    (this.WLCID != null &&
+                    this.WLCID.Equals(input.WLCID))
                 ) && 
                 (
                     this.StringsResult == input.StringsResult ||
@@ -185,11 +230,13 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.RFIDOriginDG == input.RFIDOriginDG ||
-                    (this.RFIDOriginDG.Equals(input.RFIDOriginDG))
+                    (this.RFIDOriginDG != null &&
+                    this.RFIDOriginDG.Equals(input.RFIDOriginDG))
                 ) && 
                 (
                     this.RFIDOriginTagEntry == input.RFIDOriginTagEntry ||
-                    (this.RFIDOriginTagEntry.Equals(input.RFIDOriginTagEntry))
+                    (this.RFIDOriginTagEntry != null &&
+                    this.RFIDOriginTagEntry.Equals(input.RFIDOriginTagEntry))
                 );
         }
 
@@ -202,16 +249,22 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
-                hashCode = hashCode * 59 + this.WLCID.GetHashCode();
+                if (this.WFieldType != null)
+                    hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
+                if (this.FieldName != null)
+                    hashCode = hashCode * 59 + this.FieldName.GetHashCode();
+                if (this.WLCID != null)
+                    hashCode = hashCode * 59 + this.WLCID.GetHashCode();
                 if (this.StringsResult != null)
                     hashCode = hashCode * 59 + this.StringsResult.GetHashCode();
                 if (this.BufText != null)
                     hashCode = hashCode * 59 + this.BufText.GetHashCode();
                 if (this.FieldRect != null)
                     hashCode = hashCode * 59 + this.FieldRect.GetHashCode();
-                hashCode = hashCode * 59 + this.RFIDOriginDG.GetHashCode();
-                hashCode = hashCode * 59 + this.RFIDOriginTagEntry.GetHashCode();
+                if (this.RFIDOriginDG != null)
+                    hashCode = hashCode * 59 + this.RFIDOriginDG.GetHashCode();
+                if (this.RFIDOriginTagEntry != null)
+                    hashCode = hashCode * 59 + this.RFIDOriginTagEntry.GetHashCode();
                 return hashCode;
             }
         }

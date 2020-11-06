@@ -15,7 +15,7 @@ namespace Regula.DocumentReader.NetCoreExample
         
         public static void Main()
         {
-            string apiBaseUrl = Environment.GetEnvironmentVariable(ApiBasePath) ?? "http://localhost:8083";
+            string apiBaseUrl = Environment.GetEnvironmentVariable(ApiBasePath) ?? "http://localhost:8080";
 
             string licenseFromEnv = Environment.GetEnvironmentVariable(TestLicense); // optional, used here only for smoke test purposes
             var licenseFromFile = File.Exists(LicenseFileName) 

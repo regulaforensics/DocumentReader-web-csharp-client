@@ -1,4 +1,5 @@
 {
   "packageName": "Regula.DocumentReader.WebClient",
-  "optionalAssemblyInfo": true
+  "optionalAssemblyInfo": true,
+  "isRestSharp_106_10_1_above" :true
 }

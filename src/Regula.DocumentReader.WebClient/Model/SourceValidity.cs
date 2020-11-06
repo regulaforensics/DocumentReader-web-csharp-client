@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceValidity" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected SourceValidity() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceValidity" /> class.
@@ -47,8 +53,15 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             
             // to ensure "status" is required (not null)
-            this.Status = status;
-
+            if (status == null)
+            {
+                throw new InvalidDataException("status is a required property for SourceValidity and cannot be null");
+            }
+            else
+            {
+                this.Status = status;
+            }
+            
         }
         
         /// <summary>
@@ -114,7 +127,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status.Equals(input.Status))
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -129,7 +143,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 int hashCode = 41;
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

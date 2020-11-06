@@ -9,13 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -28,12 +33,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TextField" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected TextField() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="TextField" /> class.
         /// </summary>
         /// <param name="fieldType">fieldType (required).</param>
+        /// <param name="fieldName">Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup. (required).</param>
         /// <param name="lcid">lcid.</param>
         /// <param name="status">status (required).</param>
         /// <param name="validityStatus">validityStatus (required).</param>
@@ -42,20 +48,58 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="valueList">valueList (required).</param>
         /// <param name="validityList">Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error. (required).</param>
         /// <param name="comparisonList">comparisonList (required).</param>
-        public TextField(int fieldType = default(int), int lcid = default(int), int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
+        public TextField(int fieldType = default(int), string fieldName = default(string), int lcid = default(int), int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
         {
             // to ensure "fieldType" is required (not null)
-            this.FieldType = fieldType;
-
+            if (fieldType == null)
+            {
+                throw new InvalidDataException("fieldType is a required property for TextField and cannot be null");
+            }
+            else
+            {
+                this.FieldType = fieldType;
+            }
+            
+            // to ensure "fieldName" is required (not null)
+            if (fieldName == null)
+            {
+                throw new InvalidDataException("fieldName is a required property for TextField and cannot be null");
+            }
+            else
+            {
+                this.FieldName = fieldName;
+            }
+            
             // to ensure "status" is required (not null)
-            this.Status = status;
-
+            if (status == null)
+            {
+                throw new InvalidDataException("status is a required property for TextField and cannot be null");
+            }
+            else
+            {
+                this.Status = status;
+            }
+            
             // to ensure "validityStatus" is required (not null)
-            this.ValidityStatus = validityStatus;
-
+            if (validityStatus == null)
+            {
+                throw new InvalidDataException("validityStatus is a required property for TextField and cannot be null");
+            }
+            else
+            {
+                this.ValidityStatus = validityStatus;
+            }
+            
             // to ensure "comparisonStatus" is required (not null)
-            this.ComparisonStatus = comparisonStatus;
-
+            if (comparisonStatus == null)
+            {
+                throw new InvalidDataException("comparisonStatus is a required property for TextField and cannot be null");
+            }
+            else
+            {
+                this.ComparisonStatus = comparisonStatus;
+            }
+            
             // to ensure "value" is required (not null)
             if (value == null)
             {
@@ -104,6 +148,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name="fieldType", EmitDefaultValue=true)]
         public int FieldType { get; set; }
+
+        /// <summary>
+        /// Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup.
+        /// </summary>
+        /// <value>Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup.</value>
+        [DataMember(Name="fieldName", EmitDefaultValue=true)]
+        public string FieldName { get; set; }
 
         /// <summary>
         /// Gets or Sets Lcid
@@ -164,6 +215,7 @@ namespace Regula.DocumentReader.WebClient.Model
             var sb = new StringBuilder();
             sb.Append("class TextField {\n");
             sb.Append("  FieldType: ").Append(FieldType).Append("\n");
+            sb.Append("  FieldName: ").Append(FieldName).Append("\n");
             sb.Append("  Lcid: ").Append(Lcid).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ValidityStatus: ").Append(ValidityStatus).Append("\n");
@@ -208,23 +260,33 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.FieldType == input.FieldType ||
-                    (this.FieldType.Equals(input.FieldType))
+                    (this.FieldType != null &&
+                    this.FieldType.Equals(input.FieldType))
+                ) && 
+                (
+                    this.FieldName == input.FieldName ||
+                    (this.FieldName != null &&
+                    this.FieldName.Equals(input.FieldName))
                 ) && 
                 (
                     this.Lcid == input.Lcid ||
-                    (this.Lcid.Equals(input.Lcid))
+                    (this.Lcid != null &&
+                    this.Lcid.Equals(input.Lcid))
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status.Equals(input.Status))
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.ValidityStatus == input.ValidityStatus ||
-                    (this.ValidityStatus.Equals(input.ValidityStatus))
+                    (this.ValidityStatus != null &&
+                    this.ValidityStatus.Equals(input.ValidityStatus))
                 ) && 
                 (
                     this.ComparisonStatus == input.ComparisonStatus ||
-                    (this.ComparisonStatus.Equals(input.ComparisonStatus))
+                    (this.ComparisonStatus != null &&
+                    this.ComparisonStatus.Equals(input.ComparisonStatus))
                 ) && 
                 (
                     this.Value == input.Value ||
@@ -260,11 +322,18 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.FieldType.GetHashCode();
-                hashCode = hashCode * 59 + this.Lcid.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
+                if (this.FieldType != null)
+                    hashCode = hashCode * 59 + this.FieldType.GetHashCode();
+                if (this.FieldName != null)
+                    hashCode = hashCode * 59 + this.FieldName.GetHashCode();
+                if (this.Lcid != null)
+                    hashCode = hashCode * 59 + this.Lcid.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.ValidityStatus != null)
+                    hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
+                if (this.ComparisonStatus != null)
+                    hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.ValueList != null)

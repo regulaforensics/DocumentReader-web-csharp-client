@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -143,11 +149,13 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.WFieldType == input.WFieldType ||
-                    (this.WFieldType.Equals(input.WFieldType))
+                    (this.WFieldType != null &&
+                    this.WFieldType.Equals(input.WFieldType))
                 ) && 
                 (
                     this.WLCID == input.WLCID ||
-                    (this.WLCID.Equals(input.WLCID))
+                    (this.WLCID != null &&
+                    this.WLCID.Equals(input.WLCID))
                 ) && 
                 (
                     this.FieldMRZ == input.FieldMRZ ||
@@ -186,8 +194,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
-                hashCode = hashCode * 59 + this.WLCID.GetHashCode();
+                if (this.WFieldType != null)
+                    hashCode = hashCode * 59 + this.WFieldType.GetHashCode();
+                if (this.WLCID != null)
+                    hashCode = hashCode * 59 + this.WLCID.GetHashCode();
                 if (this.FieldMRZ != null)
                     hashCode = hashCode * 59 + this.FieldMRZ.GetHashCode();
                 if (this.FieldVisual != null)

@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,15 +33,15 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TextAvailableSource" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected TextAvailableSource() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="TextAvailableSource" /> class.
         /// </summary>
         /// <param name="source">source (required).</param>
         /// <param name="validityStatus">validityStatus (required).</param>
-        /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type..</param>
-        public TextAvailableSource(string source = default(string), int validityStatus = default(int), int containerType = default(int))
+        /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
+        public TextAvailableSource(string source = default(string), int validityStatus = default(int), int containerType = 0)
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -48,9 +54,24 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             
             // to ensure "validityStatus" is required (not null)
-            this.ValidityStatus = validityStatus;
-
-            this.ContainerType = containerType;
+            if (validityStatus == null)
+            {
+                throw new InvalidDataException("validityStatus is a required property for TextAvailableSource and cannot be null");
+            }
+            else
+            {
+                this.ValidityStatus = validityStatus;
+            }
+            
+            // use default value if no "containerType" provided
+            if (containerType == null)
+            {
+                this.ContainerType = 0;
+            }
+            else
+            {
+                this.ContainerType = containerType;
+            }
         }
         
         /// <summary>
@@ -124,11 +145,13 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.ValidityStatus == input.ValidityStatus ||
-                    (this.ValidityStatus.Equals(input.ValidityStatus))
+                    (this.ValidityStatus != null &&
+                    this.ValidityStatus.Equals(input.ValidityStatus))
                 ) && 
                 (
                     this.ContainerType == input.ContainerType ||
-                    (this.ContainerType.Equals(input.ContainerType))
+                    (this.ContainerType != null &&
+                    this.ContainerType.Equals(input.ContainerType))
                 );
         }
 
@@ -143,8 +166,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 int hashCode = 41;
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
-                hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
+                if (this.ValidityStatus != null)
+                    hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
+                if (this.ContainerType != null)
+                    hashCode = hashCode * 59 + this.ContainerType.GetHashCode();
                 return hashCode;
             }
         }

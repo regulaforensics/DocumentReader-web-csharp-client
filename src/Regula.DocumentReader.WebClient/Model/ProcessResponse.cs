@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -27,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessResponse" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected ProcessResponse() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessResponse" /> class.
@@ -36,14 +42,29 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="processingFinished">processingFinished (required).</param>
         /// <param name="containerList">containerList (required).</param>
         /// <param name="transactionInfo">transactionInfo (required).</param>
-        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo))
+        /// <param name="log">Base64 encoded transaction processing log.</param>
+        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string))
         {
             // to ensure "chipPage" is required (not null)
-            this.ChipPage = chipPage;
-
+            if (chipPage == null)
+            {
+                throw new InvalidDataException("chipPage is a required property for ProcessResponse and cannot be null");
+            }
+            else
+            {
+                this.ChipPage = chipPage;
+            }
+            
             // to ensure "processingFinished" is required (not null)
-            this.ProcessingFinished = processingFinished;
-
+            if (processingFinished == null)
+            {
+                throw new InvalidDataException("processingFinished is a required property for ProcessResponse and cannot be null");
+            }
+            else
+            {
+                this.ProcessingFinished = processingFinished;
+            }
+            
             // to ensure "containerList" is required (not null)
             if (containerList == null)
             {
@@ -64,6 +85,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.TransactionInfo = transactionInfo;
             }
             
+            this.Log = log;
         }
         
         /// <summary>
@@ -91,6 +113,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public TransactionInfo TransactionInfo { get; set; }
 
         /// <summary>
+        /// Base64 encoded transaction processing log
+        /// </summary>
+        /// <value>Base64 encoded transaction processing log</value>
+        [DataMember(Name="log", EmitDefaultValue=false)]
+        public string Log { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +131,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ProcessingFinished: ").Append(ProcessingFinished).Append("\n");
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
             sb.Append("  TransactionInfo: ").Append(TransactionInfo).Append("\n");
+            sb.Append("  Log: ").Append(Log).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,11 +168,13 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.ChipPage == input.ChipPage ||
-                    (this.ChipPage.Equals(input.ChipPage))
+                    (this.ChipPage != null &&
+                    this.ChipPage.Equals(input.ChipPage))
                 ) && 
                 (
                     this.ProcessingFinished == input.ProcessingFinished ||
-                    (this.ProcessingFinished.Equals(input.ProcessingFinished))
+                    (this.ProcessingFinished != null &&
+                    this.ProcessingFinished.Equals(input.ProcessingFinished))
                 ) && 
                 (
                     this.ContainerList == input.ContainerList ||
@@ -153,6 +185,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.TransactionInfo == input.TransactionInfo ||
                     (this.TransactionInfo != null &&
                     this.TransactionInfo.Equals(input.TransactionInfo))
+                ) && 
+                (
+                    this.Log == input.Log ||
+                    (this.Log != null &&
+                    this.Log.Equals(input.Log))
                 );
         }
 
@@ -165,12 +202,16 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ChipPage.GetHashCode();
-                hashCode = hashCode * 59 + this.ProcessingFinished.GetHashCode();
+                if (this.ChipPage != null)
+                    hashCode = hashCode * 59 + this.ChipPage.GetHashCode();
+                if (this.ProcessingFinished != null)
+                    hashCode = hashCode * 59 + this.ProcessingFinished.GetHashCode();
                 if (this.ContainerList != null)
                     hashCode = hashCode * 59 + this.ContainerList.GetHashCode();
                 if (this.TransactionInfo != null)
                     hashCode = hashCode * 59 + this.TransactionInfo.GetHashCode();
+                if (this.Log != null)
+                    hashCode = hashCode * 59 + this.Log.GetHashCode();
                 return hashCode;
             }
         }

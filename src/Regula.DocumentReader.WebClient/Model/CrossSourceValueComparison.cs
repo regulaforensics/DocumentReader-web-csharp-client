@@ -9,12 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -22,12 +28,12 @@ namespace Regula.DocumentReader.WebClient.Model
     /// CrossSourceValueComparison
     /// </summary>
     [DataContract]
-    public class CrossSourceValueComparison :  IEquatable<CrossSourceValueComparison>, IValidatableObject
+    public partial class CrossSourceValueComparison :  IEquatable<CrossSourceValueComparison>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected CrossSourceValueComparison() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
@@ -35,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sourceLeft">sourceLeft (required).</param>
         /// <param name="sourceRight">sourceRight (required).</param>
         /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(string sourceLeft = default, string sourceRight = default, int status = default)
+        public CrossSourceValueComparison(string sourceLeft = default(string), string sourceRight = default(string), int status = default(int))
         {
             // to ensure "sourceLeft" is required (not null)
             if (sourceLeft == null)
@@ -58,8 +64,15 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             
             // to ensure "status" is required (not null)
-            this.Status = status;
-
+            if (status == null)
+            {
+                throw new InvalidDataException("status is a required property for CrossSourceValueComparison and cannot be null");
+            }
+            else
+            {
+                this.Status = status;
+            }
+            
         }
         
         /// <summary>
@@ -137,7 +150,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -154,7 +168,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.SourceLeft.GetHashCode();
                 if (this.SourceRight != null)
                     hashCode = hashCode * 59 + this.SourceRight.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }
@@ -164,7 +179,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

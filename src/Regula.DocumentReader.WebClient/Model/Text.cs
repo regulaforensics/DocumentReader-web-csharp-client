@@ -9,13 +9,18 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -28,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Text" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected Text() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="Text" /> class.
@@ -41,14 +46,35 @@ namespace Regula.DocumentReader.WebClient.Model
         public Text(int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
         {
             // to ensure "status" is required (not null)
-            this.Status = status;
-
+            if (status == null)
+            {
+                throw new InvalidDataException("status is a required property for Text and cannot be null");
+            }
+            else
+            {
+                this.Status = status;
+            }
+            
             // to ensure "validityStatus" is required (not null)
-            this.ValidityStatus = validityStatus;
-
+            if (validityStatus == null)
+            {
+                throw new InvalidDataException("validityStatus is a required property for Text and cannot be null");
+            }
+            else
+            {
+                this.ValidityStatus = validityStatus;
+            }
+            
             // to ensure "comparisonStatus" is required (not null)
-            this.ComparisonStatus = comparisonStatus;
-
+            if (comparisonStatus == null)
+            {
+                throw new InvalidDataException("comparisonStatus is a required property for Text and cannot be null");
+            }
+            else
+            {
+                this.ComparisonStatus = comparisonStatus;
+            }
+            
             // to ensure "fieldList" is required (not null)
             if (fieldList == null)
             {
@@ -150,15 +176,18 @@ namespace Regula.DocumentReader.WebClient.Model
             return 
                 (
                     this.Status == input.Status ||
-                    (this.Status.Equals(input.Status))
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.ValidityStatus == input.ValidityStatus ||
-                    (this.ValidityStatus.Equals(input.ValidityStatus))
+                    (this.ValidityStatus != null &&
+                    this.ValidityStatus.Equals(input.ValidityStatus))
                 ) && 
                 (
                     this.ComparisonStatus == input.ComparisonStatus ||
-                    (this.ComparisonStatus.Equals(input.ComparisonStatus))
+                    (this.ComparisonStatus != null &&
+                    this.ComparisonStatus.Equals(input.ComparisonStatus))
                 ) && 
                 (
                     this.FieldList == input.FieldList ||
@@ -183,9 +212,12 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.ValidityStatus != null)
+                    hashCode = hashCode * 59 + this.ValidityStatus.GetHashCode();
+                if (this.ComparisonStatus != null)
+                    hashCode = hashCode * 59 + this.ComparisonStatus.GetHashCode();
                 if (this.FieldList != null)
                     hashCode = hashCode * 59 + this.FieldList.GetHashCode();
                 if (this.AvailableSourceList != null)
