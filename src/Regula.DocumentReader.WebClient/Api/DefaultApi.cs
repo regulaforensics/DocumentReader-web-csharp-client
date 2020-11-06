@@ -13,9 +13,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
+using RestSharp;
 using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
-using RestSharp;
 
 namespace Regula.DocumentReader.WebClient.Api
 {
@@ -31,7 +31,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ProcessResponse</returns>
         ProcessResponse ApiProcess (ProcessRequest processRequest);
@@ -42,10 +42,29 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ApiResponse of ProcessResponse</returns>
         ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest);
+        /// <summary>
+        /// Server health check
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>DeviceInfo</returns>
+        DeviceInfo Ping ();
+
+        /// <summary>
+        /// Server health check
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of DeviceInfo</returns>
+        ApiResponse<DeviceInfo> PingWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProcessResponse</returns>
@@ -66,11 +85,32 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Server health check
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of DeviceInfo</returns>
+        System.Threading.Tasks.Task<DeviceInfo> PingAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Server health check
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (DeviceInfo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -79,7 +119,7 @@ namespace Regula.DocumentReader.WebClient.Api
     /// </summary>
     public partial class DefaultApi : IDefaultApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Regula.DocumentReader.WebClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultApi"/> class.
@@ -87,9 +127,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <returns></returns>
         public DefaultApi(String basePath)
         {
-            this.Configuration = new Configuration { BasePath = basePath };
+            this.Configuration = new Regula.DocumentReader.WebClient.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Regula.DocumentReader.WebClient.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -98,9 +138,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <returns></returns>
         public DefaultApi()
         {
-            this.Configuration = Configuration.Default;
+            this.Configuration = Regula.DocumentReader.WebClient.Client.Configuration.Default;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Regula.DocumentReader.WebClient.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -109,14 +149,14 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DefaultApi(Configuration configuration = null)
+        public DefaultApi(Regula.DocumentReader.WebClient.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                this.Configuration = Regula.DocumentReader.WebClient.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Regula.DocumentReader.WebClient.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -142,12 +182,12 @@ namespace Regula.DocumentReader.WebClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Regula.DocumentReader.WebClient.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public Regula.DocumentReader.WebClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -185,7 +225,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <summary>
         /// Process list of documents images and return extracted data 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ProcessResponse</returns>
         public ProcessResponse ApiProcess (ProcessRequest processRequest)
@@ -197,7 +237,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <summary>
         /// Process list of documents images and return extracted data 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ApiResponse of ProcessResponse</returns>
         public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest)
@@ -259,7 +299,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <summary>
         /// Process list of documents images and return extracted data 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProcessResponse</returns>
@@ -273,7 +313,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <summary>
         /// Process list of documents images and return extracted data 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
@@ -331,6 +371,129 @@ namespace Regula.DocumentReader.WebClient.Api
             return new ApiResponse<ProcessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ProcessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessResponse)));
+        }
+
+        /// <summary>
+        /// Server health check 
+        /// </summary>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>DeviceInfo</returns>
+        public DeviceInfo Ping ()
+        {
+             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Server health check 
+        /// </summary>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of DeviceInfo</returns>
+        public ApiResponse<DeviceInfo> PingWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/ping";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Ping", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DeviceInfo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (DeviceInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeviceInfo)));
+        }
+
+        /// <summary>
+        /// Server health check 
+        /// </summary>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of DeviceInfo</returns>
+        public async System.Threading.Tasks.Task<DeviceInfo> PingAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<DeviceInfo> localVarResponse = await PingWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Server health check 
+        /// </summary>
+        /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (DeviceInfo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/api/ping";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Ping", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DeviceInfo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (DeviceInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeviceInfo)));
         }
 
     }

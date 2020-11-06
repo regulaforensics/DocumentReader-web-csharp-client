@@ -9,9 +9,12 @@
  */
 
 using System;
+using System.Reflection;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Regula.DocumentReader.WebClient.Client
 {
@@ -414,7 +417,7 @@ namespace Regula.DocumentReader.WebClient.Client
         /// </summary>
         public static String ToDebugReport()
         {
-            String report = "C# SDK (Org.OpenAPITools) Debug Report:\n";
+            String report = "C# SDK (Regula.DocumentReader.WebClient) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.2.0\n";
