@@ -11,11 +11,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Text.RegularExpressions;
+using System.IO;
 using System.Threading;
+using System.Web;
+using System.Linq;
+using System.Net;
+using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -50,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Client
         /// </summary>
         public ApiClient()
         {
-            Configuration = Client.Configuration.Default;
+            Configuration = Regula.DocumentReader.WebClient.Client.Configuration.Default;
             RestClient = new RestClient("http://localhost:8080");
         }
 
@@ -61,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Client.Configuration.Default;
+            Configuration = config ?? Regula.DocumentReader.WebClient.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }
@@ -132,7 +135,7 @@ namespace Regula.DocumentReader.WebClient.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
+                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
@@ -203,9 +206,9 @@ namespace Regula.DocumentReader.WebClient.Client
                 pathParams, contentType);
             RestClient.UserAgent = Configuration.UserAgent;
             InterceptRequest(request);
-            var response = await RestClient.ExecuteAsync(request, cancellationToken);
+            var response = await RestClient.ExecuteTaskAsync(request, cancellationToken);
             InterceptResponse(request, response);
-            return response;
+            return (Object)response;
         }
 
         /// <summary>
@@ -278,7 +281,7 @@ namespace Regula.DocumentReader.WebClient.Client
         /// <returns>Object representation of the JSON string.</returns>
         public object Deserialize(IRestResponse response, Type type)
         {
-            var headers = response.Headers;
+            IList<Parameter> headers = response.Headers;
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -287,6 +290,7 @@ namespace Regula.DocumentReader.WebClient.Client
             // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
             if (type == typeof(Stream))
             {
+                if (headers != null)
                 {
                     var filePath = String.IsNullOrEmpty(Configuration.TempFolderPath)
                         ? Path.GetTempPath()
