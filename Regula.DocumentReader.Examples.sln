@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.DocumentReader.Examp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.DocumentReader.NetCoreExample", "src\Regula.DocumentReader.NetCoreExample\Regula.DocumentReader.NetCoreExample.csproj", "{8D12CA8C-E820-4783-BBAF-193A546422E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.DocumentReader.LocalNetCoreExample", "src\Regula.DocumentReader.LocalNetCoreExample\Regula.DocumentReader.LocalNetCoreExample.csproj", "{0088E754-DDB1-40AA-8124-911FDA4B1A81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.DocumentReader.WebClient", "src\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj", "{0C7257F5-EA25-480A-862D-A42ED3C1F9D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{8D12CA8C-E820-4783-BBAF-193A546422E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D12CA8C-E820-4783-BBAF-193A546422E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D12CA8C-E820-4783-BBAF-193A546422E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0088E754-DDB1-40AA-8124-911FDA4B1A81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0088E754-DDB1-40AA-8124-911FDA4B1A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0088E754-DDB1-40AA-8124-911FDA4B1A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0088E754-DDB1-40AA-8124-911FDA4B1A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7257F5-EA25-480A-862D-A42ED3C1F9D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7257F5-EA25-480A-862D-A42ED3C1F9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7257F5-EA25-480A-862D-A42ED3C1F9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7257F5-EA25-480A-862D-A42ED3C1F9D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
