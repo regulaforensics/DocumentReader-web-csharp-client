@@ -128,7 +128,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Page index of the image from input list</value>
         [DataMember(Name="pageIndex", EmitDefaultValue=true)]
-        public int PageIndex { get; set; }
+        public long PageIndex { get; set; }
 
         /// <summary>
         /// Gets or Sets LightIndex
