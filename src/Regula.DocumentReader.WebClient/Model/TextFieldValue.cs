@@ -116,7 +116,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Page index of the image from input list</value>
         [DataMember(Name="pageIndex", EmitDefaultValue=true)]
-        public long PageIndex { get; set; }
+        public int PageIndex { get; set; }
 
         /// <summary>
         /// Min recognition probability. Combined minimum probability from single characters probabilities
