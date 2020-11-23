@@ -38,7 +38,6 @@ src/Regula.DocumentReader.WebClient/Model/ProcessRequestImage.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessResponse.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessSystemInfo.cs
 src/Regula.DocumentReader.WebClient/Model/RectangleCoordinates.cs
-src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
 src/Regula.DocumentReader.WebClient/Model/RfidOrigin.cs
 src/Regula.DocumentReader.WebClient/Model/SourceValidity.cs
 src/Regula.DocumentReader.WebClient/Model/Status.cs

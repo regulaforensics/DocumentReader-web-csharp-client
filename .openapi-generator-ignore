@@ -16,3 +16,6 @@ src/Regula.DocumentReader.WebClient/Properties/**
 # classes, modified after generation
 **/ContainerList.cs
 **/*AllOf.cs
+
+# generator bugs, require manual change
+src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
