@@ -1,4 +1,5 @@
 src/Regula.DocumentReader.WebClient/Api/DefaultApi.cs
+src/Regula.DocumentReader.WebClient/Api/ProcessApi.cs
 src/Regula.DocumentReader.WebClient/Client/ApiClient.cs
 src/Regula.DocumentReader.WebClient/Client/ApiException.cs
 src/Regula.DocumentReader.WebClient/Client/ApiResponse.cs
@@ -8,6 +9,7 @@ src/Regula.DocumentReader.WebClient/Client/GlobalConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/IApiAccessor.cs
 src/Regula.DocumentReader.WebClient/Client/IReadableConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/OpenAPIDateConverter.cs
+src/Regula.DocumentReader.WebClient/Model/ChosenDocumentType.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentTypeResult.cs
 src/Regula.DocumentReader.WebClient/Model/CrossSourceValueComparison.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsOptical.cs
@@ -15,7 +17,9 @@ src/Regula.DocumentReader.WebClient/Model/DetailsRFID.cs
 src/Regula.DocumentReader.WebClient/Model/DeviceInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedField.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedInfo.cs
+src/Regula.DocumentReader.WebClient/Model/DocumentImage.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentImageResult.cs
+src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidates.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesList.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesResult.cs
 src/Regula.DocumentReader.WebClient/Model/FDSIDList.cs
@@ -23,6 +27,7 @@ src/Regula.DocumentReader.WebClient/Model/GraphicField.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicFieldsList.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicsResult.cs
 src/Regula.DocumentReader.WebClient/Model/ImageData.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQA.cs
 src/Regula.DocumentReader.WebClient/Model/Images.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesAvailableSource.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesField.cs

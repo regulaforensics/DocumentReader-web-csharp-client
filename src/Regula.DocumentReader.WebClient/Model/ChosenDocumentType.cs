@@ -28,10 +28,10 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Contains information about one document type candidate
     /// </summary>
     [DataContract]
-    public partial class OneCandidate :  IEquatable<OneCandidate>, IValidatableObject
+    public partial class ChosenDocumentType :  IEquatable<ChosenDocumentType>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OneCandidate" /> class.
+        /// Initializes a new instance of the <see cref="ChosenDocumentType" /> class.
         /// </summary>
         /// <param name="documentName">Document name.</param>
         /// <param name="iD">Unique document type template identifier (Regula&#39;s internal numeric code).</param>
@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkAuthenticity">Set of authentication options provided for this type of document (combination of Authenticity enum).</param>
         /// <param name="uVExp">The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme.</param>
         /// <param name="authenticityNecessaryLights">Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity.</param>
-        public OneCandidate(string documentName = default(string), int iD = default(int), decimal p = default(decimal), int rFIDPresence = default(int), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int))
+        public ChosenDocumentType(string documentName = default(string), int iD = default(int), decimal p = default(decimal), int rFIDPresence = default(int), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int))
         {
             this.DocumentName = documentName;
             this.ID = iD;
@@ -123,7 +123,7 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OneCandidate {\n");
+            sb.Append("class ChosenDocumentType {\n");
             sb.Append("  DocumentName: ").Append(DocumentName).Append("\n");
             sb.Append("  ID: ").Append(ID).Append("\n");
             sb.Append("  P: ").Append(P).Append("\n");
@@ -153,15 +153,15 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OneCandidate);
+            return this.Equals(input as ChosenDocumentType);
         }
 
         /// <summary>
-        /// Returns true if OneCandidate instances are equal
+        /// Returns true if ChosenDocumentType instances are equal
         /// </summary>
-        /// <param name="input">Instance of OneCandidate to be compared</param>
+        /// <param name="input">Instance of ChosenDocumentType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OneCandidate input)
+        public bool Equals(ChosenDocumentType input)
         {
             if (input == null)
                 return false;

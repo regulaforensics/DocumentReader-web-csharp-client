@@ -25,57 +25,51 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Describes a single character recognition results in the text field line
+    /// ImageQA
     /// </summary>
     [DataContract]
-    public partial class SymbolRecognitionResult :  IEquatable<SymbolRecognitionResult>, IValidatableObject
+    public partial class ImageQA :  IEquatable<ImageQA>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SymbolRecognitionResult" /> class.
+        /// Initializes a new instance of the <see cref="ImageQA" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SymbolRecognitionResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SymbolRecognitionResult" /> class.
-        /// </summary>
-        /// <param name="symbolRect">symbolRect (required).</param>
-        /// <param name="listOfCandidates">Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability) (required).</param>
-        public SymbolRecognitionResult(RectangleCoordinates symbolRect = default(RectangleCoordinates), List<SymbolCandidate> listOfCandidates = default(List<SymbolCandidate>))
+        /// <param name="dpiThreshold">This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail. (default to 150M).</param>
+        /// <param name="angleThreshold">This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail. (default to 5M).</param>
+        public ImageQA(decimal dpiThreshold = 150M, decimal angleThreshold = 5M)
         {
-            // to ensure "symbolRect" is required (not null)
-            if (symbolRect == null)
+            // use default value if no "dpiThreshold" provided
+            if (dpiThreshold == null)
             {
-                throw new InvalidDataException("symbolRect is a required property for SymbolRecognitionResult and cannot be null");
+                this.DpiThreshold = 150M;
             }
             else
             {
-                this.SymbolRect = symbolRect;
+                this.DpiThreshold = dpiThreshold;
             }
-            
-            // to ensure "listOfCandidates" is required (not null)
-            if (listOfCandidates == null)
+            // use default value if no "angleThreshold" provided
+            if (angleThreshold == null)
             {
-                throw new InvalidDataException("listOfCandidates is a required property for SymbolRecognitionResult and cannot be null");
+                this.AngleThreshold = 5M;
             }
             else
             {
-                this.ListOfCandidates = listOfCandidates;
+                this.AngleThreshold = angleThreshold;
             }
-            
         }
         
         /// <summary>
-        /// Gets or Sets SymbolRect
+        /// This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.
         /// </summary>
-        [DataMember(Name="SymbolRect", EmitDefaultValue=true)]
-        public RectangleCoordinates SymbolRect { get; set; }
+        /// <value>This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.</value>
+        [DataMember(Name="dpiThreshold", EmitDefaultValue=false)]
+        public decimal DpiThreshold { get; set; }
 
         /// <summary>
-        /// Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)
+        /// This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.
         /// </summary>
-        /// <value>Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)</value>
-        [DataMember(Name="ListOfCandidates", EmitDefaultValue=true)]
-        public List<SymbolCandidate> ListOfCandidates { get; set; }
+        /// <value>This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.</value>
+        [DataMember(Name="angleThreshold", EmitDefaultValue=false)]
+        public decimal AngleThreshold { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,9 +78,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SymbolRecognitionResult {\n");
-            sb.Append("  SymbolRect: ").Append(SymbolRect).Append("\n");
-            sb.Append("  ListOfCandidates: ").Append(ListOfCandidates).Append("\n");
+            sb.Append("class ImageQA {\n");
+            sb.Append("  DpiThreshold: ").Append(DpiThreshold).Append("\n");
+            sb.Append("  AngleThreshold: ").Append(AngleThreshold).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,30 +101,29 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SymbolRecognitionResult);
+            return this.Equals(input as ImageQA);
         }
 
         /// <summary>
-        /// Returns true if SymbolRecognitionResult instances are equal
+        /// Returns true if ImageQA instances are equal
         /// </summary>
-        /// <param name="input">Instance of SymbolRecognitionResult to be compared</param>
+        /// <param name="input">Instance of ImageQA to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SymbolRecognitionResult input)
+        public bool Equals(ImageQA input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.SymbolRect == input.SymbolRect ||
-                    (this.SymbolRect != null &&
-                    this.SymbolRect.Equals(input.SymbolRect))
+                    this.DpiThreshold == input.DpiThreshold ||
+                    (this.DpiThreshold != null &&
+                    this.DpiThreshold.Equals(input.DpiThreshold))
                 ) && 
                 (
-                    this.ListOfCandidates == input.ListOfCandidates ||
-                    this.ListOfCandidates != null &&
-                    input.ListOfCandidates != null &&
-                    this.ListOfCandidates.SequenceEqual(input.ListOfCandidates)
+                    this.AngleThreshold == input.AngleThreshold ||
+                    (this.AngleThreshold != null &&
+                    this.AngleThreshold.Equals(input.AngleThreshold))
                 );
         }
 
@@ -143,10 +136,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SymbolRect != null)
-                    hashCode = hashCode * 59 + this.SymbolRect.GetHashCode();
-                if (this.ListOfCandidates != null)
-                    hashCode = hashCode * 59 + this.ListOfCandidates.GetHashCode();
+                if (this.DpiThreshold != null)
+                    hashCode = hashCode * 59 + this.DpiThreshold.GetHashCode();
+                if (this.AngleThreshold != null)
+                    hashCode = hashCode * 59 + this.AngleThreshold.GetHashCode();
                 return hashCode;
             }
         }
