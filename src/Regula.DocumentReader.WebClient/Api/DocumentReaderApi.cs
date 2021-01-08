@@ -4,10 +4,16 @@ using Regula.DocumentReader.WebClient.Model.Ext;
 
 namespace Regula.DocumentReader.WebClient.Api
 {
-    public class DocumentReaderApi : DefaultApi
+    public class DocumentReaderApi
     {
+        private readonly DefaultApi _defaultApi;
+        private readonly ProcessApi _processApi;
+
         public DocumentReaderApi(string basePath)
-            : base(basePath) { }
+        {
+            this._defaultApi = new DefaultApi(basePath);
+            this._processApi = new ProcessApi(basePath);
+        }
 
         private string License { get; set; }
         
@@ -18,7 +24,11 @@ namespace Regula.DocumentReader.WebClient.Api
             else
                 processRequest.SystemInfo.License = License;
 
-            return new RecognitionResponse(ApiProcess(processRequest));
+            return new RecognitionResponse(this._processApi.ApiProcess(processRequest));
+        }
+        public DeviceInfo Ping ()
+        {
+            return this._defaultApi.Ping();
         }
         
         public DocumentReaderApi WithLicense(string license) 
