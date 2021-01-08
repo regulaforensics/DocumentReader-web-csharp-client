@@ -6,12 +6,12 @@ DocumentTypeRecognitionResult=int,ProcessingStatus=int,Source=string,CheckResult
 LCID=int,DocumentType=int" \
 \
 && docker run --user "$(id -u):$(id -g)" --rm -v "${PWD}:/client" -v "$DOCS_DEFINITION_FOLDER:/definitions" \
-openapitools/openapi-generator-cli generate \
+openapitools/openapi-generator-cli:v5.0.0 generate \
 -i /definitions/index.yml -g csharp -o /client/ \
 -c /client/csharp-generator-config.json -t /client/generator-templates/ \
 \
 && docker run --user "$(id -u):$(id -g)" --rm -v "${PWD}:/client" -v "${DOCS_DEFINITION_FOLDER}:/definitions" \
-openapitools/openapi-generator-cli generate \
+openapitools/openapi-generator-cli:v5.0.0 generate \
 -i /definitions/index.yml -g csharp -o /client/ \
 -c /client/csharp-generator-config.json -t /client/generator-templates/ \
 --import-mappings $ENUM_MAPPINGS
