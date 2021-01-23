@@ -25,64 +25,40 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ProcessRequestImage
+    /// AuthenticityCheckList
     /// </summary>
     [DataContract]
-    public partial class ProcessRequestImage :  IEquatable<ProcessRequestImage>, IValidatableObject
+    public partial class AuthenticityCheckList :  IEquatable<AuthenticityCheckList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
+        /// Initializes a new instance of the <see cref="AuthenticityCheckList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ProcessRequestImage() { }
+        protected AuthenticityCheckList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
+        /// Initializes a new instance of the <see cref="AuthenticityCheckList" /> class.
         /// </summary>
-        /// <param name="imageData">imageData (required).</param>
-        /// <param name="light">light.</param>
-        /// <param name="pageIdx">page/image number (default to 0).</param>
-        public ProcessRequestImage(ImageData imageData = default(ImageData), int light = default(int), int pageIdx = 0)
+        /// <param name="list">Authenticity Check (required).</param>
+        public AuthenticityCheckList(List<AuthenticityCheckResult> list = default(List<AuthenticityCheckResult>))
         {
-            // to ensure "imageData" is required (not null)
-            if (imageData == null)
+            // to ensure "list" is required (not null)
+            if (list == null)
             {
-                throw new InvalidDataException("imageData is a required property for ProcessRequestImage and cannot be null");
+                throw new InvalidDataException("list is a required property for AuthenticityCheckList and cannot be null");
             }
             else
             {
-                this.ImageData = imageData;
+                this.List = list;
             }
             
-            this.Light = light;
-            // use default value if no "pageIdx" provided
-            if (pageIdx == null)
-            {
-                this.PageIdx = 0;
-            }
-            else
-            {
-                this.PageIdx = pageIdx;
-            }
         }
         
         /// <summary>
-        /// Gets or Sets ImageData
+        /// Authenticity Check
         /// </summary>
-        [DataMember(Name="ImageData", EmitDefaultValue=true)]
-        public ImageData ImageData { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Light
-        /// </summary>
-        [DataMember(Name="light", EmitDefaultValue=false)]
-        public int Light { get; set; }
-
-        /// <summary>
-        /// page/image number
-        /// </summary>
-        /// <value>page/image number</value>
-        [DataMember(Name="page_idx", EmitDefaultValue=false)]
-        public int PageIdx { get; set; }
+        /// <value>Authenticity Check</value>
+        [DataMember(Name="List", EmitDefaultValue=true)]
+        public List<AuthenticityCheckResult> List { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,10 +67,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProcessRequestImage {\n");
-            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
-            sb.Append("  Light: ").Append(Light).Append("\n");
-            sb.Append("  PageIdx: ").Append(PageIdx).Append("\n");
+            sb.Append("class AuthenticityCheckList {\n");
+            sb.Append("  List: ").Append(List).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,34 +89,25 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProcessRequestImage);
+            return this.Equals(input as AuthenticityCheckList);
         }
 
         /// <summary>
-        /// Returns true if ProcessRequestImage instances are equal
+        /// Returns true if AuthenticityCheckList instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProcessRequestImage to be compared</param>
+        /// <param name="input">Instance of AuthenticityCheckList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProcessRequestImage input)
+        public bool Equals(AuthenticityCheckList input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ImageData == input.ImageData ||
-                    (this.ImageData != null &&
-                    this.ImageData.Equals(input.ImageData))
-                ) && 
-                (
-                    this.Light == input.Light ||
-                    (this.Light != null &&
-                    this.Light.Equals(input.Light))
-                ) && 
-                (
-                    this.PageIdx == input.PageIdx ||
-                    (this.PageIdx != null &&
-                    this.PageIdx.Equals(input.PageIdx))
+                    this.List == input.List ||
+                    this.List != null &&
+                    input.List != null &&
+                    this.List.SequenceEqual(input.List)
                 );
         }
 
@@ -155,12 +120,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ImageData != null)
-                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
-                if (this.Light != null)
-                    hashCode = hashCode * 59 + this.Light.GetHashCode();
-                if (this.PageIdx != null)
-                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.List != null)
+                    hashCode = hashCode * 59 + this.List.GetHashCode();
                 return hashCode;
             }
         }

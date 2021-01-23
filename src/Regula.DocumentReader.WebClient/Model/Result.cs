@@ -70,5 +70,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Contains description of determined document type, if any */
         public const int DOCUMENT_TYPE = 9;
 
+        /** Contains result of document authenticity checks */
+        public const int AUTHENTICITY = 20;
+
     }
 }

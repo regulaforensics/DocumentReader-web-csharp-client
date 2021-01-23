@@ -25,64 +25,73 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ProcessRequestImage
+    /// AuthenticityCheckResult
     /// </summary>
     [DataContract]
-    public partial class ProcessRequestImage :  IEquatable<ProcessRequestImage>, IValidatableObject
+    public partial class AuthenticityCheckResult :  IEquatable<AuthenticityCheckResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public SecurityFeatureType Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticityCheckResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ProcessRequestImage() { }
+        protected AuthenticityCheckResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
+        /// Initializes a new instance of the <see cref="AuthenticityCheckResult" /> class.
         /// </summary>
-        /// <param name="imageData">imageData (required).</param>
-        /// <param name="light">light.</param>
-        /// <param name="pageIdx">page/image number (default to 0).</param>
-        public ProcessRequestImage(ImageData imageData = default(ImageData), int light = default(int), int pageIdx = 0)
+        /// <param name="type">type (required).</param>
+        /// <param name="result">result (required).</param>
+        /// <param name="list">list (required).</param>
+        public AuthenticityCheckResult(SecurityFeatureType type = default(SecurityFeatureType), int result = default(int), List<AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult> list = default(List<AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult>))
         {
-            // to ensure "imageData" is required (not null)
-            if (imageData == null)
+            // to ensure "type" is required (not null)
+            if (type == null)
             {
-                throw new InvalidDataException("imageData is a required property for ProcessRequestImage and cannot be null");
+                throw new InvalidDataException("type is a required property for AuthenticityCheckResult and cannot be null");
             }
             else
             {
-                this.ImageData = imageData;
+                this.Type = type;
             }
             
-            this.Light = light;
-            // use default value if no "pageIdx" provided
-            if (pageIdx == null)
+            // to ensure "result" is required (not null)
+            if (result == null)
             {
-                this.PageIdx = 0;
+                throw new InvalidDataException("result is a required property for AuthenticityCheckResult and cannot be null");
             }
             else
             {
-                this.PageIdx = pageIdx;
+                this.Result = result;
             }
+            
+            // to ensure "list" is required (not null)
+            if (list == null)
+            {
+                throw new InvalidDataException("list is a required property for AuthenticityCheckResult and cannot be null");
+            }
+            else
+            {
+                this.List = list;
+            }
+            
         }
         
-        /// <summary>
-        /// Gets or Sets ImageData
-        /// </summary>
-        [DataMember(Name="ImageData", EmitDefaultValue=true)]
-        public ImageData ImageData { get; set; }
 
         /// <summary>
-        /// Gets or Sets Light
+        /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name="light", EmitDefaultValue=false)]
-        public int Light { get; set; }
+        [DataMember(Name="Result", EmitDefaultValue=true)]
+        public int Result { get; set; }
 
         /// <summary>
-        /// page/image number
+        /// Gets or Sets List
         /// </summary>
-        /// <value>page/image number</value>
-        [DataMember(Name="page_idx", EmitDefaultValue=false)]
-        public int PageIdx { get; set; }
+        [DataMember(Name="List", EmitDefaultValue=true)]
+        public List<AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult> List { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,10 +100,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProcessRequestImage {\n");
-            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
-            sb.Append("  Light: ").Append(Light).Append("\n");
-            sb.Append("  PageIdx: ").Append(PageIdx).Append("\n");
+            sb.Append("class AuthenticityCheckResult {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  List: ").Append(List).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,34 +124,35 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProcessRequestImage);
+            return this.Equals(input as AuthenticityCheckResult);
         }
 
         /// <summary>
-        /// Returns true if ProcessRequestImage instances are equal
+        /// Returns true if AuthenticityCheckResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProcessRequestImage to be compared</param>
+        /// <param name="input">Instance of AuthenticityCheckResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProcessRequestImage input)
+        public bool Equals(AuthenticityCheckResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ImageData == input.ImageData ||
-                    (this.ImageData != null &&
-                    this.ImageData.Equals(input.ImageData))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Light == input.Light ||
-                    (this.Light != null &&
-                    this.Light.Equals(input.Light))
+                    this.Result == input.Result ||
+                    (this.Result != null &&
+                    this.Result.Equals(input.Result))
                 ) && 
                 (
-                    this.PageIdx == input.PageIdx ||
-                    (this.PageIdx != null &&
-                    this.PageIdx.Equals(input.PageIdx))
+                    this.List == input.List ||
+                    this.List != null &&
+                    input.List != null &&
+                    this.List.SequenceEqual(input.List)
                 );
         }
 
@@ -155,12 +165,12 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ImageData != null)
-                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
-                if (this.Light != null)
-                    hashCode = hashCode * 59 + this.Light.GetHashCode();
-                if (this.PageIdx != null)
-                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Result != null)
+                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.List != null)
+                    hashCode = hashCode * 59 + this.List.GetHashCode();
                 return hashCode;
             }
         }

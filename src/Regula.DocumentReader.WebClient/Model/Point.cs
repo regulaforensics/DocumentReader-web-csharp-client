@@ -25,64 +25,33 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ProcessRequestImage
+    /// Point
     /// </summary>
     [DataContract]
-    public partial class ProcessRequestImage :  IEquatable<ProcessRequestImage>, IValidatableObject
+    public partial class Point :  IEquatable<Point>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
+        /// Initializes a new instance of the <see cref="Point" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ProcessRequestImage() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
-        /// </summary>
-        /// <param name="imageData">imageData (required).</param>
-        /// <param name="light">light.</param>
-        /// <param name="pageIdx">page/image number (default to 0).</param>
-        public ProcessRequestImage(ImageData imageData = default(ImageData), int light = default(int), int pageIdx = 0)
+        /// <param name="x">x.</param>
+        /// <param name="y">y.</param>
+        public Point(int x = default(int), int y = default(int))
         {
-            // to ensure "imageData" is required (not null)
-            if (imageData == null)
-            {
-                throw new InvalidDataException("imageData is a required property for ProcessRequestImage and cannot be null");
-            }
-            else
-            {
-                this.ImageData = imageData;
-            }
-            
-            this.Light = light;
-            // use default value if no "pageIdx" provided
-            if (pageIdx == null)
-            {
-                this.PageIdx = 0;
-            }
-            else
-            {
-                this.PageIdx = pageIdx;
-            }
+            this.X = x;
+            this.Y = y;
         }
         
         /// <summary>
-        /// Gets or Sets ImageData
+        /// Gets or Sets X
         /// </summary>
-        [DataMember(Name="ImageData", EmitDefaultValue=true)]
-        public ImageData ImageData { get; set; }
+        [DataMember(Name="x", EmitDefaultValue=false)]
+        public int X { get; set; }
 
         /// <summary>
-        /// Gets or Sets Light
+        /// Gets or Sets Y
         /// </summary>
-        [DataMember(Name="light", EmitDefaultValue=false)]
-        public int Light { get; set; }
-
-        /// <summary>
-        /// page/image number
-        /// </summary>
-        /// <value>page/image number</value>
-        [DataMember(Name="page_idx", EmitDefaultValue=false)]
-        public int PageIdx { get; set; }
+        [DataMember(Name="y", EmitDefaultValue=false)]
+        public int Y { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,10 +60,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProcessRequestImage {\n");
-            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
-            sb.Append("  Light: ").Append(Light).Append("\n");
-            sb.Append("  PageIdx: ").Append(PageIdx).Append("\n");
+            sb.Append("class Point {\n");
+            sb.Append("  X: ").Append(X).Append("\n");
+            sb.Append("  Y: ").Append(Y).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,34 +83,29 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProcessRequestImage);
+            return this.Equals(input as Point);
         }
 
         /// <summary>
-        /// Returns true if ProcessRequestImage instances are equal
+        /// Returns true if Point instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProcessRequestImage to be compared</param>
+        /// <param name="input">Instance of Point to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProcessRequestImage input)
+        public bool Equals(Point input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ImageData == input.ImageData ||
-                    (this.ImageData != null &&
-                    this.ImageData.Equals(input.ImageData))
+                    this.X == input.X ||
+                    (this.X != null &&
+                    this.X.Equals(input.X))
                 ) && 
                 (
-                    this.Light == input.Light ||
-                    (this.Light != null &&
-                    this.Light.Equals(input.Light))
-                ) && 
-                (
-                    this.PageIdx == input.PageIdx ||
-                    (this.PageIdx != null &&
-                    this.PageIdx.Equals(input.PageIdx))
+                    this.Y == input.Y ||
+                    (this.Y != null &&
+                    this.Y.Equals(input.Y))
                 );
         }
 
@@ -155,12 +118,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ImageData != null)
-                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
-                if (this.Light != null)
-                    hashCode = hashCode * 59 + this.Light.GetHashCode();
-                if (this.PageIdx != null)
-                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.X != null)
+                    hashCode = hashCode * 59 + this.X.GetHashCode();
+                if (this.Y != null)
+                    hashCode = hashCode * 59 + this.Y.GetHashCode();
                 return hashCode;
             }
         }
