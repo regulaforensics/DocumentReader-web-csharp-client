@@ -15,7 +15,7 @@ namespace Regula.DocumentReader.WebClient.Model
             ImageData = new ImageData(image);
 
             if (lightIndex >= 0)
-                LightIndex = lightIndex;
+                Light = lightIndex;
         }
     }
 }

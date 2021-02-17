@@ -13,9 +13,11 @@ src/Regula.DocumentReader.WebClient/Regula.DocumentReader.WebClient.nuspec
 src/Regula.DocumentReader.WebClient/packages.config
 src/Regula.DocumentReader.WebClient/Properties/**
 
-# classes, modified after generation
-**/ContainerList.cs
+# generator bugs, require manual change
+src/Regula.DocumentReader.WebClient/Model/ContainerList.cs
+src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
 **/*AllOf.cs
 
-# generator bugs, require manual change
+# classes, modified after generation
 src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
+src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultItem.cs
