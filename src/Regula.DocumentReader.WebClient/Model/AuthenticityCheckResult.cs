@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class AuthenticityCheckResult :  IEquatable<AuthenticityCheckResult>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=true)]
-        public AuthenticityResultType Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticityCheckResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="type">type (required).</param>
         /// <param name="result">result (required).</param>
         /// <param name="list">list (required).</param>
-        public AuthenticityCheckResult(AuthenticityResultType type = default(AuthenticityResultType), int result = default(int), List<AuthenticityCheckResultItem> list = default(List<AuthenticityCheckResultItem>))
+        public AuthenticityCheckResult(int type = default(int), int result = default(int), List<AuthenticityCheckResultItem> list = default(List<AuthenticityCheckResultItem>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -80,6 +75,11 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public int Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Result

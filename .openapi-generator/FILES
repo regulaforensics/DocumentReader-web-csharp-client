@@ -11,8 +11,8 @@ src/Regula.DocumentReader.WebClient/Client/IReadableConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/OpenAPIDateConverter.cs
 src/Regula.DocumentReader.WebClient/Model/AreaContainer.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckList.cs
+src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResult.cs
-src/Regula.DocumentReader.WebClient/Model/AuthenticityResultType.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentType.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentTypeResult.cs
 src/Regula.DocumentReader.WebClient/Model/CrossSourceValueComparison.cs
@@ -54,7 +54,6 @@ src/Regula.DocumentReader.WebClient/Model/ProcessResponse.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessSystemInfo.cs
 src/Regula.DocumentReader.WebClient/Model/RawImageContainerList.cs
 src/Regula.DocumentReader.WebClient/Model/RectangleCoordinates.cs
-src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
 src/Regula.DocumentReader.WebClient/Model/RfidOrigin.cs
 src/Regula.DocumentReader.WebClient/Model/SecurityFeatureResult.cs
 src/Regula.DocumentReader.WebClient/Model/SourceValidity.cs

@@ -27,6 +27,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             var result = ResultByType<ImagesResult>(Result.IMAGES);
             return result?.Images;
         }
+        
+        public AuthenticityCheckList Authenticity() 
+        {
+            var result = ResultByType<AuthenticityResult>(Result.AUTHENTICITY);
+            return result?.AuthenticityCheckList;
+        }
 
         public T ResultByType<T>(int type) where T: ResultItem
         {
