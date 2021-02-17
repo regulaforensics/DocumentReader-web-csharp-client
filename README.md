@@ -20,7 +20,7 @@ We are always thrilled to receive pull requests, and do our best to process them
 ## Frameworks supported
 
 - .NET Standard 2.0
-- .NET 4.6.1 or later
+- .NET Framework 4.6.1 or later
 - .Net Core 2.0 or later
 
 ## Install package

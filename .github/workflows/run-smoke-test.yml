@@ -20,5 +20,5 @@ jobs:
       - working-directory: src/Regula.DocumentReader.LocalNetCoreExample/bin/Release/netcoreapp3.1/
         run: ./Regula.DocumentReader.LocalNetCoreExample
         env:
-          API_BASE_PATH: "http://test-api.regulaforensics.com"
+          API_BASE_PATH: "https://testapi.regulaforensics.com"
           TEST_LICENSE: ${{secrets.TEST_LICENSE}}
