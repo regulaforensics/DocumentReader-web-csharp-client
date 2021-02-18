@@ -38,7 +38,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessResponse" /> class.
         /// </summary>
-        /// <param name="chipPage">chipPage (required).</param>
+        /// <param name="chipPage">chipPage.</param>
         /// <param name="processingFinished">processingFinished (required).</param>
         /// <param name="containerList">containerList (required).</param>
         /// <param name="transactionInfo">transactionInfo (required).</param>
@@ -46,16 +46,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="passBackObject">Free-form object provided in request. See passBackObject property of ProcessRequest..</param>
         public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
-            // to ensure "chipPage" is required (not null)
-            if (chipPage == null)
-            {
-                throw new InvalidDataException("chipPage is a required property for ProcessResponse and cannot be null");
-            }
-            else
-            {
-                this.ChipPage = chipPage;
-            }
-            
             // to ensure "processingFinished" is required (not null)
             if (processingFinished == null)
             {
@@ -86,6 +76,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.TransactionInfo = transactionInfo;
             }
             
+            this.ChipPage = chipPage;
             this.Log = log;
             this.PassBackObject = passBackObject;
         }
@@ -93,7 +84,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets ChipPage
         /// </summary>
-        [DataMember(Name="ChipPage", EmitDefaultValue=true)]
+        [DataMember(Name="ChipPage", EmitDefaultValue=false)]
         public int ChipPage { get; set; }
 
         /// <summary>
