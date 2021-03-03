@@ -4,6 +4,7 @@ using System.IO;
 using Regula.DocumentReader.WebClient.Api;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
+using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
 
 namespace Regula.DocumentReader.NetCoreExample
 {
@@ -61,6 +62,13 @@ namespace Regula.DocumentReader.NetCoreExample
             int docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
             int docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
             int docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
+
+            var docAuthenticity = response.Authenticity();
+            var docIRB900 = docAuthenticity.IrB900Checks();
+            var docIRB900Blank = docIRB900.checksByElement(SecurityFeatureType.BLANK);
+
+            var docImagePattern = docAuthenticity.imagePattern();
+            var docImagePatternBlank = docImagePattern.checksByElement(SecurityFeatureType.BLANK);
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
