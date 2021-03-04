@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
-    class ImageIdentChecks
+    public class ImageIdentChecks : AuthenticityResult<PhotoIdentResult>
     {
+        public ImageIdentChecks(AuthenticityCheckResult authenticityCheckResult) : base(authenticityCheckResult)
+        { }
+    
     }
 }

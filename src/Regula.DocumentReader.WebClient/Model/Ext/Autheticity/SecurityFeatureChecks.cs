@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
-    class SecurityFeatureChecks
+    public class SecurityFeatureChecks : AuthenticityResult<SecurityFeatureResult>
     {
+        public SecurityFeatureChecks(AuthenticityCheckResult authenticityResult) : base(authenticityResult)
+        { }
+
+        public SecurityFeatureResult ChecksByElement(int type)
+        {
+            return this.Items().FirstOrDefault(t => t.Type == type);
+        }
     }
 }

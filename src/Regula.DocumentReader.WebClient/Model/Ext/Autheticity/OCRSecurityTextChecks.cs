@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
-    class OCRSecurityTextChecks
+    public class OCRSecurityTextChecks : AuthenticityResult<OCRSecurityTextResult>
     {
+        public OCRSecurityTextChecks(AuthenticityCheckResult authenticityCheckResult) : base(authenticityCheckResult)
+        {
+
+        }
     }
 }
