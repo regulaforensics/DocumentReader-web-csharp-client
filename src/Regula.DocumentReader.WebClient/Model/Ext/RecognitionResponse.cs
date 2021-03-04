@@ -28,13 +28,13 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return result?.Images;
         }
         
-        public AuthenticityCheckList Authenticity() 
+        public AuthenticityCheckList Authenticity(int pageIdx=0) 
         {
-            var result = ResultByType<AuthenticityResult>(Result.AUTHENTICITY);
+            var result = ResultByType<AuthenticityResult>(Result.AUTHENTICITY, pageIdx);
             return result?.AuthenticityCheckList;
         }
 
-        public T ResultByType<T>(int type) where T: ResultItem
+        public T ResultByType<T>(int type, int pageIdx=0) where T: ResultItem
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
             {

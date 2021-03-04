@@ -4,6 +4,7 @@ using System.IO;
 using Regula.DocumentReader.WebClient.Api;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
+using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
 
 namespace Regula.DocumentReader.NetCoreExample
 {
@@ -27,15 +28,16 @@ namespace Regula.DocumentReader.NetCoreExample
             var uvPage0 = File.ReadAllBytes("UV.jpg");
             
             var requestParams = new RecognitionParams()
-                .WithScenario(Scenario.FULL_PROCESS)
+                .WithScenario(Scenario.FULL_AUTH)
                 .WithResultTypeOutput(new List<int>
                 {
-                    // actual results, keep only required
-                    Result.STATUS, Result.TEXT, Result.IMAGES, Result.DOCUMENT_TYPE,
-                    // legacy results
-                    Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
-                    Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
-                    Result.LEXICAL_ANALYSIS
+                        // actual results
+                        Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+                        Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES,
+                        // legacy results
+                        Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
+                        Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
+                        Result.LEXICAL_ANALYSIS
                 });
             
             var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>{
@@ -61,6 +63,13 @@ namespace Regula.DocumentReader.NetCoreExample
             int docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
             int docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
             int docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
+
+            var docAuthenticity = response.Authenticity();
+            var docIRB900 = docAuthenticity.IrB900Checks();
+            var docIRB900Blank = docIRB900?.ChecksByElement(SecurityFeatureType.BLANK);
+
+            var docImagePattern = docAuthenticity.ImagePattern();
+            var docImagePatternBlank = docImagePattern?.ChecksByElement(SecurityFeatureType.BLANK);
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
