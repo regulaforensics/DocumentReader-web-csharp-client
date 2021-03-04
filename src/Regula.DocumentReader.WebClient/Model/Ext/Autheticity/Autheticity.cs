@@ -32,6 +32,11 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
             return auth.filberOrNull(AuthenticityResultType.UV_FIBERS);
         }
 
+        public static IdentChecks IRVisibilityChecks(this AuthenticityCheckList auth)
+        {
+            return auth.identOrNull(AuthenticityResultType.IR_VISIBILITY);
+        }
+
         public static OCRSecurityTextChecks OCRSecurityTextChecks(this AuthenticityCheckList auth)
         {
             return auth.ocrSecurityTextOrNull(AuthenticityResultType.OCR_SECURITY_TEXT);
@@ -80,15 +85,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 
         private static AuthenticityCheckResult resultByType(this AuthenticityCheckList auth, int type)
         {
-            var res = auth?.List.FirstOrDefault(t => t.Type == type);
-
-            return res;
+            return auth?.List.FirstOrDefault(t => t.Type == type);
         }
 
         private static FiberChecks filberOrNull(this AuthenticityCheckList auth, int type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
-
             return result != null ? new FiberChecks(result) : null;
         }
 
@@ -107,14 +109,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         private static OCRSecurityTextChecks ocrSecurityTextOrNull(this AuthenticityCheckList auth, int type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
-
             return result != null ? new OCRSecurityTextChecks(result) : null;
         }
 
         private static SecurityFeatureChecks securityFeatureOrNull(this AuthenticityCheckList auth, int type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
-
             return result != null ? new SecurityFeatureChecks(result) : null;
         }
 
