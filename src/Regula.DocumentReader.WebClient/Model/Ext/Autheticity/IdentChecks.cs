@@ -11,7 +11,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 
         public IdentResult ChecksByElement(int type)
         {
-            return this.Items().FirstOrDefault(t => t.Type == type);
+            return this.Items()?.FirstOrDefault(t => t.Type == type);
         }
     }
 }

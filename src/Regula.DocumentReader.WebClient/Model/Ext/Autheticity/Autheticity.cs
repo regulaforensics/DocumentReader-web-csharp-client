@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 
         private static AuthenticityCheckResult resultByType(this AuthenticityCheckList auth, int type)
         {
-            var res = auth.List.FirstOrDefault(t => t.Type == type);
+            var res = auth?.List.FirstOrDefault(t => t.Type == type);
 
             return res;
         }

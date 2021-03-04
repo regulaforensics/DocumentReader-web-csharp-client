@@ -23,7 +23,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         {
             var ls = this.authenticityCheckResult.List;
 
-            return (ls as IEnumerable<T>).Cast<T>().ToList();
+            return ls as List<T>;
         }        
     }
 }
