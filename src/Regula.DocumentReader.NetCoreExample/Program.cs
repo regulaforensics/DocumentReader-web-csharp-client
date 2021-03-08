@@ -68,7 +68,7 @@ namespace Regula.DocumentReader.NetCoreExample
             var docIRB900 = docAuthenticity.IrB900Checks();
             var docIRB900Blank = docIRB900?.ChecksByElement(SecurityFeatureType.BLANK);
 
-            var docImagePattern = docAuthenticity.ImagePattern();
+            var docImagePattern = docAuthenticity.ImagePatternChecks();
             var docImagePatternBlank = docImagePattern?.ChecksByElement(SecurityFeatureType.BLANK);
 
             Console.WriteLine("-----------------------------------------------------------------");
