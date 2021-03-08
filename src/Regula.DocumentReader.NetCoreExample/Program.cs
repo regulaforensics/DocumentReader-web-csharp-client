@@ -24,8 +24,6 @@ namespace Regula.DocumentReader.NetCoreExample
                 : null;
             
             var whitePage0 = File.ReadAllBytes("WHITE.jpg");
-            var irPage0 = File.ReadAllBytes("IR.jpg");
-            var uvPage0 = File.ReadAllBytes("UV.jpg");
             
             var requestParams = new RecognitionParams()
                 .WithScenario(Scenario.FULL_AUTH)
@@ -41,9 +39,7 @@ namespace Regula.DocumentReader.NetCoreExample
                 });
             
             var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>{
-                    new ProcessRequestImage(new ImageData(whitePage0), Light.WHITE),
-                    new ProcessRequestImage(new ImageData(irPage0), Light.IR),
-                    new ProcessRequestImage(new ImageData(uvPage0), Light.UV),
+                    new ProcessRequestImage(new ImageData(whitePage0), Light.WHITE)
                 });
             var api = licenseFromEnv != null 
                 ? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
@@ -65,11 +61,13 @@ namespace Regula.DocumentReader.NetCoreExample
             int docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
 
             var docAuthenticity = response.Authenticity();
-            var docIRB900 = docAuthenticity.IrB900Checks();
-            var docIRB900Blank = docIRB900?.ChecksByElement(SecurityFeatureType.BLANK);
-
-            var docImagePattern = docAuthenticity.ImagePattern();
-            var docImagePatternBlank = docImagePattern?.ChecksByElement(SecurityFeatureType.BLANK);
+            var imagePatternChecks = docAuthenticity.ImagePatternChecks();
+            foreach (var check in imagePatternChecks.Items())
+            {
+                var coordinates = check.Area;
+                var croppedImage = check.Image.Image;
+                var etalonImage = check.EtalonImage.Image;
+            }
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");

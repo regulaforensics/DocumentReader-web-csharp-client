@@ -17,7 +17,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
             return auth.securityFeatureOrNull(AuthenticityResultType.IR_B900);
         }
 
-        public static IdentChecks ImagePattern(this AuthenticityCheckList auth)
+        public static IdentChecks ImagePatternChecks(this AuthenticityCheckList auth)
         {
             return auth.identOrNull(AuthenticityResultType.IMAGE_PATTERN);
         }
