@@ -24,102 +24,104 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 
 namespace Regula.DocumentReader.WebClient.Model
 {
-    /// Enumeration contains identifiers determining type of features for a document authenticity checks
     public class SecurityFeatureType
     {
 
         
-        public const int BLANK = 0;
+        public const int Blank = 0;
 
         
-        public const int FILL = 1;
+        public const int Fill = 1;
 
         
-        public const int PHOTO = 2;
+        public const int Photo = 2;
 
         
         public const int MRZ = 3;
 
         
-        public const int FALSE_LUMINESCENCE = 4;
+        public const int FalseLuminescene = 4;
 
         
-        public const int HOLO_SIMPLE = 5;
+        public const int HoloSimple = 5;
 
         
-        public const int HOLO_VERIFY_STATIC = 6;
+        public const int HoloVerifyStatic = 6;
 
         
-        public const int HOLO_VERIFY_MULTI_STATIC = 7;
+        public const int HoloVerifyMultyStatic = 7;
 
         
-        public const int HOLO_VERIFY_DYNAMIC = 8;
+        public const int HoloVerifyDinamic = 8;
 
         
-        public const int PATTERN_NOT_INTERRUPTED = 9;
+        public const int PatternNotInterrupted = 9;
 
         
-        public const int PATTERN_NOT_SHIFTED = 10;
+        public const int PatternNotShifted = 10;
 
         
-        public const int PATTERN_SAME_COLORS = 11;
+        public const int PatternSameColors = 11;
 
         
-        public const int PATTERN_IR_INVISIBLE = 12;
+        public const int PatternIRInvisible = 12;
 
         
-        public const int PHOTO_SIZE_CHECK = 13;
+        public const int PhotoSizeCheck = 13;
 
         
-        public const int PORTRAIT_COMPARISON_VS_GHOST = 14;
+        public const int Portrait_Comparison_vsGhost = 14;
 
         
-        public const int PORTRAIT_COMPARISON_VS_RFID = 15;
+        public const int Portrait_Comparison_vsRFID = 15;
 
         
-        public const int PORTRAIT_COMPARISON_VS_VISUAL = 16;
+        public const int Portrait_Comparison_vsVisual = 16;
 
         
-        public const int BARCODE = 17;
+        public const int Barcode = 17;
 
         
-        public const int PATTERN_DIFFERENT_LINES_THICKNESS = 18;
+        public const int Pattern_DifferentLinesThickness = 18;
 
         
-        public const int PORTRAIT_COMPARISON_VS_CAMERA = 19;
+        public const int Portrait_Comparison_vsCamera = 19;
 
         
-        public const int PORTRAIT_COMPARISON_RFID_VS_CAMERA = 20;
+        public const int Portrait_Comparison_RFIDvsCamera = 20;
 
         
-        public const int GHOST_PHOTO = 21;
+        public const int GhostPhoto = 21;
 
         
-        public const int CLEAR_GHOST_PHOTO = 22;
+        public const int ClearGhostPhoto = 22;
 
         
-        public const int INVISIBLE_OBJECT = 23;
+        public const int InvisibleObject = 23;
 
         
-        public const int LOW_CONTRAST_OBJECT = 24;
+        public const int LowContrastObject = 24;
 
         
-        public const int PHOTO_COLOR = 25;
+        public const int Photo_Color = 25;
 
         
-        public const int PHOTO_SHAPE = 26;
+        public const int Photo_Shape = 26;
 
         
-        public const int PHOTO_CORNERS = 27;
+        public const int Photo_Corners = 27;
 
         
-        public const int PORTRAIT_COMPARISON_EXT_VS_VISUAL = 29;
+        public const int Document_Cancelling_Detector = 28;
 
         
-        public const int PORTRAIT_COMPARISON_EXT_VS_RFID = 30;
+        public const int Portrait_Comparison_ExtvsVisual = 29;
 
         
-        public const int PORTRAIT_COMPARISON_EXT_VS_CAMERA = 31;
+        public const int Portrait_Comparison_ExtvsRFID = 30;
+
+        
+        public const int Portrait_Comparison_ExtvsLive = 31;
 
     }
 }

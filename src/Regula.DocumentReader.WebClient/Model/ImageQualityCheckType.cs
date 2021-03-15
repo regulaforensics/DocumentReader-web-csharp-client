@@ -24,14 +24,26 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 
 namespace Regula.DocumentReader.WebClient.Model
 {
-    public class MeasureSystem
+    public class ImageQualityCheckType
     {
 
-        /** Metric system of measurement, where things are measured in meters and grams */
-        public const int METRIC = 0;
+        
+        public const int ImageGlares = 0;
 
-        /** Imperial System of Measurement, where things are measured in feet, inches and pounds */
-        public const int IMPERIAL = 1;
+        
+        public const int ImageFocus = 1;
+
+        
+        public const int ImageResolution = 2;
+
+        
+        public const int ImageColorness = 3;
+
+        
+        public const int Perspective = 4;
+
+        
+        public const int Bounds = 5;
 
     }
 }

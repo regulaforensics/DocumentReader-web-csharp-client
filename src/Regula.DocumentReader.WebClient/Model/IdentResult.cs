@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonImage">etalonImage.</param>
         /// <param name="percentValue">Probability percent for IMAGE_PATTERN check or element&#39;s visibility for IR_VISIBILITY.</param>
         /// <param name="areaList">areaList.</param>
-        public IdentResult(int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), List<AreaContainer> areaList = default(List<AreaContainer>), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public IdentResult(SecurityFeatureType2 elementType = default(SecurityFeatureType2), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), List<AreaContainer> areaList = default(List<AreaContainer>), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
@@ -60,7 +60,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementType
         /// </summary>
         [DataMember(Name="ElementType", EmitDefaultValue=false)]
-        public int ElementType { get; set; }
+        public SecurityFeatureType2 ElementType { get; set; }
 
         /// <summary>
         /// Gets or Sets LightIndex

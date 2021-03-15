@@ -9,6 +9,7 @@ src/Regula.DocumentReader.WebClient/Client/GlobalConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/IApiAccessor.cs
 src/Regula.DocumentReader.WebClient/Client/IReadableConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/OpenAPIDateConverter.cs
+src/Regula.DocumentReader.WebClient/Model/AreaArray.cs
 src/Regula.DocumentReader.WebClient/Model/AreaContainer.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResult.cs
@@ -33,6 +34,9 @@ src/Regula.DocumentReader.WebClient/Model/GraphicsResult.cs
 src/Regula.DocumentReader.WebClient/Model/IdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/ImageData.cs
 src/Regula.DocumentReader.WebClient/Model/ImageQA.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityCheck.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityCheckType.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityListResult.cs
 src/Regula.DocumentReader.WebClient/Model/Images.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesAvailableSource.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesField.cs
@@ -55,6 +59,7 @@ src/Regula.DocumentReader.WebClient/Model/RawImageContainerList.cs
 src/Regula.DocumentReader.WebClient/Model/RectangleCoordinates.cs
 src/Regula.DocumentReader.WebClient/Model/RfidOrigin.cs
 src/Regula.DocumentReader.WebClient/Model/SecurityFeatureResult.cs
+src/Regula.DocumentReader.WebClient/Model/SecurityFeatureType2.cs
 src/Regula.DocumentReader.WebClient/Model/SourceValidity.cs
 src/Regula.DocumentReader.WebClient/Model/Status.cs
 src/Regula.DocumentReader.WebClient/Model/StatusResult.cs
