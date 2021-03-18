@@ -9,6 +9,7 @@ src/Regula.DocumentReader.WebClient/Client/GlobalConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/IApiAccessor.cs
 src/Regula.DocumentReader.WebClient/Client/IReadableConfiguration.cs
 src/Regula.DocumentReader.WebClient/Client/OpenAPIDateConverter.cs
+src/Regula.DocumentReader.WebClient/Model/AreaArray.cs
 src/Regula.DocumentReader.WebClient/Model/AreaContainer.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResult.cs
@@ -33,6 +34,10 @@ src/Regula.DocumentReader.WebClient/Model/GraphicsResult.cs
 src/Regula.DocumentReader.WebClient/Model/IdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/ImageData.cs
 src/Regula.DocumentReader.WebClient/Model/ImageQA.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityCheck.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityCheckType.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityChecks.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityListResult.cs
 src/Regula.DocumentReader.WebClient/Model/Images.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesAvailableSource.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesField.cs
@@ -45,6 +50,7 @@ src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
 src/Regula.DocumentReader.WebClient/Model/PhotoIdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/Point.cs
+src/Regula.DocumentReader.WebClient/Model/PointArray.cs
 src/Regula.DocumentReader.WebClient/Model/PointsContainer.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessParams.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessRequest.cs
