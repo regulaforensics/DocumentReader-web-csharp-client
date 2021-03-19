@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="transactionInfo">transactionInfo (required).</param>
         /// <param name="log">Base64 encoded transaction processing log.</param>
         /// <param name="passBackObject">Free-form object provided in request. See passBackObject property of ProcessRequest..</param>
-        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, AnyType> passBackObject = default(Dictionary<string, AnyType>))
+        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processingFinished" is required (not null)
             if (processingFinished == null)
@@ -117,7 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Free-form object provided in request. See passBackObject property of ProcessRequest.</value>
         [DataMember(Name="passBackObject", EmitDefaultValue=false)]
-        public Dictionary<string, AnyType> PassBackObject { get; set; }
+        public Dictionary<string, Object> PassBackObject { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
