@@ -38,17 +38,26 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageQualityListResult" /> class.
         /// </summary>
-        /// <param name="imageQualityCheckList">imageQualityCheckList.</param>
-        public ImageQualityListResult(ImageQualityChecks imageQualityCheckList = default(ImageQualityChecks), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="imageQualityChecks">imageQualityChecks (required).</param>
+        public ImageQualityListResult(ImageQualityChecks imageQualityChecks = default(ImageQualityChecks), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            this.ImageQualityCheckList = imageQualityCheckList;
+            // to ensure "imageQualityChecks" is required (not null)
+            if (imageQualityChecks == null)
+            {
+                throw new InvalidDataException("imageQualityChecks is a required property for ImageQualityListResult and cannot be null");
+            }
+            else
+            {
+                this.ImageQualityChecks = imageQualityChecks;
+            }
+            
         }
         
         /// <summary>
-        /// Gets or Sets ImageQualityCheckList
+        /// Gets or Sets ImageQualityChecks
         /// </summary>
-        [DataMember(Name="ImageQualityCheckList", EmitDefaultValue=false)]
-        public ImageQualityChecks ImageQualityCheckList { get; set; }
+        [DataMember(Name="ImageQualityChecks", EmitDefaultValue=true)]
+        public ImageQualityChecks ImageQualityChecks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,7 +68,7 @@ namespace Regula.DocumentReader.WebClient.Model
             var sb = new StringBuilder();
             sb.Append("class ImageQualityListResult {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  ImageQualityCheckList: ").Append(ImageQualityCheckList).Append("\n");
+            sb.Append("  ImageQualityChecks: ").Append(ImageQualityChecks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,9 +104,9 @@ namespace Regula.DocumentReader.WebClient.Model
 
             return base.Equals(input) && 
                 (
-                    this.ImageQualityCheckList == input.ImageQualityCheckList ||
-                    (this.ImageQualityCheckList != null &&
-                    this.ImageQualityCheckList.Equals(input.ImageQualityCheckList))
+                    this.ImageQualityChecks == input.ImageQualityChecks ||
+                    (this.ImageQualityChecks != null &&
+                    this.ImageQualityChecks.Equals(input.ImageQualityChecks))
                 );
         }
 
@@ -110,8 +119,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.ImageQualityCheckList != null)
-                    hashCode = hashCode * 59 + this.ImageQualityCheckList.GetHashCode();
+                if (this.ImageQualityChecks != null)
+                    hashCode = hashCode * 59 + this.ImageQualityChecks.GetHashCode();
                 return hashCode;
             }
         }
