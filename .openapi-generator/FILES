@@ -35,7 +35,7 @@ src/Regula.DocumentReader.WebClient/Model/IdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/ImageData.cs
 src/Regula.DocumentReader.WebClient/Model/ImageQA.cs
 src/Regula.DocumentReader.WebClient/Model/ImageQualityCheck.cs
-src/Regula.DocumentReader.WebClient/Model/ImageQualityChecks.cs
+src/Regula.DocumentReader.WebClient/Model/ImageQualityCheckList.cs
 src/Regula.DocumentReader.WebClient/Model/ImageQualityListResult.cs
 src/Regula.DocumentReader.WebClient/Model/Images.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesAvailableSource.cs

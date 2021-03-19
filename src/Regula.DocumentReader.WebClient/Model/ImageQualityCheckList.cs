@@ -25,39 +25,56 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ImageQualityListResult
+    /// ImageQualityCheckList
     /// </summary>
     [DataContract]
-    public partial class ImageQualityListResult : ResultItem,  IEquatable<ImageQualityListResult>, IValidatableObject
+    public partial class ImageQualityCheckList :  IEquatable<ImageQualityCheckList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageQualityListResult" /> class.
+        /// Initializes a new instance of the <see cref="ImageQualityCheckList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ImageQualityListResult() { }
+        protected ImageQualityCheckList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageQualityListResult" /> class.
+        /// Initializes a new instance of the <see cref="ImageQualityCheckList" /> class.
         /// </summary>
-        /// <param name="imageQualityChecks">imageQualityChecks (required).</param>
-        public ImageQualityListResult(ImageQualityCheckList imageQualityChecks = default(ImageQualityCheckList), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="result">result (required).</param>
+        /// <param name="list">list (required).</param>
+        public ImageQualityCheckList(int result = default(int), List<ImageQualityCheck> list = default(List<ImageQualityCheck>))
         {
-            // to ensure "imageQualityChecks" is required (not null)
-            if (imageQualityChecks == null)
+            // to ensure "result" is required (not null)
+            if (result == null)
             {
-                throw new InvalidDataException("imageQualityChecks is a required property for ImageQualityListResult and cannot be null");
+                throw new InvalidDataException("result is a required property for ImageQualityCheckList and cannot be null");
             }
             else
             {
-                this.ImageQualityChecks = imageQualityChecks;
+                this.Result = result;
+            }
+            
+            // to ensure "list" is required (not null)
+            if (list == null)
+            {
+                throw new InvalidDataException("list is a required property for ImageQualityCheckList and cannot be null");
+            }
+            else
+            {
+                this.List = list;
             }
             
         }
         
         /// <summary>
-        /// Gets or Sets ImageQualityChecks
+        /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name="ImageQualityChecks", EmitDefaultValue=true)]
-        public ImageQualityCheckList ImageQualityChecks { get; set; }
+        [DataMember(Name="result", EmitDefaultValue=true)]
+        public int Result { get; set; }
+
+        /// <summary>
+        /// Gets or Sets List
+        /// </summary>
+        [DataMember(Name="List", EmitDefaultValue=true)]
+        public List<ImageQualityCheck> List { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,9 +83,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImageQualityListResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  ImageQualityChecks: ").Append(ImageQualityChecks).Append("\n");
+            sb.Append("class ImageQualityCheckList {\n");
+            sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  List: ").Append(List).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +94,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -89,24 +106,30 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageQualityListResult);
+            return this.Equals(input as ImageQualityCheckList);
         }
 
         /// <summary>
-        /// Returns true if ImageQualityListResult instances are equal
+        /// Returns true if ImageQualityCheckList instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImageQualityListResult to be compared</param>
+        /// <param name="input">Instance of ImageQualityCheckList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImageQualityListResult input)
+        public bool Equals(ImageQualityCheckList input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.ImageQualityChecks == input.ImageQualityChecks ||
-                    (this.ImageQualityChecks != null &&
-                    this.ImageQualityChecks.Equals(input.ImageQualityChecks))
+                    this.Result == input.Result ||
+                    (this.Result != null &&
+                    this.Result.Equals(input.Result))
+                ) && 
+                (
+                    this.List == input.List ||
+                    this.List != null &&
+                    input.List != null &&
+                    this.List.SequenceEqual(input.List)
                 );
         }
 
@@ -118,9 +141,11 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this.ImageQualityChecks != null)
-                    hashCode = hashCode * 59 + this.ImageQualityChecks.GetHashCode();
+                int hashCode = 41;
+                if (this.Result != null)
+                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.List != null)
+                    hashCode = hashCode * 59 + this.List.GetHashCode();
                 return hashCode;
             }
         }
@@ -132,7 +157,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }
