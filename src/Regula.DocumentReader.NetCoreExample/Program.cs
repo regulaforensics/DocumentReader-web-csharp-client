@@ -28,7 +28,7 @@ namespace Regula.DocumentReader.NetCoreExample
             var uvPage0 = File.ReadAllBytes("UV.jpg");
             
             var requestParams = new RecognitionParams()
-                .WithScenario(Scenario.FULL_AUTH)
+                .WithScenario(Scenario.FULL_PROCESS)
                 .WithResultTypeOutput(new List<int>
                 {
                         // actual results
@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.NetCoreExample
                         // legacy results
                         Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
                         Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
-                        Result.LEXICAL_ANALYSIS
+                        Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
                 });
             
             var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>{
@@ -70,6 +70,8 @@ namespace Regula.DocumentReader.NetCoreExample
 
             var docImagePattern = docAuthenticity.ImagePatternChecks();
             var docImagePatternBlank = docImagePattern?.ChecksByElement(SecurityFeatureType.BLANK);
+
+            var docImageQuality = response.ImageQualityChecks();
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
