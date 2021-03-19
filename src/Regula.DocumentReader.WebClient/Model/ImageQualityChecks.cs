@@ -33,24 +33,47 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageQualityChecks" /> class.
         /// </summary>
-        /// <param name="result">result.</param>
-        /// <param name="list">list.</param>
+        [JsonConstructorAttribute]
+        protected ImageQualityChecks() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageQualityChecks" /> class.
+        /// </summary>
+        /// <param name="result">result (required).</param>
+        /// <param name="list">list (required).</param>
         public ImageQualityChecks(int result = default(int), List<ImageQualityCheck> list = default(List<ImageQualityCheck>))
         {
-            this.Result = result;
-            this.List = list;
+            // to ensure "result" is required (not null)
+            if (result == null)
+            {
+                throw new InvalidDataException("result is a required property for ImageQualityChecks and cannot be null");
+            }
+            else
+            {
+                this.Result = result;
+            }
+            
+            // to ensure "list" is required (not null)
+            if (list == null)
+            {
+                throw new InvalidDataException("list is a required property for ImageQualityChecks and cannot be null");
+            }
+            else
+            {
+                this.List = list;
+            }
+            
         }
         
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name="result", EmitDefaultValue=false)]
+        [DataMember(Name="result", EmitDefaultValue=true)]
         public int Result { get; set; }
 
         /// <summary>
         /// Gets or Sets List
         /// </summary>
-        [DataMember(Name="List", EmitDefaultValue=false)]
+        [DataMember(Name="List", EmitDefaultValue=true)]
         public List<ImageQualityCheck> List { get; set; }
 
         /// <summary>
