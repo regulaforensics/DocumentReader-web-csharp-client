@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ImageQualityCheck :  IEquatable<ImageQualityCheck>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public ImageQualityCheckType? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ImageQualityCheck" /> class.
         /// </summary>
         /// <param name="type">type.</param>
@@ -45,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mean">mean.</param>
         /// <param name="stdDev">stdDev.</param>
         /// <param name="probability">probability.</param>
-        public ImageQualityCheck(ImageQualityCheckType? type = default(ImageQualityCheckType?), int result = default(int), int featureType = default(int), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
+        public ImageQualityCheck(int type = default(int), int result = default(int), int featureType = default(int), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
         {
             this.Type = type;
             this.Result = result;
@@ -56,6 +51,11 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Probability = probability;
         }
         
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public int Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Result
