@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
-                if (item.ResultType == type) {
+                if (item.ResultType == type && item.PageIdx == pageIdx) {
                     return (T) item;
                 }
             }
