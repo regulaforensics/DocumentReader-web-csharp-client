@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         
         public ImageQualityCheckList ImageQualityChecks(int pageIdx=0)
         {
-            var result = ResultByType<ImageQualityListResult>(Result.IMAGE_QUALITY, pageIdx);
+            var result = ResultByType<ImageQualityResult>(Result.IMAGE_QUALITY, pageIdx);
             return result?.ImageQualityCheckList;
         }
 

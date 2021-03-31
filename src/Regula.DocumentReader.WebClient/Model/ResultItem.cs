@@ -31,7 +31,7 @@ namespace Regula.DocumentReader.WebClient.Model
     [DataContract]
     [JsonConverter(typeof(JsonSubtypes), "result_type")]
     [JsonSubtypes.KnownSubType(typeof(ImagesResult), Result.IMAGES)]
-    [JsonSubtypes.KnownSubType(typeof(ImageQualityListResult), Result.IMAGE_QUALITY)]
+    [JsonSubtypes.KnownSubType(typeof(ImageQualityResult), Result.IMAGE_QUALITY)]
     [JsonSubtypes.KnownSubType(typeof(LexicalAnalysisResult), Result.LEXICAL_ANALYSIS)]
     [JsonSubtypes.KnownSubType(typeof(DocumentImageResult), Result.DOCUMENT_IMAGE)]
     [JsonSubtypes.KnownSubType(typeof(TextDataResult), Result.VISUAL_TEXT)]

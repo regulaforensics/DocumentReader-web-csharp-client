@@ -25,26 +25,26 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ImageQualityListResult
+    /// ImageQualityResult
     /// </summary>
     [DataContract]
-    public partial class ImageQualityListResult : ResultItem,  IEquatable<ImageQualityListResult>, IValidatableObject
+    public partial class ImageQualityResult : ResultItem,  IEquatable<ImageQualityResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageQualityListResult" /> class.
+        /// Initializes a new instance of the <see cref="ImageQualityResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ImageQualityListResult() { }
+        protected ImageQualityResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageQualityListResult" /> class.
+        /// Initializes a new instance of the <see cref="ImageQualityResult" /> class.
         /// </summary>
         /// <param name="imageQualityCheckList">imageQualityCheckList (required).</param>
-        public ImageQualityListResult(ImageQualityCheckList imageQualityCheckList = default(ImageQualityCheckList), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public ImageQualityResult(ImageQualityCheckList imageQualityCheckList = default(ImageQualityCheckList), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "imageQualityCheckList" is required (not null)
             if (imageQualityCheckList == null)
             {
-                throw new InvalidDataException("imageQualityCheckList is a required property for ImageQualityListResult and cannot be null");
+                throw new InvalidDataException("imageQualityCheckList is a required property for ImageQualityResult and cannot be null");
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImageQualityListResult {\n");
+            sb.Append("class ImageQualityResult {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  ImageQualityCheckList: ").Append(ImageQualityCheckList).Append("\n");
             sb.Append("}\n");
@@ -89,15 +89,15 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageQualityListResult);
+            return this.Equals(input as ImageQualityResult);
         }
 
         /// <summary>
-        /// Returns true if ImageQualityListResult instances are equal
+        /// Returns true if ImageQualityResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImageQualityListResult to be compared</param>
+        /// <param name="input">Instance of ImageQualityResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImageQualityListResult input)
+        public bool Equals(ImageQualityResult input)
         {
             if (input == null)
                 return false;

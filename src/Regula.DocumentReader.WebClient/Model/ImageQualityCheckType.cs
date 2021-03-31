@@ -24,25 +24,26 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 
 namespace Regula.DocumentReader.WebClient.Model
 {
+    /// Image quality check type
     public class ImageQualityCheckType
     {
 
-        
+        /** Signals glare presence on the image */
         public const int ImageGlares = 0;
 
-        
+        /** Signals whether image is in focus */
         public const int ImageFocus = 1;
 
-        
+        /** Signals if image resolution is below threshold */
         public const int ImageResolution = 2;
 
-        
+        /** Signals if image is colorless */
         public const int ImageColorness = 3;
 
-        
+        /** Signals if document in the image has prespective distortion above threshold */
         public const int Perspective = 4;
 
-        
+        /** Signals if document is not fully present in the image */
         public const int Bounds = 5;
 
     }
