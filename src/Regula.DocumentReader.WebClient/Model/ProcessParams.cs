@@ -54,8 +54,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="updateOCRValidityByGlare">When enabled, fail OCR field validity, if there is a glare over the text field on the image. (default to false).</param>
         /// <param name="generateDoublePageSpreadImage">When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner..</param>
         /// <param name="checkRequiredTextFields">When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \&quot;error\&quot; in validity status. (default to false).</param>
+        /// <param name="returnCroppedBarcode">When enabled, returns cropped barcode images for unknown documents (default to false).</param>
         /// <param name="imageQA">imageQA.</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, ImageQA imageQA = default(ImageQA))
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, bool returnCroppedBarcode = false, ImageQA imageQA = default(ImageQA))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -113,6 +114,15 @@ namespace Regula.DocumentReader.WebClient.Model
             else
             {
                 this.CheckRequiredTextFields = checkRequiredTextFields;
+            }
+            // use default value if no "returnCroppedBarcode" provided
+            if (returnCroppedBarcode == null)
+            {
+                this.ReturnCroppedBarcode = false;
+            }
+            else
+            {
+                this.ReturnCroppedBarcode = returnCroppedBarcode;
             }
             this.ImageQA = imageQA;
         }
@@ -228,6 +238,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool CheckRequiredTextFields { get; set; }
 
         /// <summary>
+        /// When enabled, returns cropped barcode images for unknown documents
+        /// </summary>
+        /// <value>When enabled, returns cropped barcode images for unknown documents</value>
+        [DataMember(Name="returnCroppedBarcode", EmitDefaultValue=false)]
+        public bool ReturnCroppedBarcode { get; set; }
+
+        /// <summary>
         /// Gets or Sets ImageQA
         /// </summary>
         [DataMember(Name="imageQA", EmitDefaultValue=false)]
@@ -257,6 +274,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  UpdateOCRValidityByGlare: ").Append(UpdateOCRValidityByGlare).Append("\n");
             sb.Append("  GenerateDoublePageSpreadImage: ").Append(GenerateDoublePageSpreadImage).Append("\n");
             sb.Append("  CheckRequiredTextFields: ").Append(CheckRequiredTextFields).Append("\n");
+            sb.Append("  ReturnCroppedBarcode: ").Append(ReturnCroppedBarcode).Append("\n");
             sb.Append("  ImageQA: ").Append(ImageQA).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -376,6 +394,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.CheckRequiredTextFields.Equals(input.CheckRequiredTextFields))
                 ) && 
                 (
+                    this.ReturnCroppedBarcode == input.ReturnCroppedBarcode ||
+                    (this.ReturnCroppedBarcode != null &&
+                    this.ReturnCroppedBarcode.Equals(input.ReturnCroppedBarcode))
+                ) && 
+                (
                     this.ImageQA == input.ImageQA ||
                     (this.ImageQA != null &&
                     this.ImageQA.Equals(input.ImageQA))
@@ -423,6 +446,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.GenerateDoublePageSpreadImage.GetHashCode();
                 if (this.CheckRequiredTextFields != null)
                     hashCode = hashCode * 59 + this.CheckRequiredTextFields.GetHashCode();
+                if (this.ReturnCroppedBarcode != null)
+                    hashCode = hashCode * 59 + this.ReturnCroppedBarcode.GetHashCode();
                 if (this.ImageQA != null)
                     hashCode = hashCode * 59 + this.ImageQA.GetHashCode();
                 return hashCode;

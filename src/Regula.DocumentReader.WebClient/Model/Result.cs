@@ -31,6 +31,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Contains cropped and rotated with perspective compensation image of document. Single input image can contain multiple document side/pages, which will be returned as separated results. Most of coordinates in other types defined on that image */
         public const int DOCUMENT_IMAGE = 1;
 
+        /** Contains image quality check results */
+        public const int IMAGE_QUALITY = 30;
+
         /** Contains check statuses with details, grouped by source */
         public const int STATUS = 33;
 
