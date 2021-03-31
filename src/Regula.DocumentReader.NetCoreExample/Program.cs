@@ -73,6 +73,9 @@ namespace Regula.DocumentReader.NetCoreExample
 
             var docImageQuality = response.ImageQualityChecks();
 
+            var info = api.Ping();
+            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine($"                API Version: {info.Version}");
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
             Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");
