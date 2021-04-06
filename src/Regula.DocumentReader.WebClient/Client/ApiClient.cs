@@ -54,12 +54,12 @@ namespace Regula.DocumentReader.WebClient.Client
         public ApiClient()
         {
             Configuration = Regula.DocumentReader.WebClient.Client.Configuration.Default;
-            RestClient = new RestClient("http://localhost:8080");
+            RestClient = new RestClient("https://api.regulaforensics.com");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (http://localhost:8080).
+        /// with default base path (https://api.regulaforensics.com).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -74,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "http://localhost:8080")
+        public ApiClient(String basePath = "https://api.regulaforensics.com")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
