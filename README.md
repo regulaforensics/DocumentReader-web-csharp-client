@@ -13,10 +13,6 @@ through a [GitHub issue](https://github.com/regulaforensics/DocumentReader-web-c
 You are invited to contribute [new features, fixes, or updates](https://github.com/regulaforensics/DocumentReader-web-csharp-client/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), large or small. 
 We are always thrilled to receive pull requests, and do our best to process them as fast as we can.
 
-## Regula Document Reader Web API
-
-- API version: 5.2.0
-
 ## Frameworks supported
 
 - .NET Standard 2.0
