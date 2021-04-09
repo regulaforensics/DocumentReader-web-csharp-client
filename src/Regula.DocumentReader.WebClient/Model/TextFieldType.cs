@@ -1737,5 +1737,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Restrictions for CA driver’s license */
         public const int DL_CLASS_CODE_CA_NOTES = 624;
 
+        /** Citizenship Status */
+        public const int CITIZENSHIP_STATUS = 625;
+
+        /** Military Service From */
+        public const int MILITARY_SERVICE_FROM = 626;
+
+        /** Military Service To */
+        public const int MILITARY_SERVICE_TO = 627;
+
     }
 }
