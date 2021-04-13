@@ -35,7 +35,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="list">list.</param>
         /// <param name="points">points.</param>
-        public AreaArray(List<RectangleCoordinates> list = default(List<RectangleCoordinates>), PointArray points = default(PointArray))
+        public AreaArray(List<RectangleCoordinates> list = default(List<RectangleCoordinates>), List<PointArray> points = default(List<PointArray>))
         {
             this.List = list;
             this.Points = points;
@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Points
         /// </summary>
         [DataMember(Name="Points", EmitDefaultValue=false)]
-        public PointArray Points { get; set; }
+        public List<PointArray> Points { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,8 +105,9 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && 
                 (
                     this.Points == input.Points ||
-                    (this.Points != null &&
-                    this.Points.Equals(input.Points))
+                    this.Points != null &&
+                    input.Points != null &&
+                    this.Points.SequenceEqual(input.Points)
                 );
         }
 
