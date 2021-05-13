@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ProcessParams :  IEquatable<ProcessParams>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets LogLevel
-        /// </summary>
-        [DataMember(Name="logLevel", EmitDefaultValue=false)]
-        public LogLevel? LogLevel { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -66,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="documentAreaMin">Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image. (default to 0F).</param>
         /// <param name="logLevel">logLevel.</param>
         /// <param name="depersonalizeLog">When enabled all personal data will be forcibly removed from the logs. (default to false).</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, bool returnCroppedBarcode = false, ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = false, float documentAreaMin = 0F, LogLevel? logLevel = default(LogLevel?), bool depersonalizeLog = false)
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, bool returnCroppedBarcode = false, ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = false, float documentAreaMin = 0F, string logLevel = default(string), bool depersonalizeLog = false)
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -309,6 +304,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="documentAreaMin", EmitDefaultValue=false)]
         public float DocumentAreaMin { get; set; }
 
+        /// <summary>
+        /// Gets or Sets LogLevel
+        /// </summary>
+        [DataMember(Name="logLevel", EmitDefaultValue=false)]
+        public string LogLevel { get; set; }
 
         /// <summary>
         /// When enabled all personal data will be forcibly removed from the logs.

@@ -44,7 +44,6 @@ src/Regula.DocumentReader.WebClient/Model/ImagesFieldValue.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesResult.cs
 src/Regula.DocumentReader.WebClient/Model/LexicalAnalysisResult.cs
 src/Regula.DocumentReader.WebClient/Model/ListVerifiedFields.cs
-src/Regula.DocumentReader.WebClient/Model/LogLevel.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
