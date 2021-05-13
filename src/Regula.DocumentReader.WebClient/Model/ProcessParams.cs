@@ -56,7 +56,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkRequiredTextFields">When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \&quot;error\&quot; in validity status. (default to false).</param>
         /// <param name="returnCroppedBarcode">When enabled, returns cropped barcode images for unknown documents (default to false).</param>
         /// <param name="imageQA">imageQA.</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, bool returnCroppedBarcode = false, ImageQA imageQA = default(ImageQA))
+        /// <param name="forceDocFormat">forceDocFormat.</param>
+        /// <param name="noGraphics">When enabled no graphic fields will be cropped from document image. (default to false).</param>
+        /// <param name="documentAreaMin">Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image. (default to 0F).</param>
+        /// <param name="logLevel">logLevel.</param>
+        /// <param name="depersonalizeLog">When enabled all personal data will be forcibly removed from the logs. (default to false).</param>
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, bool returnCroppedBarcode = false, ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = false, float documentAreaMin = 0F, string logLevel = default(string), bool depersonalizeLog = false)
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -125,6 +130,35 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.ReturnCroppedBarcode = returnCroppedBarcode;
             }
             this.ImageQA = imageQA;
+            this.ForceDocFormat = forceDocFormat;
+            // use default value if no "noGraphics" provided
+            if (noGraphics == null)
+            {
+                this.NoGraphics = false;
+            }
+            else
+            {
+                this.NoGraphics = noGraphics;
+            }
+            // use default value if no "documentAreaMin" provided
+            if (documentAreaMin == null)
+            {
+                this.DocumentAreaMin = 0F;
+            }
+            else
+            {
+                this.DocumentAreaMin = documentAreaMin;
+            }
+            this.LogLevel = logLevel;
+            // use default value if no "depersonalizeLog" provided
+            if (depersonalizeLog == null)
+            {
+                this.DepersonalizeLog = false;
+            }
+            else
+            {
+                this.DepersonalizeLog = depersonalizeLog;
+            }
         }
         
         /// <summary>
@@ -251,6 +285,39 @@ namespace Regula.DocumentReader.WebClient.Model
         public ImageQA ImageQA { get; set; }
 
         /// <summary>
+        /// Gets or Sets ForceDocFormat
+        /// </summary>
+        [DataMember(Name="forceDocFormat", EmitDefaultValue=false)]
+        public int ForceDocFormat { get; set; }
+
+        /// <summary>
+        /// When enabled no graphic fields will be cropped from document image.
+        /// </summary>
+        /// <value>When enabled no graphic fields will be cropped from document image.</value>
+        [DataMember(Name="noGraphics", EmitDefaultValue=false)]
+        public bool NoGraphics { get; set; }
+
+        /// <summary>
+        /// Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.
+        /// </summary>
+        /// <value>Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.</value>
+        [DataMember(Name="documentAreaMin", EmitDefaultValue=false)]
+        public float DocumentAreaMin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LogLevel
+        /// </summary>
+        [DataMember(Name="logLevel", EmitDefaultValue=false)]
+        public string LogLevel { get; set; }
+
+        /// <summary>
+        /// When enabled all personal data will be forcibly removed from the logs.
+        /// </summary>
+        /// <value>When enabled all personal data will be forcibly removed from the logs.</value>
+        [DataMember(Name="depersonalizeLog", EmitDefaultValue=false)]
+        public bool DepersonalizeLog { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -276,6 +343,11 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckRequiredTextFields: ").Append(CheckRequiredTextFields).Append("\n");
             sb.Append("  ReturnCroppedBarcode: ").Append(ReturnCroppedBarcode).Append("\n");
             sb.Append("  ImageQA: ").Append(ImageQA).Append("\n");
+            sb.Append("  ForceDocFormat: ").Append(ForceDocFormat).Append("\n");
+            sb.Append("  NoGraphics: ").Append(NoGraphics).Append("\n");
+            sb.Append("  DocumentAreaMin: ").Append(DocumentAreaMin).Append("\n");
+            sb.Append("  LogLevel: ").Append(LogLevel).Append("\n");
+            sb.Append("  DepersonalizeLog: ").Append(DepersonalizeLog).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -402,6 +474,31 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ImageQA == input.ImageQA ||
                     (this.ImageQA != null &&
                     this.ImageQA.Equals(input.ImageQA))
+                ) && 
+                (
+                    this.ForceDocFormat == input.ForceDocFormat ||
+                    (this.ForceDocFormat != null &&
+                    this.ForceDocFormat.Equals(input.ForceDocFormat))
+                ) && 
+                (
+                    this.NoGraphics == input.NoGraphics ||
+                    (this.NoGraphics != null &&
+                    this.NoGraphics.Equals(input.NoGraphics))
+                ) && 
+                (
+                    this.DocumentAreaMin == input.DocumentAreaMin ||
+                    (this.DocumentAreaMin != null &&
+                    this.DocumentAreaMin.Equals(input.DocumentAreaMin))
+                ) && 
+                (
+                    this.LogLevel == input.LogLevel ||
+                    (this.LogLevel != null &&
+                    this.LogLevel.Equals(input.LogLevel))
+                ) && 
+                (
+                    this.DepersonalizeLog == input.DepersonalizeLog ||
+                    (this.DepersonalizeLog != null &&
+                    this.DepersonalizeLog.Equals(input.DepersonalizeLog))
                 );
         }
 
@@ -450,6 +547,16 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ReturnCroppedBarcode.GetHashCode();
                 if (this.ImageQA != null)
                     hashCode = hashCode * 59 + this.ImageQA.GetHashCode();
+                if (this.ForceDocFormat != null)
+                    hashCode = hashCode * 59 + this.ForceDocFormat.GetHashCode();
+                if (this.NoGraphics != null)
+                    hashCode = hashCode * 59 + this.NoGraphics.GetHashCode();
+                if (this.DocumentAreaMin != null)
+                    hashCode = hashCode * 59 + this.DocumentAreaMin.GetHashCode();
+                if (this.LogLevel != null)
+                    hashCode = hashCode * 59 + this.LogLevel.GetHashCode();
+                if (this.DepersonalizeLog != null)
+                    hashCode = hashCode * 59 + this.DepersonalizeLog.GetHashCode();
                 return hashCode;
             }
         }
