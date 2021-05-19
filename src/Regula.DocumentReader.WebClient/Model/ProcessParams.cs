@@ -41,6 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="scenario">scenario (required).</param>
         /// <param name="resultTypeOutput">Types of results to return in response. See &#39;Result&#39; enum for available options.</param>
         /// <param name="doublePageSpread">This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. By default is set to false..</param>
+        /// <param name="generateDoublePageSpreadImage">When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner..</param>
         /// <param name="fieldTypesFilter">List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. By default is empty..</param>
         /// <param name="dateFormat">This option allows you to set dates format so that solution will return dates in this format. For example, if you supply &#39;MM/dd/yyyy&#39;, and document have printed date &#39;09 JUL 2020&#39; for the date os issue, you will get &#39;07/09/2020&#39; as a result. By default it is set to system locale default (where the service is running)..</param>
         /// <param name="measureSystem">measureSystem.</param>
@@ -48,20 +49,23 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="alreadyCropped">This option can be set to true if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. By default is set to false..</param>
         /// <param name="customParams">This option allows to pass custom processing parameters that can be implemented in future without changing API..</param>
         /// <param name="log">This option can be set to true if you need to get base64 string of transaction processing log..</param>
+        /// <param name="logLevel">logLevel.</param>
         /// <param name="forceDocID">Force use of specific template ID and skip document type identification step..</param>
-        /// <param name="matchTextFieldMask">When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. (default to true).</param>
-        /// <param name="fastDocDetect">When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. (default to true).</param>
-        /// <param name="updateOCRValidityByGlare">When enabled, fail OCR field validity, if there is a glare over the text field on the image. (default to false).</param>
-        /// <param name="generateDoublePageSpreadImage">When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner..</param>
-        /// <param name="checkRequiredTextFields">When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \&quot;error\&quot; in validity status. (default to false).</param>
-        /// <param name="returnCroppedBarcode">When enabled, returns cropped barcode images for unknown documents (default to false).</param>
+        /// <param name="matchTextFieldMask">When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template..</param>
+        /// <param name="fastDocDetect">When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds..</param>
+        /// <param name="updateOCRValidityByGlare">When enabled, fail OCR field validity, if there is a glare over the text field on the image..</param>
+        /// <param name="checkRequiredTextFields">When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \&quot;error\&quot; in validity status..</param>
+        /// <param name="returnCroppedBarcode">When enabled, returns cropped barcode images for unknown documents.</param>
         /// <param name="imageQA">imageQA.</param>
         /// <param name="forceDocFormat">forceDocFormat.</param>
-        /// <param name="noGraphics">When enabled no graphic fields will be cropped from document image. (default to false).</param>
-        /// <param name="documentAreaMin">Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image. (default to 0F).</param>
-        /// <param name="logLevel">logLevel.</param>
-        /// <param name="depersonalizeLog">When enabled all personal data will be forcibly removed from the logs. (default to false).</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), int forceDocID = default(int), bool matchTextFieldMask = true, bool fastDocDetect = true, bool updateOCRValidityByGlare = false, bool generateDoublePageSpreadImage = default(bool), bool checkRequiredTextFields = false, bool returnCroppedBarcode = false, ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = false, float documentAreaMin = 0F, string logLevel = default(string), bool depersonalizeLog = false)
+        /// <param name="noGraphics">When enabled no graphic fields will be cropped from document image..</param>
+        /// <param name="documentAreaMin">Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image..</param>
+        /// <param name="depersonalizeLog">When enabled all personal data will be forcibly removed from the logs..</param>
+        /// <param name="multiDocOnImage">This option allows locating and cropping multiple documents from one image if enabled..</param>
+        /// <param name="shiftExpiryDate">This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months..</param>
+        /// <param name="minimalHolderAge">This options allows specifying the minimal age in years of the document holder for the document to be considered valid..</param>
+        /// <param name="returnUncroppedImage">This option allows returning input images in output if enabled..</param>
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -75,6 +79,7 @@ namespace Regula.DocumentReader.WebClient.Model
             
             this.ResultTypeOutput = resultTypeOutput;
             this.DoublePageSpread = doublePageSpread;
+            this.GenerateDoublePageSpreadImage = generateDoublePageSpreadImage;
             this.FieldTypesFilter = fieldTypesFilter;
             this.DateFormat = dateFormat;
             this.MeasureSystem = measureSystem;
@@ -82,83 +87,22 @@ namespace Regula.DocumentReader.WebClient.Model
             this.AlreadyCropped = alreadyCropped;
             this.CustomParams = customParams;
             this.Log = log;
+            this.LogLevel = logLevel;
             this.ForceDocID = forceDocID;
-            // use default value if no "matchTextFieldMask" provided
-            if (matchTextFieldMask == null)
-            {
-                this.MatchTextFieldMask = true;
-            }
-            else
-            {
-                this.MatchTextFieldMask = matchTextFieldMask;
-            }
-            // use default value if no "fastDocDetect" provided
-            if (fastDocDetect == null)
-            {
-                this.FastDocDetect = true;
-            }
-            else
-            {
-                this.FastDocDetect = fastDocDetect;
-            }
-            // use default value if no "updateOCRValidityByGlare" provided
-            if (updateOCRValidityByGlare == null)
-            {
-                this.UpdateOCRValidityByGlare = false;
-            }
-            else
-            {
-                this.UpdateOCRValidityByGlare = updateOCRValidityByGlare;
-            }
-            this.GenerateDoublePageSpreadImage = generateDoublePageSpreadImage;
-            // use default value if no "checkRequiredTextFields" provided
-            if (checkRequiredTextFields == null)
-            {
-                this.CheckRequiredTextFields = false;
-            }
-            else
-            {
-                this.CheckRequiredTextFields = checkRequiredTextFields;
-            }
-            // use default value if no "returnCroppedBarcode" provided
-            if (returnCroppedBarcode == null)
-            {
-                this.ReturnCroppedBarcode = false;
-            }
-            else
-            {
-                this.ReturnCroppedBarcode = returnCroppedBarcode;
-            }
+            this.MatchTextFieldMask = matchTextFieldMask;
+            this.FastDocDetect = fastDocDetect;
+            this.UpdateOCRValidityByGlare = updateOCRValidityByGlare;
+            this.CheckRequiredTextFields = checkRequiredTextFields;
+            this.ReturnCroppedBarcode = returnCroppedBarcode;
             this.ImageQA = imageQA;
             this.ForceDocFormat = forceDocFormat;
-            // use default value if no "noGraphics" provided
-            if (noGraphics == null)
-            {
-                this.NoGraphics = false;
-            }
-            else
-            {
-                this.NoGraphics = noGraphics;
-            }
-            // use default value if no "documentAreaMin" provided
-            if (documentAreaMin == null)
-            {
-                this.DocumentAreaMin = 0F;
-            }
-            else
-            {
-                this.DocumentAreaMin = documentAreaMin;
-            }
-            this.LogLevel = logLevel;
-            // use default value if no "depersonalizeLog" provided
-            if (depersonalizeLog == null)
-            {
-                this.DepersonalizeLog = false;
-            }
-            else
-            {
-                this.DepersonalizeLog = depersonalizeLog;
-            }
+            this.NoGraphics = noGraphics;
+            this.DocumentAreaMin = documentAreaMin;
+            this.DepersonalizeLog = depersonalizeLog;
+            this.MultiDocOnImage = multiDocOnImage;
+            this.ShiftExpiryDate = shiftExpiryDate;
+            this.MinimalHolderAge = minimalHolderAge;
+            this.ReturnUncroppedImage = returnUncroppedImage;
         }
         
         /// <summary>
@@ -180,6 +124,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. By default is set to false.</value>
         [DataMember(Name="doublePageSpread", EmitDefaultValue=false)]
         public bool DoublePageSpread { get; set; }
+
+        /// <summary>
+        /// When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.
+        /// </summary>
+        /// <value>When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.</value>
+        [DataMember(Name="generateDoublePageSpreadImage", EmitDefaultValue=false)]
+        public bool GenerateDoublePageSpreadImage { get; set; }
 
         /// <summary>
         /// List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. By default is empty.
@@ -230,6 +181,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool Log { get; set; }
 
         /// <summary>
+        /// Gets or Sets LogLevel
+        /// </summary>
+        [DataMember(Name="logLevel", EmitDefaultValue=false)]
+        public string LogLevel { get; set; }
+
+        /// <summary>
         /// Force use of specific template ID and skip document type identification step.
         /// </summary>
         /// <value>Force use of specific template ID and skip document type identification step.</value>
@@ -256,13 +213,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>When enabled, fail OCR field validity, if there is a glare over the text field on the image.</value>
         [DataMember(Name="updateOCRValidityByGlare", EmitDefaultValue=false)]
         public bool UpdateOCRValidityByGlare { get; set; }
-
-        /// <summary>
-        /// When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.
-        /// </summary>
-        /// <value>When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.</value>
-        [DataMember(Name="generateDoublePageSpreadImage", EmitDefaultValue=false)]
-        public bool GenerateDoublePageSpreadImage { get; set; }
 
         /// <summary>
         /// When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \&quot;error\&quot; in validity status.
@@ -305,17 +255,39 @@ namespace Regula.DocumentReader.WebClient.Model
         public float DocumentAreaMin { get; set; }
 
         /// <summary>
-        /// Gets or Sets LogLevel
-        /// </summary>
-        [DataMember(Name="logLevel", EmitDefaultValue=false)]
-        public string LogLevel { get; set; }
-
-        /// <summary>
         /// When enabled all personal data will be forcibly removed from the logs.
         /// </summary>
         /// <value>When enabled all personal data will be forcibly removed from the logs.</value>
         [DataMember(Name="depersonalizeLog", EmitDefaultValue=false)]
         public bool DepersonalizeLog { get; set; }
+
+        /// <summary>
+        /// This option allows locating and cropping multiple documents from one image if enabled.
+        /// </summary>
+        /// <value>This option allows locating and cropping multiple documents from one image if enabled.</value>
+        [DataMember(Name="multiDocOnImage", EmitDefaultValue=false)]
+        public bool MultiDocOnImage { get; set; }
+
+        /// <summary>
+        /// This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.
+        /// </summary>
+        /// <value>This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.</value>
+        [DataMember(Name="shiftExpiryDate", EmitDefaultValue=false)]
+        public int ShiftExpiryDate { get; set; }
+
+        /// <summary>
+        /// This options allows specifying the minimal age in years of the document holder for the document to be considered valid.
+        /// </summary>
+        /// <value>This options allows specifying the minimal age in years of the document holder for the document to be considered valid.</value>
+        [DataMember(Name="minimalHolderAge", EmitDefaultValue=false)]
+        public int MinimalHolderAge { get; set; }
+
+        /// <summary>
+        /// This option allows returning input images in output if enabled.
+        /// </summary>
+        /// <value>This option allows returning input images in output if enabled.</value>
+        [DataMember(Name="returnUncroppedImage", EmitDefaultValue=false)]
+        public bool ReturnUncroppedImage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -328,6 +300,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("  ResultTypeOutput: ").Append(ResultTypeOutput).Append("\n");
             sb.Append("  DoublePageSpread: ").Append(DoublePageSpread).Append("\n");
+            sb.Append("  GenerateDoublePageSpreadImage: ").Append(GenerateDoublePageSpreadImage).Append("\n");
             sb.Append("  FieldTypesFilter: ").Append(FieldTypesFilter).Append("\n");
             sb.Append("  DateFormat: ").Append(DateFormat).Append("\n");
             sb.Append("  MeasureSystem: ").Append(MeasureSystem).Append("\n");
@@ -335,19 +308,22 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  AlreadyCropped: ").Append(AlreadyCropped).Append("\n");
             sb.Append("  CustomParams: ").Append(CustomParams).Append("\n");
             sb.Append("  Log: ").Append(Log).Append("\n");
+            sb.Append("  LogLevel: ").Append(LogLevel).Append("\n");
             sb.Append("  ForceDocID: ").Append(ForceDocID).Append("\n");
             sb.Append("  MatchTextFieldMask: ").Append(MatchTextFieldMask).Append("\n");
             sb.Append("  FastDocDetect: ").Append(FastDocDetect).Append("\n");
             sb.Append("  UpdateOCRValidityByGlare: ").Append(UpdateOCRValidityByGlare).Append("\n");
-            sb.Append("  GenerateDoublePageSpreadImage: ").Append(GenerateDoublePageSpreadImage).Append("\n");
             sb.Append("  CheckRequiredTextFields: ").Append(CheckRequiredTextFields).Append("\n");
             sb.Append("  ReturnCroppedBarcode: ").Append(ReturnCroppedBarcode).Append("\n");
             sb.Append("  ImageQA: ").Append(ImageQA).Append("\n");
             sb.Append("  ForceDocFormat: ").Append(ForceDocFormat).Append("\n");
             sb.Append("  NoGraphics: ").Append(NoGraphics).Append("\n");
             sb.Append("  DocumentAreaMin: ").Append(DocumentAreaMin).Append("\n");
-            sb.Append("  LogLevel: ").Append(LogLevel).Append("\n");
             sb.Append("  DepersonalizeLog: ").Append(DepersonalizeLog).Append("\n");
+            sb.Append("  MultiDocOnImage: ").Append(MultiDocOnImage).Append("\n");
+            sb.Append("  ShiftExpiryDate: ").Append(ShiftExpiryDate).Append("\n");
+            sb.Append("  MinimalHolderAge: ").Append(MinimalHolderAge).Append("\n");
+            sb.Append("  ReturnUncroppedImage: ").Append(ReturnUncroppedImage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -399,6 +375,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.DoublePageSpread.Equals(input.DoublePageSpread))
                 ) && 
                 (
+                    this.GenerateDoublePageSpreadImage == input.GenerateDoublePageSpreadImage ||
+                    (this.GenerateDoublePageSpreadImage != null &&
+                    this.GenerateDoublePageSpreadImage.Equals(input.GenerateDoublePageSpreadImage))
+                ) && 
+                (
                     this.FieldTypesFilter == input.FieldTypesFilter ||
                     this.FieldTypesFilter != null &&
                     input.FieldTypesFilter != null &&
@@ -436,6 +417,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.Log.Equals(input.Log))
                 ) && 
                 (
+                    this.LogLevel == input.LogLevel ||
+                    (this.LogLevel != null &&
+                    this.LogLevel.Equals(input.LogLevel))
+                ) && 
+                (
                     this.ForceDocID == input.ForceDocID ||
                     (this.ForceDocID != null &&
                     this.ForceDocID.Equals(input.ForceDocID))
@@ -454,11 +440,6 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.UpdateOCRValidityByGlare == input.UpdateOCRValidityByGlare ||
                     (this.UpdateOCRValidityByGlare != null &&
                     this.UpdateOCRValidityByGlare.Equals(input.UpdateOCRValidityByGlare))
-                ) && 
-                (
-                    this.GenerateDoublePageSpreadImage == input.GenerateDoublePageSpreadImage ||
-                    (this.GenerateDoublePageSpreadImage != null &&
-                    this.GenerateDoublePageSpreadImage.Equals(input.GenerateDoublePageSpreadImage))
                 ) && 
                 (
                     this.CheckRequiredTextFields == input.CheckRequiredTextFields ||
@@ -491,14 +472,29 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.DocumentAreaMin.Equals(input.DocumentAreaMin))
                 ) && 
                 (
-                    this.LogLevel == input.LogLevel ||
-                    (this.LogLevel != null &&
-                    this.LogLevel.Equals(input.LogLevel))
-                ) && 
-                (
                     this.DepersonalizeLog == input.DepersonalizeLog ||
                     (this.DepersonalizeLog != null &&
                     this.DepersonalizeLog.Equals(input.DepersonalizeLog))
+                ) && 
+                (
+                    this.MultiDocOnImage == input.MultiDocOnImage ||
+                    (this.MultiDocOnImage != null &&
+                    this.MultiDocOnImage.Equals(input.MultiDocOnImage))
+                ) && 
+                (
+                    this.ShiftExpiryDate == input.ShiftExpiryDate ||
+                    (this.ShiftExpiryDate != null &&
+                    this.ShiftExpiryDate.Equals(input.ShiftExpiryDate))
+                ) && 
+                (
+                    this.MinimalHolderAge == input.MinimalHolderAge ||
+                    (this.MinimalHolderAge != null &&
+                    this.MinimalHolderAge.Equals(input.MinimalHolderAge))
+                ) && 
+                (
+                    this.ReturnUncroppedImage == input.ReturnUncroppedImage ||
+                    (this.ReturnUncroppedImage != null &&
+                    this.ReturnUncroppedImage.Equals(input.ReturnUncroppedImage))
                 );
         }
 
@@ -517,6 +513,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ResultTypeOutput.GetHashCode();
                 if (this.DoublePageSpread != null)
                     hashCode = hashCode * 59 + this.DoublePageSpread.GetHashCode();
+                if (this.GenerateDoublePageSpreadImage != null)
+                    hashCode = hashCode * 59 + this.GenerateDoublePageSpreadImage.GetHashCode();
                 if (this.FieldTypesFilter != null)
                     hashCode = hashCode * 59 + this.FieldTypesFilter.GetHashCode();
                 if (this.DateFormat != null)
@@ -531,6 +529,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.CustomParams.GetHashCode();
                 if (this.Log != null)
                     hashCode = hashCode * 59 + this.Log.GetHashCode();
+                if (this.LogLevel != null)
+                    hashCode = hashCode * 59 + this.LogLevel.GetHashCode();
                 if (this.ForceDocID != null)
                     hashCode = hashCode * 59 + this.ForceDocID.GetHashCode();
                 if (this.MatchTextFieldMask != null)
@@ -539,8 +539,6 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.FastDocDetect.GetHashCode();
                 if (this.UpdateOCRValidityByGlare != null)
                     hashCode = hashCode * 59 + this.UpdateOCRValidityByGlare.GetHashCode();
-                if (this.GenerateDoublePageSpreadImage != null)
-                    hashCode = hashCode * 59 + this.GenerateDoublePageSpreadImage.GetHashCode();
                 if (this.CheckRequiredTextFields != null)
                     hashCode = hashCode * 59 + this.CheckRequiredTextFields.GetHashCode();
                 if (this.ReturnCroppedBarcode != null)
@@ -553,10 +551,16 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.NoGraphics.GetHashCode();
                 if (this.DocumentAreaMin != null)
                     hashCode = hashCode * 59 + this.DocumentAreaMin.GetHashCode();
-                if (this.LogLevel != null)
-                    hashCode = hashCode * 59 + this.LogLevel.GetHashCode();
                 if (this.DepersonalizeLog != null)
                     hashCode = hashCode * 59 + this.DepersonalizeLog.GetHashCode();
+                if (this.MultiDocOnImage != null)
+                    hashCode = hashCode * 59 + this.MultiDocOnImage.GetHashCode();
+                if (this.ShiftExpiryDate != null)
+                    hashCode = hashCode * 59 + this.ShiftExpiryDate.GetHashCode();
+                if (this.MinimalHolderAge != null)
+                    hashCode = hashCode * 59 + this.MinimalHolderAge.GetHashCode();
+                if (this.ReturnUncroppedImage != null)
+                    hashCode = hashCode * 59 + this.ReturnUncroppedImage.GetHashCode();
                 return hashCode;
             }
         }
