@@ -5,7 +5,7 @@ Light=int,Result=int,VerificationResult=int,RfidLocation=int,\
 DocumentTypeRecognitionResult=int,ProcessingStatus=int,Source=string,CheckResult=int,\
 LCID=int,DocumentType=int,MeasureSystem=int,SecurityFeatureType=int,CheckDiagnose=int,\
 Critical=int,Visibility=int,AuthenticityResultType=int,ImageQualityCheckType=int,\
-LogLevel=string"\
+LogLevel=string,MRZFormat=string"\
 \
 && docker run --user "$(id -u):$(id -g)" --rm -v "${PWD}:/client" -v "$DOCS_DEFINITION_FOLDER:/definitions" \
 openapitools/openapi-generator-cli:v5.0.0-beta2 generate \
