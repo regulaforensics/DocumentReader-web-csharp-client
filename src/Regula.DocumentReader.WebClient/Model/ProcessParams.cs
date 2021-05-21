@@ -65,7 +65,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="shiftExpiryDate">This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months..</param>
         /// <param name="minimalHolderAge">This options allows specifying the minimal age in years of the document holder for the document to be considered valid..</param>
         /// <param name="returnUncroppedImage">This option allows returning input images in output if enabled..</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool))
+        /// <param name="mrzFormatsFilter">This option allows limiting MRZ formats to be recognized by specifying them in array..</param>
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<MRZFormat> mrzFormatsFilter = default(List<MRZFormat>))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -103,6 +104,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ShiftExpiryDate = shiftExpiryDate;
             this.MinimalHolderAge = minimalHolderAge;
             this.ReturnUncroppedImage = returnUncroppedImage;
+            this.MrzFormatsFilter = mrzFormatsFilter;
         }
         
         /// <summary>
@@ -290,6 +292,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool ReturnUncroppedImage { get; set; }
 
         /// <summary>
+        /// This option allows limiting MRZ formats to be recognized by specifying them in array.
+        /// </summary>
+        /// <value>This option allows limiting MRZ formats to be recognized by specifying them in array.</value>
+        [DataMember(Name="mrzFormatsFilter", EmitDefaultValue=false)]
+        public List<MRZFormat> MrzFormatsFilter { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -324,6 +333,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ShiftExpiryDate: ").Append(ShiftExpiryDate).Append("\n");
             sb.Append("  MinimalHolderAge: ").Append(MinimalHolderAge).Append("\n");
             sb.Append("  ReturnUncroppedImage: ").Append(ReturnUncroppedImage).Append("\n");
+            sb.Append("  MrzFormatsFilter: ").Append(MrzFormatsFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -495,6 +505,12 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ReturnUncroppedImage == input.ReturnUncroppedImage ||
                     (this.ReturnUncroppedImage != null &&
                     this.ReturnUncroppedImage.Equals(input.ReturnUncroppedImage))
+                ) && 
+                (
+                    this.MrzFormatsFilter == input.MrzFormatsFilter ||
+                    this.MrzFormatsFilter != null &&
+                    input.MrzFormatsFilter != null &&
+                    this.MrzFormatsFilter.SequenceEqual(input.MrzFormatsFilter)
                 );
         }
 
@@ -561,6 +577,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.MinimalHolderAge.GetHashCode();
                 if (this.ReturnUncroppedImage != null)
                     hashCode = hashCode * 59 + this.ReturnUncroppedImage.GetHashCode();
+                if (this.MrzFormatsFilter != null)
+                    hashCode = hashCode * 59 + this.MrzFormatsFilter.GetHashCode();
                 return hashCode;
             }
         }
