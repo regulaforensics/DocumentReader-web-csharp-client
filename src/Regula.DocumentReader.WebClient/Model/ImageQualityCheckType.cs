@@ -46,5 +46,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Signals if document is not fully present in the image */
         public const int Bounds = 5;
 
+        /** Signals if an image is captured from screen */
+        public const int ScreenCapture = 6;
+
+        /** Signals if the portrait is present */
+        public const int Portrait = 7;
+
     }
 }
