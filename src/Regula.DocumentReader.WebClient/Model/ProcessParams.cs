@@ -48,6 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageDpiOutMax">This option controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi..</param>
         /// <param name="alreadyCropped">This option can be set to true if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. By default is set to false..</param>
         /// <param name="customParams">This option allows to pass custom processing parameters that can be implemented in future without changing API..</param>
+        /// <param name="config">This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration..</param>
         /// <param name="log">This option can be set to true if you need to get base64 string of transaction processing log..</param>
         /// <param name="logLevel">logLevel.</param>
         /// <param name="forceDocID">Force use of specific template ID and skip document type identification step..</param>
@@ -66,7 +67,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="minimalHolderAge">This options allows specifying the minimal age in years of the document holder for the document to be considered valid..</param>
         /// <param name="returnUncroppedImage">This option allows returning input images in output if enabled..</param>
         /// <param name="mrzFormatsFilter">This option allows limiting MRZ formats to be recognized by specifying them in array..</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>))
+        /// <param name="forceReadMrzBeforeLocate">This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality..</param>
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -87,6 +89,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ImageDpiOutMax = imageDpiOutMax;
             this.AlreadyCropped = alreadyCropped;
             this.CustomParams = customParams;
+            this.Config = config;
             this.Log = log;
             this.LogLevel = logLevel;
             this.ForceDocID = forceDocID;
@@ -105,6 +108,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.MinimalHolderAge = minimalHolderAge;
             this.ReturnUncroppedImage = returnUncroppedImage;
             this.MrzFormatsFilter = mrzFormatsFilter;
+            this.ForceReadMrzBeforeLocate = forceReadMrzBeforeLocate;
         }
         
         /// <summary>
@@ -174,6 +178,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>This option allows to pass custom processing parameters that can be implemented in future without changing API.</value>
         [DataMember(Name="customParams", EmitDefaultValue=false)]
         public Dictionary<string, Object> CustomParams { get; set; }
+
+        /// <summary>
+        /// This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.
+        /// </summary>
+        /// <value>This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.</value>
+        [DataMember(Name="config", EmitDefaultValue=false)]
+        public List<PerDocumentConfig> Config { get; set; }
 
         /// <summary>
         /// This option can be set to true if you need to get base64 string of transaction processing log.
@@ -299,6 +310,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<string> MrzFormatsFilter { get; set; }
 
         /// <summary>
+        /// This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.
+        /// </summary>
+        /// <value>This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.</value>
+        [DataMember(Name="forceReadMrzBeforeLocate", EmitDefaultValue=false)]
+        public bool ForceReadMrzBeforeLocate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -316,6 +334,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ImageDpiOutMax: ").Append(ImageDpiOutMax).Append("\n");
             sb.Append("  AlreadyCropped: ").Append(AlreadyCropped).Append("\n");
             sb.Append("  CustomParams: ").Append(CustomParams).Append("\n");
+            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("  Log: ").Append(Log).Append("\n");
             sb.Append("  LogLevel: ").Append(LogLevel).Append("\n");
             sb.Append("  ForceDocID: ").Append(ForceDocID).Append("\n");
@@ -334,6 +353,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  MinimalHolderAge: ").Append(MinimalHolderAge).Append("\n");
             sb.Append("  ReturnUncroppedImage: ").Append(ReturnUncroppedImage).Append("\n");
             sb.Append("  MrzFormatsFilter: ").Append(MrzFormatsFilter).Append("\n");
+            sb.Append("  ForceReadMrzBeforeLocate: ").Append(ForceReadMrzBeforeLocate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -420,6 +440,12 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.CustomParams != null &&
                     input.CustomParams != null &&
                     this.CustomParams.SequenceEqual(input.CustomParams)
+                ) && 
+                (
+                    this.Config == input.Config ||
+                    this.Config != null &&
+                    input.Config != null &&
+                    this.Config.SequenceEqual(input.Config)
                 ) && 
                 (
                     this.Log == input.Log ||
@@ -511,6 +537,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.MrzFormatsFilter != null &&
                     input.MrzFormatsFilter != null &&
                     this.MrzFormatsFilter.SequenceEqual(input.MrzFormatsFilter)
+                ) && 
+                (
+                    this.ForceReadMrzBeforeLocate == input.ForceReadMrzBeforeLocate ||
+                    (this.ForceReadMrzBeforeLocate != null &&
+                    this.ForceReadMrzBeforeLocate.Equals(input.ForceReadMrzBeforeLocate))
                 );
         }
 
@@ -543,6 +574,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.AlreadyCropped.GetHashCode();
                 if (this.CustomParams != null)
                     hashCode = hashCode * 59 + this.CustomParams.GetHashCode();
+                if (this.Config != null)
+                    hashCode = hashCode * 59 + this.Config.GetHashCode();
                 if (this.Log != null)
                     hashCode = hashCode * 59 + this.Log.GetHashCode();
                 if (this.LogLevel != null)
@@ -579,6 +612,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ReturnUncroppedImage.GetHashCode();
                 if (this.MrzFormatsFilter != null)
                     hashCode = hashCode * 59 + this.MrzFormatsFilter.GetHashCode();
+                if (this.ForceReadMrzBeforeLocate != null)
+                    hashCode = hashCode * 59 + this.ForceReadMrzBeforeLocate.GetHashCode();
                 return hashCode;
             }
         }

@@ -35,10 +35,18 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="dpiThreshold">This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail..</param>
         /// <param name="angleThreshold">This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail..</param>
-        public ImageQA(int dpiThreshold = default(int), int angleThreshold = default(int))
+        /// <param name="disableFocusCheck">This option disabled focus check during performing image quality validation.</param>
+        /// <param name="disableGlaresCheck">This option disabled glares check during performing image quality validation.</param>
+        /// <param name="disableColornessCheck">This option disabled colorness check during performing image quality validation.</param>
+        /// <param name="disableMoireCheck">This option disabled moire patterns check during performing image quality validation.</param>
+        public ImageQA(int dpiThreshold = default(int), int angleThreshold = default(int), bool disableFocusCheck = default(bool), bool disableGlaresCheck = default(bool), bool disableColornessCheck = default(bool), bool disableMoireCheck = default(bool))
         {
             this.DpiThreshold = dpiThreshold;
             this.AngleThreshold = angleThreshold;
+            this.DisableFocusCheck = disableFocusCheck;
+            this.DisableGlaresCheck = disableGlaresCheck;
+            this.DisableColornessCheck = disableColornessCheck;
+            this.DisableMoireCheck = disableMoireCheck;
         }
         
         /// <summary>
@@ -56,6 +64,34 @@ namespace Regula.DocumentReader.WebClient.Model
         public int AngleThreshold { get; set; }
 
         /// <summary>
+        /// This option disabled focus check during performing image quality validation
+        /// </summary>
+        /// <value>This option disabled focus check during performing image quality validation</value>
+        [DataMember(Name="disableFocusCheck", EmitDefaultValue=false)]
+        public bool DisableFocusCheck { get; set; }
+
+        /// <summary>
+        /// This option disabled glares check during performing image quality validation
+        /// </summary>
+        /// <value>This option disabled glares check during performing image quality validation</value>
+        [DataMember(Name="disableGlaresCheck", EmitDefaultValue=false)]
+        public bool DisableGlaresCheck { get; set; }
+
+        /// <summary>
+        /// This option disabled colorness check during performing image quality validation
+        /// </summary>
+        /// <value>This option disabled colorness check during performing image quality validation</value>
+        [DataMember(Name="disableColornessCheck", EmitDefaultValue=false)]
+        public bool DisableColornessCheck { get; set; }
+
+        /// <summary>
+        /// This option disabled moire patterns check during performing image quality validation
+        /// </summary>
+        /// <value>This option disabled moire patterns check during performing image quality validation</value>
+        [DataMember(Name="disableMoireCheck", EmitDefaultValue=false)]
+        public bool DisableMoireCheck { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +101,10 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("class ImageQA {\n");
             sb.Append("  DpiThreshold: ").Append(DpiThreshold).Append("\n");
             sb.Append("  AngleThreshold: ").Append(AngleThreshold).Append("\n");
+            sb.Append("  DisableFocusCheck: ").Append(DisableFocusCheck).Append("\n");
+            sb.Append("  DisableGlaresCheck: ").Append(DisableGlaresCheck).Append("\n");
+            sb.Append("  DisableColornessCheck: ").Append(DisableColornessCheck).Append("\n");
+            sb.Append("  DisableMoireCheck: ").Append(DisableMoireCheck).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +148,26 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.AngleThreshold == input.AngleThreshold ||
                     (this.AngleThreshold != null &&
                     this.AngleThreshold.Equals(input.AngleThreshold))
+                ) && 
+                (
+                    this.DisableFocusCheck == input.DisableFocusCheck ||
+                    (this.DisableFocusCheck != null &&
+                    this.DisableFocusCheck.Equals(input.DisableFocusCheck))
+                ) && 
+                (
+                    this.DisableGlaresCheck == input.DisableGlaresCheck ||
+                    (this.DisableGlaresCheck != null &&
+                    this.DisableGlaresCheck.Equals(input.DisableGlaresCheck))
+                ) && 
+                (
+                    this.DisableColornessCheck == input.DisableColornessCheck ||
+                    (this.DisableColornessCheck != null &&
+                    this.DisableColornessCheck.Equals(input.DisableColornessCheck))
+                ) && 
+                (
+                    this.DisableMoireCheck == input.DisableMoireCheck ||
+                    (this.DisableMoireCheck != null &&
+                    this.DisableMoireCheck.Equals(input.DisableMoireCheck))
                 );
         }
 
@@ -124,6 +184,14 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.DpiThreshold.GetHashCode();
                 if (this.AngleThreshold != null)
                     hashCode = hashCode * 59 + this.AngleThreshold.GetHashCode();
+                if (this.DisableFocusCheck != null)
+                    hashCode = hashCode * 59 + this.DisableFocusCheck.GetHashCode();
+                if (this.DisableGlaresCheck != null)
+                    hashCode = hashCode * 59 + this.DisableGlaresCheck.GetHashCode();
+                if (this.DisableColornessCheck != null)
+                    hashCode = hashCode * 59 + this.DisableColornessCheck.GetHashCode();
+                if (this.DisableMoireCheck != null)
+                    hashCode = hashCode * 59 + this.DisableMoireCheck.GetHashCode();
                 return hashCode;
             }
         }

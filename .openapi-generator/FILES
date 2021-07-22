@@ -47,6 +47,7 @@ src/Regula.DocumentReader.WebClient/Model/ListVerifiedFields.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
+src/Regula.DocumentReader.WebClient/Model/PerDocumentConfig.cs
 src/Regula.DocumentReader.WebClient/Model/PhotoIdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/Point.cs
 src/Regula.DocumentReader.WebClient/Model/PointArray.cs
