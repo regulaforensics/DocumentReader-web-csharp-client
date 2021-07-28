@@ -25,56 +25,30 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// SourceValidity
+    /// Contains information about document position on the input image, its center, angle, etc
     /// </summary>
     [DataContract]
-    public partial class SourceValidity :  IEquatable<SourceValidity>, IValidatableObject
+    public partial class DocumentPositionResult : ResultItem,  IEquatable<DocumentPositionResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SourceValidity" /> class.
+        /// Initializes a new instance of the <see cref="DocumentPositionResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SourceValidity() { }
+        protected DocumentPositionResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SourceValidity" /> class.
+        /// Initializes a new instance of the <see cref="DocumentPositionResult" /> class.
         /// </summary>
-        /// <param name="source">source (required).</param>
-        /// <param name="status">status (required).</param>
-        public SourceValidity(string source = default(string), int status = default(int))
+        /// <param name="documentPosition">documentPosition.</param>
+        public DocumentPositionResult(DocumentPosition documentPosition = default(DocumentPosition), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            // to ensure "source" is required (not null)
-            if (source == null)
-            {
-                throw new InvalidDataException("source is a required property for SourceValidity and cannot be null");
-            }
-            else
-            {
-                this.Source = source;
-            }
-            
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new InvalidDataException("status is a required property for SourceValidity and cannot be null");
-            }
-            else
-            {
-                this.Status = status;
-            }
-            
+            this.DocumentPosition = documentPosition;
         }
         
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets DocumentPosition
         /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
+        [DataMember(Name="DocumentPosition", EmitDefaultValue=false)]
+        public DocumentPosition DocumentPosition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +57,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SourceValidity {\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class DocumentPositionResult {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  DocumentPosition: ").Append(DocumentPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,7 +68,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -106,29 +80,24 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SourceValidity);
+            return this.Equals(input as DocumentPositionResult);
         }
 
         /// <summary>
-        /// Returns true if SourceValidity instances are equal
+        /// Returns true if DocumentPositionResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of SourceValidity to be compared</param>
+        /// <param name="input">Instance of DocumentPositionResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SourceValidity input)
+        public bool Equals(DocumentPositionResult input)
         {
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.DocumentPosition == input.DocumentPosition ||
+                    (this.DocumentPosition != null &&
+                    this.DocumentPosition.Equals(input.DocumentPosition))
                 );
         }
 
@@ -140,11 +109,9 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
-                if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                int hashCode = base.GetHashCode();
+                if (this.DocumentPosition != null)
+                    hashCode = hashCode * 59 + this.DocumentPosition.GetHashCode();
                 return hashCode;
             }
         }
@@ -156,6 +123,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

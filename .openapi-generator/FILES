@@ -23,6 +23,8 @@ src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedField.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentImage.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentImageResult.cs
+src/Regula.DocumentReader.WebClient/Model/DocumentPosition.cs
+src/Regula.DocumentReader.WebClient/Model/DocumentPositionResult.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidates.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesList.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesResult.cs
