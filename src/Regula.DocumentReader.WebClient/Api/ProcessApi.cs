@@ -34,7 +34,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ProcessResponse</returns>
-        ProcessResponse ApiProcess (ProcessRequest processRequest);
+        ProcessResponse ApiProcess (ProcessRequest processRequest, Dictionary<String, String> headers);
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest);
+        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, Dictionary<String, String> headers);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -188,9 +188,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ProcessResponse</returns>
-        public ProcessResponse ApiProcess (ProcessRequest processRequest)
+        public ProcessResponse ApiProcess (ProcessRequest processRequest, Dictionary<String, String> headers)
         {
-             ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest);
+             ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest, headers);
              return localVarResponse.Data;
         }
 
@@ -200,7 +200,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest)
+        public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, Dictionary<String, String> headers)
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)
@@ -209,7 +209,7 @@ namespace Regula.DocumentReader.WebClient.Api
             var localVarPath = "/api/process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary (k => k.Key, v => v.Value);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;

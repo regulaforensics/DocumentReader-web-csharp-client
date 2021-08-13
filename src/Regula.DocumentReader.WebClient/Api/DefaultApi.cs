@@ -33,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DeviceInfo</returns>
-        DeviceInfo Ping ();
+        DeviceInfo Ping (Dictionary<String, String> headers);
 
         /// <summary>
         /// Server health check
@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DeviceInfo</returns>
-        ApiResponse<DeviceInfo> PingWithHttpInfo ();
+        ApiResponse<DeviceInfo> PingWithHttpInfo (Dictionary<String, String> headers);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -183,9 +183,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DeviceInfo</returns>
-        public DeviceInfo Ping ()
+        public DeviceInfo Ping (Dictionary<String, String> headers)
         {
-             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo();
+             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo(headers);
              return localVarResponse.Data;
         }
 
@@ -194,13 +194,13 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DeviceInfo</returns>
-        public ApiResponse<DeviceInfo> PingWithHttpInfo ()
+        public ApiResponse<DeviceInfo> PingWithHttpInfo (Dictionary<String, String> headers)
         {
 
             var localVarPath = "/api/ping";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary (k => k.Key, v => v.Value);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
