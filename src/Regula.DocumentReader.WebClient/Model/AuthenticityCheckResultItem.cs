@@ -63,13 +63,19 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ElementResult = elementResult;
             this.ElementDiagnose = elementDiagnose;
         }
-        
+
         /// <summary>
         /// Same as authenticity result type, but used for safe parsing of not-described values. See authenticity result type
         /// </summary>
         /// <value>Same as authenticity result type, but used for safe parsing of not-described values. See authenticity result type</value>
         [DataMember(Name="Type", EmitDefaultValue=true)]
         public int Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LightIndex
+        /// </summary>
+        [DataMember(Name="LightIndex", EmitDefaultValue=false)]
+        public int LightIndex { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementResult
@@ -82,6 +88,42 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name="ElementDiagnose", EmitDefaultValue=false)]
         public int ElementDiagnose { get; set; }
+
+        /// <summary>
+        /// Gets or Sets the Area
+        /// </summary>
+        [DataMember(Name="Area", EmitDefaultValue=true)]
+        public RectangleCoordinates Area { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElementType
+        /// </summary>
+        [DataMember(Name="ElementType", EmitDefaultValue=false)]
+        public int ElementType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PercentValue
+        /// </summary>
+        [DataMember(Name="PercentValue", EmitDefaultValue=false)]
+        public int PercentValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EtalonImage
+        /// </summary>
+        [DataMember(Name="EtalonImage", EmitDefaultValue=true)]
+        public ImageData EtalonImage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EtalonImage
+        /// </summary>
+        [DataMember(Name="Image", EmitDefaultValue=true)]
+        public ImageData Image { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Result
+        /// </summary>
+        [DataMember(Name="Result", EmitDefaultValue=false)]
+        public int Result { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
