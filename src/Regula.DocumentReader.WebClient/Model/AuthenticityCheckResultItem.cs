@@ -92,7 +92,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets the Area
         /// </summary>
-        [DataMember(Name="Area", EmitDefaultValue=true)]
+        [DataMember(Name="Area", EmitDefaultValue=false)]
         public RectangleCoordinates Area { get; set; }
 
         /// <summary>
@@ -110,13 +110,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets EtalonImage
         /// </summary>
-        [DataMember(Name="EtalonImage", EmitDefaultValue=true)]
+        [DataMember(Name="EtalonImage", EmitDefaultValue=false)]
         public ImageData EtalonImage { get; set; }
 
         /// <summary>
-        /// Gets or Sets EtalonImage
+        /// Gets or Sets Image
         /// </summary>
-        [DataMember(Name="Image", EmitDefaultValue=true)]
+        [DataMember(Name="Image", EmitDefaultValue=false)]
         public ImageData Image { get; set; }
 
         /// <summary>
@@ -136,6 +136,13 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ElementResult: ").Append(ElementResult).Append("\n");
             sb.Append("  ElementDiagnose: ").Append(ElementDiagnose).Append("\n");
+            sb.Append("  LightIndex: ").Append(LightIndex).Append("\n");
+            sb.Append("  Area: ").Append(Area).Append("\n");
+            sb.Append("  ElementType: ").Append(ElementType).Append("\n");
+            sb.Append("  PercentValue: ").Append(PercentValue).Append("\n");
+            sb.Append("  EtalonImage: ").Append(EtalonImage).Append("\n");
+            sb.Append("  Image: ").Append(Image).Append("\n");
+            sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,7 +181,42 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
+                ) &&
+                (
+                    this.LightIndex == input.LightIndex ||
+                    (this.LightIndex != null &&
+                    this.LightIndex.Equals(input.LightIndex))
+                ) &&
+                (
+                    this.Area == input.Area ||
+                    (this.Area != null &&
+                    this.Area.Equals(input.Area))
+                ) &&
+                (
+                    this.ElementType == input.ElementType ||
+                    (this.ElementType != null &&
+                    this.ElementType.Equals(input.ElementType))
+                ) &&
+                (
+                    this.PercentValue == input.PercentValue ||
+                    (this.PercentValue != null &&
+                    this.PercentValue.Equals(input.PercentValue))
+                ) &&
+                (
+                    this.EtalonImage == input.EtalonImage ||
+                    (this.EtalonImage != null &&
+                    this.EtalonImage.Equals(input.EtalonImage))
+                ) &&
+                (
+                    this.Image == input.Image ||
+                    (this.Image != null &&
+                    this.Image.Equals(input.Image))
+                ) &&
+                (
+                    this.Result == input.Result ||
+                    (this.Result != null &&
+                    this.Result.Equals(input.Result))
+                ) &&
                 (
                     this.ElementResult == input.ElementResult ||
                     (this.ElementResult != null &&
@@ -202,6 +244,20 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ElementResult.GetHashCode();
                 if (this.ElementDiagnose != null)
                     hashCode = hashCode * 59 + this.ElementDiagnose.GetHashCode();
+                if (this.LightIndex != null)
+                    hashCode = hashCode * 59 + this.LightIndex.GetHashCode();
+                if (this.Area != null)
+                    hashCode = hashCode * 59 + this.Area.GetHashCode();
+                if (this.ElementType != null)
+                    hashCode = hashCode * 59 + this.ElementType.GetHashCode();
+                if (this.PercentValue != null)
+                    hashCode = hashCode * 59 + this.PercentValue.GetHashCode();
+                if (this.EtalonImage != null)
+                    hashCode = hashCode * 59 + this.EtalonImage.GetHashCode();
+                if (this.Image != null)
+                    hashCode = hashCode * 59 + this.Image.GetHashCode();
+                if (this.Result != null)
+                    hashCode = hashCode * 59 + this.Result.GetHashCode();
                 return hashCode;
             }
         }
