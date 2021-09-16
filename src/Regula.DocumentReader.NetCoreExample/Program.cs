@@ -13,56 +13,58 @@ namespace Regula.DocumentReader.NetCoreExample
         private const string API_BASE_PATH = "API_BASE_PATH";
         private const string TEST_LICENSE = "TEST_LICENSE";
         private const string LICENSE_FILE_NAME = "regula.license";
-        
+
         public static void Main()
         {
-            string apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
+            var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
 
-            string licenseFromEnv = Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
-            var licenseFromFile = File.Exists(LICENSE_FILE_NAME) 
-                ? File.ReadAllBytes(LICENSE_FILE_NAME) 
+            var licenseFromEnv =
+                Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
+            var licenseFromFile = File.Exists(LICENSE_FILE_NAME)
+                ? File.ReadAllBytes(LICENSE_FILE_NAME)
                 : null;
-            
+
             var whitePage0 = File.ReadAllBytes("WHITE.jpg");
             var irPage0 = File.ReadAllBytes("IR.jpg");
             var uvPage0 = File.ReadAllBytes("UV.jpg");
-            
+
             var requestParams = new RecognitionParams()
-                .WithScenario(Scenario.FULL_PROCESS)
+                .WithScenario(Scenario.FULL_AUTH)
                 .WithResultTypeOutput(new List<int>
                 {
-                        // actual results
-                        Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-                        Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.DOCUMENT_POSITION,
-                        // legacy results
-                        Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
-                        Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
-                        Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
+                    // actual results
+                    Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+                    Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.DOCUMENT_POSITION,
+                    // legacy results
+                    Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
+                    Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
+                    Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
                 });
-            
-            var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>{
-                    new ProcessRequestImage(new ImageData(whitePage0), Light.WHITE),
-                    new ProcessRequestImage(new ImageData(irPage0), Light.IR),
-                    new ProcessRequestImage(new ImageData(uvPage0), Light.UV),
-                });
-            var api = licenseFromEnv != null 
+
+            var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
+            {
+                new ProcessRequestImage(new ImageData(whitePage0), Light.WHITE),
+                new ProcessRequestImage(new ImageData(irPage0), Light.IR),
+                new ProcessRequestImage(new ImageData(uvPage0), Light.UV)
+            });
+            var api = licenseFromEnv != null
                 ? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
                 : new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
-            
+
             var response = api.Process(request);
-            
+
             // overall status results 
             var status = response.Status();
-            string docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
-            string docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
+            var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
+            var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
             // text results 
             var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
-            string docNumberVisual = docNumberField.GetValue(Source.VISUAL);
-            string docNumberMrz = docNumberField.GetValue(Source.MRZ);
-            int docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
-            int docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
-            int docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
+            var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
+            var docNumberMrz = docNumberField.GetValue(Source.MRZ);
+            var docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
+            var docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
+            var docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
 
             var docAuthenticity = response.Authenticity();
             var docIRB900 = docAuthenticity.IrB900Checks();
@@ -90,7 +92,7 @@ namespace Regula.DocumentReader.NetCoreExample
             var documentImage = response.Images().GetField(GraphicFieldType.DOCUMENT_FRONT).GetValue();
             var portraitField = response.Images().GetField(GraphicFieldType.PORTRAIT);
             var portraitFromVisual = portraitField.GetValue(Source.VISUAL);
-            
+
             File.WriteAllBytes("document-image.jpg", documentImage);
             File.WriteAllBytes("portrait.jpg", portraitFromVisual);
 
