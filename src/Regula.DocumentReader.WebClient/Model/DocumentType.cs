@@ -706,5 +706,11 @@ namespace Regula.DocumentReader.WebClient.Model
         
         public const int CERTIFICATE_OF_PROFICIENCY = 238;
 
+        
+        public const int TRADE_LICENSE = 239;
+
+        
+        public const int PASSPORT_PAGE = 240;
+
     }
 }
