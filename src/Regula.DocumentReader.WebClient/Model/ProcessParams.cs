@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ProcessParams :  IEquatable<ProcessParams>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ConvertCase
-        /// </summary>
-        [DataMember(Name="convertCase", EmitDefaultValue=false)]
-        public TextPostProcessing? ConvertCase { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -75,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="forceReadMrzBeforeLocate">This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality..</param>
         /// <param name="parseBarcodes">This option can be set to false to stop parsing after barcode is read..</param>
         /// <param name="convertCase">convertCase.</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), TextPostProcessing? convertCase = default(TextPostProcessing?))
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -332,6 +327,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="parseBarcodes", EmitDefaultValue=false)]
         public bool ParseBarcodes { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ConvertCase
+        /// </summary>
+        [DataMember(Name="convertCase", EmitDefaultValue=false)]
+        public int ConvertCase { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

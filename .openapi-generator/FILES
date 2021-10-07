@@ -74,7 +74,6 @@ src/Regula.DocumentReader.WebClient/Model/TextAvailableSource.cs
 src/Regula.DocumentReader.WebClient/Model/TextDataResult.cs
 src/Regula.DocumentReader.WebClient/Model/TextField.cs
 src/Regula.DocumentReader.WebClient/Model/TextFieldValue.cs
-src/Regula.DocumentReader.WebClient/Model/TextPostProcessing.cs
 src/Regula.DocumentReader.WebClient/Model/TextResult.cs
 src/Regula.DocumentReader.WebClient/Model/TransactionInfo.cs
 src/Regula.DocumentReader.WebClient/Model/VerifiedFieldMap.cs
