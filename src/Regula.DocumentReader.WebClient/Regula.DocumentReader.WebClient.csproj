@@ -6,14 +6,16 @@
     <Product>DocumentReader WebClient</Product>
     <PackageTags>regula document processing id card rfid ocr barcode ipi</PackageTags>
     <PackageId>Regula.DocumentReader.WebClient</PackageId>
-    <PackageVersion>5.2.1</PackageVersion>
-    <Version>5.2.1</Version>
+    <PackageVersion>5.8.3</PackageVersion>
+    <Version>5.8.3</Version>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>regula_web_client.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.7.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
   </ItemGroup>
 </Project>
