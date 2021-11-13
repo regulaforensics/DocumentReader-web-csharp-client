@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="updateOCRValidityByGlare">When enabled, fail OCR field validity, if there is a glare over the text field on the image..</param>
         /// <param name="checkRequiredTextFields">When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \&quot;error\&quot; in validity status..</param>
         /// <param name="returnCroppedBarcode">When enabled, returns cropped barcode images for unknown documents.</param>
-        /// <param name="imageQA">imageQA.</param>
+        /// <param name="imageQa">imageQa.</param>
         /// <param name="forceDocFormat">forceDocFormat.</param>
         /// <param name="noGraphics">When enabled no graphic fields will be cropped from document image..</param>
         /// <param name="documentAreaMin">Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image..</param>
@@ -70,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="forceReadMrzBeforeLocate">This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality..</param>
         /// <param name="parseBarcodes">This option can be set to false to stop parsing after barcode is read..</param>
         /// <param name="convertCase">convertCase.</param>
-        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQA = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int))
+        public ProcessParams(string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -100,7 +100,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.UpdateOCRValidityByGlare = updateOCRValidityByGlare;
             this.CheckRequiredTextFields = checkRequiredTextFields;
             this.ReturnCroppedBarcode = returnCroppedBarcode;
-            this.ImageQA = imageQA;
+            this.ImageQa = imageQa;
             this.ForceDocFormat = forceDocFormat;
             this.NoGraphics = noGraphics;
             this.DocumentAreaMin = documentAreaMin;
@@ -246,10 +246,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool ReturnCroppedBarcode { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImageQA
+        /// Gets or Sets ImageQa
         /// </summary>
-        [DataMember(Name="imageQA", EmitDefaultValue=false)]
-        public ImageQA ImageQA { get; set; }
+        [DataMember(Name="imageQa", EmitDefaultValue=false)]
+        public ImageQA ImageQa { get; set; }
 
         /// <summary>
         /// Gets or Sets ForceDocFormat
@@ -360,7 +360,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  UpdateOCRValidityByGlare: ").Append(UpdateOCRValidityByGlare).Append("\n");
             sb.Append("  CheckRequiredTextFields: ").Append(CheckRequiredTextFields).Append("\n");
             sb.Append("  ReturnCroppedBarcode: ").Append(ReturnCroppedBarcode).Append("\n");
-            sb.Append("  ImageQA: ").Append(ImageQA).Append("\n");
+            sb.Append("  ImageQa: ").Append(ImageQa).Append("\n");
             sb.Append("  ForceDocFormat: ").Append(ForceDocFormat).Append("\n");
             sb.Append("  NoGraphics: ").Append(NoGraphics).Append("\n");
             sb.Append("  DocumentAreaMin: ").Append(DocumentAreaMin).Append("\n");
@@ -507,9 +507,9 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ReturnCroppedBarcode.Equals(input.ReturnCroppedBarcode))
                 ) && 
                 (
-                    this.ImageQA == input.ImageQA ||
-                    (this.ImageQA != null &&
-                    this.ImageQA.Equals(input.ImageQA))
+                    this.ImageQa == input.ImageQa ||
+                    (this.ImageQa != null &&
+                    this.ImageQa.Equals(input.ImageQa))
                 ) && 
                 (
                     this.ForceDocFormat == input.ForceDocFormat ||
@@ -621,8 +621,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.CheckRequiredTextFields.GetHashCode();
                 if (this.ReturnCroppedBarcode != null)
                     hashCode = hashCode * 59 + this.ReturnCroppedBarcode.GetHashCode();
-                if (this.ImageQA != null)
-                    hashCode = hashCode * 59 + this.ImageQA.GetHashCode();
+                if (this.ImageQa != null)
+                    hashCode = hashCode * 59 + this.ImageQa.GetHashCode();
                 if (this.ForceDocFormat != null)
                     hashCode = hashCode * 59 + this.ForceDocFormat.GetHashCode();
                 if (this.NoGraphics != null)
