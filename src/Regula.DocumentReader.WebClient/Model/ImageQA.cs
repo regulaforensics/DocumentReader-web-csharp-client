@@ -35,10 +35,10 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="dpiThreshold">This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail..</param>
         /// <param name="angleThreshold">This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail..</param>
-        /// <param name="focusCheck">This option disabled focus check during performing image quality validation.</param>
-        /// <param name="glaresCheck">This option disabled glares check during performing image quality validation.</param>
-        /// <param name="colornessCheck">This option disabled colorness check during performing image quality validation.</param>
-        /// <param name="moireCheck">This option disabled moire patterns check during performing image quality validation.</param>
+        /// <param name="focusCheck">This option enables focus check while performing image quality validation..</param>
+        /// <param name="glaresCheck">This option enables glares check while performing image quality validation..</param>
+        /// <param name="colornessCheck">This option enables colorness check while performing image quality validation..</param>
+        /// <param name="moireCheck">This option enables moire patterns check while performing image quality validation..</param>
         public ImageQA(int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool))
         {
             this.DpiThreshold = dpiThreshold;
@@ -64,30 +64,30 @@ namespace Regula.DocumentReader.WebClient.Model
         public int AngleThreshold { get; set; }
 
         /// <summary>
-        /// This option disabled focus check during performing image quality validation
+        /// This option enables focus check while performing image quality validation.
         /// </summary>
-        /// <value>This option disabled focus check during performing image quality validation</value>
+        /// <value>This option enables focus check while performing image quality validation.</value>
         [DataMember(Name="focusCheck", EmitDefaultValue=false)]
         public bool FocusCheck { get; set; }
 
         /// <summary>
-        /// This option disabled glares check during performing image quality validation
+        /// This option enables glares check while performing image quality validation.
         /// </summary>
-        /// <value>This option disabled glares check during performing image quality validation</value>
+        /// <value>This option enables glares check while performing image quality validation.</value>
         [DataMember(Name="glaresCheck", EmitDefaultValue=false)]
         public bool GlaresCheck { get; set; }
 
         /// <summary>
-        /// This option disabled colorness check during performing image quality validation
+        /// This option enables colorness check while performing image quality validation.
         /// </summary>
-        /// <value>This option disabled colorness check during performing image quality validation</value>
+        /// <value>This option enables colorness check while performing image quality validation.</value>
         [DataMember(Name="colornessCheck", EmitDefaultValue=false)]
         public bool ColornessCheck { get; set; }
 
         /// <summary>
-        /// This option disabled moire patterns check during performing image quality validation
+        /// This option enables moire patterns check while performing image quality validation.
         /// </summary>
-        /// <value>This option disabled moire patterns check during performing image quality validation</value>
+        /// <value>This option enables moire patterns check while performing image quality validation.</value>
         [DataMember(Name="moireCheck", EmitDefaultValue=false)]
         public bool MoireCheck { get; set; }
 
