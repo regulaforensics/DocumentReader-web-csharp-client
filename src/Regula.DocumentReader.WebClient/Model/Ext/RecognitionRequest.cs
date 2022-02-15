@@ -15,5 +15,9 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         public RecognitionRequest(ProcessParams param, List<ProcessRequestImage> images)
             :base(param, images)
         { }
+
+        public RecognitionRequest(ProcessParams param, ContainerList containerList)
+            : base(param, null, containerList)
+        { }
     }
 }
