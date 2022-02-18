@@ -39,10 +39,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ProcessRequest" /> class.
         /// </summary>
         /// <param name="processParam">processParam (required).</param>
-        /// <param name="list">list (required).</param>
+        /// <param name="list">list.</param>
+        /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -54,16 +55,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.ProcessParam = processParam;
             }
             
-            // to ensure "list" is required (not null)
-            if (list == null)
-            {
-                throw new InvalidDataException("list is a required property for ProcessRequest and cannot be null");
-            }
-            else
-            {
-                this.List = list;
-            }
-            
+            this.List = list;
+            this.ContainerList = containerList;
             this.SystemInfo = systemInfo;
             this.PassBackObject = passBackObject;
         }
@@ -77,8 +70,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets List
         /// </summary>
-        [DataMember(Name="List", EmitDefaultValue=true)]
+        [DataMember(Name="List", EmitDefaultValue=false)]
         public List<ProcessRequestImage> List { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContainerList
+        /// </summary>
+        [DataMember(Name="ContainerList", EmitDefaultValue=false)]
+        public ContainerList ContainerList { get; set; }
 
         /// <summary>
         /// Gets or Sets SystemInfo
@@ -103,6 +102,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("class ProcessRequest {\n");
             sb.Append("  ProcessParam: ").Append(ProcessParam).Append("\n");
             sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
             sb.Append("  SystemInfo: ").Append(SystemInfo).Append("\n");
             sb.Append("  PassBackObject: ").Append(PassBackObject).Append("\n");
             sb.Append("}\n");
@@ -151,6 +151,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.List.SequenceEqual(input.List)
                 ) && 
                 (
+                    this.ContainerList == input.ContainerList ||
+                    (this.ContainerList != null &&
+                    this.ContainerList.Equals(input.ContainerList))
+                ) && 
+                (
                     this.SystemInfo == input.SystemInfo ||
                     (this.SystemInfo != null &&
                     this.SystemInfo.Equals(input.SystemInfo))
@@ -176,6 +181,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ProcessParam.GetHashCode();
                 if (this.List != null)
                     hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.ContainerList != null)
+                    hashCode = hashCode * 59 + this.ContainerList.GetHashCode();
                 if (this.SystemInfo != null)
                     hashCode = hashCode * 59 + this.SystemInfo.GetHashCode();
                 if (this.PassBackObject != null)
