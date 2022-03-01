@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Product>DocumentReader WebClient Example</Product>
     <PackageId>Regula.DocumentReader.NetCoreExampple</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj"/>
+    <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj" />
     <None Update="WHITE.jpg">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

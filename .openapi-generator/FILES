@@ -28,6 +28,7 @@ src/Regula.DocumentReader.WebClient/Model/DocumentPositionResult.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidates.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesList.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesResult.cs
+src/Regula.DocumentReader.WebClient/Model/EncryptedRCLResult.cs
 src/Regula.DocumentReader.WebClient/Model/FDSIDList.cs
 src/Regula.DocumentReader.WebClient/Model/FiberResult.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicField.cs
@@ -45,6 +46,7 @@ src/Regula.DocumentReader.WebClient/Model/ImagesField.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesFieldValue.cs
 src/Regula.DocumentReader.WebClient/Model/ImagesResult.cs
 src/Regula.DocumentReader.WebClient/Model/LexicalAnalysisResult.cs
+src/Regula.DocumentReader.WebClient/Model/LicenseResult.cs
 src/Regula.DocumentReader.WebClient/Model/ListVerifiedFields.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs

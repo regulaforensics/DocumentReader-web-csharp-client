@@ -79,5 +79,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Contains information about document position on the input image, its center, angle, etc */
         public const int DOCUMENT_POSITION = 85;
 
+        /** Contains license */
+        public const int LICENSE = 50;
+
+        /** Contains encrypted ResultContainerList */
+        public const int ENCRYPTED_RCL = 49;
+
     }
 }

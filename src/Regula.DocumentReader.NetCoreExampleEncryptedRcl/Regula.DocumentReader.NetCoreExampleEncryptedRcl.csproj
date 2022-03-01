@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <Product>DocumentReader WebClient Example EncryptedRcl</Product>
+        <PackageId>Regula.DocumentReader.NetCoreExampleEncryptedRcl</PackageId>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj"/>
+        <None Update="license.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="encrypted-rcl.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+</Project>

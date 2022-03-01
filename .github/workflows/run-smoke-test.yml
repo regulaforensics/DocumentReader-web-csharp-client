@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '3.1.x'
+          dotnet-version: '6.0.x'
       - run: dotnet build src/Regula.DocumentReader.NetCoreExample -c Release
-      - working-directory: src/Regula.DocumentReader.NetCoreExample/bin/Release/netcoreapp3.1/
+      - working-directory: src/Regula.DocumentReader.NetCoreExample/bin/Release/net6.0/
         run: ./Regula.DocumentReader.NetCoreExample
         env:
           API_BASE_PATH: "https://test-api.regulaforensics.com"
