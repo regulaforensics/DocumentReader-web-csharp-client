@@ -13,12 +13,16 @@ src/Regula.DocumentReader.WebClient/Model/AreaArray.cs
 src/Regula.DocumentReader.WebClient/Model/AreaContainer.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResult.cs
+src/Regula.DocumentReader.WebClient/Model/BcPDF417INFO.cs
+src/Regula.DocumentReader.WebClient/Model/BcROIDETECT.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentType.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentTypeResult.cs
 src/Regula.DocumentReader.WebClient/Model/CrossSourceValueComparison.cs
+src/Regula.DocumentReader.WebClient/Model/DataModule.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsOptical.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsRFID.cs
 src/Regula.DocumentReader.WebClient/Model/DeviceInfo.cs
+src/Regula.DocumentReader.WebClient/Model/DocBarCodeInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedField.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentImage.cs
@@ -51,6 +55,7 @@ src/Regula.DocumentReader.WebClient/Model/ListVerifiedFields.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
+src/Regula.DocumentReader.WebClient/Model/PArrayField.cs
 src/Regula.DocumentReader.WebClient/Model/PerDocumentConfig.cs
 src/Regula.DocumentReader.WebClient/Model/PhotoIdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/Point.cs

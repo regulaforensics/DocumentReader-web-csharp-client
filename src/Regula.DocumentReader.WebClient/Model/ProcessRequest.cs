@@ -38,12 +38,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessRequest" /> class.
         /// </summary>
+        /// <param name="tag">session id.</param>
         /// <param name="processParam">processParam (required).</param>
         /// <param name="list">list.</param>
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        public ProcessRequest(string tag = default(string), ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -55,12 +56,20 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.ProcessParam = processParam;
             }
             
+            this.Tag = tag;
             this.List = list;
             this.ContainerList = containerList;
             this.SystemInfo = systemInfo;
             this.PassBackObject = passBackObject;
         }
         
+        /// <summary>
+        /// session id
+        /// </summary>
+        /// <value>session id</value>
+        [DataMember(Name="tag", EmitDefaultValue=false)]
+        public string Tag { get; set; }
+
         /// <summary>
         /// Gets or Sets ProcessParam
         /// </summary>
@@ -100,6 +109,7 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ProcessRequest {\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
             sb.Append("  ProcessParam: ").Append(ProcessParam).Append("\n");
             sb.Append("  List: ").Append(List).Append("\n");
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
@@ -140,6 +150,11 @@ namespace Regula.DocumentReader.WebClient.Model
 
             return 
                 (
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
+                ) && 
+                (
                     this.ProcessParam == input.ProcessParam ||
                     (this.ProcessParam != null &&
                     this.ProcessParam.Equals(input.ProcessParam))
@@ -177,6 +192,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Tag != null)
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
                 if (this.ProcessParam != null)
                     hashCode = hashCode * 59 + this.ProcessParam.GetHashCode();
                 if (this.List != null)
