@@ -25,56 +25,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// SourceValidity
+    /// GlaresCheckParams
     /// </summary>
     [DataContract]
-    public partial class SourceValidity :  IEquatable<SourceValidity>, IValidatableObject
+    public partial class GlaresCheckParams :  IEquatable<GlaresCheckParams>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SourceValidity" /> class.
+        /// Initializes a new instance of the <see cref="GlaresCheckParams" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SourceValidity() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SourceValidity" /> class.
-        /// </summary>
-        /// <param name="source">source (required).</param>
-        /// <param name="status">status (required).</param>
-        public SourceValidity(string source = default(string), int status = default(int))
+        /// <param name="imgMarginPart">Margin from the edges of the image. 0.35 &#x3D; 35%.</param>
+        /// <param name="maxGlaringPart">The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%.</param>
+        public GlaresCheckParams(float imgMarginPart = default(float), float maxGlaringPart = default(float))
         {
-            // to ensure "source" is required (not null)
-            if (source == null)
-            {
-                throw new InvalidDataException("source is a required property for SourceValidity and cannot be null");
-            }
-            else
-            {
-                this.Source = source;
-            }
-            
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new InvalidDataException("status is a required property for SourceValidity and cannot be null");
-            }
-            else
-            {
-                this.Status = status;
-            }
-            
+            this.ImgMarginPart = imgMarginPart;
+            this.MaxGlaringPart = maxGlaringPart;
         }
         
         /// <summary>
-        /// Gets or Sets Source
+        /// Margin from the edges of the image. 0.35 &#x3D; 35%
         /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
+        /// <value>Margin from the edges of the image. 0.35 &#x3D; 35%</value>
+        [DataMember(Name="imgMarginPart", EmitDefaultValue=false)]
+        public float ImgMarginPart { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
+        /// <value>The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%</value>
+        [DataMember(Name="maxGlaringPart", EmitDefaultValue=false)]
+        public float MaxGlaringPart { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +62,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SourceValidity {\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class GlaresCheckParams {\n");
+            sb.Append("  ImgMarginPart: ").Append(ImgMarginPart).Append("\n");
+            sb.Append("  MaxGlaringPart: ").Append(MaxGlaringPart).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,29 +85,29 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SourceValidity);
+            return this.Equals(input as GlaresCheckParams);
         }
 
         /// <summary>
-        /// Returns true if SourceValidity instances are equal
+        /// Returns true if GlaresCheckParams instances are equal
         /// </summary>
-        /// <param name="input">Instance of SourceValidity to be compared</param>
+        /// <param name="input">Instance of GlaresCheckParams to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SourceValidity input)
+        public bool Equals(GlaresCheckParams input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
+                    this.ImgMarginPart == input.ImgMarginPart ||
+                    (this.ImgMarginPart != null &&
+                    this.ImgMarginPart.Equals(input.ImgMarginPart))
                 ) && 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.MaxGlaringPart == input.MaxGlaringPart ||
+                    (this.MaxGlaringPart != null &&
+                    this.MaxGlaringPart.Equals(input.MaxGlaringPart))
                 );
         }
 
@@ -141,10 +120,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.ImgMarginPart != null)
+                    hashCode = hashCode * 59 + this.ImgMarginPart.GetHashCode();
+                if (this.MaxGlaringPart != null)
+                    hashCode = hashCode * 59 + this.MaxGlaringPart.GetHashCode();
                 return hashCode;
             }
         }
