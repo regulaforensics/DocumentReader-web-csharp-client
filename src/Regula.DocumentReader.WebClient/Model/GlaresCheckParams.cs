@@ -25,56 +25,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ImageQualityCheckList
+    /// GlaresCheckParams
     /// </summary>
     [DataContract]
-    public partial class ImageQualityCheckList :  IEquatable<ImageQualityCheckList>, IValidatableObject
+    public partial class GlaresCheckParams :  IEquatable<GlaresCheckParams>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageQualityCheckList" /> class.
+        /// Initializes a new instance of the <see cref="GlaresCheckParams" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ImageQualityCheckList() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageQualityCheckList" /> class.
-        /// </summary>
-        /// <param name="result">result (required).</param>
-        /// <param name="list">list (required).</param>
-        public ImageQualityCheckList(int result = default(int), List<ImageQualityCheck> list = default(List<ImageQualityCheck>))
+        /// <param name="imgMarginPart">Margin from the edges of the image. 0.35 &#x3D; 35%.</param>
+        /// <param name="maxGlaringPart">The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%.</param>
+        public GlaresCheckParams(float imgMarginPart = default(float), float maxGlaringPart = default(float))
         {
-            // to ensure "result" is required (not null)
-            if (result == null)
-            {
-                throw new InvalidDataException("result is a required property for ImageQualityCheckList and cannot be null");
-            }
-            else
-            {
-                this.Result = result;
-            }
-            
-            // to ensure "list" is required (not null)
-            if (list == null)
-            {
-                throw new InvalidDataException("list is a required property for ImageQualityCheckList and cannot be null");
-            }
-            else
-            {
-                this.List = list;
-            }
-            
+            this.ImgMarginPart = imgMarginPart;
+            this.MaxGlaringPart = maxGlaringPart;
         }
         
         /// <summary>
-        /// Gets or Sets Result
+        /// Margin from the edges of the image. 0.35 &#x3D; 35%
         /// </summary>
-        [DataMember(Name="result", EmitDefaultValue=true)]
-        public int Result { get; set; }
+        /// <value>Margin from the edges of the image. 0.35 &#x3D; 35%</value>
+        [DataMember(Name="imgMarginPart", EmitDefaultValue=false)]
+        public float ImgMarginPart { get; set; }
 
         /// <summary>
-        /// Gets or Sets List
+        /// The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%
         /// </summary>
-        [DataMember(Name="List", EmitDefaultValue=true)]
-        public List<ImageQualityCheck> List { get; set; }
+        /// <value>The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%</value>
+        [DataMember(Name="maxGlaringPart", EmitDefaultValue=false)]
+        public float MaxGlaringPart { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +62,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImageQualityCheckList {\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
-            sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("class GlaresCheckParams {\n");
+            sb.Append("  ImgMarginPart: ").Append(ImgMarginPart).Append("\n");
+            sb.Append("  MaxGlaringPart: ").Append(MaxGlaringPart).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,30 +85,29 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageQualityCheckList);
+            return this.Equals(input as GlaresCheckParams);
         }
 
         /// <summary>
-        /// Returns true if ImageQualityCheckList instances are equal
+        /// Returns true if GlaresCheckParams instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImageQualityCheckList to be compared</param>
+        /// <param name="input">Instance of GlaresCheckParams to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImageQualityCheckList input)
+        public bool Equals(GlaresCheckParams input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Result == input.Result ||
-                    (this.Result != null &&
-                    this.Result.Equals(input.Result))
+                    this.ImgMarginPart == input.ImgMarginPart ||
+                    (this.ImgMarginPart != null &&
+                    this.ImgMarginPart.Equals(input.ImgMarginPart))
                 ) && 
                 (
-                    this.List == input.List ||
-                    this.List != null &&
-                    input.List != null &&
-                    this.List.SequenceEqual(input.List)
+                    this.MaxGlaringPart == input.MaxGlaringPart ||
+                    (this.MaxGlaringPart != null &&
+                    this.MaxGlaringPart.Equals(input.MaxGlaringPart))
                 );
         }
 
@@ -142,10 +120,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Result != null)
-                    hashCode = hashCode * 59 + this.Result.GetHashCode();
-                if (this.List != null)
-                    hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.ImgMarginPart != null)
+                    hashCode = hashCode * 59 + this.ImgMarginPart.GetHashCode();
+                if (this.MaxGlaringPart != null)
+                    hashCode = hashCode * 59 + this.MaxGlaringPart.GetHashCode();
                 return hashCode;
             }
         }

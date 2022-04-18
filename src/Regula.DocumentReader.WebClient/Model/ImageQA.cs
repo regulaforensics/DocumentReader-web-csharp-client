@@ -39,7 +39,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="glaresCheck">This option enables glares check while performing image quality validation..</param>
         /// <param name="colornessCheck">This option enables colorness check while performing image quality validation..</param>
         /// <param name="moireCheck">This option enables moire patterns check while performing image quality validation..</param>
-        public ImageQA(int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool))
+        /// <param name="glaresCheckParams">glaresCheckParams.</param>
+        public ImageQA(int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), GlaresCheckParams glaresCheckParams = default(GlaresCheckParams))
         {
             this.DpiThreshold = dpiThreshold;
             this.AngleThreshold = angleThreshold;
@@ -47,6 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.GlaresCheck = glaresCheck;
             this.ColornessCheck = colornessCheck;
             this.MoireCheck = moireCheck;
+            this.GlaresCheckParams = glaresCheckParams;
         }
         
         /// <summary>
@@ -92,6 +94,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool MoireCheck { get; set; }
 
         /// <summary>
+        /// Gets or Sets GlaresCheckParams
+        /// </summary>
+        [DataMember(Name="glaresCheckParams", EmitDefaultValue=false)]
+        public GlaresCheckParams GlaresCheckParams { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +113,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  GlaresCheck: ").Append(GlaresCheck).Append("\n");
             sb.Append("  ColornessCheck: ").Append(ColornessCheck).Append("\n");
             sb.Append("  MoireCheck: ").Append(MoireCheck).Append("\n");
+            sb.Append("  GlaresCheckParams: ").Append(GlaresCheckParams).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,7 +124,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -168,6 +177,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.MoireCheck == input.MoireCheck ||
                     (this.MoireCheck != null &&
                     this.MoireCheck.Equals(input.MoireCheck))
+                ) && 
+                (
+                    this.GlaresCheckParams == input.GlaresCheckParams ||
+                    (this.GlaresCheckParams != null &&
+                    this.GlaresCheckParams.Equals(input.GlaresCheckParams))
                 );
         }
 
@@ -192,6 +206,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ColornessCheck.GetHashCode();
                 if (this.MoireCheck != null)
                     hashCode = hashCode * 59 + this.MoireCheck.GetHashCode();
+                if (this.GlaresCheckParams != null)
+                    hashCode = hashCode * 59 + this.GlaresCheckParams.GetHashCode();
                 return hashCode;
             }
         }
