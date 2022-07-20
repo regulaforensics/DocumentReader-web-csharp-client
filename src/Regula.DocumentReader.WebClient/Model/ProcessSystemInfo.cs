@@ -35,10 +35,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="license">Base64 encoded license file.</param>
         /// <param name="recaptchaToken">For internal use. Demo-sites recaptcha token..</param>
-        public ProcessSystemInfo(string license = default(string), string recaptchaToken = default(string))
+        /// <param name="commitTransactions">commitTransactions.</param>
+        public ProcessSystemInfo(string license = default(string), string recaptchaToken = default(string), bool commitTransactions = default(bool))
         {
             this.License = license;
             this.RecaptchaToken = recaptchaToken;
+            this.CommitTransactions = commitTransactions;
         }
         
         /// <summary>
@@ -56,6 +58,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public string RecaptchaToken { get; set; }
 
         /// <summary>
+        /// Gets or Sets CommitTransactions
+        /// </summary>
+        [DataMember(Name="commitTransactions", EmitDefaultValue=false)]
+        public bool CommitTransactions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("class ProcessSystemInfo {\n");
             sb.Append("  License: ").Append(License).Append("\n");
             sb.Append("  RecaptchaToken: ").Append(RecaptchaToken).Append("\n");
+            sb.Append("  CommitTransactions: ").Append(CommitTransactions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.RecaptchaToken == input.RecaptchaToken ||
                     (this.RecaptchaToken != null &&
                     this.RecaptchaToken.Equals(input.RecaptchaToken))
+                ) && 
+                (
+                    this.CommitTransactions == input.CommitTransactions ||
+                    (this.CommitTransactions != null &&
+                    this.CommitTransactions.Equals(input.CommitTransactions))
                 );
         }
 
@@ -124,6 +138,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.License.GetHashCode();
                 if (this.RecaptchaToken != null)
                     hashCode = hashCode * 59 + this.RecaptchaToken.GetHashCode();
+                if (this.CommitTransactions != null)
+                    hashCode = hashCode * 59 + this.CommitTransactions.GetHashCode();
                 return hashCode;
             }
         }
