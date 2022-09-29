@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonImage">etalonImage.</param>
         /// <param name="percentValue">Probability percent for IMAGE_PATTERN check or element&#39;s visibility for IR_VISIBILITY.</param>
         /// <param name="areaList">areaList.</param>
-        public IdentResult(int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), List<AreaContainer> areaList = default(List<AreaContainer>), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public IdentResult(int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), AreaContainer areaList = default(AreaContainer), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
@@ -97,7 +97,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name="AreaList", EmitDefaultValue=false)]
-        public List<AreaContainer> AreaList { get; set; }
+        public AreaContainer AreaList { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -181,9 +181,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && base.Equals(input) && 
                 (
                     this.AreaList == input.AreaList ||
-                    this.AreaList != null &&
-                    input.AreaList != null &&
-                    this.AreaList.SequenceEqual(input.AreaList)
+                    (this.AreaList != null &&
+                    this.AreaList.Equals(input.AreaList))
                 );
         }
 

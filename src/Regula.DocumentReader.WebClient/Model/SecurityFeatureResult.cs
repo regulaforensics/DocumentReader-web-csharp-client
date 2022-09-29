@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag.</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="reserved2">reserved2.</param>
-        public SecurityFeatureResult(int elementType = default(int), RectangleCoordinates elementRect = default(RectangleCoordinates), int visibility = default(int), int criticalFlag = default(int), List<AreaContainer> areaList = default(List<AreaContainer>), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public SecurityFeatureResult(int elementType = default(int), RectangleCoordinates elementRect = default(RectangleCoordinates), int visibility = default(int), int criticalFlag = default(int), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.ElementType = elementType;
             this.ElementRect = elementRect;
@@ -82,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name="AreaList", EmitDefaultValue=false)]
-        public List<AreaContainer> AreaList { get; set; }
+        public AreaContainer AreaList { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
@@ -161,9 +161,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 ) && base.Equals(input) && 
                 (
                     this.AreaList == input.AreaList ||
-                    this.AreaList != null &&
-                    input.AreaList != null &&
-                    this.AreaList.SequenceEqual(input.AreaList)
+                    (this.AreaList != null &&
+                    this.AreaList.Equals(input.AreaList))
                 ) && base.Equals(input) && 
                 (
                     this.Reserved2 == input.Reserved2 ||
