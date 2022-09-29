@@ -265,5 +265,8 @@ namespace Regula.DocumentReader.WebClient.Model
         
         public const int LAST_DIAGNOSE_VALUE = 157;
 
+        
+        public const int FIELD_POS_CORRECTOR_PHOTO_REPLACED = 82;
+
     }
 }

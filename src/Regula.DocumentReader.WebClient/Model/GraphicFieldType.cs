@@ -93,5 +93,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Fingerprint (little, right hand) */
         public const int FINGER_RIGHT_LITTLE = 309;
 
+        /** Fingerprint (four without thumb on right hand) */
+        public const int FINGER_RIGHT_FOUR_FINGERS = 313;
+
+        /** Fingerprint (four without thumb on left hand */
+        public const int FINGER_LEFT_FOUR_FINGERS = 314;
+
+        /** Fingerprint (two thumbs) */
+        public const int FINGER_TWO_THUMBS = 315;
+
     }
 }

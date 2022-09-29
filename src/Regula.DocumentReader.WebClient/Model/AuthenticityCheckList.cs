@@ -38,8 +38,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticityCheckList" /> class.
         /// </summary>
+        /// <param name="count">Count of items in List.</param>
         /// <param name="list">Authenticity Check (required).</param>
-        public AuthenticityCheckList(List<AuthenticityCheckResult> list = default(List<AuthenticityCheckResult>))
+        public AuthenticityCheckList(int count = default(int), List<AuthenticityCheckResult> list = default(List<AuthenticityCheckResult>))
         {
             // to ensure "list" is required (not null)
             if (list == null)
@@ -51,8 +52,16 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.List = list;
             }
             
+            this.Count = count;
         }
         
+        /// <summary>
+        /// Count of items in List
+        /// </summary>
+        /// <value>Count of items in List</value>
+        [DataMember(Name="Count", EmitDefaultValue=false)]
+        public int Count { get; set; }
+
         /// <summary>
         /// Authenticity Check
         /// </summary>
@@ -68,6 +77,7 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AuthenticityCheckList {\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  List: ").Append(List).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,6 +114,11 @@ namespace Regula.DocumentReader.WebClient.Model
 
             return 
                 (
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
+                ) && 
+                (
                     this.List == input.List ||
                     this.List != null &&
                     input.List != null &&
@@ -120,6 +135,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Count != null)
+                    hashCode = hashCode * 59 + this.Count.GetHashCode();
                 if (this.List != null)
                     hashCode = hashCode * 59 + this.List.GetHashCode();
                 return hashCode;
