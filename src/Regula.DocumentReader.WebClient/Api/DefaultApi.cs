@@ -32,8 +32,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// 
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>DeviceInfo</returns>
-        DeviceInfo Ping (Dictionary<String, String> headers);
+        DeviceInfo Ping (string xRequestID = default(string), Dictionary<String, String> headers);
 
         /// <summary>
         /// Server health check
@@ -42,8 +43,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// 
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of DeviceInfo</returns>
-        ApiResponse<DeviceInfo> PingWithHttpInfo (Dictionary<String, String> headers);
+        ApiResponse<DeviceInfo> PingWithHttpInfo (string xRequestID = default(string), Dictionary<String, String> headers);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -53,9 +55,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// 
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of DeviceInfo</returns>
-        System.Threading.Tasks.Task<DeviceInfo> PingAsync (CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<DeviceInfo> PingAsync (string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Server health check
@@ -64,9 +67,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// 
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (DeviceInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync (string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -182,10 +186,11 @@ namespace Regula.DocumentReader.WebClient.Api
         /// Server health check 
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>DeviceInfo</returns>
-        public DeviceInfo Ping (Dictionary<String, String> headers)
+        public DeviceInfo Ping (string xRequestID = default(string), Dictionary<String, String> headers)
         {
-             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo(headers);
+             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo(xRequestID, headers);
              return localVarResponse.Data;
         }
 
@@ -193,8 +198,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// Server health check 
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of DeviceInfo</returns>
-        public ApiResponse<DeviceInfo> PingWithHttpInfo (Dictionary<String, String> headers)
+        public ApiResponse<DeviceInfo> PingWithHttpInfo (string xRequestID = default(string), Dictionary<String, String> headers)
         {
 
             var localVarPath = "/api/ping";
@@ -218,6 +224,7 @@ namespace Regula.DocumentReader.WebClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (xRequestID != null) localVarHeaderParams.Add("X-RequestID", this.Configuration.ApiClient.ParameterToString(xRequestID)); // header parameter
 
 
             // make the HTTP request
@@ -242,11 +249,12 @@ namespace Regula.DocumentReader.WebClient.Api
         /// Server health check 
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of DeviceInfo</returns>
-        public async System.Threading.Tasks.Task<DeviceInfo> PingAsync (CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<DeviceInfo> PingAsync (string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<DeviceInfo> localVarResponse = await PingWithHttpInfoAsync(cancellationToken);
+             ApiResponse<DeviceInfo> localVarResponse = await PingWithHttpInfoAsync(xRequestID, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -255,9 +263,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// Server health check 
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (DeviceInfo)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync (string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/api/ping";
@@ -281,6 +290,7 @@ namespace Regula.DocumentReader.WebClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (xRequestID != null) localVarHeaderParams.Add("X-RequestID", this.Configuration.ApiClient.ParameterToString(xRequestID)); // header parameter
 
 
             // make the HTTP request
