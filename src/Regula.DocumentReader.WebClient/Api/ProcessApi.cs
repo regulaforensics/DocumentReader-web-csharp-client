@@ -35,7 +35,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ProcessResponse</returns>
-        ProcessResponse ApiProcess (ProcessRequest processRequest, , string xRequestID = default(string), Dictionary<String, String> headers);
+        ProcessResponse ApiProcess (ProcessRequest processRequest, string xRequestID = default(string));
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, , string xRequestID = default(string), Dictionary<String, String> headers);
+        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, string xRequestID = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -193,9 +193,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ProcessResponse</returns>
-        public ProcessResponse ApiProcess (ProcessRequest processRequest, , string xRequestID = default(string), Dictionary<String, String> headers)
+        public ProcessResponse ApiProcess (ProcessRequest processRequest, string xRequestID = default(string))
         {
-             ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest, , xRequestID, headers);
+             ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest, xRequestID);
              return localVarResponse.Data;
         }
 
@@ -206,7 +206,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, , string xRequestID = default(string), Dictionary<String, String> headers)
+        public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, string xRequestID = default(string))
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)
@@ -215,7 +215,7 @@ namespace Regula.DocumentReader.WebClient.Api
             var localVarPath = "/api/process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary (k => k.Key, v => v.Value);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;

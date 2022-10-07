@@ -34,7 +34,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>DeviceInfo</returns>
-        DeviceInfo Ping (string xRequestID = default(string), Dictionary<String, String> headers);
+        DeviceInfo Ping (string xRequestID = default(string));
 
         /// <summary>
         /// Server health check
@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of DeviceInfo</returns>
-        ApiResponse<DeviceInfo> PingWithHttpInfo (string xRequestID = default(string), Dictionary<String, String> headers);
+        ApiResponse<DeviceInfo> PingWithHttpInfo (string xRequestID = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -188,9 +188,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>DeviceInfo</returns>
-        public DeviceInfo Ping (string xRequestID = default(string), Dictionary<String, String> headers)
+        public DeviceInfo Ping (string xRequestID = default(string))
         {
-             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo(xRequestID, headers);
+             ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo(xRequestID);
              return localVarResponse.Data;
         }
 
@@ -200,13 +200,13 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of DeviceInfo</returns>
-        public ApiResponse<DeviceInfo> PingWithHttpInfo (string xRequestID = default(string), Dictionary<String, String> headers)
+        public ApiResponse<DeviceInfo> PingWithHttpInfo (string xRequestID = default(string))
         {
 
             var localVarPath = "/api/ping";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary (k => k.Key, v => v.Value);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
