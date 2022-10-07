@@ -33,8 +33,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>ProcessResponse</returns>
-        ProcessResponse ApiProcess (ProcessRequest processRequest, Dictionary<String, String> headers);
+        ProcessResponse ApiProcess (ProcessRequest processRequest, string xRequestID = default(string));
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -44,8 +45,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, Dictionary<String, String> headers);
+        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, string xRequestID = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -56,9 +58,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProcessResponse</returns>
-        System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -68,9 +71,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </remarks>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -187,10 +191,11 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>ProcessResponse</returns>
-        public ProcessResponse ApiProcess (ProcessRequest processRequest, Dictionary<String, String> headers)
+        public ProcessResponse ApiProcess (ProcessRequest processRequest, string xRequestID = default(string))
         {
-             ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest, headers);
+             ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest, xRequestID);
              return localVarResponse.Data;
         }
 
@@ -199,8 +204,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, Dictionary<String, String> headers)
+        public ApiResponse<ProcessResponse> ApiProcessWithHttpInfo (ProcessRequest processRequest, string xRequestID = default(string))
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)
@@ -209,7 +215,7 @@ namespace Regula.DocumentReader.WebClient.Api
             var localVarPath = "/api/process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary (k => k.Key, v => v.Value);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -228,6 +234,7 @@ namespace Regula.DocumentReader.WebClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (xRequestID != null) localVarHeaderParams.Add("X-RequestID", this.Configuration.ApiClient.ParameterToString(xRequestID)); // header parameter
             if (processRequest != null && processRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(processRequest); // http body (model) parameter
@@ -261,11 +268,12 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProcessResponse</returns>
-        public async System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ProcessResponse> localVarResponse = await ApiProcessWithHttpInfoAsync(processRequest, cancellationToken);
+             ApiResponse<ProcessResponse> localVarResponse = await ApiProcessWithHttpInfoAsync(processRequest, xRequestID, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -275,9 +283,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processRequest"></param>
+        /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)
@@ -305,6 +314,7 @@ namespace Regula.DocumentReader.WebClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (xRequestID != null) localVarHeaderParams.Add("X-RequestID", this.Configuration.ApiClient.ParameterToString(xRequestID)); // header parameter
             if (processRequest != null && processRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(processRequest); // http body (model) parameter
