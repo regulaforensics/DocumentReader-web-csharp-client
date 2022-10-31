@@ -45,7 +45,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="log">Base64 encoded transaction processing log.</param>
         /// <param name="passBackObject">Free-form object provided in request. See passBackObject property of ProcessRequest..</param>
         /// <param name="morePagesAvailable">morePagesAvailable.</param>
-        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int))
+        /// <param name="elapsedTime">Time the document processing has taken, ms..</param>
+        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int))
         {
             // to ensure "processingFinished" is required (not null)
             if (processingFinished == null)
@@ -81,6 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Log = log;
             this.PassBackObject = passBackObject;
             this.MorePagesAvailable = morePagesAvailable;
+            this.ElapsedTime = elapsedTime;
         }
         
         /// <summary>
@@ -128,6 +130,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public int MorePagesAvailable { get; set; }
 
         /// <summary>
+        /// Time the document processing has taken, ms.
+        /// </summary>
+        /// <value>Time the document processing has taken, ms.</value>
+        [DataMember(Name="elapsedTime", EmitDefaultValue=false)]
+        public int ElapsedTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +151,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Log: ").Append(Log).Append("\n");
             sb.Append("  PassBackObject: ").Append(PassBackObject).Append("\n");
             sb.Append("  MorePagesAvailable: ").Append(MorePagesAvailable).Append("\n");
+            sb.Append("  ElapsedTime: ").Append(ElapsedTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -211,6 +221,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.MorePagesAvailable == input.MorePagesAvailable ||
                     (this.MorePagesAvailable != null &&
                     this.MorePagesAvailable.Equals(input.MorePagesAvailable))
+                ) && 
+                (
+                    this.ElapsedTime == input.ElapsedTime ||
+                    (this.ElapsedTime != null &&
+                    this.ElapsedTime.Equals(input.ElapsedTime))
                 );
         }
 
@@ -237,6 +252,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.PassBackObject.GetHashCode();
                 if (this.MorePagesAvailable != null)
                     hashCode = hashCode * 59 + this.MorePagesAvailable.GetHashCode();
+                if (this.ElapsedTime != null)
+                    hashCode = hashCode * 59 + this.ElapsedTime.GetHashCode();
                 return hashCode;
             }
         }
