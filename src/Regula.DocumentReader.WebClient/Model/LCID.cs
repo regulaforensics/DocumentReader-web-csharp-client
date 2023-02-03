@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model
         public const int ARABIC_TUNISIA = 7169;
 
         /** Arabic (U.A.E.) */
-        public const int ARABIC_UAE = 4337;
+        public const int ARABIC_UAE = 14337;
 
         /** Arabic (Yemen) */
         public const int ARABIC_YEMEN = 9217;
