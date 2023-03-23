@@ -29,7 +29,7 @@ namespace Regula.DocumentReader.WebClient.Client
     /// </summary>
     public partial class ApiClient
     {
-        public JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
