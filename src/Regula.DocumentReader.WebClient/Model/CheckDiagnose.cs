@@ -262,11 +262,43 @@ namespace Regula.DocumentReader.WebClient.Model
         
         public const int PORTRAIT_COMPARISON_NO_PORTRAIT_DETECTED = 156;
 
-        
-        public const int LAST_DIAGNOSE_VALUE = 157;
-
-        
         public const int FIELD_POS_CORRECTOR_PHOTO_REPLACED = 82;
+        
+        public const int FIELD_POS_CORRECTOR_GLARES_IN_PHOTO_AREA = 81;
+
+        public const int HOLOGRAM_FRAMES_IS_ABSENT = 103;
+
+        public const int HOLOGRAM_HOLO_FIELD_IS_ABSENT = 104;
+
+        public const int DOCUMENT_IS_CANCELLING = 122;
+
+        public const int MOBILE_IMAGES_UNSUITABLE_LIGHT_CONDITIONS = 160;
+
+        public const int MOBILE_IMAGES_WHITE_UV_NO_DIFFERENCE = 161;
+
+        public const int FINGERPRINTS_COMPARISON_MISMATCH = 170;
+
+        public const int HOLO_PHOTO_FACE_NOT_DETECTED = 180;
+
+        public const int HOLO_PHOTO_FACE_COMPARISON_FAILED = 181;
+
+        public const int HOLO_PHOTO_GLARE_IN_CENTER_ABSENT = 182;
+
+        public const int HOLO_PHOTO_HOLO_ELEMENT_SHAPE_ERROR = 183;
+
+        public const int HOLO_PHOTO_ALGORITHMS_STEPS_ERROR = 184;
+
+        public const int HOLO_PHOTO_HOLO_AREAS_NOT_LOADED = 185;
+
+        public const int HOLO_PHOTO_FINISHED_BY_TIMEOUT = 186;
+
+        public const int HOLO_PHOTO_DOCUMENT_OUTSIDE_FRAME = 187;
+
+        public const int LIVENESS_DEPTH_CHECK_FAILED = 190;
+
+        public const int LAS_INK_INVALID_LINES_FREQUENCY = 230;
+
+        public const int LAST_DIAGNOSE_VALUE = 240;
 
     }
 }
