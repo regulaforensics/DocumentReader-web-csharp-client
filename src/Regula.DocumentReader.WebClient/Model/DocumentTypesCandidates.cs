@@ -31,21 +31,21 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DocumentTypesCandidates :  IEquatable<DocumentTypesCandidates>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RecResult
-        /// </summary>
-        [DataMember(Name="RecResult", EmitDefaultValue=false)]
-        public DocumentTypeRecognitionResult? RecResult { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="DocumentTypesCandidates" /> class.
         /// </summary>
         /// <param name="recResult">recResult.</param>
         /// <param name="candidates">candidates.</param>
-        public DocumentTypesCandidates(DocumentTypeRecognitionResult? recResult = default(DocumentTypeRecognitionResult?), List<OneCandidate> candidates = default(List<OneCandidate>))
+        public DocumentTypesCandidates(int recResult = default(int), List<OneCandidate> candidates = default(List<OneCandidate>))
         {
             this.RecResult = recResult;
             this.Candidates = candidates;
         }
         
+        /// <summary>
+        /// Gets or Sets RecResult
+        /// </summary>
+        [DataMember(Name="RecResult", EmitDefaultValue=false)]
+        public int RecResult { get; set; }
 
         /// <summary>
         /// Gets or Sets Candidates

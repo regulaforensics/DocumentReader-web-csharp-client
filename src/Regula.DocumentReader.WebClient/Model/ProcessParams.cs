@@ -31,31 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ProcessParams :  IEquatable<ProcessParams>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Scenario
-        /// </summary>
-        [DataMember(Name="scenario", EmitDefaultValue=true)]
-        public Scenario Scenario { get; set; }
-        /// <summary>
-        /// Gets or Sets MeasureSystem
-        /// </summary>
-        [DataMember(Name="measureSystem", EmitDefaultValue=false)]
-        public MeasureSystem? MeasureSystem { get; set; }
-        /// <summary>
-        /// Gets or Sets LogLevel
-        /// </summary>
-        [DataMember(Name="logLevel", EmitDefaultValue=false)]
-        public LogLevel? LogLevel { get; set; }
-        /// <summary>
-        /// Gets or Sets ForceDocFormat
-        /// </summary>
-        [DataMember(Name="forceDocFormat", EmitDefaultValue=false)]
-        public DocumentFormat? ForceDocFormat { get; set; }
-        /// <summary>
-        /// Gets or Sets ConvertCase
-        /// </summary>
-        [DataMember(Name="convertCase", EmitDefaultValue=false)]
-        public TextPostProcessing? ConvertCase { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -107,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="deviceTypeHex">This parameter is used to specify the document reader device type from which input images were captured.</param>
         /// <param name="ignoreDeviceIdFromImage">This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false.</param>
         /// <param name="documentIdList">List of the document ID&#39;s to process. All documents will be processed, if empty..</param>
-        public ProcessParams(int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), Scenario scenario = default(Scenario), List<Result> resultTypeOutput = default(List<Result>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<TextFieldType> fieldTypesFilter = default(List<TextFieldType>), string dateFormat = default(string), MeasureSystem? measureSystem = default(MeasureSystem?), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), LogLevel? logLevel = default(LogLevel?), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), DocumentFormat? forceDocFormat = default(DocumentFormat?), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<MRZFormat> mrzFormatsFilter = default(List<MRZFormat>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), TextPostProcessing? convertCase = default(TextPostProcessing?), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<DocumentType> documentGroupFilter = default(List<DocumentType>), List<Object> processAuth = default(List<Object>), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>))
+        public ProcessParams(int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), List<Object> processAuth = default(List<Object>), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -178,13 +153,18 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="imageOutputMaxWidth", EmitDefaultValue=false)]
         public int ImageOutputMaxWidth { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Scenario
+        /// </summary>
+        [DataMember(Name="scenario", EmitDefaultValue=true)]
+        public string Scenario { get; set; }
 
         /// <summary>
         /// Types of results to return in response. See &#39;Result&#39; enum for available options
         /// </summary>
         /// <value>Types of results to return in response. See &#39;Result&#39; enum for available options</value>
         [DataMember(Name="resultTypeOutput", EmitDefaultValue=false)]
-        public List<Result> ResultTypeOutput { get; set; }
+        public List<int> ResultTypeOutput { get; set; }
 
         /// <summary>
         /// Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.
@@ -205,7 +185,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.</value>
         [DataMember(Name="fieldTypesFilter", EmitDefaultValue=false)]
-        public List<TextFieldType> FieldTypesFilter { get; set; }
+        public List<int> FieldTypesFilter { get; set; }
 
         /// <summary>
         /// This option allows you to set dates format so that solution will return dates in this format. For example, if you supply &#39;MM/dd/yyyy&#39;, and document have printed date &#39;09 JUL 2020&#39; for the date os issue, you will get &#39;07/09/2020&#39; as a result. By default it is set to system locale default (where the service is running).
@@ -214,6 +194,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="dateFormat", EmitDefaultValue=false)]
         public string DateFormat { get; set; }
 
+        /// <summary>
+        /// Gets or Sets MeasureSystem
+        /// </summary>
+        [DataMember(Name="measureSystem", EmitDefaultValue=false)]
+        public int MeasureSystem { get; set; }
 
         /// <summary>
         /// This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default.
@@ -250,6 +235,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="log", EmitDefaultValue=false)]
         public bool Log { get; set; }
 
+        /// <summary>
+        /// Gets or Sets LogLevel
+        /// </summary>
+        [DataMember(Name="logLevel", EmitDefaultValue=false)]
+        public string LogLevel { get; set; }
 
         /// <summary>
         /// Force use of specific template ID and skip document type identification step.
@@ -306,6 +296,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="respectImageQuality", EmitDefaultValue=false)]
         public bool RespectImageQuality { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ForceDocFormat
+        /// </summary>
+        [DataMember(Name="forceDocFormat", EmitDefaultValue=false)]
+        public int ForceDocFormat { get; set; }
 
         /// <summary>
         /// When enabled, no graphic fields will be cropped from document image. Disabled by default.
@@ -361,7 +356,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option allows limiting MRZ formats to be recognized by specifying them in array.</value>
         [DataMember(Name="mrzFormatsFilter", EmitDefaultValue=false)]
-        public List<MRZFormat> MrzFormatsFilter { get; set; }
+        public List<string> MrzFormatsFilter { get; set; }
 
         /// <summary>
         /// When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.
@@ -377,6 +372,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="parseBarcodes", EmitDefaultValue=false)]
         public bool ParseBarcodes { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ConvertCase
+        /// </summary>
+        [DataMember(Name="convertCase", EmitDefaultValue=false)]
+        public int ConvertCase { get; set; }
 
         /// <summary>
         /// When enabled, the Surname and GivenNames field will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.
@@ -397,7 +397,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.</value>
         [DataMember(Name="documentGroupFilter", EmitDefaultValue=false)]
-        public List<DocumentType> DocumentGroupFilter { get; set; }
+        public List<int> DocumentGroupFilter { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessAuth

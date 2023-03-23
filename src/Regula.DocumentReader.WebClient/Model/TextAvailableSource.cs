@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class TextAvailableSource :  IEquatable<TextAvailableSource>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public Source Source { get; set; }
-        /// <summary>
-        /// Gets or Sets ValidityStatus
-        /// </summary>
-        [DataMember(Name="validityStatus", EmitDefaultValue=true)]
-        public CheckResult ValidityStatus { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="TextAvailableSource" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -51,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="source">source (required).</param>
         /// <param name="validityStatus">validityStatus (required).</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
-        public TextAvailableSource(Source source = default(Source), CheckResult validityStatus = default(CheckResult), int containerType = 0)
+        public TextAvailableSource(string source = default(string), int validityStatus = default(int), int containerType = 0)
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -84,7 +74,17 @@ namespace Regula.DocumentReader.WebClient.Model
             }
         }
         
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name="source", EmitDefaultValue=true)]
+        public string Source { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ValidityStatus
+        /// </summary>
+        [DataMember(Name="validityStatus", EmitDefaultValue=true)]
+        public int ValidityStatus { get; set; }
 
         /// <summary>
         /// Same as Result type, but used for safe parsing of not-described values. See Result type.

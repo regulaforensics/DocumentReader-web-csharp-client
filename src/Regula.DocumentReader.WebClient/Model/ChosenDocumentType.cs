@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ChosenDocumentType :  IEquatable<ChosenDocumentType>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RFIDPresence
-        /// </summary>
-        [DataMember(Name="RFID_Presence", EmitDefaultValue=false)]
-        public RfidLocation? RFIDPresence { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ChosenDocumentType" /> class.
         /// </summary>
         /// <param name="documentName">Document name.</param>
@@ -47,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkAuthenticity">Set of authentication options provided for this type of document (combination of Authenticity enum).</param>
         /// <param name="uVExp">The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme.</param>
         /// <param name="authenticityNecessaryLights">Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity.</param>
-        public ChosenDocumentType(string documentName = default(string), int iD = default(int), decimal p = default(decimal), RfidLocation? rFIDPresence = default(RfidLocation?), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int))
+        public ChosenDocumentType(string documentName = default(string), int iD = default(int), decimal p = default(decimal), int rFIDPresence = default(int), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int))
         {
             this.DocumentName = documentName;
             this.ID = iD;
@@ -81,6 +76,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="P", EmitDefaultValue=false)]
         public decimal P { get; set; }
 
+        /// <summary>
+        /// Gets or Sets RFIDPresence
+        /// </summary>
+        [DataMember(Name="RFID_Presence", EmitDefaultValue=false)]
+        public int RFIDPresence { get; set; }
 
         /// <summary>
         /// Gets or Sets FDSIDList

@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DocumentPosition :  IEquatable<DocumentPosition>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets DocFormat
-        /// </summary>
-        [DataMember(Name="docFormat", EmitDefaultValue=false)]
-        public DocumentFormat? DocFormat { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="DocumentPosition" /> class.
         /// </summary>
         /// <param name="docFormat">docFormat.</param>
@@ -48,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="rightBottom">rightBottom.</param>
         /// <param name="rightTop">rightTop.</param>
         /// <param name="dpi">dpi.</param>
-        public DocumentPosition(DocumentFormat? docFormat = default(DocumentFormat?), decimal angle = default(decimal), int width = default(int), int height = default(int), Point center = default(Point), Point leftBottom = default(Point), Point leftTop = default(Point), Point rightBottom = default(Point), Point rightTop = default(Point), int dpi = default(int))
+        public DocumentPosition(int docFormat = default(int), decimal angle = default(decimal), int width = default(int), int height = default(int), Point center = default(Point), Point leftBottom = default(Point), Point leftTop = default(Point), Point rightBottom = default(Point), Point rightTop = default(Point), int dpi = default(int))
         {
             this.DocFormat = docFormat;
             this.Angle = angle;
@@ -62,6 +57,11 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Dpi = dpi;
         }
         
+        /// <summary>
+        /// Gets or Sets DocFormat
+        /// </summary>
+        [DataMember(Name="docFormat", EmitDefaultValue=false)]
+        public int DocFormat { get; set; }
 
         /// <summary>
         /// Gets or Sets Angle

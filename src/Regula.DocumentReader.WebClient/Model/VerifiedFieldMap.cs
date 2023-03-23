@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class VerifiedFieldMap :  IEquatable<VerifiedFieldMap>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets WFieldType
-        /// </summary>
-        [DataMember(Name="wFieldType", EmitDefaultValue=false)]
-        public TextFieldType? WFieldType { get; set; }
-        /// <summary>
-        /// Gets or Sets WLCID
-        /// </summary>
-        [DataMember(Name="wLCID", EmitDefaultValue=false)]
-        public LCID? WLCID { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="VerifiedFieldMap" /> class.
         /// </summary>
         /// <param name="wFieldType">wFieldType.</param>
@@ -50,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldBarcode">Field data extracted from barcode.</param>
         /// <param name="fieldRFID">Field data extracted from rfid chip.</param>
         /// <param name="matrix">results comparison matrix. Elements of the matrix with indices 0, 1, 2, 3 take one of the values Disabled(0), Verified(1) or Not_Verified(2), elements with indices 4, 5, 6, 7, 8 are one of the values Disabled(0), Compare_Match(3) or Compare_Not_Match(4). Elements of the Matrix matrix have the following semantic meaning: - element with index 0 –– the result of verification of data from the MRZ; - 1 –– the result of verification of data from the RFID microcircuit; - 2 –– the result of verification of data from text areas of the document; - 3 –– the result of verification data from barcodes; - 4 - the result of comparing MRZ data and RFID microcircuits; - 5 - the result of comparing MRZ data and text areas of document filling; - 6 - the result of comparing MRZ data and bar codes; - 7 - the result of comparing the data of text areas of the document and the RFID chip; - 8 - the result of comparing the data of the text areas of the document and barcodes; - 9 - the result of comparing the data of the RFID chip and barcodes..</param>
-        public VerifiedFieldMap(TextFieldType? wFieldType = default(TextFieldType?), LCID? wLCID = default(LCID?), string fieldMRZ = default(string), string fieldVisual = default(string), string fieldBarcode = default(string), string fieldRFID = default(string), List<VerificationResult> matrix = default(List<VerificationResult>))
+        public VerifiedFieldMap(int wFieldType = default(int), int wLCID = default(int), string fieldMRZ = default(string), string fieldVisual = default(string), string fieldBarcode = default(string), string fieldRFID = default(string), List<int> matrix = default(List<int>))
         {
             this.WFieldType = wFieldType;
             this.WLCID = wLCID;
@@ -61,7 +51,17 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Matrix = matrix;
         }
         
+        /// <summary>
+        /// Gets or Sets WFieldType
+        /// </summary>
+        [DataMember(Name="wFieldType", EmitDefaultValue=false)]
+        public int WFieldType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets WLCID
+        /// </summary>
+        [DataMember(Name="wLCID", EmitDefaultValue=false)]
+        public int WLCID { get; set; }
 
         /// <summary>
         /// Field data extracted from mrz(machine readable zone)
@@ -96,7 +96,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>results comparison matrix. Elements of the matrix with indices 0, 1, 2, 3 take one of the values Disabled(0), Verified(1) or Not_Verified(2), elements with indices 4, 5, 6, 7, 8 are one of the values Disabled(0), Compare_Match(3) or Compare_Not_Match(4). Elements of the Matrix matrix have the following semantic meaning: - element with index 0 –– the result of verification of data from the MRZ; - 1 –– the result of verification of data from the RFID microcircuit; - 2 –– the result of verification of data from text areas of the document; - 3 –– the result of verification data from barcodes; - 4 - the result of comparing MRZ data and RFID microcircuits; - 5 - the result of comparing MRZ data and text areas of document filling; - 6 - the result of comparing MRZ data and bar codes; - 7 - the result of comparing the data of text areas of the document and the RFID chip; - 8 - the result of comparing the data of the text areas of the document and barcodes; - 9 - the result of comparing the data of the RFID chip and barcodes.</value>
         [DataMember(Name="Matrix", EmitDefaultValue=false)]
-        public List<VerificationResult> Matrix { get; set; }
+        public List<int> Matrix { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

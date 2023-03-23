@@ -31,31 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class Status :  IEquatable<Status>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets OverallStatus
-        /// </summary>
-        [DataMember(Name="overallStatus", EmitDefaultValue=true)]
-        public CheckResult OverallStatus { get; set; }
-        /// <summary>
-        /// Gets or Sets Optical
-        /// </summary>
-        [DataMember(Name="optical", EmitDefaultValue=true)]
-        public CheckResult Optical { get; set; }
-        /// <summary>
-        /// Gets or Sets Portrait
-        /// </summary>
-        [DataMember(Name="portrait", EmitDefaultValue=false)]
-        public CheckResult? Portrait { get; set; }
-        /// <summary>
-        /// Gets or Sets Rfid
-        /// </summary>
-        [DataMember(Name="rfid", EmitDefaultValue=false)]
-        public CheckResult? Rfid { get; set; }
-        /// <summary>
-        /// Gets or Sets StopList
-        /// </summary>
-        [DataMember(Name="stopList", EmitDefaultValue=false)]
-        public CheckResult? StopList { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Status" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -70,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="stopList">stopList.</param>
         /// <param name="detailsRFID">detailsRFID.</param>
         /// <param name="detailsOptical">detailsOptical (required).</param>
-        public Status(CheckResult overallStatus = default(CheckResult), CheckResult optical = default(CheckResult), CheckResult? portrait = default(CheckResult?), CheckResult? rfid = default(CheckResult?), CheckResult? stopList = default(CheckResult?), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical))
+        public Status(int overallStatus = default(int), int optical = default(int), int portrait = default(int), int rfid = default(int), int stopList = default(int), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical))
         {
             // to ensure "overallStatus" is required (not null)
             if (overallStatus == null)
@@ -108,10 +83,35 @@ namespace Regula.DocumentReader.WebClient.Model
             this.DetailsRFID = detailsRFID;
         }
         
+        /// <summary>
+        /// Gets or Sets OverallStatus
+        /// </summary>
+        [DataMember(Name="overallStatus", EmitDefaultValue=true)]
+        public int OverallStatus { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Optical
+        /// </summary>
+        [DataMember(Name="optical", EmitDefaultValue=true)]
+        public int Optical { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Portrait
+        /// </summary>
+        [DataMember(Name="portrait", EmitDefaultValue=false)]
+        public int Portrait { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Rfid
+        /// </summary>
+        [DataMember(Name="rfid", EmitDefaultValue=false)]
+        public int Rfid { get; set; }
 
+        /// <summary>
+        /// Gets or Sets StopList
+        /// </summary>
+        [DataMember(Name="stopList", EmitDefaultValue=false)]
+        public int StopList { get; set; }
 
         /// <summary>
         /// Gets or Sets DetailsRFID

@@ -31,21 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class SecurityFeatureResult : AuthenticityCheckResultItem,  IEquatable<SecurityFeatureResult>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ElementType
-        /// </summary>
-        [DataMember(Name="ElementType", EmitDefaultValue=false)]
-        public SecurityFeatureType? ElementType { get; set; }
-        /// <summary>
-        /// Gets or Sets Visibility
-        /// </summary>
-        [DataMember(Name="Visibility", EmitDefaultValue=false)]
-        public Visibility? Visibility { get; set; }
-        /// <summary>
-        /// Gets or Sets CriticalFlag
-        /// </summary>
-        [DataMember(Name="CriticalFlag", EmitDefaultValue=false)]
-        public Critical? CriticalFlag { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="SecurityFeatureResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -59,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag.</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="reserved2">reserved2.</param>
-        public SecurityFeatureResult(SecurityFeatureType? elementType = default(SecurityFeatureType?), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility? visibility = default(Visibility?), Critical? criticalFlag = default(Critical?), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?)) : base(type, elementResult, elementDiagnose)
+        public SecurityFeatureResult(int elementType = default(int), RectangleCoordinates elementRect = default(RectangleCoordinates), int visibility = default(int), int criticalFlag = default(int), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.ElementType = elementType;
             this.ElementRect = elementRect;
@@ -69,6 +54,11 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Reserved2 = reserved2;
         }
         
+        /// <summary>
+        /// Gets or Sets ElementType
+        /// </summary>
+        [DataMember(Name="ElementType", EmitDefaultValue=false)]
+        public int ElementType { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementRect
@@ -76,7 +66,17 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="ElementRect", EmitDefaultValue=false)]
         public RectangleCoordinates ElementRect { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Visibility
+        /// </summary>
+        [DataMember(Name="Visibility", EmitDefaultValue=false)]
+        public int Visibility { get; set; }
 
+        /// <summary>
+        /// Gets or Sets CriticalFlag
+        /// </summary>
+        [DataMember(Name="CriticalFlag", EmitDefaultValue=false)]
+        public int CriticalFlag { get; set; }
 
         /// <summary>
         /// Gets or Sets AreaList

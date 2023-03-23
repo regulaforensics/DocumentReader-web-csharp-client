@@ -31,21 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class CrossSourceValueComparison :  IEquatable<CrossSourceValueComparison>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets SourceLeft
-        /// </summary>
-        [DataMember(Name="sourceLeft", EmitDefaultValue=true)]
-        public Source SourceLeft { get; set; }
-        /// <summary>
-        /// Gets or Sets SourceRight
-        /// </summary>
-        [DataMember(Name="sourceRight", EmitDefaultValue=true)]
-        public Source SourceRight { get; set; }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public CheckResult Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -56,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sourceLeft">sourceLeft (required).</param>
         /// <param name="sourceRight">sourceRight (required).</param>
         /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(Source sourceLeft = default(Source), Source sourceRight = default(Source), CheckResult status = default(CheckResult))
+        public CrossSourceValueComparison(string sourceLeft = default(string), string sourceRight = default(string), int status = default(int))
         {
             // to ensure "sourceLeft" is required (not null)
             if (sourceLeft == null)
@@ -90,8 +75,23 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets SourceLeft
+        /// </summary>
+        [DataMember(Name="sourceLeft", EmitDefaultValue=true)]
+        public string SourceLeft { get; set; }
 
+        /// <summary>
+        /// Gets or Sets SourceRight
+        /// </summary>
+        [DataMember(Name="sourceRight", EmitDefaultValue=true)]
+        public string SourceRight { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=true)]
+        public int Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

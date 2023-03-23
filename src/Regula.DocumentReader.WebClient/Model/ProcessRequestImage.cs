@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ProcessRequestImage :  IEquatable<ProcessRequestImage>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Light
-        /// </summary>
-        [DataMember(Name="light", EmitDefaultValue=false)]
-        public Light? Light { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageData">imageData (required).</param>
         /// <param name="light">light.</param>
         /// <param name="pageIdx">page/image number.</param>
-        public ProcessRequestImage(ImageData imageData = default(ImageData), Light? light = default(Light?), int pageIdx = default(int))
+        public ProcessRequestImage(ImageData imageData = default(ImageData), int light = default(int), int pageIdx = default(int))
         {
             // to ensure "imageData" is required (not null)
             if (imageData == null)
@@ -68,6 +63,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="ImageData", EmitDefaultValue=true)]
         public ImageData ImageData { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Light
+        /// </summary>
+        [DataMember(Name="light", EmitDefaultValue=false)]
+        public int Light { get; set; }
 
         /// <summary>
         /// page/image number

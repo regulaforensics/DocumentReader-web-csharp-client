@@ -31,41 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DetailsRFID :  IEquatable<DetailsRFID>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets OverallStatus
-        /// </summary>
-        [DataMember(Name="overallStatus", EmitDefaultValue=true)]
-        public CheckResult OverallStatus { get; set; }
-        /// <summary>
-        /// Gets or Sets AA
-        /// </summary>
-        [DataMember(Name="AA", EmitDefaultValue=true)]
-        public CheckResult AA { get; set; }
-        /// <summary>
-        /// Gets or Sets BAC
-        /// </summary>
-        [DataMember(Name="BAC", EmitDefaultValue=true)]
-        public CheckResult BAC { get; set; }
-        /// <summary>
-        /// Gets or Sets CA
-        /// </summary>
-        [DataMember(Name="CA", EmitDefaultValue=true)]
-        public CheckResult CA { get; set; }
-        /// <summary>
-        /// Gets or Sets PA
-        /// </summary>
-        [DataMember(Name="PA", EmitDefaultValue=true)]
-        public CheckResult PA { get; set; }
-        /// <summary>
-        /// Gets or Sets PACE
-        /// </summary>
-        [DataMember(Name="PACE", EmitDefaultValue=true)]
-        public CheckResult PACE { get; set; }
-        /// <summary>
-        /// Gets or Sets TA
-        /// </summary>
-        [DataMember(Name="TA", EmitDefaultValue=true)]
-        public CheckResult TA { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="DetailsRFID" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -80,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pA">pA (required).</param>
         /// <param name="pACE">pACE (required).</param>
         /// <param name="tA">tA (required).</param>
-        public DetailsRFID(CheckResult overallStatus = default(CheckResult), CheckResult aA = default(CheckResult), CheckResult bAC = default(CheckResult), CheckResult cA = default(CheckResult), CheckResult pA = default(CheckResult), CheckResult pACE = default(CheckResult), CheckResult tA = default(CheckResult))
+        public DetailsRFID(int overallStatus = default(int), int aA = default(int), int bAC = default(int), int cA = default(int), int pA = default(int), int pACE = default(int), int tA = default(int))
         {
             // to ensure "overallStatus" is required (not null)
             if (overallStatus == null)
@@ -154,12 +119,47 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets OverallStatus
+        /// </summary>
+        [DataMember(Name="overallStatus", EmitDefaultValue=true)]
+        public int OverallStatus { get; set; }
 
+        /// <summary>
+        /// Gets or Sets AA
+        /// </summary>
+        [DataMember(Name="AA", EmitDefaultValue=true)]
+        public int AA { get; set; }
 
+        /// <summary>
+        /// Gets or Sets BAC
+        /// </summary>
+        [DataMember(Name="BAC", EmitDefaultValue=true)]
+        public int BAC { get; set; }
 
+        /// <summary>
+        /// Gets or Sets CA
+        /// </summary>
+        [DataMember(Name="CA", EmitDefaultValue=true)]
+        public int CA { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PA
+        /// </summary>
+        [DataMember(Name="PA", EmitDefaultValue=true)]
+        public int PA { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PACE
+        /// </summary>
+        [DataMember(Name="PACE", EmitDefaultValue=true)]
+        public int PACE { get; set; }
 
+        /// <summary>
+        /// Gets or Sets TA
+        /// </summary>
+        [DataMember(Name="TA", EmitDefaultValue=true)]
+        public int TA { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

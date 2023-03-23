@@ -31,31 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class TextField :  IEquatable<TextField>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets FieldType
-        /// </summary>
-        [DataMember(Name="fieldType", EmitDefaultValue=true)]
-        public TextFieldType FieldType { get; set; }
-        /// <summary>
-        /// Gets or Sets Lcid
-        /// </summary>
-        [DataMember(Name="lcid", EmitDefaultValue=false)]
-        public LCID? Lcid { get; set; }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public CheckResult Status { get; set; }
-        /// <summary>
-        /// Gets or Sets ValidityStatus
-        /// </summary>
-        [DataMember(Name="validityStatus", EmitDefaultValue=true)]
-        public CheckResult ValidityStatus { get; set; }
-        /// <summary>
-        /// Gets or Sets ComparisonStatus
-        /// </summary>
-        [DataMember(Name="comparisonStatus", EmitDefaultValue=true)]
-        public CheckResult ComparisonStatus { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="TextField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -73,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="valueList">valueList (required).</param>
         /// <param name="validityList">Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error. (required).</param>
         /// <param name="comparisonList">comparisonList (required).</param>
-        public TextField(TextFieldType fieldType = default(TextFieldType), string fieldName = default(string), LCID? lcid = default(LCID?), CheckResult status = default(CheckResult), CheckResult validityStatus = default(CheckResult), CheckResult comparisonStatus = default(CheckResult), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
+        public TextField(int fieldType = default(int), string fieldName = default(string), int lcid = default(int), int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
         {
             // to ensure "fieldType" is required (not null)
             if (fieldType == null)
@@ -168,6 +143,11 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Lcid = lcid;
         }
         
+        /// <summary>
+        /// Gets or Sets FieldType
+        /// </summary>
+        [DataMember(Name="fieldType", EmitDefaultValue=true)]
+        public int FieldType { get; set; }
 
         /// <summary>
         /// Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup.
@@ -176,9 +156,29 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="fieldName", EmitDefaultValue=true)]
         public string FieldName { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Lcid
+        /// </summary>
+        [DataMember(Name="lcid", EmitDefaultValue=false)]
+        public int Lcid { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=true)]
+        public int Status { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ValidityStatus
+        /// </summary>
+        [DataMember(Name="validityStatus", EmitDefaultValue=true)]
+        public int ValidityStatus { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ComparisonStatus
+        /// </summary>
+        [DataMember(Name="comparisonStatus", EmitDefaultValue=true)]
+        public int ComparisonStatus { get; set; }
 
         /// <summary>
         /// The most confidence value, selected from valueList

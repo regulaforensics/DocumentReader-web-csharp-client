@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class IdentResult : AuthenticityCheckResultItem,  IEquatable<IdentResult>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ElementType
-        /// </summary>
-        [DataMember(Name="ElementType", EmitDefaultValue=false)]
-        public SecurityFeatureType? ElementType { get; set; }
-        /// <summary>
-        /// Gets or Sets LightIndex
-        /// </summary>
-        [DataMember(Name="LightIndex", EmitDefaultValue=false)]
-        public Light? LightIndex { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="IdentResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -55,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonImage">etalonImage.</param>
         /// <param name="percentValue">Probability percent for IMAGE_PATTERN check or element&#39;s visibility for IR_VISIBILITY.</param>
         /// <param name="areaList">areaList.</param>
-        public IdentResult(SecurityFeatureType? elementType = default(SecurityFeatureType?), Light? lightIndex = default(Light?), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), AreaContainer areaList = default(AreaContainer), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?)) : base(type, elementResult, elementDiagnose)
+        public IdentResult(int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), AreaContainer areaList = default(AreaContainer), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
@@ -66,7 +56,17 @@ namespace Regula.DocumentReader.WebClient.Model
             this.AreaList = areaList;
         }
         
+        /// <summary>
+        /// Gets or Sets ElementType
+        /// </summary>
+        [DataMember(Name="ElementType", EmitDefaultValue=false)]
+        public int ElementType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets LightIndex
+        /// </summary>
+        [DataMember(Name="LightIndex", EmitDefaultValue=false)]
+        public int LightIndex { get; set; }
 
         /// <summary>
         /// Gets or Sets Area

@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class OCRSecurityTextResult : AuthenticityCheckResultItem,  IEquatable<OCRSecurityTextResult>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets CriticalFlag
-        /// </summary>
-        [DataMember(Name="CriticalFlag", EmitDefaultValue=false)]
-        public Critical? CriticalFlag { get; set; }
-        /// <summary>
-        /// Gets or Sets LightType
-        /// </summary>
-        [DataMember(Name="LightType", EmitDefaultValue=false)]
-        public Light? LightType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="OCRSecurityTextResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -58,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonResultOCR">etalonResultOCR.</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        public OCRSecurityTextResult(Critical? criticalFlag = default(Critical?), Light? lightType = default(Light?), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?)) : base(type, elementResult, elementDiagnose)
+        public OCRSecurityTextResult(int criticalFlag = default(int), int lightType = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;
@@ -72,7 +62,17 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Reserved2 = reserved2;
         }
         
+        /// <summary>
+        /// Gets or Sets CriticalFlag
+        /// </summary>
+        [DataMember(Name="CriticalFlag", EmitDefaultValue=false)]
+        public int CriticalFlag { get; set; }
 
+        /// <summary>
+        /// Gets or Sets LightType
+        /// </summary>
+        [DataMember(Name="LightType", EmitDefaultValue=false)]
+        public int LightType { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldRect

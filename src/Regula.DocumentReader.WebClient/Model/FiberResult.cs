@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class FiberResult : AuthenticityCheckResultItem,  IEquatable<FiberResult>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets LightValue
-        /// </summary>
-        [DataMember(Name="LightValue", EmitDefaultValue=false)]
-        public Light? LightValue { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="FiberResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -52,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="length">Fibers length value for located areas (in pixels).</param>
         /// <param name="area">Fibers value for areas (in pixels).</param>
         /// <param name="colorValues">Fibers color value.</param>
-        public FiberResult(int rectCount = default(int), int expectedCount = default(int), Light? lightValue = default(Light?), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?)) : base(type, elementResult, elementDiagnose)
+        public FiberResult(int rectCount = default(int), int expectedCount = default(int), int lightValue = default(int), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
         {
             this.RectCount = rectCount;
             this.ExpectedCount = expectedCount;
@@ -79,6 +74,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="ExpectedCount", EmitDefaultValue=false)]
         public int ExpectedCount { get; set; }
 
+        /// <summary>
+        /// Gets or Sets LightValue
+        /// </summary>
+        [DataMember(Name="LightValue", EmitDefaultValue=false)]
+        public int LightValue { get; set; }
 
         /// <summary>
         /// For UV_Background authentication result type
