@@ -31,21 +31,21 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DocumentTypesCandidatesList :  IEquatable<DocumentTypesCandidatesList>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets RecResult
+        /// </summary>
+        [DataMember(Name="RecResult", EmitDefaultValue=false)]
+        public DocumentTypeRecognitionResult? RecResult { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="DocumentTypesCandidatesList" /> class.
         /// </summary>
         /// <param name="recResult">recResult.</param>
         /// <param name="candidates">candidates.</param>
-        public DocumentTypesCandidatesList(int recResult = default(int), List<OneCandidate> candidates = default(List<OneCandidate>))
+        public DocumentTypesCandidatesList(DocumentTypeRecognitionResult? recResult = default(DocumentTypeRecognitionResult?), List<OneCandidate> candidates = default(List<OneCandidate>))
         {
             this.RecResult = recResult;
             this.Candidates = candidates;
         }
         
-        /// <summary>
-        /// Gets or Sets RecResult
-        /// </summary>
-        [DataMember(Name="RecResult", EmitDefaultValue=false)]
-        public int RecResult { get; set; }
 
         /// <summary>
         /// Gets or Sets Candidates
@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -31,6 +31,11 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ImagesAvailableSource :  IEquatable<ImagesAvailableSource>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name="source", EmitDefaultValue=true)]
+        public Source Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ImagesAvailableSource" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
         /// <param name="source">source (required).</param>
-        public ImagesAvailableSource(int containerType = 0, string source = default(string))
+        public ImagesAvailableSource(int containerType = 0, Source source = default(Source))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -70,11 +75,6 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="containerType", EmitDefaultValue=false)]
         public int ContainerType { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,7 +96,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

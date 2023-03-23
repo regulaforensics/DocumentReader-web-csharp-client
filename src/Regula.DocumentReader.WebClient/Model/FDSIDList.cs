@@ -31,6 +31,16 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class FDSIDList :  IEquatable<FDSIDList>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets DType
+        /// </summary>
+        [DataMember(Name="dType", EmitDefaultValue=false)]
+        public DocumentType? DType { get; set; }
+        /// <summary>
+        /// Gets or Sets DFormat
+        /// </summary>
+        [DataMember(Name="dFormat", EmitDefaultValue=false)]
+        public DocumentFormat? DFormat { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FDSIDList" /> class.
         /// </summary>
         /// <param name="iCAOCode">ICAO code of the issuing country.</param>
@@ -43,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dCountryName">Issuing country name.</param>
         /// <param name="dStateCode">Issuing state code.</param>
         /// <param name="dStateName">Issuing state name.</param>
-        public FDSIDList(string iCAOCode = default(string), List<int> list = default(List<int>), int dType = default(int), int dFormat = default(int), bool dMRZ = default(bool), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string))
+        public FDSIDList(string iCAOCode = default(string), List<int> list = default(List<int>), DocumentType? dType = default(DocumentType?), DocumentFormat? dFormat = default(DocumentFormat?), bool dMRZ = default(bool), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string))
         {
             this.ICAOCode = iCAOCode;
             this.List = list;
@@ -71,17 +81,7 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="List", EmitDefaultValue=false)]
         public List<int> List { get; set; }
 
-        /// <summary>
-        /// Gets or Sets DType
-        /// </summary>
-        [DataMember(Name="dType", EmitDefaultValue=false)]
-        public int DType { get; set; }
 
-        /// <summary>
-        /// Gets or Sets DFormat
-        /// </summary>
-        [DataMember(Name="dFormat", EmitDefaultValue=false)]
-        public int DFormat { get; set; }
 
         /// <summary>
         /// Flag indicating the presence of MRZ on the document
@@ -153,7 +153,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

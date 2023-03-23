@@ -31,6 +31,16 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class SourceValidity :  IEquatable<SourceValidity>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name="source", EmitDefaultValue=true)]
+        public Source Source { get; set; }
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=true)]
+        public CheckResult Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SourceValidity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="source">source (required).</param>
         /// <param name="status">status (required).</param>
-        public SourceValidity(string source = default(string), int status = default(int))
+        public SourceValidity(Source source = default(Source), CheckResult status = default(CheckResult))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -64,17 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,7 +96,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -31,6 +31,21 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ImageQualityCheck :  IEquatable<ImageQualityCheck>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public ImageQualityCheckType? Type { get; set; }
+        /// <summary>
+        /// Gets or Sets Result
+        /// </summary>
+        [DataMember(Name="result", EmitDefaultValue=false)]
+        public CheckResult? Result { get; set; }
+        /// <summary>
+        /// Gets or Sets FeatureType
+        /// </summary>
+        [DataMember(Name="featureType", EmitDefaultValue=false)]
+        public SecurityFeatureType? FeatureType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ImageQualityCheck" /> class.
         /// </summary>
         /// <param name="type">type.</param>
@@ -40,7 +55,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mean">mean.</param>
         /// <param name="stdDev">stdDev.</param>
         /// <param name="probability">probability.</param>
-        public ImageQualityCheck(int type = default(int), int result = default(int), int featureType = default(int), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
+        public ImageQualityCheck(ImageQualityCheckType? type = default(ImageQualityCheckType?), CheckResult? result = default(CheckResult?), SecurityFeatureType? featureType = default(SecurityFeatureType?), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
         {
             this.Type = type;
             this.Result = result;
@@ -51,23 +66,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Probability = probability;
         }
         
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public int Type { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Result
-        /// </summary>
-        [DataMember(Name="result", EmitDefaultValue=false)]
-        public int Result { get; set; }
 
-        /// <summary>
-        /// Gets or Sets FeatureType
-        /// </summary>
-        [DataMember(Name="featureType", EmitDefaultValue=false)]
-        public int FeatureType { get; set; }
 
         /// <summary>
         /// Gets or Sets Areas
@@ -118,7 +118,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

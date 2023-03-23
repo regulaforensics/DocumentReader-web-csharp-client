@@ -31,6 +31,21 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class Text :  IEquatable<Text>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=true)]
+        public CheckResult Status { get; set; }
+        /// <summary>
+        /// Gets or Sets ValidityStatus
+        /// </summary>
+        [DataMember(Name="validityStatus", EmitDefaultValue=true)]
+        public CheckResult ValidityStatus { get; set; }
+        /// <summary>
+        /// Gets or Sets ComparisonStatus
+        /// </summary>
+        [DataMember(Name="comparisonStatus", EmitDefaultValue=true)]
+        public CheckResult ComparisonStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Text" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -43,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="comparisonStatus">comparisonStatus (required).</param>
         /// <param name="fieldList">fieldList (required).</param>
         /// <param name="availableSourceList">availableSourceList (required).</param>
-        public Text(int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
+        public Text(CheckResult status = default(CheckResult), CheckResult validityStatus = default(CheckResult), CheckResult comparisonStatus = default(CheckResult), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -97,23 +112,8 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ValidityStatus
-        /// </summary>
-        [DataMember(Name="validityStatus", EmitDefaultValue=true)]
-        public int ValidityStatus { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ComparisonStatus
-        /// </summary>
-        [DataMember(Name="comparisonStatus", EmitDefaultValue=true)]
-        public int ComparisonStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldList
@@ -150,7 +150,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
