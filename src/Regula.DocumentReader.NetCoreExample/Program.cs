@@ -66,6 +66,9 @@ namespace Regula.DocumentReader.NetCoreExample
             var docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
             var docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
 
+            var docType = response.DocumentType();
+            
+            
             var docAuthenticity = response.Authenticity();
             var docIRB900 = docAuthenticity.IrB900Checks();
             var docIRB900Blank = docIRB900?.ChecksByElement(SecurityFeatureType.BLANK);
@@ -82,7 +85,8 @@ namespace Regula.DocumentReader.NetCoreExample
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
             Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");
             Console.WriteLine($"            Document Number Visual: {docNumberVisual}");
-            Console.WriteLine($"               Document Number MRZ: {docNumberMrz}", docNumberMrz);
+            Console.WriteLine($"            Document Number MRZ: {docNumberMrz}", docNumberMrz);
+            Console.WriteLine($"            Document Name: {docType.DocumentName}");
             Console.WriteLine($"Validity Of Document Number Visual: {docNumberVisualValidity}");
             Console.WriteLine($"   Validity Of Document Number MRZ: {docNumberMrzValidity}");
             Console.WriteLine($"      MRZ-Visual values comparison: {docNumberMrzVisualMatching}");

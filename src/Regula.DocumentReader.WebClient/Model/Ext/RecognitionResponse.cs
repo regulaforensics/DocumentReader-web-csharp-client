@@ -40,6 +40,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return result?.ImageQualityCheckList;
         }
 
+        public OneCandidate DocumentType(int pageIdx = 0)
+        {
+            var result = ResultByType<ChosenDocumentTypeResult>(Result.DOCUMENT_TYPE, pageIdx);
+            return result?.OneCandidate;
+        }
+
         public T ResultByType<T>(int type, int pageIdx=0) where T: ResultItem
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
