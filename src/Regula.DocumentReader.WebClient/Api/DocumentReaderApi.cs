@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
 
@@ -14,6 +15,12 @@ namespace Regula.DocumentReader.WebClient.Api
         {
             this._defaultApi = new DefaultApi(basePath);
             this._processApi = new ProcessApi(basePath);
+        }
+
+        public Configuration Configuration
+        {
+            get => this._processApi.Configuration;
+            set => this._processApi.Configuration = value;
         }
 
         private string License { get; set; }
