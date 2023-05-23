@@ -56,12 +56,14 @@ src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
 src/Regula.DocumentReader.WebClient/Model/PArrayField.cs
+src/Regula.DocumentReader.WebClient/Model/ParsingNotificationCodes.cs
 src/Regula.DocumentReader.WebClient/Model/PerDocumentConfig.cs
 src/Regula.DocumentReader.WebClient/Model/PhotoIdentResult.cs
 src/Regula.DocumentReader.WebClient/Model/Point.cs
 src/Regula.DocumentReader.WebClient/Model/PointArray.cs
 src/Regula.DocumentReader.WebClient/Model/PointsContainer.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessParams.cs
+src/Regula.DocumentReader.WebClient/Model/ProcessParamsRfid.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessRequest.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessRequestImage.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessResponse.cs

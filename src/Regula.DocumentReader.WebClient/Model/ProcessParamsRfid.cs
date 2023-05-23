@@ -25,30 +25,26 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Lexical data analysis allows you to compare the results of reading the text data of the MRZ, the document filling area, barcodes and data from the memory of the RFID chip for an additional assessment of the authenticity of the document. Single result for all pages. Consider using Result.TEXT type for more simplicity. 
+    /// Params for the RFID chip data reprocessing
     /// </summary>
     [DataContract]
-    public partial class LexicalAnalysisResult : ResultItem,  IEquatable<LexicalAnalysisResult>, IValidatableObject
+    public partial class ProcessParamsRfid :  IEquatable<ProcessParamsRfid>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LexicalAnalysisResult" /> class.
+        /// Initializes a new instance of the <see cref="ProcessParamsRfid" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LexicalAnalysisResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LexicalAnalysisResult" /> class.
-        /// </summary>
-        /// <param name="listVerifiedFields">listVerifiedFields.</param>
-        public LexicalAnalysisResult(ListVerifiedFields listVerifiedFields = default(ListVerifiedFields), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="paSensitiveCodesDisable">A list of notification codes that should be ignored during passive authentication (PA).</param>
+        public ProcessParamsRfid(List<ParsingNotificationCodes> paSensitiveCodesDisable = default(List<ParsingNotificationCodes>))
         {
-            this.ListVerifiedFields = listVerifiedFields;
+            this.PaSensitiveCodesDisable = paSensitiveCodesDisable;
         }
         
         /// <summary>
-        /// Gets or Sets ListVerifiedFields
+        /// A list of notification codes that should be ignored during passive authentication (PA)
         /// </summary>
-        [DataMember(Name="ListVerifiedFields", EmitDefaultValue=false)]
-        public ListVerifiedFields ListVerifiedFields { get; set; }
+        /// <value>A list of notification codes that should be ignored during passive authentication (PA)</value>
+        [DataMember(Name="paSensitiveCodesDisable", EmitDefaultValue=false)]
+        public List<ParsingNotificationCodes> PaSensitiveCodesDisable { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,9 +53,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LexicalAnalysisResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  ListVerifiedFields: ").Append(ListVerifiedFields).Append("\n");
+            sb.Append("class ProcessParamsRfid {\n");
+            sb.Append("  PaSensitiveCodesDisable: ").Append(PaSensitiveCodesDisable).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -68,7 +63,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -80,24 +75,25 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LexicalAnalysisResult);
+            return this.Equals(input as ProcessParamsRfid);
         }
 
         /// <summary>
-        /// Returns true if LexicalAnalysisResult instances are equal
+        /// Returns true if ProcessParamsRfid instances are equal
         /// </summary>
-        /// <param name="input">Instance of LexicalAnalysisResult to be compared</param>
+        /// <param name="input">Instance of ProcessParamsRfid to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LexicalAnalysisResult input)
+        public bool Equals(ProcessParamsRfid input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.ListVerifiedFields == input.ListVerifiedFields ||
-                    (this.ListVerifiedFields != null &&
-                    this.ListVerifiedFields.Equals(input.ListVerifiedFields))
+                    this.PaSensitiveCodesDisable == input.PaSensitiveCodesDisable ||
+                    this.PaSensitiveCodesDisable != null &&
+                    input.PaSensitiveCodesDisable != null &&
+                    this.PaSensitiveCodesDisable.SequenceEqual(input.PaSensitiveCodesDisable)
                 );
         }
 
@@ -109,9 +105,9 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this.ListVerifiedFields != null)
-                    hashCode = hashCode * 59 + this.ListVerifiedFields.GetHashCode();
+                int hashCode = 41;
+                if (this.PaSensitiveCodesDisable != null)
+                    hashCode = hashCode * 59 + this.PaSensitiveCodesDisable.GetHashCode();
                 return hashCode;
             }
         }
@@ -123,7 +119,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }
