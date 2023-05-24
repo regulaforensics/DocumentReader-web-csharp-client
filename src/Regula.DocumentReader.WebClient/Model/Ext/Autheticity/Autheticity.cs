@@ -56,6 +56,11 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         {
             return auth.securityFeatureOrNull(AuthenticityResultType.HOLOGRAMS);
         }
+        
+        public static SecurityFeatureChecks OVIChecks(this AuthenticityCheckList auth)
+        {
+            return auth.securityFeatureOrNull(AuthenticityResultType.OVI);
+        }
 
         public static SecurityFeatureChecks ImageAreaChecks(this AuthenticityCheckList auth)
         {

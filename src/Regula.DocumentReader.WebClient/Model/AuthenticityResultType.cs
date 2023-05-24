@@ -55,6 +55,7 @@ namespace Regula.DocumentReader.WebClient.Model
         
         public const int PHOTO_EMBED_TYPE = 512;
 
+        public const int OVI = 1024;
         
         public const int HOLOGRAMS = 4096;
 
