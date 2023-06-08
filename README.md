@@ -45,6 +45,7 @@ var api = licenseFromEnv != null
 var response = api.Process(request);
 ```
 
+
 Parsing results:
 ```csharp
 var response = api.Process(request);
