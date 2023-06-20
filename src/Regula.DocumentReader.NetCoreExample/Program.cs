@@ -43,15 +43,18 @@ namespace Regula.DocumentReader.NetCoreExample
 
             var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
             {
-                new ProcessRequestImage(new ImageData(whitePage0), Light.WHITE),
-                new ProcessRequestImage(new ImageData(irPage0), Light.IR),
-                new ProcessRequestImage(new ImageData(uvPage0), Light.UV)
+                new ProcessRequestImage(new ImageDataExt(whitePage0), Light.WHITE),
+                new ProcessRequestImage(new ImageDataExt(irPage0), Light.IR),
+                new ProcessRequestImage(new ImageDataExt(uvPage0), Light.UV)
             });
             var api = licenseFromEnv != null
                 ? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
                 : new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
 
             var response = api.Process(request);
+
+            var requestJson = request.Json;
+            var responseJson = response.Json;
 
             // overall status results 
             var status = response.Status();

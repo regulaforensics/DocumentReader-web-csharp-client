@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
@@ -10,6 +11,8 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         }
         
         public ProcessResponse OriginalResponse { get; }
+
+        public string Json =>  Newtonsoft.Json.JsonConvert.SerializeObject(this.OriginalResponse);
         
         public Status Status() 
         {

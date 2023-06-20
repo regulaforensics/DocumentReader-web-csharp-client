@@ -1,21 +1,24 @@
+using System;
 using System.Linq;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public static class ImagesFieldExtensions
     {
-        public static byte[] GetValue(this ImagesField field, string source, bool original = false) 
+        public static byte[] GetValue(this ImagesField field, string source, bool original = false)
         {
+            string strResult;
             foreach (var value in field.ValueList) 
             {
                 if (value.Source == source)
                 {
                     if (original) 
                     {
-                        return value.OriginalValue;
+                        strResult =  value.OriginalValue;
                     }
+                    strResult = value.Value;
 
-                    return value.Value;
+                    return Convert.FromBase64String(strResult);
                 }
             }
             return null;
@@ -41,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
                     bestValue = value;
             }
             
-            return bestValue.Value;
+            return Convert.FromBase64String(bestValue.Value);
         }
     }
 }
