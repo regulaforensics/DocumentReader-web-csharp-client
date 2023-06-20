@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rfidOrigin">rfidOrigin.</param>
-        public ImagesFieldValue(string source = default(string), byte[] value = default(byte[]), byte[] originalValue = default(byte[]), int originalPageIndex = default(int), int pageIndex = default(int), int lightIndex = default(int), int containerType = 0, RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
+        public ImagesFieldValue(string source = default(string), string value = default(string), string originalValue = default(string), int originalPageIndex = default(int), int pageIndex = default(int), int lightIndex = default(int), int containerType = 0, RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -116,14 +116,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded image</value>
         [DataMember(Name="value", EmitDefaultValue=true)]
-        public byte[] Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Base64 encoded image
         /// </summary>
         /// <value>Base64 encoded image</value>
         [DataMember(Name="originalValue", EmitDefaultValue=false)]
-        public byte[] OriginalValue { get; set; }
+        public string OriginalValue { get; set; }
 
         /// <summary>
         /// Original page index

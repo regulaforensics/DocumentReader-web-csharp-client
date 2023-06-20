@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ImageData" /> class.
         /// </summary>
         /// <param name="image">Base64 encoded image (required).</param>
-        public ImageData(byte[] image = default(byte[]))
+        public ImageData(string image = default(string))
         {
             // to ensure "image" is required (not null)
             if (image == null)
@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded image</value>
         [DataMember(Name="image", EmitDefaultValue=true)]
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
