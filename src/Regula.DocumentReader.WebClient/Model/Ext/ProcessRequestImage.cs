@@ -1,4 +1,5 @@
 using System;
+using Regula.DocumentReader.WebClient.Model.Ext;
 
 // ReSharper disable once CheckNamespace
 namespace Regula.DocumentReader.WebClient.Model
@@ -12,7 +13,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new Exception("No image provided");
             }
             
-            ImageData = new ImageData(image);
+            ImageData = new ImageDataExt(image);
 
             if (lightIndex >= 0)
                 Light = lightIndex;
