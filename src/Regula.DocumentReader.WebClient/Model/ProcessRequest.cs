@@ -41,10 +41,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="tag">session id.</param>
         /// <param name="processParam">processParam (required).</param>
         /// <param name="list">list.</param>
+        /// <param name="livePortrait">Live portrait photo.</param>
+        /// <param name="extPortrait">Portrait photo from an external source.</param>
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(string tag = default(string), ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        public ProcessRequest(string tag = default(string), ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -58,6 +60,8 @@ namespace Regula.DocumentReader.WebClient.Model
             
             this.Tag = tag;
             this.List = list;
+            this.LivePortrait = livePortrait;
+            this.ExtPortrait = extPortrait;
             this.ContainerList = containerList;
             this.SystemInfo = systemInfo;
             this.PassBackObject = passBackObject;
@@ -81,6 +85,20 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name="List", EmitDefaultValue=false)]
         public List<ProcessRequestImage> List { get; set; }
+
+        /// <summary>
+        /// Live portrait photo
+        /// </summary>
+        /// <value>Live portrait photo</value>
+        [DataMember(Name="livePortrait", EmitDefaultValue=false)]
+        public string LivePortrait { get; set; }
+
+        /// <summary>
+        /// Portrait photo from an external source
+        /// </summary>
+        /// <value>Portrait photo from an external source</value>
+        [DataMember(Name="extPortrait", EmitDefaultValue=false)]
+        public string ExtPortrait { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList
@@ -112,6 +130,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Tag: ").Append(Tag).Append("\n");
             sb.Append("  ProcessParam: ").Append(ProcessParam).Append("\n");
             sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("  LivePortrait: ").Append(LivePortrait).Append("\n");
+            sb.Append("  ExtPortrait: ").Append(ExtPortrait).Append("\n");
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
             sb.Append("  SystemInfo: ").Append(SystemInfo).Append("\n");
             sb.Append("  PassBackObject: ").Append(PassBackObject).Append("\n");
@@ -166,6 +186,16 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.List.SequenceEqual(input.List)
                 ) && 
                 (
+                    this.LivePortrait == input.LivePortrait ||
+                    (this.LivePortrait != null &&
+                    this.LivePortrait.Equals(input.LivePortrait))
+                ) && 
+                (
+                    this.ExtPortrait == input.ExtPortrait ||
+                    (this.ExtPortrait != null &&
+                    this.ExtPortrait.Equals(input.ExtPortrait))
+                ) && 
+                (
                     this.ContainerList == input.ContainerList ||
                     (this.ContainerList != null &&
                     this.ContainerList.Equals(input.ContainerList))
@@ -198,6 +228,10 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ProcessParam.GetHashCode();
                 if (this.List != null)
                     hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.LivePortrait != null)
+                    hashCode = hashCode * 59 + this.LivePortrait.GetHashCode();
+                if (this.ExtPortrait != null)
+                    hashCode = hashCode * 59 + this.ExtPortrait.GetHashCode();
                 if (this.ContainerList != null)
                     hashCode = hashCode * 59 + this.ContainerList.GetHashCode();
                 if (this.SystemInfo != null)
