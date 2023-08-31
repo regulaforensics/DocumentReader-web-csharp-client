@@ -34,6 +34,8 @@ src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesList.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentTypesCandidatesResult.cs
 src/Regula.DocumentReader.WebClient/Model/EncryptedRCLResult.cs
 src/Regula.DocumentReader.WebClient/Model/FDSIDList.cs
+src/Regula.DocumentReader.WebClient/Model/FaceApi.cs
+src/Regula.DocumentReader.WebClient/Model/FaceApiSearch.cs
 src/Regula.DocumentReader.WebClient/Model/FiberResult.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicField.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicFieldsList.cs
