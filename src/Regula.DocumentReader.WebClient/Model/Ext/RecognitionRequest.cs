@@ -20,7 +20,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         }
 
         public RecognitionRequest(ProcessParams param, ContainerList containerList, string tag = null)
-            : base(tag, param, null, containerList)
+            : base(tag:tag, processParam:param, containerList:containerList)
         {
         }
 
