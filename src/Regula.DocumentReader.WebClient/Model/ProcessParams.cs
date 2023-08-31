@@ -38,6 +38,10 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
         /// </summary>
+        /// <param name="oneShotIdentification">This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face.</param>
+        /// <param name="useFaceApi">This parameter allows comparing faces on Regula Face Web Service.</param>
+        /// <param name="faceApi">faceApi.</param>
+        /// <param name="doDetectCan">This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario..</param>
         /// <param name="imageOutputMaxHeight">This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0..</param>
         /// <param name="imageOutputMaxWidth">This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0..</param>
         /// <param name="scenario">scenario (required).</param>
@@ -83,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="ignoreDeviceIdFromImage">This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false.</param>
         /// <param name="documentIdList">List of the document ID&#39;s to process. All documents will be processed, if empty..</param>
         /// <param name="rfid">rfid.</param>
-        public ProcessParams(int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), List<Object> processAuth = default(List<Object>), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid))
+        public ProcessParams(bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), float documentAreaMin = default(float), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), List<Object> processAuth = default(List<Object>), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -95,6 +99,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.Scenario = scenario;
             }
             
+            this.OneShotIdentification = oneShotIdentification;
+            this.UseFaceApi = useFaceApi;
+            this.FaceApi = faceApi;
+            this.DoDetectCan = doDetectCan;
             this.ImageOutputMaxHeight = imageOutputMaxHeight;
             this.ImageOutputMaxWidth = imageOutputMaxWidth;
             this.ResultTypeOutput = resultTypeOutput;
@@ -141,6 +149,33 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Rfid = rfid;
         }
         
+        /// <summary>
+        /// This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face
+        /// </summary>
+        /// <value>This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face</value>
+        [DataMember(Name="oneShotIdentification", EmitDefaultValue=false)]
+        public bool OneShotIdentification { get; set; }
+
+        /// <summary>
+        /// This parameter allows comparing faces on Regula Face Web Service
+        /// </summary>
+        /// <value>This parameter allows comparing faces on Regula Face Web Service</value>
+        [DataMember(Name="useFaceApi", EmitDefaultValue=false)]
+        public bool UseFaceApi { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FaceApi
+        /// </summary>
+        [DataMember(Name="faceApi", EmitDefaultValue=false)]
+        public FaceApi FaceApi { get; set; }
+
+        /// <summary>
+        /// This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.
+        /// </summary>
+        /// <value>This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.</value>
+        [DataMember(Name="doDetectCan", EmitDefaultValue=false)]
+        public bool DoDetectCan { get; set; }
+
         /// <summary>
         /// This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.
         /// </summary>
@@ -456,6 +491,10 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ProcessParams {\n");
+            sb.Append("  OneShotIdentification: ").Append(OneShotIdentification).Append("\n");
+            sb.Append("  UseFaceApi: ").Append(UseFaceApi).Append("\n");
+            sb.Append("  FaceApi: ").Append(FaceApi).Append("\n");
+            sb.Append("  DoDetectCan: ").Append(DoDetectCan).Append("\n");
             sb.Append("  ImageOutputMaxHeight: ").Append(ImageOutputMaxHeight).Append("\n");
             sb.Append("  ImageOutputMaxWidth: ").Append(ImageOutputMaxWidth).Append("\n");
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
@@ -535,6 +574,26 @@ namespace Regula.DocumentReader.WebClient.Model
                 return false;
 
             return 
+                (
+                    this.OneShotIdentification == input.OneShotIdentification ||
+                    (this.OneShotIdentification != null &&
+                    this.OneShotIdentification.Equals(input.OneShotIdentification))
+                ) && 
+                (
+                    this.UseFaceApi == input.UseFaceApi ||
+                    (this.UseFaceApi != null &&
+                    this.UseFaceApi.Equals(input.UseFaceApi))
+                ) && 
+                (
+                    this.FaceApi == input.FaceApi ||
+                    (this.FaceApi != null &&
+                    this.FaceApi.Equals(input.FaceApi))
+                ) && 
+                (
+                    this.DoDetectCan == input.DoDetectCan ||
+                    (this.DoDetectCan != null &&
+                    this.DoDetectCan.Equals(input.DoDetectCan))
+                ) && 
                 (
                     this.ImageOutputMaxHeight == input.ImageOutputMaxHeight ||
                     (this.ImageOutputMaxHeight != null &&
@@ -779,6 +838,14 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.OneShotIdentification != null)
+                    hashCode = hashCode * 59 + this.OneShotIdentification.GetHashCode();
+                if (this.UseFaceApi != null)
+                    hashCode = hashCode * 59 + this.UseFaceApi.GetHashCode();
+                if (this.FaceApi != null)
+                    hashCode = hashCode * 59 + this.FaceApi.GetHashCode();
+                if (this.DoDetectCan != null)
+                    hashCode = hashCode * 59 + this.DoDetectCan.GetHashCode();
                 if (this.ImageOutputMaxHeight != null)
                     hashCode = hashCode * 59 + this.ImageOutputMaxHeight.GetHashCode();
                 if (this.ImageOutputMaxWidth != null)
