@@ -23,6 +23,7 @@ src/Regula.DocumentReader.WebClient/Model/DetailsOptical.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsRFID.cs
 src/Regula.DocumentReader.WebClient/Model/DeviceInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocBarCodeInfo.cs
+src/Regula.DocumentReader.WebClient/Model/DocBarCodeInfoFieldsList.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedField.cs
 src/Regula.DocumentReader.WebClient/Model/DocVisualExtendedInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocumentImage.cs
