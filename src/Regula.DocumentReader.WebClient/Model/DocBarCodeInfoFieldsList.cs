@@ -25,30 +25,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Raw data from BarCodes
+    /// DocBarCodeInfoFieldsList
     /// </summary>
     [DataContract]
-    public partial class DocBarCodeInfo : ResultItem,  IEquatable<DocBarCodeInfo>, IValidatableObject
+    public partial class DocBarCodeInfoFieldsList :  IEquatable<DocBarCodeInfoFieldsList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocBarCodeInfo" /> class.
+        /// Initializes a new instance of the <see cref="DocBarCodeInfoFieldsList" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DocBarCodeInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DocBarCodeInfo" /> class.
-        /// </summary>
-        /// <param name="docBarCodeInfo">docBarCodeInfo.</param>
-        public DocBarCodeInfo(DocBarCodeInfoFieldsList docBarCodeInfo = default(DocBarCodeInfoFieldsList), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="nFields">Count of array fields.</param>
+        /// <param name="pArrayFields">Data from barcode.</param>
+        public DocBarCodeInfoFieldsList(int nFields = default(int), List<PArrayField> pArrayFields = default(List<PArrayField>))
         {
-            this._DocBarCodeInfo = docBarCodeInfo;
+            this.NFields = nFields;
+            this.PArrayFields = pArrayFields;
         }
         
         /// <summary>
-        /// Gets or Sets _DocBarCodeInfo
+        /// Count of array fields
         /// </summary>
-        [DataMember(Name="DocBarCodeInfo", EmitDefaultValue=false)]
-        public DocBarCodeInfoFieldsList _DocBarCodeInfo { get; set; }
+        /// <value>Count of array fields</value>
+        [DataMember(Name="nFields", EmitDefaultValue=false)]
+        public int NFields { get; set; }
+
+        /// <summary>
+        /// Data from barcode
+        /// </summary>
+        /// <value>Data from barcode</value>
+        [DataMember(Name="pArrayFields", EmitDefaultValue=false)]
+        public List<PArrayField> PArrayFields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,9 +62,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocBarCodeInfo {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  _DocBarCodeInfo: ").Append(_DocBarCodeInfo).Append("\n");
+            sb.Append("class DocBarCodeInfoFieldsList {\n");
+            sb.Append("  NFields: ").Append(NFields).Append("\n");
+            sb.Append("  PArrayFields: ").Append(PArrayFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -68,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -80,24 +85,30 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocBarCodeInfo);
+            return this.Equals(input as DocBarCodeInfoFieldsList);
         }
 
         /// <summary>
-        /// Returns true if DocBarCodeInfo instances are equal
+        /// Returns true if DocBarCodeInfoFieldsList instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocBarCodeInfo to be compared</param>
+        /// <param name="input">Instance of DocBarCodeInfoFieldsList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocBarCodeInfo input)
+        public bool Equals(DocBarCodeInfoFieldsList input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this._DocBarCodeInfo == input._DocBarCodeInfo ||
-                    (this._DocBarCodeInfo != null &&
-                    this._DocBarCodeInfo.Equals(input._DocBarCodeInfo))
+                    this.NFields == input.NFields ||
+                    (this.NFields != null &&
+                    this.NFields.Equals(input.NFields))
+                ) && 
+                (
+                    this.PArrayFields == input.PArrayFields ||
+                    this.PArrayFields != null &&
+                    input.PArrayFields != null &&
+                    this.PArrayFields.SequenceEqual(input.PArrayFields)
                 );
         }
 
@@ -109,9 +120,11 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this._DocBarCodeInfo != null)
-                    hashCode = hashCode * 59 + this._DocBarCodeInfo.GetHashCode();
+                int hashCode = 41;
+                if (this.NFields != null)
+                    hashCode = hashCode * 59 + this.NFields.GetHashCode();
+                if (this.PArrayFields != null)
+                    hashCode = hashCode * 59 + this.PArrayFields.GetHashCode();
                 return hashCode;
             }
         }
@@ -123,7 +136,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }
