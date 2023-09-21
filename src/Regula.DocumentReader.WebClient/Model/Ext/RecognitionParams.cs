@@ -10,9 +10,15 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return this;
         }
 
-        public RecognitionParams WithScenario(String scenario)
+        public RecognitionParams WithScenario(string scenario)
         {
             Scenario = scenario;
+            return this;
+        }
+
+        public RecognitionParams WithLog(bool log)
+        {
+            Log = log;
             return this;
         }
     }

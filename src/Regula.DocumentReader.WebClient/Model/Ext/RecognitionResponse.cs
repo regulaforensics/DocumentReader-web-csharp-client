@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Text;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {
@@ -59,14 +59,15 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             {
                 return null;
             }
-            
+
             byte[] buffer = Convert.FromBase64String(logBase64);
-        
-            using (MemoryStream memoryStream = new MemoryStream(buffer))
-            using (DeflateStream deflateStream = new DeflateStream(memoryStream, CompressionMode.Decompress))
-            using (StreamReader streamReader = new StreamReader(deflateStream, Encoding.UTF8))
+
+            using (var compressedStream = new MemoryStream(buffer))
+            using (var zipStream = new InflaterInputStream(compressedStream))
+            using (var resultStream = new MemoryStream())
             {
-                return streamReader.ReadToEnd();
+                zipStream.CopyTo(resultStream);
+                return Encoding.UTF8.GetString(resultStream.ToArray());
             }
         }
 
