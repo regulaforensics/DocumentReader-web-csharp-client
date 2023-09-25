@@ -6,12 +6,15 @@
         <PackageId>Regula.DocumentReader.NetCoreExampleEncryptedRcl</PackageId>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj"/>
+        <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj" />
         <None Update="license.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
         <None Update="encrypted-rcl.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="SharpZipLib" Version="1.4.2" />
     </ItemGroup>
 </Project>
