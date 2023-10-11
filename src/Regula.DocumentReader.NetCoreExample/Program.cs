@@ -84,7 +84,7 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var docImageQuality = response.ImageQualityChecks();
 
-			var info = api.Ping();
+			var info = api.Ping(headers: new Dictionary<string, string> { });
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.Version}");
 			Console.WriteLine("-----------------------------------------------------------------");

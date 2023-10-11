@@ -27,28 +27,28 @@ namespace Regula.DocumentReader.WebClient.Api
         
         public RecognitionResponse Process(ProcessRequest processRequest)
         {
-            return Process(processRequest, default(string));
+            return Process(processRequest, new Dictionary<String, String>(), default(string));
         }
         
-        public RecognitionResponse Process(ProcessRequest processRequest, String xRequestID) 
+        public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers, String xRequestID) 
         {
             if (processRequest.SystemInfo == null)
                 processRequest.SystemInfo = new ProcessSystemInfo(License);
             else
                 processRequest.SystemInfo.License = License;
 
-            return new RecognitionResponse(this._processApi.ApiProcess(processRequest, xRequestID));
+            return new RecognitionResponse(this._processApi.ApiProcess(processRequest, headers, xRequestID));
         }
         public DeviceInfo Ping (string xRequestID)
         {
-            return this._defaultApi.Ping(xRequestID);
+            return this._defaultApi.Ping(new Dictionary<String, String>(), xRequestID);
         }
         
-        public DeviceInfo Ping ()
+        public DeviceInfo Ping (Dictionary<String, String> headers)
         {
-            return this._defaultApi.Ping();
+            return this._defaultApi.Ping(headers);
         }
-        
+
         public DocumentReaderApi WithLicense(string license) 
         {
             License = license;
