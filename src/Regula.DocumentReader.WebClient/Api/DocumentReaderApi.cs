@@ -39,14 +39,19 @@ namespace Regula.DocumentReader.WebClient.Api
 
             return new RecognitionResponse(this._processApi.ApiProcess(processRequest, headers, xRequestID));
         }
-        public DeviceInfo Ping (string xRequestID)
+        public DeviceInfo Ping(string xRequestID)
         {
             return this._defaultApi.Ping(new Dictionary<String, String>(), xRequestID);
         }
-        
-        public DeviceInfo Ping (Dictionary<String, String> headers)
+
+        public DeviceInfo Ping()
         {
-            return this._defaultApi.Ping(headers);
+            return this._defaultApi.Ping(new Dictionary<String, String>());
+        }
+
+        public DeviceInfo Ping(string xRequestID, Dictionary<String, String> headers)
+        {
+            return this._defaultApi.Ping(headers, xRequestID);
         }
 
         public DocumentReaderApi WithLicense(string license) 
