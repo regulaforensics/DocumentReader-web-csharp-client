@@ -29,7 +29,17 @@ namespace Regula.DocumentReader.WebClient.Api
         {
             return Process(processRequest, new Dictionary<String, String>(), default(string));
         }
-        
+
+        public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers)
+        {
+            return Process(processRequest, headers, default(string));
+        }
+
+        public RecognitionResponse Process(ProcessRequest processRequest, String xRequestID)
+        {
+            return Process(processRequest, new Dictionary<String, String>(), xRequestID);
+        }
+
         public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers, String xRequestID) 
         {
             if (processRequest.SystemInfo == null)
@@ -43,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Api
         {
             return this._defaultApi.Ping(new Dictionary<String, String>(), xRequestID);
         }
-
+ 
         public DeviceInfo Ping()
         {
             return this._defaultApi.Ping(new Dictionary<String, String>());
