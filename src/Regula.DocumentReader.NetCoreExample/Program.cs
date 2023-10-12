@@ -83,7 +83,7 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docImagePatternBlank = docImagePattern?.ChecksByElement(SecurityFeatureType.BLANK);
 
 			var docImageQuality = response.ImageQualityChecks();
-
+			 
 			var info = api.Ping();
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.Version}");
