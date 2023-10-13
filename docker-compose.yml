@@ -4,13 +4,13 @@ services:
   docreader:
     image: regulaforensics/docreader:latest
     volumes:
-      - ./regula.license:/app/extBin/unix_x64/cpu/regula.license
+      - ./regula.license:/app/extBin/unix_x64/regula.license      
   nginx:
     image: nginx:alpine
     ports:
       - "8000:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./.htpasswd:/etc/nginx/.htpasswd
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./conf/.htpasswd:/etc/nginx/.htpasswd
     depends_on:
       - docreader

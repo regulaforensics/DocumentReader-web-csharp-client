@@ -17,7 +17,7 @@ namespace Regula.DocumentReader.NetCoreExample
 
 		public static void Main()
 		{
-			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "http://localhost:8000";
+			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
 
 			var licenseFromEnv =
 				Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
@@ -53,17 +53,15 @@ namespace Regula.DocumentReader.NetCoreExample
 				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
 				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
 
-			//var response = api.Process(request);
+			var response = api.Process(request);
 
-            var response = api.Process(request, headers: new Dictionary<string, string>(){
-			{"Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}"}
-});
-			//Console.WriteLine(authResponse);
+			// var authHeaders = new Dictionary<string, string>()
+			// {
+			// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" }
+			// };
+			// var response = api.Process(request, headers: authHeaders);
 
             Console.WriteLine(response.Log());
-
-            var requestJson = request.Json;
-			var responseJson = response.Json;
 
 			// overall status results 
 			var status = response.Status();
@@ -90,9 +88,9 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var docImageQuality = response.ImageQualityChecks();
 
-			var info = api.Ping(headers: new Dictionary<string, string>(){
-            {"Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}"}
-});
+			var info = api.Ping();
+			// var info = api.Ping(headers: authHeaders);
+			
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.Version}");
 			Console.WriteLine("-----------------------------------------------------------------");
