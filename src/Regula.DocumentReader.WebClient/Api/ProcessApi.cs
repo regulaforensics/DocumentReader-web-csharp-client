@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProcessResponse</returns>
-        System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, Dictionary<String, String> headers, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -74,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, Dictionary<String, String> headers, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -271,9 +271,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProcessResponse</returns>
-        public async System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync (ProcessRequest processRequest, Dictionary<String, String> headers, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ProcessResponse> localVarResponse = await ApiProcessWithHttpInfoAsync(processRequest, xRequestID, cancellationToken);
+             ApiResponse<ProcessResponse> localVarResponse = await ApiProcessWithHttpInfoAsync(processRequest, headers, xRequestID, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -286,7 +286,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync (ProcessRequest processRequest, Dictionary<String, String> headers, string xRequestID = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)
@@ -295,7 +295,7 @@ namespace Regula.DocumentReader.WebClient.Api
             var localVarPath = "/api/process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary(k => k.Key, v => v.Value);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
