@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Regula.DocumentReader.WebClient.Api;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
@@ -54,17 +55,20 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var response = api.Process(request);
 
-			Console.WriteLine(response.Log());
+			// var authHeaders = new Dictionary<string, string>()
+			// {
+			// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" }
+			// };
+			// var response = api.Process(request, headers: authHeaders);
 
-            var requestJson = request.Json;
-			var responseJson = response.Json;
+            Console.WriteLine(response.Log());
 
 			// overall status results 
 			var status = response.Status();
 			var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
-			// text results 
+			// text results
 			var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
 			var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
 			var docNumberMrz = docNumberField.GetValue(Source.MRZ);
@@ -85,6 +89,8 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docImageQuality = response.ImageQualityChecks();
 
 			var info = api.Ping();
+			// var info = api.Ping(headers: authHeaders);
+			
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.Version}");
 			Console.WriteLine("-----------------------------------------------------------------");
