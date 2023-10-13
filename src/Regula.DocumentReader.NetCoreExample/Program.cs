@@ -53,9 +53,7 @@ namespace Regula.DocumentReader.NetCoreExample
 				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
 				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
 
-			//var response = api.Process(request);
-
-			var response = api.ProcessAsync(request).GetAwaiter().GetResult();
+			var response = api.Process(request);
 
 			// var authHeaders = new Dictionary<string, string>()
 			// {
