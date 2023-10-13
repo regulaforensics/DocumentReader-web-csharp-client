@@ -64,6 +64,11 @@ namespace Regula.DocumentReader.WebClient.Api
             return this._defaultApi.Ping(headers, xRequestID);
         }
 
+        public DeviceInfo Ping(Dictionary<String, String> headers)
+        {
+            return this._defaultApi.Ping(headers);
+        }
+
         public DocumentReaderApi WithLicense(string license) 
         {
             License = license;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Regula.DocumentReader.WebClient.Api;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
@@ -16,7 +17,7 @@ namespace Regula.DocumentReader.NetCoreExample
 
 		public static void Main()
 		{
-			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
+			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "http://localhost:8000";
 
 			var licenseFromEnv =
 				Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
@@ -52,9 +53,14 @@ namespace Regula.DocumentReader.NetCoreExample
 				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
 				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
 
-			var response = api.Process(request);
+			//var response = api.Process(request);
 
-			Console.WriteLine(response.Log());
+            var response = api.Process(request, headers: new Dictionary<string, string>(){
+			{"Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}"}
+});
+			//Console.WriteLine(authResponse);
+
+            Console.WriteLine(response.Log());
 
             var requestJson = request.Json;
 			var responseJson = response.Json;
@@ -64,7 +70,7 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
-			// text results 
+			// text results
 			var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
 			var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
 			var docNumberMrz = docNumberField.GetValue(Source.MRZ);
@@ -84,7 +90,9 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var docImageQuality = response.ImageQualityChecks();
 
-			var info = api.Ping();
+			var info = api.Ping(headers: new Dictionary<string, string>(){
+            {"Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}"}
+});
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.Version}");
 			Console.WriteLine("-----------------------------------------------------------------");
