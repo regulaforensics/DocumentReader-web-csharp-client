@@ -9,10 +9,12 @@ jobs:
   run_smoke_test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: |
+            6.0.x
+            7.0.x
       - run: dotnet build src/Regula.DocumentReader.NetCoreExample -c Release
       - working-directory: src/Regula.DocumentReader.NetCoreExample/bin/Release/net6.0/
         run: ./Regula.DocumentReader.NetCoreExample
