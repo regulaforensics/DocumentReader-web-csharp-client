@@ -27,52 +27,48 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Enumeration describes available authenticity checks
     public class AuthenticityResultType
     {
-
         
         public const int UV_LUMINESCENCE = 1;
-
         
         public const int IR_B900 = 2;
-
         
         public const int IMAGE_PATTERN = 4;
-
         
         public const int AXIAL_PROTECTION = 8;
-
         
         public const int UV_FIBERS = 16;
-
         
         public const int IR_VISIBILITY = 32;
 
-        
         public const int OCR_SECURITY_TEXT = 64;
 
-        
         public const int IPI = 128;
-
-        
+       
         public const int PHOTO_EMBED_TYPE = 512;
 
         public const int OVI = 1024;
         
         public const int HOLOGRAMS = 4096;
 
-        
         public const int PHOTO_AREA = 8192;
-
         
         public const int PORTRAIT_COMPARISON = 32768;
 
-        
         public const int BARCODE_FORMAT_CHECK = 65536;
-
         
         public const int KINEGRAM = 131072;
-
         
         public const int LETTER_SCREEN = 262144;
+
+        public const int HOLOGRAM_DETECTION = 524288;
+
+        public const int FINGERPRINT_COMPARISON = 1048576;
+
+        public const int LIVENESS = 2097152;
+
+        public const int EXTENDED_OCR_CHECK = 4194304;
+
+        public const int EXTENDED_MRZ_CHECK = 8388608;
 
     }
 }
