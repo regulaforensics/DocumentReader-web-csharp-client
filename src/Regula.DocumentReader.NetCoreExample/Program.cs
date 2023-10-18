@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.NetCoreExample
 					Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
 				})
 				.WithLog(false)
-				.WithProcessAuth(8388608 | 4194304);
+				.WithProcessAuth(AuthenticityResultType.EXTENDED_MRZ_CHECK | AuthenticityResultType.EXTENDED_OCR_CHECK);
 
 			var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
 			{
