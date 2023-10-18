@@ -41,7 +41,8 @@ namespace Regula.DocumentReader.NetCoreExample
 					Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
 					Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
 				})
-				.WithLog(false);
+				.WithLog(false)
+				.WithProcessAuth(8388608 | 4194304);
 
 			var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
 			{

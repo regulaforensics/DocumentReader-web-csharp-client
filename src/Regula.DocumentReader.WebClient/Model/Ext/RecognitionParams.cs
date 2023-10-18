@@ -21,5 +21,11 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             Log = log;
             return this;
         }
+
+        public RecognitionParams WithProcessAuth(int processAuth)
+        {
+            ProcessAuth = processAuth;
+            return this;
+        }
     }
 }
