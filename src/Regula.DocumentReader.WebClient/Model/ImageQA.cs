@@ -33,6 +33,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageQA" /> class.
         /// </summary>
+        /// <param name="brightnessThreshold">Set the threshold for an actual document brightness below which the check fails.</param>
         /// <param name="dpiThreshold">This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail..</param>
         /// <param name="angleThreshold">This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail..</param>
         /// <param name="focusCheck">This option enables focus check while performing image quality validation..</param>
@@ -40,8 +41,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="colornessCheck">This option enables colorness check while performing image quality validation..</param>
         /// <param name="moireCheck">This option enables screen capture (moire patterns) check while performing image quality validation..</param>
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
-        public ImageQA(int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), int documentPositionIndent = default(int))
+        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), int documentPositionIndent = default(int))
         {
+            this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;
             this.AngleThreshold = angleThreshold;
             this.FocusCheck = focusCheck;
@@ -51,6 +53,13 @@ namespace Regula.DocumentReader.WebClient.Model
             this.DocumentPositionIndent = documentPositionIndent;
         }
         
+        /// <summary>
+        /// Set the threshold for an actual document brightness below which the check fails
+        /// </summary>
+        /// <value>Set the threshold for an actual document brightness below which the check fails</value>
+        [DataMember(Name="brightnessThreshold", EmitDefaultValue=false)]
+        public double BrightnessThreshold { get; set; }
+
         /// <summary>
         /// This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.
         /// </summary>
@@ -108,6 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ImageQA {\n");
+            sb.Append("  BrightnessThreshold: ").Append(BrightnessThreshold).Append("\n");
             sb.Append("  DpiThreshold: ").Append(DpiThreshold).Append("\n");
             sb.Append("  AngleThreshold: ").Append(AngleThreshold).Append("\n");
             sb.Append("  FocusCheck: ").Append(FocusCheck).Append("\n");
@@ -149,6 +159,11 @@ namespace Regula.DocumentReader.WebClient.Model
                 return false;
 
             return 
+                (
+                    this.BrightnessThreshold == input.BrightnessThreshold ||
+                    (this.BrightnessThreshold != null &&
+                    this.BrightnessThreshold.Equals(input.BrightnessThreshold))
+                ) && 
                 (
                     this.DpiThreshold == input.DpiThreshold ||
                     (this.DpiThreshold != null &&
@@ -195,6 +210,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BrightnessThreshold != null)
+                    hashCode = hashCode * 59 + this.BrightnessThreshold.GetHashCode();
                 if (this.DpiThreshold != null)
                     hashCode = hashCode * 59 + this.DpiThreshold.GetHashCode();
                 if (this.AngleThreshold != null)
