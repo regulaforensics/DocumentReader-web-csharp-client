@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.Json;
 using RestSharp;
 
 namespace Regula.DocumentReader.WebClient.Model
@@ -92,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
 
 		public override string ToString()
 		{
-			return SimpleJson.SerializeObject(this);
+			return JsonSerializer.Serialize(this);
 		}
 	}
 }
