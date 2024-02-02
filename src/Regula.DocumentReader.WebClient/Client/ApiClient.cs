@@ -76,7 +76,7 @@ namespace Regula.DocumentReader.WebClient.Client
                 ThrowOnAnyError = true,
                 MaxTimeout = Configuration.Timeout
             };
-            RestClient = new RestClient(Configuration.BasePath);
+            RestClient = new RestClient(options);
         }
 
         /// <summary>
