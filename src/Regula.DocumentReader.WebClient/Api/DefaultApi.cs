@@ -198,8 +198,8 @@ namespace Regula.DocumentReader.WebClient.Api
         {
             int localVarStatusCode = (int)response.StatusCode;
             return new ApiResponse<DeviceInfo>(localVarStatusCode,
-                response.Headers.GroupBy(x => x.Name).Select(group => group.First()).ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (DeviceInfo)this.Configuration.ApiClient.Deserialize(response, typeof(DeviceInfo)));
+               response.Headers.ToDictionarySafe(x => x.Name, x => string.Join(",", x.Value)),
+               (DeviceInfo)this.Configuration.ApiClient.Deserialize(response, typeof(DeviceInfo)));
         }
         /// <summary>
         /// Server health check 
