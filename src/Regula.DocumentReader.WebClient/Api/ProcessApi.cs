@@ -312,10 +312,12 @@ namespace Regula.DocumentReader.WebClient.Api
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+                localVarHeaderParams["Accept"] = localVarHttpHeaderAccept;
 
-            if (xRequestID != null) localVarHeaderParams.Add("X-RequestID", this.Configuration.ApiClient.ParameterToString(xRequestID)); // header parameter
-            if (processRequest != null && processRequest.GetType() != typeof(byte[]))
+            if (xRequestID != null) 
+                localVarHeaderParams["X-RequestID"] = this.Configuration.ApiClient.ParameterToString(xRequestID); // header parameter
+            
+            if (processRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(processRequest); // http body (model) parameter
             }
