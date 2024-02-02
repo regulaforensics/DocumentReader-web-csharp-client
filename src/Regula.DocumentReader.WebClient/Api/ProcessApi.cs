@@ -259,7 +259,7 @@ namespace Regula.DocumentReader.WebClient.Api
             }
 
             return new ApiResponse<ProcessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                localVarResponse.Headers.ToDictionarySafe(x => x.Name, x => string.Join(",", x.Value)),
                 (ProcessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessResponse)));
         }
 
@@ -295,7 +295,7 @@ namespace Regula.DocumentReader.WebClient.Api
             var localVarPath = "/api/process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionary(k => k.Key, v => v.Value);
+            var localVarHeaderParams = this.Configuration.DefaultHeader.Union(headers).ToDictionarySafe(k => k.Key, v => v.Value);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -339,7 +339,7 @@ namespace Regula.DocumentReader.WebClient.Api
             }
 
             return new ApiResponse<ProcessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                localVarResponse.Headers.ToDictionarySafe(x => x.Name, x => string.Join(",", x.Value)),
                 (ProcessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessResponse)));
         }
 
