@@ -11,4 +11,5 @@ LogLevel=string,MRZFormat=string,TextPostProcessing=int"\
 openapitools/openapi-generator-cli:v5.0.0 generate \
 -i /definitions/index.yml -g csharp -o /client/ \
 -c /client/csharp-generator-config.json \
+--global-property models \
 --import-mappings $ENUM_MAPPINGS
