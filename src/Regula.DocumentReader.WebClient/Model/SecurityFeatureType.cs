@@ -121,5 +121,62 @@ namespace Regula.DocumentReader.WebClient.Model
         
         public const int PORTRAIT_COMPARISON_EXT_VS_CAMERA = 31;
 
+
+        public const int LIVENESS_DEPTH = 32;
+
+
+        public const int MICRO_TEXT = 33;
+
+
+        public const int FLUORESCENT_OBJECT = 34;
+
+
+        public const int LANDMARK_CHECK = 35;
+
+
+        public const int FACE_PRESENCE = 36;
+
+
+        public const int FACE_ABSENCE = 37;
+
+
+        public const int LIVENESS_SCREEN_CAPTURE = 38;
+
+
+        public const int LIVENESS_ELECTRONIC_DEVICE = 39;
+
+
+        public const int LIVENESS_OVI = 40;
+
+
+        public const int BARCODE_SIZE_CHECK = 41;
+
+
+        public const int LASINK = 42;
+
+
+        public const int LIVENESS_MLI = 43;
+
+
+        public const int LIVENESS_BARCODE_BACKGROUND = 44;
+
+
+        public const int PORTRAIT_COMPARISON_VS_BARCODE = 45;
+
+
+        public const int PORTRAIT_COMPARISON_RFID_VS_BARCODE = 46;
+
+
+        public const int PORTRAIT_COMPARISON_EXT_VS_BARCODE = 47;
+
+
+        public const int PORTRAIT_COMPARISON_BARCODE_VS_CAMERA = 48;
+
+
+        public const int CHECK_DIGITAL_SIGNATURE = 49;
+
+
+        public const int CONTACT_CHIP_CLASSIFICATION = 50;
+
     }
 }

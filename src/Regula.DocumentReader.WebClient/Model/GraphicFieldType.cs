@@ -60,6 +60,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Stamp */
         public const int STAMP = 211;
 
+        /** Contact chip */
+        public const int CONTACT_CHIP = 213;
+
         /** Undefined image type */
         public const int OTHER = 250;
 

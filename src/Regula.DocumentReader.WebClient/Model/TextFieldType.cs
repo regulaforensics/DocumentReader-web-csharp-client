@@ -1803,5 +1803,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Last name */
         public const int FT_LAST_NAME = 650;
 
+        public const int ADDRESS_COUNTY_TYPE = 678;
+
+        public const int ADDRESS_CITY_TYPE = 679;
+
+        public const int ADDRESS_BUILDING_TYPE = 680;
+
+        public const int DATE_OF_RETIREMENT = 681;
+
     }
 }
