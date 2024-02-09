@@ -31,6 +31,11 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ImagesField :  IEquatable<ImagesField>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets FieldType
+        /// </summary>
+        [DataMember(Name="fieldType", EmitDefaultValue=true)]
+        public GraphicFieldType FieldType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ImagesField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -41,7 +46,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldName">Human readable field name. Do not bind to this name - use GraphicFieldType instead. (required).</param>
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="valueList">valueList (required).</param>
-        public ImagesField(string fieldName = default(string), int fieldType = default(int), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>))
+        public ImagesField(string fieldName = default(string), GraphicFieldType fieldType = default(GraphicFieldType), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -82,11 +87,6 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="fieldName", EmitDefaultValue=true)]
         public string FieldName { get; set; }
 
-        /// <summary>
-        /// Gets or Sets FieldType
-        /// </summary>
-        [DataMember(Name="fieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets ValueList

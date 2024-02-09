@@ -31,6 +31,41 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DetailsOptical :  IEquatable<DetailsOptical>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets OverallStatus
+        /// </summary>
+        [DataMember(Name="overallStatus", EmitDefaultValue=true)]
+        public CheckResult OverallStatus { get; set; }
+        /// <summary>
+        /// Gets or Sets DocType
+        /// </summary>
+        [DataMember(Name="docType", EmitDefaultValue=true)]
+        public CheckResult DocType { get; set; }
+        /// <summary>
+        /// Gets or Sets Expiry
+        /// </summary>
+        [DataMember(Name="expiry", EmitDefaultValue=true)]
+        public CheckResult Expiry { get; set; }
+        /// <summary>
+        /// Gets or Sets ImageQA
+        /// </summary>
+        [DataMember(Name="imageQA", EmitDefaultValue=true)]
+        public CheckResult ImageQA { get; set; }
+        /// <summary>
+        /// Gets or Sets Mrz
+        /// </summary>
+        [DataMember(Name="mrz", EmitDefaultValue=true)]
+        public CheckResult Mrz { get; set; }
+        /// <summary>
+        /// Gets or Sets Security
+        /// </summary>
+        [DataMember(Name="security", EmitDefaultValue=true)]
+        public CheckResult Security { get; set; }
+        /// <summary>
+        /// Gets or Sets Text
+        /// </summary>
+        [DataMember(Name="text", EmitDefaultValue=true)]
+        public CheckResult Text { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="DetailsOptical" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +81,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pagesCount">Number of processed pages in the document (required).</param>
         /// <param name="security">security (required).</param>
         /// <param name="text">text (required).</param>
-        public DetailsOptical(int overallStatus = default(int), int docType = default(int), int expiry = default(int), int imageQA = default(int), int mrz = default(int), int pagesCount = default(int), int security = default(int), int text = default(int))
+        public DetailsOptical(CheckResult overallStatus = default(CheckResult), CheckResult docType = default(CheckResult), CheckResult expiry = default(CheckResult), CheckResult imageQA = default(CheckResult), CheckResult mrz = default(CheckResult), int pagesCount = default(int), CheckResult security = default(CheckResult), CheckResult text = default(CheckResult))
         {
             // to ensure "overallStatus" is required (not null)
             if (overallStatus == null)
@@ -130,35 +165,10 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
-        /// <summary>
-        /// Gets or Sets OverallStatus
-        /// </summary>
-        [DataMember(Name="overallStatus", EmitDefaultValue=true)]
-        public int OverallStatus { get; set; }
 
-        /// <summary>
-        /// Gets or Sets DocType
-        /// </summary>
-        [DataMember(Name="docType", EmitDefaultValue=true)]
-        public int DocType { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Expiry
-        /// </summary>
-        [DataMember(Name="expiry", EmitDefaultValue=true)]
-        public int Expiry { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ImageQA
-        /// </summary>
-        [DataMember(Name="imageQA", EmitDefaultValue=true)]
-        public int ImageQA { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Mrz
-        /// </summary>
-        [DataMember(Name="mrz", EmitDefaultValue=true)]
-        public int Mrz { get; set; }
 
         /// <summary>
         /// Number of processed pages in the document
@@ -167,17 +177,7 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="pagesCount", EmitDefaultValue=true)]
         public int PagesCount { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Security
-        /// </summary>
-        [DataMember(Name="security", EmitDefaultValue=true)]
-        public int Security { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Text
-        /// </summary>
-        [DataMember(Name="text", EmitDefaultValue=true)]
-        public int Text { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

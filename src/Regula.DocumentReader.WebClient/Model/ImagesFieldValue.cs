@@ -31,6 +31,16 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ImagesFieldValue :  IEquatable<ImagesFieldValue>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name="source", EmitDefaultValue=true)]
+        public Source Source { get; set; }
+        /// <summary>
+        /// Gets or Sets LightIndex
+        /// </summary>
+        [DataMember(Name="lightIndex", EmitDefaultValue=true)]
+        public Light LightIndex { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ImagesFieldValue" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -47,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rfidOrigin">rfidOrigin.</param>
-        public ImagesFieldValue(string source = default(string), string value = default(string), string originalValue = default(string), int originalPageIndex = default(int), int pageIndex = default(int), int lightIndex = default(int), int containerType = 0, RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
+        public ImagesFieldValue(Source source = default(Source), string value = default(string), string originalValue = default(string), int originalPageIndex = default(int), int pageIndex = default(int), Light lightIndex = default(Light), int containerType = 0, RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -105,11 +115,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.RfidOrigin = rfidOrigin;
         }
         
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
 
         /// <summary>
         /// Base64 encoded image
@@ -139,11 +144,6 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="pageIndex", EmitDefaultValue=true)]
         public int PageIndex { get; set; }
 
-        /// <summary>
-        /// Gets or Sets LightIndex
-        /// </summary>
-        [DataMember(Name="lightIndex", EmitDefaultValue=true)]
-        public int LightIndex { get; set; }
 
         /// <summary>
         /// Same as Result type, but used for safe parsing of not-described values. See Result type.

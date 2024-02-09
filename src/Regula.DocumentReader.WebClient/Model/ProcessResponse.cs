@@ -31,6 +31,16 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ProcessResponse :  IEquatable<ProcessResponse>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets ChipPage
+        /// </summary>
+        [DataMember(Name="ChipPage", EmitDefaultValue=false)]
+        public RfidLocation? ChipPage { get; set; }
+        /// <summary>
+        /// Gets or Sets ProcessingFinished
+        /// </summary>
+        [DataMember(Name="ProcessingFinished", EmitDefaultValue=true)]
+        public ProcessingStatus ProcessingFinished { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ProcessResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="passBackObject">Free-form object provided in request. See passBackObject property of ProcessRequest..</param>
         /// <param name="morePagesAvailable">morePagesAvailable.</param>
         /// <param name="elapsedTime">Time the document processing has taken, ms..</param>
-        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int))
+        public ProcessResponse(RfidLocation? chipPage = default(RfidLocation?), ProcessingStatus processingFinished = default(ProcessingStatus), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int))
         {
             // to ensure "processingFinished" is required (not null)
             if (processingFinished == null)
@@ -85,17 +95,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ElapsedTime = elapsedTime;
         }
         
-        /// <summary>
-        /// Gets or Sets ChipPage
-        /// </summary>
-        [DataMember(Name="ChipPage", EmitDefaultValue=false)]
-        public int ChipPage { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ProcessingFinished
-        /// </summary>
-        [DataMember(Name="ProcessingFinished", EmitDefaultValue=true)]
-        public int ProcessingFinished { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList

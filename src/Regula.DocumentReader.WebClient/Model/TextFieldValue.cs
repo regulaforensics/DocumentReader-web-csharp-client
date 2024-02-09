@@ -31,6 +31,11 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class TextFieldValue :  IEquatable<TextFieldValue>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name="source", EmitDefaultValue=true)]
+        public Source Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="TextFieldValue" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="probability">Min recognition probability. Combined minimum probability from single characters probabilities.</param>
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rfidOrigin">rfidOrigin.</param>
-        public TextFieldValue(string source = default(string), string value = default(string), string originalValue = default(string), List<OriginalSymbol> originalSymbols = default(List<OriginalSymbol>), int pageIndex = default(int), int probability = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
+        public TextFieldValue(Source source = default(Source), string value = default(string), string originalValue = default(string), List<OriginalSymbol> originalSymbols = default(List<OriginalSymbol>), int pageIndex = default(int), int probability = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -85,11 +90,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.RfidOrigin = rfidOrigin;
         }
         
-        /// <summary>
-        /// Gets or Sets Source
-        /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
 
         /// <summary>
         /// Parsed/processed value. Date format converted for output, delimiters removed

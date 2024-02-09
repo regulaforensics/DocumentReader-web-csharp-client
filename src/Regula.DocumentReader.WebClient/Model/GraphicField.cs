@@ -31,6 +31,11 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class GraphicField :  IEquatable<GraphicField>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets FieldType
+        /// </summary>
+        [DataMember(Name="FieldType", EmitDefaultValue=true)]
+        public GraphicFieldType FieldType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="GraphicField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -45,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="rFIDOriginDGTag">Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_GRAPHICS result..</param>
         /// <param name="rFIDOriginTagEntry">Index of the template in the record with biometric data. Only for Result.RFID_GRAPHICS result..</param>
         /// <param name="rFIDOriginEntryView">Index of the variant of the biometric data template. Only for Result.RFID_GRAPHICS result..</param>
-        public GraphicField(int fieldType = default(int), ImageData image = default(ImageData), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginDGTag = default(int), int rFIDOriginTagEntry = default(int), int rFIDOriginEntryView = default(int))
+        public GraphicField(GraphicFieldType fieldType = default(GraphicFieldType), ImageData image = default(ImageData), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginDGTag = default(int), int rFIDOriginTagEntry = default(int), int rFIDOriginEntryView = default(int))
         {
             // to ensure "fieldType" is required (not null)
             if (fieldType == null)
@@ -74,11 +79,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.RFIDOriginEntryView = rFIDOriginEntryView;
         }
         
-        /// <summary>
-        /// Gets or Sets FieldType
-        /// </summary>
-        [DataMember(Name="FieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets Image

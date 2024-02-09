@@ -31,6 +31,11 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class ImageQualityCheckList :  IEquatable<ImageQualityCheckList>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Result
+        /// </summary>
+        [DataMember(Name="result", EmitDefaultValue=true)]
+        public CheckResult Result { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ImageQualityCheckList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="result">result (required).</param>
         /// <param name="list">list (required).</param>
-        public ImageQualityCheckList(int result = default(int), List<ImageQualityCheck> list = default(List<ImageQualityCheck>))
+        public ImageQualityCheckList(CheckResult result = default(CheckResult), List<ImageQualityCheck> list = default(List<ImageQualityCheck>))
         {
             // to ensure "result" is required (not null)
             if (result == null)
@@ -64,11 +69,6 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
-        /// <summary>
-        /// Gets or Sets Result
-        /// </summary>
-        [DataMember(Name="result", EmitDefaultValue=true)]
-        public int Result { get; set; }
 
         /// <summary>
         /// Gets or Sets List

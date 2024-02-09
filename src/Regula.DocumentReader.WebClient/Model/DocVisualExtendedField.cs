@@ -31,6 +31,16 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DocVisualExtendedField :  IEquatable<DocVisualExtendedField>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets WFieldType
+        /// </summary>
+        [DataMember(Name="wFieldType", EmitDefaultValue=true)]
+        public TextFieldType WFieldType { get; set; }
+        /// <summary>
+        /// Gets or Sets WLCID
+        /// </summary>
+        [DataMember(Name="wLCID", EmitDefaultValue=true)]
+        public LCID WLCID { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="DocVisualExtendedField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rFIDOriginDG">Origin data group information. Only for Result.RFID_TEXT results..</param>
         /// <param name="rFIDOriginTagEntry">Index of the text field record in origin data group. Only for Result.RFID_TEXT results..</param>
-        public DocVisualExtendedField(int wFieldType = default(int), string fieldName = default(string), int wLCID = default(int), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), string bufText = default(string), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginTagEntry = default(int))
+        public DocVisualExtendedField(TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), LCID wLCID = default(LCID), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), string bufText = default(string), RectangleCoordinates fieldRect = default(RectangleCoordinates), int rFIDOriginDG = default(int), int rFIDOriginTagEntry = default(int))
         {
             // to ensure "wFieldType" is required (not null)
             if (wFieldType == null)
@@ -85,11 +95,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.RFIDOriginTagEntry = rFIDOriginTagEntry;
         }
         
-        /// <summary>
-        /// Gets or Sets WFieldType
-        /// </summary>
-        [DataMember(Name="wFieldType", EmitDefaultValue=true)]
-        public int WFieldType { get; set; }
 
         /// <summary>
         /// Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use wFieldType for lookup.
@@ -98,11 +103,6 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="FieldName", EmitDefaultValue=true)]
         public string FieldName { get; set; }
 
-        /// <summary>
-        /// Gets or Sets WLCID
-        /// </summary>
-        [DataMember(Name="wLCID", EmitDefaultValue=true)]
-        public int WLCID { get; set; }
 
         /// <summary>
         /// Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.
