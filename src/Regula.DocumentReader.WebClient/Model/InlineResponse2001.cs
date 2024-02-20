@@ -25,60 +25,28 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ProcessResponse
+    /// InlineResponse2001
     /// </summary>
     [DataContract]
-    public partial class ProcessResponse :  IEquatable<ProcessResponse>, IValidatableObject
+    public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessResponse" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected ProcessResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessResponse" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
         /// <param name="chipPage">chipPage.</param>
-        /// <param name="processingFinished">processingFinished (required).</param>
-        /// <param name="containerList">containerList (required).</param>
-        /// <param name="transactionInfo">transactionInfo (required).</param>
+        /// <param name="processingFinished">processingFinished.</param>
+        /// <param name="containerList">containerList.</param>
+        /// <param name="transactionInfo">transactionInfo.</param>
         /// <param name="log">Base64 encoded transaction processing log.</param>
         /// <param name="passBackObject">Free-form object provided in request. See passBackObject property of ProcessRequest..</param>
         /// <param name="morePagesAvailable">morePagesAvailable.</param>
         /// <param name="elapsedTime">Time the document processing has taken, ms..</param>
-        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int))
+        public InlineResponse2001(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int))
         {
-            // to ensure "processingFinished" is required (not null)
-            if (processingFinished == null)
-            {
-                throw new InvalidDataException("processingFinished is a required property for ProcessResponse and cannot be null");
-            }
-            else
-            {
-                this.ProcessingFinished = processingFinished;
-            }
-            
-            // to ensure "containerList" is required (not null)
-            if (containerList == null)
-            {
-                throw new InvalidDataException("containerList is a required property for ProcessResponse and cannot be null");
-            }
-            else
-            {
-                this.ContainerList = containerList;
-            }
-            
-            // to ensure "transactionInfo" is required (not null)
-            if (transactionInfo == null)
-            {
-                throw new InvalidDataException("transactionInfo is a required property for ProcessResponse and cannot be null");
-            }
-            else
-            {
-                this.TransactionInfo = transactionInfo;
-            }
-            
             this.ChipPage = chipPage;
+            this.ProcessingFinished = processingFinished;
+            this.ContainerList = containerList;
+            this.TransactionInfo = transactionInfo;
             this.Log = log;
             this.PassBackObject = passBackObject;
             this.MorePagesAvailable = morePagesAvailable;
@@ -94,19 +62,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets ProcessingFinished
         /// </summary>
-        [DataMember(Name="ProcessingFinished", EmitDefaultValue=true)]
+        [DataMember(Name="ProcessingFinished", EmitDefaultValue=false)]
         public int ProcessingFinished { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList
         /// </summary>
-        [DataMember(Name="ContainerList", EmitDefaultValue=true)]
+        [DataMember(Name="ContainerList", EmitDefaultValue=false)]
         public ContainerList ContainerList { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionInfo
         /// </summary>
-        [DataMember(Name="TransactionInfo", EmitDefaultValue=true)]
+        [DataMember(Name="TransactionInfo", EmitDefaultValue=false)]
         public TransactionInfo TransactionInfo { get; set; }
 
         /// <summary>
@@ -143,7 +111,7 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProcessResponse {\n");
+            sb.Append("class InlineResponse2001 {\n");
             sb.Append("  ChipPage: ").Append(ChipPage).Append("\n");
             sb.Append("  ProcessingFinished: ").Append(ProcessingFinished).Append("\n");
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
@@ -172,15 +140,15 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProcessResponse);
+            return this.Equals(input as InlineResponse2001);
         }
 
         /// <summary>
-        /// Returns true if ProcessResponse instances are equal
+        /// Returns true if InlineResponse2001 instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProcessResponse to be compared</param>
+        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProcessResponse input)
+        public bool Equals(InlineResponse2001 input)
         {
             if (input == null)
                 return false;

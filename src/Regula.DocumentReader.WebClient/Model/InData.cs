@@ -25,39 +25,41 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// DocumentImageResult
+    /// InData
     /// </summary>
     [DataContract]
-    public partial class DocumentImageResult : ResultItem,  IEquatable<DocumentImageResult>, IValidatableObject
+    public partial class InData :  IEquatable<InData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentImageResult" /> class.
+        /// Initializes a new instance of the <see cref="InData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DocumentImageResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentImageResult" /> class.
-        /// </summary>
-        /// <param name="rawImageContainer">rawImageContainer (required).</param>
-        public DocumentImageResult(ImageData rawImageContainer = default(ImageData), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="rfidSession">rfidSession.</param>
+        /// <param name="video">video.</param>
+        /// <param name="images">images.</param>
+        public InData(InDataRfidSession rfidSession = default(InDataRfidSession), InDataVideo video = default(InDataVideo), List<ImageTransactionData> images = default(List<ImageTransactionData>))
         {
-            // to ensure "rawImageContainer" is required (not null)
-            if (rawImageContainer == null)
-            {
-                throw new InvalidDataException("rawImageContainer is a required property for DocumentImageResult and cannot be null");
-            }
-            else
-            {
-                this.RawImageContainer = rawImageContainer;
-            }
-            
+            this.RfidSession = rfidSession;
+            this.Video = video;
+            this.Images = images;
         }
         
         /// <summary>
-        /// Gets or Sets RawImageContainer
+        /// Gets or Sets RfidSession
         /// </summary>
-        [DataMember(Name="RawImageContainer", EmitDefaultValue=true)]
-        public ImageData RawImageContainer { get; set; }
+        [DataMember(Name="rfidSession", EmitDefaultValue=false)]
+        public InDataRfidSession RfidSession { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Video
+        /// </summary>
+        [DataMember(Name="video", EmitDefaultValue=false)]
+        public InDataVideo Video { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Images
+        /// </summary>
+        [DataMember(Name="images", EmitDefaultValue=false)]
+        public List<ImageTransactionData> Images { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,9 +68,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentImageResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  RawImageContainer: ").Append(RawImageContainer).Append("\n");
+            sb.Append("class InData {\n");
+            sb.Append("  RfidSession: ").Append(RfidSession).Append("\n");
+            sb.Append("  Video: ").Append(Video).Append("\n");
+            sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -89,24 +92,35 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocumentImageResult);
+            return this.Equals(input as InData);
         }
 
         /// <summary>
-        /// Returns true if DocumentImageResult instances are equal
+        /// Returns true if InData instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocumentImageResult to be compared</param>
+        /// <param name="input">Instance of InData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentImageResult input)
+        public bool Equals(InData input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.RawImageContainer == input.RawImageContainer ||
-                    (this.RawImageContainer != null &&
-                    this.RawImageContainer.Equals(input.RawImageContainer))
+                    this.RfidSession == input.RfidSession ||
+                    (this.RfidSession != null &&
+                    this.RfidSession.Equals(input.RfidSession))
+                ) && 
+                (
+                    this.Video == input.Video ||
+                    (this.Video != null &&
+                    this.Video.Equals(input.Video))
+                ) && 
+                (
+                    this.Images == input.Images ||
+                    this.Images != null &&
+                    input.Images != null &&
+                    this.Images.SequenceEqual(input.Images)
                 );
         }
 
@@ -118,9 +132,13 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this.RawImageContainer != null)
-                    hashCode = hashCode * 59 + this.RawImageContainer.GetHashCode();
+                int hashCode = 41;
+                if (this.RfidSession != null)
+                    hashCode = hashCode * 59 + this.RfidSession.GetHashCode();
+                if (this.Video != null)
+                    hashCode = hashCode * 59 + this.Video.GetHashCode();
+                if (this.Images != null)
+                    hashCode = hashCode * 59 + this.Images.GetHashCode();
                 return hashCode;
             }
         }
@@ -132,7 +150,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

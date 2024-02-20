@@ -25,43 +25,49 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// OriginalSymbol
+    /// TransactionProcessGetResponse
     /// </summary>
     [DataContract]
-    public partial class OriginalSymbol :  IEquatable<OriginalSymbol>, IValidatableObject
+    public partial class TransactionProcessGetResponse :  IEquatable<TransactionProcessGetResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OriginalSymbol" /> class.
+        /// Initializes a new instance of the <see cref="TransactionProcessGetResponse" /> class.
         /// </summary>
-        /// <param name="code">Unicode symbol code.</param>
-        /// <param name="probability">Probability of correctness reading of a single character.</param>
-        /// <param name="rect">rect.</param>
-        public OriginalSymbol(long code = default(long), int probability = default(int), RectangleCoordinates rect = default(RectangleCoordinates))
+        /// <param name="transactionId">transactionId.</param>
+        /// <param name="tag">tag.</param>
+        /// <param name="outData">outData.</param>
+        /// <param name="inData">inData.</param>
+        public TransactionProcessGetResponse(int transactionId = default(int), string tag = default(string), OutData outData = default(OutData), InData inData = default(InData))
         {
-            this.Code = code;
-            this.Probability = probability;
-            this.Rect = rect;
+            this.TransactionId = transactionId;
+            this.Tag = tag;
+            this.OutData = outData;
+            this.InData = inData;
         }
         
         /// <summary>
-        /// Unicode symbol code
+        /// Gets or Sets TransactionId
         /// </summary>
-        /// <value>Unicode symbol code</value>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public long Code { get; set; }
+        [DataMember(Name="transactionId", EmitDefaultValue=false)]
+        public int TransactionId { get; set; }
 
         /// <summary>
-        /// Probability of correctness reading of a single character
+        /// Gets or Sets Tag
         /// </summary>
-        /// <value>Probability of correctness reading of a single character</value>
-        [DataMember(Name="probability", EmitDefaultValue=false)]
-        public int Probability { get; set; }
+        [DataMember(Name="tag", EmitDefaultValue=false)]
+        public string Tag { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rect
+        /// Gets or Sets OutData
         /// </summary>
-        [DataMember(Name="rect", EmitDefaultValue=false)]
-        public RectangleCoordinates Rect { get; set; }
+        [DataMember(Name="outData", EmitDefaultValue=false)]
+        public OutData OutData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InData
+        /// </summary>
+        [DataMember(Name="inData", EmitDefaultValue=false)]
+        public InData InData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,10 +76,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OriginalSymbol {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Probability: ").Append(Probability).Append("\n");
-            sb.Append("  Rect: ").Append(Rect).Append("\n");
+            sb.Append("class TransactionProcessGetResponse {\n");
+            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("  OutData: ").Append(OutData).Append("\n");
+            sb.Append("  InData: ").Append(InData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,34 +101,39 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OriginalSymbol);
+            return this.Equals(input as TransactionProcessGetResponse);
         }
 
         /// <summary>
-        /// Returns true if OriginalSymbol instances are equal
+        /// Returns true if TransactionProcessGetResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of OriginalSymbol to be compared</param>
+        /// <param name="input">Instance of TransactionProcessGetResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OriginalSymbol input)
+        public bool Equals(TransactionProcessGetResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.TransactionId == input.TransactionId ||
+                    (this.TransactionId != null &&
+                    this.TransactionId.Equals(input.TransactionId))
                 ) && 
                 (
-                    this.Probability == input.Probability ||
-                    (this.Probability != null &&
-                    this.Probability.Equals(input.Probability))
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
                 ) && 
                 (
-                    this.Rect == input.Rect ||
-                    (this.Rect != null &&
-                    this.Rect.Equals(input.Rect))
+                    this.OutData == input.OutData ||
+                    (this.OutData != null &&
+                    this.OutData.Equals(input.OutData))
+                ) && 
+                (
+                    this.InData == input.InData ||
+                    (this.InData != null &&
+                    this.InData.Equals(input.InData))
                 );
         }
 
@@ -134,12 +146,14 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Probability != null)
-                    hashCode = hashCode * 59 + this.Probability.GetHashCode();
-                if (this.Rect != null)
-                    hashCode = hashCode * 59 + this.Rect.GetHashCode();
+                if (this.TransactionId != null)
+                    hashCode = hashCode * 59 + this.TransactionId.GetHashCode();
+                if (this.Tag != null)
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
+                if (this.OutData != null)
+                    hashCode = hashCode * 59 + this.OutData.GetHashCode();
+                if (this.InData != null)
+                    hashCode = hashCode * 59 + this.InData.GetHashCode();
                 return hashCode;
             }
         }
@@ -151,20 +165,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-
-            
-            // Probability (int) maximum
-            if(this.Probability > (int)100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Probability, must be a value less than or equal to 100.", new [] { "Probability" });
-            }
-
-            // Probability (int) minimum
-            if(this.Probability < (int)0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Probability, must be a value greater than or equal to 0.", new [] { "Probability" });
-            }
-
             yield break;
         }
     }
