@@ -25,39 +25,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// DocumentImageResult
+    /// Video
     /// </summary>
     [DataContract]
-    public partial class DocumentImageResult : ResultItem,  IEquatable<DocumentImageResult>, IValidatableObject
+    public partial class InDataVideo :  IEquatable<InDataVideo>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentImageResult" /> class.
+        /// Initializes a new instance of the <see cref="InDataVideo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DocumentImageResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentImageResult" /> class.
-        /// </summary>
-        /// <param name="rawImageContainer">rawImageContainer (required).</param>
-        public DocumentImageResult(ImageData rawImageContainer = default(ImageData), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="metadata">A free-form object containing video&#39;s extended attributes..</param>
+        /// <param name="url">Video url.</param>
+        public InDataVideo(Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string url = default(string))
         {
-            // to ensure "rawImageContainer" is required (not null)
-            if (rawImageContainer == null)
-            {
-                throw new InvalidDataException("rawImageContainer is a required property for DocumentImageResult and cannot be null");
-            }
-            else
-            {
-                this.RawImageContainer = rawImageContainer;
-            }
-            
+            this.Metadata = metadata;
+            this.Url = url;
         }
         
         /// <summary>
-        /// Gets or Sets RawImageContainer
+        /// A free-form object containing video&#39;s extended attributes.
         /// </summary>
-        [DataMember(Name="RawImageContainer", EmitDefaultValue=true)]
-        public ImageData RawImageContainer { get; set; }
+        /// <value>A free-form object containing video&#39;s extended attributes.</value>
+        [DataMember(Name="metadata", EmitDefaultValue=false)]
+        public Dictionary<string, Object> Metadata { get; set; }
+
+        /// <summary>
+        /// Video url
+        /// </summary>
+        /// <value>Video url</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,9 +62,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentImageResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  RawImageContainer: ").Append(RawImageContainer).Append("\n");
+            sb.Append("class InDataVideo {\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -89,24 +85,30 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocumentImageResult);
+            return this.Equals(input as InDataVideo);
         }
 
         /// <summary>
-        /// Returns true if DocumentImageResult instances are equal
+        /// Returns true if InDataVideo instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocumentImageResult to be compared</param>
+        /// <param name="input">Instance of InDataVideo to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentImageResult input)
+        public bool Equals(InDataVideo input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.RawImageContainer == input.RawImageContainer ||
-                    (this.RawImageContainer != null &&
-                    this.RawImageContainer.Equals(input.RawImageContainer))
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -118,9 +120,11 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this.RawImageContainer != null)
-                    hashCode = hashCode * 59 + this.RawImageContainer.GetHashCode();
+                int hashCode = 41;
+                if (this.Metadata != null)
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;
             }
         }
@@ -132,7 +136,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }
