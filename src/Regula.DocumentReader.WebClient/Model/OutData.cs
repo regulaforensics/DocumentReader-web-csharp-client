@@ -33,18 +33,26 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OutData" /> class.
         /// </summary>
-        /// <param name="url">Image url.</param>
-        public OutData(string url = default(string))
+        /// <param name="url">Response url.</param>
+        /// <param name="images">images.</param>
+        public OutData(string url = default(string), List<TransactionImagesFieldValue> images = default(List<TransactionImagesFieldValue>))
         {
             this.Url = url;
+            this.Images = images;
         }
         
         /// <summary>
-        /// Image url
+        /// Response url
         /// </summary>
-        /// <value>Image url</value>
+        /// <value>Response url</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Images
+        /// </summary>
+        [DataMember(Name="images", EmitDefaultValue=false)]
+        public List<TransactionImagesFieldValue> Images { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +63,7 @@ namespace Regula.DocumentReader.WebClient.Model
             var sb = new StringBuilder();
             sb.Append("class OutData {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +102,12 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.Images == input.Images ||
+                    this.Images != null &&
+                    input.Images != null &&
+                    this.Images.SequenceEqual(input.Images)
                 );
         }
 
@@ -107,6 +122,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 int hashCode = 41;
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.Images != null)
+                    hashCode = hashCode * 59 + this.Images.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,22 +33,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InData" /> class.
         /// </summary>
-        /// <param name="rfidSession">rfidSession.</param>
         /// <param name="video">video.</param>
         /// <param name="images">images.</param>
-        public InData(InDataRfidSession rfidSession = default(InDataRfidSession), InDataVideo video = default(InDataVideo), List<ImageTransactionData> images = default(List<ImageTransactionData>))
+        public InData(InDataVideo video = default(InDataVideo), List<TransactionImagesFieldValue> images = default(List<TransactionImagesFieldValue>))
         {
-            this.RfidSession = rfidSession;
             this.Video = video;
             this.Images = images;
         }
         
-        /// <summary>
-        /// Gets or Sets RfidSession
-        /// </summary>
-        [DataMember(Name="rfidSession", EmitDefaultValue=false)]
-        public InDataRfidSession RfidSession { get; set; }
-
         /// <summary>
         /// Gets or Sets Video
         /// </summary>
@@ -59,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Images
         /// </summary>
         [DataMember(Name="images", EmitDefaultValue=false)]
-        public List<ImageTransactionData> Images { get; set; }
+        public List<TransactionImagesFieldValue> Images { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,7 +61,6 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InData {\n");
-            sb.Append("  RfidSession: ").Append(RfidSession).Append("\n");
             sb.Append("  Video: ").Append(Video).Append("\n");
             sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("}\n");
@@ -107,11 +98,6 @@ namespace Regula.DocumentReader.WebClient.Model
 
             return 
                 (
-                    this.RfidSession == input.RfidSession ||
-                    (this.RfidSession != null &&
-                    this.RfidSession.Equals(input.RfidSession))
-                ) && 
-                (
                     this.Video == input.Video ||
                     (this.Video != null &&
                     this.Video.Equals(input.Video))
@@ -133,8 +119,6 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RfidSession != null)
-                    hashCode = hashCode * 59 + this.RfidSession.GetHashCode();
                 if (this.Video != null)
                     hashCode = hashCode * 59 + this.Video.GetHashCode();
                 if (this.Images != null)
