@@ -5,6 +5,10 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public class RecognitionParams : ProcessParams
     {
+        public RecognitionParams WithCustomParams(Dictionary<string, object> customParams){
+            CustomParams = customParams;
+            return this;
+        }
         public RecognitionParams WithResultTypeOutput(List<int> resultTypes) {
             ResultTypeOutput = resultTypes;
             return this;
