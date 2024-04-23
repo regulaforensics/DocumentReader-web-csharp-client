@@ -25,49 +25,51 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// BcROIDETECT
+    /// InDataTransactionImagesFieldValue
     /// </summary>
     [DataContract]
-    public partial class BcROIDETECT :  IEquatable<BcROIDETECT>, IValidatableObject
+    public partial class InDataTransactionImagesFieldValue :  IEquatable<InDataTransactionImagesFieldValue>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BcROIDETECT" /> class.
+        /// Initializes a new instance of the <see cref="InDataTransactionImagesFieldValue" /> class.
         /// </summary>
-        /// <param name="bottom">bottom.</param>
-        /// <param name="left">left.</param>
-        /// <param name="right">right.</param>
-        /// <param name="top">top.</param>
-        public BcROIDETECT(int bottom = default(int), int left = default(int), int right = default(int), int top = default(int))
+        /// <param name="light">light.</param>
+        /// <param name="listIdx">listIdx.</param>
+        /// <param name="pageIdx">Page index of the image from input list.</param>
+        /// <param name="url">Image url.</param>
+        public InDataTransactionImagesFieldValue(int light = default(int), int listIdx = default(int), int pageIdx = default(int), string url = default(string))
         {
-            this.Bottom = bottom;
-            this.Left = left;
-            this.Right = right;
-            this.Top = top;
+            this.Light = light;
+            this.ListIdx = listIdx;
+            this.PageIdx = pageIdx;
+            this.Url = url;
         }
         
         /// <summary>
-        /// Gets or Sets Bottom
+        /// Gets or Sets Light
         /// </summary>
-        [DataMember(Name="bottom", EmitDefaultValue=false)]
-        public int Bottom { get; set; }
+        [DataMember(Name="light", EmitDefaultValue=false)]
+        public int Light { get; set; }
 
         /// <summary>
-        /// Gets or Sets Left
+        /// Gets or Sets ListIdx
         /// </summary>
-        [DataMember(Name="left", EmitDefaultValue=false)]
-        public int Left { get; set; }
+        [DataMember(Name="listIdx", EmitDefaultValue=false)]
+        public int ListIdx { get; set; }
 
         /// <summary>
-        /// Gets or Sets Right
+        /// Page index of the image from input list
         /// </summary>
-        [DataMember(Name="right", EmitDefaultValue=false)]
-        public int Right { get; set; }
+        /// <value>Page index of the image from input list</value>
+        [DataMember(Name="pageIdx", EmitDefaultValue=false)]
+        public int PageIdx { get; set; }
 
         /// <summary>
-        /// Gets or Sets Top
+        /// Image url
         /// </summary>
-        [DataMember(Name="top", EmitDefaultValue=false)]
-        public int Top { get; set; }
+        /// <value>Image url</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,11 +78,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BcROIDETECT {\n");
-            sb.Append("  Bottom: ").Append(Bottom).Append("\n");
-            sb.Append("  Left: ").Append(Left).Append("\n");
-            sb.Append("  Right: ").Append(Right).Append("\n");
-            sb.Append("  Top: ").Append(Top).Append("\n");
+            sb.Append("class InDataTransactionImagesFieldValue {\n");
+            sb.Append("  Light: ").Append(Light).Append("\n");
+            sb.Append("  ListIdx: ").Append(ListIdx).Append("\n");
+            sb.Append("  PageIdx: ").Append(PageIdx).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,39 +103,39 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BcROIDETECT);
+            return this.Equals(input as InDataTransactionImagesFieldValue);
         }
 
         /// <summary>
-        /// Returns true if BcROIDETECT instances are equal
+        /// Returns true if InDataTransactionImagesFieldValue instances are equal
         /// </summary>
-        /// <param name="input">Instance of BcROIDETECT to be compared</param>
+        /// <param name="input">Instance of InDataTransactionImagesFieldValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BcROIDETECT input)
+        public bool Equals(InDataTransactionImagesFieldValue input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Bottom == input.Bottom ||
-                    (this.Bottom != null &&
-                    this.Bottom.Equals(input.Bottom))
+                    this.Light == input.Light ||
+                    (this.Light != null &&
+                    this.Light.Equals(input.Light))
                 ) && 
                 (
-                    this.Left == input.Left ||
-                    (this.Left != null &&
-                    this.Left.Equals(input.Left))
+                    this.ListIdx == input.ListIdx ||
+                    (this.ListIdx != null &&
+                    this.ListIdx.Equals(input.ListIdx))
                 ) && 
                 (
-                    this.Right == input.Right ||
-                    (this.Right != null &&
-                    this.Right.Equals(input.Right))
+                    this.PageIdx == input.PageIdx ||
+                    (this.PageIdx != null &&
+                    this.PageIdx.Equals(input.PageIdx))
                 ) && 
                 (
-                    this.Top == input.Top ||
-                    (this.Top != null &&
-                    this.Top.Equals(input.Top))
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -146,14 +148,14 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Bottom != null)
-                    hashCode = hashCode * 59 + this.Bottom.GetHashCode();
-                if (this.Left != null)
-                    hashCode = hashCode * 59 + this.Left.GetHashCode();
-                if (this.Right != null)
-                    hashCode = hashCode * 59 + this.Right.GetHashCode();
-                if (this.Top != null)
-                    hashCode = hashCode * 59 + this.Top.GetHashCode();
+                if (this.Light != null)
+                    hashCode = hashCode * 59 + this.Light.GetHashCode();
+                if (this.ListIdx != null)
+                    hashCode = hashCode * 59 + this.ListIdx.GetHashCode();
+                if (this.PageIdx != null)
+                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;
             }
         }
