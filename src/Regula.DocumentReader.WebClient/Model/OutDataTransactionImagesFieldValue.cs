@@ -25,74 +25,59 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// ImagesField
+    /// OutDataTransactionImagesFieldValue
     /// </summary>
     [DataContract]
-    public partial class ImagesField :  IEquatable<ImagesField>, IValidatableObject
+    public partial class OutDataTransactionImagesFieldValue :  IEquatable<OutDataTransactionImagesFieldValue>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImagesField" /> class.
+        /// Initializes a new instance of the <see cref="OutDataTransactionImagesFieldValue" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ImagesField() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImagesField" /> class.
-        /// </summary>
-        /// <param name="fieldName">Human readable field name. Do not bind to this name - use GraphicFieldType instead. (required).</param>
-        /// <param name="fieldType">fieldType (required).</param>
-        /// <param name="valueList">valueList (required).</param>
-        public ImagesField(string fieldName = default(string), int fieldType = default(int), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>))
+        /// <param name="fieldType">fieldType.</param>
+        /// <param name="light">light.</param>
+        /// <param name="listIdx">listIdx.</param>
+        /// <param name="pageIdx">Page index of the image from input list.</param>
+        /// <param name="url">Image url.</param>
+        public OutDataTransactionImagesFieldValue(int fieldType = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), string url = default(string))
         {
-            // to ensure "fieldName" is required (not null)
-            if (fieldName == null)
-            {
-                throw new InvalidDataException("fieldName is a required property for ImagesField and cannot be null");
-            }
-            else
-            {
-                this.FieldName = fieldName;
-            }
-            
-            // to ensure "fieldType" is required (not null)
-            if (fieldType == null)
-            {
-                throw new InvalidDataException("fieldType is a required property for ImagesField and cannot be null");
-            }
-            else
-            {
-                this.FieldType = fieldType;
-            }
-            
-            // to ensure "valueList" is required (not null)
-            if (valueList == null)
-            {
-                throw new InvalidDataException("valueList is a required property for ImagesField and cannot be null");
-            }
-            else
-            {
-                this.ValueList = valueList;
-            }
-            
+            this.FieldType = fieldType;
+            this.Light = light;
+            this.ListIdx = listIdx;
+            this.PageIdx = pageIdx;
+            this.Url = url;
         }
         
         /// <summary>
-        /// Human readable field name. Do not bind to this name - use GraphicFieldType instead.
-        /// </summary>
-        /// <value>Human readable field name. Do not bind to this name - use GraphicFieldType instead.</value>
-        [DataMember(Name="fieldName", EmitDefaultValue=true)]
-        public string FieldName { get; set; }
-
-        /// <summary>
         /// Gets or Sets FieldType
         /// </summary>
-        [DataMember(Name="fieldType", EmitDefaultValue=true)]
+        [DataMember(Name="fieldType", EmitDefaultValue=false)]
         public int FieldType { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValueList
+        /// Gets or Sets Light
         /// </summary>
-        [DataMember(Name="valueList", EmitDefaultValue=true)]
-        public List<ImagesFieldValue> ValueList { get; set; }
+        [DataMember(Name="light", EmitDefaultValue=false)]
+        public int Light { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ListIdx
+        /// </summary>
+        [DataMember(Name="listIdx", EmitDefaultValue=false)]
+        public int ListIdx { get; set; }
+
+        /// <summary>
+        /// Page index of the image from input list
+        /// </summary>
+        /// <value>Page index of the image from input list</value>
+        [DataMember(Name="pageIdx", EmitDefaultValue=false)]
+        public int PageIdx { get; set; }
+
+        /// <summary>
+        /// Image url
+        /// </summary>
+        /// <value>Image url</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,10 +86,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImagesField {\n");
-            sb.Append("  FieldName: ").Append(FieldName).Append("\n");
+            sb.Append("class OutDataTransactionImagesFieldValue {\n");
             sb.Append("  FieldType: ").Append(FieldType).Append("\n");
-            sb.Append("  ValueList: ").Append(ValueList).Append("\n");
+            sb.Append("  Light: ").Append(Light).Append("\n");
+            sb.Append("  ListIdx: ").Append(ListIdx).Append("\n");
+            sb.Append("  PageIdx: ").Append(PageIdx).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,35 +112,44 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImagesField);
+            return this.Equals(input as OutDataTransactionImagesFieldValue);
         }
 
         /// <summary>
-        /// Returns true if ImagesField instances are equal
+        /// Returns true if OutDataTransactionImagesFieldValue instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImagesField to be compared</param>
+        /// <param name="input">Instance of OutDataTransactionImagesFieldValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImagesField input)
+        public bool Equals(OutDataTransactionImagesFieldValue input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FieldName == input.FieldName ||
-                    (this.FieldName != null &&
-                    this.FieldName.Equals(input.FieldName))
-                ) && 
-                (
                     this.FieldType == input.FieldType ||
                     (this.FieldType != null &&
                     this.FieldType.Equals(input.FieldType))
                 ) && 
                 (
-                    this.ValueList == input.ValueList ||
-                    this.ValueList != null &&
-                    input.ValueList != null &&
-                    this.ValueList.SequenceEqual(input.ValueList)
+                    this.Light == input.Light ||
+                    (this.Light != null &&
+                    this.Light.Equals(input.Light))
+                ) && 
+                (
+                    this.ListIdx == input.ListIdx ||
+                    (this.ListIdx != null &&
+                    this.ListIdx.Equals(input.ListIdx))
+                ) && 
+                (
+                    this.PageIdx == input.PageIdx ||
+                    (this.PageIdx != null &&
+                    this.PageIdx.Equals(input.PageIdx))
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -166,12 +162,16 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FieldName != null)
-                    hashCode = hashCode * 59 + this.FieldName.GetHashCode();
                 if (this.FieldType != null)
                     hashCode = hashCode * 59 + this.FieldType.GetHashCode();
-                if (this.ValueList != null)
-                    hashCode = hashCode * 59 + this.ValueList.GetHashCode();
+                if (this.Light != null)
+                    hashCode = hashCode * 59 + this.Light.GetHashCode();
+                if (this.ListIdx != null)
+                    hashCode = hashCode * 59 + this.ListIdx.GetHashCode();
+                if (this.PageIdx != null)
+                    hashCode = hashCode * 59 + this.PageIdx.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;
             }
         }
