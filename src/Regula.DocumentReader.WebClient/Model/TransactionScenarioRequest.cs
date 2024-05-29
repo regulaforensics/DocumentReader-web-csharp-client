@@ -25,25 +25,25 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// TransactionImage
+    /// TransactionScenarioRequest
     /// </summary>
     [DataContract]
-    public partial class TransactionImage :  IEquatable<TransactionImage>, IValidatableObject
+    public partial class TransactionScenarioRequest :  IEquatable<TransactionScenarioRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionImage" /> class.
+        /// Initializes a new instance of the <see cref="TransactionScenarioRequest" /> class.
         /// </summary>
-        /// <param name="image">image.</param>
-        public TransactionImage(ImagesFieldValue image = default(ImagesFieldValue))
+        /// <param name="scenario">scenario.</param>
+        public TransactionScenarioRequest(string scenario = default(string))
         {
-            this.Image = image;
+            this.Scenario = scenario;
         }
         
         /// <summary>
-        /// Gets or Sets Image
+        /// Gets or Sets Scenario
         /// </summary>
-        [DataMember(Name="image", EmitDefaultValue=false)]
-        public ImagesFieldValue Image { get; set; }
+        [DataMember(Name="scenario", EmitDefaultValue=false)]
+        public string Scenario { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +52,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionImage {\n");
-            sb.Append("  Image: ").Append(Image).Append("\n");
+            sb.Append("class TransactionScenarioRequest {\n");
+            sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +74,24 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionImage);
+            return this.Equals(input as TransactionScenarioRequest);
         }
 
         /// <summary>
-        /// Returns true if TransactionImage instances are equal
+        /// Returns true if TransactionScenarioRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionImage to be compared</param>
+        /// <param name="input">Instance of TransactionScenarioRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionImage input)
+        public bool Equals(TransactionScenarioRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Image == input.Image ||
-                    (this.Image != null &&
-                    this.Image.Equals(input.Image))
+                    this.Scenario == input.Scenario ||
+                    (this.Scenario != null &&
+                    this.Scenario.Equals(input.Scenario))
                 );
         }
 
@@ -104,8 +104,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Image != null)
-                    hashCode = hashCode * 59 + this.Image.GetHashCode();
+                if (this.Scenario != null)
+                    hashCode = hashCode * 59 + this.Scenario.GetHashCode();
                 return hashCode;
             }
         }
