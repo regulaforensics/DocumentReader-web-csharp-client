@@ -38,15 +38,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessRequest" /> class.
         /// </summary>
-        /// <param name="tag">session id.</param>
         /// <param name="processParam">processParam (required).</param>
         /// <param name="list">list.</param>
+        /// <param name="tag">Session ID.</param>
+        /// <param name="tenant">Customer name.</param>
+        /// <param name="env">Environment type.</param>
         /// <param name="livePortrait">Live portrait photo.</param>
         /// <param name="extPortrait">Portrait photo from an external source.</param>
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(string tag = default(string), ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -58,8 +60,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.ProcessParam = processParam;
             }
             
-            this.Tag = tag;
             this.List = list;
+            this.Tag = tag;
+            this.Tenant = tenant;
+            this.Env = env;
             this.LivePortrait = livePortrait;
             this.ExtPortrait = extPortrait;
             this.ContainerList = containerList;
@@ -67,13 +71,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.PassBackObject = passBackObject;
         }
         
-        /// <summary>
-        /// session id
-        /// </summary>
-        /// <value>session id</value>
-        [DataMember(Name="tag", EmitDefaultValue=false)]
-        public string Tag { get; set; }
-
         /// <summary>
         /// Gets or Sets ProcessParam
         /// </summary>
@@ -85,6 +82,27 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name="List", EmitDefaultValue=false)]
         public List<ProcessRequestImage> List { get; set; }
+
+        /// <summary>
+        /// Session ID
+        /// </summary>
+        /// <value>Session ID</value>
+        [DataMember(Name="tag", EmitDefaultValue=false)]
+        public string Tag { get; set; }
+
+        /// <summary>
+        /// Customer name
+        /// </summary>
+        /// <value>Customer name</value>
+        [DataMember(Name="tenant", EmitDefaultValue=false)]
+        public string Tenant { get; set; }
+
+        /// <summary>
+        /// Environment type
+        /// </summary>
+        /// <value>Environment type</value>
+        [DataMember(Name="env", EmitDefaultValue=false)]
+        public string Env { get; set; }
 
         /// <summary>
         /// Live portrait photo
@@ -127,9 +145,11 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ProcessRequest {\n");
-            sb.Append("  Tag: ").Append(Tag).Append("\n");
             sb.Append("  ProcessParam: ").Append(ProcessParam).Append("\n");
             sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            sb.Append("  Env: ").Append(Env).Append("\n");
             sb.Append("  LivePortrait: ").Append(LivePortrait).Append("\n");
             sb.Append("  ExtPortrait: ").Append(ExtPortrait).Append("\n");
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
@@ -170,11 +190,6 @@ namespace Regula.DocumentReader.WebClient.Model
 
             return 
                 (
-                    this.Tag == input.Tag ||
-                    (this.Tag != null &&
-                    this.Tag.Equals(input.Tag))
-                ) && 
-                (
                     this.ProcessParam == input.ProcessParam ||
                     (this.ProcessParam != null &&
                     this.ProcessParam.Equals(input.ProcessParam))
@@ -184,6 +199,21 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.List != null &&
                     input.List != null &&
                     this.List.SequenceEqual(input.List)
+                ) && 
+                (
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
+                ) && 
+                (
+                    this.Tenant == input.Tenant ||
+                    (this.Tenant != null &&
+                    this.Tenant.Equals(input.Tenant))
+                ) && 
+                (
+                    this.Env == input.Env ||
+                    (this.Env != null &&
+                    this.Env.Equals(input.Env))
                 ) && 
                 (
                     this.LivePortrait == input.LivePortrait ||
@@ -222,12 +252,16 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Tag != null)
-                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
                 if (this.ProcessParam != null)
                     hashCode = hashCode * 59 + this.ProcessParam.GetHashCode();
                 if (this.List != null)
                     hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.Tag != null)
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
+                if (this.Tenant != null)
+                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
+                if (this.Env != null)
+                    hashCode = hashCode * 59 + this.Env.GetHashCode();
                 if (this.LivePortrait != null)
                     hashCode = hashCode * 59 + this.LivePortrait.GetHashCode();
                 if (this.ExtPortrait != null)

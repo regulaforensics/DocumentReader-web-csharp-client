@@ -39,7 +39,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="TransactionProcessRequest" /> class.
         /// </summary>
         /// <param name="processParam">processParam (required).</param>
-        public TransactionProcessRequest(TransactionScenarioRequest processParam = default(TransactionScenarioRequest))
+        /// <param name="list">list.</param>
+        /// <param name="livePortrait">Live portrait photo.</param>
+        /// <param name="extPortrait">Portrait photo from an external source.</param>
+        /// <param name="containerList">containerList.</param>
+        /// <param name="systemInfo">systemInfo.</param>
+        /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
+        public TransactionProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -51,13 +57,58 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.ProcessParam = processParam;
             }
             
+            this.List = list;
+            this.LivePortrait = livePortrait;
+            this.ExtPortrait = extPortrait;
+            this.ContainerList = containerList;
+            this.SystemInfo = systemInfo;
+            this.PassBackObject = passBackObject;
         }
         
         /// <summary>
         /// Gets or Sets ProcessParam
         /// </summary>
         [DataMember(Name="processParam", EmitDefaultValue=true)]
-        public TransactionScenarioRequest ProcessParam { get; set; }
+        public ProcessParams ProcessParam { get; set; }
+
+        /// <summary>
+        /// Gets or Sets List
+        /// </summary>
+        [DataMember(Name="List", EmitDefaultValue=false)]
+        public List<ProcessRequestImage> List { get; set; }
+
+        /// <summary>
+        /// Live portrait photo
+        /// </summary>
+        /// <value>Live portrait photo</value>
+        [DataMember(Name="livePortrait", EmitDefaultValue=false)]
+        public string LivePortrait { get; set; }
+
+        /// <summary>
+        /// Portrait photo from an external source
+        /// </summary>
+        /// <value>Portrait photo from an external source</value>
+        [DataMember(Name="extPortrait", EmitDefaultValue=false)]
+        public string ExtPortrait { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContainerList
+        /// </summary>
+        [DataMember(Name="ContainerList", EmitDefaultValue=false)]
+        public ContainerList ContainerList { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SystemInfo
+        /// </summary>
+        [DataMember(Name="systemInfo", EmitDefaultValue=false)]
+        public ProcessSystemInfo SystemInfo { get; set; }
+
+        /// <summary>
+        /// Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.
+        /// </summary>
+        /// <value>Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.</value>
+        [DataMember(Name="passBackObject", EmitDefaultValue=false)]
+        public Dictionary<string, Object> PassBackObject { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,6 +119,12 @@ namespace Regula.DocumentReader.WebClient.Model
             var sb = new StringBuilder();
             sb.Append("class TransactionProcessRequest {\n");
             sb.Append("  ProcessParam: ").Append(ProcessParam).Append("\n");
+            sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("  LivePortrait: ").Append(LivePortrait).Append("\n");
+            sb.Append("  ExtPortrait: ").Append(ExtPortrait).Append("\n");
+            sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
+            sb.Append("  SystemInfo: ").Append(SystemInfo).Append("\n");
+            sb.Append("  PassBackObject: ").Append(PassBackObject).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +163,38 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ProcessParam == input.ProcessParam ||
                     (this.ProcessParam != null &&
                     this.ProcessParam.Equals(input.ProcessParam))
+                ) && 
+                (
+                    this.List == input.List ||
+                    this.List != null &&
+                    input.List != null &&
+                    this.List.SequenceEqual(input.List)
+                ) && 
+                (
+                    this.LivePortrait == input.LivePortrait ||
+                    (this.LivePortrait != null &&
+                    this.LivePortrait.Equals(input.LivePortrait))
+                ) && 
+                (
+                    this.ExtPortrait == input.ExtPortrait ||
+                    (this.ExtPortrait != null &&
+                    this.ExtPortrait.Equals(input.ExtPortrait))
+                ) && 
+                (
+                    this.ContainerList == input.ContainerList ||
+                    (this.ContainerList != null &&
+                    this.ContainerList.Equals(input.ContainerList))
+                ) && 
+                (
+                    this.SystemInfo == input.SystemInfo ||
+                    (this.SystemInfo != null &&
+                    this.SystemInfo.Equals(input.SystemInfo))
+                ) && 
+                (
+                    this.PassBackObject == input.PassBackObject ||
+                    this.PassBackObject != null &&
+                    input.PassBackObject != null &&
+                    this.PassBackObject.SequenceEqual(input.PassBackObject)
                 );
         }
 
@@ -120,6 +209,18 @@ namespace Regula.DocumentReader.WebClient.Model
                 int hashCode = 41;
                 if (this.ProcessParam != null)
                     hashCode = hashCode * 59 + this.ProcessParam.GetHashCode();
+                if (this.List != null)
+                    hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.LivePortrait != null)
+                    hashCode = hashCode * 59 + this.LivePortrait.GetHashCode();
+                if (this.ExtPortrait != null)
+                    hashCode = hashCode * 59 + this.ExtPortrait.GetHashCode();
+                if (this.ContainerList != null)
+                    hashCode = hashCode * 59 + this.ContainerList.GetHashCode();
+                if (this.SystemInfo != null)
+                    hashCode = hashCode * 59 + this.SystemInfo.GetHashCode();
+                if (this.PassBackObject != null)
+                    hashCode = hashCode * 59 + this.PassBackObject.GetHashCode();
                 return hashCode;
             }
         }
