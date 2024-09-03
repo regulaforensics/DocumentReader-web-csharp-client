@@ -91,7 +91,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkAuth">This parameter is used to enable authenticity checks.</param>
         /// <param name="authParams">authParams.</param>
         /// <param name="mrzDetectMode">mrzDetectMode.</param>
-        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum))
+        /// <param name="generateNumericCodes">This parameter is used to generate numeric representation for issuing state and nationality codes.</param>
+        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool generateNumericCodes = default(bool))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -155,6 +156,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.CheckAuth = checkAuth;
             this.AuthParams = authParams;
             this.MrzDetectMode = mrzDetectMode;
+            this.GenerateNumericCodes = generateNumericCodes;
         }
         
         /// <summary>
@@ -519,6 +521,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public MrzDetectModeEnum MrzDetectMode { get; set; }
 
         /// <summary>
+        /// This parameter is used to generate numeric representation for issuing state and nationality codes
+        /// </summary>
+        /// <value>This parameter is used to generate numeric representation for issuing state and nationality codes</value>
+        [DataMember(Name="generateNumericCodes", EmitDefaultValue=false)]
+        public bool GenerateNumericCodes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -579,6 +588,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckAuth: ").Append(CheckAuth).Append("\n");
             sb.Append("  AuthParams: ").Append(AuthParams).Append("\n");
             sb.Append("  MrzDetectMode: ").Append(MrzDetectMode).Append("\n");
+            sb.Append("  GenerateNumericCodes: ").Append(GenerateNumericCodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -886,6 +896,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.MrzDetectMode == input.MrzDetectMode ||
                     (this.MrzDetectMode != null &&
                     this.MrzDetectMode.Equals(input.MrzDetectMode))
+                ) && 
+                (
+                    this.GenerateNumericCodes == input.GenerateNumericCodes ||
+                    (this.GenerateNumericCodes != null &&
+                    this.GenerateNumericCodes.Equals(input.GenerateNumericCodes))
                 );
         }
 
@@ -1004,6 +1019,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.AuthParams.GetHashCode();
                 if (this.MrzDetectMode != null)
                     hashCode = hashCode * 59 + this.MrzDetectMode.GetHashCode();
+                if (this.GenerateNumericCodes != null)
+                    hashCode = hashCode * 59 + this.GenerateNumericCodes.GetHashCode();
                 return hashCode;
             }
         }

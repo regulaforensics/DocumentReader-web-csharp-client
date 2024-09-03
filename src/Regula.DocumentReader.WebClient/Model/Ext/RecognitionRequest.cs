@@ -5,17 +5,17 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
     public class RecognitionRequest : ProcessRequest
     {
         public RecognitionRequest(ProcessParams param, ProcessRequestImage image, string tag = null)
-            : base(tag, param, new List<ProcessRequestImage> { image })
+            : base(param, new List<ProcessRequestImage> { image }, tag)
         {
         }
 
         public RecognitionRequest(ProcessParams param, byte[] image, string tag = null)
-            : base(tag, param, new List<ProcessRequestImage> { new ProcessRequestImage(image) })
+            : base( param, new List<ProcessRequestImage> { new ProcessRequestImage(image) }, tag)
         {
         }
 
         public RecognitionRequest(ProcessParams param, List<ProcessRequestImage> images, string tag = null)
-            : base(tag, param, images)
+            : base(param, images, tag)
         {
         }
 
