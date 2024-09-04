@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="step">step.</param>
         /// <param name="angle">angle.</param>
         /// <param name="reserved3">reserved3.</param>
-        public PhotoIdentResult(int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved3 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public PhotoIdentResult(int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved3 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.LightIndex = lightIndex;
             this.Area = area;

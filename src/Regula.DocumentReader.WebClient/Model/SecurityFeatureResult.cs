@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag.</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="reserved2">reserved2.</param>
-        public SecurityFeatureResult(int elementType = default(int), RectangleCoordinates elementRect = default(RectangleCoordinates), int visibility = default(int), int criticalFlag = default(int), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public SecurityFeatureResult(int elementType = default(int), RectangleCoordinates elementRect = default(RectangleCoordinates), int visibility = default(int), int criticalFlag = default(int), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             this.ElementRect = elementRect;
