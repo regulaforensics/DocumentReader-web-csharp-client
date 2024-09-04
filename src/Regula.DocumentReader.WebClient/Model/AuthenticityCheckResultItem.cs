@@ -58,7 +58,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values. See authenticity result type (required) (default to 0).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
-        public AuthenticityCheckResultItem(int type = 0, int elementResult = default(int), int elementDiagnose = default(int))
+        /// <param name="percentValue">percentValue.</param>
+        public AuthenticityCheckResultItem(int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = 0)
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -69,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
             {
                 this.Type = type;
             }
-            
+            this.PercentValue = percentValue;
             this.ElementResult = elementResult;
             this.ElementDiagnose = elementDiagnose;
         }
@@ -80,6 +81,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Same as authenticity result type, but used for safe parsing of not-described values. See authenticity result type</value>
         [DataMember(Name="Type", EmitDefaultValue=true)]
         public int Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PercentValue
+        /// </summary>
+        [DataMember(Name="PercentValue", EmitDefaultValue=false)]
+        public int PercentValue { get; set; }
+
 
         /// <summary>
         /// Gets or Sets ElementResult

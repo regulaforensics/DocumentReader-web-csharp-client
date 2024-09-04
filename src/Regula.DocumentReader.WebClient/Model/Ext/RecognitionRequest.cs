@@ -24,6 +24,11 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         {
         }
 
+        public RecognitionRequest(ProcessParams param, List<ProcessRequestImage> images, string extPortrait, string tag = null)
+            : base(param, images, tag, extPortrait:extPortrait)
+        {
+        }
+
         public string Json => Newtonsoft.Json.JsonConvert.SerializeObject(this);
     }
 }
