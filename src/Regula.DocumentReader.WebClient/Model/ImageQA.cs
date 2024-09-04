@@ -39,9 +39,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="focusCheck">This option enables focus check while performing image quality validation..</param>
         /// <param name="glaresCheck">This option enables glares check while performing image quality validation..</param>
         /// <param name="colornessCheck">This option enables colorness check while performing image quality validation..</param>
-        /// <param name="moireCheck">This option enables screen capture (moire patterns) check while performing image quality validation..</param>
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
-        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), int documentPositionIndent = default(int))
+        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), int documentPositionIndent = default(int))
         {
             this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;
@@ -49,7 +48,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.FocusCheck = focusCheck;
             this.GlaresCheck = glaresCheck;
             this.ColornessCheck = colornessCheck;
-            this.MoireCheck = moireCheck;
             this.DocumentPositionIndent = documentPositionIndent;
         }
         
@@ -96,13 +94,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool ColornessCheck { get; set; }
 
         /// <summary>
-        /// This option enables screen capture (moire patterns) check while performing image quality validation.
-        /// </summary>
-        /// <value>This option enables screen capture (moire patterns) check while performing image quality validation.</value>
-        [DataMember(Name="moireCheck", EmitDefaultValue=false)]
-        public bool MoireCheck { get; set; }
-
-        /// <summary>
         /// This parameter specifies the necessary margin. Default 0.
         /// </summary>
         /// <value>This parameter specifies the necessary margin. Default 0.</value>
@@ -123,7 +114,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  FocusCheck: ").Append(FocusCheck).Append("\n");
             sb.Append("  GlaresCheck: ").Append(GlaresCheck).Append("\n");
             sb.Append("  ColornessCheck: ").Append(ColornessCheck).Append("\n");
-            sb.Append("  MoireCheck: ").Append(MoireCheck).Append("\n");
             sb.Append("  DocumentPositionIndent: ").Append(DocumentPositionIndent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -190,11 +180,6 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ColornessCheck.Equals(input.ColornessCheck))
                 ) && 
                 (
-                    this.MoireCheck == input.MoireCheck ||
-                    (this.MoireCheck != null &&
-                    this.MoireCheck.Equals(input.MoireCheck))
-                ) && 
-                (
                     this.DocumentPositionIndent == input.DocumentPositionIndent ||
                     (this.DocumentPositionIndent != null &&
                     this.DocumentPositionIndent.Equals(input.DocumentPositionIndent))
@@ -222,8 +207,6 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.GlaresCheck.GetHashCode();
                 if (this.ColornessCheck != null)
                     hashCode = hashCode * 59 + this.ColornessCheck.GetHashCode();
-                if (this.MoireCheck != null)
-                    hashCode = hashCode * 59 + this.MoireCheck.GetHashCode();
                 if (this.DocumentPositionIndent != null)
                     hashCode = hashCode * 59 + this.DocumentPositionIndent.GetHashCode();
                 return hashCode;
