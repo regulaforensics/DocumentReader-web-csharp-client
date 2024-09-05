@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonResultOCR">etalonResultOCR.</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        public OCRSecurityTextResult(int criticalFlag = default(int), int lightType = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public OCRSecurityTextResult(int criticalFlag = default(int), int lightType = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;

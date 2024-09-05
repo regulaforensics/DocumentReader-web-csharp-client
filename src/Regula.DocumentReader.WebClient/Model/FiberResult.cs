@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="length">Fibers length value for located areas (in pixels).</param>
         /// <param name="area">Fibers value for areas (in pixels).</param>
         /// <param name="colorValues">Fibers color value.</param>
-        public FiberResult(int rectCount = default(int), int expectedCount = default(int), int lightValue = default(int), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public FiberResult(int rectCount = default(int), int expectedCount = default(int), int lightValue = default(int), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.RectCount = rectCount;
             this.ExpectedCount = expectedCount;
