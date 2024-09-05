@@ -25,49 +25,33 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// TransactionProcessGetResponse
+    /// ListTransactionsByTagResponse
     /// </summary>
     [DataContract]
-    public partial class TransactionProcessGetResponse :  IEquatable<TransactionProcessGetResponse>, IValidatableObject
+    public partial class ListTransactionsByTagResponse :  IEquatable<ListTransactionsByTagResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionProcessGetResponse" /> class.
+        /// Initializes a new instance of the <see cref="ListTransactionsByTagResponse" /> class.
         /// </summary>
-        /// <param name="transactionId">transactionId.</param>
-        /// <param name="tag">tag.</param>
-        /// <param name="outData">outData.</param>
-        /// <param name="inData">inData.</param>
-        public TransactionProcessGetResponse(int transactionId = default(int), int tag = default(int), OutData outData = default(OutData), InData inData = default(InData))
+        /// <param name="items">items.</param>
+        /// <param name="metadata">metadata.</param>
+        public ListTransactionsByTagResponse(List<GetTransactionsByTagResponse> items = default(List<GetTransactionsByTagResponse>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
-            this.TransactionId = transactionId;
-            this.Tag = tag;
-            this.OutData = outData;
-            this.InData = inData;
+            this.Items = items;
+            this.Metadata = metadata;
         }
         
         /// <summary>
-        /// Gets or Sets TransactionId
+        /// Gets or Sets Items
         /// </summary>
-        [DataMember(Name="transactionId", EmitDefaultValue=false)]
-        public int TransactionId { get; set; }
+        [DataMember(Name="items", EmitDefaultValue=false)]
+        public List<GetTransactionsByTagResponse> Items { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tag
+        /// Gets or Sets Metadata
         /// </summary>
-        [DataMember(Name="tag", EmitDefaultValue=false)]
-        public int Tag { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OutData
-        /// </summary>
-        [DataMember(Name="outData", EmitDefaultValue=false)]
-        public OutData OutData { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InData
-        /// </summary>
-        [DataMember(Name="inData", EmitDefaultValue=false)]
-        public InData InData { get; set; }
+        [DataMember(Name="metadata", EmitDefaultValue=false)]
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,11 +60,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionProcessGetResponse {\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  Tag: ").Append(Tag).Append("\n");
-            sb.Append("  OutData: ").Append(OutData).Append("\n");
-            sb.Append("  InData: ").Append(InData).Append("\n");
+            sb.Append("class ListTransactionsByTagResponse {\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,39 +83,31 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionProcessGetResponse);
+            return this.Equals(input as ListTransactionsByTagResponse);
         }
 
         /// <summary>
-        /// Returns true if TransactionProcessGetResponse instances are equal
+        /// Returns true if ListTransactionsByTagResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionProcessGetResponse to be compared</param>
+        /// <param name="input">Instance of ListTransactionsByTagResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionProcessGetResponse input)
+        public bool Equals(ListTransactionsByTagResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.TransactionId == input.TransactionId ||
-                    (this.TransactionId != null &&
-                    this.TransactionId.Equals(input.TransactionId))
+                    this.Items == input.Items ||
+                    this.Items != null &&
+                    input.Items != null &&
+                    this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
-                    this.Tag == input.Tag ||
-                    (this.Tag != null &&
-                    this.Tag.Equals(input.Tag))
-                ) && 
-                (
-                    this.OutData == input.OutData ||
-                    (this.OutData != null &&
-                    this.OutData.Equals(input.OutData))
-                ) && 
-                (
-                    this.InData == input.InData ||
-                    (this.InData != null &&
-                    this.InData.Equals(input.InData))
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -146,14 +120,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TransactionId != null)
-                    hashCode = hashCode * 59 + this.TransactionId.GetHashCode();
-                if (this.Tag != null)
-                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
-                if (this.OutData != null)
-                    hashCode = hashCode * 59 + this.OutData.GetHashCode();
-                if (this.InData != null)
-                    hashCode = hashCode * 59 + this.InData.GetHashCode();
+                if (this.Items != null)
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
+                if (this.Metadata != null)
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 return hashCode;
             }
         }

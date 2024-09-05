@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), int tag = default(int), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -88,7 +88,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Session ID</value>
         [DataMember(Name="tag", EmitDefaultValue=false)]
-        public string Tag { get; set; }
+        public int Tag { get; set; }
 
         /// <summary>
         /// Customer name
