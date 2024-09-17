@@ -4,7 +4,7 @@ services:
   docreader:
     image: regulaforensics/docreader:latest
     volumes:
-      - ./regula.license:/app/extBin/unix_x64/regula.license      
+      - ./regula.license:/app/extBin/unix_x64/regula.license
   nginx:
     image: nginx:alpine
     ports:
