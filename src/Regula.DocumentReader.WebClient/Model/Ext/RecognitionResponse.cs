@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+using Regula.DocumentReader.WebClient.Client;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public class RecognitionResponse
     {
-        public RecognitionResponse(ProcessResponse originalResponse)
-        {
-            OriginalResponse = originalResponse;
-        }
+        private readonly ApiResponse<ProcessResponse> _apiResponse;
         
-        public ProcessResponse OriginalResponse { get; }
+        public RecognitionResponse(ApiResponse<ProcessResponse> apiResponse)
+        {
+            _apiResponse = apiResponse;
+        }
 
-        public string Json =>  Newtonsoft.Json.JsonConvert.SerializeObject(this.OriginalResponse);
+        public ProcessResponse OriginalResponse => this._apiResponse.Data;
+
+        public string Json => this._apiResponse.RawResponse;
         
         public Status Status() 
         {

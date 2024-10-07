@@ -35,6 +35,13 @@ namespace Regula.DocumentReader.WebClient.Client
         /// </summary>
         /// <value>The data.</value>
         public T Data { get; private set; }
+        
+        
+        /// <summary>
+        /// Gets or sets the RawResponse
+        /// </summary>
+        /// <value>The data.</value>
+        public string RawResponse { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiResponse&lt;T&gt;" /> class.
@@ -42,11 +49,16 @@ namespace Regula.DocumentReader.WebClient.Client
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="headers">HTTP headers.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
-        public ApiResponse(int statusCode, IDictionary<string, string> headers, T data)
+        /// <param name="rawResponse"></param>
+        public ApiResponse(int statusCode, 
+            IDictionary<string, string> headers, 
+            T data,
+            string rawResponse = null)
         {
             this.StatusCode= statusCode;
             this.Headers = headers;
             this.Data = data;
+            this.RawResponse = rawResponse;
         }
 
     }

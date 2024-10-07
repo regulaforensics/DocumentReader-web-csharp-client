@@ -43,16 +43,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="area">area.</param>
         /// <param name="image">image.</param>
         /// <param name="etalonImage">etalonImage.</param>
-        /// <param name="percentValue">Probability percent for IMAGE_PATTERN check or element&#39;s visibility for IR_VISIBILITY.</param>
         /// <param name="areaList">areaList.</param>
-        public IdentResult(int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), int percentValue = default(int), AreaContainer areaList = default(AreaContainer), int type = 0, int elementResult = default(int), int elementDiagnose = default(int)) : base(type, elementResult, elementDiagnose)
+        public IdentResult(int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
             this.Area = area;
             this.Image = image;
             this.EtalonImage = etalonImage;
-            this.PercentValue = percentValue;
             this.AreaList = areaList;
         }
         
@@ -87,13 +85,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public ImageData EtalonImage { get; set; }
 
         /// <summary>
-        /// Probability percent for IMAGE_PATTERN check or element&#39;s visibility for IR_VISIBILITY
-        /// </summary>
-        /// <value>Probability percent for IMAGE_PATTERN check or element&#39;s visibility for IR_VISIBILITY</value>
-        [DataMember(Name="PercentValue", EmitDefaultValue=false)]
-        public int PercentValue { get; set; }
-
-        /// <summary>
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name="AreaList", EmitDefaultValue=false)]
@@ -113,7 +104,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Area: ").Append(Area).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  EtalonImage: ").Append(EtalonImage).Append("\n");
-            sb.Append("  PercentValue: ").Append(PercentValue).Append("\n");
             sb.Append("  AreaList: ").Append(AreaList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -175,11 +165,6 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.EtalonImage.Equals(input.EtalonImage))
                 ) && base.Equals(input) && 
                 (
-                    this.PercentValue == input.PercentValue ||
-                    (this.PercentValue != null &&
-                    this.PercentValue.Equals(input.PercentValue))
-                ) && base.Equals(input) && 
-                (
                     this.AreaList == input.AreaList ||
                     (this.AreaList != null &&
                     this.AreaList.Equals(input.AreaList))
@@ -205,8 +190,6 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.Image.GetHashCode();
                 if (this.EtalonImage != null)
                     hashCode = hashCode * 59 + this.EtalonImage.GetHashCode();
-                if (this.PercentValue != null)
-                    hashCode = hashCode * 59 + this.PercentValue.GetHashCode();
                 if (this.AreaList != null)
                     hashCode = hashCode * 59 + this.AreaList.GetHashCode();
                 return hashCode;
