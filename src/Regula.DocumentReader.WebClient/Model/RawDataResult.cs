@@ -25,48 +25,34 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// List with various objects, containing processing results
+    /// RawDataResult
     /// </summary>
     [DataContract]
-    public partial class ContainerList :  IEquatable<ContainerList>, IValidatableObject
+    public partial class RawDataResult :  IEquatable<RawDataResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerList" /> class.
+        /// Initializes a new instance of the <see cref="RawDataResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ContainerList() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerList" /> class.
-        /// </summary>
-        /// <param name="count">Length of list (Count for items).</param>
-        /// <param name="list">list (required).</param>
-        public ContainerList(int count = default(int), List<ResultItem> list = default(List<ResultItem>))
+        /// <param name="nFields">Count of array fields.</param>
+        /// <param name="pArrayFields">pArrayFields.</param>
+        public RawDataResult(int nFields = default(int), List<TBinaryData> pArrayFields = default(List<TBinaryData>))
         {
-            // to ensure "list" is required (not null)
-            if (list == null)
-            {
-                throw new InvalidDataException("list is a required property for ContainerList and cannot be null");
-            }
-            else
-            {
-                this.List = list;
-            }
-            
-            this.Count = count;
+            this.NFields = nFields;
+            this.PArrayFields = pArrayFields;
         }
         
         /// <summary>
-        /// Length of list (Count for items)
+        /// Count of array fields
         /// </summary>
-        /// <value>Length of list (Count for items)</value>
-        [DataMember(Name="Count", EmitDefaultValue=false)]
-        public int Count { get; set; }
+        /// <value>Count of array fields</value>
+        [DataMember(Name="nFields", EmitDefaultValue=false)]
+        public int NFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets List
+        /// Gets or Sets PArrayFields
         /// </summary>
-        [DataMember(Name="List", EmitDefaultValue=true)]
-        public List<ResultItem> List { get; set; }
+        [DataMember(Name="pArrayFields", EmitDefaultValue=false)]
+        public List<TBinaryData> PArrayFields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +61,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContainerList {\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("class RawDataResult {\n");
+            sb.Append("  NFields: ").Append(NFields).Append("\n");
+            sb.Append("  PArrayFields: ").Append(PArrayFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,30 +84,30 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContainerList);
+            return this.Equals(input as RawDataResult);
         }
 
         /// <summary>
-        /// Returns true if ContainerList instances are equal
+        /// Returns true if RawDataResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContainerList to be compared</param>
+        /// <param name="input">Instance of RawDataResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContainerList input)
+        public bool Equals(RawDataResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
+                    this.NFields == input.NFields ||
+                    (this.NFields != null &&
+                    this.NFields.Equals(input.NFields))
                 ) && 
                 (
-                    this.List == input.List ||
-                    this.List != null &&
-                    input.List != null &&
-                    this.List.SequenceEqual(input.List)
+                    this.PArrayFields == input.PArrayFields ||
+                    this.PArrayFields != null &&
+                    input.PArrayFields != null &&
+                    this.PArrayFields.SequenceEqual(input.PArrayFields)
                 );
         }
 
@@ -134,10 +120,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Count != null)
-                    hashCode = hashCode * 59 + this.Count.GetHashCode();
-                if (this.List != null)
-                    hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.NFields != null)
+                    hashCode = hashCode * 59 + this.NFields.GetHashCode();
+                if (this.PArrayFields != null)
+                    hashCode = hashCode * 59 + this.PArrayFields.GetHashCode();
                 return hashCode;
             }
         }

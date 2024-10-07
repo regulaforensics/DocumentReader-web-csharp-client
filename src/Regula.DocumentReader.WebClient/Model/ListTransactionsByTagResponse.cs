@@ -25,48 +25,33 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// List with various objects, containing processing results
+    /// ListTransactionsByTagResponse
     /// </summary>
     [DataContract]
-    public partial class ContainerList :  IEquatable<ContainerList>, IValidatableObject
+    public partial class ListTransactionsByTagResponse :  IEquatable<ListTransactionsByTagResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerList" /> class.
+        /// Initializes a new instance of the <see cref="ListTransactionsByTagResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ContainerList() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerList" /> class.
-        /// </summary>
-        /// <param name="count">Length of list (Count for items).</param>
-        /// <param name="list">list (required).</param>
-        public ContainerList(int count = default(int), List<ResultItem> list = default(List<ResultItem>))
+        /// <param name="items">items.</param>
+        /// <param name="metadata">metadata.</param>
+        public ListTransactionsByTagResponse(List<GetTransactionsByTagResponse> items = default(List<GetTransactionsByTagResponse>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
-            // to ensure "list" is required (not null)
-            if (list == null)
-            {
-                throw new InvalidDataException("list is a required property for ContainerList and cannot be null");
-            }
-            else
-            {
-                this.List = list;
-            }
-            
-            this.Count = count;
+            this.Items = items;
+            this.Metadata = metadata;
         }
         
         /// <summary>
-        /// Length of list (Count for items)
+        /// Gets or Sets Items
         /// </summary>
-        /// <value>Length of list (Count for items)</value>
-        [DataMember(Name="Count", EmitDefaultValue=false)]
-        public int Count { get; set; }
+        [DataMember(Name="items", EmitDefaultValue=false)]
+        public List<GetTransactionsByTagResponse> Items { get; set; }
 
         /// <summary>
-        /// Gets or Sets List
+        /// Gets or Sets Metadata
         /// </summary>
-        [DataMember(Name="List", EmitDefaultValue=true)]
-        public List<ResultItem> List { get; set; }
+        [DataMember(Name="metadata", EmitDefaultValue=false)]
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +60,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContainerList {\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("class ListTransactionsByTagResponse {\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,30 +83,31 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContainerList);
+            return this.Equals(input as ListTransactionsByTagResponse);
         }
 
         /// <summary>
-        /// Returns true if ContainerList instances are equal
+        /// Returns true if ListTransactionsByTagResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContainerList to be compared</param>
+        /// <param name="input">Instance of ListTransactionsByTagResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContainerList input)
+        public bool Equals(ListTransactionsByTagResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
+                    this.Items == input.Items ||
+                    this.Items != null &&
+                    input.Items != null &&
+                    this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
-                    this.List == input.List ||
-                    this.List != null &&
-                    input.List != null &&
-                    this.List.SequenceEqual(input.List)
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -134,10 +120,10 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Count != null)
-                    hashCode = hashCode * 59 + this.Count.GetHashCode();
-                if (this.List != null)
-                    hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.Items != null)
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
+                if (this.Metadata != null)
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 return hashCode;
             }
         }

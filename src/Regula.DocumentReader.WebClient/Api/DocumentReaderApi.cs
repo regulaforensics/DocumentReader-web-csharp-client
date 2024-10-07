@@ -51,9 +51,8 @@ namespace Regula.DocumentReader.WebClient.Api
             else
                 processRequest.SystemInfo.License = License;
 
-            return new RecognitionResponse(this._processApi.ApiProcess(processRequest, headers, xRequestID));
+            return new RecognitionResponse(this._processApi.ApiProcessWithHttpInfo(processRequest, headers, xRequestID));
         }
-
 
         public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest)
         {
@@ -77,7 +76,7 @@ namespace Regula.DocumentReader.WebClient.Api
             else
                 processRequest.SystemInfo.License = License;
 
-            var response = await this._processApi.ApiProcessAsync(processRequest, headers, xRequestID, cancellationToken);
+            var response = await this._processApi.ApiProcessWithHttpInfoAsync(processRequest, headers, xRequestID, cancellationToken);
 
             return new RecognitionResponse(response);
         }

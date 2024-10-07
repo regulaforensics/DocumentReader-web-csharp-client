@@ -25,48 +25,49 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// List with various objects, containing processing results
+    /// Container for extracted text fields. Fields are identified by type and language
     /// </summary>
     [DataContract]
-    public partial class ContainerList :  IEquatable<ContainerList>, IValidatableObject
+    public partial class TBinaryData :  IEquatable<TBinaryData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerList" /> class.
+        /// Initializes a new instance of the <see cref="TBinaryData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ContainerList() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerList" /> class.
-        /// </summary>
-        /// <param name="count">Length of list (Count for items).</param>
-        /// <param name="list">list (required).</param>
-        public ContainerList(int count = default(int), List<ResultItem> list = default(List<ResultItem>))
+        /// <param name="fieldType">fieldType.</param>
+        /// <param name="fieldName">fieldName.</param>
+        /// <param name="bufLength">bufLength.</param>
+        /// <param name="buffer">buffer.</param>
+        public TBinaryData(int fieldType = default(int), string fieldName = default(string), int bufLength = default(int), byte[] buffer = default(byte[]))
         {
-            // to ensure "list" is required (not null)
-            if (list == null)
-            {
-                throw new InvalidDataException("list is a required property for ContainerList and cannot be null");
-            }
-            else
-            {
-                this.List = list;
-            }
-            
-            this.Count = count;
+            this.FieldType = fieldType;
+            this.FieldName = fieldName;
+            this.BufLength = bufLength;
+            this.Buffer = buffer;
         }
         
         /// <summary>
-        /// Length of list (Count for items)
+        /// Gets or Sets FieldType
         /// </summary>
-        /// <value>Length of list (Count for items)</value>
-        [DataMember(Name="Count", EmitDefaultValue=false)]
-        public int Count { get; set; }
+        [DataMember(Name="FieldType", EmitDefaultValue=false)]
+        public int FieldType { get; set; }
 
         /// <summary>
-        /// Gets or Sets List
+        /// Gets or Sets FieldName
         /// </summary>
-        [DataMember(Name="List", EmitDefaultValue=true)]
-        public List<ResultItem> List { get; set; }
+        [DataMember(Name="FieldName", EmitDefaultValue=false)]
+        public string FieldName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BufLength
+        /// </summary>
+        [DataMember(Name="Buf_Length", EmitDefaultValue=false)]
+        public int BufLength { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Buffer
+        /// </summary>
+        [DataMember(Name="Buffer", EmitDefaultValue=false)]
+        public byte[] Buffer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +76,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContainerList {\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("class TBinaryData {\n");
+            sb.Append("  FieldType: ").Append(FieldType).Append("\n");
+            sb.Append("  FieldName: ").Append(FieldName).Append("\n");
+            sb.Append("  BufLength: ").Append(BufLength).Append("\n");
+            sb.Append("  Buffer: ").Append(Buffer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,30 +101,39 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContainerList);
+            return this.Equals(input as TBinaryData);
         }
 
         /// <summary>
-        /// Returns true if ContainerList instances are equal
+        /// Returns true if TBinaryData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContainerList to be compared</param>
+        /// <param name="input">Instance of TBinaryData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContainerList input)
+        public bool Equals(TBinaryData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
+                    this.FieldType == input.FieldType ||
+                    (this.FieldType != null &&
+                    this.FieldType.Equals(input.FieldType))
                 ) && 
                 (
-                    this.List == input.List ||
-                    this.List != null &&
-                    input.List != null &&
-                    this.List.SequenceEqual(input.List)
+                    this.FieldName == input.FieldName ||
+                    (this.FieldName != null &&
+                    this.FieldName.Equals(input.FieldName))
+                ) && 
+                (
+                    this.BufLength == input.BufLength ||
+                    (this.BufLength != null &&
+                    this.BufLength.Equals(input.BufLength))
+                ) && 
+                (
+                    this.Buffer == input.Buffer ||
+                    (this.Buffer != null &&
+                    this.Buffer.Equals(input.Buffer))
                 );
         }
 
@@ -134,10 +146,14 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Count != null)
-                    hashCode = hashCode * 59 + this.Count.GetHashCode();
-                if (this.List != null)
-                    hashCode = hashCode * 59 + this.List.GetHashCode();
+                if (this.FieldType != null)
+                    hashCode = hashCode * 59 + this.FieldType.GetHashCode();
+                if (this.FieldName != null)
+                    hashCode = hashCode * 59 + this.FieldName.GetHashCode();
+                if (this.BufLength != null)
+                    hashCode = hashCode * 59 + this.BufLength.GetHashCode();
+                if (this.Buffer != null)
+                    hashCode = hashCode * 59 + this.Buffer.GetHashCode();
                 return hashCode;
             }
         }
