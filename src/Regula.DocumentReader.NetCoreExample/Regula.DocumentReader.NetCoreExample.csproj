@@ -3,7 +3,7 @@
     <OutputType>Exe</OutputType>
     <Product>DocumentReader WebClient Example</Product>
     <PackageId>Regula.DocumentReader.NetCoreExampple</PackageId>
-    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj" />

@@ -258,9 +258,11 @@ namespace Regula.DocumentReader.WebClient.Api
                 if (exception != null) throw exception;
             }
 
+            var rawResponse = localVarResponse.Content;
+
             return new ApiResponse<ProcessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionarySafe(x => x.Name, x => string.Join(",", x.Value)),
-                (ProcessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessResponse)));
+                (ProcessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessResponse)), rawResponse);
         }
 
         /// <summary>
