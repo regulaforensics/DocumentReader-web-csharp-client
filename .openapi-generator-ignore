@@ -21,3 +21,4 @@ src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
 # classes, modified after generation
 src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultItem.cs
+src/Regula.DocumentReader.WebClient/Model/AuthParams.cs
