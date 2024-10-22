@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="fieldName">Graphic field symbolic name (required).</param>
         /// <param name="image">image (required).</param>
-        public GraphicFieldRect(RectangleCoordinates fieldRect = default(RectangleCoordinates), int fieldType = default(int), string fieldName = default(string), ImageData image = default(ImageData))
+        public GraphicFieldRect(RectangleCoordinates fieldRect = default(RectangleCoordinates), Integer fieldType = default(Integer), string fieldName = default(string), ImageData image = default(ImageData))
         {
             // to ensure "fieldRect" is required (not null)
             if (fieldRect == null)
@@ -96,7 +96,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name="FieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
+        public Integer FieldType { get; set; }
 
         /// <summary>
         /// Graphic field symbolic name

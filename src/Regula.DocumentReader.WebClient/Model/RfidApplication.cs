@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidApplication :  IEquatable<RfidApplication>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=true)]
-        public RfidApplicationType Type { get; set; }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="Status", EmitDefaultValue=true)]
-        public RFIDErrorCodes Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidApplication" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -55,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="unicodeVersion">Unicode version for application (required).</param>
         /// <param name="dataHashAlgorithm">Algorithm for calculating hash values for files for the procedure of PA (required).</param>
         /// <param name="files">List of containers to store information about the read files of the application (required).</param>
-        public RfidApplication(RfidApplicationType type = default(RfidApplicationType), RFIDErrorCodes status = default(RFIDErrorCodes), string applicationID = default(string), string version = default(string), string unicodeVersion = default(string), string dataHashAlgorithm = default(string), List<RfidDataFile> files = default(List<RfidDataFile>))
+        public RfidApplication(Integer type = default(Integer), Integer status = default(Integer), string applicationID = default(string), string version = default(string), string unicodeVersion = default(string), string dataHashAlgorithm = default(string), List<RfidDataFile> files = default(List<RfidDataFile>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -129,7 +119,17 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public Integer Type { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="Status", EmitDefaultValue=true)]
+        public Integer Status { get; set; }
 
         /// <summary>
         /// Application identifier

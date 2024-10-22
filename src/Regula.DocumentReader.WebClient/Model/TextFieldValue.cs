@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="probability">Min recognition probability. Combined minimum probability from single characters probabilities (required).</param>
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rfidOrigin">rfidOrigin.</param>
-        public TextFieldValue(string source = default(string), string value = default(string), string originalValue = default(string), int originalValidity = default(int), List<OriginalSymbol> originalSymbols = default(List<OriginalSymbol>), int pageIndex = default(int), int probability = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
+        public TextFieldValue(String source = default(String), string value = default(string), string originalValue = default(string), Integer originalValidity = default(Integer), List<OriginalSymbol> originalSymbols = default(List<OriginalSymbol>), int pageIndex = default(int), int probability = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -109,7 +109,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
+        public String Source { get; set; }
 
         /// <summary>
         /// Parsed/processed value. Date format converted for output, delimiters removed
@@ -129,7 +129,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OriginalValidity
         /// </summary>
         [DataMember(Name="originalValidity", EmitDefaultValue=true)]
-        public int OriginalValidity { get; set; }
+        public Integer OriginalValidity { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginalSymbols

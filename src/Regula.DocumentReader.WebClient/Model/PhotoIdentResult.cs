@@ -53,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        public PhotoIdentResult(int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved1 = default(int), int reserved2 = default(int), int reserved3 = default(int))
+        public PhotoIdentResult(int type = 0, Integer elementResult = default(Integer), Integer elementDiagnose = default(Integer), int percentValue = default(int), Integer lightIndex = default(Integer), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved1 = default(int), int reserved2 = default(int), int reserved3 = default(int))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -128,13 +128,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementResult
         /// </summary>
         [DataMember(Name="ElementResult", EmitDefaultValue=false)]
-        public int ElementResult { get; set; }
+        public Integer ElementResult { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementDiagnose
         /// </summary>
         [DataMember(Name="ElementDiagnose", EmitDefaultValue=false)]
-        public int ElementDiagnose { get; set; }
+        public Integer ElementDiagnose { get; set; }
 
         /// <summary>
         /// Gets or Sets PercentValue
@@ -146,7 +146,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LightIndex
         /// </summary>
         [DataMember(Name="LightIndex", EmitDefaultValue=true)]
-        public int LightIndex { get; set; }
+        public Integer LightIndex { get; set; }
 
         /// <summary>
         /// Gets or Sets Area

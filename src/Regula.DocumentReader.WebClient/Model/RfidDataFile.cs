@@ -31,21 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidDataFile :  IEquatable<RfidDataFile>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=true)]
-        public RfidDataFileType Type { get; set; }
-        /// <summary>
-        /// Gets or Sets ReadingStatus
-        /// </summary>
-        [DataMember(Name="ReadingStatus", EmitDefaultValue=true)]
-        public RFIDErrorCodes ReadingStatus { get; set; }
-        /// <summary>
-        /// Gets or Sets PAStatus
-        /// </summary>
-        [DataMember(Name="PA_Status", EmitDefaultValue=true)]
-        public RFIDErrorCodes PAStatus { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidDataFile" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -63,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="docFieldsText">List of document text fields formed on the basis of the file contents (required).</param>
         /// <param name="docFieldsGraphics">List of document graphic fields formed on the basis of the file contents (required).</param>
         /// <param name="docFieldsOriginals">List of the original binary representation of graphic document fields formed on the basis of the file contents (required).</param>
-        public RfidDataFile(string fileID = default(string), RfidDataFileType type = default(RfidDataFileType), TrfFtBytes fileData = default(TrfFtBytes), RFIDErrorCodes readingStatus = default(RFIDErrorCodes), decimal readingTime = default(decimal), RFIDErrorCodes pAStatus = default(RFIDErrorCodes), List<ParsingErrorCodes> notifications = default(List<ParsingErrorCodes>), List<int> docFieldsText = default(List<int>), List<int> docFieldsGraphics = default(List<int>), List<int> docFieldsOriginals = default(List<int>))
+        public RfidDataFile(string fileID = default(string), Integer type = default(Integer), TrfFtBytes fileData = default(TrfFtBytes), Integer readingStatus = default(Integer), decimal readingTime = default(decimal), Integer pAStatus = default(Integer), List<Integer> notifications = default(List<Integer>), List<Integer> docFieldsText = default(List<Integer>), List<Integer> docFieldsGraphics = default(List<Integer>), List<Integer> docFieldsOriginals = default(List<Integer>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -156,6 +141,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="FileID", EmitDefaultValue=false)]
         public string FileID { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public Integer Type { get; set; }
 
         /// <summary>
         /// Gets or Sets FileData
@@ -163,6 +153,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="FileData", EmitDefaultValue=false)]
         public TrfFtBytes FileData { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ReadingStatus
+        /// </summary>
+        [DataMember(Name="ReadingStatus", EmitDefaultValue=true)]
+        public Integer ReadingStatus { get; set; }
 
         /// <summary>
         /// Time of reading, milliseconds
@@ -171,34 +166,39 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="ReadingTime", EmitDefaultValue=true)]
         public decimal ReadingTime { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PAStatus
+        /// </summary>
+        [DataMember(Name="PA_Status", EmitDefaultValue=true)]
+        public Integer PAStatus { get; set; }
 
         /// <summary>
         /// List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.
         /// </summary>
         /// <value>List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.</value>
         [DataMember(Name="Notifications", EmitDefaultValue=true)]
-        public List<ParsingErrorCodes> Notifications { get; set; }
+        public List<Integer> Notifications { get; set; }
 
         /// <summary>
         /// List of document text fields formed on the basis of the file contents
         /// </summary>
         /// <value>List of document text fields formed on the basis of the file contents</value>
         [DataMember(Name="DocFields_Text", EmitDefaultValue=true)]
-        public List<int> DocFieldsText { get; set; }
+        public List<Integer> DocFieldsText { get; set; }
 
         /// <summary>
         /// List of document graphic fields formed on the basis of the file contents
         /// </summary>
         /// <value>List of document graphic fields formed on the basis of the file contents</value>
         [DataMember(Name="DocFields_Graphics", EmitDefaultValue=true)]
-        public List<int> DocFieldsGraphics { get; set; }
+        public List<Integer> DocFieldsGraphics { get; set; }
 
         /// <summary>
         /// List of the original binary representation of graphic document fields formed on the basis of the file contents
         /// </summary>
         /// <value>List of the original binary representation of graphic document fields formed on the basis of the file contents</value>
         [DataMember(Name="DocFields_Originals", EmitDefaultValue=true)]
-        public List<int> DocFieldsOriginals { get; set; }
+        public List<Integer> DocFieldsOriginals { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

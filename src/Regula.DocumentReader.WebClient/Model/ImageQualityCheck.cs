@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mean">Check mean value (required).</param>
         /// <param name="stdDev">Check deviation value (required).</param>
         /// <param name="probability">Check probability value (required).</param>
-        public ImageQualityCheck(int type = default(int), int result = default(int), int featureType = default(int), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
+        public ImageQualityCheck(Integer type = default(Integer), Integer result = default(Integer), Integer featureType = default(Integer), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -114,19 +114,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=true)]
-        public int Type { get; set; }
+        public Integer Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
         [DataMember(Name="result", EmitDefaultValue=true)]
-        public int Result { get; set; }
+        public Integer Result { get; set; }
 
         /// <summary>
         /// Gets or Sets FeatureType
         /// </summary>
         [DataMember(Name="featureType", EmitDefaultValue=true)]
-        public int FeatureType { get; set; }
+        public Integer FeatureType { get; set; }
 
         /// <summary>
         /// Gets or Sets Areas

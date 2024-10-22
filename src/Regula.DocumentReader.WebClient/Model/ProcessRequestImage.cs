@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageData">imageData (required).</param>
         /// <param name="light">light.</param>
         /// <param name="pageIdx">page/image number.</param>
-        public ProcessRequestImage(ImageData imageData = default(ImageData), int light = default(int), int pageIdx = default(int))
+        public ProcessRequestImage(ImageData imageData = default(ImageData), Integer light = default(Integer), int pageIdx = default(int))
         {
             // to ensure "imageData" is required (not null)
             if (imageData == null)
@@ -67,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Light
         /// </summary>
         [DataMember(Name="light", EmitDefaultValue=false)]
-        public int Light { get; set; }
+        public Integer Light { get; set; }
 
         /// <summary>
         /// page/image number

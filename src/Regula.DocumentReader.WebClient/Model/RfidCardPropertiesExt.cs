@@ -31,26 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidCardPropertiesExt :  IEquatable<RfidCardPropertiesExt>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RFIDType
-        /// </summary>
-        [DataMember(Name="RFID_Type", EmitDefaultValue=true)]
-        public RfidType RFIDType { get; set; }
-        /// <summary>
-        /// Gets or Sets ChipTypeA
-        /// </summary>
-        [DataMember(Name="ChipType_A", EmitDefaultValue=true)]
-        public RfidAChip ChipTypeA { get; set; }
-        /// <summary>
-        /// Gets or Sets BitRateS
-        /// </summary>
-        [DataMember(Name="BitRateS", EmitDefaultValue=true)]
-        public RfidBaudRate BitRateS { get; set; }
-        /// <summary>
-        /// Gets or Sets BitRateR
-        /// </summary>
-        [DataMember(Name="BitRateR", EmitDefaultValue=true)]
-        public RfidBaudRate BitRateR { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidCardPropertiesExt" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -72,7 +52,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bitRateS">bitRateS (required).</param>
         /// <param name="bitRateR">bitRateR (required).</param>
         /// <param name="aTR">ATR-string of RFID-chip (required).</param>
-        public RfidCardPropertiesExt(RfidType rFIDType = default(RfidType), string baudrate1 = default(string), string baudrate2 = default(string), bool support4 = default(bool), RfidAChip chipTypeA = default(RfidAChip), bool supportMifare = default(bool), decimal mifareMemory = default(decimal), string uID = default(string), Object aTQA = default(Object), Object sAK = default(Object), Object aTQB = default(Object), RfidBaudRate bitRateS = default(RfidBaudRate), RfidBaudRate bitRateR = default(RfidBaudRate), string aTR = default(string))
+        public RfidCardPropertiesExt(Integer rFIDType = default(Integer), string baudrate1 = default(string), string baudrate2 = default(string), bool support4 = default(bool), Integer chipTypeA = default(Integer), bool supportMifare = default(bool), decimal mifareMemory = default(decimal), string uID = default(string), Object aTQA = default(Object), Object sAK = default(Object), Object aTQB = default(Object), Integer bitRateS = default(Integer), Integer bitRateR = default(Integer), string aTR = default(string))
         {
             // to ensure "rFIDType" is required (not null)
             if (rFIDType == null)
@@ -219,6 +199,11 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets RFIDType
+        /// </summary>
+        [DataMember(Name="RFID_Type", EmitDefaultValue=true)]
+        public Integer RFIDType { get; set; }
 
         /// <summary>
         /// Numeric Baudrate1 value in hexadecimal format (e.g. 0x0000000F)
@@ -241,6 +226,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="Support_4", EmitDefaultValue=true)]
         public bool Support4 { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ChipTypeA
+        /// </summary>
+        [DataMember(Name="ChipType_A", EmitDefaultValue=true)]
+        public Integer ChipTypeA { get; set; }
 
         /// <summary>
         /// Sign of support for ISO/IEC 14443-3 data exchange protocol
@@ -284,7 +274,17 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="ATQ_B", EmitDefaultValue=true)]
         public Object ATQ_B { get; set; }
 
+        /// <summary>
+        /// Gets or Sets BitRateS
+        /// </summary>
+        [DataMember(Name="BitRateS", EmitDefaultValue=true)]
+        public Integer BitRateS { get; set; }
 
+        /// <summary>
+        /// Gets or Sets BitRateR
+        /// </summary>
+        [DataMember(Name="BitRateR", EmitDefaultValue=true)]
+        public Integer BitRateR { get; set; }
 
         /// <summary>
         /// ATR-string of RFID-chip

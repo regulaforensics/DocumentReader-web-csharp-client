@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sourceLeft">sourceLeft (required).</param>
         /// <param name="sourceRight">sourceRight (required).</param>
         /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(string sourceLeft = default(string), string sourceRight = default(string), int status = default(int))
+        public CrossSourceValueComparison(String sourceLeft = default(String), String sourceRight = default(String), Integer status = default(Integer))
         {
             // to ensure "sourceLeft" is required (not null)
             if (sourceLeft == null)
@@ -79,19 +79,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets SourceLeft
         /// </summary>
         [DataMember(Name="sourceLeft", EmitDefaultValue=true)]
-        public string SourceLeft { get; set; }
+        public String SourceLeft { get; set; }
 
         /// <summary>
         /// Gets or Sets SourceRight
         /// </summary>
         [DataMember(Name="sourceRight", EmitDefaultValue=true)]
-        public string SourceRight { get; set; }
+        public String SourceRight { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
+        public Integer Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

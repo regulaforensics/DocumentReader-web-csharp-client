@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="valueList">valueList (required).</param>
         /// <param name="validityList">Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error. (required).</param>
         /// <param name="comparisonList">comparisonList (required).</param>
-        public TextField(int fieldType = default(int), string fieldName = default(string), int lcid = default(int), string lcidName = default(string), int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
+        public TextField(Integer fieldType = default(Integer), string fieldName = default(string), Integer lcid = default(Integer), string lcidName = default(string), Integer status = default(Integer), Integer validityStatus = default(Integer), Integer comparisonStatus = default(Integer), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
         {
             // to ensure "fieldType" is required (not null)
             if (fieldType == null)
@@ -167,7 +167,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name="fieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
+        public Integer FieldType { get; set; }
 
         /// <summary>
         /// Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup.
@@ -180,7 +180,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Lcid
         /// </summary>
         [DataMember(Name="lcid", EmitDefaultValue=true)]
-        public int Lcid { get; set; }
+        public Integer Lcid { get; set; }
 
         /// <summary>
         /// LCID name
@@ -193,19 +193,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
+        public Integer Status { get; set; }
 
         /// <summary>
         /// Gets or Sets ValidityStatus
         /// </summary>
         [DataMember(Name="validityStatus", EmitDefaultValue=true)]
-        public int ValidityStatus { get; set; }
+        public Integer ValidityStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets ComparisonStatus
         /// </summary>
         [DataMember(Name="comparisonStatus", EmitDefaultValue=true)]
-        public int ComparisonStatus { get; set; }
+        public Integer ComparisonStatus { get; set; }
 
         /// <summary>
         /// The most confidence value, selected from valueList

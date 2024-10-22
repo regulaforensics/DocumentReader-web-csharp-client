@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="rightBottom">rightBottom (required).</param>
         /// <param name="rightTop">rightTop (required).</param>
         /// <param name="dpi">dpi (required).</param>
-        public DocumentPosition(int docFormat = default(int), decimal angle = default(decimal), int width = default(int), int height = default(int), Point center = default(Point), Point leftBottom = default(Point), Point leftTop = default(Point), Point rightBottom = default(Point), Point rightTop = default(Point), int dpi = default(int))
+        public DocumentPosition(Integer docFormat = default(Integer), decimal angle = default(decimal), int width = default(int), int height = default(int), Point center = default(Point), Point leftBottom = default(Point), Point leftTop = default(Point), Point rightBottom = default(Point), Point rightTop = default(Point), int dpi = default(int))
         {
             // to ensure "docFormat" is required (not null)
             if (docFormat == null)
@@ -156,7 +156,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DocFormat
         /// </summary>
         [DataMember(Name="docFormat", EmitDefaultValue=true)]
-        public int DocFormat { get; set; }
+        public Integer DocFormat { get; set; }
 
         /// <summary>
         /// Document rotation angle

@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(List<int> lcidFilter = default(List<int>), ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        public ProcessRequest(List<Integer> lcidFilter = default(List<Integer>), ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -78,7 +78,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.</value>
         [DataMember(Name="lcidFilter", EmitDefaultValue=false)]
-        public List<int> LcidFilter { get; set; }
+        public List<Integer> LcidFilter { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessParam

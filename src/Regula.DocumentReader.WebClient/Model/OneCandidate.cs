@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="uVExp">The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme (required).</param>
         /// <param name="authenticityNecessaryLights">Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity (required).</param>
         /// <param name="oVIExp">Camera exposure value necessary when obtaining document images of the given type for AXIAL lighting scheme (required).</param>
-        public OneCandidate(string documentName = default(string), int iD = default(int), decimal p = default(decimal), bool rotated180 = default(bool), int rFIDPresence = default(int), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int), decimal oVIExp = default(decimal))
+        public OneCandidate(string documentName = default(string), int iD = default(int), decimal p = default(decimal), bool rotated180 = default(bool), Integer rFIDPresence = default(Integer), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int), decimal oVIExp = default(decimal))
         {
             // to ensure "documentName" is required (not null)
             if (documentName == null)
@@ -195,7 +195,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDPresence
         /// </summary>
         [DataMember(Name="RFID_Presence", EmitDefaultValue=true)]
-        public int RFIDPresence { get; set; }
+        public Integer RFIDPresence { get; set; }
 
         /// <summary>
         /// Gets or Sets FDSIDList

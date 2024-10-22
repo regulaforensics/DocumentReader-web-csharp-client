@@ -34,7 +34,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ProcessParamsRfid" /> class.
         /// </summary>
         /// <param name="paSensitiveCodesDisable">A list of notification codes that should be ignored during passive authentication (PA).</param>
-        public ProcessParamsRfid(List<ParsingNotificationCodes> paSensitiveCodesDisable = default(List<ParsingNotificationCodes>))
+        public ProcessParamsRfid(List<Integer> paSensitiveCodesDisable = default(List<Integer>))
         {
             this.PaSensitiveCodesDisable = paSensitiveCodesDisable;
         }
@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>A list of notification codes that should be ignored during passive authentication (PA)</value>
         [DataMember(Name="paSensitiveCodesDisable", EmitDefaultValue=false)]
-        public List<ParsingNotificationCodes> PaSensitiveCodesDisable { get; set; }
+        public List<Integer> PaSensitiveCodesDisable { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

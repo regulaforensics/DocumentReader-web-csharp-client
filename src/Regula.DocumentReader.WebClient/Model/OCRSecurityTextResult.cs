@@ -53,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonResultOCR">etalonResultOCR (required).</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        public OCRSecurityTextResult(int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int), int criticalFlag = default(int), int lightType = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int))
+        public OCRSecurityTextResult(int type = 0, Integer elementResult = default(Integer), Integer elementDiagnose = default(Integer), int percentValue = default(int), Integer criticalFlag = default(Integer), Integer lightType = default(Integer), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -173,13 +173,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementResult
         /// </summary>
         [DataMember(Name="ElementResult", EmitDefaultValue=false)]
-        public int ElementResult { get; set; }
+        public Integer ElementResult { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementDiagnose
         /// </summary>
         [DataMember(Name="ElementDiagnose", EmitDefaultValue=false)]
-        public int ElementDiagnose { get; set; }
+        public Integer ElementDiagnose { get; set; }
 
         /// <summary>
         /// Gets or Sets PercentValue
@@ -191,13 +191,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets CriticalFlag
         /// </summary>
         [DataMember(Name="CriticalFlag", EmitDefaultValue=true)]
-        public int CriticalFlag { get; set; }
+        public Integer CriticalFlag { get; set; }
 
         /// <summary>
         /// Gets or Sets LightType
         /// </summary>
         [DataMember(Name="LightType", EmitDefaultValue=true)]
-        public int LightType { get; set; }
+        public Integer LightType { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldRect

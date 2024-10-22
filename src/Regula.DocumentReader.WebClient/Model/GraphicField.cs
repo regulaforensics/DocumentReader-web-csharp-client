@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="fieldName">Graphic field symbolic name (required).</param>
         /// <param name="image">image (required).</param>
-        public GraphicField(int fieldType = default(int), string fieldName = default(string), ImageData image = default(ImageData))
+        public GraphicField(Integer fieldType = default(Integer), string fieldName = default(string), ImageData image = default(ImageData))
         {
             // to ensure "fieldType" is required (not null)
             if (fieldType == null)
@@ -79,7 +79,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name="FieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
+        public Integer FieldType { get; set; }
 
         /// <summary>
         /// Graphic field symbolic name

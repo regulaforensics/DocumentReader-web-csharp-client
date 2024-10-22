@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidSignerInfoEx :  IEquatable<RfidSignerInfoEx>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets PAStatus
-        /// </summary>
-        [DataMember(Name="PA_Status", EmitDefaultValue=true)]
-        public RFIDErrorCodes PAStatus { get; set; }
-        /// <summary>
-        /// Gets or Sets Notifications
-        /// </summary>
-        [DataMember(Name="Notifications", EmitDefaultValue=true)]
-        public ParsingErrorCodes Notifications { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidSignerInfoEx" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -60,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="certificateChain">Certificate chain, used for the digital signature verification. (required).</param>
         /// <param name="dataToHash">Binary data array used to calculate the hash value for digital signature verification. Base64 encoded. (required).</param>
         /// <param name="notifications">notifications (required).</param>
-        public RfidSignerInfoEx(decimal version = default(decimal), RfidDistinguishedName issuer = default(RfidDistinguishedName), TrfFtBytes serialNumber = default(TrfFtBytes), TrfFtBytes subjectKeyIdentifier = default(TrfFtBytes), string digestAlgorithm = default(string), List<RfidAttributeData> signedAttributes = default(List<RfidAttributeData>), string signatureAlgorithm = default(string), TrfFtBytes signature = default(TrfFtBytes), RFIDErrorCodes pAStatus = default(RFIDErrorCodes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string dataToHash = default(string), ParsingErrorCodes notifications = default(ParsingErrorCodes))
+        public RfidSignerInfoEx(decimal version = default(decimal), RfidDistinguishedName issuer = default(RfidDistinguishedName), TrfFtBytes serialNumber = default(TrfFtBytes), TrfFtBytes subjectKeyIdentifier = default(TrfFtBytes), string digestAlgorithm = default(string), List<RfidAttributeData> signedAttributes = default(List<RfidAttributeData>), string signatureAlgorithm = default(string), TrfFtBytes signature = default(TrfFtBytes), Integer pAStatus = default(Integer), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string dataToHash = default(string), Integer notifications = default(Integer))
         {
             // to ensure "version" is required (not null)
             if (version == null)
@@ -236,6 +226,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="Signature", EmitDefaultValue=true)]
         public TrfFtBytes Signature { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PAStatus
+        /// </summary>
+        [DataMember(Name="PA_Status", EmitDefaultValue=true)]
+        public Integer PAStatus { get; set; }
 
         /// <summary>
         /// Certificate chain, used for the digital signature verification.
@@ -251,6 +246,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="DataToHash", EmitDefaultValue=true)]
         public string DataToHash { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Notifications
+        /// </summary>
+        [DataMember(Name="Notifications", EmitDefaultValue=true)]
+        public Integer Notifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidTerminal :  IEquatable<RfidTerminal>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets TermType
-        /// </summary>
-        [DataMember(Name="TermType", EmitDefaultValue=true)]
-        public RfidTerminalType TermType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidTerminal" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="termType">termType (required).</param>
         /// <param name="authReq">Declared (set) combination of flags of access rights to the functionality of the document (combination of eRfidTerminalAuthorizationRequirement values) (required).</param>
         /// <param name="authReq2">Declared (set) combination of flags of access rights to the functionality of the document (combination of RfidTerminalAuthorizationRequirement values) (required).</param>
-        public RfidTerminal(RfidTerminalType termType = default(RfidTerminalType), decimal authReq = default(decimal), decimal authReq2 = default(decimal))
+        public RfidTerminal(Integer termType = default(Integer), decimal authReq = default(decimal), decimal authReq2 = default(decimal))
         {
             // to ensure "termType" is required (not null)
             if (termType == null)
@@ -80,6 +75,11 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets TermType
+        /// </summary>
+        [DataMember(Name="TermType", EmitDefaultValue=true)]
+        public Integer TermType { get; set; }
 
         /// <summary>
         /// Declared (set) combination of flags of access rights to the functionality of the document (combination of eRfidTerminalAuthorizationRequirement values)

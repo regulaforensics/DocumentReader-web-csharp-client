@@ -38,7 +38,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">Page index of the image from input list.</param>
         /// <param name="url">Image url.</param>
-        public OutDataTransactionImagesFieldValue(int fieldType = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), string url = default(string))
+        public OutDataTransactionImagesFieldValue(Integer fieldType = default(Integer), Integer light = default(Integer), int listIdx = default(int), int pageIdx = default(int), string url = default(string))
         {
             this.FieldType = fieldType;
             this.Light = light;
@@ -51,13 +51,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name="fieldType", EmitDefaultValue=false)]
-        public int FieldType { get; set; }
+        public Integer FieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets Light
         /// </summary>
         [DataMember(Name="light", EmitDefaultValue=false)]
-        public int Light { get; set; }
+        public Integer Light { get; set; }
 
         /// <summary>
         /// Gets or Sets ListIdx

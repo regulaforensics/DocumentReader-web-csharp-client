@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="stopList">stopList (required).</param>
         /// <param name="detailsRFID">detailsRFID.</param>
         /// <param name="detailsOptical">detailsOptical (required).</param>
-        public Status(int overallStatus = default(int), int optical = default(int), int portrait = default(int), int rfid = default(int), int stopList = default(int), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical))
+        public Status(Integer overallStatus = default(Integer), Integer optical = default(Integer), Integer portrait = default(Integer), Integer rfid = default(Integer), Integer stopList = default(Integer), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical))
         {
             // to ensure "overallStatus" is required (not null)
             if (overallStatus == null)
@@ -114,31 +114,31 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OverallStatus
         /// </summary>
         [DataMember(Name="overallStatus", EmitDefaultValue=true)]
-        public int OverallStatus { get; set; }
+        public Integer OverallStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Optical
         /// </summary>
         [DataMember(Name="optical", EmitDefaultValue=true)]
-        public int Optical { get; set; }
+        public Integer Optical { get; set; }
 
         /// <summary>
         /// Gets or Sets Portrait
         /// </summary>
         [DataMember(Name="portrait", EmitDefaultValue=true)]
-        public int Portrait { get; set; }
+        public Integer Portrait { get; set; }
 
         /// <summary>
         /// Gets or Sets Rfid
         /// </summary>
         [DataMember(Name="rfid", EmitDefaultValue=true)]
-        public int Rfid { get; set; }
+        public Integer Rfid { get; set; }
 
         /// <summary>
         /// Gets or Sets StopList
         /// </summary>
         [DataMember(Name="stopList", EmitDefaultValue=true)]
-        public int StopList { get; set; }
+        public Integer StopList { get; set; }
 
         /// <summary>
         /// Gets or Sets DetailsRFID

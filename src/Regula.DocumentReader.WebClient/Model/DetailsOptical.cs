@@ -46,7 +46,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pagesCount">Number of processed pages in the document (required).</param>
         /// <param name="security">security (required).</param>
         /// <param name="text">text (required).</param>
-        public DetailsOptical(int overallStatus = default(int), int docType = default(int), int expiry = default(int), int imageQA = default(int), int mrz = default(int), int pagesCount = default(int), int security = default(int), int text = default(int))
+        public DetailsOptical(Integer overallStatus = default(Integer), Integer docType = default(Integer), Integer expiry = default(Integer), Integer imageQA = default(Integer), Integer mrz = default(Integer), int pagesCount = default(int), Integer security = default(Integer), Integer text = default(Integer))
         {
             // to ensure "overallStatus" is required (not null)
             if (overallStatus == null)
@@ -134,31 +134,31 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OverallStatus
         /// </summary>
         [DataMember(Name="overallStatus", EmitDefaultValue=true)]
-        public int OverallStatus { get; set; }
+        public Integer OverallStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets DocType
         /// </summary>
         [DataMember(Name="docType", EmitDefaultValue=true)]
-        public int DocType { get; set; }
+        public Integer DocType { get; set; }
 
         /// <summary>
         /// Gets or Sets Expiry
         /// </summary>
         [DataMember(Name="expiry", EmitDefaultValue=true)]
-        public int Expiry { get; set; }
+        public Integer Expiry { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageQA
         /// </summary>
         [DataMember(Name="imageQA", EmitDefaultValue=true)]
-        public int ImageQA { get; set; }
+        public Integer ImageQA { get; set; }
 
         /// <summary>
         /// Gets or Sets Mrz
         /// </summary>
         [DataMember(Name="mrz", EmitDefaultValue=true)]
-        public int Mrz { get; set; }
+        public Integer Mrz { get; set; }
 
         /// <summary>
         /// Number of processed pages in the document
@@ -171,13 +171,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Security
         /// </summary>
         [DataMember(Name="security", EmitDefaultValue=true)]
-        public int Security { get; set; }
+        public Integer Security { get; set; }
 
         /// <summary>
         /// Gets or Sets Text
         /// </summary>
         [DataMember(Name="text", EmitDefaultValue=true)]
-        public int Text { get; set; }
+        public Integer Text { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="source">source (required).</param>
         /// <param name="validityStatus">validityStatus (required).</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
-        public TextAvailableSource(string source = default(string), int validityStatus = default(int), int containerType = 0)
+        public TextAvailableSource(String source = default(String), Integer validityStatus = default(Integer), int containerType = 0)
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -78,13 +78,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
+        public String Source { get; set; }
 
         /// <summary>
         /// Gets or Sets ValidityStatus
         /// </summary>
         [DataMember(Name="validityStatus", EmitDefaultValue=true)]
-        public int ValidityStatus { get; set; }
+        public Integer ValidityStatus { get; set; }
 
         /// <summary>
         /// Same as Result type, but used for safe parsing of not-described values. See Result type.

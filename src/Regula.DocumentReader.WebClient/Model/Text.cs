@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dateFormat">Date format (required).</param>
         /// <param name="fieldList">fieldList (required).</param>
         /// <param name="availableSourceList">availableSourceList (required).</param>
-        public Text(int status = default(int), int validityStatus = default(int), int comparisonStatus = default(int), string dateFormat = default(string), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
+        public Text(Integer status = default(Integer), Integer validityStatus = default(Integer), Integer comparisonStatus = default(Integer), string dateFormat = default(string), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -112,19 +112,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
+        public Integer Status { get; set; }
 
         /// <summary>
         /// Gets or Sets ValidityStatus
         /// </summary>
         [DataMember(Name="validityStatus", EmitDefaultValue=true)]
-        public int ValidityStatus { get; set; }
+        public Integer ValidityStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets ComparisonStatus
         /// </summary>
         [DataMember(Name="comparisonStatus", EmitDefaultValue=true)]
-        public int ComparisonStatus { get; set; }
+        public Integer ComparisonStatus { get; set; }
 
         /// <summary>
         /// Date format

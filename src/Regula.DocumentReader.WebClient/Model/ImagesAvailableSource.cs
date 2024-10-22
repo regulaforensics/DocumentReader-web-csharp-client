@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="source">source (required).</param>
-        public ImagesAvailableSource(int containerType = 0, string source = default(string))
+        public ImagesAvailableSource(int containerType = 0, String source = default(String))
         {
             // to ensure "containerType" is required (not null)
             if (containerType == null)
@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
+        public String Source { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidAccessControlInfo :  IEquatable<RfidAccessControlInfo>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=true)]
-        public RfidAccessControlProcedureType Type { get; set; }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="Status", EmitDefaultValue=true)]
-        public RFIDErrorCodes Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidAccessControlInfo" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -53,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="activeOptionIdx">Index of the active variant of the procedure.</param>
         /// <param name="notifications">List of remarks arisen during the procedure. (required).</param>
         /// <param name="accessControlOptions">List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document.</param>
-        public RfidAccessControlInfo(RfidAccessControlProcedureType type = default(RfidAccessControlProcedureType), RFIDErrorCodes status = default(RFIDErrorCodes), decimal activeOptionIdx = default(decimal), List<ParsingErrorCodes> notifications = default(List<ParsingErrorCodes>), List<Object> accessControlOptions = default(List<Object>))
+        public RfidAccessControlInfo(Integer type = default(Integer), Integer status = default(Integer), decimal activeOptionIdx = default(decimal), List<Integer> notifications = default(List<Integer>), List<Object> accessControlOptions = default(List<Object>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -89,7 +79,17 @@ namespace Regula.DocumentReader.WebClient.Model
             this.AccessControlOptions = accessControlOptions;
         }
         
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public Integer Type { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="Status", EmitDefaultValue=true)]
+        public Integer Status { get; set; }
 
         /// <summary>
         /// Index of the active variant of the procedure
@@ -103,7 +103,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of remarks arisen during the procedure.</value>
         [DataMember(Name="Notifications", EmitDefaultValue=true)]
-        public List<ParsingErrorCodes> Notifications { get; set; }
+        public List<Integer> Notifications { get; set; }
 
         /// <summary>
         /// List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document

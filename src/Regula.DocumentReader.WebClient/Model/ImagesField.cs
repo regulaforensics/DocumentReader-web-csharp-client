@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="valueList">valueList (required).</param>
         /// <param name="valueCount">Field value count (required).</param>
-        public ImagesField(string fieldName = default(string), int fieldType = default(int), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>), decimal valueCount = default(decimal))
+        public ImagesField(string fieldName = default(string), Integer fieldType = default(Integer), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>), decimal valueCount = default(decimal))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -97,7 +97,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name="fieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
+        public Integer FieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets ValueList

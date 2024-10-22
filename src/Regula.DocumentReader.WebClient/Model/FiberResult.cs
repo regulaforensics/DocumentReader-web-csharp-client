@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="length">Fibers length value for located areas (in pixels) (required).</param>
         /// <param name="area">Fibers value for areas (in pixels) (required).</param>
         /// <param name="colorValues">Fibers color value (required).</param>
-        public FiberResult(int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int), int rectCount = default(int), int expectedCount = default(int), int lightValue = default(int), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>))
+        public FiberResult(int type = 0, Integer elementResult = default(Integer), Integer elementDiagnose = default(Integer), int percentValue = default(int), int rectCount = default(int), int expectedCount = default(int), Integer lightValue = default(Integer), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -151,13 +151,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementResult
         /// </summary>
         [DataMember(Name="ElementResult", EmitDefaultValue=false)]
-        public int ElementResult { get; set; }
+        public Integer ElementResult { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementDiagnose
         /// </summary>
         [DataMember(Name="ElementDiagnose", EmitDefaultValue=false)]
-        public int ElementDiagnose { get; set; }
+        public Integer ElementDiagnose { get; set; }
 
         /// <summary>
         /// Gets or Sets PercentValue
@@ -183,7 +183,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LightValue
         /// </summary>
         [DataMember(Name="LightValue", EmitDefaultValue=false)]
-        public int LightValue { get; set; }
+        public Integer LightValue { get; set; }
 
         /// <summary>
         /// For UV_Background authentication result type

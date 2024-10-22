@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class PArrayField :  IEquatable<PArrayField>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets BcTypeDECODE
-        /// </summary>
-        [DataMember(Name="bcType_DECODE", EmitDefaultValue=true)]
-        public BarcodeType BcTypeDECODE { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PArrayField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -53,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bcTextFieldType">bcTextFieldType.</param>
         /// <param name="bcTypeDECODE">bcTypeDECODE (required).</param>
         /// <param name="bcTypeDETECT">bcTypeDETECT (required).</param>
-        public PArrayField(float bcAngleDETECT = default(float), int bcCodeResult = default(int), int bcCountModule = default(int), List<DataModule> bcDataModule = default(List<DataModule>), BcPDF417INFO bcPDF417INFO = default(BcPDF417INFO), BcROIDETECT bcROIDETECT = default(BcROIDETECT), int bcTextDecoderTypes = default(int), int bcTextFieldType = default(int), BarcodeType bcTypeDECODE = default(BarcodeType), int bcTypeDETECT = default(int))
+        public PArrayField(float bcAngleDETECT = default(float), int bcCodeResult = default(int), int bcCountModule = default(int), List<DataModule> bcDataModule = default(List<DataModule>), BcPDF417INFO bcPDF417INFO = default(BcPDF417INFO), BcROIDETECT bcROIDETECT = default(BcROIDETECT), int bcTextDecoderTypes = default(int), int bcTextFieldType = default(int), Integer bcTypeDECODE = default(Integer), int bcTypeDETECT = default(int))
         {
             // to ensure "bcAngleDETECT" is required (not null)
             if (bcAngleDETECT == null)
@@ -178,6 +173,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="bcTextFieldType", EmitDefaultValue=false)]
         public int BcTextFieldType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets BcTypeDECODE
+        /// </summary>
+        [DataMember(Name="bcType_DECODE", EmitDefaultValue=true)]
+        public Integer BcTypeDECODE { get; set; }
 
         /// <summary>
         /// Gets or Sets BcTypeDETECT

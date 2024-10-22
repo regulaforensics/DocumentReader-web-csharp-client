@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pA">pA (required).</param>
         /// <param name="pACE">pACE (required).</param>
         /// <param name="tA">tA (required).</param>
-        public DetailsRFID(int overallStatus = default(int), int aA = default(int), int bAC = default(int), int cA = default(int), int pA = default(int), int pACE = default(int), int tA = default(int))
+        public DetailsRFID(Integer overallStatus = default(Integer), Integer aA = default(Integer), Integer bAC = default(Integer), Integer cA = default(Integer), Integer pA = default(Integer), Integer pACE = default(Integer), Integer tA = default(Integer))
         {
             // to ensure "overallStatus" is required (not null)
             if (overallStatus == null)
@@ -123,43 +123,43 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OverallStatus
         /// </summary>
         [DataMember(Name="overallStatus", EmitDefaultValue=true)]
-        public int OverallStatus { get; set; }
+        public Integer OverallStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets AA
         /// </summary>
         [DataMember(Name="AA", EmitDefaultValue=true)]
-        public int AA { get; set; }
+        public Integer AA { get; set; }
 
         /// <summary>
         /// Gets or Sets BAC
         /// </summary>
         [DataMember(Name="BAC", EmitDefaultValue=true)]
-        public int BAC { get; set; }
+        public Integer BAC { get; set; }
 
         /// <summary>
         /// Gets or Sets CA
         /// </summary>
         [DataMember(Name="CA", EmitDefaultValue=true)]
-        public int CA { get; set; }
+        public Integer CA { get; set; }
 
         /// <summary>
         /// Gets or Sets PA
         /// </summary>
         [DataMember(Name="PA", EmitDefaultValue=true)]
-        public int PA { get; set; }
+        public Integer PA { get; set; }
 
         /// <summary>
         /// Gets or Sets PACE
         /// </summary>
         [DataMember(Name="PACE", EmitDefaultValue=true)]
-        public int PACE { get; set; }
+        public Integer PACE { get; set; }
 
         /// <summary>
         /// Gets or Sets TA
         /// </summary>
         [DataMember(Name="TA", EmitDefaultValue=true)]
-        public int TA { get; set; }
+        public Integer TA { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

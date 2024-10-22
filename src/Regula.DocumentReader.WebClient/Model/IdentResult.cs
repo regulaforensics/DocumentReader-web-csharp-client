@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="image">image (required).</param>
         /// <param name="etalonImage">etalonImage (required).</param>
         /// <param name="areaList">areaList.</param>
-        public IdentResult(int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int), int elementType = default(int), int lightIndex = default(int), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer))
+        public IdentResult(int type = 0, Integer elementResult = default(Integer), Integer elementDiagnose = default(Integer), int percentValue = default(int), Integer elementType = default(Integer), Integer lightIndex = default(Integer), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -127,13 +127,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementResult
         /// </summary>
         [DataMember(Name="ElementResult", EmitDefaultValue=false)]
-        public int ElementResult { get; set; }
+        public Integer ElementResult { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementDiagnose
         /// </summary>
         [DataMember(Name="ElementDiagnose", EmitDefaultValue=false)]
-        public int ElementDiagnose { get; set; }
+        public Integer ElementDiagnose { get; set; }
 
         /// <summary>
         /// Gets or Sets PercentValue
@@ -145,13 +145,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementType
         /// </summary>
         [DataMember(Name="ElementType", EmitDefaultValue=true)]
-        public int ElementType { get; set; }
+        public Integer ElementType { get; set; }
 
         /// <summary>
         /// Gets or Sets LightIndex
         /// </summary>
         [DataMember(Name="LightIndex", EmitDefaultValue=true)]
-        public int LightIndex { get; set; }
+        public Integer LightIndex { get; set; }
 
         /// <summary>
         /// Gets or Sets Area

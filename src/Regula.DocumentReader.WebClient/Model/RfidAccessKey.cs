@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidAccessKey :  IEquatable<RfidAccessKey>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets KeyType
-        /// </summary>
-        [DataMember(Name="KeyType", EmitDefaultValue=true)]
-        public RfidPasswordType KeyType { get; set; }
-        /// <summary>
-        /// Gets or Sets AccessType
-        /// </summary>
-        [DataMember(Name="AccessType", EmitDefaultValue=true)]
-        public RfidAccessControlProcedureType AccessType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidAccessKey" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -52,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="keyType">keyType (required).</param>
         /// <param name="accessType">accessType (required).</param>
         /// <param name="checkFullKeyMatching">Logical sign of the need for a full comparison of AccessKey contents with the contents of DG1 (MRZ) data group (required).</param>
-        public RfidAccessKey(string accessKey = default(string), RfidPasswordType keyType = default(RfidPasswordType), RfidAccessControlProcedureType accessType = default(RfidAccessControlProcedureType), bool checkFullKeyMatching = default(bool))
+        public RfidAccessKey(string accessKey = default(string), Integer keyType = default(Integer), Integer accessType = default(Integer), bool checkFullKeyMatching = default(bool))
         {
             // to ensure "accessKey" is required (not null)
             if (accessKey == null)
@@ -103,7 +93,17 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="AccessKey", EmitDefaultValue=true)]
         public string AccessKey { get; set; }
 
+        /// <summary>
+        /// Gets or Sets KeyType
+        /// </summary>
+        [DataMember(Name="KeyType", EmitDefaultValue=true)]
+        public Integer KeyType { get; set; }
 
+        /// <summary>
+        /// Gets or Sets AccessType
+        /// </summary>
+        [DataMember(Name="AccessType", EmitDefaultValue=true)]
+        public Integer AccessType { get; set; }
 
         /// <summary>
         /// Logical sign of the need for a full comparison of AccessKey contents with the contents of DG1 (MRZ) data group

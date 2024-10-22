@@ -35,7 +35,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="recResult">recResult.</param>
         /// <param name="candidates">candidates.</param>
-        public DocumentTypesCandidatesList(int recResult = default(int), List<OneCandidate> candidates = default(List<OneCandidate>))
+        public DocumentTypesCandidatesList(Integer recResult = default(Integer), List<OneCandidate> candidates = default(List<OneCandidate>))
         {
             this.RecResult = recResult;
             this.Candidates = candidates;
@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RecResult
         /// </summary>
         [DataMember(Name="RecResult", EmitDefaultValue=false)]
-        public int RecResult { get; set; }
+        public Integer RecResult { get; set; }
 
         /// <summary>
         /// Gets or Sets Candidates

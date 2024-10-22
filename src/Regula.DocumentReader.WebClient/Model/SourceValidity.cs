@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="source">source (required).</param>
         /// <param name="status">status (required).</param>
-        public SourceValidity(string source = default(string), int status = default(int))
+        public SourceValidity(String source = default(String), Integer status = default(Integer))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -68,13 +68,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name="source", EmitDefaultValue=true)]
-        public string Source { get; set; }
+        public String Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=true)]
-        public int Status { get; set; }
+        public Integer Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

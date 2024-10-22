@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DataModule :  IEquatable<DataModule>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets MType
-        /// </summary>
-        [DataMember(Name="mType", EmitDefaultValue=true)]
-        public BarCodeModuleType MType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="DataModule" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -48,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mReserved1">mReserved1.</param>
         /// <param name="mReserver2">mReserver2.</param>
         /// <param name="mType">mType (required).</param>
-        public DataModule(string mData = default(string), int mLength = default(int), int mReserved1 = default(int), int mReserver2 = default(int), BarCodeModuleType mType = default(BarCodeModuleType))
+        public DataModule(string mData = default(string), int mLength = default(int), int mReserved1 = default(int), int mReserver2 = default(int), Integer mType = default(Integer))
         {
             // to ensure "mData" is required (not null)
             if (mData == null)
@@ -108,6 +103,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="mReserver2", EmitDefaultValue=false)]
         public int MReserver2 { get; set; }
 
+        /// <summary>
+        /// Gets or Sets MType
+        /// </summary>
+        [DataMember(Name="mType", EmitDefaultValue=true)]
+        public Integer MType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

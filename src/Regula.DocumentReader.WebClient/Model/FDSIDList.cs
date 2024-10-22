@@ -50,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dStateCode">Issuing state code.</param>
         /// <param name="dStateName">Issuing state name.</param>
         /// <param name="isDeprecated">Whether the document is deprecated (required).</param>
-        public FDSIDList(string iCAOCode = default(string), decimal count = default(decimal), List<int> list = default(List<int>), int dType = default(int), int dFormat = default(int), bool dMRZ = default(bool), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string), bool isDeprecated = default(bool))
+        public FDSIDList(string iCAOCode = default(string), decimal count = default(decimal), List<int> list = default(List<int>), Integer dType = default(Integer), Integer dFormat = default(Integer), bool dMRZ = default(bool), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string), bool isDeprecated = default(bool))
         {
             // to ensure "iCAOCode" is required (not null)
             if (iCAOCode == null)
@@ -172,13 +172,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DType
         /// </summary>
         [DataMember(Name="dType", EmitDefaultValue=true)]
-        public int DType { get; set; }
+        public Integer DType { get; set; }
 
         /// <summary>
         /// Gets or Sets DFormat
         /// </summary>
         [DataMember(Name="dFormat", EmitDefaultValue=true)]
-        public int DFormat { get; set; }
+        public Integer DFormat { get; set; }
 
         /// <summary>
         /// Flag indicating the presence of MRZ on the document

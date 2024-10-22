@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class DocVisualExtendedFieldRfid :  IEquatable<DocVisualExtendedFieldRfid>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RFIDOriginDG
-        /// </summary>
-        [DataMember(Name="RFID_OriginDG", EmitDefaultValue=true)]
-        public RfidDataGroupTypeTag RFIDOriginDG { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="DocVisualExtendedFieldRfid" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -59,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="inComparison">inComparison.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        public DocVisualExtendedFieldRfid(RfidDataGroupTypeTag rFIDOriginDG = default(RfidDataGroupTypeTag), Object rFIDOriginDGTag = default(Object), decimal rFIDOriginTagEntry = default(decimal), Object rFIDOriginEntryView = default(Object), Object fieldType = default(Object), int wFieldType = default(int), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), Object fieldMask = default(Object), Object validity = default(Object), Object inComparison = default(Object), Object reserved2 = default(Object), Object reserved3 = default(Object))
+        public DocVisualExtendedFieldRfid(Integer rFIDOriginDG = default(Integer), Object rFIDOriginDGTag = default(Object), decimal rFIDOriginTagEntry = default(decimal), Object rFIDOriginEntryView = default(Object), Object fieldType = default(Object), Integer wFieldType = default(Integer), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), Object fieldMask = default(Object), Object validity = default(Object), Object inComparison = default(Object), Object reserved2 = default(Object), Object reserved3 = default(Object))
         {
             // to ensure "rFIDOriginDG" is required (not null)
             if (rFIDOriginDG == null)
@@ -168,6 +163,11 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Reserved3 = reserved3;
         }
         
+        /// <summary>
+        /// Gets or Sets RFIDOriginDG
+        /// </summary>
+        [DataMember(Name="RFID_OriginDG", EmitDefaultValue=true)]
+        public Integer RFIDOriginDG { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDOriginDGTag
@@ -198,7 +198,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets WFieldType
         /// </summary>
         [DataMember(Name="wFieldType", EmitDefaultValue=true)]
-        public int WFieldType { get; set; }
+        public Integer WFieldType { get; set; }
 
         /// <summary>
         /// Field symbolic name (null-terminated string)

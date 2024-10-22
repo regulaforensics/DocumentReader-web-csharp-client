@@ -31,21 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidCertificateEx :  IEquatable<RfidCertificateEx>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Origin
-        /// </summary>
-        [DataMember(Name="Origin", EmitDefaultValue=true)]
-        public RfidCertificateOrigin Origin { get; set; }
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=true)]
-        public RfidCertificateType Type { get; set; }
-        /// <summary>
-        /// Gets or Sets PAStatus
-        /// </summary>
-        [DataMember(Name="PA_Status", EmitDefaultValue=true)]
-        public RFIDErrorCodes PAStatus { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidCertificateEx" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -66,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="type">type (required).</param>
         /// <param name="fileName">fileName (required).</param>
         /// <param name="pAStatus">pAStatus (required).</param>
-        public RfidCertificateEx(decimal version = default(decimal), string serialNumber = default(string), string signatureAlgorithm = default(string), RfidDistinguishedName issuer = default(RfidDistinguishedName), RfidValidity validity = default(RfidValidity), RfidDistinguishedName subject = default(RfidDistinguishedName), string subjectPKAlgorithm = default(string), List<RfidPkiExtension> extensions = default(List<RfidPkiExtension>), List<ParsingErrorCodes> notifications = default(List<ParsingErrorCodes>), RfidCertificateOrigin origin = default(RfidCertificateOrigin), RfidCertificateType type = default(RfidCertificateType), TrfFtString fileName = default(TrfFtString), RFIDErrorCodes pAStatus = default(RFIDErrorCodes))
+        public RfidCertificateEx(decimal version = default(decimal), string serialNumber = default(string), string signatureAlgorithm = default(string), RfidDistinguishedName issuer = default(RfidDistinguishedName), RfidValidity validity = default(RfidValidity), RfidDistinguishedName subject = default(RfidDistinguishedName), string subjectPKAlgorithm = default(string), List<RfidPkiExtension> extensions = default(List<RfidPkiExtension>), List<Integer> notifications = default(List<Integer>), Integer origin = default(Integer), Integer type = default(Integer), TrfFtString fileName = default(TrfFtString), Integer pAStatus = default(Integer))
         {
             // to ensure "version" is required (not null)
             if (version == null)
@@ -258,9 +243,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of remarks arisen during the analysis of the certificate data structure and its validity verification.</value>
         [DataMember(Name="Notifications", EmitDefaultValue=true)]
-        public List<ParsingErrorCodes> Notifications { get; set; }
+        public List<Integer> Notifications { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Origin
+        /// </summary>
+        [DataMember(Name="Origin", EmitDefaultValue=true)]
+        public Integer Origin { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public Integer Type { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
@@ -268,6 +263,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="FileName", EmitDefaultValue=true)]
         public TrfFtString FileName { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PAStatus
+        /// </summary>
+        [DataMember(Name="PA_Status", EmitDefaultValue=true)]
+        public Integer PAStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

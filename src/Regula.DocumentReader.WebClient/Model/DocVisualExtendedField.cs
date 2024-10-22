@@ -50,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="inComparison">inComparison.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        public DocVisualExtendedField(Object fieldType = default(Object), int wFieldType = default(int), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), Object fieldMask = default(Object), Object validity = default(Object), Object inComparison = default(Object), Object reserved2 = default(Object), Object reserved3 = default(Object))
+        public DocVisualExtendedField(Object fieldType = default(Object), Integer wFieldType = default(Integer), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), Object fieldMask = default(Object), Object validity = default(Object), Object inComparison = default(Object), Object reserved2 = default(Object), Object reserved3 = default(Object))
         {
             // to ensure "fieldType" is required (not null)
             if (fieldType == null)
@@ -145,7 +145,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets WFieldType
         /// </summary>
         [DataMember(Name="wFieldType", EmitDefaultValue=true)]
-        public int WFieldType { get; set; }
+        public Integer WFieldType { get; set; }
 
         /// <summary>
         /// Field symbolic name (null-terminated string)

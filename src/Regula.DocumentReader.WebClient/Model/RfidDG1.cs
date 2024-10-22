@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidDG1 :  IEquatable<RfidDG1>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=true)]
-        public RfidDataGroupTypeTag Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidDG1" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -59,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="optionalData">DO’s personal number or other additional data (required).</param>
         /// <param name="checkDigitOptionalData">Check digit of additional data (required).</param>
         /// <param name="checkDigitComposite">General check digit (required).</param>
-        public RfidDG1(RfidDataGroupTypeTag type = default(RfidDataGroupTypeTag), int documentID = default(int), string documentType = default(string), string state = default(string), string holder = default(string), string documentNumber = default(string), decimal checkDigitDocumentNumber = default(decimal), string nationality = default(string), string birthday = default(string), decimal checkDigitBirthday = default(decimal), string sex = default(string), string expiryDate = default(string), decimal checkDigitExpiryDate = default(decimal), string optionalData = default(string), decimal checkDigitOptionalData = default(decimal), decimal checkDigitComposite = default(decimal))
+        public RfidDG1(Integer type = default(Integer), Integer documentID = default(Integer), string documentType = default(string), string state = default(string), string holder = default(string), string documentNumber = default(string), decimal checkDigitDocumentNumber = default(decimal), string nationality = default(string), string birthday = default(string), decimal checkDigitBirthday = default(decimal), string sex = default(string), string expiryDate = default(string), decimal checkDigitExpiryDate = default(decimal), string optionalData = default(string), decimal checkDigitOptionalData = default(decimal), decimal checkDigitComposite = default(decimal))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -223,12 +218,17 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="Type", EmitDefaultValue=true)]
+        public Integer Type { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentID
         /// </summary>
         [DataMember(Name="DocumentID", EmitDefaultValue=true)]
-        public int DocumentID { get; set; }
+        public Integer DocumentID { get; set; }
 
         /// <summary>
         /// Symbolic code of document type

@@ -31,16 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class RfidSessionData :  IEquatable<RfidSessionData>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ExtLeSupport
-        /// </summary>
-        [DataMember(Name="ExtLeSupport", EmitDefaultValue=true)]
-        public RFIDErrorCodes ExtLeSupport { get; set; }
-        /// <summary>
-        /// Gets or Sets SessionProcedure
-        /// </summary>
-        [DataMember(Name="Session_procedure", EmitDefaultValue=true)]
-        public RfidAuthenticationProcedureType SessionProcedure { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RfidSessionData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -64,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sessionTerminal">sessionTerminal (required).</param>
         /// <param name="sessionProcedure">sessionProcedure (required).</param>
         /// <param name="securityObjects">List of containers to store information about the detected document security objects (required).</param>
-        public RfidSessionData(Object virtualMode = default(Object), Object sDKVersion = default(Object), Object driverVersion = default(Object), Object firmwareVersion = default(Object), List<RfidApplication> applications = default(List<RfidApplication>), List<RfidAccessControlInfo> accessControls = default(List<RfidAccessControlInfo>), RfidCardPropertiesExt cardProperties = default(RfidCardPropertiesExt), RFIDErrorCodes extLeSupport = default(RFIDErrorCodes), decimal processTime = default(decimal), List<Object> rootFiles = default(List<Object>), decimal totalBytesSent = default(decimal), decimal totalBytesReceived = default(decimal), RfidAccessKey sessionKey = default(RfidAccessKey), RfidTerminal sessionTerminal = default(RfidTerminal), RfidAuthenticationProcedureType sessionProcedure = default(RfidAuthenticationProcedureType), List<RfidSecurityObject> securityObjects = default(List<RfidSecurityObject>))
+        public RfidSessionData(Object virtualMode = default(Object), Object sDKVersion = default(Object), Object driverVersion = default(Object), Object firmwareVersion = default(Object), List<RfidApplication> applications = default(List<RfidApplication>), List<RfidAccessControlInfo> accessControls = default(List<RfidAccessControlInfo>), RfidCardPropertiesExt cardProperties = default(RfidCardPropertiesExt), Integer extLeSupport = default(Integer), decimal processTime = default(decimal), List<Object> rootFiles = default(List<Object>), decimal totalBytesSent = default(decimal), decimal totalBytesReceived = default(decimal), RfidAccessKey sessionKey = default(RfidAccessKey), RfidTerminal sessionTerminal = default(RfidTerminal), Integer sessionProcedure = default(Integer), List<RfidSecurityObject> securityObjects = default(List<RfidSecurityObject>))
         {
             // to ensure "virtualMode" is required (not null)
             if (virtualMode == null)
@@ -280,6 +270,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="CardProperties", EmitDefaultValue=true)]
         public RfidCardPropertiesExt CardProperties { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ExtLeSupport
+        /// </summary>
+        [DataMember(Name="ExtLeSupport", EmitDefaultValue=true)]
+        public Integer ExtLeSupport { get; set; }
 
         /// <summary>
         /// Time of processing, milliseconds
@@ -321,6 +316,11 @@ namespace Regula.DocumentReader.WebClient.Model
         [DataMember(Name="Session_terminal", EmitDefaultValue=true)]
         public RfidTerminal SessionTerminal { get; set; }
 
+        /// <summary>
+        /// Gets or Sets SessionProcedure
+        /// </summary>
+        [DataMember(Name="Session_procedure", EmitDefaultValue=true)]
+        public Integer SessionProcedure { get; set; }
 
         /// <summary>
         /// List of containers to store information about the detected document security objects

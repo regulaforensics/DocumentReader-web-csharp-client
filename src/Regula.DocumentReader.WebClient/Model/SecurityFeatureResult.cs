@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag (required).</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="reserved2">reserved2.</param>
-        public SecurityFeatureResult(int type = 0, int elementResult = default(int), int elementDiagnose = default(int), int percentValue = default(int), int elementType = default(int), RectangleCoordinates elementRect = default(RectangleCoordinates), int visibility = default(int), int criticalFlag = default(int), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int))
+        public SecurityFeatureResult(int type = 0, Integer elementResult = default(Integer), Integer elementDiagnose = default(Integer), int percentValue = default(int), Integer elementType = default(Integer), RectangleCoordinates elementRect = default(RectangleCoordinates), Integer visibility = default(Integer), Integer criticalFlag = default(Integer), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -118,13 +118,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementResult
         /// </summary>
         [DataMember(Name="ElementResult", EmitDefaultValue=false)]
-        public int ElementResult { get; set; }
+        public Integer ElementResult { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementDiagnose
         /// </summary>
         [DataMember(Name="ElementDiagnose", EmitDefaultValue=false)]
-        public int ElementDiagnose { get; set; }
+        public Integer ElementDiagnose { get; set; }
 
         /// <summary>
         /// Gets or Sets PercentValue
@@ -136,7 +136,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementType
         /// </summary>
         [DataMember(Name="ElementType", EmitDefaultValue=true)]
-        public int ElementType { get; set; }
+        public Integer ElementType { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementRect
@@ -148,13 +148,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Visibility
         /// </summary>
         [DataMember(Name="Visibility", EmitDefaultValue=true)]
-        public int Visibility { get; set; }
+        public Integer Visibility { get; set; }
 
         /// <summary>
         /// Gets or Sets CriticalFlag
         /// </summary>
         [DataMember(Name="CriticalFlag", EmitDefaultValue=true)]
-        public int CriticalFlag { get; set; }
+        public Integer CriticalFlag { get; set; }
 
         /// <summary>
         /// Gets or Sets AreaList

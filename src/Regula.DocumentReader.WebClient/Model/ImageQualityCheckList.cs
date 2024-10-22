@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="result">result (required).</param>
         /// <param name="list">list (required).</param>
         /// <param name="count">Number of List array elements (required).</param>
-        public ImageQualityCheckList(int result = default(int), List<ImageQualityCheck> list = default(List<ImageQualityCheck>), decimal count = default(decimal))
+        public ImageQualityCheckList(Integer result = default(Integer), List<ImageQualityCheck> list = default(List<ImageQualityCheck>), decimal count = default(decimal))
         {
             // to ensure "result" is required (not null)
             if (result == null)
@@ -79,7 +79,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Result
         /// </summary>
         [DataMember(Name="result", EmitDefaultValue=true)]
-        public int Result { get; set; }
+        public Integer Result { get; set; }
 
         /// <summary>
         /// Gets or Sets List

@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="morePagesAvailable">morePagesAvailable (required).</param>
         /// <param name="elapsedTime">Time the document processing has taken, ms. (required).</param>
         /// <param name="metadata">metadata.</param>
-        public ProcessResponse(int chipPage = default(int), int processingFinished = default(int), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
+        public ProcessResponse(Integer chipPage = default(Integer), Integer processingFinished = default(Integer), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
             // to ensure "chipPage" is required (not null)
             if (chipPage == null)
@@ -118,13 +118,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ChipPage
         /// </summary>
         [DataMember(Name="ChipPage", EmitDefaultValue=true)]
-        public int ChipPage { get; set; }
+        public Integer ChipPage { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingFinished
         /// </summary>
         [DataMember(Name="ProcessingFinished", EmitDefaultValue=true)]
-        public int ProcessingFinished { get; set; }
+        public Integer ProcessingFinished { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList

@@ -31,11 +31,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public partial class GraphicFieldRfid :  IEquatable<GraphicFieldRfid>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RFIDOriginDG
-        /// </summary>
-        [DataMember(Name="RFID_OriginDG", EmitDefaultValue=true)]
-        public RfidDataGroupTypeTag RFIDOriginDG { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="GraphicFieldRfid" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -50,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="fieldName">Graphic field symbolic name (required).</param>
         /// <param name="image">image (required).</param>
-        public GraphicFieldRfid(RfidDataGroupTypeTag rFIDOriginDG = default(RfidDataGroupTypeTag), int rFIDOriginDGTag = default(int), int rFIDOriginTagEntry = default(int), int rFIDOriginEntryView = default(int), int fieldType = default(int), string fieldName = default(string), ImageData image = default(ImageData))
+        public GraphicFieldRfid(Integer rFIDOriginDG = default(Integer), int rFIDOriginDGTag = default(int), int rFIDOriginTagEntry = default(int), int rFIDOriginEntryView = default(int), Integer fieldType = default(Integer), string fieldName = default(string), ImageData image = default(ImageData))
         {
             // to ensure "rFIDOriginDG" is required (not null)
             if (rFIDOriginDG == null)
@@ -124,6 +119,11 @@ namespace Regula.DocumentReader.WebClient.Model
             
         }
         
+        /// <summary>
+        /// Gets or Sets RFIDOriginDG
+        /// </summary>
+        [DataMember(Name="RFID_OriginDG", EmitDefaultValue=true)]
+        public Integer RFIDOriginDG { get; set; }
 
         /// <summary>
         /// Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_GRAPHICS result.
@@ -150,7 +150,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [DataMember(Name="FieldType", EmitDefaultValue=true)]
-        public int FieldType { get; set; }
+        public Integer FieldType { get; set; }
 
         /// <summary>
         /// Graphic field symbolic name
