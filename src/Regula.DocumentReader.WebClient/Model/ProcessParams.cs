@@ -76,6 +76,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="returnUncroppedImage">When enabled, returns input images in output. Disabled by default..</param>
         /// <param name="mrzFormatsFilter">This option allows limiting MRZ formats to be recognized by specifying them in array..</param>
         /// <param name="forceReadMrzBeforeLocate">When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default..</param>
+        /// <param name="forceBarcodeChecks">Allows you to fail both the Barcode format check and overall statuses of the document if the Digital signature check is not performed.</param>
         /// <param name="parseBarcodes">This option can be disabled to stop parsing after barcode is read. Enabled by default..</param>
         /// <param name="convertCase">convertCase.</param>
         /// <param name="splitNames">When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default..</param>
@@ -92,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="authParams">authParams.</param>
         /// <param name="mrzDetectMode">mrzDetectMode.</param>
         /// <param name="generateNumericCodes">This parameter is used to generate numeric representation for issuing state and nationality codes.</param>
-        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool generateNumericCodes = default(bool))
+        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool forceBarcodeChecks = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool generateNumericCodes = default(bool))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -141,6 +142,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ReturnUncroppedImage = returnUncroppedImage;
             this.MrzFormatsFilter = mrzFormatsFilter;
             this.ForceReadMrzBeforeLocate = forceReadMrzBeforeLocate;
+            this.ForceBarcodeChecks = forceBarcodeChecks;
             this.ParseBarcodes = parseBarcodes;
             this.ConvertCase = convertCase;
             this.SplitNames = splitNames;
@@ -420,6 +422,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool ForceReadMrzBeforeLocate { get; set; }
 
         /// <summary>
+        /// Allows you to fail both the Barcode format check and overall statuses of the document if the Digital signature check is not performed
+        /// </summary>
+        /// <value>Allows you to fail both the Barcode format check and overall statuses of the document if the Digital signature check is not performed</value>
+        [DataMember(Name="forceBarcodeChecks", EmitDefaultValue=false)]
+        public bool ForceBarcodeChecks { get; set; }
+
+        /// <summary>
         /// This option can be disabled to stop parsing after barcode is read. Enabled by default.
         /// </summary>
         /// <value>This option can be disabled to stop parsing after barcode is read. Enabled by default.</value>
@@ -573,6 +582,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ReturnUncroppedImage: ").Append(ReturnUncroppedImage).Append("\n");
             sb.Append("  MrzFormatsFilter: ").Append(MrzFormatsFilter).Append("\n");
             sb.Append("  ForceReadMrzBeforeLocate: ").Append(ForceReadMrzBeforeLocate).Append("\n");
+            sb.Append("  ForceBarcodeChecks: ").Append(ForceBarcodeChecks).Append("\n");
             sb.Append("  ParseBarcodes: ").Append(ParseBarcodes).Append("\n");
             sb.Append("  ConvertCase: ").Append(ConvertCase).Append("\n");
             sb.Append("  SplitNames: ").Append(SplitNames).Append("\n");
@@ -821,6 +831,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ForceReadMrzBeforeLocate.Equals(input.ForceReadMrzBeforeLocate))
                 ) && 
                 (
+                    this.ForceBarcodeChecks == input.ForceBarcodeChecks ||
+                    (this.ForceBarcodeChecks != null &&
+                    this.ForceBarcodeChecks.Equals(input.ForceBarcodeChecks))
+                ) && 
+                (
                     this.ParseBarcodes == input.ParseBarcodes ||
                     (this.ParseBarcodes != null &&
                     this.ParseBarcodes.Equals(input.ParseBarcodes))
@@ -989,6 +1004,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.MrzFormatsFilter.GetHashCode();
                 if (this.ForceReadMrzBeforeLocate != null)
                     hashCode = hashCode * 59 + this.ForceReadMrzBeforeLocate.GetHashCode();
+                if (this.ForceBarcodeChecks != null)
+                    hashCode = hashCode * 59 + this.ForceBarcodeChecks.GetHashCode();
                 if (this.ParseBarcodes != null)
                     hashCode = hashCode * 59 + this.ParseBarcodes.GetHashCode();
                 if (this.ConvertCase != null)
