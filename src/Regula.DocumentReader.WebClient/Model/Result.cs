@@ -88,5 +88,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /** Contains encrypted ResultContainerList */
         public const int ENCRYPTED_RCL = 49;
 
+        /* Contains information about portrait comparison */
+        public const int PORTRAIT_COMPARISON = 34;
+
     }
 }

@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkMLI">This parameter is used to enable MLI check.</param>
         /// <param name="checkHolo">This parameter is used to enable Hologram detection.</param>
         /// <param name="checkED">This parameter is used to enable Electronic device detection.</param>
-        public LivenessParams(bool checkOVI = default(bool), bool checkMLI = default(bool), bool checkHolo = default(bool), bool checkED = default(bool))
+        public LivenessParams(bool? checkOVI = default(bool?), bool? checkMLI = default(bool?), bool? checkHolo = default(bool?), bool? checkED = default(bool?))
         {
             this.CheckOVI = checkOVI;
             this.CheckMLI = checkMLI;
@@ -50,28 +50,28 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable OVI check</value>
         [DataMember(Name="checkOVI", EmitDefaultValue=false)]
-        public bool CheckOVI { get; set; }
+        public bool? CheckOVI { get; set; }
 
         /// <summary>
         /// This parameter is used to enable MLI check
         /// </summary>
         /// <value>This parameter is used to enable MLI check</value>
         [DataMember(Name="checkMLI", EmitDefaultValue=false)]
-        public bool CheckMLI { get; set; }
+        public bool? CheckMLI { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Hologram detection
         /// </summary>
         /// <value>This parameter is used to enable Hologram detection</value>
         [DataMember(Name="checkHolo", EmitDefaultValue=false)]
-        public bool CheckHolo { get; set; }
+        public bool? CheckHolo { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Electronic device detection
         /// </summary>
         /// <value>This parameter is used to enable Electronic device detection</value>
         [DataMember(Name="checkED", EmitDefaultValue=false)]
-        public bool CheckED { get; set; }
+        public bool? CheckED { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

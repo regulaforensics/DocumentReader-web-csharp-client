@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="glaresCheck">This option enables glares check while performing image quality validation..</param>
         /// <param name="colornessCheck">This option enables colorness check while performing image quality validation..</param>
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
-        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), int documentPositionIndent = default(int))
+        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool? focusCheck = default(bool?), bool? glaresCheck = default(bool?), bool? colornessCheck = default(bool?), int documentPositionIndent = default(int))
         {
             this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;
@@ -77,21 +77,21 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option enables focus check while performing image quality validation.</value>
         [DataMember(Name="focusCheck", EmitDefaultValue=false)]
-        public bool FocusCheck { get; set; }
+        public bool? FocusCheck { get; set; }
 
         /// <summary>
         /// This option enables glares check while performing image quality validation.
         /// </summary>
         /// <value>This option enables glares check while performing image quality validation.</value>
         [DataMember(Name="glaresCheck", EmitDefaultValue=false)]
-        public bool GlaresCheck { get; set; }
+        public bool? GlaresCheck { get; set; }
 
         /// <summary>
         /// This option enables colorness check while performing image quality validation.
         /// </summary>
         /// <value>This option enables colorness check while performing image quality validation.</value>
         [DataMember(Name="colornessCheck", EmitDefaultValue=false)]
-        public bool ColornessCheck { get; set; }
+        public bool? ColornessCheck { get; set; }
 
         /// <summary>
         /// This parameter specifies the necessary margin. Default 0.
