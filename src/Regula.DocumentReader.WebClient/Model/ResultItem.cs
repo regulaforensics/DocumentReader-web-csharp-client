@@ -43,6 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
     [JsonSubtypes.KnownSubType(typeof(AuthenticityResult), Result.AUTHENTICITY)]
     [JsonSubtypes.KnownSubType(typeof(LicenseResult), Result.LICENSE)]
     [JsonSubtypes.KnownSubType(typeof(EncryptedRCLResult), Result.ENCRYPTED_RCL)]
+    [JsonSubtypes.KnownSubType(typeof(AuthenticityResult), Result.PORTRAIT_COMPARISON)]
     [JsonSubtypes.FallBackSubType(typeof(RawResultItem))]
     public partial class ResultItem :  IEquatable<ResultItem>, IValidatableObject
     {

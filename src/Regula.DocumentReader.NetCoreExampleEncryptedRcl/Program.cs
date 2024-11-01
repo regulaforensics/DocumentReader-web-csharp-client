@@ -18,7 +18,7 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
                              ?? "https://api.regulaforensics.com";
             
             var requestParams = new RecognitionParams()
-                .WithScenario(Scenario.FULL_AUTH)
+                .WithScenario(Scenario.FULL_PROCESS)
                 .WithResultTypeOutput(new List<int>
                 {
                     // actual results
@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
             var licenseData = Convert.FromBase64String(licenseString);
             var encryptedRclData = Convert.FromBase64String(encryptedRclString);
 
-            var request = new RecognitionRequest(requestParams, new ContainerList(new List<ResultItem>()
+            var request = new RecognitionRequest(requestParams, new ContainerList(list: new List<ResultItem>()
             {
                 new LicenseResult(licenseData, licenseData.Length, 0, 0, 0, Result.LICENSE),
                 new EncryptedRCLResult(encryptedRclData, encryptedRclData.Length, 0, 0, 0, Result.ENCRYPTED_RCL)

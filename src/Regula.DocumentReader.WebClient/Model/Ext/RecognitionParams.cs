@@ -13,6 +13,17 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             ResultTypeOutput = resultTypes;
             return this;
         }
+        
+        public RecognitionParams WithAuthParam(AuthParams authParams) {
+            AuthParams = authParams;
+            return this;
+        }
+        
+        public RecognitionParams WithFaceApi(string url) {
+            FaceApi = new FaceApi(url);
+            UseFaceApi = true;
+            return this;
+        }
 
         public RecognitionParams WithScenario(string scenario)
         {

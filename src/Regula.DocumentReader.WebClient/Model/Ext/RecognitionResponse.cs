@@ -20,6 +20,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 
         public string Json => this._apiResponse.RawResponse;
         
+        public AuthenticityResult PortraitComparison()
+        {
+            var result = ResultByType<AuthenticityResult>(Result.PORTRAIT_COMPARISON, null);
+            return result;
+        }
+        
         public Status Status() 
         {
             var result = ResultByType<StatusResult>(Result.STATUS);
@@ -74,12 +80,17 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             }
         }
 
-        public T ResultByType<T>(int type, int pageIdx=0) where T: ResultItem
+        public T ResultByType<T>(int type, int? pageIdx=0) where T: ResultItem
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
-                if (item.ResultType == type && item.PageIdx == pageIdx) {
-                    return (T) item;
+                if (item.ResultType == type) {
+                    
+                    if (pageIdx == null)
+                        return (T) item;
+                    
+                    if (item.PageIdx == pageIdx)
+                        return (T) item;
                 }
             }
             

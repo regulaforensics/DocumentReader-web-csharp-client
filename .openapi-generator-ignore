@@ -17,8 +17,3 @@ src/Regula.DocumentReader.WebClient/Properties/**
 src/Regula.DocumentReader.WebClient/Model/ContainerList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
 **/*AllOf.cs
-
-# classes, modified after generation
-src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
-src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultItem.cs
-src/Regula.DocumentReader.WebClient/Model/AuthParams.cs
