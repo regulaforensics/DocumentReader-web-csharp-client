@@ -92,7 +92,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="authParams">authParams.</param>
         /// <param name="mrzDetectMode">mrzDetectMode.</param>
         /// <param name="generateNumericCodes">This parameter is used to generate numeric representation for issuing state and nationality codes.</param>
-        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), string logLevel = default(string), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool respectImageQuality = default(bool), int forceDocFormat = default(int), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<string> mrzFormatsFilter = default(List<string>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), int convertCase = default(int), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool generateNumericCodes = default(bool))
+        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool? oneShotIdentification = default(bool?), bool? useFaceApi = default(bool?), FaceApi faceApi = default(FaceApi), bool? doDetectCan = default(bool?), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool? doublePageSpread = default(bool?), bool? generateDoublePageSpreadImage = default(bool?), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool? alreadyCropped = default(bool?), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool? log = default(bool?), string logLevel = default(string), int forceDocID = default(int), bool? matchTextFieldMask = default(bool?), bool? fastDocDetect = default(bool?), bool? updateOCRValidityByGlare = default(bool?), bool? checkRequiredTextFields = default(bool?), bool? returnCroppedBarcode = default(bool?), ImageQA imageQa = default(ImageQA), bool? respectImageQuality = default(bool?), int forceDocFormat = default(int), bool? noGraphics = default(bool?), bool? depersonalizeLog = default(bool?), bool? multiDocOnImage = default(bool?), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool? returnUncroppedImage = default(bool?), List<string> mrzFormatsFilter = default(List<string>), bool? forceReadMrzBeforeLocate = default(bool?), bool? parseBarcodes = default(bool?), int convertCase = default(int), bool? splitNames = default(bool?), bool? disablePerforationOCR = default(bool?), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool? ignoreDeviceIdFromImage = default(bool?), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool? checkAuth = default(bool?), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool? generateNumericCodes = default(bool?))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -178,14 +178,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face</value>
         [DataMember(Name="oneShotIdentification", EmitDefaultValue=false)]
-        public bool OneShotIdentification { get; set; }
+        public bool? OneShotIdentification { get; set; }
 
         /// <summary>
         /// This parameter allows comparing faces on Regula Face Web Service
         /// </summary>
         /// <value>This parameter allows comparing faces on Regula Face Web Service</value>
         [DataMember(Name="useFaceApi", EmitDefaultValue=false)]
-        public bool UseFaceApi { get; set; }
+        public bool? UseFaceApi { get; set; }
 
         /// <summary>
         /// Gets or Sets FaceApi
@@ -198,7 +198,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.</value>
         [DataMember(Name="doDetectCan", EmitDefaultValue=false)]
-        public bool DoDetectCan { get; set; }
+        public bool? DoDetectCan { get; set; }
 
         /// <summary>
         /// This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.
@@ -232,14 +232,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.</value>
         [DataMember(Name="doublePageSpread", EmitDefaultValue=false)]
-        public bool DoublePageSpread { get; set; }
+        public bool? DoublePageSpread { get; set; }
 
         /// <summary>
         /// When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.
         /// </summary>
         /// <value>When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.</value>
         [DataMember(Name="generateDoublePageSpreadImage", EmitDefaultValue=false)]
-        public bool GenerateDoublePageSpreadImage { get; set; }
+        public bool? GenerateDoublePageSpreadImage { get; set; }
 
         /// <summary>
         /// List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.
@@ -273,7 +273,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default.</value>
         [DataMember(Name="alreadyCropped", EmitDefaultValue=false)]
-        public bool AlreadyCropped { get; set; }
+        public bool? AlreadyCropped { get; set; }
 
         /// <summary>
         /// This option allows passing custom processing parameters that can be implemented in future without changing API.
@@ -294,7 +294,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, results will contain transaction processing log. Disabled by default</value>
         [DataMember(Name="log", EmitDefaultValue=false)]
-        public bool Log { get; set; }
+        public bool? Log { get; set; }
 
         /// <summary>
         /// Gets or Sets LogLevel
@@ -314,35 +314,35 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default.</value>
         [DataMember(Name="matchTextFieldMask", EmitDefaultValue=false)]
-        public bool MatchTextFieldMask { get; set; }
+        public bool? MatchTextFieldMask { get; set; }
 
         /// <summary>
         /// When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.
         /// </summary>
         /// <value>When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.</value>
         [DataMember(Name="fastDocDetect", EmitDefaultValue=false)]
-        public bool FastDocDetect { get; set; }
+        public bool? FastDocDetect { get; set; }
 
         /// <summary>
         /// When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.
         /// </summary>
         /// <value>When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.</value>
         [DataMember(Name="updateOCRValidityByGlare", EmitDefaultValue=false)]
-        public bool UpdateOCRValidityByGlare { get; set; }
+        public bool? UpdateOCRValidityByGlare { get; set; }
 
         /// <summary>
         /// When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have &#39;error&#39; in validity status. Disabled by default.
         /// </summary>
         /// <value>When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have &#39;error&#39; in validity status. Disabled by default.</value>
         [DataMember(Name="checkRequiredTextFields", EmitDefaultValue=false)]
-        public bool CheckRequiredTextFields { get; set; }
+        public bool? CheckRequiredTextFields { get; set; }
 
         /// <summary>
         /// When enabled, returns cropped barcode images for unknown documents. Disabled by default.
         /// </summary>
         /// <value>When enabled, returns cropped barcode images for unknown documents. Disabled by default.</value>
         [DataMember(Name="returnCroppedBarcode", EmitDefaultValue=false)]
-        public bool ReturnCroppedBarcode { get; set; }
+        public bool? ReturnCroppedBarcode { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageQa
@@ -355,7 +355,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, image quality checks status affects document optical and overall status. Disabled by default.</value>
         [DataMember(Name="respectImageQuality", EmitDefaultValue=false)]
-        public bool RespectImageQuality { get; set; }
+        public bool? RespectImageQuality { get; set; }
 
         /// <summary>
         /// Gets or Sets ForceDocFormat
@@ -368,21 +368,21 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, no graphic fields will be cropped from document image. Disabled by default.</value>
         [DataMember(Name="noGraphics", EmitDefaultValue=false)]
-        public bool NoGraphics { get; set; }
+        public bool? NoGraphics { get; set; }
 
         /// <summary>
         /// When enabled, all personal data will be forcibly removed from the logs. Disabled by default.
         /// </summary>
         /// <value>When enabled, all personal data will be forcibly removed from the logs. Disabled by default.</value>
         [DataMember(Name="depersonalizeLog", EmitDefaultValue=false)]
-        public bool DepersonalizeLog { get; set; }
+        public bool? DepersonalizeLog { get; set; }
 
         /// <summary>
         /// This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.
         /// </summary>
         /// <value>This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.</value>
         [DataMember(Name="multiDocOnImage", EmitDefaultValue=false)]
-        public bool MultiDocOnImage { get; set; }
+        public bool? MultiDocOnImage { get; set; }
 
         /// <summary>
         /// This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months. 0 by default
@@ -403,7 +403,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, returns input images in output. Disabled by default.</value>
         [DataMember(Name="returnUncroppedImage", EmitDefaultValue=false)]
-        public bool ReturnUncroppedImage { get; set; }
+        public bool? ReturnUncroppedImage { get; set; }
 
         /// <summary>
         /// This option allows limiting MRZ formats to be recognized by specifying them in array.
@@ -417,14 +417,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.</value>
         [DataMember(Name="forceReadMrzBeforeLocate", EmitDefaultValue=false)]
-        public bool ForceReadMrzBeforeLocate { get; set; }
+        public bool? ForceReadMrzBeforeLocate { get; set; }
 
         /// <summary>
         /// This option can be disabled to stop parsing after barcode is read. Enabled by default.
         /// </summary>
         /// <value>This option can be disabled to stop parsing after barcode is read. Enabled by default.</value>
         [DataMember(Name="parseBarcodes", EmitDefaultValue=false)]
-        public bool ParseBarcodes { get; set; }
+        public bool? ParseBarcodes { get; set; }
 
         /// <summary>
         /// Gets or Sets ConvertCase
@@ -437,14 +437,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.</value>
         [DataMember(Name="splitNames", EmitDefaultValue=false)]
-        public bool SplitNames { get; set; }
+        public bool? SplitNames { get; set; }
 
         /// <summary>
         /// When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.
         /// </summary>
         /// <value>When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.</value>
         [DataMember(Name="disablePerforationOCR", EmitDefaultValue=false)]
-        public bool DisablePerforationOCR { get; set; }
+        public bool? DisablePerforationOCR { get; set; }
 
         /// <summary>
         /// List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.
@@ -486,7 +486,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false</value>
         [DataMember(Name="ignoreDeviceIdFromImage", EmitDefaultValue=false)]
-        public bool IgnoreDeviceIdFromImage { get; set; }
+        public bool? IgnoreDeviceIdFromImage { get; set; }
 
         /// <summary>
         /// List of the document ID&#39;s to process. All documents will be processed, if empty.
@@ -506,7 +506,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable authenticity checks</value>
         [DataMember(Name="checkAuth", EmitDefaultValue=false)]
-        public bool CheckAuth { get; set; }
+        public bool? CheckAuth { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthParams
@@ -525,7 +525,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to generate numeric representation for issuing state and nationality codes</value>
         [DataMember(Name="generateNumericCodes", EmitDefaultValue=false)]
-        public bool GenerateNumericCodes { get; set; }
+        public bool? GenerateNumericCodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

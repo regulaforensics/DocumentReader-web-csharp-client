@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dStateCode">Issuing state code.</param>
         /// <param name="dStateName">Issuing state name.</param>
         /// <param name="isDeprecated">Whether the document is deprecated.</param>
-        public FDSIDList(string iCAOCode = default(string), List<int> list = default(List<int>), int dType = default(int), int dFormat = default(int), bool dMRZ = default(bool), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string), bool isDeprecated = default(bool))
+        public FDSIDList(string iCAOCode = default(string), List<int> list = default(List<int>), int dType = default(int), int dFormat = default(int), bool? dMRZ = default(bool?), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string), bool? isDeprecated = default(bool?))
         {
             this.ICAOCode = iCAOCode;
             this.List = list;
@@ -90,7 +90,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Flag indicating the presence of MRZ on the document</value>
         [DataMember(Name="dMRZ", EmitDefaultValue=false)]
-        public bool DMRZ { get; set; }
+        public bool? DMRZ { get; set; }
 
         /// <summary>
         /// Document description
@@ -132,7 +132,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Whether the document is deprecated</value>
         [DataMember(Name="isDeprecated", EmitDefaultValue=false)]
-        public bool IsDeprecated { get; set; }
+        public bool? IsDeprecated { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
