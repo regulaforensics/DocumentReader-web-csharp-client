@@ -33,65 +33,154 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeviceInfo2" /> class.
         /// </summary>
-        /// <param name="app">app.</param>
-        /// <param name="licenseId">licenseId.</param>
-        /// <param name="licenseType">licenseType.</param>
-        /// <param name="licenseSerial">licenseSerial.</param>
-        /// <param name="licenseValidUntil">licenseValidUntil.</param>
-        /// <param name="scenarios">scenarios.</param>
-        /// <param name="version">version.</param>
-        public DeviceInfo2(string app = default(string), string licenseId = default(string), string licenseType = default(string), string licenseSerial = default(string), DateTime licenseValidUntil = default(DateTime), List<string> scenarios = default(List<string>), string version = default(string))
+        [JsonConstructorAttribute]
+        protected DeviceInfo2() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeviceInfo2" /> class.
+        /// </summary>
+        /// <param name="app">Application name. (required).</param>
+        /// <param name="licenseId">Unique license identifier. (required).</param>
+        /// <param name="licenseType">License type. (required).</param>
+        /// <param name="licenseSerial">License serial number. (required).</param>
+        /// <param name="licenseValidUntil">License validity date. (required).</param>
+        /// <param name="scenarios">List of supported scenarios. (required).</param>
+        /// <param name="version">Product version. (required).</param>
+        /// <param name="documentsDatabase">documentsDatabase.</param>
+        public DeviceInfo2(string app = default(string), string licenseId = default(string), string licenseType = default(string), string licenseSerial = default(string), DateTime? licenseValidUntil = default(DateTime?), List<string> scenarios = default(List<string>), string version = default(string), DeviceInfo2DocumentsDatabase documentsDatabase = default(DeviceInfo2DocumentsDatabase))
         {
-            this.App = app;
+            // to ensure "app" is required (not null)
+            if (app == null)
+            {
+                throw new InvalidDataException("app is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.App = app;
+            }
+            
+            // to ensure "licenseId" is required (not null)
+            if (licenseId == null)
+            {
+                throw new InvalidDataException("licenseId is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.LicenseId = licenseId;
+            }
+            
             this.LicenseId = licenseId;
+            // to ensure "licenseType" is required (not null)
+            if (licenseType == null)
+            {
+                throw new InvalidDataException("licenseType is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.LicenseType = licenseType;
+            }
+            
             this.LicenseType = licenseType;
+            // to ensure "licenseSerial" is required (not null)
+            if (licenseSerial == null)
+            {
+                throw new InvalidDataException("licenseSerial is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.LicenseSerial = licenseSerial;
+            }
+            
             this.LicenseSerial = licenseSerial;
+            // to ensure "licenseValidUntil" is required (not null)
+            if (licenseValidUntil == null)
+            {
+                throw new InvalidDataException("licenseValidUntil is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.LicenseValidUntil = licenseValidUntil;
+            }
+            
             this.LicenseValidUntil = licenseValidUntil;
+            // to ensure "scenarios" is required (not null)
+            if (scenarios == null)
+            {
+                throw new InvalidDataException("scenarios is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.Scenarios = scenarios;
+            }
+            
             this.Scenarios = scenarios;
+            // to ensure "version" is required (not null)
+            if (version == null)
+            {
+                throw new InvalidDataException("version is a required property for DeviceInfo2 and cannot be null");
+            }
+            else
+            {
+                this.Version = version;
+            }
+            
             this.Version = version;
+            this.DocumentsDatabase = documentsDatabase;
         }
         
         /// <summary>
-        /// Gets or Sets App
+        /// Application name.
         /// </summary>
-        [DataMember(Name="app", EmitDefaultValue=false)]
+        /// <value>Application name.</value>
+        [DataMember(Name="app", EmitDefaultValue=true)]
         public string App { get; set; }
 
         /// <summary>
-        /// Gets or Sets LicenseId
+        /// Unique license identifier.
         /// </summary>
-        [DataMember(Name="licenseId", EmitDefaultValue=false)]
+        /// <value>Unique license identifier.</value>
+        [DataMember(Name="licenseId", EmitDefaultValue=true)]
         public string LicenseId { get; set; }
 
         /// <summary>
-        /// Gets or Sets LicenseType
+        /// License type.
         /// </summary>
-        [DataMember(Name="licenseType", EmitDefaultValue=false)]
+        /// <value>License type.</value>
+        [DataMember(Name="licenseType", EmitDefaultValue=true)]
         public string LicenseType { get; set; }
 
         /// <summary>
-        /// Gets or Sets LicenseSerial
+        /// License serial number.
         /// </summary>
-        [DataMember(Name="licenseSerial", EmitDefaultValue=false)]
+        /// <value>License serial number.</value>
+        [DataMember(Name="licenseSerial", EmitDefaultValue=true)]
         public string LicenseSerial { get; set; }
 
         /// <summary>
-        /// Gets or Sets LicenseValidUntil
+        /// License validity date.
         /// </summary>
-        [DataMember(Name="licenseValidUntil", EmitDefaultValue=false)]
-        public DateTime LicenseValidUntil { get; set; }
+        /// <value>License validity date.</value>
+        [DataMember(Name="licenseValidUntil", EmitDefaultValue=true)]
+        public DateTime? LicenseValidUntil { get; set; }
 
         /// <summary>
-        /// Gets or Sets Scenarios
+        /// List of supported scenarios.
         /// </summary>
-        [DataMember(Name="scenarios", EmitDefaultValue=false)]
+        /// <value>List of supported scenarios.</value>
+        [DataMember(Name="scenarios", EmitDefaultValue=true)]
         public List<string> Scenarios { get; set; }
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Product version.
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
+        /// <value>Product version.</value>
+        [DataMember(Name="version", EmitDefaultValue=true)]
         public string Version { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DocumentsDatabase
+        /// </summary>
+        [DataMember(Name="documentsDatabase", EmitDefaultValue=false)]
+        public DeviceInfo2DocumentsDatabase DocumentsDatabase { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,6 +197,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  LicenseValidUntil: ").Append(LicenseValidUntil).Append("\n");
             sb.Append("  Scenarios: ").Append(Scenarios).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  DocumentsDatabase: ").Append(DocumentsDatabase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +267,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.Version == input.Version ||
                     (this.Version != null &&
                     this.Version.Equals(input.Version))
+                ) && 
+                (
+                    this.DocumentsDatabase == input.DocumentsDatabase ||
+                    (this.DocumentsDatabase != null &&
+                    this.DocumentsDatabase.Equals(input.DocumentsDatabase))
                 );
         }
 
@@ -203,6 +298,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.Scenarios.GetHashCode();
                 if (this.Version != null)
                     hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this.DocumentsDatabase != null)
+                    hashCode = hashCode * 59 + this.DocumentsDatabase.GetHashCode();
                 return hashCode;
             }
         }
