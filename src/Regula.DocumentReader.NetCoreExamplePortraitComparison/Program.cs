@@ -28,7 +28,7 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 
 			var whitePage0 = File.ReadAllBytes("WHITE.jpg");
 
-			var requestParams = new RecognitionParams()
+			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
 				.WithResultTypeOutput(new List<int>
 				{
@@ -67,19 +67,7 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
    
-			// text results
-			var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
-			var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
-			var docNumberMrz = docNumberField.GetValue(Source.MRZ);
-			var docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
-			var docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
-			var docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
-   
 			var docType = response.DocumentType();
-			
-			
-			var docAuthenticity = response.Authenticity();
-			var docIRB900 = docAuthenticity.IrB900Checks();
 			var info = api.Ping();
 			// var info = api.Ping(headers: authHeaders);
 			
@@ -88,12 +76,7 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
 			Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");
-			Console.WriteLine($"            Document Number Visual: {docNumberVisual}");
-			Console.WriteLine($"            Document Number MRZ: {docNumberMrz}", docNumberMrz);
 			Console.WriteLine($"            Document Name: {docType.DocumentName}");
-			Console.WriteLine($"Validity Of Document Number Visual: {docNumberVisualValidity}");
-			Console.WriteLine($"   Validity Of Document Number MRZ: {docNumberMrzValidity}");
-			Console.WriteLine($"      MRZ-Visual values comparison: {docNumberMrzVisualMatching}");
 			Console.WriteLine($"      Portrait Comparison Percents: {comparison.AuthenticityCheckList.List[0].List[0].PercentValue}");
 			Console.WriteLine("-----------------------All Text Fields------------------------");
 			foreach (var field in response.Text().FieldList)
