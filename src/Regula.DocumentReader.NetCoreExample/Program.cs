@@ -29,7 +29,7 @@ namespace Regula.DocumentReader.NetCoreExample
 			var irPage0 = File.ReadAllBytes("IR.jpg");
 			var uvPage0 = File.ReadAllBytes("UV.jpg");
 
-			var requestParams = new RecognitionParams()
+			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
 				.WithResultTypeOutput(new List<int>
 				{
@@ -43,12 +43,12 @@ namespace Regula.DocumentReader.NetCoreExample
 				})
 				.WithLog(false)
 				.WithProcessAuth(AuthenticityResultType.EXTENDED_MRZ_CHECK | AuthenticityResultType.EXTENDED_OCR_CHECK);
-
+			
 			var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
 			{
 				new ProcessRequestImage(new ImageDataExt(whitePage0), Light.WHITE),
-				new ProcessRequestImage(new ImageDataExt(irPage0), Light.IR),
-				new ProcessRequestImage(new ImageDataExt(uvPage0), Light.UV)
+				// new ProcessRequestImage(new ImageDataExt(irPage0), Light.IR),
+				// new ProcessRequestImage(new ImageDataExt(uvPage0), Light.UV)
 			});
 			var api = licenseFromEnv != null
 				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
@@ -69,27 +69,7 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
-			// text results
-			var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
-			var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
-			var docNumberMrz = docNumberField.GetValue(Source.MRZ);
-			var docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
-			var docNumberMrzValidity = docNumberField.SourceValidity(Source.MRZ);
-			var docNumberMrzVisualMatching = docNumberField.CrossSourceComparison(Source.MRZ, Source.VISUAL);
-
-			var docType = response.DocumentType();
-			
-			
-			var docAuthenticity = response.Authenticity();
-			var docIRB900 = docAuthenticity.IrB900Checks();
-			var docIRB900Blank = docIRB900?.ChecksByElement(SecurityFeatureType.BLANK);
-
-			var docImagePattern = docAuthenticity.ImagePatternChecks();
-			var docImagePatternBlank = docImagePattern?.ChecksByElement(SecurityFeatureType.BLANK);
-
-			var docImageQuality = response.ImageQualityChecks();
-
-			var info = api.Ping();
+			var docType = response.DocumentType(); var info = api.Ping();
 			// var info = api.Ping(headers: authHeaders);
 			
 			Console.WriteLine("-----------------------------------------------------------------");
@@ -97,12 +77,14 @@ namespace Regula.DocumentReader.NetCoreExample
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
 			Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");
-			Console.WriteLine($"            Document Number Visual: {docNumberVisual}");
-			Console.WriteLine($"            Document Number MRZ: {docNumberMrz}", docNumberMrz);
 			Console.WriteLine($"            Document Name: {docType.DocumentName}");
-			Console.WriteLine($"Validity Of Document Number Visual: {docNumberVisualValidity}");
-			Console.WriteLine($"   Validity Of Document Number MRZ: {docNumberMrzValidity}");
-			Console.WriteLine($"      MRZ-Visual values comparison: {docNumberMrzVisualMatching}");
+			
+			Console.WriteLine("-----------------------All Text Fields------------------------");
+
+			foreach (var field in response.Text().FieldList)
+			{
+				Console.WriteLine($"Source: {field.FieldName}, Value: {field.Value}");	
+			}
 			Console.WriteLine("-----------------------------------------------------------------");
 
 			// images results     
