@@ -95,7 +95,13 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			Console.WriteLine($"   Validity Of Document Number MRZ: {docNumberMrzValidity}");
 			Console.WriteLine($"      MRZ-Visual values comparison: {docNumberMrzVisualMatching}");
 			Console.WriteLine($"      Portrait Comparison Percents: {comparison.AuthenticityCheckList.List[0].List[0].PercentValue}");
+			Console.WriteLine("-----------------------All Text Fields------------------------");
+			foreach (var field in response.Text().FieldList)
+			{
+				Console.WriteLine($"Source: {field.FieldName}, Value: {field.Value}");	
+			}
 			Console.WriteLine("-----------------------------------------------------------------");
+
    
 			// images results     
 			var documentImage = response.Images().GetField(GraphicFieldType.DOCUMENT_FRONT).GetValue();

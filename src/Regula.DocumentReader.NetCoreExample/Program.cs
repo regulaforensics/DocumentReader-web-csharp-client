@@ -103,6 +103,13 @@ namespace Regula.DocumentReader.NetCoreExample
 			Console.WriteLine($"Validity Of Document Number Visual: {docNumberVisualValidity}");
 			Console.WriteLine($"   Validity Of Document Number MRZ: {docNumberMrzValidity}");
 			Console.WriteLine($"      MRZ-Visual values comparison: {docNumberMrzVisualMatching}");
+			
+			Console.WriteLine("-----------------------All Text Fields------------------------");
+
+			foreach (var field in response.Text().FieldList)
+			{
+				Console.WriteLine($"Source: {field.FieldName}, Value: {field.Value}");	
+			}
 			Console.WriteLine("-----------------------------------------------------------------");
 
 			// images results     
