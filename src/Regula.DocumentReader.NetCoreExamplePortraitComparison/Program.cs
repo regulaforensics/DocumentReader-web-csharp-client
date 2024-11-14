@@ -30,14 +30,14 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 
 			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
-				.WithResultTypeOutput(new List<int>
-				{
-					// actual results
-					Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-					Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.DOCUMENT_POSITION,
-					// Portrait comparison
-					Result.PORTRAIT_COMPARISON
-				})
+				// .WithResultTypeOutput(new List<int>
+				// {
+				// 	// actual results
+				// 	Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+				// 	Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.DOCUMENT_POSITION,
+				// 	// Portrait comparison
+				// 	Result.PORTRAIT_COMPARISON
+				// })
 				.WithFaceApi("https://faceapi.regulaforensics.com")
 				.WithAuthParam(new AuthParams(checkPhotoComparison: true))
 				.WithLog(false);
