@@ -31,18 +31,18 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
-				.WithResultTypeOutput(new List<int>
-				{
-					// actual results
-					Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-					Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.DOCUMENT_POSITION,
-					// legacy results
-					Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
-					Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
-					Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
-				})
-				.WithLog(false)
-				.WithProcessAuth(AuthenticityResultType.EXTENDED_MRZ_CHECK | AuthenticityResultType.EXTENDED_OCR_CHECK);
+				// .WithResultTypeOutput(new List<int>
+				// {
+				// 	// actual results
+				// 	Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+				// 	Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.DOCUMENT_POSITION,
+				// 	// legacy results
+				// 	Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
+				// 	Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
+				// 	Result.LEXICAL_ANALYSIS, Result.IMAGE_QUALITY
+				// })
+				// .WithProcessAuth(AuthenticityResultType.EXTENDED_MRZ_CHECK | AuthenticityResultType.EXTENDED_OCR_CHECK)
+				.WithLog(false);
 			
 			var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
 			{
