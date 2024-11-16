@@ -39,7 +39,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ImageData" /> class.
         /// </summary>
         /// <param name="image">Base64 encoded image (required).</param>
-        public ImageData(string image = default(string))
+        /// <param name="format">Image format.</param>
+        public ImageData(string image = default(string), string format = default(string))
         {
             // to ensure "image" is required (not null)
             if (image == null)
@@ -51,6 +52,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.Image = image;
             }
             
+            this.Format = format;
         }
         
         /// <summary>
@@ -61,6 +63,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public string Image { get; set; }
 
         /// <summary>
+        /// Image format
+        /// </summary>
+        /// <value>Image format</value>
+        [DataMember(Name="format", EmitDefaultValue=false)]
+        public string Format { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +78,7 @@ namespace Regula.DocumentReader.WebClient.Model
             var sb = new StringBuilder();
             sb.Append("class ImageData {\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
+            sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +117,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.Image == input.Image ||
                     (this.Image != null &&
                     this.Image.Equals(input.Image))
+                ) && 
+                (
+                    this.Format == input.Format ||
+                    (this.Format != null &&
+                    this.Format.Equals(input.Format))
                 );
         }
 
@@ -121,6 +136,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 int hashCode = 41;
                 if (this.Image != null)
                     hashCode = hashCode * 59 + this.Image.GetHashCode();
+                if (this.Format != null)
+                    hashCode = hashCode * 59 + this.Format.GetHashCode();
                 return hashCode;
             }
         }
