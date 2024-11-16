@@ -48,7 +48,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
-        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>))
+        /// <param name="imageUrls">URLs to the document images for processing..</param>
+        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), List<string> imageUrls = default(List<string>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -69,6 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ContainerList = containerList;
             this.SystemInfo = systemInfo;
             this.PassBackObject = passBackObject;
+            this.ImageUrls = imageUrls;
         }
         
         /// <summary>
@@ -138,6 +140,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public Dictionary<string, Object> PassBackObject { get; set; }
 
         /// <summary>
+        /// URLs to the document images for processing.
+        /// </summary>
+        /// <value>URLs to the document images for processing.</value>
+        [DataMember(Name="ImageUrls", EmitDefaultValue=false)]
+        public List<string> ImageUrls { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +164,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
             sb.Append("  SystemInfo: ").Append(SystemInfo).Append("\n");
             sb.Append("  PassBackObject: ").Append(PassBackObject).Append("\n");
+            sb.Append("  ImageUrls: ").Append(ImageUrls).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -240,6 +250,12 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.PassBackObject != null &&
                     input.PassBackObject != null &&
                     this.PassBackObject.SequenceEqual(input.PassBackObject)
+                ) && 
+                (
+                    this.ImageUrls == input.ImageUrls ||
+                    this.ImageUrls != null &&
+                    input.ImageUrls != null &&
+                    this.ImageUrls.SequenceEqual(input.ImageUrls)
                 );
         }
 
@@ -272,6 +288,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.SystemInfo.GetHashCode();
                 if (this.PassBackObject != null)
                     hashCode = hashCode * 59 + this.PassBackObject.GetHashCode();
+                if (this.ImageUrls != null)
+                    hashCode = hashCode * 59 + this.ImageUrls.GetHashCode();
                 return hashCode;
             }
         }

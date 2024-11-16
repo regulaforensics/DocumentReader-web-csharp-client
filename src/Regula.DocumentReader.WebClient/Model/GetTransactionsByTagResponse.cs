@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="id">Transaction id.</param>
         /// <param name="state">Transaction status.</param>
         /// <param name="updatedAt">Last time updated.</param>
-        public GetTransactionsByTagResponse(int id = default(int), int state = default(int), DateTime updatedAt = default(DateTime))
+        public GetTransactionsByTagResponse(Guid id = default(Guid), int state = default(int), DateTime updatedAt = default(DateTime))
         {
             this.Id = id;
             this.State = state;
@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Transaction id</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Transaction status

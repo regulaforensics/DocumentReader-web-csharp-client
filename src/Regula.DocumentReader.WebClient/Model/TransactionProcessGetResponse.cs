@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="tag">tag.</param>
         /// <param name="outData">outData.</param>
         /// <param name="inData">inData.</param>
-        public TransactionProcessGetResponse(int transactionId = default(int), string tag = default(string), OutData outData = default(OutData), InData inData = default(InData))
+        public TransactionProcessGetResponse(Guid transactionId = default(Guid), string tag = default(string), OutData outData = default(OutData), InData inData = default(InData))
         {
             this.TransactionId = transactionId;
             this.Tag = tag;
@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets TransactionId
         /// </summary>
         [DataMember(Name="transactionId", EmitDefaultValue=false)]
-        public int TransactionId { get; set; }
+        public Guid TransactionId { get; set; }
 
         /// <summary>
         /// Gets or Sets Tag

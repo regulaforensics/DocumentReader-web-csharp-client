@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// DocumentImageResult
+    /// Contains document image.
     /// </summary>
     [DataContract]
     public partial class DocumentImageResult : ResultItem,  IEquatable<DocumentImageResult>, IValidatableObject
