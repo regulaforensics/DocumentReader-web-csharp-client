@@ -25,49 +25,40 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// DocumentImage
+    /// ByteArrayResult
     /// </summary>
     [DataContract]
-    public partial class DocumentImage :  IEquatable<DocumentImage>, IValidatableObject
+    public partial class ByteArrayResult : ResultItem,  IEquatable<ByteArrayResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentImage" /> class.
+        /// Initializes a new instance of the <see cref="ByteArrayResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DocumentImage() { }
+        protected ByteArrayResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentImage" /> class.
+        /// Initializes a new instance of the <see cref="ByteArrayResult" /> class.
         /// </summary>
-        /// <param name="image">Base64 encoded image (required).</param>
-        /// <param name="format">Image format.</param>
-        public DocumentImage(string image = default(string), string format = default(string))
+        /// <param name="byteArray">Byte array in base64 (required).</param>
+        public ByteArrayResult(string byteArray = default(string), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            // to ensure "image" is required (not null)
-            if (image == null)
+            // to ensure "byteArray" is required (not null)
+            if (byteArray == null)
             {
-                throw new InvalidDataException("image is a required property for DocumentImage and cannot be null");
+                throw new InvalidDataException("byteArray is a required property for ByteArrayResult and cannot be null");
             }
             else
             {
-                this.Image = image;
+                this.ByteArray = byteArray;
             }
             
-            this.Format = format;
         }
         
         /// <summary>
-        /// Base64 encoded image
+        /// Byte array in base64
         /// </summary>
-        /// <value>Base64 encoded image</value>
-        [DataMember(Name="image", EmitDefaultValue=true)]
-        public string Image { get; set; }
-
-        /// <summary>
-        /// Image format
-        /// </summary>
-        /// <value>Image format</value>
-        [DataMember(Name="format", EmitDefaultValue=false)]
-        public string Format { get; set; }
+        /// <value>Byte array in base64</value>
+        [DataMember(Name="ByteArray", EmitDefaultValue=true)]
+        public string ByteArray { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,9 +67,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentImage {\n");
-            sb.Append("  Image: ").Append(Image).Append("\n");
-            sb.Append("  Format: ").Append(Format).Append("\n");
+            sb.Append("class ByteArrayResult {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  ByteArray: ").Append(ByteArray).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +78,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -99,29 +90,24 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocumentImage);
+            return this.Equals(input as ByteArrayResult);
         }
 
         /// <summary>
-        /// Returns true if DocumentImage instances are equal
+        /// Returns true if ByteArrayResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocumentImage to be compared</param>
+        /// <param name="input">Instance of ByteArrayResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentImage input)
+        public bool Equals(ByteArrayResult input)
         {
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
-                    this.Image == input.Image ||
-                    (this.Image != null &&
-                    this.Image.Equals(input.Image))
-                ) && 
-                (
-                    this.Format == input.Format ||
-                    (this.Format != null &&
-                    this.Format.Equals(input.Format))
+                    this.ByteArray == input.ByteArray ||
+                    (this.ByteArray != null &&
+                    this.ByteArray.Equals(input.ByteArray))
                 );
         }
 
@@ -133,11 +119,9 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
-                if (this.Image != null)
-                    hashCode = hashCode * 59 + this.Image.GetHashCode();
-                if (this.Format != null)
-                    hashCode = hashCode * 59 + this.Format.GetHashCode();
+                int hashCode = base.GetHashCode();
+                if (this.ByteArray != null)
+                    hashCode = hashCode * 59 + this.ByteArray.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,6 +133,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }
