@@ -38,6 +38,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParams" /> class.
         /// </summary>
+        /// <param name="generateDTCVC">This parameter is used to generate separate DTC-VC data container from RFID session data..</param>
         /// <param name="lcidFilter">The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default..</param>
         /// <param name="lcidIgnoreFilter">The list of LCID types to ignore during the recognition. If empty, values with all LCID types will be extracted. Narrowing down the list can reduce processing time. Empty by default..</param>
         /// <param name="oneShotIdentification">This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face.</param>
@@ -66,7 +67,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkRequiredTextFields">When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have &#39;error&#39; in validity status. Disabled by default..</param>
         /// <param name="returnCroppedBarcode">When enabled, returns cropped barcode images for unknown documents. Disabled by default..</param>
         /// <param name="imageQa">imageQa.</param>
-        /// <param name="respectImageQuality">When enabled, image quality checks status affects document optical and overall status. Disabled by default..</param>
+        /// <param name="strictImageQuality">When enabled, the image quality check status affects the document optical and overall status. Disabled by default..</param>
+        /// <param name="respectImageQuality">Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default..</param>
         /// <param name="forceDocFormat">forceDocFormat.</param>
         /// <param name="noGraphics">When enabled, no graphic fields will be cropped from document image. Disabled by default..</param>
         /// <param name="depersonalizeLog">When enabled, all personal data will be forcibly removed from the logs. Disabled by default..</param>
@@ -92,7 +94,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="authParams">authParams.</param>
         /// <param name="mrzDetectMode">mrzDetectMode.</param>
         /// <param name="generateNumericCodes">This parameter is used to generate numeric representation for issuing state and nationality codes.</param>
-        public ProcessParams(List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool? oneShotIdentification = default(bool?), bool? useFaceApi = default(bool?), FaceApi faceApi = default(FaceApi), bool? doDetectCan = default(bool?), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool? doublePageSpread = default(bool?), bool? generateDoublePageSpreadImage = default(bool?), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool? alreadyCropped = default(bool?), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool? log = default(bool?), string logLevel = default(string), int forceDocID = default(int), bool? matchTextFieldMask = default(bool?), bool? fastDocDetect = default(bool?), bool? updateOCRValidityByGlare = default(bool?), bool? checkRequiredTextFields = default(bool?), bool? returnCroppedBarcode = default(bool?), ImageQA imageQa = default(ImageQA), bool? respectImageQuality = default(bool?), int forceDocFormat = default(int), bool? noGraphics = default(bool?), bool? depersonalizeLog = default(bool?), bool? multiDocOnImage = default(bool?), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool? returnUncroppedImage = default(bool?), List<string> mrzFormatsFilter = default(List<string>), bool? forceReadMrzBeforeLocate = default(bool?), bool? parseBarcodes = default(bool?), int convertCase = default(int), bool? splitNames = default(bool?), bool? disablePerforationOCR = default(bool?), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool? ignoreDeviceIdFromImage = default(bool?), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool? checkAuth = default(bool?), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool? generateNumericCodes = default(bool?))
+        /// <param name="strictBarcodeDigitalSignatureCheck">This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed..</param>
+        /// <param name="selectLongestNames">Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc..</param>
+        public ProcessParams(bool? generateDTCVC = default(bool?), List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool? oneShotIdentification = default(bool?), bool? useFaceApi = default(bool?), FaceApi faceApi = default(FaceApi), bool? doDetectCan = default(bool?), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool? doublePageSpread = default(bool?), bool? generateDoublePageSpreadImage = default(bool?), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool? alreadyCropped = default(bool?), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool? log = default(bool?), string logLevel = default(string), int forceDocID = default(int), bool? matchTextFieldMask = default(bool?), bool? fastDocDetect = default(bool?), bool? updateOCRValidityByGlare = default(bool?), bool? checkRequiredTextFields = default(bool?), bool? returnCroppedBarcode = default(bool?), ImageQA imageQa = default(ImageQA), bool? strictImageQuality = default(bool?), bool? respectImageQuality = default(bool?), int forceDocFormat = default(int), bool? noGraphics = default(bool?), bool? depersonalizeLog = default(bool?), bool? multiDocOnImage = default(bool?), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool? returnUncroppedImage = default(bool?), List<string> mrzFormatsFilter = default(List<string>), bool? forceReadMrzBeforeLocate = default(bool?), bool? parseBarcodes = default(bool?), int convertCase = default(int), bool? splitNames = default(bool?), bool? disablePerforationOCR = default(bool?), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool? ignoreDeviceIdFromImage = default(bool?), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool? checkAuth = default(bool?), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool? generateNumericCodes = default(bool?), bool? strictBarcodeDigitalSignatureCheck = default(bool?), bool? selectLongestNames = default(bool?))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -104,6 +108,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.Scenario = scenario;
             }
             
+            this.GenerateDTCVC = generateDTCVC;
             this.LcidFilter = lcidFilter;
             this.LcidIgnoreFilter = lcidIgnoreFilter;
             this.OneShotIdentification = oneShotIdentification;
@@ -131,6 +136,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.CheckRequiredTextFields = checkRequiredTextFields;
             this.ReturnCroppedBarcode = returnCroppedBarcode;
             this.ImageQa = imageQa;
+            this.StrictImageQuality = strictImageQuality;
             this.RespectImageQuality = respectImageQuality;
             this.ForceDocFormat = forceDocFormat;
             this.NoGraphics = noGraphics;
@@ -157,8 +163,17 @@ namespace Regula.DocumentReader.WebClient.Model
             this.AuthParams = authParams;
             this.MrzDetectMode = mrzDetectMode;
             this.GenerateNumericCodes = generateNumericCodes;
+            this.StrictBarcodeDigitalSignatureCheck = strictBarcodeDigitalSignatureCheck;
+            this.SelectLongestNames = selectLongestNames;
         }
         
+        /// <summary>
+        /// This parameter is used to generate separate DTC-VC data container from RFID session data.
+        /// </summary>
+        /// <value>This parameter is used to generate separate DTC-VC data container from RFID session data.</value>
+        [DataMember(Name="generateDTCVC", EmitDefaultValue=false)]
+        public bool? GenerateDTCVC { get; set; }
+
         /// <summary>
         /// The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.
         /// </summary>
@@ -351,9 +366,16 @@ namespace Regula.DocumentReader.WebClient.Model
         public ImageQA ImageQa { get; set; }
 
         /// <summary>
-        /// When enabled, image quality checks status affects document optical and overall status. Disabled by default.
+        /// When enabled, the image quality check status affects the document optical and overall status. Disabled by default.
         /// </summary>
-        /// <value>When enabled, image quality checks status affects document optical and overall status. Disabled by default.</value>
+        /// <value>When enabled, the image quality check status affects the document optical and overall status. Disabled by default.</value>
+        [DataMember(Name="strictImageQuality", EmitDefaultValue=false)]
+        public bool? StrictImageQuality { get; set; }
+
+        /// <summary>
+        /// Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.
+        /// </summary>
+        /// <value>Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.</value>
         [DataMember(Name="respectImageQuality", EmitDefaultValue=false)]
         public bool? RespectImageQuality { get; set; }
 
@@ -528,6 +550,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? GenerateNumericCodes { get; set; }
 
         /// <summary>
+        /// This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.
+        /// </summary>
+        /// <value>This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.</value>
+        [DataMember(Name="strictBarcodeDigitalSignatureCheck", EmitDefaultValue=false)]
+        public bool? StrictBarcodeDigitalSignatureCheck { get; set; }
+
+        /// <summary>
+        /// Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc.
+        /// </summary>
+        /// <value>Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc.</value>
+        [DataMember(Name="selectLongestNames", EmitDefaultValue=false)]
+        public bool? SelectLongestNames { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -535,6 +571,7 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ProcessParams {\n");
+            sb.Append("  GenerateDTCVC: ").Append(GenerateDTCVC).Append("\n");
             sb.Append("  LcidFilter: ").Append(LcidFilter).Append("\n");
             sb.Append("  LcidIgnoreFilter: ").Append(LcidIgnoreFilter).Append("\n");
             sb.Append("  OneShotIdentification: ").Append(OneShotIdentification).Append("\n");
@@ -563,6 +600,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckRequiredTextFields: ").Append(CheckRequiredTextFields).Append("\n");
             sb.Append("  ReturnCroppedBarcode: ").Append(ReturnCroppedBarcode).Append("\n");
             sb.Append("  ImageQa: ").Append(ImageQa).Append("\n");
+            sb.Append("  StrictImageQuality: ").Append(StrictImageQuality).Append("\n");
             sb.Append("  RespectImageQuality: ").Append(RespectImageQuality).Append("\n");
             sb.Append("  ForceDocFormat: ").Append(ForceDocFormat).Append("\n");
             sb.Append("  NoGraphics: ").Append(NoGraphics).Append("\n");
@@ -589,6 +627,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  AuthParams: ").Append(AuthParams).Append("\n");
             sb.Append("  MrzDetectMode: ").Append(MrzDetectMode).Append("\n");
             sb.Append("  GenerateNumericCodes: ").Append(GenerateNumericCodes).Append("\n");
+            sb.Append("  StrictBarcodeDigitalSignatureCheck: ").Append(StrictBarcodeDigitalSignatureCheck).Append("\n");
+            sb.Append("  SelectLongestNames: ").Append(SelectLongestNames).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -623,6 +663,11 @@ namespace Regula.DocumentReader.WebClient.Model
                 return false;
 
             return 
+                (
+                    this.GenerateDTCVC == input.GenerateDTCVC ||
+                    (this.GenerateDTCVC != null &&
+                    this.GenerateDTCVC.Equals(input.GenerateDTCVC))
+                ) && 
                 (
                     this.LcidFilter == input.LcidFilter ||
                     this.LcidFilter != null &&
@@ -770,6 +815,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ImageQa.Equals(input.ImageQa))
                 ) && 
                 (
+                    this.StrictImageQuality == input.StrictImageQuality ||
+                    (this.StrictImageQuality != null &&
+                    this.StrictImageQuality.Equals(input.StrictImageQuality))
+                ) && 
+                (
                     this.RespectImageQuality == input.RespectImageQuality ||
                     (this.RespectImageQuality != null &&
                     this.RespectImageQuality.Equals(input.RespectImageQuality))
@@ -901,6 +951,16 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.GenerateNumericCodes == input.GenerateNumericCodes ||
                     (this.GenerateNumericCodes != null &&
                     this.GenerateNumericCodes.Equals(input.GenerateNumericCodes))
+                ) && 
+                (
+                    this.StrictBarcodeDigitalSignatureCheck == input.StrictBarcodeDigitalSignatureCheck ||
+                    (this.StrictBarcodeDigitalSignatureCheck != null &&
+                    this.StrictBarcodeDigitalSignatureCheck.Equals(input.StrictBarcodeDigitalSignatureCheck))
+                ) && 
+                (
+                    this.SelectLongestNames == input.SelectLongestNames ||
+                    (this.SelectLongestNames != null &&
+                    this.SelectLongestNames.Equals(input.SelectLongestNames))
                 );
         }
 
@@ -913,6 +973,8 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.GenerateDTCVC != null)
+                    hashCode = hashCode * 59 + this.GenerateDTCVC.GetHashCode();
                 if (this.LcidFilter != null)
                     hashCode = hashCode * 59 + this.LcidFilter.GetHashCode();
                 if (this.LcidIgnoreFilter != null)
@@ -969,6 +1031,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ReturnCroppedBarcode.GetHashCode();
                 if (this.ImageQa != null)
                     hashCode = hashCode * 59 + this.ImageQa.GetHashCode();
+                if (this.StrictImageQuality != null)
+                    hashCode = hashCode * 59 + this.StrictImageQuality.GetHashCode();
                 if (this.RespectImageQuality != null)
                     hashCode = hashCode * 59 + this.RespectImageQuality.GetHashCode();
                 if (this.ForceDocFormat != null)
@@ -1021,6 +1085,10 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.MrzDetectMode.GetHashCode();
                 if (this.GenerateNumericCodes != null)
                     hashCode = hashCode * 59 + this.GenerateNumericCodes.GetHashCode();
+                if (this.StrictBarcodeDigitalSignatureCheck != null)
+                    hashCode = hashCode * 59 + this.StrictBarcodeDigitalSignatureCheck.GetHashCode();
+                if (this.SelectLongestNames != null)
+                    hashCode = hashCode * 59 + this.SelectLongestNames.GetHashCode();
                 return hashCode;
             }
         }

@@ -25,49 +25,53 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// TransactionProcessGetResponse
+    /// Document database information
     /// </summary>
     [DataContract]
-    public partial class TransactionProcessGetResponse :  IEquatable<TransactionProcessGetResponse>, IValidatableObject
+    public partial class DocumentsDatabase :  IEquatable<DocumentsDatabase>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionProcessGetResponse" /> class.
+        /// Initializes a new instance of the <see cref="DocumentsDatabase" /> class.
         /// </summary>
-        /// <param name="transactionId">transactionId.</param>
-        /// <param name="tag">tag.</param>
-        /// <param name="outData">outData.</param>
-        /// <param name="inData">inData.</param>
-        public TransactionProcessGetResponse(Guid transactionId = default(Guid), string tag = default(string), OutData outData = default(OutData), InData inData = default(InData))
+        /// <param name="description">Document database description.</param>
+        /// <param name="exportDate">Date the document database was created.</param>
+        /// <param name="iD">Document database identifier.</param>
+        /// <param name="version">Document database version.</param>
+        public DocumentsDatabase(string description = default(string), string exportDate = default(string), string iD = default(string), string version = default(string))
         {
-            this.TransactionId = transactionId;
-            this.Tag = tag;
-            this.OutData = outData;
-            this.InData = inData;
+            this.Description = description;
+            this.ExportDate = exportDate;
+            this.ID = iD;
+            this.Version = version;
         }
         
         /// <summary>
-        /// Gets or Sets TransactionId
+        /// Document database description
         /// </summary>
-        [DataMember(Name="transactionId", EmitDefaultValue=false)]
-        public Guid TransactionId { get; set; }
+        /// <value>Document database description</value>
+        [DataMember(Name="Description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tag
+        /// Date the document database was created
         /// </summary>
-        [DataMember(Name="tag", EmitDefaultValue=false)]
-        public string Tag { get; set; }
+        /// <value>Date the document database was created</value>
+        [DataMember(Name="ExportDate", EmitDefaultValue=false)]
+        public string ExportDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets OutData
+        /// Document database identifier
         /// </summary>
-        [DataMember(Name="outData", EmitDefaultValue=false)]
-        public OutData OutData { get; set; }
+        /// <value>Document database identifier</value>
+        [DataMember(Name="ID", EmitDefaultValue=false)]
+        public string ID { get; set; }
 
         /// <summary>
-        /// Gets or Sets InData
+        /// Document database version
         /// </summary>
-        [DataMember(Name="inData", EmitDefaultValue=false)]
-        public InData InData { get; set; }
+        /// <value>Document database version</value>
+        [DataMember(Name="Version", EmitDefaultValue=false)]
+        public string Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,11 +80,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionProcessGetResponse {\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  Tag: ").Append(Tag).Append("\n");
-            sb.Append("  OutData: ").Append(OutData).Append("\n");
-            sb.Append("  InData: ").Append(InData).Append("\n");
+            sb.Append("class DocumentsDatabase {\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  ExportDate: ").Append(ExportDate).Append("\n");
+            sb.Append("  ID: ").Append(ID).Append("\n");
+            sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,39 +105,39 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionProcessGetResponse);
+            return this.Equals(input as DocumentsDatabase);
         }
 
         /// <summary>
-        /// Returns true if TransactionProcessGetResponse instances are equal
+        /// Returns true if DocumentsDatabase instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionProcessGetResponse to be compared</param>
+        /// <param name="input">Instance of DocumentsDatabase to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionProcessGetResponse input)
+        public bool Equals(DocumentsDatabase input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.TransactionId == input.TransactionId ||
-                    (this.TransactionId != null &&
-                    this.TransactionId.Equals(input.TransactionId))
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Tag == input.Tag ||
-                    (this.Tag != null &&
-                    this.Tag.Equals(input.Tag))
+                    this.ExportDate == input.ExportDate ||
+                    (this.ExportDate != null &&
+                    this.ExportDate.Equals(input.ExportDate))
                 ) && 
                 (
-                    this.OutData == input.OutData ||
-                    (this.OutData != null &&
-                    this.OutData.Equals(input.OutData))
+                    this.ID == input.ID ||
+                    (this.ID != null &&
+                    this.ID.Equals(input.ID))
                 ) && 
                 (
-                    this.InData == input.InData ||
-                    (this.InData != null &&
-                    this.InData.Equals(input.InData))
+                    this.Version == input.Version ||
+                    (this.Version != null &&
+                    this.Version.Equals(input.Version))
                 );
         }
 
@@ -146,14 +150,14 @@ namespace Regula.DocumentReader.WebClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TransactionId != null)
-                    hashCode = hashCode * 59 + this.TransactionId.GetHashCode();
-                if (this.Tag != null)
-                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
-                if (this.OutData != null)
-                    hashCode = hashCode * 59 + this.OutData.GetHashCode();
-                if (this.InData != null)
-                    hashCode = hashCode * 59 + this.InData.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.ExportDate != null)
+                    hashCode = hashCode * 59 + this.ExportDate.GetHashCode();
+                if (this.ID != null)
+                    hashCode = hashCode * 59 + this.ID.GetHashCode();
+                if (this.Version != null)
+                    hashCode = hashCode * 59 + this.Version.GetHashCode();
                 return hashCode;
             }
         }
