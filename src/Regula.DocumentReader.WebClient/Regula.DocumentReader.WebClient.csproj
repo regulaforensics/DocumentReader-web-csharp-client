@@ -18,7 +18,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="112.0.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
-    <PackageReference Include="DotNetZip" Version="1.16.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
   </ItemGroup>
 </Project>
