@@ -33,41 +33,80 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionInfo" /> class.
         /// </summary>
-        /// <param name="computerName">computerName.</param>
-        /// <param name="dateTime">dateTime.</param>
-        /// <param name="transactionID">transactionID.</param>
-        /// <param name="userName">userName.</param>
-        public TransactionInfo(string computerName = default(string), string dateTime = default(string), string transactionID = default(string), string userName = default(string))
+        /// <param name="computerName">Computer name.</param>
+        /// <param name="dateTime">Date and time.</param>
+        /// <param name="documentsDatabase">documentsDatabase.</param>
+        /// <param name="systemInfo">System information.</param>
+        /// <param name="tag">Transaction tag.</param>
+        /// <param name="transactionID">Transaction identifier.</param>
+        /// <param name="userName">User name.</param>
+        /// <param name="version">SDK version.</param>
+        public TransactionInfo(string computerName = default(string), string dateTime = default(string), DocumentsDatabase documentsDatabase = default(DocumentsDatabase), string systemInfo = default(string), string tag = default(string), string transactionID = default(string), string userName = default(string), string version = default(string))
         {
             this.ComputerName = computerName;
             this.DateTime = dateTime;
+            this.DocumentsDatabase = documentsDatabase;
+            this.SystemInfo = systemInfo;
+            this.Tag = tag;
             this.TransactionID = transactionID;
             this.UserName = userName;
+            this.Version = version;
         }
         
         /// <summary>
-        /// Gets or Sets ComputerName
+        /// Computer name
         /// </summary>
+        /// <value>Computer name</value>
         [DataMember(Name="ComputerName", EmitDefaultValue=false)]
         public string ComputerName { get; set; }
 
         /// <summary>
-        /// Gets or Sets DateTime
+        /// Date and time
         /// </summary>
+        /// <value>Date and time</value>
         [DataMember(Name="DateTime", EmitDefaultValue=false)]
         public string DateTime { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionID
+        /// Gets or Sets DocumentsDatabase
         /// </summary>
+        [DataMember(Name="DocumentsDatabase", EmitDefaultValue=false)]
+        public DocumentsDatabase DocumentsDatabase { get; set; }
+
+        /// <summary>
+        /// System information
+        /// </summary>
+        /// <value>System information</value>
+        [DataMember(Name="SystemInfo", EmitDefaultValue=false)]
+        public string SystemInfo { get; set; }
+
+        /// <summary>
+        /// Transaction tag
+        /// </summary>
+        /// <value>Transaction tag</value>
+        [DataMember(Name="Tag", EmitDefaultValue=false)]
+        public string Tag { get; set; }
+
+        /// <summary>
+        /// Transaction identifier
+        /// </summary>
+        /// <value>Transaction identifier</value>
         [DataMember(Name="TransactionID", EmitDefaultValue=false)]
         public string TransactionID { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserName
+        /// User name
         /// </summary>
+        /// <value>User name</value>
         [DataMember(Name="UserName", EmitDefaultValue=false)]
         public string UserName { get; set; }
+
+        /// <summary>
+        /// SDK version
+        /// </summary>
+        /// <value>SDK version</value>
+        [DataMember(Name="Version", EmitDefaultValue=false)]
+        public string Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,8 +118,12 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("class TransactionInfo {\n");
             sb.Append("  ComputerName: ").Append(ComputerName).Append("\n");
             sb.Append("  DateTime: ").Append(DateTime).Append("\n");
+            sb.Append("  DocumentsDatabase: ").Append(DocumentsDatabase).Append("\n");
+            sb.Append("  SystemInfo: ").Append(SystemInfo).Append("\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
             sb.Append("  TransactionID: ").Append(TransactionID).Append("\n");
             sb.Append("  UserName: ").Append(UserName).Append("\n");
+            sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,6 +169,21 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.DateTime.Equals(input.DateTime))
                 ) && 
                 (
+                    this.DocumentsDatabase == input.DocumentsDatabase ||
+                    (this.DocumentsDatabase != null &&
+                    this.DocumentsDatabase.Equals(input.DocumentsDatabase))
+                ) && 
+                (
+                    this.SystemInfo == input.SystemInfo ||
+                    (this.SystemInfo != null &&
+                    this.SystemInfo.Equals(input.SystemInfo))
+                ) && 
+                (
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
+                ) && 
+                (
                     this.TransactionID == input.TransactionID ||
                     (this.TransactionID != null &&
                     this.TransactionID.Equals(input.TransactionID))
@@ -134,6 +192,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.UserName == input.UserName ||
                     (this.UserName != null &&
                     this.UserName.Equals(input.UserName))
+                ) && 
+                (
+                    this.Version == input.Version ||
+                    (this.Version != null &&
+                    this.Version.Equals(input.Version))
                 );
         }
 
@@ -150,10 +213,18 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ComputerName.GetHashCode();
                 if (this.DateTime != null)
                     hashCode = hashCode * 59 + this.DateTime.GetHashCode();
+                if (this.DocumentsDatabase != null)
+                    hashCode = hashCode * 59 + this.DocumentsDatabase.GetHashCode();
+                if (this.SystemInfo != null)
+                    hashCode = hashCode * 59 + this.SystemInfo.GetHashCode();
+                if (this.Tag != null)
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
                 if (this.TransactionID != null)
                     hashCode = hashCode * 59 + this.TransactionID.GetHashCode();
                 if (this.UserName != null)
                     hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                if (this.Version != null)
+                    hashCode = hashCode * 59 + this.Version.GetHashCode();
                 return hashCode;
             }
         }
