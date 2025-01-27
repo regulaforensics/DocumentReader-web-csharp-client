@@ -18,3 +18,4 @@ src/Regula.DocumentReader.WebClient/Model/ContainerList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
 **/*AllOf.cs
 src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
+src/Regula.DocumentReader.WebClient/Model/TrfFtString.cs

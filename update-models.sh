@@ -13,3 +13,4 @@ openapitools/openapi-generator-cli:v5.0.0 generate \
 -c /client/csharp-generator-config.json \
 --global-property models \
 --import-mappings $ENUM_MAPPINGS
+
