@@ -25,29 +25,29 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Structure is used to store an array of binary information that is a part of one of the informational data groups
+    /// Structure is used to store information about the numeric field (4 bytes) that is a part of one of the informational data groups.
     /// </summary>
     [DataContract]
-    public partial class TrfFtBytes :  IEquatable<TrfFtBytes>, IValidatableObject
+    public partial class TrfFtString :  IEquatable<TrfFtString>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TrfFtBytes" /> class.
+        /// Initializes a new instance of the <see cref="TrfFtString" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TrfFtBytes() { }
+        protected TrfFtString() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TrfFtBytes" /> class.
+        /// Initializes a new instance of the <see cref="TrfFtString" /> class.
         /// </summary>
-        /// <param name="type">Logical type of the field (required).</param>
+        /// <param name="type">type (required).</param>
         /// <param name="status">Result of logical analysis of compliance of the contents of the field with the requirements of the specification (required).</param>
-        /// <param name="length">Length of Data array (required).</param>
-        /// <param name="data">Binary data array. Base64 encoded. (required).</param>
-        public TrfFtBytes(DocVisualExtendedFieldRfid type = default(DocVisualExtendedFieldRfid), decimal status = default(decimal), decimal length = default(decimal), string data = default(string))
+        /// <param name="format">Mask of format of text information (for example, «YYMMDD» for date of birth) (required).</param>
+        /// <param name="data">Numeric value. (required).</param>
+        public TrfFtString(DocVisualExtendedFieldRfid type = default(DocVisualExtendedFieldRfid), ParsingNotificationCodes status = default(ParsingNotificationCodes), string format = default(string), string data = default(string))
         {
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new InvalidDataException("type is a required property for TrfFtBytes and cannot be null");
+                throw new InvalidDataException("type is a required property for TrfFtString and cannot be null");
             }
             else
             {
@@ -57,27 +57,27 @@ namespace Regula.DocumentReader.WebClient.Model
             // to ensure "status" is required (not null)
             if (status == null)
             {
-                throw new InvalidDataException("status is a required property for TrfFtBytes and cannot be null");
+                throw new InvalidDataException("status is a required property for TrfFtString and cannot be null");
             }
             else
             {
                 this.Status = status;
             }
             
-            // to ensure "length" is required (not null)
-            if (length == null)
+            // to ensure "format" is required (not null)
+            if (format == null)
             {
-                throw new InvalidDataException("length is a required property for TrfFtBytes and cannot be null");
+                throw new InvalidDataException("format is a required property for TrfFtString and cannot be null");
             }
             else
             {
-                this.Length = length;
+                this.Format = format;
             }
             
             // to ensure "data" is required (not null)
             if (data == null)
             {
-                throw new InvalidDataException("data is a required property for TrfFtBytes and cannot be null");
+                throw new InvalidDataException("data is a required property for TrfFtString and cannot be null");
             }
             else
             {
@@ -87,9 +87,8 @@ namespace Regula.DocumentReader.WebClient.Model
         }
         
         /// <summary>
-        /// Logical type of the field
+        /// Gets or Sets Type
         /// </summary>
-        /// <value>Logical type of the field</value>
         [DataMember(Name="Type", EmitDefaultValue=true)]
         public DocVisualExtendedFieldRfid Type { get; set; }
 
@@ -98,19 +97,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Result of logical analysis of compliance of the contents of the field with the requirements of the specification</value>
         [DataMember(Name="Status", EmitDefaultValue=true)]
-        public decimal Status { get; set; }
+        public ParsingNotificationCodes Status { get; set; }
 
         /// <summary>
-        /// Length of Data array
+        /// Mask of format of text information (for example, «YYMMDD» for date of birth)
         /// </summary>
-        /// <value>Length of Data array</value>
-        [DataMember(Name="Length", EmitDefaultValue=true)]
-        public decimal Length { get; set; }
+        /// <value>Mask of format of text information (for example, «YYMMDD» for date of birth)</value>
+        [DataMember(Name="Format", EmitDefaultValue=true)]
+        public string Format { get; set; }
 
         /// <summary>
-        /// Binary data array. Base64 encoded.
+        /// Numeric value.
         /// </summary>
-        /// <value>Binary data array. Base64 encoded.</value>
+        /// <value>Numeric value.</value>
         [DataMember(Name="Data", EmitDefaultValue=true)]
         public string Data { get; set; }
 
@@ -121,10 +120,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TrfFtBytes {\n");
+            sb.Append("class TrfFtString {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Length: ").Append(Length).Append("\n");
+            sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -146,15 +145,15 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TrfFtBytes);
+            return this.Equals(input as TrfFtString);
         }
 
         /// <summary>
-        /// Returns true if TrfFtBytes instances are equal
+        /// Returns true if TrfFtString instances are equal
         /// </summary>
-        /// <param name="input">Instance of TrfFtBytes to be compared</param>
+        /// <param name="input">Instance of TrfFtString to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TrfFtBytes input)
+        public bool Equals(TrfFtString input)
         {
             if (input == null)
                 return false;
@@ -171,9 +170,9 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Length == input.Length ||
-                    (this.Length != null &&
-                    this.Length.Equals(input.Length))
+                    this.Format == input.Format ||
+                    (this.Format != null &&
+                    this.Format.Equals(input.Format))
                 ) && 
                 (
                     this.Data == input.Data ||
@@ -195,8 +194,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Length != null)
-                    hashCode = hashCode * 59 + this.Length.GetHashCode();
+                if (this.Format != null)
+                    hashCode = hashCode * 59 + this.Format.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="percentValue">percentValue.</param>
         /// <param name="elementType">elementType (required).</param>
         /// <param name="lightIndex">lightIndex (required).</param>
-        /// <param name="area">area (required).</param>
+        /// <param name="area">area.</param>
         /// <param name="image">image (required).</param>
         /// <param name="etalonImage">etalonImage (required).</param>
         /// <param name="areaList">areaList.</param>
@@ -80,16 +80,6 @@ namespace Regula.DocumentReader.WebClient.Model
                 this.LightIndex = lightIndex;
             }
             
-            // to ensure "area" is required (not null)
-            if (area == null)
-            {
-                throw new InvalidDataException("area is a required property for IdentResult and cannot be null");
-            }
-            else
-            {
-                this.Area = area;
-            }
-            
             // to ensure "image" is required (not null)
             if (image == null)
             {
@@ -113,6 +103,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ElementResult = elementResult;
             this.ElementDiagnose = elementDiagnose;
             this.PercentValue = percentValue;
+            this.Area = area;
             this.AreaList = areaList;
         }
         
@@ -156,7 +147,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets Area
         /// </summary>
-        [DataMember(Name="Area", EmitDefaultValue=true)]
+        [DataMember(Name="Area", EmitDefaultValue=false)]
         public RectangleCoordinates Area { get; set; }
 
         /// <summary>

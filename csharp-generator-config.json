@@ -1,7 +1,11 @@
 {
   "packageName": "Regula.DocumentReader.WebClient",
   "typeMappings": {
-    "boolean": "bool?"
+    "boolean": "bool?",
+    "AnyOfGraphicFieldRectGraphicFieldRfid": "GraphicField",
+    "AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid": "DocVisualExtendedFieldRfid",
+    "AnyOfGraphicFieldTypeTextFieldType": "DocVisualExtendedFieldRfid"
+    
   },
   "nullableReferenceTypes": true,
   "optionalAssemblyInfo": true,

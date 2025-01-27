@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="pArrayFields">pArrayFields (required).</param>
         /// <param name="nFields">Number of pArrayFields array elements (required).</param>
-        public GraphicFieldsList(List<AnyOfGraphicFieldRectGraphicFieldRfid> pArrayFields = default(List<AnyOfGraphicFieldRectGraphicFieldRfid>), decimal nFields = default(decimal))
+        public GraphicFieldsList(List<GraphicField> pArrayFields = default(List<GraphicField>), decimal nFields = default(decimal))
         {
             // to ensure "pArrayFields" is required (not null)
             if (pArrayFields == null)
@@ -68,7 +68,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PArrayFields
         /// </summary>
         [DataMember(Name="pArrayFields", EmitDefaultValue=true)]
-        public List<AnyOfGraphicFieldRectGraphicFieldRfid> PArrayFields { get; set; }
+        public List<GraphicField> PArrayFields { get; set; }
 
         /// <summary>
         /// Number of pArrayFields array elements

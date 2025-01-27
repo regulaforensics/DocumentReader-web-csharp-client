@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="nFields">Number of pArrayFields array elements (required).</param>
         /// <param name="pArrayFields">pArrayFields (required).</param>
-        public DocVisualExtendedInfo(decimal nFields = default(decimal), List<AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid> pArrayFields = default(List<AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid>))
+        public DocVisualExtendedInfo(decimal nFields = default(decimal), List<DocVisualExtendedFieldRfid> pArrayFields = default(List<DocVisualExtendedFieldRfid>))
         {
             // to ensure "nFields" is required (not null)
             if (nFields == null)
@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PArrayFields
         /// </summary>
         [DataMember(Name="pArrayFields", EmitDefaultValue=true)]
-        public List<AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid> PArrayFields { get; set; }
+        public List<DocVisualExtendedFieldRfid> PArrayFields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
