@@ -9,19 +9,14 @@
  */
 
 using System;
-using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
+using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
 
 namespace Regula.DocumentReader.WebClient.Model
 {
@@ -29,12 +24,23 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Common fields for all authenticity result objects
     /// </summary>
     [DataContract]
-    [JsonConverter(typeof(JsonSubtypes), "type")]
-    [JsonSubtypes.KnownSubType(typeof(PhotoIdentResult), "PhotoIdentResult")]
-    [JsonSubtypes.KnownSubType(typeof(OCRSecurityTextResult), "OCRSecurityTextResult")]
-    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), "SecurityFeatureResult")]
-    [JsonSubtypes.KnownSubType(typeof(IdentResult), "IdentResult")]
-    [JsonSubtypes.KnownSubType(typeof(FiberResult), "FiberResult")]
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.UV_LUMINESCENCE)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.IR_B900)]
+    [JsonSubtypes.KnownSubType(typeof(IdentResult), AuthenticityResultType.IMAGE_PATTERN)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.AXIAL_PROTECTION)]
+    [JsonSubtypes.KnownSubType(typeof(FiberResult), AuthenticityResultType.UV_FIBERS)]
+    [JsonSubtypes.KnownSubType(typeof(IdentResult), AuthenticityResultType.IR_VISIBILITY)]
+    [JsonSubtypes.KnownSubType(typeof(OCRSecurityTextResult), AuthenticityResultType.OCR_SECURITY_TEXT)]
+    [JsonSubtypes.KnownSubType(typeof(ImageIdentChecks), AuthenticityResultType.IPI)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.PHOTO_EMBED_TYPE)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.HOLOGRAMS)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.OVI)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.PHOTO_AREA)]
+    [JsonSubtypes.KnownSubType(typeof(IdentResult), AuthenticityResultType.PORTRAIT_COMPARISON)]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), AuthenticityResultType.BARCODE_FORMAT_CHECK)]
+    [JsonSubtypes.KnownSubType(typeof(IdentResult), AuthenticityResultType.KINEGRAM)]
+    [JsonSubtypes.KnownSubType(typeof(IdentResult), AuthenticityResultType.LETTER_SCREEN)]
     public partial class AuthenticityCheckResultItem :  IEquatable<AuthenticityCheckResultItem>, IValidatableObject
     {
         /// <summary>
