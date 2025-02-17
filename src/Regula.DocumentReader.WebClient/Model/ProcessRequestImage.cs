@@ -33,26 +33,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ProcessRequestImage() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessRequestImage" /> class.
-        /// </summary>
-        /// <param name="imageData">imageData (required).</param>
+        /// <param name="imageData">imageData.</param>
         /// <param name="light">light.</param>
         /// <param name="pageIdx">page/image number.</param>
         public ProcessRequestImage(ImageData imageData = default(ImageData), int light = default(int), int pageIdx = default(int))
         {
-            // to ensure "imageData" is required (not null)
-            if (imageData == null)
-            {
-                throw new InvalidDataException("imageData is a required property for ProcessRequestImage and cannot be null");
-            }
-            else
-            {
-                this.ImageData = imageData;
-            }
-            
+            this.ImageData = imageData;
             this.Light = light;
             this.PageIdx = pageIdx;
         }
@@ -60,7 +46,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets ImageData
         /// </summary>
-        [DataMember(Name="ImageData", EmitDefaultValue=true)]
+        [DataMember(Name="ImageData", EmitDefaultValue=false)]
         public ImageData ImageData { get; set; }
 
         /// <summary>
