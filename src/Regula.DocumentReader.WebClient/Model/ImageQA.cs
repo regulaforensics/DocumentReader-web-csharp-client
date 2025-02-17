@@ -40,7 +40,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="glaresCheck">This option enables glares check while performing image quality validation..</param>
         /// <param name="colornessCheck">This option enables colorness check while performing image quality validation..</param>
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
-        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool? focusCheck = default(bool?), bool? glaresCheck = default(bool?), bool? colornessCheck = default(bool?), int documentPositionIndent = default(int))
+        /// <param name="expectedPass">This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process..</param>
+        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool? focusCheck = default(bool?), bool? glaresCheck = default(bool?), bool? colornessCheck = default(bool?), int documentPositionIndent = default(int), List<InputImageQualityChecks> expectedPass = default(List<InputImageQualityChecks>))
         {
             this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;
@@ -49,6 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.GlaresCheck = glaresCheck;
             this.ColornessCheck = colornessCheck;
             this.DocumentPositionIndent = documentPositionIndent;
+            this.ExpectedPass = expectedPass;
         }
         
         /// <summary>
@@ -101,6 +103,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public int DocumentPositionIndent { get; set; }
 
         /// <summary>
+        /// This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.
+        /// </summary>
+        /// <value>This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.</value>
+        [DataMember(Name="expectedPass", EmitDefaultValue=false)]
+        public List<InputImageQualityChecks> ExpectedPass { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  GlaresCheck: ").Append(GlaresCheck).Append("\n");
             sb.Append("  ColornessCheck: ").Append(ColornessCheck).Append("\n");
             sb.Append("  DocumentPositionIndent: ").Append(DocumentPositionIndent).Append("\n");
+            sb.Append("  ExpectedPass: ").Append(ExpectedPass).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +193,12 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.DocumentPositionIndent == input.DocumentPositionIndent ||
                     (this.DocumentPositionIndent != null &&
                     this.DocumentPositionIndent.Equals(input.DocumentPositionIndent))
+                ) && 
+                (
+                    this.ExpectedPass == input.ExpectedPass ||
+                    this.ExpectedPass != null &&
+                    input.ExpectedPass != null &&
+                    this.ExpectedPass.SequenceEqual(input.ExpectedPass)
                 );
         }
 
@@ -209,6 +225,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ColornessCheck.GetHashCode();
                 if (this.DocumentPositionIndent != null)
                     hashCode = hashCode * 59 + this.DocumentPositionIndent.GetHashCode();
+                if (this.ExpectedPass != null)
+                    hashCode = hashCode * 59 + this.ExpectedPass.GetHashCode();
                 return hashCode;
             }
         }
