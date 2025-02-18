@@ -41,7 +41,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="proxy">Proxy to use, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXY.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;..</param>
         /// <param name="proxyUserpwd">Username and password to use for proxy authentication, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;..</param>
         /// <param name="proxyType">Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;..</param>
-        public FaceApi(string url = default(string), string mode = default(string), FaceApiSearch search = default(FaceApiSearch), int threshold = default(int), int serviceTimeout = default(int), string proxy = default(string), string proxyUserpwd = default(string), int proxyType = default(int))
+        /// <param name="childAgeThreshold">Minimum age of a child, at which portrait comparison result will be effective. Default: 13..</param>
+        /// <param name="childDocValidityYears">Estimated duration of validity for a child&#39;s passport, years. Default: 5..</param>
+        public FaceApi(string url = default(string), string mode = default(string), FaceApiSearch search = default(FaceApiSearch), int threshold = default(int), int serviceTimeout = default(int), string proxy = default(string), string proxyUserpwd = default(string), int proxyType = default(int), int childAgeThreshold = default(int), int childDocValidityYears = default(int))
         {
             this.Url = url;
             this.Mode = mode;
@@ -51,6 +53,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Proxy = proxy;
             this.ProxyUserpwd = proxyUserpwd;
             this.ProxyType = proxyType;
+            this.ChildAgeThreshold = childAgeThreshold;
+            this.ChildDocValidityYears = childDocValidityYears;
         }
         
         /// <summary>
@@ -109,6 +113,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public int ProxyType { get; set; }
 
         /// <summary>
+        /// Minimum age of a child, at which portrait comparison result will be effective. Default: 13.
+        /// </summary>
+        /// <value>Minimum age of a child, at which portrait comparison result will be effective. Default: 13.</value>
+        [DataMember(Name="childAgeThreshold", EmitDefaultValue=false)]
+        public int ChildAgeThreshold { get; set; }
+
+        /// <summary>
+        /// Estimated duration of validity for a child&#39;s passport, years. Default: 5.
+        /// </summary>
+        /// <value>Estimated duration of validity for a child&#39;s passport, years. Default: 5.</value>
+        [DataMember(Name="childDocValidityYears", EmitDefaultValue=false)]
+        public int ChildDocValidityYears { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -124,6 +142,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Proxy: ").Append(Proxy).Append("\n");
             sb.Append("  ProxyUserpwd: ").Append(ProxyUserpwd).Append("\n");
             sb.Append("  ProxyType: ").Append(ProxyType).Append("\n");
+            sb.Append("  ChildAgeThreshold: ").Append(ChildAgeThreshold).Append("\n");
+            sb.Append("  ChildDocValidityYears: ").Append(ChildDocValidityYears).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,6 +217,16 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.ProxyType == input.ProxyType ||
                     (this.ProxyType != null &&
                     this.ProxyType.Equals(input.ProxyType))
+                ) && 
+                (
+                    this.ChildAgeThreshold == input.ChildAgeThreshold ||
+                    (this.ChildAgeThreshold != null &&
+                    this.ChildAgeThreshold.Equals(input.ChildAgeThreshold))
+                ) && 
+                (
+                    this.ChildDocValidityYears == input.ChildDocValidityYears ||
+                    (this.ChildDocValidityYears != null &&
+                    this.ChildDocValidityYears.Equals(input.ChildDocValidityYears))
                 );
         }
 
@@ -225,6 +255,10 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.ProxyUserpwd.GetHashCode();
                 if (this.ProxyType != null)
                     hashCode = hashCode * 59 + this.ProxyType.GetHashCode();
+                if (this.ChildAgeThreshold != null)
+                    hashCode = hashCode * 59 + this.ChildAgeThreshold.GetHashCode();
+                if (this.ChildDocValidityYears != null)
+                    hashCode = hashCode * 59 + this.ChildDocValidityYears.GetHashCode();
                 return hashCode;
             }
         }
