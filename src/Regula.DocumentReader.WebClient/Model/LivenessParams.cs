@@ -37,12 +37,16 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkMLI">This parameter is used to enable MLI check.</param>
         /// <param name="checkHolo">This parameter is used to enable Hologram detection.</param>
         /// <param name="checkED">This parameter is used to enable Electronic device detection.</param>
-        public LivenessParams(bool? checkOVI = default(bool?), bool? checkMLI = default(bool?), bool? checkHolo = default(bool?), bool? checkED = default(bool?))
+        /// <param name="checkBlackAndWhiteCopy">This parameter is used to enable Black and white copy check.</param>
+        /// <param name="checkDynaprint">This parameter is used to enable Dynaprint check.</param>
+        public LivenessParams(bool? checkOVI = default(bool?), bool? checkMLI = default(bool?), bool? checkHolo = default(bool?), bool? checkED = default(bool?), bool? checkBlackAndWhiteCopy = default(bool?), bool? checkDynaprint = default(bool?))
         {
             this.CheckOVI = checkOVI;
             this.CheckMLI = checkMLI;
             this.CheckHolo = checkHolo;
             this.CheckED = checkED;
+            this.CheckBlackAndWhiteCopy = checkBlackAndWhiteCopy;
+            this.CheckDynaprint = checkDynaprint;
         }
         
         /// <summary>
@@ -74,6 +78,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckED { get; set; }
 
         /// <summary>
+        /// This parameter is used to enable Black and white copy check
+        /// </summary>
+        /// <value>This parameter is used to enable Black and white copy check</value>
+        [DataMember(Name="checkBlackAndWhiteCopy", EmitDefaultValue=false)]
+        public bool? CheckBlackAndWhiteCopy { get; set; }
+
+        /// <summary>
+        /// This parameter is used to enable Dynaprint check
+        /// </summary>
+        /// <value>This parameter is used to enable Dynaprint check</value>
+        [DataMember(Name="checkDynaprint", EmitDefaultValue=false)]
+        public bool? CheckDynaprint { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +103,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckMLI: ").Append(CheckMLI).Append("\n");
             sb.Append("  CheckHolo: ").Append(CheckHolo).Append("\n");
             sb.Append("  CheckED: ").Append(CheckED).Append("\n");
+            sb.Append("  CheckBlackAndWhiteCopy: ").Append(CheckBlackAndWhiteCopy).Append("\n");
+            sb.Append("  CheckDynaprint: ").Append(CheckDynaprint).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +158,16 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.CheckED == input.CheckED ||
                     (this.CheckED != null &&
                     this.CheckED.Equals(input.CheckED))
+                ) && 
+                (
+                    this.CheckBlackAndWhiteCopy == input.CheckBlackAndWhiteCopy ||
+                    (this.CheckBlackAndWhiteCopy != null &&
+                    this.CheckBlackAndWhiteCopy.Equals(input.CheckBlackAndWhiteCopy))
+                ) && 
+                (
+                    this.CheckDynaprint == input.CheckDynaprint ||
+                    (this.CheckDynaprint != null &&
+                    this.CheckDynaprint.Equals(input.CheckDynaprint))
                 );
         }
 
@@ -158,6 +188,10 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.CheckHolo.GetHashCode();
                 if (this.CheckED != null)
                     hashCode = hashCode * 59 + this.CheckED.GetHashCode();
+                if (this.CheckBlackAndWhiteCopy != null)
+                    hashCode = hashCode * 59 + this.CheckBlackAndWhiteCopy.GetHashCode();
+                if (this.CheckDynaprint != null)
+                    hashCode = hashCode * 59 + this.CheckDynaprint.GetHashCode();
                 return hashCode;
             }
         }
