@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
             LightOption = light;
             ListIdxOption = listIdx;
             PageIdxOption = pageIdx;
-            ResultType = this.GetType().Name;
+            ResultType = 0;
             OnCreated();
         }
 
@@ -176,74 +176,78 @@ namespace Regula.DocumentReader.WebClient.Model
 
             string? discriminator = ClientUtils.GetDiscriminator(utf8JsonReader, "result_type");
 
-            if (discriminator != null && discriminator.Equals("AuthenticityResult"))
-                return JsonSerializer.Deserialize<AuthenticityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("ByteArrayResult"))
-                return JsonSerializer.Deserialize<ByteArrayResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("ChosenDocumentTypeResult"))
-                return JsonSerializer.Deserialize<ChosenDocumentTypeResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("DocBarCodeInfo"))
-                return JsonSerializer.Deserialize<DocBarCodeInfo>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("DocumentBinaryInfoResult"))
-                return JsonSerializer.Deserialize<DocumentBinaryInfoResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("DocumentImageResult"))
+            if (discriminator != null && discriminator.Equals("1"))
                 return JsonSerializer.Deserialize<DocumentImageResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("DocumentPositionResult"))
-                return JsonSerializer.Deserialize<DocumentPositionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("DocumentTypesCandidatesResult"))
-                return JsonSerializer.Deserialize<DocumentTypesCandidatesResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("EncryptedRCLResult"))
-                return JsonSerializer.Deserialize<EncryptedRCLResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("FaceDetectionResult"))
-                return JsonSerializer.Deserialize<FaceDetectionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("GraphicsResult"))
-                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("ImageQualityResult"))
-                return JsonSerializer.Deserialize<ImageQualityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("ImagesResult"))
-                return JsonSerializer.Deserialize<ImagesResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("LexicalAnalysisResult"))
-                return JsonSerializer.Deserialize<LexicalAnalysisResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("LicenseResult"))
-                return JsonSerializer.Deserialize<LicenseResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("MRZDetectorResult"))
-                return JsonSerializer.Deserialize<MRZDetectorResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("MRZPositionResult"))
-                return JsonSerializer.Deserialize<MRZPositionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("MRZTestQualityResult"))
-                return JsonSerializer.Deserialize<MRZTestQualityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("RFIDGraphicsInfoResult"))
-                return JsonSerializer.Deserialize<RFIDGraphicsInfoResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("RFIDTextDataResult"))
+            if (discriminator != null && discriminator.Equals("101"))
+                return JsonSerializer.Deserialize<DocumentBinaryInfoResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("102"))
                 return JsonSerializer.Deserialize<RFIDTextDataResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("StatusResult"))
-                return JsonSerializer.Deserialize<StatusResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("TextDataResult"))
+            if (discriminator != null && discriminator.Equals("103"))
+                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("104"))
+                return JsonSerializer.Deserialize<DocumentBinaryInfoResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("105"))
+                return JsonSerializer.Deserialize<RFIDGraphicsInfoResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("109"))
+                return JsonSerializer.Deserialize<ByteArrayResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("15"))
+                return JsonSerializer.Deserialize<LexicalAnalysisResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("16"))
+                return JsonSerializer.Deserialize<DocumentImageResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("17"))
                 return JsonSerializer.Deserialize<TextDataResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("TextResult"))
+            if (discriminator != null && discriminator.Equals("18"))
+                return JsonSerializer.Deserialize<TextDataResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("19"))
+                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("20"))
+                return JsonSerializer.Deserialize<AuthenticityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("26"))
+                return JsonSerializer.Deserialize<TextDataResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("3"))
+                return JsonSerializer.Deserialize<TextDataResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("30"))
+                return JsonSerializer.Deserialize<ImageQualityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("32"))
+                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("33"))
+                return JsonSerializer.Deserialize<StatusResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("34"))
+                return JsonSerializer.Deserialize<AuthenticityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("35"))
+                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("36"))
                 return JsonSerializer.Deserialize<TextResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("37"))
+                return JsonSerializer.Deserialize<ImagesResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("38"))
+                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("39"))
+                return JsonSerializer.Deserialize<AuthenticityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("49"))
+                return JsonSerializer.Deserialize<EncryptedRCLResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("5"))
+                return JsonSerializer.Deserialize<DocBarCodeInfo>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("50"))
+                return JsonSerializer.Deserialize<LicenseResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("6"))
+                return JsonSerializer.Deserialize<GraphicsResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("61"))
+                return JsonSerializer.Deserialize<MRZPositionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("62"))
+                return JsonSerializer.Deserialize<DocumentPositionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("7"))
+                return JsonSerializer.Deserialize<MRZTestQualityResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("8"))
+                return JsonSerializer.Deserialize<DocumentTypesCandidatesResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("85"))
+                return JsonSerializer.Deserialize<DocumentPositionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("87"))
+                return JsonSerializer.Deserialize<MRZDetectorResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("9"))
+                return JsonSerializer.Deserialize<ChosenDocumentTypeResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("97"))
+                return JsonSerializer.Deserialize<FaceDetectionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
 
             while (utf8JsonReader.Read())
             {
@@ -458,7 +462,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (resultItem.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", resultItem.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", resultItem.ResultType);
+            writer.WriteNumber("result_type", resultItem.ResultType);
         }
     }
 }

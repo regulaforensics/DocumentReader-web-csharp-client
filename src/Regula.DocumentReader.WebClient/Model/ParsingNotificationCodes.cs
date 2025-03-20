@@ -29,7 +29,7 @@ namespace Regula.DocumentReader.WebClient.Model
     /// The enumeration contains possible values of notification codes returned during the RFID chip processing.
     /// </summary>
     /// <value>The enumeration contains possible values of notification codes returned during the RFID chip processing.</value>
-    public enum ParsingNotificationCodes
+    public enum ParsingNotificationCodes: long
     {
         /// <summary>
         /// Enum ntfLDS_ASN_Certificate_IncorrectVersion for value: 2415919105

@@ -210,7 +210,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (imagesResult.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", imagesResult.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", imagesResult.ResultType);
+            writer.WriteNumber("result_type", imagesResult.ResultType);
         }
     }
 }

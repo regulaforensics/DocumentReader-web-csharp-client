@@ -38,14 +38,16 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkHolo">This parameter is used to enable Hologram detection</param>
         /// <param name="checkED">This parameter is used to enable Electronic device detection</param>
         /// <param name="checkBlackAndWhiteCopy">This parameter is used to enable Black and white copy check</param>
+        /// <param name="checkDynaprint">This parameter is used to enable Dynaprint check</param>
         [JsonConstructor]
-        public LivenessParams(Option<bool?> checkOVI = default, Option<bool?> checkMLI = default, Option<bool?> checkHolo = default, Option<bool?> checkED = default, Option<bool?> checkBlackAndWhiteCopy = default)
+        public LivenessParams(Option<bool?> checkOVI = default, Option<bool?> checkMLI = default, Option<bool?> checkHolo = default, Option<bool?> checkED = default, Option<bool?> checkBlackAndWhiteCopy = default, Option<bool?> checkDynaprint = default)
         {
             CheckOVIOption = checkOVI;
             CheckMLIOption = checkMLI;
             CheckHoloOption = checkHolo;
             CheckEDOption = checkED;
             CheckBlackAndWhiteCopyOption = checkBlackAndWhiteCopy;
+            CheckDynaprintOption = checkDynaprint;
             OnCreated();
         }
 
@@ -122,6 +124,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckBlackAndWhiteCopy { get { return this.CheckBlackAndWhiteCopyOption; } set { this.CheckBlackAndWhiteCopyOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of CheckDynaprint
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> CheckDynaprintOption { get; private set; }
+
+        /// <summary>
+        /// This parameter is used to enable Dynaprint check
+        /// </summary>
+        /// <value>This parameter is used to enable Dynaprint check</value>
+        [JsonPropertyName("checkDynaprint")]
+        public bool? CheckDynaprint { get { return this.CheckDynaprintOption; } set { this.CheckDynaprintOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,6 +150,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckHolo: ").Append(CheckHolo).Append("\n");
             sb.Append("  CheckED: ").Append(CheckED).Append("\n");
             sb.Append("  CheckBlackAndWhiteCopy: ").Append(CheckBlackAndWhiteCopy).Append("\n");
+            sb.Append("  CheckDynaprint: ").Append(CheckDynaprint).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,6 +193,7 @@ namespace Regula.DocumentReader.WebClient.Model
             Option<bool?> checkHolo = default;
             Option<bool?> checkED = default;
             Option<bool?> checkBlackAndWhiteCopy = default;
+            Option<bool?> checkDynaprint = default;
 
             while (utf8JsonReader.Read())
             {
@@ -212,6 +230,10 @@ namespace Regula.DocumentReader.WebClient.Model
                             if (utf8JsonReader.TokenType != JsonTokenType.Null)
                                 checkBlackAndWhiteCopy = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
+                        case "checkDynaprint":
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                checkDynaprint = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            break;
                         default:
                             break;
                     }
@@ -233,7 +255,10 @@ namespace Regula.DocumentReader.WebClient.Model
             if (checkBlackAndWhiteCopy.IsSet && checkBlackAndWhiteCopy.Value == null)
                 throw new ArgumentNullException(nameof(checkBlackAndWhiteCopy), "Property is not nullable for class LivenessParams.");
 
-            return new LivenessParams(checkOVI, checkMLI, checkHolo, checkED, checkBlackAndWhiteCopy);
+            if (checkDynaprint.IsSet && checkDynaprint.Value == null)
+                throw new ArgumentNullException(nameof(checkDynaprint), "Property is not nullable for class LivenessParams.");
+
+            return new LivenessParams(checkOVI, checkMLI, checkHolo, checkED, checkBlackAndWhiteCopy, checkDynaprint);
         }
 
         /// <summary>
@@ -274,6 +299,9 @@ namespace Regula.DocumentReader.WebClient.Model
 
             if (livenessParams.CheckBlackAndWhiteCopyOption.IsSet)
                 writer.WriteBoolean("checkBlackAndWhiteCopy", livenessParams.CheckBlackAndWhiteCopyOption.Value!.Value);
+
+            if (livenessParams.CheckDynaprintOption.IsSet)
+                writer.WriteBoolean("checkDynaprint", livenessParams.CheckDynaprintOption.Value!.Value);
         }
     }
 }

@@ -30,7 +30,6 @@ src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckListItem.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultItem.cs
-src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultListInner.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResult.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResultType.cs
 src/Regula.DocumentReader.WebClient/Model/BarCodeModuleType.cs
@@ -47,7 +46,6 @@ src/Regula.DocumentReader.WebClient/Model/CheckResult.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentType.cs
 src/Regula.DocumentReader.WebClient/Model/ChosenDocumentTypeResult.cs
 src/Regula.DocumentReader.WebClient/Model/ContainerList.cs
-src/Regula.DocumentReader.WebClient/Model/ContainerListListInner.cs
 src/Regula.DocumentReader.WebClient/Model/Critical.cs
 src/Regula.DocumentReader.WebClient/Model/CrossSourceValueComparison.cs
 src/Regula.DocumentReader.WebClient/Model/DataModule.cs
@@ -241,8 +239,6 @@ src/Regula.DocumentReader.WebClient/Model/TransactionImage.cs
 src/Regula.DocumentReader.WebClient/Model/TransactionInfo.cs
 src/Regula.DocumentReader.WebClient/Model/TransactionProcessGetResponse.cs
 src/Regula.DocumentReader.WebClient/Model/TransactionProcessRequest.cs
-src/Regula.DocumentReader.WebClient/Model/TransactionProcessResponse.cs
-src/Regula.DocumentReader.WebClient/Model/TransactionProcessResponseItem.cs
 src/Regula.DocumentReader.WebClient/Model/TransactionProcessResult.cs
 src/Regula.DocumentReader.WebClient/Model/TrfFtBytes.cs
 src/Regula.DocumentReader.WebClient/Model/TrfFtString.cs

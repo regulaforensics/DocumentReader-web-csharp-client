@@ -210,7 +210,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (rFIDTextDataResult.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", rFIDTextDataResult.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", rFIDTextDataResult.ResultType);
+            writer.WriteNumber("result_type", rFIDTextDataResult.ResultType);
         }
     }
 }

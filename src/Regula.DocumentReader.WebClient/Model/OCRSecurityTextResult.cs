@@ -426,7 +426,7 @@ namespace Regula.DocumentReader.WebClient.Model
 
             writer.WriteString("EtalonResultOCR", oCRSecurityTextResult.EtalonResultOCR);
 
-            writer.WriteString("Type", oCRSecurityTextResult.Type);
+            writer.WriteNumber("Type", oCRSecurityTextResult.Type);
 
             if (oCRSecurityTextResult.ElementResultOption.IsSet)
             {

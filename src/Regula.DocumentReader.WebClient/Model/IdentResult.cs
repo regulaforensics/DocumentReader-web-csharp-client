@@ -318,7 +318,7 @@ namespace Regula.DocumentReader.WebClient.Model
             JsonSerializer.Serialize(writer, identResult.Image, jsonSerializerOptions);
             writer.WritePropertyName("EtalonImage");
             JsonSerializer.Serialize(writer, identResult.EtalonImage, jsonSerializerOptions);
-            writer.WriteString("Type", identResult.Type);
+            writer.WriteNumber("Type", identResult.Type);
 
             if (identResult.ElementResultOption.IsSet)
             {

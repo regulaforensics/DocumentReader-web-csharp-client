@@ -314,7 +314,7 @@ namespace Regula.DocumentReader.WebClient.Model
             var criticalFlagRawValue = CriticalValueConverter.ToJsonValue(securityFeatureResult.CriticalFlag);
             writer.WriteNumber("CriticalFlag", criticalFlagRawValue);
 
-            writer.WriteString("Type", securityFeatureResult.Type);
+            writer.WriteNumber("Type", securityFeatureResult.Type);
 
             if (securityFeatureResult.ElementResultOption.IsSet)
             {

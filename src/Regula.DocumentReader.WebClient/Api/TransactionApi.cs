@@ -297,7 +297,7 @@ namespace Regula.DocumentReader.WebClient.Api
     /// <summary>
     /// The <see cref="IApiV2TransactionTransactionIdResultsGetApiResponse"/>
     /// </summary>
-    public interface IApiV2TransactionTransactionIdResultsGetApiResponse : Regula.DocumentReader.WebClient.Client.IApiResponse, IOk<Regula.DocumentReader.WebClient.Model.TransactionProcessResponse?>
+    public interface IApiV2TransactionTransactionIdResultsGetApiResponse : Regula.DocumentReader.WebClient.Client.IApiResponse, IOk<Regula.DocumentReader.WebClient.Model.ProcessResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -1812,11 +1812,11 @@ namespace Regula.DocumentReader.WebClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Regula.DocumentReader.WebClient.Model.TransactionProcessResponse? Ok()
+            public Regula.DocumentReader.WebClient.Model.ProcessResponse? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.TransactionProcessResponse>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.ProcessResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -1825,7 +1825,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.TransactionProcessResponse? result)
+            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.ProcessResponse? result)
             {
                 result = null;
 

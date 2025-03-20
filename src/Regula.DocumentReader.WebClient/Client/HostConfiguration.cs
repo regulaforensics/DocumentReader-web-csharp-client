@@ -303,8 +303,6 @@ namespace Regula.DocumentReader.WebClient.Client
             _jsonOptions.Converters.Add(new TransactionInfoJsonConverter());
             _jsonOptions.Converters.Add(new TransactionProcessGetResponseJsonConverter());
             _jsonOptions.Converters.Add(new TransactionProcessRequestJsonConverter());
-            _jsonOptions.Converters.Add(new TransactionProcessResponseJsonConverter());
-            _jsonOptions.Converters.Add(new TransactionProcessResponseItemJsonConverter());
             _jsonOptions.Converters.Add(new TransactionProcessResultJsonConverter());
             _jsonOptions.Converters.Add(new TrfFtBytesJsonConverter());
             _jsonOptions.Converters.Add(new TrfFtStringJsonConverter());

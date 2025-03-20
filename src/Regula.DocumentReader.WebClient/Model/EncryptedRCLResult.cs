@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Base64 encoded data
         /// </summary>
         /// <value>Base64 encoded data</value>
-        /* <example>[B@3209469d</example> */
+        /* <example>[B@5eefd7ba</example> */
         [JsonPropertyName("EncryptedRCL")]
         public byte[] EncryptedRCL { get; set; }
 
@@ -212,7 +212,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (encryptedRCLResult.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", encryptedRCLResult.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", encryptedRCLResult.ResultType);
+            writer.WriteNumber("result_type", encryptedRCLResult.ResultType);
         }
     }
 }

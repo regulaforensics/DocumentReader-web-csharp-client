@@ -9,4 +9,5 @@ openapitools/openapi-generator-cli:v7.12.0 generate \
 -g csharp \
 -i /definitions/index.yml \
 -o /client/ --openapi-normalizer REF_AS_PARENT_IN_ALLOF=true \
+-t /client/generator-templates \
 -c /client/csharp-generator-config.json || exit 1

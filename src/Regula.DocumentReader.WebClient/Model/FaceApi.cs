@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="proxy">Proxy to use, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXY.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.</param>
         /// <param name="proxyUserpwd">Username and password to use for proxy authentication, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.</param>
         /// <param name="proxyType">Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.</param>
-        /// <param name="childAgeThreshold">Minimum age of a child, at which portrait comparison result will be effective. Default: 13.</param>
+        /// <param name="childAgeThreshold">The age threshold for the portrait comparison. Default: 13.</param>
         /// <param name="childDocValidityYears">Estimated duration of validity for a child&#39;s passport, years. Default: 5.</param>
         [JsonConstructor]
         public FaceApi(Option<string?> url = default, Option<string?> mode = default, Option<FaceApiSearch?> search = default, Option<int?> threshold = default, Option<int?> serviceTimeout = default, Option<string?> proxy = default, Option<string?> proxyUserpwd = default, Option<int?> proxyType = default, Option<int?> childAgeThreshold = default, Option<int?> childDocValidityYears = default)
@@ -187,9 +187,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public Option<int?> ChildAgeThresholdOption { get; private set; }
 
         /// <summary>
-        /// Minimum age of a child, at which portrait comparison result will be effective. Default: 13.
+        /// The age threshold for the portrait comparison. Default: 13.
         /// </summary>
-        /// <value>Minimum age of a child, at which portrait comparison result will be effective. Default: 13.</value>
+        /// <value>The age threshold for the portrait comparison. Default: 13.</value>
         /* <example>13</example> */
         [JsonPropertyName("childAgeThreshold")]
         public int? ChildAgeThreshold { get { return this.ChildAgeThresholdOption; } set { this.ChildAgeThresholdOption = new(value); } }

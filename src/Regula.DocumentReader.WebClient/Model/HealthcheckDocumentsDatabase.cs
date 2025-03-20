@@ -38,7 +38,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="exportDate">Date of database creation.</param>
         /// <param name="description">Description of the database contents, such as the list of supported countries and documents.</param>
         [JsonConstructor]
-        public HealthcheckDocumentsDatabase(string? id = default, string? varVersion = default, DateOnly? exportDate = default, string? description = default)
+        public HealthcheckDocumentsDatabase(string? id = default, string? varVersion = default, string? exportDate = default, string? description = default)
         {
             Id = id;
             VarVersion = varVersion;
@@ -68,7 +68,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Date of database creation.</value>
         [JsonPropertyName("exportDate")]
-        public DateOnly? ExportDate { get; set; }
+        public string? ExportDate { get; set; }
 
         /// <summary>
         /// Description of the database contents, such as the list of supported countries and documents.
@@ -110,11 +110,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public class HealthcheckDocumentsDatabaseJsonConverter : JsonConverter<HealthcheckDocumentsDatabase>
     {
         /// <summary>
-        /// The format to use to serialize ExportDate
-        /// </summary>
-        public static string ExportDateFormat { get; set; } = "yyyy'-'MM'-'dd";
-
-        /// <summary>
         /// Deserializes json to <see cref="HealthcheckDocumentsDatabase" />
         /// </summary>
         /// <param name="utf8JsonReader"></param>
@@ -133,7 +128,7 @@ namespace Regula.DocumentReader.WebClient.Model
 
             Option<string?> id = default;
             Option<string?> varVersion = default;
-            Option<DateOnly?> exportDate = default;
+            Option<string?> exportDate = default;
             Option<string?> description = default;
 
             while (utf8JsonReader.Read())
@@ -158,8 +153,7 @@ namespace Regula.DocumentReader.WebClient.Model
                             varVersion = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "exportDate":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                exportDate = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly?>(ref utf8JsonReader, jsonSerializerOptions));
+                            exportDate = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "description":
                             description = new Option<string?>(utf8JsonReader.GetString());
@@ -220,7 +214,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 writer.WriteNull("version");
 
             if (healthcheckDocumentsDatabase.ExportDate != null)
-                writer.WriteString("exportDate", healthcheckDocumentsDatabase.ExportDate.Value.ToString(ExportDateFormat));
+                writer.WriteString("exportDate", healthcheckDocumentsDatabase.ExportDate);
             else
                 writer.WriteNull("exportDate");
 

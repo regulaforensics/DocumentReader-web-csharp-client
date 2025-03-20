@@ -29,7 +29,7 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Enumeration contains a set of error codes returned by SDK
     /// </summary>
     /// <value>Enumeration contains a set of error codes returned by SDK</value>
-    public enum RFIDErrorCodes
+    public enum RFIDErrorCodes: long
     {
         /// <summary>
         /// Enum RFID_ERROR_LAYER6_FILE_EOF1 for value: 2147508866

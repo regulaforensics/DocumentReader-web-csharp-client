@@ -436,7 +436,7 @@ namespace Regula.DocumentReader.WebClient.Model
             JsonSerializer.Serialize(writer, photoIdentResult.SourceImage, jsonSerializerOptions);
             writer.WritePropertyName("ResultImages");
             JsonSerializer.Serialize(writer, photoIdentResult.ResultImages, jsonSerializerOptions);
-            writer.WriteString("Type", photoIdentResult.Type);
+            writer.WriteNumber("Type", photoIdentResult.Type);
 
             if (photoIdentResult.ElementResultOption.IsSet)
             {

@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Base64 encoded data
         /// </summary>
         /// <value>Base64 encoded data</value>
-        /* <example>[B@528027e0</example> */
+        /* <example>[B@24eabda6</example> */
         [JsonPropertyName("License")]
         public byte[] License { get; set; }
 
@@ -212,7 +212,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (licenseResult.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", licenseResult.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", licenseResult.ResultType);
+            writer.WriteNumber("result_type", licenseResult.ResultType);
         }
     }
 }

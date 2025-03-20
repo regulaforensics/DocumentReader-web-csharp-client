@@ -236,7 +236,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (chosenDocumentTypeResult.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", chosenDocumentTypeResult.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", chosenDocumentTypeResult.ResultType);
+            writer.WriteNumber("result_type", chosenDocumentTypeResult.ResultType);
 
             if (chosenDocumentTypeResult.XMLBufferOption.IsSet)
                 writer.WriteString("XML_buffer", chosenDocumentTypeResult.XMLBuffer);

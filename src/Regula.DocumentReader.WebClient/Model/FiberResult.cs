@@ -393,7 +393,7 @@ namespace Regula.DocumentReader.WebClient.Model
             JsonSerializer.Serialize(writer, fiberResult.Area, jsonSerializerOptions);
             writer.WritePropertyName("ColorValues");
             JsonSerializer.Serialize(writer, fiberResult.ColorValues, jsonSerializerOptions);
-            writer.WriteString("Type", fiberResult.Type);
+            writer.WriteNumber("Type", fiberResult.Type);
 
             if (fiberResult.ElementResultOption.IsSet)
             {

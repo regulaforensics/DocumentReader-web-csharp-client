@@ -29,7 +29,7 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Image light index
     /// </summary>
     /// <value>Image light index</value>
-    public enum Light
+    public enum Light: long
     {
         /// <summary>
         /// Enum OFF for value: 0

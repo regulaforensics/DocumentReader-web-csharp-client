@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         [JsonConstructor]
         public AuthenticityCheckResultItem(Option<CheckResult?> elementResult = default, Option<CheckDiagnose?> elementDiagnose = default, Option<int?> percentValue = default)
         {
-            Type = this.GetType().Name;
+            Type = 0;
             ElementResultOption = elementResult;
             ElementDiagnoseOption = elementDiagnose;
             PercentValueOption = percentValue;
@@ -159,19 +159,49 @@ namespace Regula.DocumentReader.WebClient.Model
 
             string? discriminator = ClientUtils.GetDiscriminator(utf8JsonReader, "Type");
 
-            if (discriminator != null && discriminator.Equals("FiberResult"))
-                return JsonSerializer.Deserialize<FiberResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("IdentResult"))
+            if (discriminator != null && discriminator.Equals("1"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("1024"))
                 return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("OCRSecurityTextResult"))
-                return JsonSerializer.Deserialize<OCRSecurityTextResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("PhotoIdentResult"))
+            if (discriminator != null && discriminator.Equals("1048576"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("128"))
                 return JsonSerializer.Deserialize<PhotoIdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
-            if (discriminator != null && discriminator.Equals("SecurityFeatureResult"))
+            if (discriminator != null && discriminator.Equals("131072"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("16"))
+                return JsonSerializer.Deserialize<FiberResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("16384"))
+                return JsonSerializer.Deserialize<FiberResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("2"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("2048"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("256"))
+                return JsonSerializer.Deserialize<PhotoIdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("262144"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("32"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("32768"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("4"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("4096"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("512"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("524288"))
+                return JsonSerializer.Deserialize<IdentResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("64"))
+                return JsonSerializer.Deserialize<OCRSecurityTextResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("65536"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("8"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("8192"))
+                return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
+            if (discriminator != null && discriminator.Equals("8388608"))
                 return JsonSerializer.Deserialize<SecurityFeatureResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
 
             while (utf8JsonReader.Read())
@@ -280,7 +310,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AuthenticityCheckResultItem authenticityCheckResultItem, JsonSerializerOptions jsonSerializerOptions)
         {
-            writer.WriteString("Type", authenticityCheckResultItem.Type);
+            writer.WriteNumber("Type", authenticityCheckResultItem.Type);
 
             if (authenticityCheckResultItem.ElementResultOption.IsSet)
             {

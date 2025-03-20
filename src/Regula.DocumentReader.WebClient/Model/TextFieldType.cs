@@ -3238,7 +3238,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum EF_CARD_ACCESS for value: 692
         /// </summary>
-        EF_CARD_ACCESS = 692
+        EF_CARD_ACCESS = 692,
+
+        /// <summary>
+        /// Enum SHORT_FLIGHT_NUMBER for value: 693
+        /// </summary>
+        SHORT_FLIGHT_NUMBER = 693,
+
+        /// <summary>
+        /// Enum AIRLINE_CODE for value: 694
+        /// </summary>
+        AIRLINE_CODE = 694
     }
 
     /// <summary>
@@ -5179,6 +5189,12 @@ namespace Regula.DocumentReader.WebClient.Model
             if (value.Equals((692).ToString()))
                 return TextFieldType.EF_CARD_ACCESS;
 
+            if (value.Equals((693).ToString()))
+                return TextFieldType.SHORT_FLIGHT_NUMBER;
+
+            if (value.Equals((694).ToString()))
+                return TextFieldType.AIRLINE_CODE;
+
             throw new NotImplementedException($"Could not convert value to type TextFieldType: '{value}'");
         }
 
@@ -7114,6 +7130,12 @@ namespace Regula.DocumentReader.WebClient.Model
 
             if (value.Equals((692).ToString()))
                 return TextFieldType.EF_CARD_ACCESS;
+
+            if (value.Equals((693).ToString()))
+                return TextFieldType.SHORT_FLIGHT_NUMBER;
+
+            if (value.Equals((694).ToString()))
+                return TextFieldType.AIRLINE_CODE;
 
             return null;
         }

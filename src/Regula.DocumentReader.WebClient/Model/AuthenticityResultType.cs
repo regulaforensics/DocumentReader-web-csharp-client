@@ -29,7 +29,7 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Enumeration describes available authenticity checks: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/.
     /// </summary>
     /// <value>Enumeration describes available authenticity checks: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/.</value>
-    public enum AuthenticityResultType
+    public enum AuthenticityResultType: long
     {
         /// <summary>
         /// Enum NONE for value: 0

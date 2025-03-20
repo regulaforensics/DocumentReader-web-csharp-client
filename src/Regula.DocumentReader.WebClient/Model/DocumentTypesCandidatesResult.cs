@@ -212,7 +212,7 @@ namespace Regula.DocumentReader.WebClient.Model
             if (documentTypesCandidatesResult.PageIdxOption.IsSet)
                 writer.WriteNumber("page_idx", documentTypesCandidatesResult.PageIdxOption.Value!.Value);
 
-            writer.WriteString("result_type", documentTypesCandidatesResult.ResultType);
+            writer.WriteNumber("result_type", documentTypesCandidatesResult.ResultType);
 
             if (documentTypesCandidatesResult.CandidatesListOption.IsSet)
             {
