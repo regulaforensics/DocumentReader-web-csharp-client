@@ -1146,7 +1146,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ContainerListListInner containerListListInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            writer.WriteNumber("result_type", containerListListInner.ResultType);
+
         }
     }
 }
