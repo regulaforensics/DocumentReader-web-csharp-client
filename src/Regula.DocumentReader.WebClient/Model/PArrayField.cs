@@ -114,7 +114,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BcPDF417INFO
         /// </summary>
         [JsonPropertyName("bcPDF417INFO")]
-        public BcPDF417INFO? BcPDF417INFO { get { return this.BcPDF417INFOOption; } set { this.BcPDF417INFOOption = new(value); } }
+        public BcPDF417INFO? BcPDF417INFO { get { return this.BcPDF417INFOOption; } set { this.BcPDF417INFOOption = new Option<BcPDF417INFO?>(value); } }
 
         /// <summary>
         /// Used to track the state of BcTextDecoderTypes
@@ -127,7 +127,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BcTextDecoderTypes
         /// </summary>
         [JsonPropertyName("bcTextDecoderTypes")]
-        public int? BcTextDecoderTypes { get { return this.BcTextDecoderTypesOption; } set { this.BcTextDecoderTypesOption = new(value); } }
+        public int? BcTextDecoderTypes { get { return this.BcTextDecoderTypesOption; } set { this.BcTextDecoderTypesOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of BcTextFieldType
@@ -140,7 +140,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BcTextFieldType
         /// </summary>
         [JsonPropertyName("bcTextFieldType")]
-        public int? BcTextFieldType { get { return this.BcTextFieldTypeOption; } set { this.BcTextFieldTypeOption = new(value); } }
+        public int? BcTextFieldType { get { return this.BcTextFieldTypeOption; } set { this.BcTextFieldTypeOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -152,7 +152,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RotationAngle
         /// </summary>
         [JsonPropertyName("RotationAngle")]
-        public int? RotationAngle { get { return this.RotationAngleOption; } set { this.RotationAngleOption = new(value); } }
+        public int? RotationAngle { get { return this.RotationAngleOption; } set { this.RotationAngleOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

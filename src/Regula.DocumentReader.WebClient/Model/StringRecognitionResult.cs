@@ -77,7 +77,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Buf_Text text string length</value>
         [JsonPropertyName("Buf_Length")]
-        public decimal? BufLength { get { return this.BufLengthOption; } set { this.BufLengthOption = new(value); } }
+        public decimal? BufLength { get { return this.BufLengthOption; } set { this.BufLengthOption = new Option<decimal?>(value); } }
 
         /// <summary>
         /// Used to track the state of BufText
@@ -91,7 +91,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;</value>
         [JsonPropertyName("Buf_Text")]
-        public string? BufText { get { return this.BufTextOption; } set { this.BufTextOption = new(value); } }
+        public string? BufText { get { return this.BufTextOption; } set { this.BufTextOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of Reserved
@@ -104,7 +104,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved
         /// </summary>
         [JsonPropertyName("Reserved")]
-        public int? Reserved { get { return this.ReservedOption; } set { this.ReservedOption = new(value); } }
+        public int? Reserved { get { return this.ReservedOption; } set { this.ReservedOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -91,7 +91,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [JsonPropertyName("AreaList")]
-        public AreaContainer? AreaList { get { return this.AreaListOption; } set { this.AreaListOption = new(value); } }
+        public AreaContainer? AreaList { get { return this.AreaListOption; } set { this.AreaListOption = new Option<AreaContainer?>(value); } }
 
         /// <summary>
         /// Used to track the state of Reserved2
@@ -104,7 +104,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved2
         /// </summary>
         [JsonPropertyName("Reserved2")]
-        public int? Reserved2 { get { return this.Reserved2Option; } set { this.Reserved2Option = new(value); } }
+        public int? Reserved2 { get { return this.Reserved2Option; } set { this.Reserved2Option = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

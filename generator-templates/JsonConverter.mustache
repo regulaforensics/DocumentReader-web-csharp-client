@@ -49,26 +49,23 @@
             {{#-first}}
             string{{nrt?}} discriminator = ClientUtils.GetDiscriminator(utf8JsonReader, "{{discriminator.propertyBaseName}}");
 
-            {{/-first}}
-            {{/children}}
             {{#mappedModels}}
             if (discriminator != null && discriminator.Equals("{{mappingName}}"))
                 return JsonSerializer.Deserialize<{{{model.classname}}}>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
             {{/mappedModels}}
-
+            {{/-first}}
+            {{/children}}
             {{/discriminator}}
             {{#model.discriminator}}
             {{#model.hasDiscriminatorWithNonEmptyMapping}}
-            {{#mappedModels}}
-            {{#model}}
+            {{#composedSchemas.oneOf}}
             {{^vendorExtensions.x-duplicated-data-type}}
-            {{classname}}{{nrt?}} {{#lambda.camelcase_sanitize_param}}{{classname}}{{/lambda.camelcase_sanitize_param}} = null;
+            {{name}}{{nrt?}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}} = null;
             {{#-last}}
 
             {{/-last}}
             {{/vendorExtensions.x-duplicated-data-type}}
-            {{/model}}
-            {{/mappedModels}}
+            {{/composedSchemas.oneOf}}
             Utf8JsonReader utf8JsonReaderDiscriminator = utf8JsonReader;
             while (utf8JsonReaderDiscriminator.Read())
             {

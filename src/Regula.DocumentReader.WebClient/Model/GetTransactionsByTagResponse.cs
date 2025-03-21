@@ -59,7 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Transaction id</value>
         [JsonPropertyName("id")]
-        public Guid? Id { get { return this.IdOption; } set { this.IdOption = new(value); } }
+        public Guid? Id { get { return this.IdOption; } set { this.IdOption = new Option<Guid?>(value); } }
 
         /// <summary>
         /// Used to track the state of State
@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Transaction status</value>
         [JsonPropertyName("state")]
-        public int? State { get { return this.StateOption; } set { this.StateOption = new(value); } }
+        public int? State { get { return this.StateOption; } set { this.StateOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of UpdatedAt
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Last time updated</value>
         [JsonPropertyName("updatedAt")]
-        public DateTime? UpdatedAt { get { return this.UpdatedAtOption; } set { this.UpdatedAtOption = new(value); } }
+        public DateTime? UpdatedAt { get { return this.UpdatedAtOption; } set { this.UpdatedAtOption = new Option<DateTime?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -59,7 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>The maximum number of results to be returned.</value>
         [JsonPropertyName("limit")]
-        public int? Limit { get { return this.LimitOption; } set { this.LimitOption = new(value); } }
+        public int? Limit { get { return this.LimitOption; } set { this.LimitOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of Threshold
@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>The similarity threshold.</value>
         [JsonPropertyName("threshold")]
-        public float? Threshold { get { return this.ThresholdOption; } set { this.ThresholdOption = new(value); } }
+        public float? Threshold { get { return this.ThresholdOption; } set { this.ThresholdOption = new Option<float?>(value); } }
 
         /// <summary>
         /// Used to track the state of GroupIds
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value> The groups where to conduct the search.</value>
         [JsonPropertyName("group_ids")]
-        public List<int>? GroupIds { get { return this.GroupIdsOption; } set { this.GroupIdsOption = new(value); } }
+        public List<int>? GroupIds { get { return this.GroupIdsOption; } set { this.GroupIdsOption = new Option<List<int>?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

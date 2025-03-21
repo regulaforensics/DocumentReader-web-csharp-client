@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Field value count</value>
         [JsonPropertyName("valueCount")]
-        public decimal? ValueCount { get { return this.ValueCountOption; } set { this.ValueCountOption = new(value); } }
+        public decimal? ValueCount { get { return this.ValueCountOption; } set { this.ValueCountOption = new Option<decimal?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

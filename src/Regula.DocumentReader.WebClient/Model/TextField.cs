@@ -138,7 +138,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>LCID name</value>
         [JsonPropertyName("lcidName")]
-        public string? LcidName { get { return this.LcidNameOption; } set { this.LcidNameOption = new(value); } }
+        public string? LcidName { get { return this.LcidNameOption; } set { this.LcidNameOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -65,7 +65,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Image format</value>
         [JsonPropertyName("format")]
-        public string? Format { get { return this.FormatOption; } set { this.FormatOption = new(value); } }
+        public string? Format { get { return this.FormatOption; } set { this.FormatOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

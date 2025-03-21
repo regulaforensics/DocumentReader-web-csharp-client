@@ -1,23 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo> <!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Alexander Satsukevich</Authors>
     <Company>Regula Ltd.</Company>
     <Product>DocumentReader WebClient</Product>
     <PackageTags>regula document processing id card rfid ocr barcode ipi</PackageTags>
     <PackageId>Regula.DocumentReader.WebClient</PackageId>
+    <RootNamespace>Regula.DocumentReader.WebClient</RootNamespace>
     <PackageVersion>5.8.3</PackageVersion>
     <Version>5.8.3</Version>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>regula_web_client.snk</AssemblyOriginatorKeyFile>
     <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="JsonSubTypes" Version="1.7.0" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="112.0.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
-    <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="5.0.1" />
+    <PackageReference Include="System.Threading.Channels" Version="8.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 </Project>

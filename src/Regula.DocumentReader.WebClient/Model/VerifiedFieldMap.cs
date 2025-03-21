@@ -89,7 +89,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Field data extracted from mrz(machine readable zone)</value>
         [JsonPropertyName("Field_MRZ")]
-        public string? FieldMRZ { get { return this.FieldMRZOption; } set { this.FieldMRZOption = new(value); } }
+        public string? FieldMRZ { get { return this.FieldMRZOption; } set { this.FieldMRZOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of FieldVisual
@@ -103,7 +103,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Field data extracted from visual zone</value>
         [JsonPropertyName("Field_Visual")]
-        public string? FieldVisual { get { return this.FieldVisualOption; } set { this.FieldVisualOption = new(value); } }
+        public string? FieldVisual { get { return this.FieldVisualOption; } set { this.FieldVisualOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of FieldBarcode
@@ -117,7 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Field data extracted from barcode</value>
         [JsonPropertyName("Field_Barcode")]
-        public string? FieldBarcode { get { return this.FieldBarcodeOption; } set { this.FieldBarcodeOption = new(value); } }
+        public string? FieldBarcode { get { return this.FieldBarcodeOption; } set { this.FieldBarcodeOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of FieldRFID
@@ -131,7 +131,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Field data extracted from rfid chip</value>
         [JsonPropertyName("Field_RFID")]
-        public string? FieldRFID { get { return this.FieldRFIDOption; } set { this.FieldRFIDOption = new(value); } }
+        public string? FieldRFID { get { return this.FieldRFIDOption; } set { this.FieldRFIDOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of FieldType
@@ -144,7 +144,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldType
         /// </summary>
         [JsonPropertyName("FieldType")]
-        public int? FieldType { get { return this.FieldTypeOption; } set { this.FieldTypeOption = new(value); } }
+        public int? FieldType { get { return this.FieldTypeOption; } set { this.FieldTypeOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

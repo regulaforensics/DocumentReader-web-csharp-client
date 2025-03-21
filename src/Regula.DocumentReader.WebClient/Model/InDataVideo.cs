@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>A free-form object containing video&#39;s extended attributes.</value>
         [JsonPropertyName("metadata")]
-        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new(value); } }
+        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new Option<Dictionary<string, Object>?>(value); } }
 
         /// <summary>
         /// Used to track the state of Url
@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Video url</value>
         [JsonPropertyName("url")]
-        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new(value); } }
+        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

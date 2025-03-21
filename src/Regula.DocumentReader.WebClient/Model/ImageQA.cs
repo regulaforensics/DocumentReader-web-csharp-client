@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Set the threshold for an actual document brightness below which the check fails</value>
         [JsonPropertyName("brightnessThreshold")]
-        public double? BrightnessThreshold { get { return this.BrightnessThresholdOption; } set { this.BrightnessThresholdOption = new(value); } }
+        public double? BrightnessThreshold { get { return this.BrightnessThresholdOption; } set { this.BrightnessThresholdOption = new Option<double?>(value); } }
 
         /// <summary>
         /// Used to track the state of DpiThreshold
@@ -85,7 +85,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.</value>
         [JsonPropertyName("dpiThreshold")]
-        public int? DpiThreshold { get { return this.DpiThresholdOption; } set { this.DpiThresholdOption = new(value); } }
+        public int? DpiThreshold { get { return this.DpiThresholdOption; } set { this.DpiThresholdOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of AngleThreshold
@@ -99,7 +99,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.</value>
         [JsonPropertyName("angleThreshold")]
-        public int? AngleThreshold { get { return this.AngleThresholdOption; } set { this.AngleThresholdOption = new(value); } }
+        public int? AngleThreshold { get { return this.AngleThresholdOption; } set { this.AngleThresholdOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of FocusCheck
@@ -113,7 +113,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option enables focus check while performing image quality validation.</value>
         [JsonPropertyName("focusCheck")]
-        public bool? FocusCheck { get { return this.FocusCheckOption; } set { this.FocusCheckOption = new(value); } }
+        public bool? FocusCheck { get { return this.FocusCheckOption; } set { this.FocusCheckOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of GlaresCheck
@@ -127,7 +127,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option enables glares check while performing image quality validation.</value>
         [JsonPropertyName("glaresCheck")]
-        public bool? GlaresCheck { get { return this.GlaresCheckOption; } set { this.GlaresCheckOption = new(value); } }
+        public bool? GlaresCheck { get { return this.GlaresCheckOption; } set { this.GlaresCheckOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of ColornessCheck
@@ -141,7 +141,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option enables colorness check while performing image quality validation.</value>
         [JsonPropertyName("colornessCheck")]
-        public bool? ColornessCheck { get { return this.ColornessCheckOption; } set { this.ColornessCheckOption = new(value); } }
+        public bool? ColornessCheck { get { return this.ColornessCheckOption; } set { this.ColornessCheckOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of MoireCheck
@@ -155,7 +155,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option enables screen capture (moire patterns) check while performing image quality validation.</value>
         [JsonPropertyName("moireCheck")]
-        public bool? MoireCheck { get { return this.MoireCheckOption; } set { this.MoireCheckOption = new(value); } }
+        public bool? MoireCheck { get { return this.MoireCheckOption; } set { this.MoireCheckOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of DocumentPositionIndent
@@ -169,7 +169,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter specifies the necessary margin. Default 0.</value>
         [JsonPropertyName("documentPositionIndent")]
-        public int? DocumentPositionIndent { get { return this.DocumentPositionIndentOption; } set { this.DocumentPositionIndentOption = new(value); } }
+        public int? DocumentPositionIndent { get { return this.DocumentPositionIndentOption; } set { this.DocumentPositionIndentOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of ExpectedPass
@@ -183,7 +183,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.</value>
         [JsonPropertyName("expectedPass")]
-        public List<InputImageQualityChecks>? ExpectedPass { get { return this.ExpectedPassOption; } set { this.ExpectedPassOption = new(value); } }
+        public List<InputImageQualityChecks>? ExpectedPass { get { return this.ExpectedPassOption; } set { this.ExpectedPassOption = new Option<List<InputImageQualityChecks>?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

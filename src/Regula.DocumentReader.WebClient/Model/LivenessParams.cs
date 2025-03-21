@@ -65,7 +65,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable OVI check</value>
         [JsonPropertyName("checkOVI")]
-        public bool? CheckOVI { get { return this.CheckOVIOption; } set { this.CheckOVIOption = new(value); } }
+        public bool? CheckOVI { get { return this.CheckOVIOption; } set { this.CheckOVIOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of CheckMLI
@@ -79,7 +79,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable MLI check</value>
         [JsonPropertyName("checkMLI")]
-        public bool? CheckMLI { get { return this.CheckMLIOption; } set { this.CheckMLIOption = new(value); } }
+        public bool? CheckMLI { get { return this.CheckMLIOption; } set { this.CheckMLIOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of CheckHolo
@@ -93,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Hologram detection</value>
         [JsonPropertyName("checkHolo")]
-        public bool? CheckHolo { get { return this.CheckHoloOption; } set { this.CheckHoloOption = new(value); } }
+        public bool? CheckHolo { get { return this.CheckHoloOption; } set { this.CheckHoloOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of CheckED
@@ -107,7 +107,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Electronic device detection</value>
         [JsonPropertyName("checkED")]
-        public bool? CheckED { get { return this.CheckEDOption; } set { this.CheckEDOption = new(value); } }
+        public bool? CheckED { get { return this.CheckEDOption; } set { this.CheckEDOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of CheckBlackAndWhiteCopy
@@ -121,7 +121,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Black and white copy check</value>
         [JsonPropertyName("checkBlackAndWhiteCopy")]
-        public bool? CheckBlackAndWhiteCopy { get { return this.CheckBlackAndWhiteCopyOption; } set { this.CheckBlackAndWhiteCopyOption = new(value); } }
+        public bool? CheckBlackAndWhiteCopy { get { return this.CheckBlackAndWhiteCopyOption; } set { this.CheckBlackAndWhiteCopyOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Used to track the state of CheckDynaprint
@@ -135,7 +135,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Dynaprint check</value>
         [JsonPropertyName("checkDynaprint")]
-        public bool? CheckDynaprint { get { return this.CheckDynaprintOption; } set { this.CheckDynaprintOption = new(value); } }
+        public bool? CheckDynaprint { get { return this.CheckDynaprintOption; } set { this.CheckDynaprintOption = new Option<bool?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

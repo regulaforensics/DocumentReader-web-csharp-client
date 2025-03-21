@@ -54,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Image
         /// </summary>
         [JsonPropertyName("image")]
-        public ImagesFieldValue? Image { get { return this.ImageOption; } set { this.ImageOption = new(value); } }
+        public ImagesFieldValue? Image { get { return this.ImageOption; } set { this.ImageOption = new Option<ImagesFieldValue?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Specific template IDs, for which apply current custom configuration</value>
         [JsonPropertyName("docID")]
-        public List<int>? DocID { get { return this.DocIDOption; } set { this.DocIDOption = new(value); } }
+        public List<int>? DocID { get { return this.DocIDOption; } set { this.DocIDOption = new Option<List<int>?>(value); } }
 
         /// <summary>
         /// Used to track the state of ExcludeAuthChecks
@@ -72,7 +72,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Contains items from AuthenticityResultType as sum via OR operation</value>
         /* <example>2</example> */
         [JsonPropertyName("excludeAuthChecks")]
-        public int? ExcludeAuthChecks { get { return this.ExcludeAuthChecksOption; } set { this.ExcludeAuthChecksOption = new(value); } }
+        public int? ExcludeAuthChecks { get { return this.ExcludeAuthChecksOption; } set { this.ExcludeAuthChecksOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

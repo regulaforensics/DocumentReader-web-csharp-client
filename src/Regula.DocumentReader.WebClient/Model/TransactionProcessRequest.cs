@@ -74,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets List
         /// </summary>
         [JsonPropertyName("List")]
-        public List<ProcessRequestImage>? List { get { return this.ListOption; } set { this.ListOption = new(value); } }
+        public List<ProcessRequestImage>? List { get { return this.ListOption; } set { this.ListOption = new Option<List<ProcessRequestImage>?>(value); } }
 
         /// <summary>
         /// Used to track the state of LivePortrait
@@ -89,7 +89,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Live portrait photo</value>
         /* <example>Base64 encoded data</example> */
         [JsonPropertyName("livePortrait")]
-        public string? LivePortrait { get { return this.LivePortraitOption; } set { this.LivePortraitOption = new(value); } }
+        public string? LivePortrait { get { return this.LivePortraitOption; } set { this.LivePortraitOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of ExtPortrait
@@ -104,7 +104,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Portrait photo from an external source</value>
         /* <example>Base64 encoded data</example> */
         [JsonPropertyName("extPortrait")]
-        public string? ExtPortrait { get { return this.ExtPortraitOption; } set { this.ExtPortraitOption = new(value); } }
+        public string? ExtPortrait { get { return this.ExtPortraitOption; } set { this.ExtPortraitOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of ContainerList
@@ -117,7 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ContainerList
         /// </summary>
         [JsonPropertyName("ContainerList")]
-        public ContainerList? ContainerList { get { return this.ContainerListOption; } set { this.ContainerListOption = new(value); } }
+        public ContainerList? ContainerList { get { return this.ContainerListOption; } set { this.ContainerListOption = new Option<ContainerList?>(value); } }
 
         /// <summary>
         /// Used to track the state of SystemInfo
@@ -130,7 +130,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets SystemInfo
         /// </summary>
         [JsonPropertyName("systemInfo")]
-        public ProcessSystemInfo? SystemInfo { get { return this.SystemInfoOption; } set { this.SystemInfoOption = new(value); } }
+        public ProcessSystemInfo? SystemInfo { get { return this.SystemInfoOption; } set { this.SystemInfoOption = new Option<ProcessSystemInfo?>(value); } }
 
         /// <summary>
         /// Used to track the state of PassBackObject
@@ -144,7 +144,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.</value>
         [JsonPropertyName("passBackObject")]
-        public Dictionary<string, Object>? PassBackObject { get { return this.PassBackObjectOption; } set { this.PassBackObjectOption = new(value); } }
+        public Dictionary<string, Object>? PassBackObject { get { return this.PassBackObjectOption; } set { this.PassBackObjectOption = new Option<Dictionary<string, Object>?>(value); } }
 
         /// <summary>
         /// Used to track the state of Dtc
@@ -158,7 +158,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Digital Travel Credential (DTC-VC) data in base64 format for processing</value>
         [JsonPropertyName("dtc")]
-        public string? Dtc { get { return this.DtcOption; } set { this.DtcOption = new(value); } }
+        public string? Dtc { get { return this.DtcOption; } set { this.DtcOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

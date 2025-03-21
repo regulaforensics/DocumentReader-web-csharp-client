@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Items
         /// </summary>
         [JsonPropertyName("items")]
-        public List<GetTransactionsByTagResponse>? Items { get { return this.ItemsOption; } set { this.ItemsOption = new(value); } }
+        public List<GetTransactionsByTagResponse>? Items { get { return this.ItemsOption; } set { this.ItemsOption = new Option<List<GetTransactionsByTagResponse>?>(value); } }
 
         /// <summary>
         /// Used to track the state of Metadata
@@ -69,7 +69,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Metadata
         /// </summary>
         [JsonPropertyName("metadata")]
-        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new(value); } }
+        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new Option<Dictionary<string, Object>?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

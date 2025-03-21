@@ -20,7 +20,6 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Regula.DocumentReader.WebClient.Api
 {
@@ -288,18 +287,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("POST");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiProcessApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiProcessApiResponse>();
 
-                        ApiProcessApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/process", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiProcessApiResponse apiResponseLocalVar = new ApiProcessApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/process", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiProcessDefaultImplementation(apiResponseLocalVar, processRequest, xRequestID);
 
@@ -360,7 +358,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.ProcessResponse>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -368,7 +366,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.ProcessResponse? result)
+            public bool TryOk(out Regula.DocumentReader.WebClient.Model.ProcessResponse? result)
             {
                 result = null;
 

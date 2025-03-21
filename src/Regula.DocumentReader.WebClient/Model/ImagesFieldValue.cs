@@ -91,7 +91,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Base64 encoded image</value>
         /* <example>Base64 encoded image</example> */
         [JsonPropertyName("value")]
-        public string? Value { get { return this.ValueOption; } set { this.ValueOption = new(value); } }
+        public string? Value { get { return this.ValueOption; } set { this.ValueOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of OriginalValue
@@ -106,7 +106,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Base64 encoded image</value>
         /* <example>Base64 encoded image</example> */
         [JsonPropertyName("originalValue")]
-        public string? OriginalValue { get { return this.OriginalValueOption; } set { this.OriginalValueOption = new(value); } }
+        public string? OriginalValue { get { return this.OriginalValueOption; } set { this.OriginalValueOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of OriginalPageIndex
@@ -120,7 +120,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Original page index</value>
         [JsonPropertyName("originalPageIndex")]
-        public int? OriginalPageIndex { get { return this.OriginalPageIndexOption; } set { this.OriginalPageIndexOption = new(value); } }
+        public int? OriginalPageIndex { get { return this.OriginalPageIndexOption; } set { this.OriginalPageIndexOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Same as Result type, but used for safe parsing of not-described values. See Result type.
@@ -140,7 +140,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldRect
         /// </summary>
         [JsonPropertyName("fieldRect")]
-        public RectangleCoordinates? FieldRect { get { return this.FieldRectOption; } set { this.FieldRectOption = new(value); } }
+        public RectangleCoordinates? FieldRect { get { return this.FieldRectOption; } set { this.FieldRectOption = new Option<RectangleCoordinates?>(value); } }
 
         /// <summary>
         /// Used to track the state of RfidOrigin
@@ -153,7 +153,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RfidOrigin
         /// </summary>
         [JsonPropertyName("rfidOrigin")]
-        public RfidOrigin? RfidOrigin { get { return this.RfidOriginOption; } set { this.RfidOriginOption = new(value); } }
+        public RfidOrigin? RfidOrigin { get { return this.RfidOriginOption; } set { this.RfidOriginOption = new Option<RfidOrigin?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

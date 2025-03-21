@@ -98,7 +98,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Status
         /// </summary>
         [JsonPropertyName("Status")]
-        public CheckResult? Status { get { return this.StatusOption; } set { this.StatusOption = new(value); } }
+        public CheckResult? Status { get { return this.StatusOption; } set { this.StatusOption = new Option<CheckResult?>(value); } }
 
         /// <summary>
         /// List of containers to store information about the involved applications of electronic document
@@ -179,7 +179,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Sign of virtual session when working with loaded data from a previous communication session with the electronic document</value>
         [JsonPropertyName("VirtualMode")]
-        public string? VirtualMode { get { return this.VirtualModeOption; } set { this.VirtualModeOption = new(value); } }
+        public string? VirtualMode { get { return this.VirtualModeOption; } set { this.VirtualModeOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of SDKVersion
@@ -193,7 +193,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Text SDKVersion value in format A.B (e.g. 3.1)</value>
         [JsonPropertyName("SDKVersion")]
-        public string? SDKVersion { get { return this.SDKVersionOption; } set { this.SDKVersionOption = new(value); } }
+        public string? SDKVersion { get { return this.SDKVersionOption; } set { this.SDKVersionOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of DriverVersion
@@ -207,7 +207,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Text DriverVersion value in format A.B.C.D (e.g. 6.2.5.4)</value>
         [JsonPropertyName("DriverVersion")]
-        public string? DriverVersion { get { return this.DriverVersionOption; } set { this.DriverVersionOption = new(value); } }
+        public string? DriverVersion { get { return this.DriverVersionOption; } set { this.DriverVersionOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of FirmwareVersion
@@ -221,7 +221,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Text FirmwareVersion value in format A.B (e.g. 5.19)</value>
         [JsonPropertyName("FirmwareVersion")]
-        public string? FirmwareVersion { get { return this.FirmwareVersionOption; } set { this.FirmwareVersionOption = new(value); } }
+        public string? FirmwareVersion { get { return this.FirmwareVersionOption; } set { this.FirmwareVersionOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

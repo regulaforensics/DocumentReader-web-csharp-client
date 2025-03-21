@@ -60,7 +60,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Left
         /// </summary>
         [JsonPropertyName("Left")]
-        public decimal? Left { get { return this.LeftOption; } set { this.LeftOption = new(value); } }
+        public decimal? Left { get { return this.LeftOption; } set { this.LeftOption = new Option<decimal?>(value); } }
 
         /// <summary>
         /// Used to track the state of Top
@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Top
         /// </summary>
         [JsonPropertyName("Top")]
-        public decimal? Top { get { return this.TopOption; } set { this.TopOption = new(value); } }
+        public decimal? Top { get { return this.TopOption; } set { this.TopOption = new Option<decimal?>(value); } }
 
         /// <summary>
         /// Used to track the state of Right
@@ -86,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Right
         /// </summary>
         [JsonPropertyName("Right")]
-        public decimal? Right { get { return this.RightOption; } set { this.RightOption = new(value); } }
+        public decimal? Right { get { return this.RightOption; } set { this.RightOption = new Option<decimal?>(value); } }
 
         /// <summary>
         /// Used to track the state of Bottom
@@ -99,7 +99,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Bottom
         /// </summary>
         [JsonPropertyName("Bottom")]
-        public decimal? Bottom { get { return this.BottomOption; } set { this.BottomOption = new(value); } }
+        public decimal? Bottom { get { return this.BottomOption; } set { this.BottomOption = new Option<decimal?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

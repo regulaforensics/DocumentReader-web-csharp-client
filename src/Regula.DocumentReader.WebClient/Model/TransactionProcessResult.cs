@@ -60,7 +60,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OutData
         /// </summary>
         [JsonPropertyName("OutData")]
-        public OutData? OutData { get { return this.OutDataOption; } set { this.OutDataOption = new(value); } }
+        public OutData? OutData { get { return this.OutDataOption; } set { this.OutDataOption = new Option<OutData?>(value); } }
 
         /// <summary>
         /// Used to track the state of InData
@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets InData
         /// </summary>
         [JsonPropertyName("InData")]
-        public InData? InData { get { return this.InDataOption; } set { this.InDataOption = new(value); } }
+        public InData? InData { get { return this.InDataOption; } set { this.InDataOption = new Option<InData?>(value); } }
 
         /// <summary>
         /// Used to track the state of Tag
@@ -86,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Tag
         /// </summary>
         [JsonPropertyName("tag")]
-        public string? Tag { get { return this.TagOption; } set { this.TagOption = new(value); } }
+        public string? Tag { get { return this.TagOption; } set { this.TagOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Used to track the state of TransactionId
@@ -99,7 +99,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets TransactionId
         /// </summary>
         [JsonPropertyName("transactionId")]
-        public Guid? TransactionId { get { return this.TransactionIdOption; } set { this.TransactionIdOption = new(value); } }
+        public Guid? TransactionId { get { return this.TransactionIdOption; } set { this.TransactionIdOption = new Option<Guid?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

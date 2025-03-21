@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Base64 encoded data
         /// </summary>
         /// <value>Base64 encoded data</value>
-        /* <example>[B@5eefd7ba</example> */
+        /* <example>[B@5d92c7f5</example> */
         [JsonPropertyName("EncryptedRCL")]
         public byte[] EncryptedRCL { get; set; }
 

@@ -67,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Type
         /// </summary>
         [JsonPropertyName("Type")]
-        public int? Type { get { return this.TypeOption; } set { this.TypeOption = new(value); } }
+        public int? Type { get { return this.TypeOption; } set { this.TypeOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of Status
@@ -81,7 +81,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Result of logical analysis of compliance of the contents of the field with the requirements of the specification</value>
         [JsonPropertyName("Status")]
-        public int? Status { get { return this.StatusOption; } set { this.StatusOption = new(value); } }
+        public int? Status { get { return this.StatusOption; } set { this.StatusOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of Format
@@ -95,7 +95,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Mask of format of text information (for example, «YYMMDD» for date of birth)</value>
         [JsonPropertyName("Format")]
-        public string? Format { get { return this.FormatOption; } set { this.FormatOption = new(value); } }
+        public string? Format { get { return this.FormatOption; } set { this.FormatOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

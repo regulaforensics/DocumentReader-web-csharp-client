@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PDateFormat
         /// </summary>
         [JsonPropertyName("pDateFormat")]
-        public string? PDateFormat { get { return this.PDateFormatOption; } set { this.PDateFormatOption = new(value); } }
+        public string? PDateFormat { get { return this.PDateFormatOption; } set { this.PDateFormatOption = new Option<string?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

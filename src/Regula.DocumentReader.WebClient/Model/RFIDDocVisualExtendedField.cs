@@ -86,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OriginDGTag
         /// </summary>
         [JsonPropertyName("OriginDGTag")]
-        public int? OriginDGTag { get { return this.OriginDGTagOption; } set { this.OriginDGTagOption = new(value); } }
+        public int? OriginDGTag { get { return this.OriginDGTagOption; } set { this.OriginDGTagOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of OriginEntryView
@@ -99,7 +99,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OriginEntryView
         /// </summary>
         [JsonPropertyName("OriginEntryView")]
-        public int? OriginEntryView { get { return this.OriginEntryViewOption; } set { this.OriginEntryViewOption = new(value); } }
+        public int? OriginEntryView { get { return this.OriginEntryViewOption; } set { this.OriginEntryViewOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -145,7 +145,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Inverse
         /// </summary>
         [JsonPropertyName("Inverse")]
-        public int? Inverse { get { return this.InverseOption; } set { this.InverseOption = new(value); } }
+        public int? Inverse { get { return this.InverseOption; } set { this.InverseOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of ObjArea
@@ -158,7 +158,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ObjArea
         /// </summary>
         [JsonPropertyName("ObjArea")]
-        public int? ObjArea { get { return this.ObjAreaOption; } set { this.ObjAreaOption = new(value); } }
+        public int? ObjArea { get { return this.ObjAreaOption; } set { this.ObjAreaOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of ObjIntAngleDev
@@ -171,7 +171,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ObjIntAngleDev
         /// </summary>
         [JsonPropertyName("ObjIntAngleDev")]
-        public int? ObjIntAngleDev { get { return this.ObjIntAngleDevOption; } set { this.ObjIntAngleDevOption = new(value); } }
+        public int? ObjIntAngleDev { get { return this.ObjIntAngleDevOption; } set { this.ObjIntAngleDevOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of PerspectiveTr
@@ -184,7 +184,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PerspectiveTr
         /// </summary>
         [JsonPropertyName("PerspectiveTr")]
-        public int? PerspectiveTr { get { return this.PerspectiveTrOption; } set { this.PerspectiveTrOption = new(value); } }
+        public int? PerspectiveTr { get { return this.PerspectiveTrOption; } set { this.PerspectiveTrOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of ResultStatus
@@ -197,7 +197,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ResultStatus
         /// </summary>
         [JsonPropertyName("ResultStatus")]
-        public int? ResultStatus { get { return this.ResultStatusOption; } set { this.ResultStatusOption = new(value); } }
+        public int? ResultStatus { get { return this.ResultStatusOption; } set { this.ResultStatusOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

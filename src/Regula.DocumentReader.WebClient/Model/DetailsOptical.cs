@@ -119,7 +119,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Vds
         /// </summary>
         [JsonPropertyName("vds")]
-        public int? Vds { get { return this.VdsOption; } set { this.VdsOption = new(value); } }
+        public int? Vds { get { return this.VdsOption; } set { this.VdsOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

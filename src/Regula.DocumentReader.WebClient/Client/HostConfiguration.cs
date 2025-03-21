@@ -41,8 +41,6 @@ namespace Regula.DocumentReader.WebClient.Client
             _jsonOptions.Converters.Add(new JsonStringEnumConverter());
             _jsonOptions.Converters.Add(new DateTimeJsonConverter());
             _jsonOptions.Converters.Add(new DateTimeNullableJsonConverter());
-            _jsonOptions.Converters.Add(new DateOnlyJsonConverter());
-            _jsonOptions.Converters.Add(new DateOnlyNullableJsonConverter());
             _jsonOptions.Converters.Add(new AreaArrayJsonConverter());
             _jsonOptions.Converters.Add(new AreaContainerJsonConverter());
             _jsonOptions.Converters.Add(new AuthParamsJsonConverter());
@@ -312,7 +310,7 @@ namespace Regula.DocumentReader.WebClient.Client
             _jsonOptions.Converters.Add(new VisibilityJsonConverter());
             _jsonOptions.Converters.Add(new VisibilityNullableJsonConverter());
             _jsonOptions.Converters.Add(new VisualExtendedFieldItemJsonConverter());
-            JsonSerializerOptionsProvider jsonSerializerOptionsProvider = new(_jsonOptions);
+            JsonSerializerOptionsProvider jsonSerializerOptionsProvider = new JsonSerializerOptionsProvider(_jsonOptions);
             _services.AddSingleton(jsonSerializerOptionsProvider);
             _services.AddSingleton<IApiFactory, ApiFactory>();
             _services.AddSingleton<HealthcheckApiEvents>();

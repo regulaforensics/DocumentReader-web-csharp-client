@@ -74,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Class
         /// </summary>
         [JsonPropertyName("Class")]
-        public int? Class { get { return this.ClassOption; } set { this.ClassOption = new(value); } }
+        public int? Class { get { return this.ClassOption; } set { this.ClassOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of SubClass
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets SubClass
         /// </summary>
         [JsonPropertyName("SubClass")]
-        public int? SubClass { get { return this.SubClassOption; } set { this.SubClassOption = new(value); } }
+        public int? SubClass { get { return this.SubClassOption; } set { this.SubClassOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -20,7 +20,6 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Regula.DocumentReader.WebClient.Api
 {
@@ -583,18 +582,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Delete;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("DELETE");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiV2TagTagIdDeleteApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiV2TagTagIdDeleteApiResponse>();
 
-                        ApiV2TagTagIdDeleteApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/tag/{tagId}", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiV2TagTagIdDeleteApiResponse apiResponseLocalVar = new ApiV2TagTagIdDeleteApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/tag/{tagId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiV2TagTagIdDeleteDefaultImplementation(apiResponseLocalVar, tagId);
 
@@ -655,7 +653,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsNoContent
                     ? System.Text.Json.JsonSerializer.Deserialize<Object>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -663,7 +661,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryNoContent([NotNullWhen(true)]out Object? result)
+            public bool TryNoContent(out Object? result)
             {
                 result = null;
 
@@ -813,18 +811,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiV2TagTagIdTransactionsGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiV2TagTagIdTransactionsGetApiResponse>();
 
-                        ApiV2TagTagIdTransactionsGetApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/tag/{tagId}/transactions", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiV2TagTagIdTransactionsGetApiResponse apiResponseLocalVar = new ApiV2TagTagIdTransactionsGetApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/tag/{tagId}/transactions", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiV2TagTagIdTransactionsGetDefaultImplementation(apiResponseLocalVar, tagId);
 
@@ -885,7 +882,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.ListTransactionsByTagResponse>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -893,7 +890,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.ListTransactionsByTagResponse? result)
+            public bool TryOk(out Regula.DocumentReader.WebClient.Model.ListTransactionsByTagResponse? result)
             {
                 result = null;
 
@@ -1055,18 +1052,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiV2TransactionTransactionIdFileGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiV2TransactionTransactionIdFileGetApiResponse>();
 
-                        ApiV2TransactionTransactionIdFileGetApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}/file", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiV2TransactionTransactionIdFileGetApiResponse apiResponseLocalVar = new ApiV2TransactionTransactionIdFileGetApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}/file", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiV2TransactionTransactionIdFileGetDefaultImplementation(apiResponseLocalVar, transactionId, name);
 
@@ -1127,7 +1123,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<System.IO.Stream>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -1135,7 +1131,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out System.IO.Stream? result)
+            public bool TryOk(out System.IO.Stream? result)
             {
                 result = null;
 
@@ -1266,18 +1262,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiV2TransactionTransactionIdGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiV2TransactionTransactionIdGetApiResponse>();
 
-                        ApiV2TransactionTransactionIdGetApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiV2TransactionTransactionIdGetApiResponse apiResponseLocalVar = new ApiV2TransactionTransactionIdGetApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiV2TransactionTransactionIdGetDefaultImplementation(apiResponseLocalVar, transactionId);
 
@@ -1338,7 +1333,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.TransactionProcessGetResponse>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -1346,7 +1341,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.TransactionProcessGetResponse? result)
+            public bool TryOk(out Regula.DocumentReader.WebClient.Model.TransactionProcessGetResponse? result)
             {
                 result = null;
 
@@ -1515,18 +1510,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("POST");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiV2TransactionTransactionIdProcessPostApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiV2TransactionTransactionIdProcessPostApiResponse>();
 
-                        ApiV2TransactionTransactionIdProcessPostApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}/process", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiV2TransactionTransactionIdProcessPostApiResponse apiResponseLocalVar = new ApiV2TransactionTransactionIdProcessPostApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}/process", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiV2TransactionTransactionIdProcessPostDefaultImplementation(apiResponseLocalVar, transactionId, transactionProcessRequest);
 
@@ -1587,7 +1581,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.TransactionProcessResult>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -1595,7 +1589,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.TransactionProcessResult? result)
+            public bool TryOk(out Regula.DocumentReader.WebClient.Model.TransactionProcessResult? result)
             {
                 result = null;
 
@@ -1745,18 +1739,17 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         ILogger<ApiV2TransactionTransactionIdResultsGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiV2TransactionTransactionIdResultsGetApiResponse>();
 
-                        ApiV2TransactionTransactionIdResultsGetApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}/results", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiV2TransactionTransactionIdResultsGetApiResponse apiResponseLocalVar = new ApiV2TransactionTransactionIdResultsGetApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/v2/transaction/{transactionId}/results", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterApiV2TransactionTransactionIdResultsGetDefaultImplementation(apiResponseLocalVar, transactionId, withImages);
 
@@ -1817,7 +1810,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.ProcessResponse>(RawContent, _jsonSerializerOptions)
-                    : null;
+                    : default;
             }
 
             /// <summary>
@@ -1825,7 +1818,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.ProcessResponse? result)
+            public bool TryOk(out Regula.DocumentReader.WebClient.Model.ProcessResponse? result)
             {
                 result = null;
 

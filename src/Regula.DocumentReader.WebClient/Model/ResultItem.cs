@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BufLength
         /// </summary>
         [JsonPropertyName("buf_length")]
-        public int? BufLength { get { return this.BufLengthOption; } set { this.BufLengthOption = new(value); } }
+        public int? BufLength { get { return this.BufLengthOption; } set { this.BufLengthOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of Light
@@ -74,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Light
         /// </summary>
         [JsonPropertyName("light")]
-        public int? Light { get { return this.LightOption; } set { this.LightOption = new(value); } }
+        public int? Light { get { return this.LightOption; } set { this.LightOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of ListIdx
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ListIdx
         /// </summary>
         [JsonPropertyName("list_idx")]
-        public int? ListIdx { get { return this.ListIdxOption; } set { this.ListIdxOption = new(value); } }
+        public int? ListIdx { get { return this.ListIdxOption; } set { this.ListIdxOption = new Option<int?>(value); } }
 
         /// <summary>
         /// Used to track the state of PageIdx
@@ -100,7 +100,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PageIdx
         /// </summary>
         [JsonPropertyName("page_idx")]
-        public int? PageIdx { get { return this.PageIdxOption; } set { this.PageIdxOption = new(value); } }
+        public int? PageIdx { get { return this.PageIdxOption; } set { this.PageIdxOption = new Option<int?>(value); } }
 
         /// <summary>
         /// The discriminator
@@ -248,7 +248,6 @@ namespace Regula.DocumentReader.WebClient.Model
                 return JsonSerializer.Deserialize<ChosenDocumentTypeResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
             if (discriminator != null && discriminator.Equals("97"))
                 return JsonSerializer.Deserialize<FaceDetectionResult>(ref utf8JsonReader, jsonSerializerOptions) ?? throw new JsonException("The result was an unexpected value.");
-
             while (utf8JsonReader.Read())
             {
                 if (startingTokenType == JsonTokenType.StartObject && utf8JsonReader.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReader.CurrentDepth)

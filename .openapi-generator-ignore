@@ -14,4 +14,3 @@ src/Regula.DocumentReader.WebClient/Regula.DocumentReader.WebClient.csproj
 src/Regula.DocumentReader.WebClient/Regula.DocumentReader.WebClient.nuspec
 src/Regula.DocumentReader.WebClient/packages.config
 src/Regula.DocumentReader.WebClient/README.md
-src/Regula.DocumentReader.WebClient/Model/*Inner.cs
