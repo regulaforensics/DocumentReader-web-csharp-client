@@ -138,7 +138,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Document description</value>
         [JsonPropertyName("dDescription")]
-        public string? DDescription { get { return this.DDescriptionOption; } set { this.DDescriptionOption = new Option<string?>(value); } }
+        public string? DDescription { get { return this.DDescriptionOption; } set { this.DDescriptionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DStateCode
@@ -152,7 +152,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Issuing state code</value>
         [JsonPropertyName("dStateCode")]
-        public string? DStateCode { get { return this.DStateCodeOption; } set { this.DStateCodeOption = new Option<string?>(value); } }
+        public string? DStateCode { get { return this.DStateCodeOption; } set { this.DStateCodeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DStateName
@@ -166,7 +166,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Issuing state name</value>
         [JsonPropertyName("dStateName")]
-        public string? DStateName { get { return this.DStateNameOption; } set { this.DStateNameOption = new Option<string?>(value); } }
+        public string? DStateName { get { return this.DStateNameOption; } set { this.DStateNameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

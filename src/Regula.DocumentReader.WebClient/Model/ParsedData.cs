@@ -54,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ParsingNotifications
         /// </summary>
         [JsonPropertyName("ParsingNotifications")]
-        public List<long>? ParsingNotifications { get { return this.ParsingNotificationsOption; } set { this.ParsingNotificationsOption = new Option<List<long>?>(value); } }
+        public List<long>? ParsingNotifications { get { return this.ParsingNotificationsOption; } set { this.ParsingNotificationsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

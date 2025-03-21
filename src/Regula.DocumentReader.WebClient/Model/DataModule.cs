@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets MReserved1
         /// </summary>
         [JsonPropertyName("mReserved1")]
-        public int? MReserved1 { get { return this.MReserved1Option; } set { this.MReserved1Option = new Option<int?>(value); } }
+        public int? MReserved1 { get { return this.MReserved1Option; } set { this.MReserved1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of MReserver2
@@ -93,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets MReserver2
         /// </summary>
         [JsonPropertyName("mReserver2")]
-        public int? MReserver2 { get { return this.MReserver2Option; } set { this.MReserver2Option = new Option<int?>(value); } }
+        public int? MReserver2 { get { return this.MReserver2Option; } set { this.MReserver2Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

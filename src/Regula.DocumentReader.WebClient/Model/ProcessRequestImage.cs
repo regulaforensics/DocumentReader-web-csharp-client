@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Light
         /// </summary>
         [JsonPropertyName("light")]
-        public Light? Light { get { return this.LightOption; } set { this.LightOption = new Option<Light?>(value); } }
+        public Light? Light { get { return this.LightOption; } set { this.LightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImageData
@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ImageData
         /// </summary>
         [JsonPropertyName("ImageData")]
-        public ImageData? ImageData { get { return this.ImageDataOption; } set { this.ImageDataOption = new Option<ImageData?>(value); } }
+        public ImageData? ImageData { get { return this.ImageDataOption; } set { this.ImageDataOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PageIdx
@@ -85,7 +85,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>page/image number</value>
         [JsonPropertyName("page_idx")]
-        public int? PageIdx { get { return this.PageIdxOption; } set { this.PageIdxOption = new Option<int?>(value); } }
+        public int? PageIdx { get { return this.PageIdxOption; } set { this.PageIdxOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

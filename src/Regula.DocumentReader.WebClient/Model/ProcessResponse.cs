@@ -109,7 +109,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets CoreLibResultCode
         /// </summary>
         [JsonPropertyName("CoreLibResultCode")]
-        public int? CoreLibResultCode { get { return this.CoreLibResultCodeOption; } set { this.CoreLibResultCodeOption = new Option<int?>(value); } }
+        public int? CoreLibResultCode { get { return this.CoreLibResultCodeOption; } set { this.CoreLibResultCodeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Log
@@ -123,7 +123,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded transaction processing log</value>
         [JsonPropertyName("log")]
-        public string? Log { get { return this.LogOption; } set { this.LogOption = new Option<string?>(value); } }
+        public string? Log { get { return this.LogOption; } set { this.LogOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PassBackObject
@@ -137,7 +137,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Free-form object provided in request. See passBackObject property of ProcessRequest.</value>
         [JsonPropertyName("passBackObject")]
-        public Dictionary<string, Object>? PassBackObject { get { return this.PassBackObjectOption; } set { this.PassBackObjectOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? PassBackObject { get { return this.PassBackObjectOption; } set { this.PassBackObjectOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Metadata
@@ -150,7 +150,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Metadata
         /// </summary>
         [JsonPropertyName("metadata")]
-        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

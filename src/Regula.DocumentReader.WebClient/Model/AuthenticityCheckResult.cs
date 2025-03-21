@@ -79,7 +79,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Count of items in List</value>
         [JsonPropertyName("Count")]
-        public int? Count { get { return this.CountOption; } set { this.CountOption = new Option<int?>(value); } }
+        public int? Count { get { return this.CountOption; } set { this.CountOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

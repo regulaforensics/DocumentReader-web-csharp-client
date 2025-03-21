@@ -60,7 +60,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Light
         /// </summary>
         [JsonPropertyName("light")]
-        public Light? Light { get { return this.LightOption; } set { this.LightOption = new Option<Light?>(value); } }
+        public Light? Light { get { return this.LightOption; } set { this.LightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ListIdx
@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ListIdx
         /// </summary>
         [JsonPropertyName("listIdx")]
-        public int? ListIdx { get { return this.ListIdxOption; } set { this.ListIdxOption = new Option<int?>(value); } }
+        public int? ListIdx { get { return this.ListIdxOption; } set { this.ListIdxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PageIdx
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Page index of the image from input list</value>
         [JsonPropertyName("pageIdx")]
-        public int? PageIdx { get { return this.PageIdxOption; } set { this.PageIdxOption = new Option<int?>(value); } }
+        public int? PageIdx { get { return this.PageIdxOption; } set { this.PageIdxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Url
@@ -101,7 +101,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Image url</value>
         [JsonPropertyName("url")]
-        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new Option<string?>(value); } }
+        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

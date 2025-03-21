@@ -59,7 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementResult
         /// </summary>
         [JsonPropertyName("ElementResult")]
-        public CheckResult? ElementResult { get { return this.ElementResultOption; } set { this.ElementResultOption = new Option<CheckResult?>(value); } }
+        public CheckResult? ElementResult { get { return this.ElementResultOption; } set { this.ElementResultOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ElementDiagnose
@@ -72,7 +72,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ElementDiagnose
         /// </summary>
         [JsonPropertyName("ElementDiagnose")]
-        public CheckDiagnose? ElementDiagnose { get { return this.ElementDiagnoseOption; } set { this.ElementDiagnoseOption = new Option<CheckDiagnose?>(value); } }
+        public CheckDiagnose? ElementDiagnose { get { return this.ElementDiagnoseOption; } set { this.ElementDiagnoseOption = new(value); } }
 
         /// <summary>
         /// The discriminator
@@ -92,7 +92,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PercentValue
         /// </summary>
         [JsonPropertyName("PercentValue")]
-        public int? PercentValue { get { return this.PercentValueOption; } set { this.PercentValueOption = new Option<int?>(value); } }
+        public int? PercentValue { get { return this.PercentValueOption; } set { this.PercentValueOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets CandidatesList
         /// </summary>
         [JsonPropertyName("CandidatesList")]
-        public DocumentTypesCandidatesList? CandidatesList { get { return this.CandidatesListOption; } set { this.CandidatesListOption = new Option<DocumentTypesCandidatesList?>(value); } }
+        public DocumentTypesCandidatesList? CandidatesList { get { return this.CandidatesListOption; } set { this.CandidatesListOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

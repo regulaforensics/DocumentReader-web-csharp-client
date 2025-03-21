@@ -91,7 +91,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Area
         /// </summary>
         [JsonPropertyName("Area")]
-        public RectangleCoordinates? Area { get { return this.AreaOption; } set { this.AreaOption = new Option<RectangleCoordinates?>(value); } }
+        public RectangleCoordinates? Area { get { return this.AreaOption; } set { this.AreaOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AreaList
@@ -104,7 +104,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [JsonPropertyName("AreaList")]
-        public AreaContainer? AreaList { get { return this.AreaListOption; } set { this.AreaListOption = new Option<AreaContainer?>(value); } }
+        public AreaContainer? AreaList { get { return this.AreaListOption; } set { this.AreaListOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

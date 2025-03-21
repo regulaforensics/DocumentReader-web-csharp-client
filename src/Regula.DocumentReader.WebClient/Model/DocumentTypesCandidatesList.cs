@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RecResult
         /// </summary>
         [JsonPropertyName("RecResult")]
-        public DocumentTypeRecognitionResult? RecResult { get { return this.RecResultOption; } set { this.RecResultOption = new Option<DocumentTypeRecognitionResult?>(value); } }
+        public DocumentTypeRecognitionResult? RecResult { get { return this.RecResultOption; } set { this.RecResultOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Candidates
@@ -69,7 +69,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Candidates
         /// </summary>
         [JsonPropertyName("Candidates")]
-        public List<OneCandidate>? Candidates { get { return this.CandidatesOption; } set { this.CandidatesOption = new Option<List<OneCandidate>?>(value); } }
+        public List<OneCandidate>? Candidates { get { return this.CandidatesOption; } set { this.CandidatesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

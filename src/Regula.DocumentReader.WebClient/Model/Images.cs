@@ -73,7 +73,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Fields count</value>
         [JsonPropertyName("fieldCount")]
-        public int? FieldCount { get { return this.FieldCountOption; } set { this.FieldCountOption = new Option<int?>(value); } }
+        public int? FieldCount { get { return this.FieldCountOption; } set { this.FieldCountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AvailableSourceCount
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Available sources count</value>
         [JsonPropertyName("availableSourceCount")]
-        public int? AvailableSourceCount { get { return this.AvailableSourceCountOption; } set { this.AvailableSourceCountOption = new Option<int?>(value); } }
+        public int? AvailableSourceCount { get { return this.AvailableSourceCountOption; } set { this.AvailableSourceCountOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

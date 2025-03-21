@@ -85,7 +85,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable document liveness check</value>
         [JsonPropertyName("checkLiveness")]
-        public bool? CheckLiveness { get { return this.CheckLivenessOption; } set { this.CheckLivenessOption = new Option<bool?>(value); } }
+        public bool? CheckLiveness { get { return this.CheckLivenessOption; } set { this.CheckLivenessOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LivenessParams
@@ -98,7 +98,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LivenessParams
         /// </summary>
         [JsonPropertyName("livenessParams")]
-        public LivenessParams? LivenessParams { get { return this.LivenessParamsOption; } set { this.LivenessParamsOption = new Option<LivenessParams?>(value); } }
+        public LivenessParams? LivenessParams { get { return this.LivenessParamsOption; } set { this.LivenessParamsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckUVLuminiscence
@@ -112,7 +112,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Document luminescence check in UV light</value>
         [JsonPropertyName("checkUVLuminiscence")]
-        public bool? CheckUVLuminiscence { get { return this.CheckUVLuminiscenceOption; } set { this.CheckUVLuminiscenceOption = new Option<bool?>(value); } }
+        public bool? CheckUVLuminiscence { get { return this.CheckUVLuminiscenceOption; } set { this.CheckUVLuminiscenceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckIRB900
@@ -126,7 +126,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable B900 ink MRZ contrast check in IR light</value>
         [JsonPropertyName("checkIRB900")]
-        public bool? CheckIRB900 { get { return this.CheckIRB900Option; } set { this.CheckIRB900Option = new Option<bool?>(value); } }
+        public bool? CheckIRB900 { get { return this.CheckIRB900Option; } set { this.CheckIRB900Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckImagePatterns
@@ -140,7 +140,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Image patterns presence/absence check (position, shape, color)</value>
         [JsonPropertyName("checkImagePatterns")]
-        public bool? CheckImagePatterns { get { return this.CheckImagePatternsOption; } set { this.CheckImagePatternsOption = new Option<bool?>(value); } }
+        public bool? CheckImagePatterns { get { return this.CheckImagePatternsOption; } set { this.CheckImagePatternsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckFibers
@@ -154,7 +154,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Fibers detection</value>
         [JsonPropertyName("checkFibers")]
-        public bool? CheckFibers { get { return this.CheckFibersOption; } set { this.CheckFibersOption = new Option<bool?>(value); } }
+        public bool? CheckFibers { get { return this.CheckFibersOption; } set { this.CheckFibersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckExtMRZ
@@ -168,7 +168,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Extended MRZ Check</value>
         [JsonPropertyName("checkExtMRZ")]
-        public bool? CheckExtMRZ { get { return this.CheckExtMRZOption; } set { this.CheckExtMRZOption = new Option<bool?>(value); } }
+        public bool? CheckExtMRZ { get { return this.CheckExtMRZOption; } set { this.CheckExtMRZOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckExtOCR
@@ -182,7 +182,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Extended OCR Check</value>
         [JsonPropertyName("checkExtOCR")]
-        public bool? CheckExtOCR { get { return this.CheckExtOCROption; } set { this.CheckExtOCROption = new Option<bool?>(value); } }
+        public bool? CheckExtOCR { get { return this.CheckExtOCROption; } set { this.CheckExtOCROption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckAxial
@@ -196,7 +196,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable laminate integrity check in axial light</value>
         [JsonPropertyName("checkAxial")]
-        public bool? CheckAxial { get { return this.CheckAxialOption; } set { this.CheckAxialOption = new Option<bool?>(value); } }
+        public bool? CheckAxial { get { return this.CheckAxialOption; } set { this.CheckAxialOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckBarcodeFormat
@@ -210,7 +210,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Barcode format check (code metadata, data format, contents format, etc.)</value>
         [JsonPropertyName("checkBarcodeFormat")]
-        public bool? CheckBarcodeFormat { get { return this.CheckBarcodeFormatOption; } set { this.CheckBarcodeFormatOption = new Option<bool?>(value); } }
+        public bool? CheckBarcodeFormat { get { return this.CheckBarcodeFormatOption; } set { this.CheckBarcodeFormatOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckIRVisibility
@@ -224,7 +224,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Document elements visibility check in IR light</value>
         [JsonPropertyName("checkIRVisibility")]
-        public bool? CheckIRVisibility { get { return this.CheckIRVisibilityOption; } set { this.CheckIRVisibilityOption = new Option<bool?>(value); } }
+        public bool? CheckIRVisibility { get { return this.CheckIRVisibilityOption; } set { this.CheckIRVisibilityOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckIPI
@@ -238,7 +238,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Invisible Personal Information (IPI) check</value>
         [JsonPropertyName("checkIPI")]
-        public bool? CheckIPI { get { return this.CheckIPIOption; } set { this.CheckIPIOption = new Option<bool?>(value); } }
+        public bool? CheckIPI { get { return this.CheckIPIOption; } set { this.CheckIPIOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckPhotoEmbedding
@@ -252,7 +252,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Owner&#39;s photo embedding check (is photo printed or sticked)</value>
         [JsonPropertyName("checkPhotoEmbedding")]
-        public bool? CheckPhotoEmbedding { get { return this.CheckPhotoEmbeddingOption; } set { this.CheckPhotoEmbeddingOption = new Option<bool?>(value); } }
+        public bool? CheckPhotoEmbedding { get { return this.CheckPhotoEmbeddingOption; } set { this.CheckPhotoEmbeddingOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckPhotoComparison
@@ -266,7 +266,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Portrait comparison check</value>
         [JsonPropertyName("checkPhotoComparison")]
-        public bool? CheckPhotoComparison { get { return this.CheckPhotoComparisonOption; } set { this.CheckPhotoComparisonOption = new Option<bool?>(value); } }
+        public bool? CheckPhotoComparison { get { return this.CheckPhotoComparisonOption; } set { this.CheckPhotoComparisonOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckLetterScreen
@@ -280,7 +280,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable LetterScreen check</value>
         [JsonPropertyName("checkLetterScreen")]
-        public bool? CheckLetterScreen { get { return this.CheckLetterScreenOption; } set { this.CheckLetterScreenOption = new Option<bool?>(value); } }
+        public bool? CheckLetterScreen { get { return this.CheckLetterScreenOption; } set { this.CheckLetterScreenOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckSecurityText
@@ -294,7 +294,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable Security text check</value>
         [JsonPropertyName("checkSecurityText")]
-        public bool? CheckSecurityText { get { return this.CheckSecurityTextOption; } set { this.CheckSecurityTextOption = new Option<bool?>(value); } }
+        public bool? CheckSecurityText { get { return this.CheckSecurityTextOption; } set { this.CheckSecurityTextOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -84,7 +84,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BaseLineBottom
         /// </summary>
         [JsonPropertyName("BaseLineBottom")]
-        public int? BaseLineBottom { get { return this.BaseLineBottomOption; } set { this.BaseLineBottomOption = new Option<int?>(value); } }
+        public int? BaseLineBottom { get { return this.BaseLineBottomOption; } set { this.BaseLineBottomOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BaseLineTop
@@ -97,7 +97,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BaseLineTop
         /// </summary>
         [JsonPropertyName("BaseLineTop")]
-        public int? BaseLineTop { get { return this.BaseLineTopOption; } set { this.BaseLineTopOption = new Option<int?>(value); } }
+        public int? BaseLineTop { get { return this.BaseLineTopOption; } set { this.BaseLineTopOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Reserved
@@ -110,7 +110,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved
         /// </summary>
         [JsonPropertyName("Reserved")]
-        public int? Reserved { get { return this.ReservedOption; } set { this.ReservedOption = new Option<int?>(value); } }
+        public int? Reserved { get { return this.ReservedOption; } set { this.ReservedOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

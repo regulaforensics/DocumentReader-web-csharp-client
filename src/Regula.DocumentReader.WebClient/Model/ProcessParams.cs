@@ -178,7 +178,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets MeasureSystem
         /// </summary>
         [JsonPropertyName("measureSystem")]
-        public MeasureSystem? MeasureSystem { get { return this.MeasureSystemOption; } set { this.MeasureSystemOption = new Option<MeasureSystem?>(value); } }
+        public MeasureSystem? MeasureSystem { get { return this.MeasureSystemOption; } set { this.MeasureSystemOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LogLevel
@@ -191,7 +191,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LogLevel
         /// </summary>
         [JsonPropertyName("logLevel")]
-        public LogLevel? LogLevel { get { return this.LogLevelOption; } set { this.LogLevelOption = new Option<LogLevel?>(value); } }
+        public LogLevel? LogLevel { get { return this.LogLevelOption; } set { this.LogLevelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ForceDocFormat
@@ -204,7 +204,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ForceDocFormat
         /// </summary>
         [JsonPropertyName("forceDocFormat")]
-        public DocumentFormat? ForceDocFormat { get { return this.ForceDocFormatOption; } set { this.ForceDocFormatOption = new Option<DocumentFormat?>(value); } }
+        public DocumentFormat? ForceDocFormat { get { return this.ForceDocFormatOption; } set { this.ForceDocFormatOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ConvertCase
@@ -217,7 +217,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ConvertCase
         /// </summary>
         [JsonPropertyName("convertCase")]
-        public TextPostProcessing? ConvertCase { get { return this.ConvertCaseOption; } set { this.ConvertCaseOption = new Option<TextPostProcessing?>(value); } }
+        public TextPostProcessing? ConvertCase { get { return this.ConvertCaseOption; } set { this.ConvertCaseOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MrzDetectMode
@@ -230,7 +230,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets MrzDetectMode
         /// </summary>
         [JsonPropertyName("mrzDetectMode")]
-        public MrzDetectModeEnum? MrzDetectMode { get { return this.MrzDetectModeOption; } set { this.MrzDetectModeOption = new Option<MrzDetectModeEnum?>(value); } }
+        public MrzDetectModeEnum? MrzDetectMode { get { return this.MrzDetectModeOption; } set { this.MrzDetectModeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GenerateDTCVC
@@ -244,7 +244,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to generate separate DTC-VC data container from RFID session data.</value>
         [JsonPropertyName("generateDTCVC")]
-        public bool? GenerateDTCVC { get { return this.GenerateDTCVCOption; } set { this.GenerateDTCVCOption = new Option<bool?>(value); } }
+        public bool? GenerateDTCVC { get { return this.GenerateDTCVCOption; } set { this.GenerateDTCVCOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LcidFilter
@@ -258,7 +258,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.</value>
         [JsonPropertyName("lcidFilter")]
-        public List<LCID>? LcidFilter { get { return this.LcidFilterOption; } set { this.LcidFilterOption = new Option<List<LCID>?>(value); } }
+        public List<LCID>? LcidFilter { get { return this.LcidFilterOption; } set { this.LcidFilterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckLiveness
@@ -272,7 +272,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable document liveness check.</value>
         [JsonPropertyName("checkLiveness")]
-        public bool? CheckLiveness { get { return this.CheckLivenessOption; } set { this.CheckLivenessOption = new Option<bool?>(value); } }
+        public bool? CheckLiveness { get { return this.CheckLivenessOption; } set { this.CheckLivenessOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LcidIgnoreFilter
@@ -286,7 +286,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>The list of LCID types to ignore during the recognition. If empty, values with all LCID types will be extracted. Narrowing down the list can reduce processing time. Empty by default.</value>
         [JsonPropertyName("lcidIgnoreFilter")]
-        public List<LCID>? LcidIgnoreFilter { get { return this.LcidIgnoreFilterOption; } set { this.LcidIgnoreFilterOption = new Option<List<LCID>?>(value); } }
+        public List<LCID>? LcidIgnoreFilter { get { return this.LcidIgnoreFilterOption; } set { this.LcidIgnoreFilterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OneShotIdentification
@@ -300,7 +300,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face</value>
         [JsonPropertyName("oneShotIdentification")]
-        public bool? OneShotIdentification { get { return this.OneShotIdentificationOption; } set { this.OneShotIdentificationOption = new Option<bool?>(value); } }
+        public bool? OneShotIdentification { get { return this.OneShotIdentificationOption; } set { this.OneShotIdentificationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UseFaceApi
@@ -314,7 +314,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows comparing faces on Regula Face Web Service</value>
         [JsonPropertyName("useFaceApi")]
-        public bool? UseFaceApi { get { return this.UseFaceApiOption; } set { this.UseFaceApiOption = new Option<bool?>(value); } }
+        public bool? UseFaceApi { get { return this.UseFaceApiOption; } set { this.UseFaceApiOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FaceApi
@@ -327,7 +327,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FaceApi
         /// </summary>
         [JsonPropertyName("faceApi")]
-        public FaceApi? FaceApi { get { return this.FaceApiOption; } set { this.FaceApiOption = new Option<FaceApi?>(value); } }
+        public FaceApi? FaceApi { get { return this.FaceApiOption; } set { this.FaceApiOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DoDetectCan
@@ -341,7 +341,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.</value>
         [JsonPropertyName("doDetectCan")]
-        public bool? DoDetectCan { get { return this.DoDetectCanOption; } set { this.DoDetectCanOption = new Option<bool?>(value); } }
+        public bool? DoDetectCan { get { return this.DoDetectCanOption; } set { this.DoDetectCanOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImageOutputMaxHeight
@@ -355,7 +355,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.</value>
         [JsonPropertyName("imageOutputMaxHeight")]
-        public int? ImageOutputMaxHeight { get { return this.ImageOutputMaxHeightOption; } set { this.ImageOutputMaxHeightOption = new Option<int?>(value); } }
+        public int? ImageOutputMaxHeight { get { return this.ImageOutputMaxHeightOption; } set { this.ImageOutputMaxHeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImageOutputMaxWidth
@@ -369,7 +369,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.</value>
         [JsonPropertyName("imageOutputMaxWidth")]
-        public int? ImageOutputMaxWidth { get { return this.ImageOutputMaxWidthOption; } set { this.ImageOutputMaxWidthOption = new Option<int?>(value); } }
+        public int? ImageOutputMaxWidth { get { return this.ImageOutputMaxWidthOption; } set { this.ImageOutputMaxWidthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ResultTypeOutput
@@ -383,7 +383,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Types of results to return in response. See &#39;Result&#39; enum for available options</value>
         [JsonPropertyName("resultTypeOutput")]
-        public List<Result>? ResultTypeOutput { get { return this.ResultTypeOutputOption; } set { this.ResultTypeOutputOption = new Option<List<Result>?>(value); } }
+        public List<Result>? ResultTypeOutput { get { return this.ResultTypeOutputOption; } set { this.ResultTypeOutputOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DoublePageSpread
@@ -398,7 +398,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.</value>
         [JsonPropertyName("doublePageSpread")]
         [Obsolete]
-        public bool? DoublePageSpread { get { return this.DoublePageSpreadOption; } set { this.DoublePageSpreadOption = new Option<bool?>(value); } }
+        public bool? DoublePageSpread { get { return this.DoublePageSpreadOption; } set { this.DoublePageSpreadOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GenerateDoublePageSpreadImage
@@ -412,7 +412,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.</value>
         [JsonPropertyName("generateDoublePageSpreadImage")]
-        public bool? GenerateDoublePageSpreadImage { get { return this.GenerateDoublePageSpreadImageOption; } set { this.GenerateDoublePageSpreadImageOption = new Option<bool?>(value); } }
+        public bool? GenerateDoublePageSpreadImage { get { return this.GenerateDoublePageSpreadImageOption; } set { this.GenerateDoublePageSpreadImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FieldTypesFilter
@@ -426,7 +426,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.</value>
         [JsonPropertyName("fieldTypesFilter")]
-        public List<TextFieldType>? FieldTypesFilter { get { return this.FieldTypesFilterOption; } set { this.FieldTypesFilterOption = new Option<List<TextFieldType>?>(value); } }
+        public List<TextFieldType>? FieldTypesFilter { get { return this.FieldTypesFilterOption; } set { this.FieldTypesFilterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DateFormat
@@ -441,7 +441,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>This option allows you to set dates format so that solution will return dates in this format. For example, if you supply &#39;MM/dd/yyyy&#39;, and document have printed date &#39;09 JUL 2020&#39; for the date os issue, you will get &#39;07/09/2020&#39; as a result. By default it is set to system locale default (where the service is running).</value>
         /* <example>MM/dd/yyyy</example> */
         [JsonPropertyName("dateFormat")]
-        public string? DateFormat { get { return this.DateFormatOption; } set { this.DateFormatOption = new Option<string?>(value); } }
+        public string? DateFormat { get { return this.DateFormatOption; } set { this.DateFormatOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImageDpiOutMax
@@ -455,7 +455,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default.</value>
         [JsonPropertyName("imageDpiOutMax")]
-        public int? ImageDpiOutMax { get { return this.ImageDpiOutMaxOption; } set { this.ImageDpiOutMaxOption = new Option<int?>(value); } }
+        public int? ImageDpiOutMax { get { return this.ImageDpiOutMaxOption; } set { this.ImageDpiOutMaxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AlreadyCropped
@@ -469,7 +469,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default.</value>
         [JsonPropertyName("alreadyCropped")]
-        public bool? AlreadyCropped { get { return this.AlreadyCroppedOption; } set { this.AlreadyCroppedOption = new Option<bool?>(value); } }
+        public bool? AlreadyCropped { get { return this.AlreadyCroppedOption; } set { this.AlreadyCroppedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CustomParams
@@ -483,7 +483,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option allows passing custom processing parameters that can be implemented in future without changing API.</value>
         [JsonPropertyName("customParams")]
-        public Dictionary<string, Object>? CustomParams { get { return this.CustomParamsOption; } set { this.CustomParamsOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? CustomParams { get { return this.CustomParamsOption; } set { this.CustomParamsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Config
@@ -497,7 +497,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option allows setting additional custom configuration per document type. If recognized document has ID specified in config, processing adjusts according to designated configuration.</value>
         [JsonPropertyName("config")]
-        public List<PerDocumentConfig>? Config { get { return this.ConfigOption; } set { this.ConfigOption = new Option<List<PerDocumentConfig>?>(value); } }
+        public List<PerDocumentConfig>? Config { get { return this.ConfigOption; } set { this.ConfigOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Log
@@ -511,7 +511,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, results will contain transaction processing log. Disabled by default</value>
         [JsonPropertyName("log")]
-        public bool? Log { get { return this.LogOption; } set { this.LogOption = new Option<bool?>(value); } }
+        public bool? Log { get { return this.LogOption; } set { this.LogOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ForceDocID
@@ -525,7 +525,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Force use of specific template ID and skip document type identification step.</value>
         [JsonPropertyName("forceDocID")]
-        public int? ForceDocID { get { return this.ForceDocIDOption; } set { this.ForceDocIDOption = new Option<int?>(value); } }
+        public int? ForceDocID { get { return this.ForceDocIDOption; } set { this.ForceDocIDOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchTextFieldMask
@@ -539,7 +539,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default.</value>
         [JsonPropertyName("matchTextFieldMask")]
-        public bool? MatchTextFieldMask { get { return this.MatchTextFieldMaskOption; } set { this.MatchTextFieldMaskOption = new Option<bool?>(value); } }
+        public bool? MatchTextFieldMask { get { return this.MatchTextFieldMaskOption; } set { this.MatchTextFieldMaskOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FastDocDetect
@@ -554,7 +554,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.</value>
         [JsonPropertyName("fastDocDetect")]
         [Obsolete]
-        public bool? FastDocDetect { get { return this.FastDocDetectOption; } set { this.FastDocDetectOption = new Option<bool?>(value); } }
+        public bool? FastDocDetect { get { return this.FastDocDetectOption; } set { this.FastDocDetectOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UpdateOCRValidityByGlare
@@ -568,7 +568,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.</value>
         [JsonPropertyName("updateOCRValidityByGlare")]
-        public bool? UpdateOCRValidityByGlare { get { return this.UpdateOCRValidityByGlareOption; } set { this.UpdateOCRValidityByGlareOption = new Option<bool?>(value); } }
+        public bool? UpdateOCRValidityByGlare { get { return this.UpdateOCRValidityByGlareOption; } set { this.UpdateOCRValidityByGlareOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckRequiredTextFields
@@ -582,7 +582,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have &#39;error&#39; in validity status. Disabled by default.</value>
         [JsonPropertyName("checkRequiredTextFields")]
-        public bool? CheckRequiredTextFields { get { return this.CheckRequiredTextFieldsOption; } set { this.CheckRequiredTextFieldsOption = new Option<bool?>(value); } }
+        public bool? CheckRequiredTextFields { get { return this.CheckRequiredTextFieldsOption; } set { this.CheckRequiredTextFieldsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReturnCroppedBarcode
@@ -596,7 +596,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, returns cropped barcode images for unknown documents. Disabled by default.</value>
         [JsonPropertyName("returnCroppedBarcode")]
-        public bool? ReturnCroppedBarcode { get { return this.ReturnCroppedBarcodeOption; } set { this.ReturnCroppedBarcodeOption = new Option<bool?>(value); } }
+        public bool? ReturnCroppedBarcode { get { return this.ReturnCroppedBarcodeOption; } set { this.ReturnCroppedBarcodeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImageQa
@@ -609,7 +609,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ImageQa
         /// </summary>
         [JsonPropertyName("imageQa")]
-        public ImageQA? ImageQa { get { return this.ImageQaOption; } set { this.ImageQaOption = new Option<ImageQA?>(value); } }
+        public ImageQA? ImageQa { get { return this.ImageQaOption; } set { this.ImageQaOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StrictImageQuality
@@ -623,7 +623,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, the image quality check status affects the document optical and overall status. Disabled by default.</value>
         [JsonPropertyName("strictImageQuality")]
-        public bool? StrictImageQuality { get { return this.StrictImageQualityOption; } set { this.StrictImageQualityOption = new Option<bool?>(value); } }
+        public bool? StrictImageQuality { get { return this.StrictImageQualityOption; } set { this.StrictImageQualityOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RespectImageQuality
@@ -638,7 +638,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.</value>
         [JsonPropertyName("respectImageQuality")]
         [Obsolete]
-        public bool? RespectImageQuality { get { return this.RespectImageQualityOption; } set { this.RespectImageQualityOption = new Option<bool?>(value); } }
+        public bool? RespectImageQuality { get { return this.RespectImageQualityOption; } set { this.RespectImageQualityOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NoGraphics
@@ -652,7 +652,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, no graphic fields will be cropped from document image. Disabled by default.</value>
         [JsonPropertyName("noGraphics")]
-        public bool? NoGraphics { get { return this.NoGraphicsOption; } set { this.NoGraphicsOption = new Option<bool?>(value); } }
+        public bool? NoGraphics { get { return this.NoGraphicsOption; } set { this.NoGraphicsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DepersonalizeLog
@@ -666,7 +666,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, all personal data will be forcibly removed from the logs. Disabled by default.</value>
         [JsonPropertyName("depersonalizeLog")]
-        public bool? DepersonalizeLog { get { return this.DepersonalizeLogOption; } set { this.DepersonalizeLogOption = new Option<bool?>(value); } }
+        public bool? DepersonalizeLog { get { return this.DepersonalizeLogOption; } set { this.DepersonalizeLogOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MultiDocOnImage
@@ -680,7 +680,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.</value>
         [JsonPropertyName("multiDocOnImage")]
-        public bool? MultiDocOnImage { get { return this.MultiDocOnImageOption; } set { this.MultiDocOnImageOption = new Option<bool?>(value); } }
+        public bool? MultiDocOnImage { get { return this.MultiDocOnImageOption; } set { this.MultiDocOnImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShiftExpiryDate
@@ -694,7 +694,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months. 0 by default</value>
         [JsonPropertyName("shiftExpiryDate")]
-        public int? ShiftExpiryDate { get { return this.ShiftExpiryDateOption; } set { this.ShiftExpiryDateOption = new Option<int?>(value); } }
+        public int? ShiftExpiryDate { get { return this.ShiftExpiryDateOption; } set { this.ShiftExpiryDateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinimalHolderAge
@@ -708,7 +708,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This options allows specifying the minimal age in years of the document holder for the document to be considered valid.</value>
         [JsonPropertyName("minimalHolderAge")]
-        public int? MinimalHolderAge { get { return this.MinimalHolderAgeOption; } set { this.MinimalHolderAgeOption = new Option<int?>(value); } }
+        public int? MinimalHolderAge { get { return this.MinimalHolderAgeOption; } set { this.MinimalHolderAgeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReturnUncroppedImage
@@ -722,7 +722,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, returns input images in output. Disabled by default.</value>
         [JsonPropertyName("returnUncroppedImage")]
-        public bool? ReturnUncroppedImage { get { return this.ReturnUncroppedImageOption; } set { this.ReturnUncroppedImageOption = new Option<bool?>(value); } }
+        public bool? ReturnUncroppedImage { get { return this.ReturnUncroppedImageOption; } set { this.ReturnUncroppedImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MrzFormatsFilter
@@ -736,7 +736,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option allows limiting MRZ formats to be recognized by specifying them in array.</value>
         [JsonPropertyName("mrzFormatsFilter")]
-        public List<MRZFormat>? MrzFormatsFilter { get { return this.MrzFormatsFilterOption; } set { this.MrzFormatsFilterOption = new Option<List<MRZFormat>?>(value); } }
+        public List<MRZFormat>? MrzFormatsFilter { get { return this.MrzFormatsFilterOption; } set { this.MrzFormatsFilterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ForceReadMrzBeforeLocate
@@ -750,7 +750,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.</value>
         [JsonPropertyName("forceReadMrzBeforeLocate")]
-        public bool? ForceReadMrzBeforeLocate { get { return this.ForceReadMrzBeforeLocateOption; } set { this.ForceReadMrzBeforeLocateOption = new Option<bool?>(value); } }
+        public bool? ForceReadMrzBeforeLocate { get { return this.ForceReadMrzBeforeLocateOption; } set { this.ForceReadMrzBeforeLocateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ParseBarcodes
@@ -764,7 +764,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This option can be disabled to stop parsing after barcode is read. Enabled by default.</value>
         [JsonPropertyName("parseBarcodes")]
-        public bool? ParseBarcodes { get { return this.ParseBarcodesOption; } set { this.ParseBarcodesOption = new Option<bool?>(value); } }
+        public bool? ParseBarcodes { get { return this.ParseBarcodesOption; } set { this.ParseBarcodesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SplitNames
@@ -778,7 +778,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.</value>
         [JsonPropertyName("splitNames")]
-        public bool? SplitNames { get { return this.SplitNamesOption; } set { this.SplitNamesOption = new Option<bool?>(value); } }
+        public bool? SplitNames { get { return this.SplitNamesOption; } set { this.SplitNamesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DisablePerforationOCR
@@ -792,7 +792,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.</value>
         [JsonPropertyName("disablePerforationOCR")]
-        public bool? DisablePerforationOCR { get { return this.DisablePerforationOCROption; } set { this.DisablePerforationOCROption = new Option<bool?>(value); } }
+        public bool? DisablePerforationOCR { get { return this.DisablePerforationOCROption; } set { this.DisablePerforationOCROption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocumentGroupFilter
@@ -806,7 +806,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.</value>
         [JsonPropertyName("documentGroupFilter")]
-        public List<DocumentType>? DocumentGroupFilter { get { return this.DocumentGroupFilterOption; } set { this.DocumentGroupFilterOption = new Option<List<DocumentType>?>(value); } }
+        public List<DocumentType>? DocumentGroupFilter { get { return this.DocumentGroupFilterOption; } set { this.DocumentGroupFilterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ProcessAuth
@@ -820,7 +820,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added. </value>
         [JsonPropertyName("processAuth")]
-        public long? ProcessAuth { get { return this.ProcessAuthOption; } set { this.ProcessAuthOption = new Option<long?>(value); } }
+        public long? ProcessAuth { get { return this.ProcessAuthOption; } set { this.ProcessAuthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DeviceId
@@ -834,7 +834,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to specify the document reader device type from which input images were captured. Default 0.</value>
         [JsonPropertyName("deviceId")]
-        public int? DeviceId { get { return this.DeviceIdOption; } set { this.DeviceIdOption = new Option<int?>(value); } }
+        public int? DeviceId { get { return this.DeviceIdOption; } set { this.DeviceIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DeviceType
@@ -848,7 +848,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to specify the document reader device type from which input images were captured. Default 0.</value>
         [JsonPropertyName("deviceType")]
-        public int? DeviceType { get { return this.DeviceTypeOption; } set { this.DeviceTypeOption = new Option<int?>(value); } }
+        public int? DeviceType { get { return this.DeviceTypeOption; } set { this.DeviceTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DeviceTypeHex
@@ -862,7 +862,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to specify the document reader device type from which input images were captured</value>
         [JsonPropertyName("deviceTypeHex")]
-        public string? DeviceTypeHex { get { return this.DeviceTypeHexOption; } set { this.DeviceTypeHexOption = new Option<string?>(value); } }
+        public string? DeviceTypeHex { get { return this.DeviceTypeHexOption; } set { this.DeviceTypeHexOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IgnoreDeviceIdFromImage
@@ -876,7 +876,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false</value>
         [JsonPropertyName("ignoreDeviceIdFromImage")]
-        public bool? IgnoreDeviceIdFromImage { get { return this.IgnoreDeviceIdFromImageOption; } set { this.IgnoreDeviceIdFromImageOption = new Option<bool?>(value); } }
+        public bool? IgnoreDeviceIdFromImage { get { return this.IgnoreDeviceIdFromImageOption; } set { this.IgnoreDeviceIdFromImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocumentIdList
@@ -890,7 +890,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of the document ID&#39;s to process. All documents will be processed, if empty.</value>
         [JsonPropertyName("documentIdList")]
-        public List<int>? DocumentIdList { get { return this.DocumentIdListOption; } set { this.DocumentIdListOption = new Option<List<int>?>(value); } }
+        public List<int>? DocumentIdList { get { return this.DocumentIdListOption; } set { this.DocumentIdListOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Rfid
@@ -903,7 +903,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Rfid
         /// </summary>
         [JsonPropertyName("rfid")]
-        public ProcessParamsRfid? Rfid { get { return this.RfidOption; } set { this.RfidOption = new Option<ProcessParamsRfid?>(value); } }
+        public ProcessParamsRfid? Rfid { get { return this.RfidOption; } set { this.RfidOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheckAuth
@@ -917,7 +917,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to enable authenticity checks</value>
         [JsonPropertyName("checkAuth")]
-        public bool? CheckAuth { get { return this.CheckAuthOption; } set { this.CheckAuthOption = new Option<bool?>(value); } }
+        public bool? CheckAuth { get { return this.CheckAuthOption; } set { this.CheckAuthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AuthParams
@@ -930,7 +930,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AuthParams
         /// </summary>
         [JsonPropertyName("authParams")]
-        public AuthParams? AuthParams { get { return this.AuthParamsOption; } set { this.AuthParamsOption = new Option<AuthParams?>(value); } }
+        public AuthParams? AuthParams { get { return this.AuthParamsOption; } set { this.AuthParamsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GenerateNumericCodes
@@ -944,7 +944,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter is used to generate numeric representation for issuing state and nationality codes</value>
         [JsonPropertyName("generateNumericCodes")]
-        public bool? GenerateNumericCodes { get { return this.GenerateNumericCodesOption; } set { this.GenerateNumericCodesOption = new Option<bool?>(value); } }
+        public bool? GenerateNumericCodes { get { return this.GenerateNumericCodesOption; } set { this.GenerateNumericCodesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StrictBarcodeDigitalSignatureCheck
@@ -958,7 +958,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.</value>
         [JsonPropertyName("strictBarcodeDigitalSignatureCheck")]
-        public bool? StrictBarcodeDigitalSignatureCheck { get { return this.StrictBarcodeDigitalSignatureCheckOption; } set { this.StrictBarcodeDigitalSignatureCheckOption = new Option<bool?>(value); } }
+        public bool? StrictBarcodeDigitalSignatureCheck { get { return this.StrictBarcodeDigitalSignatureCheckOption; } set { this.StrictBarcodeDigitalSignatureCheckOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SelectLongestNames
@@ -972,7 +972,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc.</value>
         [JsonPropertyName("selectLongestNames")]
-        public bool? SelectLongestNames { get { return this.SelectLongestNamesOption; } set { this.SelectLongestNamesOption = new Option<bool?>(value); } }
+        public bool? SelectLongestNames { get { return this.SelectLongestNamesOption; } set { this.SelectLongestNamesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DoBarcodes
@@ -986,7 +986,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Set the types of barcodes to process.</value>
         [JsonPropertyName("doBarcodes")]
-        public List<InputBarcodeType>? DoBarcodes { get { return this.DoBarcodesOption; } set { this.DoBarcodesOption = new Option<List<InputBarcodeType>?>(value); } }
+        public List<InputBarcodeType>? DoBarcodes { get { return this.DoBarcodesOption; } set { this.DoBarcodesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

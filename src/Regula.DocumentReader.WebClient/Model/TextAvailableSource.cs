@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
         [JsonPropertyName("containerType")]
-        public int? ContainerType { get { return this.ContainerTypeOption; } set { this.ContainerTypeOption = new Option<int?>(value); } }
+        public int? ContainerType { get { return this.ContainerTypeOption; } set { this.ContainerTypeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

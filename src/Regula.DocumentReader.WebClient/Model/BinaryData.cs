@@ -180,7 +180,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDAuthenticationInfo
         /// </summary>
         [JsonPropertyName("RFID_Authentication_Info")]
-        public Dictionary<string, Object>? RFIDAuthenticationInfo { get { return this.RFIDAuthenticationInfoOption; } set { this.RFIDAuthenticationInfoOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDAuthenticationInfo { get { return this.RFIDAuthenticationInfoOption; } set { this.RFIDAuthenticationInfoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDMIFAREDataValidity
@@ -193,7 +193,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDMIFAREDataValidity
         /// </summary>
         [JsonPropertyName("RFID_MIFARE_Data_Validity")]
-        public Dictionary<string, Object>? RFIDMIFAREDataValidity { get { return this.RFIDMIFAREDataValidityOption; } set { this.RFIDMIFAREDataValidityOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDMIFAREDataValidity { get { return this.RFIDMIFAREDataValidityOption; } set { this.RFIDMIFAREDataValidityOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDMIFAREData
@@ -206,7 +206,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDMIFAREData
         /// </summary>
         [JsonPropertyName("RFID_MIFARE_Data")]
-        public Dictionary<string, Object>? RFIDMIFAREData { get { return this.RFIDMIFAREDataOption; } set { this.RFIDMIFAREDataOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDMIFAREData { get { return this.RFIDMIFAREDataOption; } set { this.RFIDMIFAREDataOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFID_EF_COM
@@ -219,7 +219,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFID_EF_COM
         /// </summary>
         [JsonPropertyName("RFID_EF_COM")]
-        public Dictionary<string, Object>? RFID_EF_COM { get { return this.RFID_EF_COMOption; } set { this.RFID_EF_COMOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFID_EF_COM { get { return this.RFID_EF_COMOption; } set { this.RFID_EF_COMOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG1
@@ -232,7 +232,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG1
         /// </summary>
         [JsonPropertyName("RFID_DG1")]
-        public RfidDG1? RFIDDG1 { get { return this.RFIDDG1Option; } set { this.RFIDDG1Option = new Option<RfidDG1?>(value); } }
+        public RfidDG1? RFIDDG1 { get { return this.RFIDDG1Option; } set { this.RFIDDG1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG2
@@ -245,7 +245,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG2
         /// </summary>
         [JsonPropertyName("RFID_DG2")]
-        public Dictionary<string, Object>? RFIDDG2 { get { return this.RFIDDG2Option; } set { this.RFIDDG2Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG2 { get { return this.RFIDDG2Option; } set { this.RFIDDG2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG3
@@ -258,7 +258,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG3
         /// </summary>
         [JsonPropertyName("RFID_DG3")]
-        public Dictionary<string, Object>? RFIDDG3 { get { return this.RFIDDG3Option; } set { this.RFIDDG3Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG3 { get { return this.RFIDDG3Option; } set { this.RFIDDG3Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG4
@@ -271,7 +271,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG4
         /// </summary>
         [JsonPropertyName("RFID_DG4")]
-        public Dictionary<string, Object>? RFIDDG4 { get { return this.RFIDDG4Option; } set { this.RFIDDG4Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG4 { get { return this.RFIDDG4Option; } set { this.RFIDDG4Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG5
@@ -284,7 +284,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG5
         /// </summary>
         [JsonPropertyName("RFID_DG5")]
-        public Dictionary<string, Object>? RFIDDG5 { get { return this.RFIDDG5Option; } set { this.RFIDDG5Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG5 { get { return this.RFIDDG5Option; } set { this.RFIDDG5Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG6
@@ -297,7 +297,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG6
         /// </summary>
         [JsonPropertyName("RFID_DG6")]
-        public Dictionary<string, Object>? RFIDDG6 { get { return this.RFIDDG6Option; } set { this.RFIDDG6Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG6 { get { return this.RFIDDG6Option; } set { this.RFIDDG6Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG7
@@ -310,7 +310,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG7
         /// </summary>
         [JsonPropertyName("RFID_DG7")]
-        public Dictionary<string, Object>? RFIDDG7 { get { return this.RFIDDG7Option; } set { this.RFIDDG7Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG7 { get { return this.RFIDDG7Option; } set { this.RFIDDG7Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG8
@@ -323,7 +323,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG8
         /// </summary>
         [JsonPropertyName("RFID_DG8")]
-        public Dictionary<string, Object>? RFIDDG8 { get { return this.RFIDDG8Option; } set { this.RFIDDG8Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG8 { get { return this.RFIDDG8Option; } set { this.RFIDDG8Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG9
@@ -336,7 +336,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG9
         /// </summary>
         [JsonPropertyName("RFID_DG9")]
-        public Dictionary<string, Object>? RFIDDG9 { get { return this.RFIDDG9Option; } set { this.RFIDDG9Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG9 { get { return this.RFIDDG9Option; } set { this.RFIDDG9Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG10
@@ -349,7 +349,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG10
         /// </summary>
         [JsonPropertyName("RFID_DG10")]
-        public Dictionary<string, Object>? RFIDDG10 { get { return this.RFIDDG10Option; } set { this.RFIDDG10Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG10 { get { return this.RFIDDG10Option; } set { this.RFIDDG10Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG11
@@ -362,7 +362,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG11
         /// </summary>
         [JsonPropertyName("RFID_DG11")]
-        public Dictionary<string, Object>? RFIDDG11 { get { return this.RFIDDG11Option; } set { this.RFIDDG11Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG11 { get { return this.RFIDDG11Option; } set { this.RFIDDG11Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG12
@@ -375,7 +375,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG12
         /// </summary>
         [JsonPropertyName("RFID_DG12")]
-        public Dictionary<string, Object>? RFIDDG12 { get { return this.RFIDDG12Option; } set { this.RFIDDG12Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG12 { get { return this.RFIDDG12Option; } set { this.RFIDDG12Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG13
@@ -388,7 +388,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG13
         /// </summary>
         [JsonPropertyName("RFID_DG13")]
-        public Dictionary<string, Object>? RFIDDG13 { get { return this.RFIDDG13Option; } set { this.RFIDDG13Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG13 { get { return this.RFIDDG13Option; } set { this.RFIDDG13Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG14
@@ -401,7 +401,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG14
         /// </summary>
         [JsonPropertyName("RFID_DG14")]
-        public Dictionary<string, Object>? RFIDDG14 { get { return this.RFIDDG14Option; } set { this.RFIDDG14Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG14 { get { return this.RFIDDG14Option; } set { this.RFIDDG14Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG15
@@ -414,7 +414,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG15
         /// </summary>
         [JsonPropertyName("RFID_DG15")]
-        public Dictionary<string, Object>? RFIDDG15 { get { return this.RFIDDG15Option; } set { this.RFIDDG15Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG15 { get { return this.RFIDDG15Option; } set { this.RFIDDG15Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDDG16
@@ -427,7 +427,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDDG16
         /// </summary>
         [JsonPropertyName("RFID_DG16")]
-        public Dictionary<string, Object>? RFIDDG16 { get { return this.RFIDDG16Option; } set { this.RFIDDG16Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFIDDG16 { get { return this.RFIDDG16Option; } set { this.RFIDDG16Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFID_EF_SOD
@@ -440,7 +440,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFID_EF_SOD
         /// </summary>
         [JsonPropertyName("RFID_EF_SOD")]
-        public Dictionary<string, Object>? RFID_EF_SOD { get { return this.RFID_EF_SODOption; } set { this.RFID_EF_SODOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? RFID_EF_SOD { get { return this.RFID_EF_SODOption; } set { this.RFID_EF_SODOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG1
@@ -453,7 +453,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG1
         /// </summary>
         [JsonPropertyName("eID_DG1")]
-        public Dictionary<string, Object>? EIDDG1 { get { return this.EIDDG1Option; } set { this.EIDDG1Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG1 { get { return this.EIDDG1Option; } set { this.EIDDG1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG2
@@ -466,7 +466,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG2
         /// </summary>
         [JsonPropertyName("eID_DG2")]
-        public Dictionary<string, Object>? EIDDG2 { get { return this.EIDDG2Option; } set { this.EIDDG2Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG2 { get { return this.EIDDG2Option; } set { this.EIDDG2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG3
@@ -479,7 +479,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG3
         /// </summary>
         [JsonPropertyName("eID_DG3")]
-        public Dictionary<string, Object>? EIDDG3 { get { return this.EIDDG3Option; } set { this.EIDDG3Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG3 { get { return this.EIDDG3Option; } set { this.EIDDG3Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG4
@@ -492,7 +492,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG4
         /// </summary>
         [JsonPropertyName("eID_DG4")]
-        public Dictionary<string, Object>? EIDDG4 { get { return this.EIDDG4Option; } set { this.EIDDG4Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG4 { get { return this.EIDDG4Option; } set { this.EIDDG4Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG5
@@ -505,7 +505,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG5
         /// </summary>
         [JsonPropertyName("eID_DG5")]
-        public Dictionary<string, Object>? EIDDG5 { get { return this.EIDDG5Option; } set { this.EIDDG5Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG5 { get { return this.EIDDG5Option; } set { this.EIDDG5Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG6
@@ -518,7 +518,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG6
         /// </summary>
         [JsonPropertyName("eID_DG6")]
-        public Dictionary<string, Object>? EIDDG6 { get { return this.EIDDG6Option; } set { this.EIDDG6Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG6 { get { return this.EIDDG6Option; } set { this.EIDDG6Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG7
@@ -531,7 +531,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG7
         /// </summary>
         [JsonPropertyName("eID_DG7")]
-        public Dictionary<string, Object>? EIDDG7 { get { return this.EIDDG7Option; } set { this.EIDDG7Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG7 { get { return this.EIDDG7Option; } set { this.EIDDG7Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG8
@@ -544,7 +544,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG8
         /// </summary>
         [JsonPropertyName("eID_DG8")]
-        public Dictionary<string, Object>? EIDDG8 { get { return this.EIDDG8Option; } set { this.EIDDG8Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG8 { get { return this.EIDDG8Option; } set { this.EIDDG8Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG9
@@ -557,7 +557,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG9
         /// </summary>
         [JsonPropertyName("eID_DG9")]
-        public Dictionary<string, Object>? EIDDG9 { get { return this.EIDDG9Option; } set { this.EIDDG9Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG9 { get { return this.EIDDG9Option; } set { this.EIDDG9Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG10
@@ -570,7 +570,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG10
         /// </summary>
         [JsonPropertyName("eID_DG10")]
-        public Dictionary<string, Object>? EIDDG10 { get { return this.EIDDG10Option; } set { this.EIDDG10Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG10 { get { return this.EIDDG10Option; } set { this.EIDDG10Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG11
@@ -583,7 +583,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG11
         /// </summary>
         [JsonPropertyName("eID_DG11")]
-        public Dictionary<string, Object>? EIDDG11 { get { return this.EIDDG11Option; } set { this.EIDDG11Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG11 { get { return this.EIDDG11Option; } set { this.EIDDG11Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG12
@@ -596,7 +596,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG12
         /// </summary>
         [JsonPropertyName("eID_DG12")]
-        public Dictionary<string, Object>? EIDDG12 { get { return this.EIDDG12Option; } set { this.EIDDG12Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG12 { get { return this.EIDDG12Option; } set { this.EIDDG12Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG13
@@ -609,7 +609,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG13
         /// </summary>
         [JsonPropertyName("eID_DG13")]
-        public Dictionary<string, Object>? EIDDG13 { get { return this.EIDDG13Option; } set { this.EIDDG13Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG13 { get { return this.EIDDG13Option; } set { this.EIDDG13Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG14
@@ -622,7 +622,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG14
         /// </summary>
         [JsonPropertyName("eID_DG14")]
-        public Dictionary<string, Object>? EIDDG14 { get { return this.EIDDG14Option; } set { this.EIDDG14Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG14 { get { return this.EIDDG14Option; } set { this.EIDDG14Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG15
@@ -635,7 +635,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG15
         /// </summary>
         [JsonPropertyName("eID_DG15")]
-        public Dictionary<string, Object>? EIDDG15 { get { return this.EIDDG15Option; } set { this.EIDDG15Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG15 { get { return this.EIDDG15Option; } set { this.EIDDG15Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG16
@@ -648,7 +648,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG16
         /// </summary>
         [JsonPropertyName("eID_DG16")]
-        public Dictionary<string, Object>? EIDDG16 { get { return this.EIDDG16Option; } set { this.EIDDG16Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG16 { get { return this.EIDDG16Option; } set { this.EIDDG16Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG17
@@ -661,7 +661,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG17
         /// </summary>
         [JsonPropertyName("eID_DG17")]
-        public Dictionary<string, Object>? EIDDG17 { get { return this.EIDDG17Option; } set { this.EIDDG17Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG17 { get { return this.EIDDG17Option; } set { this.EIDDG17Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG18
@@ -674,7 +674,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG18
         /// </summary>
         [JsonPropertyName("eID_DG18")]
-        public Dictionary<string, Object>? EIDDG18 { get { return this.EIDDG18Option; } set { this.EIDDG18Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG18 { get { return this.EIDDG18Option; } set { this.EIDDG18Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG19
@@ -687,7 +687,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG19
         /// </summary>
         [JsonPropertyName("eID_DG19")]
-        public Dictionary<string, Object>? EIDDG19 { get { return this.EIDDG19Option; } set { this.EIDDG19Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG19 { get { return this.EIDDG19Option; } set { this.EIDDG19Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG20
@@ -700,7 +700,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG20
         /// </summary>
         [JsonPropertyName("eID_DG20")]
-        public Dictionary<string, Object>? EIDDG20 { get { return this.EIDDG20Option; } set { this.EIDDG20Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG20 { get { return this.EIDDG20Option; } set { this.EIDDG20Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EIDDG21
@@ -713,7 +713,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EIDDG21
         /// </summary>
         [JsonPropertyName("eID_DG21")]
-        public Dictionary<string, Object>? EIDDG21 { get { return this.EIDDG21Option; } set { this.EIDDG21Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EIDDG21 { get { return this.EIDDG21Option; } set { this.EIDDG21Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLCOM
@@ -726,7 +726,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLCOM
         /// </summary>
         [JsonPropertyName("eDL_COM")]
-        public Dictionary<string, Object>? EDLCOM { get { return this.EDLCOMOption; } set { this.EDLCOMOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLCOM { get { return this.EDLCOMOption; } set { this.EDLCOMOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLSOD
@@ -739,7 +739,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLSOD
         /// </summary>
         [JsonPropertyName("eDL_SOD")]
-        public Dictionary<string, Object>? EDLSOD { get { return this.EDLSODOption; } set { this.EDLSODOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLSOD { get { return this.EDLSODOption; } set { this.EDLSODOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG1
@@ -752,7 +752,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG1
         /// </summary>
         [JsonPropertyName("eDL_DG1")]
-        public Dictionary<string, Object>? EDLDG1 { get { return this.EDLDG1Option; } set { this.EDLDG1Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG1 { get { return this.EDLDG1Option; } set { this.EDLDG1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG2
@@ -765,7 +765,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG2
         /// </summary>
         [JsonPropertyName("eDL_DG2")]
-        public Dictionary<string, Object>? EDLDG2 { get { return this.EDLDG2Option; } set { this.EDLDG2Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG2 { get { return this.EDLDG2Option; } set { this.EDLDG2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG3
@@ -778,7 +778,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG3
         /// </summary>
         [JsonPropertyName("eDL_DG3")]
-        public Dictionary<string, Object>? EDLDG3 { get { return this.EDLDG3Option; } set { this.EDLDG3Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG3 { get { return this.EDLDG3Option; } set { this.EDLDG3Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG4
@@ -791,7 +791,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG4
         /// </summary>
         [JsonPropertyName("eDL_DG4")]
-        public Dictionary<string, Object>? EDLDG4 { get { return this.EDLDG4Option; } set { this.EDLDG4Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG4 { get { return this.EDLDG4Option; } set { this.EDLDG4Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG5
@@ -804,7 +804,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG5
         /// </summary>
         [JsonPropertyName("eDL_DG5")]
-        public Dictionary<string, Object>? EDLDG5 { get { return this.EDLDG5Option; } set { this.EDLDG5Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG5 { get { return this.EDLDG5Option; } set { this.EDLDG5Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG6
@@ -817,7 +817,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG6
         /// </summary>
         [JsonPropertyName("eDL_DG6")]
-        public Dictionary<string, Object>? EDLDG6 { get { return this.EDLDG6Option; } set { this.EDLDG6Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG6 { get { return this.EDLDG6Option; } set { this.EDLDG6Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG7
@@ -830,7 +830,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG7
         /// </summary>
         [JsonPropertyName("eDL_DG7")]
-        public Dictionary<string, Object>? EDLDG7 { get { return this.EDLDG7Option; } set { this.EDLDG7Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG7 { get { return this.EDLDG7Option; } set { this.EDLDG7Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG8
@@ -843,7 +843,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG8
         /// </summary>
         [JsonPropertyName("eDL_DG8")]
-        public Dictionary<string, Object>? EDLDG8 { get { return this.EDLDG8Option; } set { this.EDLDG8Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG8 { get { return this.EDLDG8Option; } set { this.EDLDG8Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG9
@@ -856,7 +856,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG9
         /// </summary>
         [JsonPropertyName("eDL_DG9")]
-        public Dictionary<string, Object>? EDLDG9 { get { return this.EDLDG9Option; } set { this.EDLDG9Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG9 { get { return this.EDLDG9Option; } set { this.EDLDG9Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG10
@@ -869,7 +869,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG10
         /// </summary>
         [JsonPropertyName("eDL_DG10")]
-        public Dictionary<string, Object>? EDLDG10 { get { return this.EDLDG10Option; } set { this.EDLDG10Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG10 { get { return this.EDLDG10Option; } set { this.EDLDG10Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG11
@@ -882,7 +882,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG11
         /// </summary>
         [JsonPropertyName("eDL_DG11")]
-        public Dictionary<string, Object>? EDLDG11 { get { return this.EDLDG11Option; } set { this.EDLDG11Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG11 { get { return this.EDLDG11Option; } set { this.EDLDG11Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG12
@@ -895,7 +895,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG12
         /// </summary>
         [JsonPropertyName("eDL_DG12")]
-        public Dictionary<string, Object>? EDLDG12 { get { return this.EDLDG12Option; } set { this.EDLDG12Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG12 { get { return this.EDLDG12Option; } set { this.EDLDG12Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG13
@@ -908,7 +908,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG13
         /// </summary>
         [JsonPropertyName("eDL_DG13")]
-        public Dictionary<string, Object>? EDLDG13 { get { return this.EDLDG13Option; } set { this.EDLDG13Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG13 { get { return this.EDLDG13Option; } set { this.EDLDG13Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EDLDG14
@@ -921,7 +921,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets EDLDG14
         /// </summary>
         [JsonPropertyName("eDL_DG14")]
-        public Dictionary<string, Object>? EDLDG14 { get { return this.EDLDG14Option; } set { this.EDLDG14Option = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? EDLDG14 { get { return this.EDLDG14Option; } set { this.EDLDG14Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of VisibleDigitalSeal
@@ -934,7 +934,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets VisibleDigitalSeal
         /// </summary>
         [JsonPropertyName("Visible_Digital_Seal")]
-        public Dictionary<string, Object>? VisibleDigitalSeal { get { return this.VisibleDigitalSealOption; } set { this.VisibleDigitalSealOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? VisibleDigitalSeal { get { return this.VisibleDigitalSealOption; } set { this.VisibleDigitalSealOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of VisibleDigitalSealNC
@@ -947,7 +947,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets VisibleDigitalSealNC
         /// </summary>
         [JsonPropertyName("Visible_Digital_Seal_NC")]
-        public Dictionary<string, Object>? VisibleDigitalSealNC { get { return this.VisibleDigitalSealNCOption; } set { this.VisibleDigitalSealNCOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? VisibleDigitalSealNC { get { return this.VisibleDigitalSealNCOption; } set { this.VisibleDigitalSealNCOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DigitalSignature
@@ -960,7 +960,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DigitalSignature
         /// </summary>
         [JsonPropertyName("Digital_Signature")]
-        public Dictionary<string, Object>? DigitalSignature { get { return this.DigitalSignatureOption; } set { this.DigitalSignatureOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? DigitalSignature { get { return this.DigitalSignatureOption; } set { this.DigitalSignatureOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDSessionData
@@ -973,7 +973,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDSessionData
         /// </summary>
         [JsonPropertyName("RFID_Session_Data")]
-        public RfidSessionData? RFIDSessionData { get { return this.RFIDSessionDataOption; } set { this.RFIDSessionDataOption = new Option<RfidSessionData?>(value); } }
+        public RfidSessionData? RFIDSessionData { get { return this.RFIDSessionDataOption; } set { this.RFIDSessionDataOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDSessionDataStatus
@@ -986,7 +986,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDSessionDataStatus
         /// </summary>
         [JsonPropertyName("RFID_Session_Data_Status")]
-        public DetailsRFID? RFIDSessionDataStatus { get { return this.RFIDSessionDataStatusOption; } set { this.RFIDSessionDataStatusOption = new Option<DetailsRFID?>(value); } }
+        public DetailsRFID? RFIDSessionDataStatus { get { return this.RFIDSessionDataStatusOption; } set { this.RFIDSessionDataStatusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFIDEPasspDirectory
@@ -1000,7 +1000,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Indexes of groups that aren&#39;t read</value>
         [JsonPropertyName("RFID_ePassp_Directory")]
-        public List<RfidDataFileType>? RFIDEPasspDirectory { get { return this.RFIDEPasspDirectoryOption; } set { this.RFIDEPasspDirectoryOption = new Option<List<RfidDataFileType>?>(value); } }
+        public List<RfidDataFileType>? RFIDEPasspDirectory { get { return this.RFIDEPasspDirectoryOption; } set { this.RFIDEPasspDirectoryOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

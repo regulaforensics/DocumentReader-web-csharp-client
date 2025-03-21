@@ -98,7 +98,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldTypesCount
         /// </summary>
         [JsonPropertyName("FieldTypesCount")]
-        public int? FieldTypesCount { get { return this.FieldTypesCountOption; } set { this.FieldTypesCountOption = new Option<int?>(value); } }
+        public int? FieldTypesCount { get { return this.FieldTypesCountOption; } set { this.FieldTypesCountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FieldTypesList
@@ -111,7 +111,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldTypesList
         /// </summary>
         [JsonPropertyName("FieldTypesList")]
-        public List<int>? FieldTypesList { get { return this.FieldTypesListOption; } set { this.FieldTypesListOption = new Option<List<int>?>(value); } }
+        public List<int>? FieldTypesList { get { return this.FieldTypesListOption; } set { this.FieldTypesListOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Step
@@ -124,7 +124,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Step
         /// </summary>
         [JsonPropertyName("Step")]
-        public int? Step { get { return this.StepOption; } set { this.StepOption = new Option<int?>(value); } }
+        public int? Step { get { return this.StepOption; } set { this.StepOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Angle
@@ -137,7 +137,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Angle
         /// </summary>
         [JsonPropertyName("Angle")]
-        public int? Angle { get { return this.AngleOption; } set { this.AngleOption = new Option<int?>(value); } }
+        public int? Angle { get { return this.AngleOption; } set { this.AngleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Reserved1
@@ -150,7 +150,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved1
         /// </summary>
         [JsonPropertyName("Reserved1")]
-        public int? Reserved1 { get { return this.Reserved1Option; } set { this.Reserved1Option = new Option<int?>(value); } }
+        public int? Reserved1 { get { return this.Reserved1Option; } set { this.Reserved1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of Reserved2
@@ -163,7 +163,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved2
         /// </summary>
         [JsonPropertyName("Reserved2")]
-        public int? Reserved2 { get { return this.Reserved2Option; } set { this.Reserved2Option = new Option<int?>(value); } }
+        public int? Reserved2 { get { return this.Reserved2Option; } set { this.Reserved2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of Reserved3
@@ -176,7 +176,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved3
         /// </summary>
         [JsonPropertyName("Reserved3")]
-        public int? Reserved3 { get { return this.Reserved3Option; } set { this.Reserved3Option = new Option<int?>(value); } }
+        public int? Reserved3 { get { return this.Reserved3Option; } set { this.Reserved3Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

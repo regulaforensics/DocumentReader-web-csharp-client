@@ -70,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LightValue
         /// </summary>
         [JsonPropertyName("LightValue")]
-        public Light? LightValue { get { return this.LightValueOption; } set { this.LightValueOption = new Option<Light?>(value); } }
+        public Light? LightValue { get { return this.LightValueOption; } set { this.LightValueOption = new(value); } }
 
         /// <summary>
         /// For UV_Fibers authenticity result type
@@ -134,7 +134,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>For UV_Background authentication result type</value>
         [JsonPropertyName("LightDisp")]
-        public int? LightDisp { get { return this.LightDispOption; } set { this.LightDispOption = new Option<int?>(value); } }
+        public int? LightDisp { get { return this.LightDispOption; } set { this.LightDispOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -22,7 +22,7 @@ namespace Regula.DocumentReader.WebClient.Client
     /// <typeparam name="TTokenBase"></typeparam>
     public class RateLimitProvider<TTokenBase> : TokenProvider<TTokenBase> where TTokenBase : TokenBase
     {
-        internal Dictionary<string, global::System.Threading.Channels.Channel<TTokenBase>> AvailableTokens { get; } = new Dictionary<string, global::System.Threading.Channels.Channel<TTokenBase>>();
+        internal Dictionary<string, global::System.Threading.Channels.Channel<TTokenBase>> AvailableTokens { get; } = new();
 
         /// <summary>
         /// Instantiates a ThrottledTokenProvider. Your tokens will be rate limited based on the token's timeout.

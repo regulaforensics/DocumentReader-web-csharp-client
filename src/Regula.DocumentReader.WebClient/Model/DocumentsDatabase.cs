@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Document database description</value>
         [JsonPropertyName("Description")]
-        public string? Description { get { return this.DescriptionOption; } set { this.DescriptionOption = new Option<string?>(value); } }
+        public string? Description { get { return this.DescriptionOption; } set { this.DescriptionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ExportDate
@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Date the document database was created</value>
         [JsonPropertyName("ExportDate")]
-        public string? ExportDate { get { return this.ExportDateOption; } set { this.ExportDateOption = new Option<string?>(value); } }
+        public string? ExportDate { get { return this.ExportDateOption; } set { this.ExportDateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ID
@@ -89,7 +89,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Document database identifier</value>
         [JsonPropertyName("ID")]
-        public string? ID { get { return this.IDOption; } set { this.IDOption = new Option<string?>(value); } }
+        public string? ID { get { return this.IDOption; } set { this.IDOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of VarVersion
@@ -103,7 +103,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Document database version</value>
         [JsonPropertyName("Version")]
-        public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new Option<string?>(value); } }
+        public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

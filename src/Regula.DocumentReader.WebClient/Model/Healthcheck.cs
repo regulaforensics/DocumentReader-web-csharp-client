@@ -119,7 +119,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Metadata
         /// </summary>
         [JsonPropertyName("metadata")]
-        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new Option<Dictionary<string, Object>?>(value); } }
+        public Dictionary<string, Object>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocumentsDatabase
@@ -132,7 +132,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DocumentsDatabase
         /// </summary>
         [JsonPropertyName("documentsDatabase")]
-        public HealthcheckDocumentsDatabase? DocumentsDatabase { get { return this.DocumentsDatabaseOption; } set { this.DocumentsDatabaseOption = new Option<HealthcheckDocumentsDatabase?>(value); } }
+        public HealthcheckDocumentsDatabase? DocumentsDatabase { get { return this.DocumentsDatabaseOption; } set { this.DocumentsDatabaseOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

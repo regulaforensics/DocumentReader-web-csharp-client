@@ -88,7 +88,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PAStatus
         /// </summary>
         [JsonPropertyName("PA_Status")]
-        public RFIDErrorCodes? PAStatus { get { return this.PAStatusOption; } set { this.PAStatusOption = new Option<RFIDErrorCodes?>(value); } }
+        public RFIDErrorCodes? PAStatus { get { return this.PAStatusOption; } set { this.PAStatusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FileID
@@ -102,7 +102,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>File identifier. Each byte of FileID represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. 01 1E)</value>
         [JsonPropertyName("FileID")]
-        public string? FileID { get { return this.FileIDOption; } set { this.FileIDOption = new Option<string?>(value); } }
+        public string? FileID { get { return this.FileIDOption; } set { this.FileIDOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FileData
@@ -115,7 +115,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FileData
         /// </summary>
         [JsonPropertyName("FileData")]
-        public TrfFtBytes? FileData { get { return this.FileDataOption; } set { this.FileDataOption = new Option<TrfFtBytes?>(value); } }
+        public TrfFtBytes? FileData { get { return this.FileDataOption; } set { this.FileDataOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReadingTime
@@ -129,7 +129,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Time of reading, milliseconds</value>
         [JsonPropertyName("ReadingTime")]
-        public decimal? ReadingTime { get { return this.ReadingTimeOption; } set { this.ReadingTimeOption = new Option<decimal?>(value); } }
+        public decimal? ReadingTime { get { return this.ReadingTimeOption; } set { this.ReadingTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Notifications
@@ -143,7 +143,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.</value>
         [JsonPropertyName("Notifications")]
-        public List<ParsingNotificationCodes>? Notifications { get { return this.NotificationsOption; } set { this.NotificationsOption = new Option<List<ParsingNotificationCodes>?>(value); } }
+        public List<ParsingNotificationCodes>? Notifications { get { return this.NotificationsOption; } set { this.NotificationsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocFieldsText
@@ -157,7 +157,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of document text fields formed on the basis of the file contents</value>
         [JsonPropertyName("DocFields_Text")]
-        public List<TextFieldType>? DocFieldsText { get { return this.DocFieldsTextOption; } set { this.DocFieldsTextOption = new Option<List<TextFieldType>?>(value); } }
+        public List<TextFieldType>? DocFieldsText { get { return this.DocFieldsTextOption; } set { this.DocFieldsTextOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocFieldsGraphics
@@ -171,7 +171,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of document graphic fields formed on the basis of the file contents</value>
         [JsonPropertyName("DocFields_Graphics")]
-        public List<GraphicFieldType>? DocFieldsGraphics { get { return this.DocFieldsGraphicsOption; } set { this.DocFieldsGraphicsOption = new Option<List<GraphicFieldType>?>(value); } }
+        public List<GraphicFieldType>? DocFieldsGraphics { get { return this.DocFieldsGraphicsOption; } set { this.DocFieldsGraphicsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocFieldsOriginals
@@ -185,7 +185,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of the original binary representation of graphic document fields formed on the basis of the file contents</value>
         [JsonPropertyName("DocFields_Originals")]
-        public List<GraphicFieldType>? DocFieldsOriginals { get { return this.DocFieldsOriginalsOption; } set { this.DocFieldsOriginalsOption = new Option<List<GraphicFieldType>?>(value); } }
+        public List<GraphicFieldType>? DocFieldsOriginals { get { return this.DocFieldsOriginalsOption; } set { this.DocFieldsOriginalsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ParsedData
@@ -198,7 +198,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ParsedData
         /// </summary>
         [JsonPropertyName("ParsedData")]
-        public ParsedData? ParsedData { get { return this.ParsedDataOption; } set { this.ParsedDataOption = new Option<ParsedData?>(value); } }
+        public ParsedData? ParsedData { get { return this.ParsedDataOption; } set { this.ParsedDataOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SecurityObjectCertificates
@@ -211,7 +211,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets SecurityObjectCertificates
         /// </summary>
         [JsonPropertyName("SecurityObject_Certificates")]
-        public SecurityObjectCertificates? SecurityObjectCertificates { get { return this.SecurityObjectCertificatesOption; } set { this.SecurityObjectCertificatesOption = new Option<SecurityObjectCertificates?>(value); } }
+        public SecurityObjectCertificates? SecurityObjectCertificates { get { return this.SecurityObjectCertificatesOption; } set { this.SecurityObjectCertificatesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

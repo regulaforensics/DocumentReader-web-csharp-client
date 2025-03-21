@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded license file</value>
         [JsonPropertyName("license")]
-        public string? License { get { return this.LicenseOption; } set { this.LicenseOption = new Option<string?>(value); } }
+        public string? License { get { return this.LicenseOption; } set { this.LicenseOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RecaptchaToken
@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>For internal use. Demo-sites recaptcha token.</value>
         [JsonPropertyName("recaptcha_token")]
-        public string? RecaptchaToken { get { return this.RecaptchaTokenOption; } set { this.RecaptchaTokenOption = new Option<string?>(value); } }
+        public string? RecaptchaToken { get { return this.RecaptchaTokenOption; } set { this.RecaptchaTokenOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

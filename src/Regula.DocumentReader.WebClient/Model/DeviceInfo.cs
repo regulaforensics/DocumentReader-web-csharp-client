@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AppName
         /// </summary>
         [JsonPropertyName("app-name")]
-        public string? AppName { get { return this.AppNameOption; } set { this.AppNameOption = new Option<string?>(value); } }
+        public string? AppName { get { return this.AppNameOption; } set { this.AppNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of VarVersion
@@ -77,7 +77,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets VarVersion
         /// </summary>
         [JsonPropertyName("version")]
-        public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new Option<string?>(value); } }
+        public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LicenseId
@@ -90,7 +90,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LicenseId
         /// </summary>
         [JsonPropertyName("license-id")]
-        public string? LicenseId { get { return this.LicenseIdOption; } set { this.LicenseIdOption = new Option<string?>(value); } }
+        public string? LicenseId { get { return this.LicenseIdOption; } set { this.LicenseIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LicenseSerial
@@ -103,7 +103,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets LicenseSerial
         /// </summary>
         [JsonPropertyName("license-serial")]
-        public string? LicenseSerial { get { return this.LicenseSerialOption; } set { this.LicenseSerialOption = new Option<string?>(value); } }
+        public string? LicenseSerial { get { return this.LicenseSerialOption; } set { this.LicenseSerialOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ValidUntil
@@ -116,7 +116,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ValidUntil
         /// </summary>
         [JsonPropertyName("valid-until")]
-        public DateTime? ValidUntil { get { return this.ValidUntilOption; } set { this.ValidUntilOption = new Option<DateTime?>(value); } }
+        public DateTime? ValidUntil { get { return this.ValidUntilOption; } set { this.ValidUntilOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ServerTime
@@ -129,7 +129,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ServerTime
         /// </summary>
         [JsonPropertyName("server-time")]
-        public DateTime? ServerTime { get { return this.ServerTimeOption; } set { this.ServerTimeOption = new Option<DateTime?>(value); } }
+        public DateTime? ServerTime { get { return this.ServerTimeOption; } set { this.ServerTimeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

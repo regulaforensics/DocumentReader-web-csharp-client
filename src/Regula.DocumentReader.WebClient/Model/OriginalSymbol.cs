@@ -72,7 +72,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Rect
         /// </summary>
         [JsonPropertyName("rect")]
-        public RectangleCoordinates? Rect { get { return this.RectOption; } set { this.RectOption = new Option<RectangleCoordinates?>(value); } }
+        public RectangleCoordinates? Rect { get { return this.RectOption; } set { this.RectOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

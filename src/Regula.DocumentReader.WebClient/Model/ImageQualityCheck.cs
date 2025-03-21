@@ -105,7 +105,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Areas
         /// </summary>
         [JsonPropertyName("areas")]
-        public AreaArray? Areas { get { return this.AreasOption; } set { this.AreasOption = new Option<AreaArray?>(value); } }
+        public AreaArray? Areas { get { return this.AreasOption; } set { this.AreasOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

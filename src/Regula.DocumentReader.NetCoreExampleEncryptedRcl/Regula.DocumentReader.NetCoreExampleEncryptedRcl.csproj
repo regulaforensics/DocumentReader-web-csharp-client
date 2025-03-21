@@ -3,7 +3,7 @@
         <OutputType>Exe</OutputType>
         <Product>DocumentReader WebClient Example EncryptedRcl</Product>
         <PackageId>Regula.DocumentReader.NetCoreExampleEncryptedRcl</PackageId>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Regula.DocumentReader.WebClient\Regula.DocumentReader.WebClient.csproj" />

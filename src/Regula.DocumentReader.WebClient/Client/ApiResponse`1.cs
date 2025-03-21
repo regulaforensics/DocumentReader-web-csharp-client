@@ -11,6 +11,7 @@
 #nullable enable
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
 namespace Regula.DocumentReader.WebClient.Client
@@ -166,7 +167,7 @@ namespace Regula.DocumentReader.WebClient.Client
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        bool TryNoContent(out TType? result);
+        bool TryNoContent([NotNullWhen(true)]out TType? result);
     }
 
     /// <summary>
@@ -186,6 +187,6 @@ namespace Regula.DocumentReader.WebClient.Client
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        bool TryOk(out TType? result);
+        bool TryOk([NotNullWhen(true)]out TType? result);
     }
 }

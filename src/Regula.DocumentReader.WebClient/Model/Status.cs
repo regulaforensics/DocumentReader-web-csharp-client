@@ -102,7 +102,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DetailsRFID
         /// </summary>
         [JsonPropertyName("detailsRFID")]
-        public DetailsRFID? DetailsRFID { get { return this.DetailsRFIDOption; } set { this.DetailsRFIDOption = new Option<DetailsRFID?>(value); } }
+        public DetailsRFID? DetailsRFID { get { return this.DetailsRFIDOption; } set { this.DetailsRFIDOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

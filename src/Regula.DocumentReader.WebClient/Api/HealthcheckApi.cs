@@ -20,6 +20,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Regula.DocumentReader.WebClient.Api
 {
@@ -368,17 +369,18 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
                         ILogger<HealthzApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<HealthzApiResponse>();
 
-                        HealthzApiResponse apiResponseLocalVar = new HealthzApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/healthz", requestedAtLocalVar, _jsonSerializerOptions);
+                        HealthzApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/healthz", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterHealthzDefaultImplementation(apiResponseLocalVar, xRequestID);
 
@@ -439,7 +441,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.Healthcheck>(RawContent, _jsonSerializerOptions)
-                    : default;
+                    : null;
             }
 
             /// <summary>
@@ -447,7 +449,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk(out Regula.DocumentReader.WebClient.Model.Healthcheck? result)
+            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.Healthcheck? result)
             {
                 result = null;
 
@@ -587,17 +589,18 @@ namespace Regula.DocumentReader.WebClient.Api
 
                     if (acceptLocalVar != null)
                         httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
-                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
                         ILogger<PingApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<PingApiResponse>();
 
-                        PingApiResponse apiResponseLocalVar = new PingApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/ping", requestedAtLocalVar, _jsonSerializerOptions);
+                        PingApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/ping", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterPingDefaultImplementation(apiResponseLocalVar, xRequestID);
 
@@ -658,7 +661,7 @@ namespace Regula.DocumentReader.WebClient.Api
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<Regula.DocumentReader.WebClient.Model.DeviceInfo>(RawContent, _jsonSerializerOptions)
-                    : default;
+                    : null;
             }
 
             /// <summary>
@@ -666,7 +669,7 @@ namespace Regula.DocumentReader.WebClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk(out Regula.DocumentReader.WebClient.Model.DeviceInfo? result)
+            public bool TryOk([NotNullWhen(true)]out Regula.DocumentReader.WebClient.Model.DeviceInfo? result)
             {
                 result = null;
 
@@ -797,17 +800,18 @@ namespace Regula.DocumentReader.WebClient.Api
                         httpRequestMessageLocalVar.Headers.Add("X-RequestID", ClientUtils.ParameterToString(xRequestID.Value));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
-                    httpRequestMessageLocalVar.Method = new HttpMethod("GET");
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync().ConfigureAwait(false);
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
                         ILogger<ReadyzApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ReadyzApiResponse>();
 
-                        ReadyzApiResponse apiResponseLocalVar = new ReadyzApiResponse(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/readyz", requestedAtLocalVar, _jsonSerializerOptions);
+                        ReadyzApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/readyz", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterReadyzDefaultImplementation(apiResponseLocalVar, xRequestID);
 

@@ -54,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets CertificateData
         /// </summary>
         [JsonPropertyName("Certificate_Data")]
-        public CertificateData? CertificateData { get { return this.CertificateDataOption; } set { this.CertificateDataOption = new Option<CertificateData?>(value); } }
+        public CertificateData? CertificateData { get { return this.CertificateDataOption; } set { this.CertificateDataOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

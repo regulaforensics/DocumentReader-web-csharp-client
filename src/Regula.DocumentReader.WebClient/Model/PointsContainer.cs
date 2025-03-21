@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PointCount
         /// </summary>
         [JsonPropertyName("PointCount")]
-        public int? PointCount { get { return this.PointCountOption; } set { this.PointCountOption = new Option<int?>(value); } }
+        public int? PointCount { get { return this.PointCountOption; } set { this.PointCountOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

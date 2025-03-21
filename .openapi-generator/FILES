@@ -8,6 +8,8 @@ src/Regula.DocumentReader.WebClient/Client/ApiResponseEventArgs.cs
 src/Regula.DocumentReader.WebClient/Client/ApiResponse`1.cs
 src/Regula.DocumentReader.WebClient/Client/ClientUtils.cs
 src/Regula.DocumentReader.WebClient/Client/CookieContainer.cs
+src/Regula.DocumentReader.WebClient/Client/DateOnlyJsonConverter.cs
+src/Regula.DocumentReader.WebClient/Client/DateOnlyNullableJsonConverter.cs
 src/Regula.DocumentReader.WebClient/Client/DateTimeJsonConverter.cs
 src/Regula.DocumentReader.WebClient/Client/DateTimeNullableJsonConverter.cs
 src/Regula.DocumentReader.WebClient/Client/ExceptionEventArgs.cs

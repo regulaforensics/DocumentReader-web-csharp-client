@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Video
         /// </summary>
         [JsonPropertyName("video")]
-        public InDataVideo? Video { get { return this.VideoOption; } set { this.VideoOption = new Option<InDataVideo?>(value); } }
+        public InDataVideo? Video { get { return this.VideoOption; } set { this.VideoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Images
@@ -69,7 +69,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Images
         /// </summary>
         [JsonPropertyName("images")]
-        public List<InDataTransactionImagesFieldValue>? Images { get { return this.ImagesOption; } set { this.ImagesOption = new Option<List<InDataTransactionImagesFieldValue>?>(value); } }
+        public List<InDataTransactionImagesFieldValue>? Images { get { return this.ImagesOption; } set { this.ImagesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

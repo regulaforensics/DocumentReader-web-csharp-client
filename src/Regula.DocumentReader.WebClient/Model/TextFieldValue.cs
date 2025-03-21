@@ -106,7 +106,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Original value as seen in the document</value>
         [JsonPropertyName("originalValue")]
-        public string? OriginalValue { get { return this.OriginalValueOption; } set { this.OriginalValueOption = new Option<string?>(value); } }
+        public string? OriginalValue { get { return this.OriginalValueOption; } set { this.OriginalValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OriginalSymbols
@@ -119,7 +119,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OriginalSymbols
         /// </summary>
         [JsonPropertyName("originalSymbols")]
-        public List<OriginalSymbol>? OriginalSymbols { get { return this.OriginalSymbolsOption; } set { this.OriginalSymbolsOption = new Option<List<OriginalSymbol>?>(value); } }
+        public List<OriginalSymbol>? OriginalSymbols { get { return this.OriginalSymbolsOption; } set { this.OriginalSymbolsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FieldRect
@@ -132,7 +132,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldRect
         /// </summary>
         [JsonPropertyName("fieldRect")]
-        public RectangleCoordinates? FieldRect { get { return this.FieldRectOption; } set { this.FieldRectOption = new Option<RectangleCoordinates?>(value); } }
+        public RectangleCoordinates? FieldRect { get { return this.FieldRectOption; } set { this.FieldRectOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RfidOrigin
@@ -145,7 +145,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RfidOrigin
         /// </summary>
         [JsonPropertyName("rfidOrigin")]
-        public RfidOrigin? RfidOrigin { get { return this.RfidOriginOption; } set { this.RfidOriginOption = new Option<RfidOrigin?>(value); } }
+        public RfidOrigin? RfidOrigin { get { return this.RfidOriginOption; } set { this.RfidOriginOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ContainerType
@@ -159,7 +159,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
         [JsonPropertyName("containerType")]
-        public int? ContainerType { get { return this.ContainerTypeOption; } set { this.ContainerTypeOption = new Option<int?>(value); } }
+        public int? ContainerType { get { return this.ContainerTypeOption; } set { this.ContainerTypeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

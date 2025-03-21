@@ -82,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Index of the active variant of the procedure</value>
         [JsonPropertyName("ActiveOptionIdx")]
-        public decimal? ActiveOptionIdx { get { return this.ActiveOptionIdxOption; } set { this.ActiveOptionIdxOption = new Option<decimal?>(value); } }
+        public decimal? ActiveOptionIdx { get { return this.ActiveOptionIdxOption; } set { this.ActiveOptionIdxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AccessControlOptions
@@ -96,7 +96,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document</value>
         [JsonPropertyName("AccessControlOptions")]
-        public List<Object>? AccessControlOptions { get { return this.AccessControlOptionsOption; } set { this.AccessControlOptionsOption = new Option<List<Object>?>(value); } }
+        public List<Object>? AccessControlOptions { get { return this.AccessControlOptionsOption; } set { this.AccessControlOptionsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

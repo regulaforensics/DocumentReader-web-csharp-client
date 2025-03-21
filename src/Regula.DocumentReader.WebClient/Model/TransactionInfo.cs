@@ -69,7 +69,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Computer name</value>
         [JsonPropertyName("ComputerName")]
-        public string? ComputerName { get { return this.ComputerNameOption; } set { this.ComputerNameOption = new Option<string?>(value); } }
+        public string? ComputerName { get { return this.ComputerNameOption; } set { this.ComputerNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DateTime
@@ -83,7 +83,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Date and time</value>
         [JsonPropertyName("DateTime")]
-        public string? DateTime { get { return this.DateTimeOption; } set { this.DateTimeOption = new Option<string?>(value); } }
+        public string? DateTime { get { return this.DateTimeOption; } set { this.DateTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DocumentsDatabase
@@ -96,7 +96,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DocumentsDatabase
         /// </summary>
         [JsonPropertyName("DocumentsDatabase")]
-        public DocumentsDatabase? DocumentsDatabase { get { return this.DocumentsDatabaseOption; } set { this.DocumentsDatabaseOption = new Option<DocumentsDatabase?>(value); } }
+        public DocumentsDatabase? DocumentsDatabase { get { return this.DocumentsDatabaseOption; } set { this.DocumentsDatabaseOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SystemInfo
@@ -110,7 +110,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>System information</value>
         [JsonPropertyName("SystemInfo")]
-        public string? SystemInfo { get { return this.SystemInfoOption; } set { this.SystemInfoOption = new Option<string?>(value); } }
+        public string? SystemInfo { get { return this.SystemInfoOption; } set { this.SystemInfoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Tag
@@ -124,7 +124,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Transaction tag</value>
         [JsonPropertyName("Tag")]
-        public string? Tag { get { return this.TagOption; } set { this.TagOption = new Option<string?>(value); } }
+        public string? Tag { get { return this.TagOption; } set { this.TagOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TransactionID
@@ -138,7 +138,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Transaction identifier</value>
         [JsonPropertyName("TransactionID")]
-        public string? TransactionID { get { return this.TransactionIDOption; } set { this.TransactionIDOption = new Option<string?>(value); } }
+        public string? TransactionID { get { return this.TransactionIDOption; } set { this.TransactionIDOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UserName
@@ -152,7 +152,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>User name</value>
         [JsonPropertyName("UserName")]
-        public string? UserName { get { return this.UserNameOption; } set { this.UserNameOption = new Option<string?>(value); } }
+        public string? UserName { get { return this.UserNameOption; } set { this.UserNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of VarVersion
@@ -166,7 +166,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>SDK version</value>
         [JsonPropertyName("Version")]
-        public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new Option<string?>(value); } }
+        public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

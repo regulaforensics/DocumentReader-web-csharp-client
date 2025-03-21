@@ -27,7 +27,7 @@ namespace Regula.DocumentReader.WebClient.Extensions
         /// <param name="services"></param>
         public static void AddApi(this IServiceCollection services)
         {
-            HostConfiguration config = new HostConfiguration(services);
+            HostConfiguration config = new(services);
             AddApi(services, config);
         }
 
@@ -38,7 +38,7 @@ namespace Regula.DocumentReader.WebClient.Extensions
         /// <param name="options"></param>
         public static void AddApi(this IServiceCollection services, Action<HostConfiguration> options)
         {
-            HostConfiguration config = new HostConfiguration(services);
+            HostConfiguration config = new(services);
             options(config);
             AddApi(services, config);
         }

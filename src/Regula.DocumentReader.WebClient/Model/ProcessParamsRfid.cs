@@ -55,7 +55,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>A list of notification codes that should be ignored during passive authentication (PA)</value>
         [JsonPropertyName("paSensitiveCodesDisable")]
-        public List<ParsingNotificationCodes>? PaSensitiveCodesDisable { get { return this.PaSensitiveCodesDisableOption; } set { this.PaSensitiveCodesDisableOption = new Option<List<ParsingNotificationCodes>?>(value); } }
+        public List<ParsingNotificationCodes>? PaSensitiveCodesDisable { get { return this.PaSensitiveCodesDisableOption; } set { this.PaSensitiveCodesDisableOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

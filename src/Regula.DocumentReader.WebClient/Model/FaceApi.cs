@@ -74,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>The URL of the Regula Face Web service to be used.</value>
         /* <example>https://faceapi.regulaforensics.com</example> */
         [JsonPropertyName("url")]
-        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new Option<string?>(value); } }
+        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Mode
@@ -89,7 +89,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>The processing mode: \&quot;match\&quot; or \&quot;match+search\&quot;.</value>
         /* <example>match</example> */
         [JsonPropertyName("mode")]
-        public string? Mode { get { return this.ModeOption; } set { this.ModeOption = new Option<string?>(value); } }
+        public string? Mode { get { return this.ModeOption; } set { this.ModeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Search
@@ -102,7 +102,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Search
         /// </summary>
         [JsonPropertyName("search")]
-        public FaceApiSearch? Search { get { return this.SearchOption; } set { this.SearchOption = new Option<FaceApiSearch?>(value); } }
+        public FaceApiSearch? Search { get { return this.SearchOption; } set { this.SearchOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Threshold
@@ -117,7 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>The similarity threshold, 0-100. Above 75 means that the faces&#39; similarity is verified, below 75 is not.</value>
         /* <example>75</example> */
         [JsonPropertyName("threshold")]
-        public int? Threshold { get { return this.ThresholdOption; } set { this.ThresholdOption = new Option<int?>(value); } }
+        public int? Threshold { get { return this.ThresholdOption; } set { this.ThresholdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ServiceTimeout
@@ -132,7 +132,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>The Regula Face Web service requests timeout, ms.</value>
         /* <example>3000</example> */
         [JsonPropertyName("serviceTimeout")]
-        public int? ServiceTimeout { get { return this.ServiceTimeoutOption; } set { this.ServiceTimeoutOption = new Option<int?>(value); } }
+        public int? ServiceTimeout { get { return this.ServiceTimeoutOption; } set { this.ServiceTimeoutOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Proxy
@@ -147,7 +147,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Proxy to use, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXY.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.</value>
         /* <example>http://localhost:8080</example> */
         [JsonPropertyName("proxy")]
-        public string? Proxy { get { return this.ProxyOption; } set { this.ProxyOption = new Option<string?>(value); } }
+        public string? Proxy { get { return this.ProxyOption; } set { this.ProxyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ProxyUserpwd
@@ -162,7 +162,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Username and password to use for proxy authentication, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.</value>
         /* <example>user:pass</example> */
         [JsonPropertyName("proxy_userpwd")]
-        public string? ProxyUserpwd { get { return this.ProxyUserpwdOption; } set { this.ProxyUserpwdOption = new Option<string?>(value); } }
+        public string? ProxyUserpwd { get { return this.ProxyUserpwdOption; } set { this.ProxyUserpwdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ProxyType
@@ -177,7 +177,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.</value>
         /* <example>0</example> */
         [JsonPropertyName("proxy_type")]
-        public int? ProxyType { get { return this.ProxyTypeOption; } set { this.ProxyTypeOption = new Option<int?>(value); } }
+        public int? ProxyType { get { return this.ProxyTypeOption; } set { this.ProxyTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ChildAgeThreshold
@@ -192,7 +192,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>The age threshold for the portrait comparison. Default: 13.</value>
         /* <example>13</example> */
         [JsonPropertyName("childAgeThreshold")]
-        public int? ChildAgeThreshold { get { return this.ChildAgeThresholdOption; } set { this.ChildAgeThresholdOption = new Option<int?>(value); } }
+        public int? ChildAgeThreshold { get { return this.ChildAgeThresholdOption; } set { this.ChildAgeThresholdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ChildDocValidityYears
@@ -207,7 +207,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Estimated duration of validity for a child&#39;s passport, years. Default: 5.</value>
         /* <example>5</example> */
         [JsonPropertyName("childDocValidityYears")]
-        public int? ChildDocValidityYears { get { return this.ChildDocValidityYearsOption; } set { this.ChildDocValidityYearsOption = new Option<int?>(value); } }
+        public int? ChildDocValidityYears { get { return this.ChildDocValidityYearsOption; } set { this.ChildDocValidityYearsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

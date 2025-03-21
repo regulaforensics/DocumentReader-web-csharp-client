@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFID_BINARY_DATA
         /// </summary>
         [JsonPropertyName("RFID_BINARY_DATA")]
-        public BinaryData? RFID_BINARY_DATA { get { return this.RFID_BINARY_DATAOption; } set { this.RFID_BINARY_DATAOption = new Option<BinaryData?>(value); } }
+        public BinaryData? RFID_BINARY_DATA { get { return this.RFID_BINARY_DATAOption; } set { this.RFID_BINARY_DATAOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RFID_RAW_DATA
@@ -69,7 +69,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFID_RAW_DATA
         /// </summary>
         [JsonPropertyName("RFID_RAW_DATA")]
-        public List<RfidRawData>? RFID_RAW_DATA { get { return this.RFID_RAW_DATAOption; } set { this.RFID_RAW_DATAOption = new Option<List<RfidRawData>?>(value); } }
+        public List<RfidRawData>? RFID_RAW_DATA { get { return this.RFID_RAW_DATAOption; } set { this.RFID_RAW_DATAOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

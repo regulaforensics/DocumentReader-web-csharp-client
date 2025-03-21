@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Base64 encoded data
         /// </summary>
         /// <value>Base64 encoded data</value>
-        /* <example>[B@7e6fb98c</example> */
+        /* <example>[B@5eefd7ba</example> */
         [JsonPropertyName("License")]
         public byte[] License { get; set; }
 

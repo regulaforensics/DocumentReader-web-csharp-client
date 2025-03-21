@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Response url</value>
         [JsonPropertyName("url")]
-        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new Option<string?>(value); } }
+        public string? Url { get { return this.UrlOption; } set { this.UrlOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Images
@@ -70,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Images
         /// </summary>
         [JsonPropertyName("images")]
-        public List<OutDataTransactionImagesFieldValue>? Images { get { return this.ImagesOption; } set { this.ImagesOption = new Option<List<OutDataTransactionImagesFieldValue>?>(value); } }
+        public List<OutDataTransactionImagesFieldValue>? Images { get { return this.ImagesOption; } set { this.ImagesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
