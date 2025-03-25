@@ -5,11 +5,16 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public class RecognitionParams : ProcessParams
     {
+        public RecognitionParams(Scenario scenario) 
+            : base(scenario)
+        {
+        }
+
         public RecognitionParams WithCustomParams(Dictionary<string, object> customParams){
             CustomParams = customParams;
             return this;
         }
-        public RecognitionParams WithResultTypeOutput(List<int> resultTypes) {
+        public RecognitionParams WithResultTypeOutput(List<Result> resultTypes) {
             ResultTypeOutput = resultTypes;
             return this;
         }
@@ -25,7 +30,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return this;
         }
 
-        public RecognitionParams WithScenario(string scenario)
+        public RecognitionParams WithScenario(Scenario scenario)
         {
             Scenario = scenario;
             return this;

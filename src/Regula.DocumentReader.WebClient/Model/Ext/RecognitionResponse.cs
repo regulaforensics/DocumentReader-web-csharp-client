@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
-using Regula.DocumentReader.WebClient.Client;
+using Regula.DocumentReader.WebClient.Api;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public class RecognitionResponse
     {
-        private readonly ApiResponse<ProcessResponse> _apiResponse;
+        private readonly IApiProcessApiResponse _apiResponse;
         
-        public RecognitionResponse(ApiResponse<ProcessResponse> apiResponse)
+        public RecognitionResponse(IApiProcessApiResponse apiResponse)
         {
             _apiResponse = apiResponse;
         }
 
-        public ProcessResponse OriginalResponse => this._apiResponse.Data;
+        public ProcessResponse OriginalResponse => this._apiResponse.Ok();
 
-        public string Json => this._apiResponse.RawResponse;
+        // public string Json => this._apiResponse.RawResponse;
         
         public AuthenticityResult PortraitComparison()
         {
@@ -80,11 +80,11 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             }
         }
 
-        public T ResultByType<T>(int type, int? pageIdx=0) where T: ResultItem
+        public T ResultByType<T>(Result type, int? pageIdx=0) where T: ResultItem
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
-                if (item.ResultType == type) {
+                if (item.ResultType == (int)type) {
                     
                     if (pageIdx == null)
                         return (T) item;
@@ -97,12 +97,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return default;
         }
         
-        public List<T> ResultsByType<T>(int type) where T: ResultItem
+        public List<T> ResultsByType<T>(Result type) where T: ResultItem
         {
             var results = new List<T>();
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
-                if (item.ResultType == type) {
+                if (item.ResultType == (int)type) {
                     results.Add((T)item);
                 }
             }

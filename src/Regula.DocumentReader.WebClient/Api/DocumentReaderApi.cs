@@ -1,7 +1,9 @@
 using System;
-using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
@@ -10,95 +12,87 @@ namespace Regula.DocumentReader.WebClient.Api
 {
     public class DocumentReaderApi
     {
-        private readonly DefaultApi _defaultApi;
+        private readonly HealthcheckApi _healthcheckApi;
         private readonly ProcessApi _processApi;
 
         public DocumentReaderApi(string basePath)
         {
-            this._defaultApi = new DefaultApi(basePath);
-            this._processApi = new ProcessApi(basePath);
-        }
+            var loggerFactory = LoggerFactory.Create(builder =>
+            {
+                builder.AddConsole();
+            });
 
-        public Configuration Configuration
-        {
-            get => this._processApi.Configuration;
-            set => this._processApi.Configuration = value;
+            ILogger<HealthcheckApi> healthcheckLogger = loggerFactory.CreateLogger<HealthcheckApi>();
+            ILogger<ProcessApi> processLogger = loggerFactory.CreateLogger<ProcessApi>();
+
+            var httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(basePath)
+            };
+
+            var jsonSerializerOptionsProvider = new JsonSerializerOptionsProvider(new JsonSerializerOptions());
+
+            var healthcheckApiEvents = new HealthcheckApiEvents();
+            var processApiEvents = new ProcessApiEvents();
+
+            this._healthcheckApi = new HealthcheckApi(
+                healthcheckLogger,
+                loggerFactory,
+                httpClient,
+                jsonSerializerOptionsProvider,
+                healthcheckApiEvents
+            );
+            this._processApi = new ProcessApi(
+                processLogger,
+                loggerFactory,
+                httpClient,
+                jsonSerializerOptionsProvider,
+                processApiEvents
+            );
         }
 
         private string License { get; set; }
 
-
-
-        public RecognitionResponse Process(ProcessRequest processRequest)
-        {
-            return Process(processRequest, new Dictionary<String, String>(), default(string));
-        }
-
-        public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers)
-        {
-            return Process(processRequest, headers, default(string));
-        }
-
-        public RecognitionResponse Process(ProcessRequest processRequest, String xRequestID)
-        {
-            return Process(processRequest, new Dictionary<String, String>(), xRequestID);
-        }
-
-        public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers, String xRequestID) 
-        {
-            if (processRequest.SystemInfo == null)
-                processRequest.SystemInfo = new ProcessSystemInfo(License);
-            else
-                processRequest.SystemInfo.License = License;
-
-            return new RecognitionResponse(this._processApi.ApiProcessWithHttpInfo(processRequest, headers, xRequestID));
-        }
-
         public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest)
         {
-            return await ProcessAsync(processRequest, new Dictionary<String, String>(), default(string));
-        }
-
-        public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, Dictionary<String, String> headers)
-        {
-            return await ProcessAsync(processRequest, headers, default(string));
+            return await ProcessAsync(processRequest);
         }
 
         public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, String xRequestID)
         {
-            return await ProcessAsync(processRequest, new Dictionary<String, String>(), xRequestID);
+            return await ProcessAsync(processRequest, xRequestID);
         }
 
-        public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, Dictionary<String, String> headers, String xRequestID, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, string xRequestID = default, CancellationToken cancellationToken = default)
         {
             if (processRequest.SystemInfo == null)
                 processRequest.SystemInfo = new ProcessSystemInfo(License);
             else
                 processRequest.SystemInfo.License = License;
 
-            var response = await this._processApi.ApiProcessWithHttpInfoAsync(processRequest, headers, xRequestID, cancellationToken);
+            var response = await this._processApi.ApiProcessAsync(processRequest, xRequestID, cancellationToken);
 
             return new RecognitionResponse(response);
         }
 
-        public DeviceInfo Ping(string xRequestID)
+        public async Task<IPingApiResponse> PingAsync(string xRequestID)
         {
-            return this._defaultApi.Ping(new Dictionary<String, String>(), xRequestID);
+            return await this._healthcheckApi.PingAsync(xRequestID);
         }
  
-        public DeviceInfo Ping()
+        public async Task<IPingApiResponse> PingAsync()
         {
-            return this._defaultApi.Ping(new Dictionary<String, String>());
+            return await this._healthcheckApi.PingAsync();
         }
-
-        public DeviceInfo Ping(string xRequestID, Dictionary<String, String> headers)
+        
+        public async Task<IHealthzApiResponse> HealthAsync(string xRequestID)
         {
-            return this._defaultApi.Ping(headers, xRequestID);
+            return await this._healthcheckApi.HealthzAsync(xRequestID);
         }
-
-        public DeviceInfo Ping(Dictionary<String, String> headers)
+ 
+        public async Task<IHealthzApiResponse> HealthAsync()
         {
-            return this._defaultApi.Ping(headers);
+            return await this._healthcheckApi.HealthzAsync();
         }
 
         public DocumentReaderApi WithLicense(string license) 

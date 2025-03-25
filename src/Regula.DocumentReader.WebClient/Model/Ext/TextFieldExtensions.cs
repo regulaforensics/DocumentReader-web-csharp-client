@@ -2,7 +2,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public static class TextFieldExtensions
     {
-        public static string GetValue(this TextField field, string source, bool original = false) 
+        public static string GetValue(this TextField field, Source source, bool original = false) 
         {
             foreach (var value in field.ValueList) 
             {
@@ -19,7 +19,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return null;
         }
         
-        public static int SourceValidity(this TextField field, string source) 
+        public static CheckResult SourceValidity(this TextField field, Source source) 
         {
             foreach (var sourceValidity in field.ValidityList) 
             {
@@ -31,7 +31,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return CheckResult.WAS_NOT_DONE;
         }
         
-        public static int CrossSourceComparison(this TextField field, string one, string other) 
+        public static CheckResult CrossSourceComparison(this TextField field, Source one, Source other) 
         {
             foreach (var comparison in field.ComparisonList) 
             {

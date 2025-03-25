@@ -3,7 +3,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
     public static class TextExtensions
     {
         
-        public static TextField GetField(this Text txt, int fieldType)
+        public static TextField GetField(this Text txt, TextFieldType fieldType)
         {
             TextField result = null;
             foreach (var field in txt.FieldList)
@@ -16,7 +16,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return result;
         }
 
-        public static TextField GetField(this Text txt, int fieldType, int lcid)
+        public static TextField GetField(this Text txt, TextFieldType fieldType, LCID lcid)
         {
             foreach (var field in txt.FieldList)
             {
@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return result;
         }
         
-        public static TextField GetField(this Text txt, string fieldName, int lcid)
+        public static TextField GetField(this Text txt, string fieldName, LCID lcid)
         {
             foreach (var field in txt.FieldList)
             {
@@ -49,12 +49,12 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return null;
         }
         
-        public static string GetFieldValue(this Text txt, int fieldType)
+        public static string GetFieldValue(this Text txt, TextFieldType fieldType)
         {
             return txt.GetField(fieldType)?.Value;
         }
         
-        public static string GetFieldValue(this Text txt, int fieldType, int lcid)
+        public static string GetFieldValue(this Text txt, TextFieldType fieldType, LCID lcid)
         {
             return txt.GetField(fieldType, lcid)?.Value;
         }
@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return txt.GetField(fieldName)?.Value;
         }
         
-        public static string GetFieldValue(this Text txt, string fieldName, int lcid)
+        public static string GetFieldValue(this Text txt, string fieldName, LCID lcid)
         {
             return txt.GetField(fieldName, lcid)?.Value;
         }
