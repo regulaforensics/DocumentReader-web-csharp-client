@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
-using Regula.DocumentReader.WebClient.Api;
+using Regula.DocumentReader.WebClient.Client;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public class RecognitionResponse
     {
-        private readonly IApiProcessApiResponse _apiResponse;
+        private readonly ApiResponse<ProcessResponse> _apiResponse;
         
-        public RecognitionResponse(IApiProcessApiResponse apiResponse)
+        public RecognitionResponse(ApiResponse<ProcessResponse> apiResponse)
         {
             _apiResponse = apiResponse;
         }
 
-        public ProcessResponse OriginalResponse => this._apiResponse.Ok();
+        public ProcessResponse OriginalResponse => this._apiResponse.Data;
 
-        // public string Json => this._apiResponse.RawResponse;
+        public string Json => this._apiResponse.RawContent;
         
         public AuthenticityResult PortraitComparison()
         {

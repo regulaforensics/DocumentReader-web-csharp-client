@@ -1,15 +1,9 @@
-using System;
 using System.Collections.Generic;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public class RecognitionParams : ProcessParams
     {
-        public RecognitionParams(Scenario scenario) 
-            : base(scenario)
-        {
-        }
-
         public RecognitionParams WithCustomParams(Dictionary<string, object> customParams){
             CustomParams = customParams;
             return this;

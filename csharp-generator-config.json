@@ -1,5 +1,6 @@
 {
   "packageName": "Regula.DocumentReader.WebClient",
+  "library": "httpclient",
   "nullableReferenceTypes": true,
   "targetFramework": "net8.0",
   "typeMappings" : {
