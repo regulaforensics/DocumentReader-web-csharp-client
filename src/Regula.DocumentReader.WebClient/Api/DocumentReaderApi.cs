@@ -18,16 +18,24 @@ namespace Regula.DocumentReader.WebClient.Api
             this._healthcheckApi = new HealthcheckApi(basePath);
             this._processApi = new ProcessApi(basePath);
         }
+        
+        public DocumentReaderApi(Configuration configuration)
+        {
+            this._healthcheckApi = new HealthcheckApi(configuration);
+            this._processApi = new ProcessApi(configuration);
+        }
 
         public IReadableConfiguration Configuration
         {
             get => this._processApi.Configuration;
-            set => this._processApi.Configuration = value;
+            set
+            {
+                this._healthcheckApi.Configuration = value;
+                this._processApi.Configuration = value;
+            }
         }
 
         private string License { get; set; }
-
-
 
         public RecognitionResponse Process(ProcessRequest processRequest)
         {

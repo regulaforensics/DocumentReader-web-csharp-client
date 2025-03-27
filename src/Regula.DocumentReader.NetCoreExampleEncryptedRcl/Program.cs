@@ -53,7 +53,6 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
 
             // text results 
             var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
-            Console.WriteLine(docNumberField);
             var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
             var docNumberMrz = docNumberField.GetValue(Source.MRZ);
             var docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
@@ -69,7 +68,7 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
 
             var docImageQuality = response.ImageQualityChecks();
 
-            var info = api.Ping();
+            var info = api.Health();
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"                API Version: {info.VarVersion}");
             Console.WriteLine("-----------------------------------------------------------------");

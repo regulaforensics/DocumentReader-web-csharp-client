@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Regula.DocumentReader.WebClient.Api;
+using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
-using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
 
 namespace Regula.DocumentReader.NetCoreExample
 {
@@ -50,13 +50,20 @@ namespace Regula.DocumentReader.NetCoreExample
 				// new ProcessRequestImage(new ImageDataExt(irPage0), Light.IR),
 				// new ProcessRequestImage(new ImageDataExt(uvPage0), Light.UV)
 			});
+
+			var configuration = new Configuration
+			{
+				BasePath = apiBaseUrl,
+				// DefaultHeaders = new Dictionary<string, string>
+				// {
+				// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" },
+				// }
+			};
 			var api = licenseFromEnv != null
-				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
-				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
+				? new DocumentReaderApi(configuration).WithLicense(licenseFromEnv)
+				: new DocumentReaderApi(configuration).WithLicense(licenseFromFile);
 
 			var response = api.Process(request);
-
-			// api.Configuration.DefaultHeaders.Add("Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}");
 
             Console.WriteLine(response.Log());
 
@@ -66,7 +73,7 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
 			var docType = response.DocumentType(); 
-			var info = api.Ping();
+			var info = api.Health();
 			
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.VarVersion}");

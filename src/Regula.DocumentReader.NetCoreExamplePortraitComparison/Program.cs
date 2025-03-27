@@ -1,7 +1,8 @@
 ﻿using Regula.DocumentReader.WebClient.Api;
+using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
-using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
+using System.Text;
 
 namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 {
@@ -42,10 +43,17 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 				.WithAuthParam(new AuthParams(checkPhotoComparison: true))
 				.WithLog(false);
 			
-			
+			var configuration = new Configuration
+			{
+				BasePath = apiBaseUrl,
+				// DefaultHeaders = new Dictionary<string, string>
+				// {
+				// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" },
+				// }
+			};
 			var api = licenseFromEnv != null
-				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
-				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
+				? new DocumentReaderApi(configuration).WithLicense(licenseFromEnv)
+				: new DocumentReaderApi(configuration).WithLicense(licenseFromFile);
 			
 			var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
 			{
@@ -54,10 +62,6 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			request.ExtPortrait = Convert.ToBase64String(File.ReadAllBytes("portrait.png"));
 			
 			var response = api.Process(request);
-			// var authHeaders = new Dictionary<string, string>()
-			// {
-			// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" }
-			// };
 			var comparison = response.PortraitComparison();
    
             Console.WriteLine(response.Log());
@@ -68,8 +72,7 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
    
 			var docType = response.DocumentType();
-			var info = api.Ping();
-			// var info = api.Ping(headers: authHeaders);
+			var info = api.Health();
 			
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"                API Version: {info.VarVersion}");
@@ -93,7 +96,6 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
    
 			File.WriteAllBytes("document-image.jpg", documentImage);
 			File.WriteAllBytes("portrait.jpg", portraitFromVisual);
-			
 		}
 	}
 }
