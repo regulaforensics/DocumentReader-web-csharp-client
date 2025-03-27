@@ -53,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Candidates
         /// </summary>
         [DataMember(Name = "Candidates", EmitDefaultValue = false)]
-        public List<OneCandidate> Candidates { get; set; }
+        public List<OneCandidate>? Candidates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -55,37 +55,37 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AppName
         /// </summary>
         [DataMember(Name = "app-name", EmitDefaultValue = false)]
-        public string AppName { get; set; }
+        public string? AppName { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string VarVersion { get; set; }
+        public string? VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets LicenseId
         /// </summary>
         [DataMember(Name = "license-id", EmitDefaultValue = false)]
-        public string LicenseId { get; set; }
+        public string? LicenseId { get; set; }
 
         /// <summary>
         /// Gets or Sets LicenseSerial
         /// </summary>
         [DataMember(Name = "license-serial", EmitDefaultValue = false)]
-        public string LicenseSerial { get; set; }
+        public string? LicenseSerial { get; set; }
 
         /// <summary>
         /// Gets or Sets ValidUntil
         /// </summary>
         [DataMember(Name = "valid-until", EmitDefaultValue = false)]
-        public DateTime ValidUntil { get; set; }
+        public DateTime? ValidUntil { get; set; }
 
         /// <summary>
         /// Gets or Sets ServerTime
         /// </summary>
         [DataMember(Name = "server-time", EmitDefaultValue = false)]
-        public DateTime ServerTime { get; set; }
+        public DateTime? ServerTime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

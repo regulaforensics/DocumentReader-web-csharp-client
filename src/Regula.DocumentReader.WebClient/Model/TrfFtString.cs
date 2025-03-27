@@ -61,21 +61,21 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "Type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public int? Type { get; set; }
 
         /// <summary>
         /// Result of logical analysis of compliance of the contents of the field with the requirements of the specification
         /// </summary>
         /// <value>Result of logical analysis of compliance of the contents of the field with the requirements of the specification</value>
         [DataMember(Name = "Status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         /// <summary>
         /// Mask of format of text information (for example, «YYMMDD» for date of birth)
         /// </summary>
         /// <value>Mask of format of text information (for example, «YYMMDD» for date of birth)</value>
         [DataMember(Name = "Format", EmitDefaultValue = false)]
-        public string Format { get; set; }
+        public string? Format { get; set; }
 
         /// <summary>
         /// Numeric value.

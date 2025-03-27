@@ -46,8 +46,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
-        public EncryptedRCLResult(byte[] encryptedRCL = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.ENCRYPTED_RCL).</param>
+        public EncryptedRCLResult(byte[] encryptedRCL = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.ENCRYPTED_RCL) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "encryptedRCL" is required (not null)
             if (encryptedRCL == null)
@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded data</value>
         /*
-        <example>[B@4949a73a</example>
+        <example>[B@5af2ea19</example>
         */
         [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
         public byte[] EncryptedRCL { get; set; }

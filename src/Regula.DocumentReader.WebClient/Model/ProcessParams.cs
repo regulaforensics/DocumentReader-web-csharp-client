@@ -64,6 +64,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public TextPostProcessing? ConvertCase { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessAuth
+        /// </summary>
+        [DataMember(Name = "processAuth", EmitDefaultValue = false)]
+        public AuthenticityResultType? ProcessAuth { get; set; }
+
+        /// <summary>
         /// Gets or Sets MrzDetectMode
         /// </summary>
         [DataMember(Name = "mrzDetectMode", EmitDefaultValue = false)]
@@ -122,7 +128,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="splitNames">When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default..</param>
         /// <param name="disablePerforationOCR">When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default..</param>
         /// <param name="documentGroupFilter">List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default..</param>
-        /// <param name="processAuth">Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added. .</param>
+        /// <param name="processAuth">processAuth.</param>
         /// <param name="deviceId">This parameter is used to specify the document reader device type from which input images were captured. Default 0..</param>
         /// <param name="deviceType">This parameter is used to specify the document reader device type from which input images were captured. Default 0..</param>
         /// <param name="deviceTypeHex">This parameter is used to specify the document reader device type from which input images were captured.</param>
@@ -136,7 +142,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="strictBarcodeDigitalSignatureCheck">This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed..</param>
         /// <param name="selectLongestNames">Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc..</param>
         /// <param name="doBarcodes">Set the types of barcodes to process..</param>
-        public ProcessParams(bool generateDTCVC = default(bool), List<LCID> lcidFilter = default(List<LCID>), bool checkLiveness = default(bool), List<LCID> lcidIgnoreFilter = default(List<LCID>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), Scenario scenario = default(Scenario), List<Result> resultTypeOutput = default(List<Result>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<TextFieldType> fieldTypesFilter = default(List<TextFieldType>), string dateFormat = default(string), MeasureSystem? measureSystem = default(MeasureSystem?), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), LogLevel? logLevel = default(LogLevel?), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool strictImageQuality = default(bool), bool respectImageQuality = default(bool), DocumentFormat? forceDocFormat = default(DocumentFormat?), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<MRZFormat> mrzFormatsFilter = default(List<MRZFormat>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), TextPostProcessing? convertCase = default(TextPostProcessing?), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<DocumentType> documentGroupFilter = default(List<DocumentType>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum? mrzDetectMode = default(MrzDetectModeEnum?), bool generateNumericCodes = default(bool), bool strictBarcodeDigitalSignatureCheck = default(bool), bool selectLongestNames = default(bool), List<InputBarcodeType> doBarcodes = default(List<InputBarcodeType>))
+        public ProcessParams(bool generateDTCVC = default(bool), List<LCID> lcidFilter = default(List<LCID>), bool checkLiveness = default(bool), List<LCID> lcidIgnoreFilter = default(List<LCID>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), Scenario scenario = default(Scenario), List<Result> resultTypeOutput = default(List<Result>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<TextFieldType> fieldTypesFilter = default(List<TextFieldType>), string dateFormat = default(string), MeasureSystem? measureSystem = default(MeasureSystem?), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), LogLevel? logLevel = default(LogLevel?), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool strictImageQuality = default(bool), bool respectImageQuality = default(bool), DocumentFormat? forceDocFormat = default(DocumentFormat?), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<MRZFormat> mrzFormatsFilter = default(List<MRZFormat>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), TextPostProcessing? convertCase = default(TextPostProcessing?), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<DocumentType> documentGroupFilter = default(List<DocumentType>), AuthenticityResultType? processAuth = default(AuthenticityResultType?), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum? mrzDetectMode = default(MrzDetectModeEnum?), bool generateNumericCodes = default(bool), bool strictBarcodeDigitalSignatureCheck = default(bool), bool selectLongestNames = default(bool), List<InputBarcodeType> doBarcodes = default(List<InputBarcodeType>))
         {
             this.Scenario = scenario;
             this.GenerateDTCVC = generateDTCVC;
@@ -204,99 +210,99 @@ namespace Regula.DocumentReader.WebClient.Model
         /// This parameter is used to generate separate DTC-VC data container from RFID session data.
         /// </summary>
         /// <value>This parameter is used to generate separate DTC-VC data container from RFID session data.</value>
-        [DataMember(Name = "generateDTCVC", EmitDefaultValue = true)]
-        public bool GenerateDTCVC { get; set; }
+        [DataMember(Name = "generateDTCVC", EmitDefaultValue = false)]
+        public bool? GenerateDTCVC { get; set; }
 
         /// <summary>
         /// The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.
         /// </summary>
         /// <value>The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.</value>
         [DataMember(Name = "lcidFilter", EmitDefaultValue = false)]
-        public List<LCID> LcidFilter { get; set; }
+        public List<LCID>? LcidFilter { get; set; }
 
         /// <summary>
         /// This parameter is used to enable document liveness check.
         /// </summary>
         /// <value>This parameter is used to enable document liveness check.</value>
-        [DataMember(Name = "checkLiveness", EmitDefaultValue = true)]
-        public bool CheckLiveness { get; set; }
+        [DataMember(Name = "checkLiveness", EmitDefaultValue = false)]
+        public bool? CheckLiveness { get; set; }
 
         /// <summary>
         /// The list of LCID types to ignore during the recognition. If empty, values with all LCID types will be extracted. Narrowing down the list can reduce processing time. Empty by default.
         /// </summary>
         /// <value>The list of LCID types to ignore during the recognition. If empty, values with all LCID types will be extracted. Narrowing down the list can reduce processing time. Empty by default.</value>
         [DataMember(Name = "lcidIgnoreFilter", EmitDefaultValue = false)]
-        public List<LCID> LcidIgnoreFilter { get; set; }
+        public List<LCID>? LcidIgnoreFilter { get; set; }
 
         /// <summary>
         /// This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face
         /// </summary>
         /// <value>This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person&#39;s face</value>
-        [DataMember(Name = "oneShotIdentification", EmitDefaultValue = true)]
-        public bool OneShotIdentification { get; set; }
+        [DataMember(Name = "oneShotIdentification", EmitDefaultValue = false)]
+        public bool? OneShotIdentification { get; set; }
 
         /// <summary>
         /// This parameter allows comparing faces on Regula Face Web Service
         /// </summary>
         /// <value>This parameter allows comparing faces on Regula Face Web Service</value>
-        [DataMember(Name = "useFaceApi", EmitDefaultValue = true)]
-        public bool UseFaceApi { get; set; }
+        [DataMember(Name = "useFaceApi", EmitDefaultValue = false)]
+        public bool? UseFaceApi { get; set; }
 
         /// <summary>
         /// Gets or Sets FaceApi
         /// </summary>
         [DataMember(Name = "faceApi", EmitDefaultValue = false)]
-        public FaceApi FaceApi { get; set; }
+        public FaceApi? FaceApi { get; set; }
 
         /// <summary>
         /// This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.
         /// </summary>
         /// <value>This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.</value>
-        [DataMember(Name = "doDetectCan", EmitDefaultValue = true)]
-        public bool DoDetectCan { get; set; }
+        [DataMember(Name = "doDetectCan", EmitDefaultValue = false)]
+        public bool? DoDetectCan { get; set; }
 
         /// <summary>
         /// This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.
         /// </summary>
         /// <value>This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.</value>
         [DataMember(Name = "imageOutputMaxHeight", EmitDefaultValue = false)]
-        public int ImageOutputMaxHeight { get; set; }
+        public int? ImageOutputMaxHeight { get; set; }
 
         /// <summary>
         /// This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.
         /// </summary>
         /// <value>This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.</value>
         [DataMember(Name = "imageOutputMaxWidth", EmitDefaultValue = false)]
-        public int ImageOutputMaxWidth { get; set; }
+        public int? ImageOutputMaxWidth { get; set; }
 
         /// <summary>
         /// Types of results to return in response. See &#39;Result&#39; enum for available options
         /// </summary>
         /// <value>Types of results to return in response. See &#39;Result&#39; enum for available options</value>
         [DataMember(Name = "resultTypeOutput", EmitDefaultValue = false)]
-        public List<Result> ResultTypeOutput { get; set; }
+        public List<Result>? ResultTypeOutput { get; set; }
 
         /// <summary>
         /// Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.
         /// </summary>
         /// <value>Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.</value>
-        [DataMember(Name = "doublePageSpread", EmitDefaultValue = true)]
+        [DataMember(Name = "doublePageSpread", EmitDefaultValue = false)]
         [Obsolete]
-        public bool DoublePageSpread { get; set; }
+        public bool? DoublePageSpread { get; set; }
 
         /// <summary>
         /// When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.
         /// </summary>
         /// <value>When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.</value>
-        [DataMember(Name = "generateDoublePageSpreadImage", EmitDefaultValue = true)]
-        public bool GenerateDoublePageSpreadImage { get; set; }
+        [DataMember(Name = "generateDoublePageSpreadImage", EmitDefaultValue = false)]
+        public bool? GenerateDoublePageSpreadImage { get; set; }
 
         /// <summary>
         /// List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.
         /// </summary>
         /// <value>List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.</value>
         [DataMember(Name = "fieldTypesFilter", EmitDefaultValue = false)]
-        public List<TextFieldType> FieldTypesFilter { get; set; }
+        public List<TextFieldType>? FieldTypesFilter { get; set; }
 
         /// <summary>
         /// This option allows you to set dates format so that solution will return dates in this format. For example, if you supply &#39;MM/dd/yyyy&#39;, and document have printed date &#39;09 JUL 2020&#39; for the date os issue, you will get &#39;07/09/2020&#39; as a result. By default it is set to system locale default (where the service is running).
@@ -306,279 +312,272 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>MM/dd/yyyy</example>
         */
         [DataMember(Name = "dateFormat", EmitDefaultValue = false)]
-        public string DateFormat { get; set; }
+        public string? DateFormat { get; set; }
 
         /// <summary>
         /// This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default.
         /// </summary>
         /// <value>This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default.</value>
         [DataMember(Name = "imageDpiOutMax", EmitDefaultValue = false)]
-        public int ImageDpiOutMax { get; set; }
+        public int? ImageDpiOutMax { get; set; }
 
         /// <summary>
         /// This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default.
         /// </summary>
         /// <value>This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default.</value>
-        [DataMember(Name = "alreadyCropped", EmitDefaultValue = true)]
-        public bool AlreadyCropped { get; set; }
+        [DataMember(Name = "alreadyCropped", EmitDefaultValue = false)]
+        public bool? AlreadyCropped { get; set; }
 
         /// <summary>
         /// This option allows passing custom processing parameters that can be implemented in future without changing API.
         /// </summary>
         /// <value>This option allows passing custom processing parameters that can be implemented in future without changing API.</value>
         [DataMember(Name = "customParams", EmitDefaultValue = false)]
-        public Dictionary<string, Object> CustomParams { get; set; }
+        public Dictionary<string, Object>? CustomParams { get; set; }
 
         /// <summary>
         /// This option allows setting additional custom configuration per document type. If recognized document has ID specified in config, processing adjusts according to designated configuration.
         /// </summary>
         /// <value>This option allows setting additional custom configuration per document type. If recognized document has ID specified in config, processing adjusts according to designated configuration.</value>
         [DataMember(Name = "config", EmitDefaultValue = false)]
-        public List<PerDocumentConfig> Config { get; set; }
+        public List<PerDocumentConfig>? Config { get; set; }
 
         /// <summary>
         /// When enabled, results will contain transaction processing log. Disabled by default
         /// </summary>
         /// <value>When enabled, results will contain transaction processing log. Disabled by default</value>
-        [DataMember(Name = "log", EmitDefaultValue = true)]
-        public bool Log { get; set; }
+        [DataMember(Name = "log", EmitDefaultValue = false)]
+        public bool? Log { get; set; }
 
         /// <summary>
         /// Force use of specific template ID and skip document type identification step.
         /// </summary>
         /// <value>Force use of specific template ID and skip document type identification step.</value>
         [DataMember(Name = "forceDocID", EmitDefaultValue = false)]
-        public int ForceDocID { get; set; }
+        public int? ForceDocID { get; set; }
 
         /// <summary>
         /// When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default.
         /// </summary>
         /// <value>When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default.</value>
-        [DataMember(Name = "matchTextFieldMask", EmitDefaultValue = true)]
-        public bool MatchTextFieldMask { get; set; }
+        [DataMember(Name = "matchTextFieldMask", EmitDefaultValue = false)]
+        public bool? MatchTextFieldMask { get; set; }
 
         /// <summary>
         /// When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.
         /// </summary>
         /// <value>When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.</value>
-        [DataMember(Name = "fastDocDetect", EmitDefaultValue = true)]
+        [DataMember(Name = "fastDocDetect", EmitDefaultValue = false)]
         [Obsolete]
-        public bool FastDocDetect { get; set; }
+        public bool? FastDocDetect { get; set; }
 
         /// <summary>
         /// When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.
         /// </summary>
         /// <value>When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.</value>
-        [DataMember(Name = "updateOCRValidityByGlare", EmitDefaultValue = true)]
-        public bool UpdateOCRValidityByGlare { get; set; }
+        [DataMember(Name = "updateOCRValidityByGlare", EmitDefaultValue = false)]
+        public bool? UpdateOCRValidityByGlare { get; set; }
 
         /// <summary>
         /// When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have &#39;error&#39; in validity status. Disabled by default.
         /// </summary>
         /// <value>When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have &#39;error&#39; in validity status. Disabled by default.</value>
-        [DataMember(Name = "checkRequiredTextFields", EmitDefaultValue = true)]
-        public bool CheckRequiredTextFields { get; set; }
+        [DataMember(Name = "checkRequiredTextFields", EmitDefaultValue = false)]
+        public bool? CheckRequiredTextFields { get; set; }
 
         /// <summary>
         /// When enabled, returns cropped barcode images for unknown documents. Disabled by default.
         /// </summary>
         /// <value>When enabled, returns cropped barcode images for unknown documents. Disabled by default.</value>
-        [DataMember(Name = "returnCroppedBarcode", EmitDefaultValue = true)]
-        public bool ReturnCroppedBarcode { get; set; }
+        [DataMember(Name = "returnCroppedBarcode", EmitDefaultValue = false)]
+        public bool? ReturnCroppedBarcode { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageQa
         /// </summary>
         [DataMember(Name = "imageQa", EmitDefaultValue = false)]
-        public ImageQA ImageQa { get; set; }
+        public ImageQA? ImageQa { get; set; }
 
         /// <summary>
         /// When enabled, the image quality check status affects the document optical and overall status. Disabled by default.
         /// </summary>
         /// <value>When enabled, the image quality check status affects the document optical and overall status. Disabled by default.</value>
-        [DataMember(Name = "strictImageQuality", EmitDefaultValue = true)]
-        public bool StrictImageQuality { get; set; }
+        [DataMember(Name = "strictImageQuality", EmitDefaultValue = false)]
+        public bool? StrictImageQuality { get; set; }
 
         /// <summary>
         /// Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.
         /// </summary>
         /// <value>Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.</value>
-        [DataMember(Name = "respectImageQuality", EmitDefaultValue = true)]
+        [DataMember(Name = "respectImageQuality", EmitDefaultValue = false)]
         [Obsolete]
-        public bool RespectImageQuality { get; set; }
+        public bool? RespectImageQuality { get; set; }
 
         /// <summary>
         /// When enabled, no graphic fields will be cropped from document image. Disabled by default.
         /// </summary>
         /// <value>When enabled, no graphic fields will be cropped from document image. Disabled by default.</value>
-        [DataMember(Name = "noGraphics", EmitDefaultValue = true)]
-        public bool NoGraphics { get; set; }
+        [DataMember(Name = "noGraphics", EmitDefaultValue = false)]
+        public bool? NoGraphics { get; set; }
 
         /// <summary>
         /// When enabled, all personal data will be forcibly removed from the logs. Disabled by default.
         /// </summary>
         /// <value>When enabled, all personal data will be forcibly removed from the logs. Disabled by default.</value>
-        [DataMember(Name = "depersonalizeLog", EmitDefaultValue = true)]
-        public bool DepersonalizeLog { get; set; }
+        [DataMember(Name = "depersonalizeLog", EmitDefaultValue = false)]
+        public bool? DepersonalizeLog { get; set; }
 
         /// <summary>
         /// This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.
         /// </summary>
         /// <value>This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.</value>
-        [DataMember(Name = "multiDocOnImage", EmitDefaultValue = true)]
-        public bool MultiDocOnImage { get; set; }
+        [DataMember(Name = "multiDocOnImage", EmitDefaultValue = false)]
+        public bool? MultiDocOnImage { get; set; }
 
         /// <summary>
         /// This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months. 0 by default
         /// </summary>
         /// <value>This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months. 0 by default</value>
         [DataMember(Name = "shiftExpiryDate", EmitDefaultValue = false)]
-        public int ShiftExpiryDate { get; set; }
+        public int? ShiftExpiryDate { get; set; }
 
         /// <summary>
         /// This options allows specifying the minimal age in years of the document holder for the document to be considered valid.
         /// </summary>
         /// <value>This options allows specifying the minimal age in years of the document holder for the document to be considered valid.</value>
         [DataMember(Name = "minimalHolderAge", EmitDefaultValue = false)]
-        public int MinimalHolderAge { get; set; }
+        public int? MinimalHolderAge { get; set; }
 
         /// <summary>
         /// When enabled, returns input images in output. Disabled by default.
         /// </summary>
         /// <value>When enabled, returns input images in output. Disabled by default.</value>
-        [DataMember(Name = "returnUncroppedImage", EmitDefaultValue = true)]
-        public bool ReturnUncroppedImage { get; set; }
+        [DataMember(Name = "returnUncroppedImage", EmitDefaultValue = false)]
+        public bool? ReturnUncroppedImage { get; set; }
 
         /// <summary>
         /// This option allows limiting MRZ formats to be recognized by specifying them in array.
         /// </summary>
         /// <value>This option allows limiting MRZ formats to be recognized by specifying them in array.</value>
         [DataMember(Name = "mrzFormatsFilter", EmitDefaultValue = false)]
-        public List<MRZFormat> MrzFormatsFilter { get; set; }
+        public List<MRZFormat>? MrzFormatsFilter { get; set; }
 
         /// <summary>
         /// When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.
         /// </summary>
         /// <value>When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.</value>
-        [DataMember(Name = "forceReadMrzBeforeLocate", EmitDefaultValue = true)]
-        public bool ForceReadMrzBeforeLocate { get; set; }
+        [DataMember(Name = "forceReadMrzBeforeLocate", EmitDefaultValue = false)]
+        public bool? ForceReadMrzBeforeLocate { get; set; }
 
         /// <summary>
         /// This option can be disabled to stop parsing after barcode is read. Enabled by default.
         /// </summary>
         /// <value>This option can be disabled to stop parsing after barcode is read. Enabled by default.</value>
-        [DataMember(Name = "parseBarcodes", EmitDefaultValue = true)]
-        public bool ParseBarcodes { get; set; }
+        [DataMember(Name = "parseBarcodes", EmitDefaultValue = false)]
+        public bool? ParseBarcodes { get; set; }
 
         /// <summary>
         /// When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.
         /// </summary>
         /// <value>When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.</value>
-        [DataMember(Name = "splitNames", EmitDefaultValue = true)]
-        public bool SplitNames { get; set; }
+        [DataMember(Name = "splitNames", EmitDefaultValue = false)]
+        public bool? SplitNames { get; set; }
 
         /// <summary>
         /// When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.
         /// </summary>
         /// <value>When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.</value>
-        [DataMember(Name = "disablePerforationOCR", EmitDefaultValue = true)]
-        public bool DisablePerforationOCR { get; set; }
+        [DataMember(Name = "disablePerforationOCR", EmitDefaultValue = false)]
+        public bool? DisablePerforationOCR { get; set; }
 
         /// <summary>
         /// List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.
         /// </summary>
         /// <value>List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.</value>
         [DataMember(Name = "documentGroupFilter", EmitDefaultValue = false)]
-        public List<DocumentType> DocumentGroupFilter { get; set; }
-
-        /// <summary>
-        /// Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added. 
-        /// </summary>
-        /// <value>Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added. </value>
-        [DataMember(Name = "processAuth", EmitDefaultValue = false)]
-        public long ProcessAuth { get; set; }
+        public List<DocumentType>? DocumentGroupFilter { get; set; }
 
         /// <summary>
         /// This parameter is used to specify the document reader device type from which input images were captured. Default 0.
         /// </summary>
         /// <value>This parameter is used to specify the document reader device type from which input images were captured. Default 0.</value>
         [DataMember(Name = "deviceId", EmitDefaultValue = false)]
-        public int DeviceId { get; set; }
+        public int? DeviceId { get; set; }
 
         /// <summary>
         /// This parameter is used to specify the document reader device type from which input images were captured. Default 0.
         /// </summary>
         /// <value>This parameter is used to specify the document reader device type from which input images were captured. Default 0.</value>
         [DataMember(Name = "deviceType", EmitDefaultValue = false)]
-        public int DeviceType { get; set; }
+        public int? DeviceType { get; set; }
 
         /// <summary>
         /// This parameter is used to specify the document reader device type from which input images were captured
         /// </summary>
         /// <value>This parameter is used to specify the document reader device type from which input images were captured</value>
         [DataMember(Name = "deviceTypeHex", EmitDefaultValue = false)]
-        public string DeviceTypeHex { get; set; }
+        public string? DeviceTypeHex { get; set; }
 
         /// <summary>
         /// This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false
         /// </summary>
         /// <value>This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false</value>
-        [DataMember(Name = "ignoreDeviceIdFromImage", EmitDefaultValue = true)]
-        public bool IgnoreDeviceIdFromImage { get; set; }
+        [DataMember(Name = "ignoreDeviceIdFromImage", EmitDefaultValue = false)]
+        public bool? IgnoreDeviceIdFromImage { get; set; }
 
         /// <summary>
         /// List of the document ID&#39;s to process. All documents will be processed, if empty.
         /// </summary>
         /// <value>List of the document ID&#39;s to process. All documents will be processed, if empty.</value>
         [DataMember(Name = "documentIdList", EmitDefaultValue = false)]
-        public List<int> DocumentIdList { get; set; }
+        public List<int>? DocumentIdList { get; set; }
 
         /// <summary>
         /// Gets or Sets Rfid
         /// </summary>
         [DataMember(Name = "rfid", EmitDefaultValue = false)]
-        public ProcessParamsRfid Rfid { get; set; }
+        public ProcessParamsRfid? Rfid { get; set; }
 
         /// <summary>
         /// This parameter is used to enable authenticity checks
         /// </summary>
         /// <value>This parameter is used to enable authenticity checks</value>
-        [DataMember(Name = "checkAuth", EmitDefaultValue = true)]
-        public bool CheckAuth { get; set; }
+        [DataMember(Name = "checkAuth", EmitDefaultValue = false)]
+        public bool? CheckAuth { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthParams
         /// </summary>
         [DataMember(Name = "authParams", EmitDefaultValue = false)]
-        public AuthParams AuthParams { get; set; }
+        public AuthParams? AuthParams { get; set; }
 
         /// <summary>
         /// This parameter is used to generate numeric representation for issuing state and nationality codes
         /// </summary>
         /// <value>This parameter is used to generate numeric representation for issuing state and nationality codes</value>
-        [DataMember(Name = "generateNumericCodes", EmitDefaultValue = true)]
-        public bool GenerateNumericCodes { get; set; }
+        [DataMember(Name = "generateNumericCodes", EmitDefaultValue = false)]
+        public bool? GenerateNumericCodes { get; set; }
 
         /// <summary>
         /// This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.
         /// </summary>
         /// <value>This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.</value>
-        [DataMember(Name = "strictBarcodeDigitalSignatureCheck", EmitDefaultValue = true)]
-        public bool StrictBarcodeDigitalSignatureCheck { get; set; }
+        [DataMember(Name = "strictBarcodeDigitalSignatureCheck", EmitDefaultValue = false)]
+        public bool? StrictBarcodeDigitalSignatureCheck { get; set; }
 
         /// <summary>
         /// Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc.
         /// </summary>
         /// <value>Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc.</value>
-        [DataMember(Name = "selectLongestNames", EmitDefaultValue = true)]
-        public bool SelectLongestNames { get; set; }
+        [DataMember(Name = "selectLongestNames", EmitDefaultValue = false)]
+        public bool? SelectLongestNames { get; set; }
 
         /// <summary>
         /// Set the types of barcodes to process.
         /// </summary>
         /// <value>Set the types of barcodes to process.</value>
         [DataMember(Name = "doBarcodes", EmitDefaultValue = false)]
-        public List<InputBarcodeType> DoBarcodes { get; set; }
+        public List<InputBarcodeType>? DoBarcodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

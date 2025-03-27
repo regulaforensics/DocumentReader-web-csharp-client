@@ -171,386 +171,386 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFIDAuthenticationInfo
         /// </summary>
         [DataMember(Name = "RFID_Authentication_Info", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDAuthenticationInfo { get; set; }
+        public Dictionary<string, Object>? RFIDAuthenticationInfo { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDMIFAREDataValidity
         /// </summary>
         [DataMember(Name = "RFID_MIFARE_Data_Validity", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDMIFAREDataValidity { get; set; }
+        public Dictionary<string, Object>? RFIDMIFAREDataValidity { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDMIFAREData
         /// </summary>
         [DataMember(Name = "RFID_MIFARE_Data", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDMIFAREData { get; set; }
+        public Dictionary<string, Object>? RFIDMIFAREData { get; set; }
 
         /// <summary>
         /// Gets or Sets RFID_EF_COM
         /// </summary>
         [DataMember(Name = "RFID_EF_COM", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFID_EF_COM { get; set; }
+        public Dictionary<string, Object>? RFID_EF_COM { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG1
         /// </summary>
         [DataMember(Name = "RFID_DG1", EmitDefaultValue = false)]
-        public RfidDG1 RFIDDG1 { get; set; }
+        public RfidDG1? RFIDDG1 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG2
         /// </summary>
         [DataMember(Name = "RFID_DG2", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG2 { get; set; }
+        public Dictionary<string, Object>? RFIDDG2 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG3
         /// </summary>
         [DataMember(Name = "RFID_DG3", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG3 { get; set; }
+        public Dictionary<string, Object>? RFIDDG3 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG4
         /// </summary>
         [DataMember(Name = "RFID_DG4", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG4 { get; set; }
+        public Dictionary<string, Object>? RFIDDG4 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG5
         /// </summary>
         [DataMember(Name = "RFID_DG5", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG5 { get; set; }
+        public Dictionary<string, Object>? RFIDDG5 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG6
         /// </summary>
         [DataMember(Name = "RFID_DG6", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG6 { get; set; }
+        public Dictionary<string, Object>? RFIDDG6 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG7
         /// </summary>
         [DataMember(Name = "RFID_DG7", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG7 { get; set; }
+        public Dictionary<string, Object>? RFIDDG7 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG8
         /// </summary>
         [DataMember(Name = "RFID_DG8", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG8 { get; set; }
+        public Dictionary<string, Object>? RFIDDG8 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG9
         /// </summary>
         [DataMember(Name = "RFID_DG9", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG9 { get; set; }
+        public Dictionary<string, Object>? RFIDDG9 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG10
         /// </summary>
         [DataMember(Name = "RFID_DG10", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG10 { get; set; }
+        public Dictionary<string, Object>? RFIDDG10 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG11
         /// </summary>
         [DataMember(Name = "RFID_DG11", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG11 { get; set; }
+        public Dictionary<string, Object>? RFIDDG11 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG12
         /// </summary>
         [DataMember(Name = "RFID_DG12", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG12 { get; set; }
+        public Dictionary<string, Object>? RFIDDG12 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG13
         /// </summary>
         [DataMember(Name = "RFID_DG13", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG13 { get; set; }
+        public Dictionary<string, Object>? RFIDDG13 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG14
         /// </summary>
         [DataMember(Name = "RFID_DG14", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG14 { get; set; }
+        public Dictionary<string, Object>? RFIDDG14 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG15
         /// </summary>
         [DataMember(Name = "RFID_DG15", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG15 { get; set; }
+        public Dictionary<string, Object>? RFIDDG15 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDDG16
         /// </summary>
         [DataMember(Name = "RFID_DG16", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFIDDG16 { get; set; }
+        public Dictionary<string, Object>? RFIDDG16 { get; set; }
 
         /// <summary>
         /// Gets or Sets RFID_EF_SOD
         /// </summary>
         [DataMember(Name = "RFID_EF_SOD", EmitDefaultValue = false)]
-        public Dictionary<string, Object> RFID_EF_SOD { get; set; }
+        public Dictionary<string, Object>? RFID_EF_SOD { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG1
         /// </summary>
         [DataMember(Name = "eID_DG1", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG1 { get; set; }
+        public Dictionary<string, Object>? EIDDG1 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG2
         /// </summary>
         [DataMember(Name = "eID_DG2", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG2 { get; set; }
+        public Dictionary<string, Object>? EIDDG2 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG3
         /// </summary>
         [DataMember(Name = "eID_DG3", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG3 { get; set; }
+        public Dictionary<string, Object>? EIDDG3 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG4
         /// </summary>
         [DataMember(Name = "eID_DG4", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG4 { get; set; }
+        public Dictionary<string, Object>? EIDDG4 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG5
         /// </summary>
         [DataMember(Name = "eID_DG5", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG5 { get; set; }
+        public Dictionary<string, Object>? EIDDG5 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG6
         /// </summary>
         [DataMember(Name = "eID_DG6", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG6 { get; set; }
+        public Dictionary<string, Object>? EIDDG6 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG7
         /// </summary>
         [DataMember(Name = "eID_DG7", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG7 { get; set; }
+        public Dictionary<string, Object>? EIDDG7 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG8
         /// </summary>
         [DataMember(Name = "eID_DG8", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG8 { get; set; }
+        public Dictionary<string, Object>? EIDDG8 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG9
         /// </summary>
         [DataMember(Name = "eID_DG9", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG9 { get; set; }
+        public Dictionary<string, Object>? EIDDG9 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG10
         /// </summary>
         [DataMember(Name = "eID_DG10", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG10 { get; set; }
+        public Dictionary<string, Object>? EIDDG10 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG11
         /// </summary>
         [DataMember(Name = "eID_DG11", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG11 { get; set; }
+        public Dictionary<string, Object>? EIDDG11 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG12
         /// </summary>
         [DataMember(Name = "eID_DG12", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG12 { get; set; }
+        public Dictionary<string, Object>? EIDDG12 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG13
         /// </summary>
         [DataMember(Name = "eID_DG13", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG13 { get; set; }
+        public Dictionary<string, Object>? EIDDG13 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG14
         /// </summary>
         [DataMember(Name = "eID_DG14", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG14 { get; set; }
+        public Dictionary<string, Object>? EIDDG14 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG15
         /// </summary>
         [DataMember(Name = "eID_DG15", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG15 { get; set; }
+        public Dictionary<string, Object>? EIDDG15 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG16
         /// </summary>
         [DataMember(Name = "eID_DG16", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG16 { get; set; }
+        public Dictionary<string, Object>? EIDDG16 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG17
         /// </summary>
         [DataMember(Name = "eID_DG17", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG17 { get; set; }
+        public Dictionary<string, Object>? EIDDG17 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG18
         /// </summary>
         [DataMember(Name = "eID_DG18", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG18 { get; set; }
+        public Dictionary<string, Object>? EIDDG18 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG19
         /// </summary>
         [DataMember(Name = "eID_DG19", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG19 { get; set; }
+        public Dictionary<string, Object>? EIDDG19 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG20
         /// </summary>
         [DataMember(Name = "eID_DG20", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG20 { get; set; }
+        public Dictionary<string, Object>? EIDDG20 { get; set; }
 
         /// <summary>
         /// Gets or Sets EIDDG21
         /// </summary>
         [DataMember(Name = "eID_DG21", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EIDDG21 { get; set; }
+        public Dictionary<string, Object>? EIDDG21 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLCOM
         /// </summary>
         [DataMember(Name = "eDL_COM", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLCOM { get; set; }
+        public Dictionary<string, Object>? EDLCOM { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLSOD
         /// </summary>
         [DataMember(Name = "eDL_SOD", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLSOD { get; set; }
+        public Dictionary<string, Object>? EDLSOD { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG1
         /// </summary>
         [DataMember(Name = "eDL_DG1", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG1 { get; set; }
+        public Dictionary<string, Object>? EDLDG1 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG2
         /// </summary>
         [DataMember(Name = "eDL_DG2", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG2 { get; set; }
+        public Dictionary<string, Object>? EDLDG2 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG3
         /// </summary>
         [DataMember(Name = "eDL_DG3", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG3 { get; set; }
+        public Dictionary<string, Object>? EDLDG3 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG4
         /// </summary>
         [DataMember(Name = "eDL_DG4", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG4 { get; set; }
+        public Dictionary<string, Object>? EDLDG4 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG5
         /// </summary>
         [DataMember(Name = "eDL_DG5", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG5 { get; set; }
+        public Dictionary<string, Object>? EDLDG5 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG6
         /// </summary>
         [DataMember(Name = "eDL_DG6", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG6 { get; set; }
+        public Dictionary<string, Object>? EDLDG6 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG7
         /// </summary>
         [DataMember(Name = "eDL_DG7", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG7 { get; set; }
+        public Dictionary<string, Object>? EDLDG7 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG8
         /// </summary>
         [DataMember(Name = "eDL_DG8", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG8 { get; set; }
+        public Dictionary<string, Object>? EDLDG8 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG9
         /// </summary>
         [DataMember(Name = "eDL_DG9", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG9 { get; set; }
+        public Dictionary<string, Object>? EDLDG9 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG10
         /// </summary>
         [DataMember(Name = "eDL_DG10", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG10 { get; set; }
+        public Dictionary<string, Object>? EDLDG10 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG11
         /// </summary>
         [DataMember(Name = "eDL_DG11", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG11 { get; set; }
+        public Dictionary<string, Object>? EDLDG11 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG12
         /// </summary>
         [DataMember(Name = "eDL_DG12", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG12 { get; set; }
+        public Dictionary<string, Object>? EDLDG12 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG13
         /// </summary>
         [DataMember(Name = "eDL_DG13", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG13 { get; set; }
+        public Dictionary<string, Object>? EDLDG13 { get; set; }
 
         /// <summary>
         /// Gets or Sets EDLDG14
         /// </summary>
         [DataMember(Name = "eDL_DG14", EmitDefaultValue = false)]
-        public Dictionary<string, Object> EDLDG14 { get; set; }
+        public Dictionary<string, Object>? EDLDG14 { get; set; }
 
         /// <summary>
         /// Gets or Sets VisibleDigitalSeal
         /// </summary>
         [DataMember(Name = "Visible_Digital_Seal", EmitDefaultValue = false)]
-        public Dictionary<string, Object> VisibleDigitalSeal { get; set; }
+        public Dictionary<string, Object>? VisibleDigitalSeal { get; set; }
 
         /// <summary>
         /// Gets or Sets VisibleDigitalSealNC
         /// </summary>
         [DataMember(Name = "Visible_Digital_Seal_NC", EmitDefaultValue = false)]
-        public Dictionary<string, Object> VisibleDigitalSealNC { get; set; }
+        public Dictionary<string, Object>? VisibleDigitalSealNC { get; set; }
 
         /// <summary>
         /// Gets or Sets DigitalSignature
         /// </summary>
         [DataMember(Name = "Digital_Signature", EmitDefaultValue = false)]
-        public Dictionary<string, Object> DigitalSignature { get; set; }
+        public Dictionary<string, Object>? DigitalSignature { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDSessionData
         /// </summary>
         [DataMember(Name = "RFID_Session_Data", EmitDefaultValue = false)]
-        public RfidSessionData RFIDSessionData { get; set; }
+        public RfidSessionData? RFIDSessionData { get; set; }
 
         /// <summary>
         /// Gets or Sets RFIDSessionDataStatus
         /// </summary>
         [DataMember(Name = "RFID_Session_Data_Status", EmitDefaultValue = false)]
-        public DetailsRFID RFIDSessionDataStatus { get; set; }
+        public DetailsRFID? RFIDSessionDataStatus { get; set; }
 
         /// <summary>
         /// Indexes of groups that aren&#39;t read
         /// </summary>
         /// <value>Indexes of groups that aren&#39;t read</value>
         [DataMember(Name = "RFID_ePassp_Directory", EmitDefaultValue = false)]
-        public List<RfidDataFileType> RFIDEPasspDirectory { get; set; }
+        public List<RfidDataFileType>? RFIDEPasspDirectory { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

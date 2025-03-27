@@ -56,11 +56,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="length">Fibers length value for located areas (in pixels) (required).</param>
         /// <param name="area">Fibers value for areas (in pixels) (required).</param>
         /// <param name="colorValues">Fibers color value (required).</param>
-        /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/ (required) (default to 0).</param>
+        /// <param name="type">type (required) (default to AuthenticityResultType.UV_FIBERS).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public FiberResult(int rectCount = default(int), int expectedCount = default(int), Light? lightValue = default(Light?), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public FiberResult(int rectCount = default(int), int expectedCount = default(int), Light? lightValue = default(Light?), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), AuthenticityResultType type = AuthenticityResultType.UV_FIBERS, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.RectCount = rectCount;
             this.ExpectedCount = expectedCount;
@@ -117,7 +117,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>For UV_Background authentication result type</value>
         [DataMember(Name = "LightDisp", EmitDefaultValue = false)]
-        public int LightDisp { get; set; }
+        public int? LightDisp { get; set; }
 
         /// <summary>
         /// Coordinates of located areas for defined fibers type

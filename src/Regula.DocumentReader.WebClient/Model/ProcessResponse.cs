@@ -90,7 +90,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets CoreLibResultCode
         /// </summary>
         [DataMember(Name = "CoreLibResultCode", EmitDefaultValue = false)]
-        public int CoreLibResultCode { get; set; }
+        public int? CoreLibResultCode { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList
@@ -109,14 +109,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded transaction processing log</value>
         [DataMember(Name = "log", EmitDefaultValue = false)]
-        public string Log { get; set; }
+        public string? Log { get; set; }
 
         /// <summary>
         /// Free-form object provided in request. See passBackObject property of ProcessRequest.
         /// </summary>
         /// <value>Free-form object provided in request. See passBackObject property of ProcessRequest.</value>
         [DataMember(Name = "passBackObject", EmitDefaultValue = false)]
-        public Dictionary<string, Object> PassBackObject { get; set; }
+        public Dictionary<string, Object>? PassBackObject { get; set; }
 
         /// <summary>
         /// Gets or Sets MorePagesAvailable
@@ -135,7 +135,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Metadata { get; set; }
+        public Dictionary<string, Object>? Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

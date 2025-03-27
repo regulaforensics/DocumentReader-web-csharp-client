@@ -51,25 +51,25 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets TransactionId
         /// </summary>
         [DataMember(Name = "transactionId", EmitDefaultValue = false)]
-        public Guid TransactionId { get; set; }
+        public Guid? TransactionId { get; set; }
 
         /// <summary>
         /// Gets or Sets Tag
         /// </summary>
         [DataMember(Name = "tag", EmitDefaultValue = false)]
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Gets or Sets OutData
         /// </summary>
         [DataMember(Name = "outData", EmitDefaultValue = false)]
-        public OutData OutData { get; set; }
+        public OutData? OutData { get; set; }
 
         /// <summary>
         /// Gets or Sets InData
         /// </summary>
         [DataMember(Name = "inData", EmitDefaultValue = false)]
-        public InData InData { get; set; }
+        public InData? InData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

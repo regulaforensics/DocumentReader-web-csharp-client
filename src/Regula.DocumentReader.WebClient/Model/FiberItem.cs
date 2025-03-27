@@ -112,7 +112,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>For UV_Background authentication result type</value>
         [DataMember(Name = "LightDisp", EmitDefaultValue = false)]
-        public int LightDisp { get; set; }
+        public int? LightDisp { get; set; }
 
         /// <summary>
         /// Coordinates of located areas for defined fibers type

@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets List
         /// </summary>
         [DataMember(Name = "List", EmitDefaultValue = false)]
-        public List<ProcessRequestImage> List { get; set; }
+        public List<ProcessRequestImage>? List { get; set; }
 
         /// <summary>
         /// Live portrait photo
@@ -85,7 +85,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>Base64 encoded data</example>
         */
         [DataMember(Name = "livePortrait", EmitDefaultValue = false)]
-        public string LivePortrait { get; set; }
+        public string? LivePortrait { get; set; }
 
         /// <summary>
         /// Portrait photo from an external source
@@ -95,33 +95,33 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>Base64 encoded data</example>
         */
         [DataMember(Name = "extPortrait", EmitDefaultValue = false)]
-        public string ExtPortrait { get; set; }
+        public string? ExtPortrait { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList
         /// </summary>
         [DataMember(Name = "ContainerList", EmitDefaultValue = false)]
-        public ContainerList ContainerList { get; set; }
+        public ContainerList? ContainerList { get; set; }
 
         /// <summary>
         /// Gets or Sets SystemInfo
         /// </summary>
         [DataMember(Name = "systemInfo", EmitDefaultValue = false)]
-        public ProcessSystemInfo SystemInfo { get; set; }
+        public ProcessSystemInfo? SystemInfo { get; set; }
 
         /// <summary>
         /// Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.
         /// </summary>
         /// <value>Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.</value>
         [DataMember(Name = "passBackObject", EmitDefaultValue = false)]
-        public Dictionary<string, Object> PassBackObject { get; set; }
+        public Dictionary<string, Object>? PassBackObject { get; set; }
 
         /// <summary>
         /// Digital Travel Credential (DTC-VC) data in base64 format for processing
         /// </summary>
         /// <value>Digital Travel Credential (DTC-VC) data in base64 format for processing</value>
         [DataMember(Name = "dtc", EmitDefaultValue = false)]
-        public string Dtc { get; set; }
+        public string? Dtc { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

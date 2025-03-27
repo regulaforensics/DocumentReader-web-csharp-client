@@ -70,13 +70,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Class
         /// </summary>
         [DataMember(Name = "Class", EmitDefaultValue = false)]
-        public int Class { get; set; }
+        public int? Class { get; set; }
 
         /// <summary>
         /// Gets or Sets SubClass
         /// </summary>
         [DataMember(Name = "SubClass", EmitDefaultValue = false)]
-        public int SubClass { get; set; }
+        public int? SubClass { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

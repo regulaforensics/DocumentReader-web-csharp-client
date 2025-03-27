@@ -52,28 +52,28 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Document database description</value>
         [DataMember(Name = "Description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Date the document database was created
         /// </summary>
         /// <value>Date the document database was created</value>
         [DataMember(Name = "ExportDate", EmitDefaultValue = false)]
-        public string ExportDate { get; set; }
+        public string? ExportDate { get; set; }
 
         /// <summary>
         /// Document database identifier
         /// </summary>
         /// <value>Document database identifier</value>
         [DataMember(Name = "ID", EmitDefaultValue = false)]
-        public string ID { get; set; }
+        public string? ID { get; set; }
 
         /// <summary>
         /// Document database version
         /// </summary>
         /// <value>Document database version</value>
         [DataMember(Name = "Version", EmitDefaultValue = false)]
-        public string VarVersion { get; set; }
+        public string? VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

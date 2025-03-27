@@ -31,7 +31,7 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
-				// .WithResultTypeOutput(new List<int>
+				// .WithResultTypeOutput(new List<Result>
 				// {
 				// 	// actual results
 				// 	Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
@@ -56,11 +56,7 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var response = api.Process(request);
 
-			// var authHeaders = new Dictionary<string, string>()
-			// {
-			// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" }
-			// };
-			// var response = api.Process(request, headers: authHeaders);
+			// api.Configuration.DefaultHeaders.Add("Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}");
 
             Console.WriteLine(response.Log());
 
@@ -69,11 +65,11 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
-			var docType = response.DocumentType(); var info = api.Ping();
-			// var info = api.Ping(headers: authHeaders);
+			var docType = response.DocumentType(); 
+			var info = api.Ping();
 			
 			Console.WriteLine("-----------------------------------------------------------------");
-			Console.WriteLine($"                API Version: {info.Version}");
+			Console.WriteLine($"                API Version: {info.VarVersion}");
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
 			Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");

@@ -50,21 +50,21 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Transaction id</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         /// <summary>
         /// Transaction status
         /// </summary>
         /// <value>Transaction status</value>
         [DataMember(Name = "state", EmitDefaultValue = false)]
-        public int State { get; set; }
+        public int? State { get; set; }
 
         /// <summary>
         /// Last time updated
         /// </summary>
         /// <value>Last time updated</value>
         [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

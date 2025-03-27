@@ -82,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>Base64 encoded image</example>
         */
         [DataMember(Name = "value", EmitDefaultValue = false)]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         /// <summary>
         /// Base64 encoded image
@@ -92,14 +92,14 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>Base64 encoded image</example>
         */
         [DataMember(Name = "originalValue", EmitDefaultValue = false)]
-        public string OriginalValue { get; set; }
+        public string? OriginalValue { get; set; }
 
         /// <summary>
         /// Original page index
         /// </summary>
         /// <value>Original page index</value>
         [DataMember(Name = "originalPageIndex", EmitDefaultValue = false)]
-        public int OriginalPageIndex { get; set; }
+        public int? OriginalPageIndex { get; set; }
 
         /// <summary>
         /// Page index of the image from input list
@@ -119,13 +119,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldRect
         /// </summary>
         [DataMember(Name = "fieldRect", EmitDefaultValue = false)]
-        public RectangleCoordinates FieldRect { get; set; }
+        public RectangleCoordinates? FieldRect { get; set; }
 
         /// <summary>
         /// Gets or Sets RfidOrigin
         /// </summary>
         [DataMember(Name = "rfidOrigin", EmitDefaultValue = false)]
-        public RfidOrigin RfidOrigin { get; set; }
+        public RfidOrigin? RfidOrigin { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

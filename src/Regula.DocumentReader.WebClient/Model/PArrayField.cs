@@ -108,7 +108,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BcPDF417INFO
         /// </summary>
         [DataMember(Name = "bcPDF417INFO", EmitDefaultValue = false)]
-        public BcPDF417INFO BcPDF417INFO { get; set; }
+        public BcPDF417INFO? BcPDF417INFO { get; set; }
 
         /// <summary>
         /// Gets or Sets BcROIDETECT
@@ -120,13 +120,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BcTextDecoderTypes
         /// </summary>
         [DataMember(Name = "bcTextDecoderTypes", EmitDefaultValue = false)]
-        public int BcTextDecoderTypes { get; set; }
+        public int? BcTextDecoderTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets BcTextFieldType
         /// </summary>
         [DataMember(Name = "bcTextFieldType", EmitDefaultValue = false)]
-        public int BcTextFieldType { get; set; }
+        public int? BcTextFieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets BcTypeDETECT

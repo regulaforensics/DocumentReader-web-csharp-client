@@ -133,7 +133,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Document description</value>
         [DataMember(Name = "dDescription", EmitDefaultValue = false)]
-        public string DDescription { get; set; }
+        public string? DDescription { get; set; }
 
         /// <summary>
         /// Year of publication of the document
@@ -154,14 +154,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Issuing state code</value>
         [DataMember(Name = "dStateCode", EmitDefaultValue = false)]
-        public string DStateCode { get; set; }
+        public string? DStateCode { get; set; }
 
         /// <summary>
         /// Issuing state name
         /// </summary>
         /// <value>Issuing state name</value>
         [DataMember(Name = "dStateName", EmitDefaultValue = false)]
-        public string DStateName { get; set; }
+        public string? DStateName { get; set; }
 
         /// <summary>
         /// Whether the document is deprecated

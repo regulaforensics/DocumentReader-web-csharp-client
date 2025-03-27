@@ -51,25 +51,25 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Left
         /// </summary>
         [DataMember(Name = "Left", EmitDefaultValue = false)]
-        public decimal Left { get; set; }
+        public decimal? Left { get; set; }
 
         /// <summary>
         /// Gets or Sets Top
         /// </summary>
         [DataMember(Name = "Top", EmitDefaultValue = false)]
-        public decimal Top { get; set; }
+        public decimal? Top { get; set; }
 
         /// <summary>
         /// Gets or Sets Right
         /// </summary>
         [DataMember(Name = "Right", EmitDefaultValue = false)]
-        public decimal Right { get; set; }
+        public decimal? Right { get; set; }
 
         /// <summary>
         /// Gets or Sets Bottom
         /// </summary>
         [DataMember(Name = "Bottom", EmitDefaultValue = false)]
-        public decimal Bottom { get; set; }
+        public decimal? Bottom { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

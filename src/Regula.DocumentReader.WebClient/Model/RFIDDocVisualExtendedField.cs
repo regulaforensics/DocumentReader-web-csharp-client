@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OriginDGTag
         /// </summary>
         [DataMember(Name = "OriginDGTag", EmitDefaultValue = false)]
-        public int OriginDGTag { get; set; }
+        public int? OriginDGTag { get; set; }
 
         /// <summary>
         /// Record index of the text field source in the data group
@@ -88,7 +88,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets OriginEntryView
         /// </summary>
         [DataMember(Name = "OriginEntryView", EmitDefaultValue = false)]
-        public int OriginEntryView { get; set; }
+        public int? OriginEntryView { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -136,28 +136,28 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Sign of virtual session when working with loaded data from a previous communication session with the electronic document</value>
         [DataMember(Name = "VirtualMode", EmitDefaultValue = false)]
-        public string VirtualMode { get; set; }
+        public string? VirtualMode { get; set; }
 
         /// <summary>
         /// Text SDKVersion value in format A.B (e.g. 3.1)
         /// </summary>
         /// <value>Text SDKVersion value in format A.B (e.g. 3.1)</value>
         [DataMember(Name = "SDKVersion", EmitDefaultValue = false)]
-        public string SDKVersion { get; set; }
+        public string? SDKVersion { get; set; }
 
         /// <summary>
         /// Text DriverVersion value in format A.B.C.D (e.g. 6.2.5.4)
         /// </summary>
         /// <value>Text DriverVersion value in format A.B.C.D (e.g. 6.2.5.4)</value>
         [DataMember(Name = "DriverVersion", EmitDefaultValue = false)]
-        public string DriverVersion { get; set; }
+        public string? DriverVersion { get; set; }
 
         /// <summary>
         /// Text FirmwareVersion value in format A.B (e.g. 5.19)
         /// </summary>
         /// <value>Text FirmwareVersion value in format A.B (e.g. 5.19)</value>
         [DataMember(Name = "FirmwareVersion", EmitDefaultValue = false)]
-        public string FirmwareVersion { get; set; }
+        public string? FirmwareVersion { get; set; }
 
         /// <summary>
         /// List of containers to store information about the involved applications of electronic document

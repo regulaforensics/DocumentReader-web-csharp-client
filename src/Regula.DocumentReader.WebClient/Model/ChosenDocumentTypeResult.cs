@@ -46,8 +46,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
-        public ChosenDocumentTypeResult(OneCandidate oneCandidate = default(OneCandidate), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.DOCUMENT_TYPE).</param>
+        public ChosenDocumentTypeResult(OneCandidate oneCandidate = default(OneCandidate), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.DOCUMENT_TYPE) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "oneCandidate" is required (not null)
             if (oneCandidate == null)
@@ -67,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets XMLBuffer
         /// </summary>
         [DataMember(Name = "XML_buffer", EmitDefaultValue = false)]
-        public string XMLBuffer { get; private set; }
+        public string? XMLBuffer { get; private set; }
 
         /// <summary>
         /// Returns false as XMLBuffer should not be serialized given that it's read-only.

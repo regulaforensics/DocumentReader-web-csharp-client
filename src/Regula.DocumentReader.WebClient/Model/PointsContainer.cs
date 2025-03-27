@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PointCount
         /// </summary>
         [DataMember(Name = "PointCount", EmitDefaultValue = false)]
-        public int PointCount { get; set; }
+        public int? PointCount { get; set; }
 
         /// <summary>
         /// Gets or Sets PointsList

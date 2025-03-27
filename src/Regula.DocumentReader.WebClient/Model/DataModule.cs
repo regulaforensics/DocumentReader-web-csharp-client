@@ -81,13 +81,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets MReserved1
         /// </summary>
         [DataMember(Name = "mReserved1", EmitDefaultValue = false)]
-        public int MReserved1 { get; set; }
+        public int? MReserved1 { get; set; }
 
         /// <summary>
         /// Gets or Sets MReserver2
         /// </summary>
         [DataMember(Name = "mReserver2", EmitDefaultValue = false)]
-        public int MReserver2 { get; set; }
+        public int? MReserver2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

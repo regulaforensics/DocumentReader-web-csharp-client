@@ -67,14 +67,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Fields count</value>
         [DataMember(Name = "fieldCount", EmitDefaultValue = false)]
-        public int FieldCount { get; set; }
+        public int? FieldCount { get; set; }
 
         /// <summary>
         /// Available sources count
         /// </summary>
         /// <value>Available sources count</value>
         [DataMember(Name = "availableSourceCount", EmitDefaultValue = false)]
-        public int AvailableSourceCount { get; set; }
+        public int? AvailableSourceCount { get; set; }
 
         /// <summary>
         /// Gets or Sets AvailableSourceList

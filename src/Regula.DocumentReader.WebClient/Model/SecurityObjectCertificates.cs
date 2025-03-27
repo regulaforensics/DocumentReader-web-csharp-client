@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets CertificateData
         /// </summary>
         [DataMember(Name = "Certificate_Data", EmitDefaultValue = false)]
-        public CertificateData CertificateData { get; set; }
+        public CertificateData? CertificateData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -166,31 +166,31 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Inverse
         /// </summary>
         [DataMember(Name = "Inverse", EmitDefaultValue = false)]
-        public int Inverse { get; set; }
+        public int? Inverse { get; set; }
 
         /// <summary>
         /// Gets or Sets ObjArea
         /// </summary>
         [DataMember(Name = "ObjArea", EmitDefaultValue = false)]
-        public int ObjArea { get; set; }
+        public int? ObjArea { get; set; }
 
         /// <summary>
         /// Gets or Sets ObjIntAngleDev
         /// </summary>
         [DataMember(Name = "ObjIntAngleDev", EmitDefaultValue = false)]
-        public int ObjIntAngleDev { get; set; }
+        public int? ObjIntAngleDev { get; set; }
 
         /// <summary>
         /// Gets or Sets PerspectiveTr
         /// </summary>
         [DataMember(Name = "PerspectiveTr", EmitDefaultValue = false)]
-        public int PerspectiveTr { get; set; }
+        public int? PerspectiveTr { get; set; }
 
         /// <summary>
         /// Gets or Sets ResultStatus
         /// </summary>
         [DataMember(Name = "ResultStatus", EmitDefaultValue = false)]
-        public int ResultStatus { get; set; }
+        public int? ResultStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

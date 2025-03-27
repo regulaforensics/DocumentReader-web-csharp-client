@@ -68,7 +68,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Rect
         /// </summary>
         [DataMember(Name = "rect", EmitDefaultValue = false)]
-        public RectangleCoordinates Rect { get; set; }
+        public RectangleCoordinates? Rect { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

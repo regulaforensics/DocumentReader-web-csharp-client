@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Areas
         /// </summary>
         [DataMember(Name = "areas", EmitDefaultValue = false)]
-        public AreaArray Areas { get; set; }
+        public AreaArray? Areas { get; set; }
 
         /// <summary>
         /// Check mean value

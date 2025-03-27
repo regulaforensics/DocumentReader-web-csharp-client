@@ -84,7 +84,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
-                if (item.ResultType == (int)type) {
+                if (item.ResultType == type) {
                     
                     if (pageIdx == null)
                         return (T) item;
@@ -102,7 +102,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             var results = new List<T>();
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
-                if (item.ResultType == (int)type) {
+                if (item.ResultType == type) {
                     results.Add((T)item);
                 }
             }

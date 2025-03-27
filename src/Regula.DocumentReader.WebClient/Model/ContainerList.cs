@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Length of list (Count for items)</value>
         [DataMember(Name = "Count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public int? Count { get; set; }
 
         /// <summary>
         /// Gets or Sets List

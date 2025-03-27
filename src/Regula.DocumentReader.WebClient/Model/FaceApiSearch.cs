@@ -50,21 +50,21 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>The maximum number of results to be returned.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public int? Limit { get; set; }
 
         /// <summary>
         /// The similarity threshold.
         /// </summary>
         /// <value>The similarity threshold.</value>
         [DataMember(Name = "threshold", EmitDefaultValue = false)]
-        public float Threshold { get; set; }
+        public float? Threshold { get; set; }
 
         /// <summary>
         ///  The groups where to conduct the search.
         /// </summary>
         /// <value> The groups where to conduct the search.</value>
         [DataMember(Name = "group_ids", EmitDefaultValue = false)]
-        public List<int> GroupIds { get; set; }
+        public List<int>? GroupIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

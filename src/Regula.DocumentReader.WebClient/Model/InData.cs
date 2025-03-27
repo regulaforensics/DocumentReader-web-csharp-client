@@ -47,13 +47,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Video
         /// </summary>
         [DataMember(Name = "video", EmitDefaultValue = false)]
-        public InDataVideo Video { get; set; }
+        public InDataVideo? Video { get; set; }
 
         /// <summary>
         /// Gets or Sets Images
         /// </summary>
         [DataMember(Name = "images", EmitDefaultValue = false)]
-        public List<InDataTransactionImagesFieldValue> Images { get; set; }
+        public List<InDataTransactionImagesFieldValue>? Images { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

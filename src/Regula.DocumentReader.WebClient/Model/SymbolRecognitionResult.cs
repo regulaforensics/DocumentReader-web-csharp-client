@@ -90,19 +90,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BaseLineBottom
         /// </summary>
         [DataMember(Name = "BaseLineBottom", EmitDefaultValue = false)]
-        public int BaseLineBottom { get; set; }
+        public int? BaseLineBottom { get; set; }
 
         /// <summary>
         /// Gets or Sets BaseLineTop
         /// </summary>
         [DataMember(Name = "BaseLineTop", EmitDefaultValue = false)]
-        public int BaseLineTop { get; set; }
+        public int? BaseLineTop { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved
         /// </summary>
         [DataMember(Name = "Reserved", EmitDefaultValue = false)]
-        public int Reserved { get; set; }
+        public int? Reserved { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -46,8 +46,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
-        public LexicalAnalysisResult(ListVerifiedFields listVerifiedFields = default(ListVerifiedFields), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.LEXICAL_ANALYSIS).</param>
+        public LexicalAnalysisResult(ListVerifiedFields listVerifiedFields = default(ListVerifiedFields), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.LEXICAL_ANALYSIS) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "listVerifiedFields" is required (not null)
             if (listVerifiedFields == null)

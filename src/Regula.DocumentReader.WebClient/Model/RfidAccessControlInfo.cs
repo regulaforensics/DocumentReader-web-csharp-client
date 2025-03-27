@@ -76,7 +76,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Index of the active variant of the procedure</value>
         [DataMember(Name = "ActiveOptionIdx", EmitDefaultValue = false)]
-        public decimal ActiveOptionIdx { get; set; }
+        public decimal? ActiveOptionIdx { get; set; }
 
         /// <summary>
         /// List of remarks arisen during the procedure.
@@ -90,7 +90,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document</value>
         [DataMember(Name = "AccessControlOptions", EmitDefaultValue = false)]
-        public List<Object> AccessControlOptions { get; set; }
+        public List<Object>? AccessControlOptions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

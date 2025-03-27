@@ -46,8 +46,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
-        public RFIDGraphicsInfoResult(TOriginalRFIDGraphicsInfo tOriginalRFIDGraphicsInfo = default(TOriginalRFIDGraphicsInfo), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.RFID_ORIGINAL_GRAPHICS).</param>
+        public RFIDGraphicsInfoResult(TOriginalRFIDGraphicsInfo tOriginalRFIDGraphicsInfo = default(TOriginalRFIDGraphicsInfo), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.RFID_ORIGINAL_GRAPHICS) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "tOriginalRFIDGraphicsInfo" is required (not null)
             if (tOriginalRFIDGraphicsInfo == null)

@@ -67,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>https://faceapi.regulaforensics.com</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// The processing mode: \&quot;match\&quot; or \&quot;match+search\&quot;.
@@ -77,13 +77,13 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>match</example>
         */
         [DataMember(Name = "mode", EmitDefaultValue = false)]
-        public string Mode { get; set; }
+        public string? Mode { get; set; }
 
         /// <summary>
         /// Gets or Sets Search
         /// </summary>
         [DataMember(Name = "search", EmitDefaultValue = false)]
-        public FaceApiSearch Search { get; set; }
+        public FaceApiSearch? Search { get; set; }
 
         /// <summary>
         /// The similarity threshold, 0-100. Above 75 means that the faces&#39; similarity is verified, below 75 is not.
@@ -93,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>75</example>
         */
         [DataMember(Name = "threshold", EmitDefaultValue = false)]
-        public int Threshold { get; set; }
+        public int? Threshold { get; set; }
 
         /// <summary>
         /// The Regula Face Web service requests timeout, ms.
@@ -103,7 +103,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>3000</example>
         */
         [DataMember(Name = "serviceTimeout", EmitDefaultValue = false)]
-        public int ServiceTimeout { get; set; }
+        public int? ServiceTimeout { get; set; }
 
         /// <summary>
         /// Proxy to use, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXY.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.
@@ -113,7 +113,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>http://localhost:8080</example>
         */
         [DataMember(Name = "proxy", EmitDefaultValue = false)]
-        public string Proxy { get; set; }
+        public string? Proxy { get; set; }
 
         /// <summary>
         /// Username and password to use for proxy authentication, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.
@@ -123,7 +123,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>user:pass</example>
         */
         [DataMember(Name = "proxy_userpwd", EmitDefaultValue = false)]
-        public string ProxyUserpwd { get; set; }
+        public string? ProxyUserpwd { get; set; }
 
         /// <summary>
         /// Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.
@@ -133,7 +133,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>0</example>
         */
         [DataMember(Name = "proxy_type", EmitDefaultValue = false)]
-        public int ProxyType { get; set; }
+        public int? ProxyType { get; set; }
 
         /// <summary>
         /// The age threshold for the portrait comparison. Default: 13.
@@ -143,7 +143,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>13</example>
         */
         [DataMember(Name = "childAgeThreshold", EmitDefaultValue = false)]
-        public int ChildAgeThreshold { get; set; }
+        public int? ChildAgeThreshold { get; set; }
 
         /// <summary>
         /// Estimated duration of validity for a child&#39;s passport, years. Default: 5.
@@ -153,7 +153,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>5</example>
         */
         [DataMember(Name = "childDocValidityYears", EmitDefaultValue = false)]
-        public int ChildDocValidityYears { get; set; }
+        public int? ChildDocValidityYears { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

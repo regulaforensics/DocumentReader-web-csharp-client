@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Image
         /// </summary>
         [DataMember(Name = "image", EmitDefaultValue = false)]
-        public ImagesFieldValue Image { get; set; }
+        public ImagesFieldValue? Image { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

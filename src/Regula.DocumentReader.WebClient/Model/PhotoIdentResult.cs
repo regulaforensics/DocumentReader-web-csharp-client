@@ -58,11 +58,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/ (required) (default to 0).</param>
+        /// <param name="type">type (required) (default to AuthenticityResultType.IPI).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public PhotoIdentResult(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved1 = default(int), int reserved2 = default(int), int reserved3 = default(int), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public PhotoIdentResult(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved1 = default(int), int reserved2 = default(int), int reserved3 = default(int), AuthenticityResultType type = AuthenticityResultType.IPI, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.LightIndex = lightIndex;
             // to ensure "area" is required (not null)
@@ -114,43 +114,43 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldTypesCount
         /// </summary>
         [DataMember(Name = "FieldTypesCount", EmitDefaultValue = false)]
-        public int FieldTypesCount { get; set; }
+        public int? FieldTypesCount { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldTypesList
         /// </summary>
         [DataMember(Name = "FieldTypesList", EmitDefaultValue = false)]
-        public List<int> FieldTypesList { get; set; }
+        public List<int>? FieldTypesList { get; set; }
 
         /// <summary>
         /// Gets or Sets Step
         /// </summary>
         [DataMember(Name = "Step", EmitDefaultValue = false)]
-        public int Step { get; set; }
+        public int? Step { get; set; }
 
         /// <summary>
         /// Gets or Sets Angle
         /// </summary>
         [DataMember(Name = "Angle", EmitDefaultValue = false)]
-        public int Angle { get; set; }
+        public int? Angle { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved1
         /// </summary>
         [DataMember(Name = "Reserved1", EmitDefaultValue = false)]
-        public int Reserved1 { get; set; }
+        public int? Reserved1 { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
         /// </summary>
         [DataMember(Name = "Reserved2", EmitDefaultValue = false)]
-        public int Reserved2 { get; set; }
+        public int? Reserved2 { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved3
         /// </summary>
         [DataMember(Name = "Reserved3", EmitDefaultValue = false)]
-        public int Reserved3 { get; set; }
+        public int? Reserved3 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

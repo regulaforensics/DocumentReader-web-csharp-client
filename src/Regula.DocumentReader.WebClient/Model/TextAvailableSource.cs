@@ -67,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
         [DataMember(Name = "containerType", EmitDefaultValue = false)]
-        public int ContainerType { get; set; }
+        public int? ContainerType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -48,14 +48,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded license file</value>
         [DataMember(Name = "license", EmitDefaultValue = false)]
-        public string License { get; set; }
+        public string? License { get; set; }
 
         /// <summary>
         /// For internal use. Demo-sites recaptcha token.
         /// </summary>
         /// <value>For internal use. Demo-sites recaptcha token.</value>
         [DataMember(Name = "recaptcha_token", EmitDefaultValue = false)]
-        public string RecaptchaToken { get; set; }
+        public string? RecaptchaToken { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -65,11 +65,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag (required).</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="reserved2">reserved2.</param>
-        /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/ (required) (default to 0).</param>
+        /// <param name="type">type (required) (default to AuthenticityResultType.UV_LUMINESCENCE).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public SecurityFeatureResult(SecurityFeatureType elementType = default(SecurityFeatureType), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility visibility = default(Visibility), Critical criticalFlag = default(Critical), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public SecurityFeatureResult(SecurityFeatureType elementType = default(SecurityFeatureType), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility visibility = default(Visibility), Critical criticalFlag = default(Critical), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.UV_LUMINESCENCE, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             // to ensure "elementRect" is required (not null)
@@ -94,13 +94,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name = "AreaList", EmitDefaultValue = false)]
-        public AreaContainer AreaList { get; set; }
+        public AreaContainer? AreaList { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
         /// </summary>
         [DataMember(Name = "Reserved2", EmitDefaultValue = false)]
-        public int Reserved2 { get; set; }
+        public int? Reserved2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

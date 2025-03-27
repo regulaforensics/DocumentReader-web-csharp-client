@@ -64,11 +64,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonResultOCR">etalonResultOCR (required).</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/ (required) (default to 0).</param>
+        /// <param name="type">type (required) (default to AuthenticityResultType.OCR_SECURITY_TEXT).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public OCRSecurityTextResult(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public OCRSecurityTextResult(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.OCR_SECURITY_TEXT, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;
@@ -149,13 +149,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Reserved1
         /// </summary>
         [DataMember(Name = "Reserved1", EmitDefaultValue = false)]
-        public int Reserved1 { get; set; }
+        public int? Reserved1 { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
         /// </summary>
         [DataMember(Name = "Reserved2", EmitDefaultValue = false)]
-        public int Reserved2 { get; set; }
+        public int? Reserved2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -57,21 +57,21 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ListIdx
         /// </summary>
         [DataMember(Name = "listIdx", EmitDefaultValue = false)]
-        public int ListIdx { get; set; }
+        public int? ListIdx { get; set; }
 
         /// <summary>
         /// Page index of the image from input list
         /// </summary>
         /// <value>Page index of the image from input list</value>
         [DataMember(Name = "pageIdx", EmitDefaultValue = false)]
-        public int PageIdx { get; set; }
+        public int? PageIdx { get; set; }
 
         /// <summary>
         /// Image url
         /// </summary>
         /// <value>Image url</value>
         [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

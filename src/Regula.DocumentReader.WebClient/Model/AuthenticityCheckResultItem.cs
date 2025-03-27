@@ -58,6 +58,12 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
+        public AuthenticityResultType Type { get; set; }
+
+        /// <summary>
         /// Gets or Sets ElementResult
         /// </summary>
         [DataMember(Name = "ElementResult", EmitDefaultValue = false)]
@@ -76,11 +82,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticityCheckResultItem" /> class.
         /// </summary>
-        /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/ (required) (default to 0).</param>
+        /// <param name="type">type (required).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public AuthenticityCheckResultItem(int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int))
+        public AuthenticityCheckResultItem(AuthenticityResultType type = default(AuthenticityResultType), CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int))
         {
             this.Type = type;
             this.ElementResult = elementResult;
@@ -89,17 +95,10 @@ namespace Regula.DocumentReader.WebClient.Model
         }
 
         /// <summary>
-        /// Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/
-        /// </summary>
-        /// <value>Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/</value>
-        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
-        public int Type { get; set; }
-
-        /// <summary>
         /// Gets or Sets PercentValue
         /// </summary>
         [DataMember(Name = "PercentValue", EmitDefaultValue = false)]
-        public int PercentValue { get; set; }
+        public int? PercentValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

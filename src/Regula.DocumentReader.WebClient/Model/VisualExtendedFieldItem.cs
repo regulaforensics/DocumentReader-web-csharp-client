@@ -136,37 +136,37 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldMask
         /// </summary>
         [DataMember(Name = "FieldMask", EmitDefaultValue = false)]
-        public string FieldMask { get; set; }
+        public string? FieldMask { get; set; }
 
         /// <summary>
         /// Gets or Sets Validity
         /// </summary>
         [DataMember(Name = "Validity", EmitDefaultValue = false)]
-        public int Validity { get; set; }
+        public int? Validity { get; set; }
 
         /// <summary>
         /// Gets or Sets InComparison
         /// </summary>
         [DataMember(Name = "InComparison", EmitDefaultValue = false)]
-        public int InComparison { get; set; }
+        public int? InComparison { get; set; }
 
         /// <summary>
         /// Gets or Sets WLCID
         /// </summary>
         [DataMember(Name = "wLCID", EmitDefaultValue = false)]
-        public int WLCID { get; set; }
+        public int? WLCID { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
         /// </summary>
         [DataMember(Name = "Reserved2", EmitDefaultValue = false)]
-        public int Reserved2 { get; set; }
+        public int? Reserved2 { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved3
         /// </summary>
         [DataMember(Name = "Reserved3", EmitDefaultValue = false)]
-        public int Reserved3 { get; set; }
+        public int? Reserved3 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

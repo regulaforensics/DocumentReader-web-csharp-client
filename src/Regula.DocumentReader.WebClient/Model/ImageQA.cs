@@ -62,63 +62,63 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Set the threshold for an actual document brightness below which the check fails</value>
         [DataMember(Name = "brightnessThreshold", EmitDefaultValue = false)]
-        public double BrightnessThreshold { get; set; }
+        public double? BrightnessThreshold { get; set; }
 
         /// <summary>
         /// This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.
         /// </summary>
         /// <value>This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.</value>
         [DataMember(Name = "dpiThreshold", EmitDefaultValue = false)]
-        public int DpiThreshold { get; set; }
+        public int? DpiThreshold { get; set; }
 
         /// <summary>
         /// This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.
         /// </summary>
         /// <value>This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.</value>
         [DataMember(Name = "angleThreshold", EmitDefaultValue = false)]
-        public int AngleThreshold { get; set; }
+        public int? AngleThreshold { get; set; }
 
         /// <summary>
         /// This option enables focus check while performing image quality validation.
         /// </summary>
         /// <value>This option enables focus check while performing image quality validation.</value>
-        [DataMember(Name = "focusCheck", EmitDefaultValue = true)]
-        public bool FocusCheck { get; set; }
+        [DataMember(Name = "focusCheck", EmitDefaultValue = false)]
+        public bool? FocusCheck { get; set; }
 
         /// <summary>
         /// This option enables glares check while performing image quality validation.
         /// </summary>
         /// <value>This option enables glares check while performing image quality validation.</value>
-        [DataMember(Name = "glaresCheck", EmitDefaultValue = true)]
-        public bool GlaresCheck { get; set; }
+        [DataMember(Name = "glaresCheck", EmitDefaultValue = false)]
+        public bool? GlaresCheck { get; set; }
 
         /// <summary>
         /// This option enables colorness check while performing image quality validation.
         /// </summary>
         /// <value>This option enables colorness check while performing image quality validation.</value>
-        [DataMember(Name = "colornessCheck", EmitDefaultValue = true)]
-        public bool ColornessCheck { get; set; }
+        [DataMember(Name = "colornessCheck", EmitDefaultValue = false)]
+        public bool? ColornessCheck { get; set; }
 
         /// <summary>
         /// This option enables screen capture (moire patterns) check while performing image quality validation.
         /// </summary>
         /// <value>This option enables screen capture (moire patterns) check while performing image quality validation.</value>
-        [DataMember(Name = "moireCheck", EmitDefaultValue = true)]
-        public bool MoireCheck { get; set; }
+        [DataMember(Name = "moireCheck", EmitDefaultValue = false)]
+        public bool? MoireCheck { get; set; }
 
         /// <summary>
         /// This parameter specifies the necessary margin. Default 0.
         /// </summary>
         /// <value>This parameter specifies the necessary margin. Default 0.</value>
         [DataMember(Name = "documentPositionIndent", EmitDefaultValue = false)]
-        public int DocumentPositionIndent { get; set; }
+        public int? DocumentPositionIndent { get; set; }
 
         /// <summary>
         /// This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.
         /// </summary>
         /// <value>This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.</value>
         [DataMember(Name = "expectedPass", EmitDefaultValue = false)]
-        public List<InputImageQualityChecks> ExpectedPass { get; set; }
+        public List<InputImageQualityChecks>? ExpectedPass { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

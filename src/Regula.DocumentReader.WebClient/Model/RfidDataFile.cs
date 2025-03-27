@@ -91,60 +91,60 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>File identifier. Each byte of FileID represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. 01 1E)</value>
         [DataMember(Name = "FileID", EmitDefaultValue = false)]
-        public string FileID { get; set; }
+        public string? FileID { get; set; }
 
         /// <summary>
         /// Gets or Sets FileData
         /// </summary>
         [DataMember(Name = "FileData", EmitDefaultValue = false)]
-        public TrfFtBytes FileData { get; set; }
+        public TrfFtBytes? FileData { get; set; }
 
         /// <summary>
         /// Time of reading, milliseconds
         /// </summary>
         /// <value>Time of reading, milliseconds</value>
         [DataMember(Name = "ReadingTime", EmitDefaultValue = false)]
-        public decimal ReadingTime { get; set; }
+        public decimal? ReadingTime { get; set; }
 
         /// <summary>
         /// List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.
         /// </summary>
         /// <value>List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.</value>
         [DataMember(Name = "Notifications", EmitDefaultValue = false)]
-        public List<ParsingNotificationCodes> Notifications { get; set; }
+        public List<ParsingNotificationCodes>? Notifications { get; set; }
 
         /// <summary>
         /// List of document text fields formed on the basis of the file contents
         /// </summary>
         /// <value>List of document text fields formed on the basis of the file contents</value>
         [DataMember(Name = "DocFields_Text", EmitDefaultValue = false)]
-        public List<TextFieldType> DocFieldsText { get; set; }
+        public List<TextFieldType>? DocFieldsText { get; set; }
 
         /// <summary>
         /// List of document graphic fields formed on the basis of the file contents
         /// </summary>
         /// <value>List of document graphic fields formed on the basis of the file contents</value>
         [DataMember(Name = "DocFields_Graphics", EmitDefaultValue = false)]
-        public List<GraphicFieldType> DocFieldsGraphics { get; set; }
+        public List<GraphicFieldType>? DocFieldsGraphics { get; set; }
 
         /// <summary>
         /// List of the original binary representation of graphic document fields formed on the basis of the file contents
         /// </summary>
         /// <value>List of the original binary representation of graphic document fields formed on the basis of the file contents</value>
         [DataMember(Name = "DocFields_Originals", EmitDefaultValue = false)]
-        public List<GraphicFieldType> DocFieldsOriginals { get; set; }
+        public List<GraphicFieldType>? DocFieldsOriginals { get; set; }
 
         /// <summary>
         /// Gets or Sets ParsedData
         /// </summary>
         [DataMember(Name = "ParsedData", EmitDefaultValue = false)]
-        public ParsedData ParsedData { get; set; }
+        public ParsedData? ParsedData { get; set; }
 
         /// <summary>
         /// Gets or Sets SecurityObjectCertificates
         /// </summary>
         [DataMember(Name = "SecurityObject_Certificates", EmitDefaultValue = false)]
-        public SecurityObjectCertificates SecurityObjectCertificates { get; set; }
+        public SecurityObjectCertificates? SecurityObjectCertificates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

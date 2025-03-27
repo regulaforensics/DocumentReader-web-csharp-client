@@ -55,14 +55,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ImageData
         /// </summary>
         [DataMember(Name = "ImageData", EmitDefaultValue = false)]
-        public ImageData ImageData { get; set; }
+        public ImageData? ImageData { get; set; }
 
         /// <summary>
         /// page/image number
         /// </summary>
         /// <value>page/image number</value>
         [DataMember(Name = "page_idx", EmitDefaultValue = false)]
-        public int PageIdx { get; set; }
+        public int? PageIdx { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

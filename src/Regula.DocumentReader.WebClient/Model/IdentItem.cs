@@ -82,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Area
         /// </summary>
         [DataMember(Name = "Area", EmitDefaultValue = false)]
-        public RectangleCoordinates Area { get; set; }
+        public RectangleCoordinates? Area { get; set; }
 
         /// <summary>
         /// Gets or Sets Image
@@ -100,7 +100,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name = "AreaList", EmitDefaultValue = false)]
-        public AreaContainer AreaList { get; set; }
+        public AreaContainer? AreaList { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

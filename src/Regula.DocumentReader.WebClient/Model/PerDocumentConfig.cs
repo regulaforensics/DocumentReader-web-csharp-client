@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Specific template IDs, for which apply current custom configuration</value>
         [DataMember(Name = "docID", EmitDefaultValue = false)]
-        public List<int> DocID { get; set; }
+        public List<int>? DocID { get; set; }
 
         /// <summary>
         /// Contains items from AuthenticityResultType as sum via OR operation
@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>2</example>
         */
         [DataMember(Name = "excludeAuthChecks", EmitDefaultValue = false)]
-        public int ExcludeAuthChecks { get; set; }
+        public int? ExcludeAuthChecks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

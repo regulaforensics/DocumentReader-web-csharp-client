@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets XMLBuffer
         /// </summary>
         [DataMember(Name = "XML_buffer", EmitDefaultValue = false)]
-        public string XMLBuffer { get; private set; }
+        public string? XMLBuffer { get; private set; }
 
         /// <summary>
         /// Returns false as XMLBuffer should not be serialized given that it's read-only.

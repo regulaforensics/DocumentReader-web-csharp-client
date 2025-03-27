@@ -60,55 +60,55 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Computer name</value>
         [DataMember(Name = "ComputerName", EmitDefaultValue = false)]
-        public string ComputerName { get; set; }
+        public string? ComputerName { get; set; }
 
         /// <summary>
         /// Date and time
         /// </summary>
         /// <value>Date and time</value>
         [DataMember(Name = "DateTime", EmitDefaultValue = false)]
-        public string DateTime { get; set; }
+        public string? DateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentsDatabase
         /// </summary>
         [DataMember(Name = "DocumentsDatabase", EmitDefaultValue = false)]
-        public DocumentsDatabase DocumentsDatabase { get; set; }
+        public DocumentsDatabase? DocumentsDatabase { get; set; }
 
         /// <summary>
         /// System information
         /// </summary>
         /// <value>System information</value>
         [DataMember(Name = "SystemInfo", EmitDefaultValue = false)]
-        public string SystemInfo { get; set; }
+        public string? SystemInfo { get; set; }
 
         /// <summary>
         /// Transaction tag
         /// </summary>
         /// <value>Transaction tag</value>
         [DataMember(Name = "Tag", EmitDefaultValue = false)]
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Transaction identifier
         /// </summary>
         /// <value>Transaction identifier</value>
         [DataMember(Name = "TransactionID", EmitDefaultValue = false)]
-        public string TransactionID { get; set; }
+        public string? TransactionID { get; set; }
 
         /// <summary>
         /// User name
         /// </summary>
         /// <value>User name</value>
         [DataMember(Name = "UserName", EmitDefaultValue = false)]
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
 
         /// <summary>
         /// SDK version
         /// </summary>
         /// <value>SDK version</value>
         [DataMember(Name = "Version", EmitDefaultValue = false)]
-        public string VarVersion { get; set; }
+        public string? VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

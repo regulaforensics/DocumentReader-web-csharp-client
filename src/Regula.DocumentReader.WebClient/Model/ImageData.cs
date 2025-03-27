@@ -68,7 +68,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Image format</value>
         [DataMember(Name = "format", EmitDefaultValue = false)]
-        public string Format { get; set; }
+        public string? Format { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

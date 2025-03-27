@@ -59,11 +59,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="image">image (required).</param>
         /// <param name="etalonImage">etalonImage (required).</param>
         /// <param name="areaList">areaList.</param>
-        /// <param name="type">Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/ (required) (default to 0).</param>
+        /// <param name="type">type (required) (default to AuthenticityResultType.IMAGE_PATTERN).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public IdentResult(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int type = 0, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public IdentResult(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), AuthenticityResultType type = AuthenticityResultType.IMAGE_PATTERN, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Area
         /// </summary>
         [DataMember(Name = "Area", EmitDefaultValue = false)]
-        public RectangleCoordinates Area { get; set; }
+        public RectangleCoordinates? Area { get; set; }
 
         /// <summary>
         /// Gets or Sets Image
@@ -105,7 +105,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name = "AreaList", EmitDefaultValue = false)]
-        public AreaContainer AreaList { get; set; }
+        public AreaContainer? AreaList { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

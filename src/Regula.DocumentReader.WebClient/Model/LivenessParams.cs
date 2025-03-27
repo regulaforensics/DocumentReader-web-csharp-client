@@ -55,43 +55,43 @@ namespace Regula.DocumentReader.WebClient.Model
         /// This parameter is used to enable OVI check
         /// </summary>
         /// <value>This parameter is used to enable OVI check</value>
-        [DataMember(Name = "checkOVI", EmitDefaultValue = true)]
-        public bool CheckOVI { get; set; }
+        [DataMember(Name = "checkOVI", EmitDefaultValue = false)]
+        public bool? CheckOVI { get; set; }
 
         /// <summary>
         /// This parameter is used to enable MLI check
         /// </summary>
         /// <value>This parameter is used to enable MLI check</value>
-        [DataMember(Name = "checkMLI", EmitDefaultValue = true)]
-        public bool CheckMLI { get; set; }
+        [DataMember(Name = "checkMLI", EmitDefaultValue = false)]
+        public bool? CheckMLI { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Hologram detection
         /// </summary>
         /// <value>This parameter is used to enable Hologram detection</value>
-        [DataMember(Name = "checkHolo", EmitDefaultValue = true)]
-        public bool CheckHolo { get; set; }
+        [DataMember(Name = "checkHolo", EmitDefaultValue = false)]
+        public bool? CheckHolo { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Electronic device detection
         /// </summary>
         /// <value>This parameter is used to enable Electronic device detection</value>
-        [DataMember(Name = "checkED", EmitDefaultValue = true)]
-        public bool CheckED { get; set; }
+        [DataMember(Name = "checkED", EmitDefaultValue = false)]
+        public bool? CheckED { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Black and white copy check
         /// </summary>
         /// <value>This parameter is used to enable Black and white copy check</value>
-        [DataMember(Name = "checkBlackAndWhiteCopy", EmitDefaultValue = true)]
-        public bool CheckBlackAndWhiteCopy { get; set; }
+        [DataMember(Name = "checkBlackAndWhiteCopy", EmitDefaultValue = false)]
+        public bool? CheckBlackAndWhiteCopy { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Dynaprint check
         /// </summary>
         /// <value>This parameter is used to enable Dynaprint check</value>
-        [DataMember(Name = "checkDynaprint", EmitDefaultValue = true)]
-        public bool CheckDynaprint { get; set; }
+        [DataMember(Name = "checkDynaprint", EmitDefaultValue = false)]
+        public bool? CheckDynaprint { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

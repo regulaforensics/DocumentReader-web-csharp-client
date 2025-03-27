@@ -85,28 +85,28 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets List
         /// </summary>
         [DataMember(Name = "List", EmitDefaultValue = false)]
-        public List<ProcessRequestImage> List { get; set; }
+        public List<ProcessRequestImage>? List { get; set; }
 
         /// <summary>
         /// Session ID
         /// </summary>
         /// <value>Session ID</value>
         [DataMember(Name = "tag", EmitDefaultValue = false)]
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Customer name
         /// </summary>
         /// <value>Customer name</value>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
-        public string Tenant { get; set; }
+        public string? Tenant { get; set; }
 
         /// <summary>
         /// Environment type
         /// </summary>
         /// <value>Environment type</value>
         [DataMember(Name = "env", EmitDefaultValue = false)]
-        public string Env { get; set; }
+        public string? Env { get; set; }
 
         /// <summary>
         /// Live portrait photo
@@ -116,7 +116,7 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>Base64 encoded data</example>
         */
         [DataMember(Name = "livePortrait", EmitDefaultValue = false)]
-        public string LivePortrait { get; set; }
+        public string? LivePortrait { get; set; }
 
         /// <summary>
         /// Portrait photo from an external source
@@ -126,47 +126,47 @@ namespace Regula.DocumentReader.WebClient.Model
         <example>Base64 encoded data</example>
         */
         [DataMember(Name = "extPortrait", EmitDefaultValue = false)]
-        public string ExtPortrait { get; set; }
+        public string? ExtPortrait { get; set; }
 
         /// <summary>
         /// Gets or Sets ContainerList
         /// </summary>
         [DataMember(Name = "ContainerList", EmitDefaultValue = false)]
-        public ContainerList ContainerList { get; set; }
+        public ContainerList? ContainerList { get; set; }
 
         /// <summary>
         /// Gets or Sets SystemInfo
         /// </summary>
         [DataMember(Name = "systemInfo", EmitDefaultValue = false)]
-        public ProcessSystemInfo SystemInfo { get; set; }
+        public ProcessSystemInfo? SystemInfo { get; set; }
 
         /// <summary>
         /// Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.
         /// </summary>
         /// <value>Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.</value>
         [DataMember(Name = "passBackObject", EmitDefaultValue = false)]
-        public Dictionary<string, Object> PassBackObject { get; set; }
+        public Dictionary<string, Object>? PassBackObject { get; set; }
 
         /// <summary>
         /// Digital Travel Credential (DTC-VC) data in base64 format for processing
         /// </summary>
         /// <value>Digital Travel Credential (DTC-VC) data in base64 format for processing</value>
         [DataMember(Name = "dtc", EmitDefaultValue = false)]
-        public string Dtc { get; set; }
+        public string? Dtc { get; set; }
 
         /// <summary>
         /// URLs to the document images for processing.
         /// </summary>
         /// <value>URLs to the document images for processing.</value>
         [DataMember(Name = "ImageUrls", EmitDefaultValue = false)]
-        public List<string> ImageUrls { get; set; }
+        public List<string>? ImageUrls { get; set; }
 
         /// <summary>
         /// The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.
         /// </summary>
         /// <value>The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.</value>
         [DataMember(Name = "lcidFilter", EmitDefaultValue = false)]
-        public List<LCID> LcidFilter { get; set; }
+        public List<LCID>? LcidFilter { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

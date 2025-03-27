@@ -48,13 +48,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Response url</value>
         [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// Gets or Sets Images
         /// </summary>
         [DataMember(Name = "images", EmitDefaultValue = false)]
-        public List<OutDataTransactionImagesFieldValue> Images { get; set; }
+        public List<OutDataTransactionImagesFieldValue>? Images { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -78,20 +78,20 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Buf_Text text string length</value>
         [DataMember(Name = "Buf_Length", EmitDefaultValue = false)]
-        public decimal BufLength { get; set; }
+        public decimal? BufLength { get; set; }
 
         /// <summary>
         /// Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;
         /// </summary>
         /// <value>Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;</value>
         [DataMember(Name = "Buf_Text", EmitDefaultValue = false)]
-        public string BufText { get; set; }
+        public string? BufText { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved
         /// </summary>
         [DataMember(Name = "Reserved", EmitDefaultValue = false)]
-        public int Reserved { get; set; }
+        public int? Reserved { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

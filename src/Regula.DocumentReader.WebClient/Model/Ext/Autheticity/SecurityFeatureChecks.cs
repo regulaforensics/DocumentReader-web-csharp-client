@@ -7,9 +7,9 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         public SecurityFeatureChecks(AuthenticityCheckResult authenticityResult) : base(authenticityResult)
         { }
 
-        public SecurityFeatureResult ChecksByElement(int type)
+        public SecurityFeatureResult ChecksByElement(SecurityFeatureType type)
         {
-            return this.Items()?.FirstOrDefault(t => t.Type == type);
+            return this.Items()?.FirstOrDefault(t => t.ElementType == type);
         }
     }
 }

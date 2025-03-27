@@ -133,7 +133,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>LCID name</value>
         [DataMember(Name = "lcidName", EmitDefaultValue = false)]
-        public string LcidName { get; set; }
+        public string? LcidName { get; set; }
 
         /// <summary>
         /// The most confidence value, selected from valueList

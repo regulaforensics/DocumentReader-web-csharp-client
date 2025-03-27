@@ -19,7 +19,7 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
             
             var requestParams = new RecognitionParams()
                 .WithScenario(Scenario.FULL_PROCESS)
-                .WithResultTypeOutput(new List<int>
+                .WithResultTypeOutput(new List<Result>
                 {
                     // actual results
                     Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
@@ -53,6 +53,7 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
 
             // text results 
             var docNumberField = response.Text().GetField(TextFieldType.DOCUMENT_NUMBER);
+            Console.WriteLine(docNumberField);
             var docNumberVisual = docNumberField.GetValue(Source.VISUAL);
             var docNumberMrz = docNumberField.GetValue(Source.MRZ);
             var docNumberVisualValidity = docNumberField.SourceValidity(Source.VISUAL);
@@ -70,7 +71,7 @@ namespace Regula.DocumentReader.NetCoreExampleEncryptedRcl
 
             var info = api.Ping();
             Console.WriteLine("-----------------------------------------------------------------");
-            Console.WriteLine($"                API Version: {info.Version}");
+            Console.WriteLine($"                API Version: {info.VarVersion}");
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
             Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");

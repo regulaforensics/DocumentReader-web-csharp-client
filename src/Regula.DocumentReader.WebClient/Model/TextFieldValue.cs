@@ -93,13 +93,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Original value as seen in the document</value>
         [DataMember(Name = "originalValue", EmitDefaultValue = false)]
-        public string OriginalValue { get; set; }
+        public string? OriginalValue { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginalSymbols
         /// </summary>
         [DataMember(Name = "originalSymbols", EmitDefaultValue = false)]
-        public List<OriginalSymbol> OriginalSymbols { get; set; }
+        public List<OriginalSymbol>? OriginalSymbols { get; set; }
 
         /// <summary>
         /// Page index of the image from input list
@@ -119,20 +119,20 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets FieldRect
         /// </summary>
         [DataMember(Name = "fieldRect", EmitDefaultValue = false)]
-        public RectangleCoordinates FieldRect { get; set; }
+        public RectangleCoordinates? FieldRect { get; set; }
 
         /// <summary>
         /// Gets or Sets RfidOrigin
         /// </summary>
         [DataMember(Name = "rfidOrigin", EmitDefaultValue = false)]
-        public RfidOrigin RfidOrigin { get; set; }
+        public RfidOrigin? RfidOrigin { get; set; }
 
         /// <summary>
         /// Same as Result type, but used for safe parsing of not-described values. See Result type.
         /// </summary>
         /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
         [DataMember(Name = "containerType", EmitDefaultValue = false)]
-        public int ContainerType { get; set; }
+        public int? ContainerType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

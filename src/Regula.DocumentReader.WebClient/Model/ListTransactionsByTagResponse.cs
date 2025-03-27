@@ -47,13 +47,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Items
         /// </summary>
         [DataMember(Name = "items", EmitDefaultValue = false)]
-        public List<GetTransactionsByTagResponse> Items { get; set; }
+        public List<GetTransactionsByTagResponse>? Items { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Metadata { get; set; }
+        public Dictionary<string, Object>? Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

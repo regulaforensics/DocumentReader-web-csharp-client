@@ -160,7 +160,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RotationAngle
         /// </summary>
         [DataMember(Name = "RotationAngle", EmitDefaultValue = false)]
-        public int RotationAngle { get; set; }
+        public int? RotationAngle { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

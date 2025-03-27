@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return this;
         }
 
-        public RecognitionParams WithProcessAuth(int processAuth)
+        public RecognitionParams WithProcessAuth(AuthenticityResultType processAuth)
         {
             ProcessAuth = processAuth;
             return this;

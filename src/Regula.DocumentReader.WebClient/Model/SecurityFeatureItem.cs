@@ -89,13 +89,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets AreaList
         /// </summary>
         [DataMember(Name = "AreaList", EmitDefaultValue = false)]
-        public AreaContainer AreaList { get; set; }
+        public AreaContainer? AreaList { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
         /// </summary>
         [DataMember(Name = "Reserved2", EmitDefaultValue = false)]
-        public int Reserved2 { get; set; }
+        public int? Reserved2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -47,13 +47,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets RFID_BINARY_DATA
         /// </summary>
         [DataMember(Name = "RFID_BINARY_DATA", EmitDefaultValue = false)]
-        public BinaryData RFID_BINARY_DATA { get; set; }
+        public BinaryData? RFID_BINARY_DATA { get; set; }
 
         /// <summary>
         /// Gets or Sets RFID_RAW_DATA
         /// </summary>
         [DataMember(Name = "RFID_RAW_DATA", EmitDefaultValue = false)]
-        public List<RfidRawData> RFID_RAW_DATA { get; set; }
+        public List<RfidRawData>? RFID_RAW_DATA { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

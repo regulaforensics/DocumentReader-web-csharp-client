@@ -150,13 +150,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Metadata { get; set; }
+        public Dictionary<string, Object>? Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentsDatabase
         /// </summary>
         [DataMember(Name = "documentsDatabase", EmitDefaultValue = false)]
-        public HealthcheckDocumentsDatabase DocumentsDatabase { get; set; }
+        public HealthcheckDocumentsDatabase? DocumentsDatabase { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

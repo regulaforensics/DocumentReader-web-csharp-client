@@ -86,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Field value count</value>
         [DataMember(Name = "valueCount", EmitDefaultValue = false)]
-        public decimal ValueCount { get; set; }
+        public decimal? ValueCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

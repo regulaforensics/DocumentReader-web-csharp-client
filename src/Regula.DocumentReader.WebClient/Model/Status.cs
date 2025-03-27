@@ -97,7 +97,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets DetailsRFID
         /// </summary>
         [DataMember(Name = "detailsRFID", EmitDefaultValue = false)]
-        public DetailsRFID DetailsRFID { get; set; }
+        public DetailsRFID? DetailsRFID { get; set; }
 
         /// <summary>
         /// Gets or Sets DetailsOptical

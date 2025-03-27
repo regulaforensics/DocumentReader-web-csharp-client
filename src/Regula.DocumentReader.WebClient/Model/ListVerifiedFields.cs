@@ -72,7 +72,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets PDateFormat
         /// </summary>
         [DataMember(Name = "pDateFormat", EmitDefaultValue = false)]
-        public string PDateFormat { get; set; }
+        public string? PDateFormat { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

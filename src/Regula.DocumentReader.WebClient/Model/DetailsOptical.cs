@@ -115,7 +115,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Vds
         /// </summary>
         [DataMember(Name = "vds", EmitDefaultValue = false)]
-        public int Vds { get; set; }
+        public int? Vds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

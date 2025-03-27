@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ParsingNotifications
         /// </summary>
         [DataMember(Name = "ParsingNotifications", EmitDefaultValue = false)]
-        public List<long> ParsingNotifications { get; set; }
+        public List<long>? ParsingNotifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

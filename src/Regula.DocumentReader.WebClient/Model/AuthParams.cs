@@ -75,112 +75,112 @@ namespace Regula.DocumentReader.WebClient.Model
         /// This parameter is used to enable document liveness check
         /// </summary>
         /// <value>This parameter is used to enable document liveness check</value>
-        [DataMember(Name = "checkLiveness", EmitDefaultValue = true)]
-        public bool CheckLiveness { get; set; }
+        [DataMember(Name = "checkLiveness", EmitDefaultValue = false)]
+        public bool? CheckLiveness { get; set; }
 
         /// <summary>
         /// Gets or Sets LivenessParams
         /// </summary>
         [DataMember(Name = "livenessParams", EmitDefaultValue = false)]
-        public LivenessParams LivenessParams { get; set; }
+        public LivenessParams? LivenessParams { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Document luminescence check in UV light
         /// </summary>
         /// <value>This parameter is used to enable Document luminescence check in UV light</value>
-        [DataMember(Name = "checkUVLuminiscence", EmitDefaultValue = true)]
-        public bool CheckUVLuminiscence { get; set; }
+        [DataMember(Name = "checkUVLuminiscence", EmitDefaultValue = false)]
+        public bool? CheckUVLuminiscence { get; set; }
 
         /// <summary>
         /// This parameter is used to enable B900 ink MRZ contrast check in IR light
         /// </summary>
         /// <value>This parameter is used to enable B900 ink MRZ contrast check in IR light</value>
-        [DataMember(Name = "checkIRB900", EmitDefaultValue = true)]
-        public bool CheckIRB900 { get; set; }
+        [DataMember(Name = "checkIRB900", EmitDefaultValue = false)]
+        public bool? CheckIRB900 { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Image patterns presence/absence check (position, shape, color)
         /// </summary>
         /// <value>This parameter is used to enable Image patterns presence/absence check (position, shape, color)</value>
-        [DataMember(Name = "checkImagePatterns", EmitDefaultValue = true)]
-        public bool CheckImagePatterns { get; set; }
+        [DataMember(Name = "checkImagePatterns", EmitDefaultValue = false)]
+        public bool? CheckImagePatterns { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Fibers detection
         /// </summary>
         /// <value>This parameter is used to enable Fibers detection</value>
-        [DataMember(Name = "checkFibers", EmitDefaultValue = true)]
-        public bool CheckFibers { get; set; }
+        [DataMember(Name = "checkFibers", EmitDefaultValue = false)]
+        public bool? CheckFibers { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Extended MRZ Check
         /// </summary>
         /// <value>This parameter is used to enable Extended MRZ Check</value>
-        [DataMember(Name = "checkExtMRZ", EmitDefaultValue = true)]
-        public bool CheckExtMRZ { get; set; }
+        [DataMember(Name = "checkExtMRZ", EmitDefaultValue = false)]
+        public bool? CheckExtMRZ { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Extended OCR Check
         /// </summary>
         /// <value>This parameter is used to enable Extended OCR Check</value>
-        [DataMember(Name = "checkExtOCR", EmitDefaultValue = true)]
-        public bool CheckExtOCR { get; set; }
+        [DataMember(Name = "checkExtOCR", EmitDefaultValue = false)]
+        public bool? CheckExtOCR { get; set; }
 
         /// <summary>
         /// This parameter is used to enable laminate integrity check in axial light
         /// </summary>
         /// <value>This parameter is used to enable laminate integrity check in axial light</value>
-        [DataMember(Name = "checkAxial", EmitDefaultValue = true)]
-        public bool CheckAxial { get; set; }
+        [DataMember(Name = "checkAxial", EmitDefaultValue = false)]
+        public bool? CheckAxial { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Barcode format check (code metadata, data format, contents format, etc.)
         /// </summary>
         /// <value>This parameter is used to enable Barcode format check (code metadata, data format, contents format, etc.)</value>
-        [DataMember(Name = "checkBarcodeFormat", EmitDefaultValue = true)]
-        public bool CheckBarcodeFormat { get; set; }
+        [DataMember(Name = "checkBarcodeFormat", EmitDefaultValue = false)]
+        public bool? CheckBarcodeFormat { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Document elements visibility check in IR light
         /// </summary>
         /// <value>This parameter is used to enable Document elements visibility check in IR light</value>
-        [DataMember(Name = "checkIRVisibility", EmitDefaultValue = true)]
-        public bool CheckIRVisibility { get; set; }
+        [DataMember(Name = "checkIRVisibility", EmitDefaultValue = false)]
+        public bool? CheckIRVisibility { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Invisible Personal Information (IPI) check
         /// </summary>
         /// <value>This parameter is used to enable Invisible Personal Information (IPI) check</value>
-        [DataMember(Name = "checkIPI", EmitDefaultValue = true)]
-        public bool CheckIPI { get; set; }
+        [DataMember(Name = "checkIPI", EmitDefaultValue = false)]
+        public bool? CheckIPI { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Owner&#39;s photo embedding check (is photo printed or sticked)
         /// </summary>
         /// <value>This parameter is used to enable Owner&#39;s photo embedding check (is photo printed or sticked)</value>
-        [DataMember(Name = "checkPhotoEmbedding", EmitDefaultValue = true)]
-        public bool CheckPhotoEmbedding { get; set; }
+        [DataMember(Name = "checkPhotoEmbedding", EmitDefaultValue = false)]
+        public bool? CheckPhotoEmbedding { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Portrait comparison check
         /// </summary>
         /// <value>This parameter is used to enable Portrait comparison check</value>
-        [DataMember(Name = "checkPhotoComparison", EmitDefaultValue = true)]
-        public bool CheckPhotoComparison { get; set; }
+        [DataMember(Name = "checkPhotoComparison", EmitDefaultValue = false)]
+        public bool? CheckPhotoComparison { get; set; }
 
         /// <summary>
         /// This parameter is used to enable LetterScreen check
         /// </summary>
         /// <value>This parameter is used to enable LetterScreen check</value>
-        [DataMember(Name = "checkLetterScreen", EmitDefaultValue = true)]
-        public bool CheckLetterScreen { get; set; }
+        [DataMember(Name = "checkLetterScreen", EmitDefaultValue = false)]
+        public bool? CheckLetterScreen { get; set; }
 
         /// <summary>
         /// This parameter is used to enable Security text check
         /// </summary>
         /// <value>This parameter is used to enable Security text check</value>
-        [DataMember(Name = "checkSecurityText", EmitDefaultValue = true)]
-        public bool CheckSecurityText { get; set; }
+        [DataMember(Name = "checkSecurityText", EmitDefaultValue = false)]
+        public bool? CheckSecurityText { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

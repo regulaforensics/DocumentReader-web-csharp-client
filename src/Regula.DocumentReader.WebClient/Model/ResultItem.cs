@@ -31,7 +31,7 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Common fields for all result objects
     /// </summary>
     [DataContract(Name = "ResultItem")]
-    [JsonConverter(typeof(JsonSubtypes), "ResultType")]
+    [JsonConverter(typeof(JsonSubtypes), "result_type")]
     [JsonSubtypes.KnownSubType(typeof(DocumentImageResult), "1")]
     [JsonSubtypes.KnownSubType(typeof(DocumentBinaryInfoResult), "101")]
     [JsonSubtypes.KnownSubType(typeof(RFIDTextDataResult), "102")]
@@ -70,6 +70,12 @@ namespace Regula.DocumentReader.WebClient.Model
     [JsonSubtypes.KnownSubType(typeof(FaceDetectionResult), "97")]
     public partial class ResultItem : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ResultType
+        /// </summary>
+        [DataMember(Name = "result_type", IsRequired = true, EmitDefaultValue = true)]
+        public Result ResultType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultItem" /> class.
         /// </summary>
@@ -82,8 +88,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
-        public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), int resultType = 0)
+        /// <param name="resultType">resultType (required).</param>
+        public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = default(Result))
         {
             this.ResultType = resultType;
             this.BufLength = bufLength;
@@ -96,32 +102,25 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets BufLength
         /// </summary>
         [DataMember(Name = "buf_length", EmitDefaultValue = false)]
-        public int BufLength { get; set; }
+        public int? BufLength { get; set; }
 
         /// <summary>
         /// Gets or Sets Light
         /// </summary>
         [DataMember(Name = "light", EmitDefaultValue = false)]
-        public int Light { get; set; }
+        public int? Light { get; set; }
 
         /// <summary>
         /// Gets or Sets ListIdx
         /// </summary>
         [DataMember(Name = "list_idx", EmitDefaultValue = false)]
-        public int ListIdx { get; set; }
+        public int? ListIdx { get; set; }
 
         /// <summary>
         /// Gets or Sets PageIdx
         /// </summary>
         [DataMember(Name = "page_idx", EmitDefaultValue = false)]
-        public int PageIdx { get; set; }
-
-        /// <summary>
-        /// Same as Result type, but used for safe parsing of not-described values. See Result type.
-        /// </summary>
-        /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
-        [DataMember(Name = "result_type", IsRequired = true, EmitDefaultValue = true)]
-        public int ResultType { get; set; }
+        public int? PageIdx { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
