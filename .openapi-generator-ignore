@@ -16,5 +16,6 @@ src/Regula.DocumentReader.WebClient/Properties/**
 # generator bugs, require manual change
 src/Regula.DocumentReader.WebClient/Model/ContainerList.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResult.cs
+src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultItem.cs
 **/*AllOf.cs
 src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
