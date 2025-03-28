@@ -96,7 +96,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="generateNumericCodes">This parameter is used to generate numeric representation for issuing state and nationality codes.</param>
         /// <param name="strictBarcodeDigitalSignatureCheck">This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed..</param>
         /// <param name="selectLongestNames">Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc..</param>
-        public ProcessParams(bool? generateDTCVC = default(bool?), List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool? oneShotIdentification = default(bool?), bool? useFaceApi = default(bool?), FaceApi faceApi = default(FaceApi), bool? doDetectCan = default(bool?), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool? doublePageSpread = default(bool?), bool? generateDoublePageSpreadImage = default(bool?), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool? alreadyCropped = default(bool?), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool? log = default(bool?), string logLevel = default(string), int forceDocID = default(int), bool? matchTextFieldMask = default(bool?), bool? fastDocDetect = default(bool?), bool? updateOCRValidityByGlare = default(bool?), bool? checkRequiredTextFields = default(bool?), bool? returnCroppedBarcode = default(bool?), ImageQA imageQa = default(ImageQA), bool? strictImageQuality = default(bool?), bool? respectImageQuality = default(bool?), int forceDocFormat = default(int), bool? noGraphics = default(bool?), bool? depersonalizeLog = default(bool?), bool? multiDocOnImage = default(bool?), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool? returnUncroppedImage = default(bool?), List<string> mrzFormatsFilter = default(List<string>), bool? forceReadMrzBeforeLocate = default(bool?), bool? parseBarcodes = default(bool?), int convertCase = default(int), bool? splitNames = default(bool?), bool? disablePerforationOCR = default(bool?), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool? ignoreDeviceIdFromImage = default(bool?), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool? checkAuth = default(bool?), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool? generateNumericCodes = default(bool?), bool? strictBarcodeDigitalSignatureCheck = default(bool?), bool? selectLongestNames = default(bool?))
+        /// <param name="doBarcodes">Set the types of barcodes to process..</param>
+        /// <param name="strictDLCategoryExpiry">Set to force DL categories expiry date to affect the overall status or not. As documents usually have their own date of expiry, which might be less or greater than category expiry date, this might be handy for specific cases..</param>
+        public ProcessParams(bool? generateDTCVC = default(bool?), List<int> lcidFilter = default(List<int>), List<int> lcidIgnoreFilter = default(List<int>), bool? oneShotIdentification = default(bool?), bool? useFaceApi = default(bool?), FaceApi faceApi = default(FaceApi), bool? doDetectCan = default(bool?), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), string scenario = default(string), List<int> resultTypeOutput = default(List<int>), bool? doublePageSpread = default(bool?), bool? generateDoublePageSpreadImage = default(bool?), List<int> fieldTypesFilter = default(List<int>), string dateFormat = default(string), int measureSystem = default(int), int imageDpiOutMax = default(int), bool? alreadyCropped = default(bool?), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool? log = default(bool?), string logLevel = default(string), int forceDocID = default(int), bool? matchTextFieldMask = default(bool?), bool? fastDocDetect = default(bool?), bool? updateOCRValidityByGlare = default(bool?), bool? checkRequiredTextFields = default(bool?), bool? returnCroppedBarcode = default(bool?), ImageQA imageQa = default(ImageQA), bool? strictImageQuality = default(bool?), bool? respectImageQuality = default(bool?), int forceDocFormat = default(int), bool? noGraphics = default(bool?), bool? depersonalizeLog = default(bool?), bool? multiDocOnImage = default(bool?), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool? returnUncroppedImage = default(bool?), List<string> mrzFormatsFilter = default(List<string>), bool? forceReadMrzBeforeLocate = default(bool?), bool? parseBarcodes = default(bool?), int convertCase = default(int), bool? splitNames = default(bool?), bool? disablePerforationOCR = default(bool?), List<int> documentGroupFilter = default(List<int>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool? ignoreDeviceIdFromImage = default(bool?), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool? checkAuth = default(bool?), AuthParams authParams = default(AuthParams), MrzDetectModeEnum mrzDetectMode = default(MrzDetectModeEnum), bool? generateNumericCodes = default(bool?), bool? strictBarcodeDigitalSignatureCheck = default(bool?), bool? selectLongestNames = default(bool?), List<InputBarcodeType> doBarcodes = default(List<InputBarcodeType>), bool? strictDLCategoryExpiry = default(bool?))
         {
             // to ensure "scenario" is required (not null)
             if (scenario == null)
@@ -165,6 +167,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.GenerateNumericCodes = generateNumericCodes;
             this.StrictBarcodeDigitalSignatureCheck = strictBarcodeDigitalSignatureCheck;
             this.SelectLongestNames = selectLongestNames;
+            this.DoBarcodes = doBarcodes;
+            this.StrictDLCategoryExpiry = strictDLCategoryExpiry;
         }
         
         /// <summary>
@@ -564,6 +568,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? SelectLongestNames { get; set; }
 
         /// <summary>
+        /// Set the types of barcodes to process.
+        /// </summary>
+        /// <value>Set the types of barcodes to process.</value>
+        [DataMember(Name="doBarcodes", EmitDefaultValue=false)]
+        public List<InputBarcodeType> DoBarcodes { get; set; }
+
+        /// <summary>
+        /// Set to force DL categories expiry date to affect the overall status or not. As documents usually have their own date of expiry, which might be less or greater than category expiry date, this might be handy for specific cases.
+        /// </summary>
+        /// <value>Set to force DL categories expiry date to affect the overall status or not. As documents usually have their own date of expiry, which might be less or greater than category expiry date, this might be handy for specific cases.</value>
+        [DataMember(Name="strictDLCategoryExpiry", EmitDefaultValue=false)]
+        public bool? StrictDLCategoryExpiry { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -629,6 +647,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  GenerateNumericCodes: ").Append(GenerateNumericCodes).Append("\n");
             sb.Append("  StrictBarcodeDigitalSignatureCheck: ").Append(StrictBarcodeDigitalSignatureCheck).Append("\n");
             sb.Append("  SelectLongestNames: ").Append(SelectLongestNames).Append("\n");
+            sb.Append("  DoBarcodes: ").Append(DoBarcodes).Append("\n");
+            sb.Append("  StrictDLCategoryExpiry: ").Append(StrictDLCategoryExpiry).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -961,6 +981,17 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.SelectLongestNames == input.SelectLongestNames ||
                     (this.SelectLongestNames != null &&
                     this.SelectLongestNames.Equals(input.SelectLongestNames))
+                ) && 
+                (
+                    this.DoBarcodes == input.DoBarcodes ||
+                    this.DoBarcodes != null &&
+                    input.DoBarcodes != null &&
+                    this.DoBarcodes.SequenceEqual(input.DoBarcodes)
+                ) && 
+                (
+                    this.StrictDLCategoryExpiry == input.StrictDLCategoryExpiry ||
+                    (this.StrictDLCategoryExpiry != null &&
+                    this.StrictDLCategoryExpiry.Equals(input.StrictDLCategoryExpiry))
                 );
         }
 
@@ -1089,6 +1120,10 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.StrictBarcodeDigitalSignatureCheck.GetHashCode();
                 if (this.SelectLongestNames != null)
                     hashCode = hashCode * 59 + this.SelectLongestNames.GetHashCode();
+                if (this.DoBarcodes != null)
+                    hashCode = hashCode * 59 + this.DoBarcodes.GetHashCode();
+                if (this.StrictDLCategoryExpiry != null)
+                    hashCode = hashCode * 59 + this.StrictDLCategoryExpiry.GetHashCode();
                 return hashCode;
             }
         }
