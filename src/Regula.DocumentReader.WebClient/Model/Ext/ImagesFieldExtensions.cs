@@ -5,7 +5,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public static class ImagesFieldExtensions
     {
-        public static byte[] GetValue(this ImagesField field, string source, bool original = false)
+        public static byte[] GetValue(this ImagesField field, Source source, bool original = false)
         {
             string strResult;
             foreach (var value in field.ValueList) 

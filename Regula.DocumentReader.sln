@@ -6,8 +6,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regula.DocumentReader.WebCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regula.DocumentReader.NetCoreExample", "src\Regula.DocumentReader.NetCoreExample\Regula.DocumentReader.NetCoreExample.csproj", "{EA417402-2843-4CA5-B712-4CD9425C02E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.DocumentReader.NetCoreExampleEncryptedRcl", "src\Regula.DocumentReader.NetCoreExampleEncryptedRcl\Regula.DocumentReader.NetCoreExampleEncryptedRcl.csproj", "{1A61741A-298F-4722-8626-00DF9787C683}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regula.DocumentReader.NetCoreExamplePortraitComparison", "src\Regula.DocumentReader.NetCoreExamplePortraitComparison\Regula.DocumentReader.NetCoreExamplePortraitComparison.csproj", "{DC05980A-7291-4BD2-B9E6-AA0EAADD6198}"
 EndProject
 Global
@@ -24,10 +22,6 @@ Global
 		{EA417402-2843-4CA5-B712-4CD9425C02E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA417402-2843-4CA5-B712-4CD9425C02E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA417402-2843-4CA5-B712-4CD9425C02E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A61741A-298F-4722-8626-00DF9787C683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A61741A-298F-4722-8626-00DF9787C683}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A61741A-298F-4722-8626-00DF9787C683}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A61741A-298F-4722-8626-00DF9787C683}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC05980A-7291-4BD2-B9E6-AA0EAADD6198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC05980A-7291-4BD2-B9E6-AA0EAADD6198}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC05980A-7291-4BD2-B9E6-AA0EAADD6198}.Release|Any CPU.ActiveCfg = Release|Any CPU

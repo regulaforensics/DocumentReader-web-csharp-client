@@ -1,23 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Alexander Satsukevich</Authors>
-    <Company>Regula Ltd.</Company>
-    <Product>DocumentReader WebClient</Product>
-    <PackageTags>regula document processing id card rfid ocr barcode ipi</PackageTags>
-    <PackageId>Regula.DocumentReader.WebClient</PackageId>
-    <PackageVersion>5.8.3</PackageVersion>
-    <Version>5.8.3</Version>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>regula_web_client.snk</AssemblyOriginatorKeyFile>
-    <LangVersion>10</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="JsonSubTypes" Version="1.7.0" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="112.0.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
-    <PackageReference Include="SharpZipLib" Version="1.4.2" />
-  </ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup>
+  <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+  <TargetFramework>net8.0</TargetFramework>
+  <PackageId>Regula.DocumentReader.WebClient</PackageId>
+  <Authors>Alexander Satsukevich</Authors>
+  <Company>Regula Ltd.</Company>
+  <Product>DocumentReader WebClient</Product>
+  <PackageTags>Regula document processing ID card RFID OCR barcode IPI</PackageTags>
+  <RootNamespace>Regula.DocumentReader.WebClient</RootNamespace>
+  <PackageVersion>5.8.3</PackageVersion>
+  <Version>5.8.3</Version>
+  <SignAssembly>true</SignAssembly>
+  <AssemblyOriginatorKeyFile>regula_web_client.snk</AssemblyOriginatorKeyFile>
+  <LangVersion>10</LangVersion>
+  <Nullable>annotations</Nullable>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  <PackageReference Include="Polly" Version="8.1.0" />
+  <PackageReference Include="SharpZipLib" Version="1.4.2" />
+</ItemGroup>
 </Project>

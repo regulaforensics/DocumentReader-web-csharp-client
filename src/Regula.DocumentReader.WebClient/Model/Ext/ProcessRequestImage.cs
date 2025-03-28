@@ -6,7 +6,7 @@ namespace Regula.DocumentReader.WebClient.Model
 {
     public partial class ProcessRequestImage
     {
-        public ProcessRequestImage(byte[] image, int lightIndex = -1) 
+        public ProcessRequestImage(byte[] image, Light lightIndex = Model.Light.WHITE) 
         {
             if (image == null) 
             {
@@ -15,8 +15,7 @@ namespace Regula.DocumentReader.WebClient.Model
             
             ImageData = new ImageDataExt(image);
 
-            if (lightIndex >= 0)
-                Light = lightIndex;
+            Light = lightIndex;
         }
     }
 }
