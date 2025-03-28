@@ -79,7 +79,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum Brightness for value: brightnessCheck
         /// </summary>
         [EnumMember(Value = "brightnessCheck")]
-        Brightness = 8
+        Brightness = 8,
+
+        /// <summary>
+        /// Enum Occlusion for value: occlusionCheck
+        /// </summary>
+        [EnumMember(Value = "occlusionCheck")]
+        Occlusion = 9
 
     }
 

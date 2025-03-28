@@ -48,7 +48,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkPhotoEmbedding">This parameter is used to enable Owner&#39;s photo embedding check (is photo printed or sticked).</param>
         /// <param name="checkPhotoComparison">This parameter is used to enable Portrait comparison check.</param>
         /// <param name="checkLetterScreen">This parameter is used to enable LetterScreen check.</param>
-        public AuthParams(bool? checkLiveness = default(bool?), LivenessParams livenessParams = default(LivenessParams), bool? checkUVLuminiscence = default(bool?), bool? checkIRB900 = default(bool?), bool? checkImagePatterns = default(bool?), bool? checkFibers = default(bool?), bool? checkExtMRZ = default(bool?), bool? checkExtOCR = default(bool?), bool? checkAxial = default(bool?), bool? checkBarcodeFormat = default(bool?), bool? checkIRVisibility = default(bool?), bool? checkIPI = default(bool?), bool? checkPhotoEmbedding = default(bool?), bool? checkPhotoComparison = default(bool?), bool? checkLetterScreen = default(bool?))
+        /// <param name="checkSecurityText">This parameter is used to enable Security text check.</param>
+        public AuthParams(bool? checkLiveness = default(bool?), LivenessParams livenessParams = default(LivenessParams), bool? checkUVLuminiscence = default(bool?), bool? checkIRB900 = default(bool?), bool? checkImagePatterns = default(bool?), bool? checkFibers = default(bool?), bool? checkExtMRZ = default(bool?), bool? checkExtOCR = default(bool?), bool? checkAxial = default(bool?), bool? checkBarcodeFormat = default(bool?), bool? checkIRVisibility = default(bool?), bool? checkIPI = default(bool?), bool? checkPhotoEmbedding = default(bool?), bool? checkPhotoComparison = default(bool?), bool? checkLetterScreen = default(bool?), bool? checkSecurityText = default(bool?))
         {
             this.CheckLiveness = checkLiveness;
             this.LivenessParams = livenessParams;
@@ -65,6 +66,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.CheckPhotoEmbedding = checkPhotoEmbedding;
             this.CheckPhotoComparison = checkPhotoComparison;
             this.CheckLetterScreen = checkLetterScreen;
+            this.CheckSecurityText = checkSecurityText;
         }
         
         /// <summary>
@@ -172,6 +174,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckLetterScreen { get; set; }
 
         /// <summary>
+        /// This parameter is used to enable Security text check
+        /// </summary>
+        /// <value>This parameter is used to enable Security text check</value>
+        [DataMember(Name="checkSecurityText", EmitDefaultValue=false)]
+        public bool? CheckSecurityText { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -194,6 +203,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckPhotoEmbedding: ").Append(CheckPhotoEmbedding).Append("\n");
             sb.Append("  CheckPhotoComparison: ").Append(CheckPhotoComparison).Append("\n");
             sb.Append("  CheckLetterScreen: ").Append(CheckLetterScreen).Append("\n");
+            sb.Append("  CheckSecurityText: ").Append(CheckSecurityText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -302,6 +312,11 @@ namespace Regula.DocumentReader.WebClient.Model
                     this.CheckLetterScreen == input.CheckLetterScreen ||
                     (this.CheckLetterScreen != null &&
                     this.CheckLetterScreen.Equals(input.CheckLetterScreen))
+                ) && 
+                (
+                    this.CheckSecurityText == input.CheckSecurityText ||
+                    (this.CheckSecurityText != null &&
+                    this.CheckSecurityText.Equals(input.CheckSecurityText))
                 );
         }
 
@@ -344,6 +359,8 @@ namespace Regula.DocumentReader.WebClient.Model
                     hashCode = hashCode * 59 + this.CheckPhotoComparison.GetHashCode();
                 if (this.CheckLetterScreen != null)
                     hashCode = hashCode * 59 + this.CheckLetterScreen.GetHashCode();
+                if (this.CheckSecurityText != null)
+                    hashCode = hashCode * 59 + this.CheckSecurityText.GetHashCode();
                 return hashCode;
             }
         }
