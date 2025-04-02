@@ -18,7 +18,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 
         public ProcessResponse OriginalResponse => this._apiResponse.Data;
 
-        public string Json => this._apiResponse.RawResponse;
+        public string Json => this._apiResponse.RawContent;
         
         public AuthenticityResult PortraitComparison()
         {
@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             }
         }
 
-        public T ResultByType<T>(int type, int? pageIdx=0) where T: ResultItem
+        public T ResultByType<T>(Result type, int? pageIdx=0) where T: ResultItem
         {
             foreach(var item in OriginalResponse.ContainerList.List) 
             {
@@ -97,7 +97,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return default;
         }
         
-        public List<T> ResultsByType<T>(int type) where T: ResultItem
+        public List<T> ResultsByType<T>(Result type) where T: ResultItem
         {
             var results = new List<T>();
             foreach(var item in OriginalResponse.ContainerList.List) 

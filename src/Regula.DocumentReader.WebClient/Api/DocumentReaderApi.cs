@@ -10,24 +10,32 @@ namespace Regula.DocumentReader.WebClient.Api
 {
     public class DocumentReaderApi
     {
-        private readonly DefaultApi _defaultApi;
+        private readonly HealthcheckApi _healthcheckApi;
         private readonly ProcessApi _processApi;
 
         public DocumentReaderApi(string basePath)
         {
-            this._defaultApi = new DefaultApi(basePath);
+            this._healthcheckApi = new HealthcheckApi(basePath);
             this._processApi = new ProcessApi(basePath);
         }
+        
+        public DocumentReaderApi(Configuration configuration)
+        {
+            this._healthcheckApi = new HealthcheckApi(configuration);
+            this._processApi = new ProcessApi(configuration);
+        }
 
-        public Configuration Configuration
+        public IReadableConfiguration Configuration
         {
             get => this._processApi.Configuration;
-            set => this._processApi.Configuration = value;
+            set
+            {
+                this._healthcheckApi.Configuration = value;
+                this._processApi.Configuration = value;
+            }
         }
 
         private string License { get; set; }
-
-
 
         public RecognitionResponse Process(ProcessRequest processRequest)
         {
@@ -51,7 +59,7 @@ namespace Regula.DocumentReader.WebClient.Api
             else
                 processRequest.SystemInfo.License = License;
 
-            return new RecognitionResponse(this._processApi.ApiProcessWithHttpInfo(processRequest, headers, xRequestID));
+            return new RecognitionResponse(this._processApi.ApiProcessWithHttpInfo(processRequest, xRequestID));
         }
 
         public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest)
@@ -76,29 +84,29 @@ namespace Regula.DocumentReader.WebClient.Api
             else
                 processRequest.SystemInfo.License = License;
 
-            var response = await this._processApi.ApiProcessWithHttpInfoAsync(processRequest, headers, xRequestID, cancellationToken);
+            var response = await this._processApi.ApiProcessWithHttpInfoAsync(processRequest, xRequestID, cancellationToken);
 
             return new RecognitionResponse(response);
         }
 
         public DeviceInfo Ping(string xRequestID)
         {
-            return this._defaultApi.Ping(new Dictionary<String, String>(), xRequestID);
+            return this._healthcheckApi.Ping(xRequestID);
         }
  
         public DeviceInfo Ping()
         {
-            return this._defaultApi.Ping(new Dictionary<String, String>());
+            return this._healthcheckApi.Ping();
         }
 
-        public DeviceInfo Ping(string xRequestID, Dictionary<String, String> headers)
+        public Healthcheck Health(string xRequestID)
         {
-            return this._defaultApi.Ping(headers, xRequestID);
+            return this._healthcheckApi.Healthz(xRequestID);
         }
-
-        public DeviceInfo Ping(Dictionary<String, String> headers)
+ 
+        public Healthcheck Health()
         {
-            return this._defaultApi.Ping(headers);
+            return this._healthcheckApi.Healthz();
         }
 
         public DocumentReaderApi WithLicense(string license) 

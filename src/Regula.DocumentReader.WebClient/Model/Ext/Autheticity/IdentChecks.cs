@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
@@ -9,9 +7,9 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         public IdentChecks(AuthenticityCheckResult authenticityCheckResult) : base(authenticityCheckResult)
         { }
 
-        public IdentResult ChecksByElement(int type)
+        public IdentResult ChecksByElement(SecurityFeatureType type)
         {
-            return this.Items()?.FirstOrDefault(t => t.Type == type);
+            return this.Items()?.FirstOrDefault(t => t.ElementType == type);
         }
     }
 }
