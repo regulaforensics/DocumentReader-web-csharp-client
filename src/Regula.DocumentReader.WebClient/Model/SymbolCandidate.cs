@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="symbolProbability">character recognition probability (0–100,%) (required).</param>
         /// <param name="varClass">varClass.</param>
         /// <param name="subClass">subClass.</param>
-        public SymbolCandidate(int symbolCode = default(int), int symbolProbability = default(int), int varClass = default(int), int subClass = default(int))
+        public SymbolCandidate(long symbolCode = default(long), int symbolProbability = default(int), int varClass = default(int), int subClass = default(int))
         {
             this.SymbolCode = symbolCode;
             this.SymbolProbability = symbolProbability;
@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Unicode symbol code</value>
         [DataMember(Name = "SymbolCode", IsRequired = true, EmitDefaultValue = true)]
-        public int SymbolCode { get; set; }
+        public long SymbolCode { get; set; }
 
         /// <summary>
         /// character recognition probability (0–100,%)
