@@ -62,13 +62,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonFieldRect">etalonFieldRect (required).</param>
         /// <param name="securityTextResultOCR">securityTextResultOCR (required).</param>
         /// <param name="etalonResultOCR">etalonResultOCR (required).</param>
+        /// <param name="resultCode">resultCode.</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="type">type (required) (default to AuthenticityResultType.OCR_SECURITY_TEXT).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public OCRSecurityTextResult(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.OCR_SECURITY_TEXT, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public OCRSecurityTextResult(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int resultCode = default(int), int reserved1 = default(int), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.OCR_SECURITY_TEXT, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;
@@ -99,6 +100,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("etalonResultOCR is a required property for OCRSecurityTextResult and cannot be null");
             }
             this.EtalonResultOCR = etalonResultOCR;
+            this.ResultCode = resultCode;
             this.Reserved1 = reserved1;
             this.Reserved2 = reserved2;
         }
@@ -146,6 +148,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public string EtalonResultOCR { get; set; }
 
         /// <summary>
+        /// Gets or Sets ResultCode
+        /// </summary>
+        [DataMember(Name = "ResultCode", EmitDefaultValue = false)]
+        public int? ResultCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets Reserved1
         /// </summary>
         [DataMember(Name = "Reserved1", EmitDefaultValue = false)]
@@ -175,6 +183,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  EtalonFieldRect: ").Append(EtalonFieldRect).Append("\n");
             sb.Append("  SecurityTextResultOCR: ").Append(SecurityTextResultOCR).Append("\n");
             sb.Append("  EtalonResultOCR: ").Append(EtalonResultOCR).Append("\n");
+            sb.Append("  ResultCode: ").Append(ResultCode).Append("\n");
             sb.Append("  Reserved1: ").Append(Reserved1).Append("\n");
             sb.Append("  Reserved2: ").Append(Reserved2).Append("\n");
             sb.Append("}\n");

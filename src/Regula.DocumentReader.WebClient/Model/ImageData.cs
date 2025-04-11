@@ -35,20 +35,10 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ImageData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageData" /> class.
-        /// </summary>
-        /// <param name="image">Base64 encoded image (required).</param>
+        /// <param name="image">Base64 encoded image.</param>
         /// <param name="format">Image format.</param>
         public ImageData(string image = default(string), string format = default(string))
         {
-            // to ensure "image" is required (not null)
-            if (image == null)
-            {
-                throw new ArgumentNullException("image is a required property for ImageData and cannot be null");
-            }
             this.Image = image;
             this.Format = format;
         }
@@ -60,8 +50,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /*
         <example>Base64 encoded image</example>
         */
-        [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
-        public string Image { get; set; }
+        [DataMember(Name = "image", EmitDefaultValue = false)]
+        public string? Image { get; set; }
 
         /// <summary>
         /// Image format

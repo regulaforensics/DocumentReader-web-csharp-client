@@ -144,6 +144,7 @@ src/Regula.DocumentReader.WebClient/Model/OutData.cs
 src/Regula.DocumentReader.WebClient/Model/OutDataTransactionImagesFieldValue.cs
 src/Regula.DocumentReader.WebClient/Model/PArrayField.cs
 src/Regula.DocumentReader.WebClient/Model/ParsedData.cs
+src/Regula.DocumentReader.WebClient/Model/ParsingErrorCodes.cs
 src/Regula.DocumentReader.WebClient/Model/ParsingNotificationCodes.cs
 src/Regula.DocumentReader.WebClient/Model/PerDocumentConfig.cs
 src/Regula.DocumentReader.WebClient/Model/PhotoIdentItem.cs
