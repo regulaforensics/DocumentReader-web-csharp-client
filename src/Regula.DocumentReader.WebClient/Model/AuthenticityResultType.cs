@@ -33,11 +33,6 @@ namespace Regula.DocumentReader.WebClient.Model
     public enum AuthenticityResultType: long
     {
         /// <summary>
-        /// Enum NONE for value: 0
-        /// </summary>
-        NONE = 0,
-
-        /// <summary>
         /// Enum UV_LUMINESCENCE for value: 1
         /// </summary>
         UV_LUMINESCENCE = 1,
@@ -78,11 +73,6 @@ namespace Regula.DocumentReader.WebClient.Model
         IPI = 128,
 
         /// <summary>
-        /// Enum IR_PHOTO for value: 256
-        /// </summary>
-        IR_PHOTO = 256,
-
-        /// <summary>
         /// Enum PHOTO_EMBED_TYPE for value: 512
         /// </summary>
         PHOTO_EMBED_TYPE = 512,
@@ -93,11 +83,6 @@ namespace Regula.DocumentReader.WebClient.Model
         OVI = 1024,
 
         /// <summary>
-        /// Enum IR_LUMINESCENCE for value: 2048
-        /// </summary>
-        IR_LUMINESCENCE = 2048,
-
-        /// <summary>
         /// Enum HOLOGRAMS for value: 4096
         /// </summary>
         HOLOGRAMS = 4096,
@@ -106,11 +91,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum PHOTO_AREA for value: 8192
         /// </summary>
         PHOTO_AREA = 8192,
-
-        /// <summary>
-        /// Enum UV_BACKGROUND for value: 16384
-        /// </summary>
-        UV_BACKGROUND = 16384,
 
         /// <summary>
         /// Enum PORTRAIT_COMPARISON for value: 32768
@@ -160,12 +140,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum ENCRYPTED_IPI for value: 16777216
         /// </summary>
-        ENCRYPTED_IPI = 16777216,
-
-        /// <summary>
-        /// Enum STATUS_ONLY for value: 2147483648
-        /// </summary>
-        STATUS_ONLY = 2147483648
+        ENCRYPTED_IPI = 16777216
     }
 
 }

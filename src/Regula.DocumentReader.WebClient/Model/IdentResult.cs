@@ -59,11 +59,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="image">image (required).</param>
         /// <param name="etalonImage">etalonImage (required).</param>
         /// <param name="areaList">areaList.</param>
+        /// <param name="elementID">elementID.</param>
+        /// <param name="result">result.</param>
         /// <param name="type">type (required) (default to AuthenticityResultType.IMAGE_PATTERN).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public IdentResult(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), AuthenticityResultType type = AuthenticityResultType.IMAGE_PATTERN, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public IdentResult(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int elementID = default(int), int result = default(int), AuthenticityResultType type = AuthenticityResultType.IMAGE_PATTERN, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
@@ -81,6 +83,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.EtalonImage = etalonImage;
             this.Area = area;
             this.AreaList = areaList;
+            this.ElementID = elementID;
+            this.Result = result;
         }
 
         /// <summary>
@@ -108,6 +112,18 @@ namespace Regula.DocumentReader.WebClient.Model
         public AreaContainer? AreaList { get; set; }
 
         /// <summary>
+        /// Gets or Sets ElementID
+        /// </summary>
+        [DataMember(Name = "ElementID", EmitDefaultValue = false)]
+        public int? ElementID { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Result
+        /// </summary>
+        [DataMember(Name = "Result", EmitDefaultValue = false)]
+        public int? Result { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +138,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  EtalonImage: ").Append(EtalonImage).Append("\n");
             sb.Append("  AreaList: ").Append(AreaList).Append("\n");
+            sb.Append("  ElementID: ").Append(ElementID).Append("\n");
+            sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

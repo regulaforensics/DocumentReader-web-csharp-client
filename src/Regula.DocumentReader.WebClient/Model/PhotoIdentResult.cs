@@ -55,14 +55,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldTypesList">fieldTypesList.</param>
         /// <param name="step">step.</param>
         /// <param name="angle">angle.</param>
-        /// <param name="reserved1">reserved1.</param>
-        /// <param name="reserved2">reserved2.</param>
+        /// <param name="result">result.</param>
         /// <param name="reserved3">reserved3.</param>
         /// <param name="type">type (required) (default to AuthenticityResultType.IPI).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public PhotoIdentResult(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved1 = default(int), int reserved2 = default(int), int reserved3 = default(int), AuthenticityResultType type = AuthenticityResultType.IPI, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public PhotoIdentResult(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int result = default(int), int reserved3 = default(int), AuthenticityResultType type = AuthenticityResultType.IPI, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.LightIndex = lightIndex;
             // to ensure "area" is required (not null)
@@ -87,8 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.FieldTypesList = fieldTypesList;
             this.Step = step;
             this.Angle = angle;
-            this.Reserved1 = reserved1;
-            this.Reserved2 = reserved2;
+            this.Result = result;
             this.Reserved3 = reserved3;
         }
 
@@ -135,16 +133,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public int? Angle { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reserved1
+        /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name = "Reserved1", EmitDefaultValue = false)]
-        public int? Reserved1 { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Reserved2
-        /// </summary>
-        [DataMember(Name = "Reserved2", EmitDefaultValue = false)]
-        public int? Reserved2 { get; set; }
+        [DataMember(Name = "Result", EmitDefaultValue = false)]
+        public int? Result { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved3
@@ -169,8 +161,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  FieldTypesList: ").Append(FieldTypesList).Append("\n");
             sb.Append("  Step: ").Append(Step).Append("\n");
             sb.Append("  Angle: ").Append(Angle).Append("\n");
-            sb.Append("  Reserved1: ").Append(Reserved1).Append("\n");
-            sb.Append("  Reserved2: ").Append(Reserved2).Append("\n");
+            sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  Reserved3: ").Append(Reserved3).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

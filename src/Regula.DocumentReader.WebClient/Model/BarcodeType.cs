@@ -130,12 +130,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum JABCODE for value: 19
         /// </summary>
-        JABCODE = 19,
-
-        /// <summary>
-        /// Enum END for value: 20
-        /// </summary>
-        END = 20
+        JABCODE = 19
     }
 
 }

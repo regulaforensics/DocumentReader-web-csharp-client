@@ -42,13 +42,16 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="processParam">processParam (required).</param>
         /// <param name="list">list.</param>
+        /// <param name="tag">Session ID.</param>
+        /// <param name="tenant">Customer name.</param>
+        /// <param name="env">Environment type.</param>
         /// <param name="livePortrait">Live portrait photo.</param>
         /// <param name="extPortrait">Portrait photo from an external source.</param>
         /// <param name="containerList">containerList.</param>
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
         /// <param name="dtc">Digital Travel Credential (DTC-VC) data in base64 format for processing.</param>
-        public TransactionProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), string dtc = default(string))
+        public TransactionProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), string dtc = default(string))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -57,6 +60,9 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             this.ProcessParam = processParam;
             this.List = list;
+            this.Tag = tag;
+            this.Tenant = tenant;
+            this.Env = env;
             this.LivePortrait = livePortrait;
             this.ExtPortrait = extPortrait;
             this.ContainerList = containerList;
@@ -76,6 +82,27 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "List", EmitDefaultValue = false)]
         public List<ProcessRequestImage>? List { get; set; }
+
+        /// <summary>
+        /// Session ID
+        /// </summary>
+        /// <value>Session ID</value>
+        [DataMember(Name = "tag", EmitDefaultValue = false)]
+        public string? Tag { get; set; }
+
+        /// <summary>
+        /// Customer name
+        /// </summary>
+        /// <value>Customer name</value>
+        [DataMember(Name = "tenant", EmitDefaultValue = false)]
+        public string? Tenant { get; set; }
+
+        /// <summary>
+        /// Environment type
+        /// </summary>
+        /// <value>Environment type</value>
+        [DataMember(Name = "env", EmitDefaultValue = false)]
+        public string? Env { get; set; }
 
         /// <summary>
         /// Live portrait photo
@@ -133,6 +160,9 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("class TransactionProcessRequest {\n");
             sb.Append("  ProcessParam: ").Append(ProcessParam).Append("\n");
             sb.Append("  List: ").Append(List).Append("\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            sb.Append("  Env: ").Append(Env).Append("\n");
             sb.Append("  LivePortrait: ").Append(LivePortrait).Append("\n");
             sb.Append("  ExtPortrait: ").Append(ExtPortrait).Append("\n");
             sb.Append("  ContainerList: ").Append(ContainerList).Append("\n");
