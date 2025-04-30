@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaceDetectionResult" /> class.
         /// </summary>
-        /// <param name="faceDetection">faceDetection (required).</param>
+        /// <param name="faceDetection">faceDetection.</param>
         /// <param name="bufLength">bufLength.</param>
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
@@ -49,19 +49,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="resultType">resultType (required) (default to Result.FACE_DETECTION).</param>
         public FaceDetectionResult(FaceDetection faceDetection = default(FaceDetection), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.FACE_DETECTION) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            // to ensure "faceDetection" is required (not null)
-            if (faceDetection == null)
-            {
-                throw new ArgumentNullException("faceDetection is a required property for FaceDetectionResult and cannot be null");
-            }
             this.FaceDetection = faceDetection;
         }
 
         /// <summary>
         /// Gets or Sets FaceDetection
         /// </summary>
-        [DataMember(Name = "FaceDetection", IsRequired = true, EmitDefaultValue = true)]
-        public FaceDetection FaceDetection { get; set; }
+        [DataMember(Name = "FaceDetection", EmitDefaultValue = false)]
+        public FaceDetection? FaceDetection { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

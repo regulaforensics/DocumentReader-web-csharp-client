@@ -35,27 +35,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaceDetectionItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FaceDetectionItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FaceDetectionItem" /> class.
-        /// </summary>
-        /// <param name="faceDetection">faceDetection (required).</param>
+        /// <param name="faceDetection">faceDetection.</param>
         public FaceDetectionItem(FaceDetection faceDetection = default(FaceDetection))
         {
-            // to ensure "faceDetection" is required (not null)
-            if (faceDetection == null)
-            {
-                throw new ArgumentNullException("faceDetection is a required property for FaceDetectionItem and cannot be null");
-            }
             this.FaceDetection = faceDetection;
         }
 
         /// <summary>
         /// Gets or Sets FaceDetection
         /// </summary>
-        [DataMember(Name = "FaceDetection", IsRequired = true, EmitDefaultValue = true)]
-        public FaceDetection FaceDetection { get; set; }
+        [DataMember(Name = "FaceDetection", EmitDefaultValue = false)]
+        public FaceDetection? FaceDetection { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
