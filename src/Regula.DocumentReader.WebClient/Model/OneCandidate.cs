@@ -46,12 +46,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OneCandidate" /> class.
         /// </summary>
-        /// <param name="documentName">Document name (required).</param>
+        /// <param name="documentName">Document name.</param>
         /// <param name="iD">Unique document type template identifier (Regula&#39;s internal numeric code) (required).</param>
         /// <param name="p">A measure of the likelihood of correct recognition in the analysis of this type of document (required).</param>
         /// <param name="rotated180">true if the document of the given type is rotated by 180 degrees (required).</param>
         /// <param name="rFIDPresence">rFIDPresence (required).</param>
-        /// <param name="fDSIDList">fDSIDList (required).</param>
+        /// <param name="fDSIDList">fDSIDList.</param>
         /// <param name="necessaryLights">Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document (required).</param>
         /// <param name="checkAuthenticity">Set of authentication options provided for this type of document (combination of Authenticity enum) (required).</param>
         /// <param name="uVExp">The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme (required).</param>
@@ -60,27 +60,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="rotationAngle">rotationAngle.</param>
         public OneCandidate(string documentName = default(string), int iD = default(int), decimal p = default(decimal), int rotated180 = default(int), RfidLocation rFIDPresence = default(RfidLocation), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int), decimal oVIExp = default(decimal), int rotationAngle = default(int))
         {
-            // to ensure "documentName" is required (not null)
-            if (documentName == null)
-            {
-                throw new ArgumentNullException("documentName is a required property for OneCandidate and cannot be null");
-            }
-            this.DocumentName = documentName;
             this.ID = iD;
             this.P = p;
             this.Rotated180 = rotated180;
             this.RFIDPresence = rFIDPresence;
-            // to ensure "fDSIDList" is required (not null)
-            if (fDSIDList == null)
-            {
-                throw new ArgumentNullException("fDSIDList is a required property for OneCandidate and cannot be null");
-            }
-            this.FDSIDList = fDSIDList;
             this.NecessaryLights = necessaryLights;
             this.CheckAuthenticity = checkAuthenticity;
             this.UVExp = uVExp;
             this.AuthenticityNecessaryLights = authenticityNecessaryLights;
             this.OVIExp = oVIExp;
+            this.DocumentName = documentName;
+            this.FDSIDList = fDSIDList;
             this.RotationAngle = rotationAngle;
         }
 
@@ -88,8 +78,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Document name
         /// </summary>
         /// <value>Document name</value>
-        [DataMember(Name = "DocumentName", IsRequired = true, EmitDefaultValue = true)]
-        public string DocumentName { get; set; }
+        [DataMember(Name = "DocumentName", EmitDefaultValue = false)]
+        public string? DocumentName { get; set; }
 
         /// <summary>
         /// Unique document type template identifier (Regula&#39;s internal numeric code)
@@ -118,8 +108,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets FDSIDList
         /// </summary>
-        [DataMember(Name = "FDSIDList", IsRequired = true, EmitDefaultValue = true)]
-        public FDSIDList FDSIDList { get; set; }
+        [DataMember(Name = "FDSIDList", EmitDefaultValue = false)]
+        public FDSIDList? FDSIDList { get; set; }
 
         /// <summary>
         /// Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document
