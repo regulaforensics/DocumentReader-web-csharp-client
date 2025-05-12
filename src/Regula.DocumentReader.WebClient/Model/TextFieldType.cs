@@ -3249,7 +3249,22 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum AIRLINE_CODE for value: 694
         /// </summary>
-        AIRLINE_CODE = 694
+        AIRLINE_CODE = 694,
+
+        /// <summary>
+        /// Enum FT_MVC_AGENCY for value: 695
+        /// </summary>
+        FT_MVC_AGENCY = 695,
+
+        /// <summary>
+        /// Enum FT_ISSUING_STATE_CODE_ALPHA2 for value: 696
+        /// </summary>
+        FT_ISSUING_STATE_CODE_ALPHA2 = 696,
+
+        /// <summary>
+        /// Enum FT_NATIONALITY_CODE_ALPHA2 for value: 697
+        /// </summary>
+        FT_NATIONALITY_CODE_ALPHA2 = 697
     }
 
 }

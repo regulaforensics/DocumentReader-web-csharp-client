@@ -12,18 +12,10 @@ namespace Regula.DocumentReader.NetCoreExample
 	internal static class Program
 	{
 		private const string API_BASE_PATH = "API_BASE_PATH";
-		private const string TEST_LICENSE = "TEST_LICENSE";
-		private const string LICENSE_FILE_NAME = "regula.license";
 
 		public static void Main()
 		{
 			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
-
-			var licenseFromEnv =
-				Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
-			var licenseFromFile = File.Exists(LICENSE_FILE_NAME)
-				? File.ReadAllBytes(LICENSE_FILE_NAME)
-				: null;
 
 			var whitePage0 = File.ReadAllBytes("WHITE.jpg");
 			var irPage0 = File.ReadAllBytes("IR.jpg");
@@ -59,9 +51,7 @@ namespace Regula.DocumentReader.NetCoreExample
 				// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" },
 				// }
 			};
-			var api = licenseFromEnv != null
-				? new DocumentReaderApi(configuration).WithLicense(licenseFromEnv)
-				: new DocumentReaderApi(configuration).WithLicense(licenseFromFile);
+			var api = new DocumentReaderApi(configuration);
 
 			var response = api.Process(request);
 
