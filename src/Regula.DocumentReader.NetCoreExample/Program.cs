@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using Regula.DocumentReader.WebClient.Api;
 using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
@@ -13,7 +14,7 @@ namespace Regula.DocumentReader.NetCoreExample
 	{
 		private const string API_BASE_PATH = "API_BASE_PATH";
 
-		public static void Main()
+		public static async Task Main()
 		{
 			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
 
@@ -53,7 +54,7 @@ namespace Regula.DocumentReader.NetCoreExample
 			};
 			var api = new DocumentReaderApi(configuration);
 
-			var response = api.Process(request);
+			var response = await api.ProcessAsync(request);
 
             Console.WriteLine(response.Log());
 
