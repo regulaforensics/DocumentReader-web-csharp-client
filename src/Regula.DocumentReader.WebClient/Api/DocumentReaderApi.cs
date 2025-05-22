@@ -39,45 +39,31 @@ namespace Regula.DocumentReader.WebClient.Api
 
         public RecognitionResponse Process(ProcessRequest processRequest)
         {
-            return Process(processRequest, new Dictionary<String, String>(), default(string));
+            return Process(processRequest, default(string));
         }
-
-        public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers)
-        {
-            return Process(processRequest, headers, default(string));
-        }
-
-        public RecognitionResponse Process(ProcessRequest processRequest, String xRequestID)
-        {
-            return Process(processRequest, new Dictionary<String, String>(), xRequestID);
-        }
-
-        public RecognitionResponse Process(ProcessRequest processRequest, Dictionary<String, String> headers, String xRequestID) 
+        public RecognitionResponse Process(ProcessRequest processRequest, String xRequestID) 
         {
             if (processRequest.SystemInfo == null)
                 processRequest.SystemInfo = new ProcessSystemInfo(License);
             else
                 processRequest.SystemInfo.License = License;
 
-            return new RecognitionResponse(this._processApi.ApiProcessWithHttpInfo(processRequest, xRequestID));
+            var response = this._processApi.ApiProcessWithHttpInfo(processRequest, xRequestID);
+
+            return new RecognitionResponse(response);
         }
 
         public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest)
         {
-            return await ProcessAsync(processRequest, new Dictionary<String, String>(), default(string));
-        }
-
-        public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, Dictionary<String, String> headers)
-        {
-            return await ProcessAsync(processRequest, headers, default(string));
+            return await ProcessAsync(processRequest, default(string));
         }
 
         public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, String xRequestID)
         {
-            return await ProcessAsync(processRequest, new Dictionary<String, String>(), xRequestID);
+            return await ProcessAsync(processRequest, xRequestID, new CancellationToken());
         }
 
-        public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, Dictionary<String, String> headers, String xRequestID, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<RecognitionResponse> ProcessAsync(ProcessRequest processRequest, String xRequestID, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (processRequest.SystemInfo == null)
                 processRequest.SystemInfo = new ProcessSystemInfo(License);
