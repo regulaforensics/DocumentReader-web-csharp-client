@@ -1140,7 +1140,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching for value: 2415919698
         /// </summary>
-        ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching = 2415919698
+        ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching = 2415919698,
+
+        /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase for value: 2415919699
+        /// </summary>
+        ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase = 2415919699,
+
+        /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase for value: 2415919700
+        /// </summary>
+        ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase = 2415919700
     }
 
 }

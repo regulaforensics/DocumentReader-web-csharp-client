@@ -34,7 +34,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ProcessResponse</returns>
-        ProcessResponse ApiProcess(ProcessRequest processRequest, string? xRequestID = default(string?));
+        ProcessResponse ApiProcess(ProcessRequest processRequest, string? xRequestID = default);
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -46,7 +46,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo(ProcessRequest processRequest, string? xRequestID = default(string?));
+        ApiResponse<ProcessResponse> ApiProcessWithHttpInfo(ProcessRequest processRequest, string? xRequestID = default);
         #endregion Synchronous Operations
     }
 
@@ -67,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProcessResponse</returns>
-        System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync(ProcessRequest processRequest, string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync(ProcessRequest processRequest, string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Process list of documents images and return extracted data
@@ -80,7 +80,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync(ProcessRequest processRequest, string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync(ProcessRequest processRequest, string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -301,7 +301,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ProcessResponse</returns>
-        public ProcessResponse ApiProcess(ProcessRequest processRequest, string? xRequestID = default(string?))
+        public ProcessResponse ApiProcess(ProcessRequest processRequest, string? xRequestID = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> localVarResponse = ApiProcessWithHttpInfo(processRequest, xRequestID);
             return localVarResponse.Data;
@@ -314,7 +314,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="processRequest"></param>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        public Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> ApiProcessWithHttpInfo(ProcessRequest processRequest, string? xRequestID = default(string?))
+        public Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> ApiProcessWithHttpInfo(ProcessRequest processRequest, string? xRequestID = default)
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)
@@ -364,7 +364,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProcessResponse</returns>
-        public async System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync(ProcessRequest processRequest, string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProcessResponse> ApiProcessAsync(ProcessRequest processRequest, string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> localVarResponse = await ApiProcessWithHttpInfoAsync(processRequest, xRequestID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -378,7 +378,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync(ProcessRequest processRequest, string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse>> ApiProcessWithHttpInfoAsync(ProcessRequest processRequest, string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'processRequest' is set
             if (processRequest == null)

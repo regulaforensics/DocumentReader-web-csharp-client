@@ -33,7 +33,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>Healthcheck</returns>
-        Healthcheck Healthz(string? xRequestID = default(string?));
+        Healthcheck Healthz(string? xRequestID = default);
 
         /// <summary>
         /// Server health check
@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of Healthcheck</returns>
-        ApiResponse<Healthcheck> HealthzWithHttpInfo(string? xRequestID = default(string?));
+        ApiResponse<Healthcheck> HealthzWithHttpInfo(string? xRequestID = default);
         /// <summary>
         /// Server health check
         /// </summary>
@@ -52,7 +52,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>DeviceInfo</returns>
         [Obsolete]
-        DeviceInfo Ping(string? xRequestID = default(string?));
+        DeviceInfo Ping(string? xRequestID = default);
 
         /// <summary>
         /// Server health check
@@ -64,14 +64,14 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of DeviceInfo</returns>
         [Obsolete]
-        ApiResponse<DeviceInfo> PingWithHttpInfo(string? xRequestID = default(string?));
+        ApiResponse<DeviceInfo> PingWithHttpInfo(string? xRequestID = default);
         /// <summary>
         /// License health check
         /// </summary>
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns></returns>
-        void Readyz(string? xRequestID = default(string?));
+        void Readyz(string? xRequestID = default);
 
         /// <summary>
         /// License health check
@@ -82,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ReadyzWithHttpInfo(string? xRequestID = default(string?));
+        ApiResponse<Object> ReadyzWithHttpInfo(string? xRequestID = default);
         #endregion Synchronous Operations
     }
 
@@ -102,7 +102,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Healthcheck</returns>
-        System.Threading.Tasks.Task<Healthcheck> HealthzAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Healthcheck> HealthzAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Server health check
@@ -114,7 +114,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Healthcheck)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Healthcheck>> HealthzWithHttpInfoAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Healthcheck>> HealthzWithHttpInfoAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Server health check
         /// </summary>
@@ -126,7 +126,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceInfo</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<DeviceInfo> PingAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeviceInfo> PingAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Server health check
@@ -139,7 +139,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceInfo)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeviceInfo>> PingWithHttpInfoAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// License health check
         /// </summary>
@@ -150,7 +150,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ReadyzAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ReadyzAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// License health check
@@ -162,7 +162,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ReadyzWithHttpInfoAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ReadyzWithHttpInfoAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -382,7 +382,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>Healthcheck</returns>
-        public Healthcheck Healthz(string? xRequestID = default(string?))
+        public Healthcheck Healthz(string? xRequestID = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<Healthcheck> localVarResponse = HealthzWithHttpInfo(xRequestID);
             return localVarResponse.Data;
@@ -394,7 +394,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of Healthcheck</returns>
-        public Regula.DocumentReader.WebClient.Client.ApiResponse<Healthcheck> HealthzWithHttpInfo(string? xRequestID = default(string?))
+        public Regula.DocumentReader.WebClient.Client.ApiResponse<Healthcheck> HealthzWithHttpInfo(string? xRequestID = default)
         {
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
 
@@ -437,7 +437,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Healthcheck</returns>
-        public async System.Threading.Tasks.Task<Healthcheck> HealthzAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Healthcheck> HealthzAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<Healthcheck> localVarResponse = await HealthzWithHttpInfoAsync(xRequestID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -450,7 +450,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Healthcheck)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<Healthcheck>> HealthzWithHttpInfoAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<Healthcheck>> HealthzWithHttpInfoAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
@@ -496,7 +496,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>DeviceInfo</returns>
         [Obsolete]
-        public DeviceInfo Ping(string? xRequestID = default(string?))
+        public DeviceInfo Ping(string? xRequestID = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<DeviceInfo> localVarResponse = PingWithHttpInfo(xRequestID);
             return localVarResponse.Data;
@@ -509,7 +509,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of DeviceInfo</returns>
         [Obsolete]
-        public Regula.DocumentReader.WebClient.Client.ApiResponse<DeviceInfo> PingWithHttpInfo(string? xRequestID = default(string?))
+        public Regula.DocumentReader.WebClient.Client.ApiResponse<DeviceInfo> PingWithHttpInfo(string? xRequestID = default)
         {
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
 
@@ -553,7 +553,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeviceInfo</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<DeviceInfo> PingAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeviceInfo> PingAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<DeviceInfo> localVarResponse = await PingWithHttpInfoAsync(xRequestID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -567,7 +567,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeviceInfo)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<DeviceInfo>> PingWithHttpInfoAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<DeviceInfo>> PingWithHttpInfoAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
@@ -612,7 +612,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns></returns>
-        public void Readyz(string? xRequestID = default(string?))
+        public void Readyz(string? xRequestID = default)
         {
             ReadyzWithHttpInfo(xRequestID);
         }
@@ -623,7 +623,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xRequestID"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Regula.DocumentReader.WebClient.Client.ApiResponse<Object> ReadyzWithHttpInfo(string? xRequestID = default(string?))
+        public Regula.DocumentReader.WebClient.Client.ApiResponse<Object> ReadyzWithHttpInfo(string? xRequestID = default)
         {
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
 
@@ -665,7 +665,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ReadyzAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ReadyzAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             await ReadyzWithHttpInfoAsync(xRequestID, cancellationToken).ConfigureAwait(false);
         }
@@ -677,7 +677,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="xRequestID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<Object>> ReadyzWithHttpInfoAsync(string? xRequestID = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<Object>> ReadyzWithHttpInfoAsync(string? xRequestID = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();

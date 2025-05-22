@@ -128,7 +128,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <returns>ProcessResponse</returns>
-        ProcessResponse ApiV2TransactionTransactionIdResultsGet(Guid transactionId, bool? withImages = default(bool?));
+        ProcessResponse ApiV2TransactionTransactionIdResultsGet(Guid transactionId, bool? withImages = default);
 
         /// <summary>
         /// Get Reprocess transaction result
@@ -140,7 +140,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        ApiResponse<ProcessResponse> ApiV2TransactionTransactionIdResultsGetWithHttpInfo(Guid transactionId, bool? withImages = default(bool?));
+        ApiResponse<ProcessResponse> ApiV2TransactionTransactionIdResultsGetWithHttpInfo(Guid transactionId, bool? withImages = default);
         #endregion Synchronous Operations
     }
 
@@ -160,7 +160,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ApiV2TagTagIdDeleteAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> ApiV2TagTagIdDeleteAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Reprocess transactions by tag
@@ -172,7 +172,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ApiV2TagTagIdDeleteWithHttpInfoAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ApiV2TagTagIdDeleteWithHttpInfoAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get transactions by tag
         /// </summary>
@@ -183,7 +183,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListTransactionsByTagResponse</returns>
-        System.Threading.Tasks.Task<ListTransactionsByTagResponse> ApiV2TagTagIdTransactionsGetAsync(string tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListTransactionsByTagResponse> ApiV2TagTagIdTransactionsGetAsync(string tagId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get transactions by tag
@@ -195,7 +195,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListTransactionsByTagResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListTransactionsByTagResponse>> ApiV2TagTagIdTransactionsGetWithHttpInfoAsync(string tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListTransactionsByTagResponse>> ApiV2TagTagIdTransactionsGetWithHttpInfoAsync(string tagId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Reprocess transaction file
         /// </summary>
@@ -207,7 +207,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="name">File name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
-        System.Threading.Tasks.Task<FileParameter> ApiV2TransactionTransactionIdFileGetAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileParameter> ApiV2TransactionTransactionIdFileGetAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Reprocess transaction file
@@ -220,7 +220,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="name">File name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileParameter>> ApiV2TransactionTransactionIdFileGetWithHttpInfoAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileParameter>> ApiV2TransactionTransactionIdFileGetWithHttpInfoAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Reprocess transaction data
         /// </summary>
@@ -231,7 +231,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionProcessGetResponse</returns>
-        System.Threading.Tasks.Task<TransactionProcessGetResponse> ApiV2TransactionTransactionIdGetAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionProcessGetResponse> ApiV2TransactionTransactionIdGetAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Reprocess transaction data
@@ -243,7 +243,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionProcessGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionProcessGetResponse>> ApiV2TransactionTransactionIdGetWithHttpInfoAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionProcessGetResponse>> ApiV2TransactionTransactionIdGetWithHttpInfoAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Reprocess
         /// </summary>
@@ -255,7 +255,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionProcessRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionProcessResult</returns>
-        System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reprocess
@@ -268,7 +268,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionProcessRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionProcessResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Reprocess transaction result
         /// </summary>
@@ -280,7 +280,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProcessResponse</returns>
-        System.Threading.Tasks.Task<ProcessResponse> ApiV2TransactionTransactionIdResultsGetAsync(Guid transactionId, bool? withImages = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProcessResponse> ApiV2TransactionTransactionIdResultsGetAsync(Guid transactionId, bool? withImages = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Reprocess transaction result
@@ -293,7 +293,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiV2TransactionTransactionIdResultsGetWithHttpInfoAsync(Guid transactionId, bool? withImages = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProcessResponse>> ApiV2TransactionTransactionIdResultsGetWithHttpInfoAsync(Guid transactionId, bool? withImages = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -565,7 +565,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ApiV2TagTagIdDeleteAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> ApiV2TagTagIdDeleteAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<Object> localVarResponse = await ApiV2TagTagIdDeleteWithHttpInfoAsync(tagId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -578,7 +578,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<Object>> ApiV2TagTagIdDeleteWithHttpInfoAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<Object>> ApiV2TagTagIdDeleteWithHttpInfoAsync(Guid tagId, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
@@ -676,7 +676,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListTransactionsByTagResponse</returns>
-        public async System.Threading.Tasks.Task<ListTransactionsByTagResponse> ApiV2TagTagIdTransactionsGetAsync(string tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListTransactionsByTagResponse> ApiV2TagTagIdTransactionsGetAsync(string tagId, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<ListTransactionsByTagResponse> localVarResponse = await ApiV2TagTagIdTransactionsGetWithHttpInfoAsync(tagId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -689,7 +689,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="tagId">Tag id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListTransactionsByTagResponse)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<ListTransactionsByTagResponse>> ApiV2TagTagIdTransactionsGetWithHttpInfoAsync(string tagId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<ListTransactionsByTagResponse>> ApiV2TagTagIdTransactionsGetWithHttpInfoAsync(string tagId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'tagId' is set
             if (tagId == null)
@@ -795,7 +795,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="name">File name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
-        public async System.Threading.Tasks.Task<FileParameter> ApiV2TransactionTransactionIdFileGetAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileParameter> ApiV2TransactionTransactionIdFileGetAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<FileParameter> localVarResponse = await ApiV2TransactionTransactionIdFileGetWithHttpInfoAsync(transactionId, name, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -809,7 +809,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="name">File name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<FileParameter>> ApiV2TransactionTransactionIdFileGetWithHttpInfoAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<FileParameter>> ApiV2TransactionTransactionIdFileGetWithHttpInfoAsync(Guid transactionId, string name, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
@@ -908,7 +908,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionProcessGetResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionProcessGetResponse> ApiV2TransactionTransactionIdGetAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionProcessGetResponse> ApiV2TransactionTransactionIdGetAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessGetResponse> localVarResponse = await ApiV2TransactionTransactionIdGetWithHttpInfoAsync(transactionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -921,7 +921,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionProcessGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessGetResponse>> ApiV2TransactionTransactionIdGetWithHttpInfoAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessGetResponse>> ApiV2TransactionTransactionIdGetWithHttpInfoAsync(Guid transactionId, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
@@ -1024,7 +1024,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionProcessRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionProcessResult</returns>
-        public async System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> localVarResponse = await ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(transactionId, transactionProcessRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1038,7 +1038,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionProcessRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionProcessResult)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'transactionProcessRequest' is set
             if (transactionProcessRequest == null)
@@ -1087,7 +1087,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <returns>ProcessResponse</returns>
-        public ProcessResponse ApiV2TransactionTransactionIdResultsGet(Guid transactionId, bool? withImages = default(bool?))
+        public ProcessResponse ApiV2TransactionTransactionIdResultsGet(Guid transactionId, bool? withImages = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> localVarResponse = ApiV2TransactionTransactionIdResultsGetWithHttpInfo(transactionId, withImages);
             return localVarResponse.Data;
@@ -1100,7 +1100,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="transactionId">Transaction id</param>
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <returns>ApiResponse of ProcessResponse</returns>
-        public Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> ApiV2TransactionTransactionIdResultsGetWithHttpInfo(Guid transactionId, bool? withImages = default(bool?))
+        public Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> ApiV2TransactionTransactionIdResultsGetWithHttpInfo(Guid transactionId, bool? withImages = default)
         {
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
 
@@ -1145,7 +1145,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProcessResponse</returns>
-        public async System.Threading.Tasks.Task<ProcessResponse> ApiV2TransactionTransactionIdResultsGetAsync(Guid transactionId, bool? withImages = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProcessResponse> ApiV2TransactionTransactionIdResultsGetAsync(Guid transactionId, bool? withImages = default, System.Threading.CancellationToken cancellationToken = default)
         {
             Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse> localVarResponse = await ApiV2TransactionTransactionIdResultsGetWithHttpInfoAsync(transactionId, withImages, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1159,7 +1159,7 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <param name="withImages">With base64 images or url (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProcessResponse)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse>> ApiV2TransactionTransactionIdResultsGetWithHttpInfoAsync(Guid transactionId, bool? withImages = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<ProcessResponse>> ApiV2TransactionTransactionIdResultsGetWithHttpInfoAsync(Guid transactionId, bool? withImages = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Regula.DocumentReader.WebClient.Client.RequestOptions localVarRequestOptions = new Regula.DocumentReader.WebClient.Client.RequestOptions();
