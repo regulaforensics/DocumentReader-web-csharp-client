@@ -35,18 +35,18 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessParamsRfid" /> class.
         /// </summary>
-        /// <param name="paSensitiveCodesDisable">A list of notification codes that should be ignored during passive authentication (PA).</param>
-        public ProcessParamsRfid(List<ParsingNotificationCodes> paSensitiveCodesDisable = default(List<ParsingNotificationCodes>))
+        /// <param name="paIgnoreNotificationCodes">A list of notification codes that should be ignored during passive authentication (PA).</param>
+        public ProcessParamsRfid(List<ParsingNotificationCodes> paIgnoreNotificationCodes = default(List<ParsingNotificationCodes>))
         {
-            this.PaSensitiveCodesDisable = paSensitiveCodesDisable;
+            this.PaIgnoreNotificationCodes = paIgnoreNotificationCodes;
         }
 
         /// <summary>
         /// A list of notification codes that should be ignored during passive authentication (PA)
         /// </summary>
         /// <value>A list of notification codes that should be ignored during passive authentication (PA)</value>
-        [DataMember(Name = "paSensitiveCodesDisable", EmitDefaultValue = false)]
-        public List<ParsingNotificationCodes>? PaSensitiveCodesDisable { get; set; }
+        [DataMember(Name = "paIgnoreNotificationCodes", EmitDefaultValue = false)]
+        public List<ParsingNotificationCodes>? PaIgnoreNotificationCodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProcessParamsRfid {\n");
-            sb.Append("  PaSensitiveCodesDisable: ").Append(PaSensitiveCodesDisable).Append("\n");
+            sb.Append("  PaIgnoreNotificationCodes: ").Append(PaIgnoreNotificationCodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
