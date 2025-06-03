@@ -50,6 +50,7 @@ src/Regula.DocumentReader.WebClient/Model/DataModule.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsOptical.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsRFID.cs
 src/Regula.DocumentReader.WebClient/Model/DeviceInfo.cs
+src/Regula.DocumentReader.WebClient/Model/DeviceInfoDocumentsDatabase.cs
 src/Regula.DocumentReader.WebClient/Model/DocBarCodeInfo.cs
 src/Regula.DocumentReader.WebClient/Model/DocBarCodeInfoFieldsList.cs
 src/Regula.DocumentReader.WebClient/Model/DocBarCodeInfoItem.cs

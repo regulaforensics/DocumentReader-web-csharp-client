@@ -35,49 +35,68 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeviceInfo" /> class.
         /// </summary>
-        /// <param name="appName">appName.</param>
-        /// <param name="varVersion">varVersion.</param>
-        /// <param name="licenseId">licenseId.</param>
-        /// <param name="licenseSerial">licenseSerial.</param>
-        /// <param name="validUntil">validUntil.</param>
+        /// <param name="appName">Application name..</param>
+        /// <param name="varVersion">Product version..</param>
+        /// <param name="licenseId">Unique license identifier..</param>
+        /// <param name="licenseSerial">License serial number..</param>
+        /// <param name="licenseType">licenseType.</param>
+        /// <param name="validUntil">License validity date..</param>
         /// <param name="serverTime">serverTime.</param>
-        public DeviceInfo(string appName = default(string), string varVersion = default(string), string licenseId = default(string), string licenseSerial = default(string), DateTime validUntil = default(DateTime), DateTime serverTime = default(DateTime))
+        /// <param name="supportedScenarios">List of supported scenarios..</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="documentsDatabase">documentsDatabase.</param>
+        public DeviceInfo(string appName = default(string), string varVersion = default(string), string licenseId = default(string), string licenseSerial = default(string), string licenseType = default(string), DateTime validUntil = default(DateTime), string serverTime = default(string), List<string> supportedScenarios = default(List<string>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), DeviceInfoDocumentsDatabase documentsDatabase = default(DeviceInfoDocumentsDatabase))
         {
             this.AppName = appName;
             this.VarVersion = varVersion;
             this.LicenseId = licenseId;
             this.LicenseSerial = licenseSerial;
+            this.LicenseType = licenseType;
             this.ValidUntil = validUntil;
             this.ServerTime = serverTime;
+            this.SupportedScenarios = supportedScenarios;
+            this.Metadata = metadata;
+            this.DocumentsDatabase = documentsDatabase;
         }
 
         /// <summary>
-        /// Gets or Sets AppName
+        /// Application name.
         /// </summary>
+        /// <value>Application name.</value>
         [DataMember(Name = "app-name", EmitDefaultValue = false)]
         public string? AppName { get; set; }
 
         /// <summary>
-        /// Gets or Sets VarVersion
+        /// Product version.
         /// </summary>
+        /// <value>Product version.</value>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public string? VarVersion { get; set; }
 
         /// <summary>
-        /// Gets or Sets LicenseId
+        /// Unique license identifier.
         /// </summary>
+        /// <value>Unique license identifier.</value>
         [DataMember(Name = "license-id", EmitDefaultValue = false)]
         public string? LicenseId { get; set; }
 
         /// <summary>
-        /// Gets or Sets LicenseSerial
+        /// License serial number.
         /// </summary>
+        /// <value>License serial number.</value>
         [DataMember(Name = "license-serial", EmitDefaultValue = false)]
         public string? LicenseSerial { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValidUntil
+        /// Gets or Sets LicenseType
         /// </summary>
+        [DataMember(Name = "license-type", EmitDefaultValue = false)]
+        public string? LicenseType { get; set; }
+
+        /// <summary>
+        /// License validity date.
+        /// </summary>
+        /// <value>License validity date.</value>
         [DataMember(Name = "valid-until", EmitDefaultValue = false)]
         public DateTime? ValidUntil { get; set; }
 
@@ -85,7 +104,26 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ServerTime
         /// </summary>
         [DataMember(Name = "server-time", EmitDefaultValue = false)]
-        public DateTime? ServerTime { get; set; }
+        public string? ServerTime { get; set; }
+
+        /// <summary>
+        /// List of supported scenarios.
+        /// </summary>
+        /// <value>List of supported scenarios.</value>
+        [DataMember(Name = "supported-scenarios", EmitDefaultValue = false)]
+        public List<string>? SupportedScenarios { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, Object>? Metadata { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DocumentsDatabase
+        /// </summary>
+        [DataMember(Name = "documents-database", EmitDefaultValue = false)]
+        public DeviceInfoDocumentsDatabase? DocumentsDatabase { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,8 +137,12 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  LicenseId: ").Append(LicenseId).Append("\n");
             sb.Append("  LicenseSerial: ").Append(LicenseSerial).Append("\n");
+            sb.Append("  LicenseType: ").Append(LicenseType).Append("\n");
             sb.Append("  ValidUntil: ").Append(ValidUntil).Append("\n");
             sb.Append("  ServerTime: ").Append(ServerTime).Append("\n");
+            sb.Append("  SupportedScenarios: ").Append(SupportedScenarios).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  DocumentsDatabase: ").Append(DocumentsDatabase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
