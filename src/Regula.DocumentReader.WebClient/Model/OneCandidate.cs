@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="documentName">Document name.</param>
         /// <param name="iD">Unique document type template identifier (Regula&#39;s internal numeric code) (required).</param>
         /// <param name="p">A measure of the likelihood of correct recognition in the analysis of this type of document (required).</param>
-        /// <param name="rotated180">true if the document of the given type is rotated by 180 degrees (required).</param>
+        /// <param name="rotated180">Indicates if the document of the given type is rotated by 180 degrees (required).</param>
         /// <param name="rFIDPresence">rFIDPresence (required).</param>
         /// <param name="fDSIDList">fDSIDList.</param>
         /// <param name="necessaryLights">Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document (required).</param>
@@ -99,9 +99,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public decimal P { get; set; }
 
         /// <summary>
-        /// true if the document of the given type is rotated by 180 degrees
+        /// Indicates if the document of the given type is rotated by 180 degrees
         /// </summary>
-        /// <value>true if the document of the given type is rotated by 180 degrees</value>
+        /// <value>Indicates if the document of the given type is rotated by 180 degrees</value>
         [DataMember(Name = "Rotated180", IsRequired = true, EmitDefaultValue = true)]
         public int Rotated180 { get; set; }
 
