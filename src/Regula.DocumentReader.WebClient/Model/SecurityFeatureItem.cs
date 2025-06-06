@@ -63,9 +63,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="visibility">visibility (required).</param>
         /// <param name="criticalFlag">criticalFlag (required).</param>
         /// <param name="areaList">areaList.</param>
-        /// <param name="result">result.</param>
         /// <param name="reserved2">reserved2.</param>
-        public SecurityFeatureItem(SecurityFeatureType elementType = default(SecurityFeatureType), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility visibility = default(Visibility), Critical criticalFlag = default(Critical), AreaContainer areaList = default(AreaContainer), int result = default(int), int reserved2 = default(int))
+        public SecurityFeatureItem(SecurityFeatureType elementType = default(SecurityFeatureType), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility visibility = default(Visibility), Critical criticalFlag = default(Critical), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int))
         {
             this.ElementType = elementType;
             // to ensure "elementRect" is required (not null)
@@ -77,7 +76,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Visibility = visibility;
             this.CriticalFlag = criticalFlag;
             this.AreaList = areaList;
-            this.Result = result;
             this.Reserved2 = reserved2;
         }
 
@@ -92,12 +90,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "AreaList", EmitDefaultValue = false)]
         public AreaContainer? AreaList { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Result
-        /// </summary>
-        [DataMember(Name = "Result", EmitDefaultValue = false)]
-        public int? Result { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2
@@ -118,7 +110,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  CriticalFlag: ").Append(CriticalFlag).Append("\n");
             sb.Append("  AreaList: ").Append(AreaList).Append("\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  Reserved2: ").Append(Reserved2).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

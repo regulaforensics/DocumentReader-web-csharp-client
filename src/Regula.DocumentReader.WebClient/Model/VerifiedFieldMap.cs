@@ -59,8 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldBarcode">Field data extracted from barcode.</param>
         /// <param name="fieldRFID">Field data extracted from rfid chip.</param>
         /// <param name="matrix">results comparison matrix. Elements of the matrix with indices 0, 1, 2, 3 take one of the values Disabled(0), Verified(1) or Not_Verified(2), elements with indices 4, 5, 6, 7, 8 are one of the values Disabled(0), Compare_Match(3) or Compare_Not_Match(4). Elements of the Matrix matrix have the following semantic meaning: - element with index 0 –– the result of verification of data from the MRZ; - 1 –– the result of verification of data from the RFID microcircuit; - 2 –– the result of verification of data from text areas of the document; - 3 –– the result of verification data from barcodes; - 4 - the result of comparing MRZ data and RFID microcircuits; - 5 - the result of comparing MRZ data and text areas of document filling; - 6 - the result of comparing MRZ data and bar codes; - 7 - the result of comparing the data of text areas of the document and the RFID chip; - 8 - the result of comparing the data of the text areas of the document and barcodes; - 9 - the result of comparing the data of the RFID chip and barcodes. (required).</param>
-        /// <param name="fieldType">fieldType.</param>
-        public VerifiedFieldMap(TextFieldType wFieldType = default(TextFieldType), LCID wLCID = default(LCID), string fieldMRZ = default(string), string fieldVisual = default(string), string fieldBarcode = default(string), string fieldRFID = default(string), List<VerificationResult> matrix = default(List<VerificationResult>), int fieldType = default(int))
+        public VerifiedFieldMap(TextFieldType wFieldType = default(TextFieldType), LCID wLCID = default(LCID), string fieldMRZ = default(string), string fieldVisual = default(string), string fieldBarcode = default(string), string fieldRFID = default(string), List<VerificationResult> matrix = default(List<VerificationResult>))
         {
             this.WFieldType = wFieldType;
             this.WLCID = wLCID;
@@ -74,7 +73,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.FieldVisual = fieldVisual;
             this.FieldBarcode = fieldBarcode;
             this.FieldRFID = fieldRFID;
-            this.FieldType = fieldType;
         }
 
         /// <summary>
@@ -116,12 +114,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<VerificationResult> Matrix { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldType
-        /// </summary>
-        [DataMember(Name = "FieldType", EmitDefaultValue = false)]
-        public int? FieldType { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,7 +128,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  FieldBarcode: ").Append(FieldBarcode).Append("\n");
             sb.Append("  FieldRFID: ").Append(FieldRFID).Append("\n");
             sb.Append("  Matrix: ").Append(Matrix).Append("\n");
-            sb.Append("  FieldType: ").Append(FieldType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -588,9 +588,9 @@ namespace Regula.DocumentReader.WebClient.Model
         RFID_ERROR_LAYER6_GENERAL_AUTH_FAILURE = 2248147721,
 
         /// <summary>
-        /// Enum RFID_ERROR_FAILED for value: 4294967295
+        /// Enum RFID_ERROR_FAILED for value: -1
         /// </summary>
-        RFID_ERROR_FAILED = 4294967295,
+        RFID_ERROR_FAILED = -1,
 
         /// <summary>
         /// Enum RFID_ERROR_NO_ERROR for value: 1

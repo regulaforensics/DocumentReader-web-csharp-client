@@ -44,6 +44,18 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "LightType", IsRequired = true, EmitDefaultValue = true)]
         public Light LightType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EtalonFieldType
+        /// </summary>
+        [DataMember(Name = "EtalonFieldType", IsRequired = true, EmitDefaultValue = true)]
+        public TextFieldType EtalonFieldType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EtalonLightType
+        /// </summary>
+        [DataMember(Name = "EtalonLightType", IsRequired = true, EmitDefaultValue = true)]
+        public Light EtalonLightType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OCRSecurityTextItem" /> class.
         /// </summary>
@@ -55,7 +67,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag (required).</param>
         /// <param name="lightType">lightType (required).</param>
         /// <param name="fieldRect">fieldRect (required).</param>
-        /// <param name="etalonResultType">etalonResultType (required).</param>
+        /// <param name="etalonResultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="etalonFieldType">etalonFieldType (required).</param>
         /// <param name="etalonLightType">etalonLightType (required).</param>
         /// <param name="etalonFieldRect">etalonFieldRect (required).</param>
@@ -64,7 +76,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="resultCode">resultCode.</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        public OCRSecurityTextItem(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int resultCode = default(int), int reserved1 = default(int), int reserved2 = default(int))
+        public OCRSecurityTextItem(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = 0, TextFieldType etalonFieldType = default(TextFieldType), Light etalonLightType = default(Light), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int resultCode = default(int), int reserved1 = default(int), int reserved2 = default(int))
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;
@@ -107,22 +119,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public RectangleCoordinates FieldRect { get; set; }
 
         /// <summary>
-        /// Gets or Sets EtalonResultType
+        /// Same as Result type, but used for safe parsing of not-described values. See Result type.
         /// </summary>
+        /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
         [DataMember(Name = "EtalonResultType", IsRequired = true, EmitDefaultValue = true)]
         public int EtalonResultType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EtalonFieldType
-        /// </summary>
-        [DataMember(Name = "EtalonFieldType", IsRequired = true, EmitDefaultValue = true)]
-        public int EtalonFieldType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EtalonLightType
-        /// </summary>
-        [DataMember(Name = "EtalonLightType", IsRequired = true, EmitDefaultValue = true)]
-        public int EtalonLightType { get; set; }
 
         /// <summary>
         /// Gets or Sets EtalonFieldRect
