@@ -30,7 +30,7 @@ namespace Regula.DocumentReader.WebClient.Model
     /// Image light index
     /// </summary>
     /// <value>Image light index</value>
-    public enum Light: long
+    public enum Light
     {
         /// <summary>
         /// Enum OFF for value: 0
@@ -38,44 +38,9 @@ namespace Regula.DocumentReader.WebClient.Model
         OFF = 0,
 
         /// <summary>
-        /// Enum OVI for value: 1
-        /// </summary>
-        OVI = 1,
-
-        /// <summary>
-        /// Enum WHITE_TOP for value: 2
-        /// </summary>
-        WHITE_TOP = 2,
-
-        /// <summary>
-        /// Enum WHITE_SIDE for value: 4
-        /// </summary>
-        WHITE_SIDE = 4,
-
-        /// <summary>
-        /// Enum WHITE_FRONT for value: 8388608
-        /// </summary>
-        WHITE_FRONT = 8388608,
-
-        /// <summary>
         /// Enum WHITE for value: 6
         /// </summary>
         WHITE = 6,
-
-        /// <summary>
-        /// Enum IR_TOP for value: 8
-        /// </summary>
-        IR_TOP = 8,
-
-        /// <summary>
-        /// Enum IR_SIDE for value: 16
-        /// </summary>
-        IR_SIDE = 16,
-
-        /// <summary>
-        /// Enum IR_FRONT for value: 16777216
-        /// </summary>
-        IR_FRONT = 16777216,
 
         /// <summary>
         /// Enum IR for value: 24
@@ -83,194 +48,14 @@ namespace Regula.DocumentReader.WebClient.Model
         IR = 24,
 
         /// <summary>
-        /// Enum WHITE_GRAY for value: 33554432
-        /// </summary>
-        WHITE_GRAY = 33554432,
-
-        /// <summary>
         /// Enum UV for value: 128
         /// </summary>
         UV = 128,
 
         /// <summary>
-        /// Enum OVD for value: 67108864
-        /// </summary>
-        OVD = 67108864,
-
-        /// <summary>
-        /// Enum VIDEODETECTION for value: 134217728
-        /// </summary>
-        VIDEODETECTION = 134217728,
-
-        /// <summary>
-        /// Enum IR_870_OBL for value: 268435456
-        /// </summary>
-        IR_870_OBL = 268435456,
-
-        /// <summary>
-        /// Enum IR_LUMINESCENCE for value: 256
-        /// </summary>
-        IR_LUMINESCENCE = 256,
-
-        /// <summary>
-        /// Enum AXIAL_WHITE_LEFT for value: 1024
-        /// </summary>
-        AXIAL_WHITE_LEFT = 1024,
-
-        /// <summary>
-        /// Enum AXIAL_WHITE_RIGHT for value: 2048
-        /// </summary>
-        AXIAL_WHITE_RIGHT = 2048,
-
-        /// <summary>
-        /// Enum AXIAL_WHITE_FRONT for value: 512
-        /// </summary>
-        AXIAL_WHITE_FRONT = 512,
-
-        /// <summary>
-        /// Enum IR_720 for value: 4096
-        /// </summary>
-        IR_720 = 4096,
-
-        /// <summary>
-        /// Enum IR_940 for value: 8192
-        /// </summary>
-        IR_940 = 8192,
-
-        /// <summary>
         /// Enum AXIAL_WHITE_FULL for value: 3072
         /// </summary>
-        AXIAL_WHITE_FULL = 3072,
-
-        /// <summary>
-        /// Enum RAW_DATA for value: 2147483648
-        /// </summary>
-        RAW_DATA = 2147483648,
-
-        /// <summary>
-        /// Enum RAW_DATA_GRBG for value: 2415919104
-        /// </summary>
-        RAW_DATA_GRBG = 2415919104,
-
-        /// <summary>
-        /// Enum RAW_DATA_GBGR for value: 2684354560
-        /// </summary>
-        RAW_DATA_GBGR = 2684354560,
-
-        /// <summary>
-        /// Enum RAW_DATA_RGGB for value: 2952790016
-        /// </summary>
-        RAW_DATA_RGGB = 2952790016,
-
-        /// <summary>
-        /// Enum RAW_DATA_BGGR for value: 3221225472
-        /// </summary>
-        RAW_DATA_BGGR = 3221225472,
-
-        /// <summary>
-        /// Enum TRANSMITTED for value: 32
-        /// </summary>
-        TRANSMITTED = 32,
-
-        /// <summary>
-        /// Enum TRANSMITTED_IR for value: 64
-        /// </summary>
-        TRANSMITTED_IR = 64,
-
-        /// <summary>
-        /// Enum ANTI_STOKES for value: 65536
-        /// </summary>
-        ANTI_STOKES = 65536,
-
-        /// <summary>
-        /// Enum TRANSMITTED_IR940 for value: 16384
-        /// </summary>
-        TRANSMITTED_IR940 = 16384,
-
-        /// <summary>
-        /// Enum OVD_RIGHT for value: 262144
-        /// </summary>
-        OVD_RIGHT = 262144,
-
-        /// <summary>
-        /// Enum OVD_LEFT for value: 131072
-        /// </summary>
-        OVD_LEFT = 131072,
-
-        /// <summary>
-        /// Enum IR_700 for value: 32768
-        /// </summary>
-        IR_700 = 32768,
-
-        /// <summary>
-        /// Enum IR_870 for value: 16777216
-        /// </summary>
-        IR_870 = 16777216,
-
-        /// <summary>
-        /// Enum HOLO for value: 67108864
-        /// </summary>
-        HOLO = 67108864,
-
-        /// <summary>
-        /// Enum IR_BOTTOM for value: 64
-        /// </summary>
-        IR_BOTTOM = 64,
-
-        /// <summary>
-        /// Enum WHITE_BOTTOM for value: 32
-        /// </summary>
-        WHITE_BOTTOM = 32,
-
-        /// <summary>
-        /// Enum UVC for value: 524288
-        /// </summary>
-        UVC = 524288,
-
-        /// <summary>
-        /// Enum UVB for value: 1048576
-        /// </summary>
-        UVB = 1048576,
-
-        /// <summary>
-        /// Enum WHITE_OBL for value: 2097152
-        /// </summary>
-        WHITE_OBL = 2097152,
-
-        /// <summary>
-        /// Enum WHITE_SPECIAL for value: 4194304
-        /// </summary>
-        WHITE_SPECIAL = 4194304,
-
-        /// <summary>
-        /// Enum WHITE_UV for value: 134
-        /// </summary>
-        WHITE_UV = 134,
-
-        /// <summary>
-        /// Enum WHITE_FULL_HOLO for value: 67108870
-        /// </summary>
-        WHITE_FULL_HOLO = 67108870,
-
-        /// <summary>
-        /// Enum HR_LIGHT for value: 1073741824
-        /// </summary>
-        HR_LIGHT = 1073741824,
-
-        /// <summary>
-        /// Enum HR_WHITE for value: 1073741830
-        /// </summary>
-        HR_WHITE = 1073741830,
-
-        /// <summary>
-        /// Enum HR_UV for value: 1073741952
-        /// </summary>
-        HR_UV = 1073741952,
-
-        /// <summary>
-        /// Enum HR_IR for value: 1073741848
-        /// </summary>
-        HR_IR = 1073741848
+        AXIAL_WHITE_FULL = 3072
     }
 
 }
