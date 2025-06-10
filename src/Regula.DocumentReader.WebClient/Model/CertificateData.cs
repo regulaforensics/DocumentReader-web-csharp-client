@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="length">length (required).</param>
-        public CertificateData(string data = default(string), string length = default(string))
+        public CertificateData(string data = default(string), int length = default(int))
         {
             // to ensure "data" is required (not null)
             if (data == null)
@@ -50,11 +50,6 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("data is a required property for CertificateData and cannot be null");
             }
             this.Data = data;
-            // to ensure "length" is required (not null)
-            if (length == null)
-            {
-                throw new ArgumentNullException("length is a required property for CertificateData and cannot be null");
-            }
             this.Length = length;
         }
 
@@ -68,7 +63,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Length
         /// </summary>
         [DataMember(Name = "Length", IsRequired = true, EmitDefaultValue = true)]
-        public string Length { get; set; }
+        public int Length { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

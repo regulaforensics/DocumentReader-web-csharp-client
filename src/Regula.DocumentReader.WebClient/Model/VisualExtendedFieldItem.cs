@@ -46,7 +46,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VisualExtendedFieldItem" /> class.
         /// </summary>
-        /// <param name="fieldType">fieldType (required).</param>
         /// <param name="wFieldType">wFieldType (required).</param>
         /// <param name="fieldName">Field symbolic name (null-terminated string) (required).</param>
         /// <param name="stringsCount">Number of StringsResult array elements (required).</param>
@@ -59,9 +58,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="wLCID">wLCID.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        public VisualExtendedFieldItem(int fieldType = default(int), TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), string fieldMask = default(string), int validity = default(int), int inComparison = default(int), int wLCID = default(int), int reserved2 = default(int), int reserved3 = default(int))
+        public VisualExtendedFieldItem(TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), string fieldMask = default(string), int validity = default(int), int inComparison = default(int), int wLCID = default(int), int reserved2 = default(int), int reserved3 = default(int))
         {
-            this.FieldType = fieldType;
             this.WFieldType = wFieldType;
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -90,12 +88,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Reserved2 = reserved2;
             this.Reserved3 = reserved3;
         }
-
-        /// <summary>
-        /// Gets or Sets FieldType
-        /// </summary>
-        [DataMember(Name = "FieldType", IsRequired = true, EmitDefaultValue = true)]
-        public int FieldType { get; set; }
 
         /// <summary>
         /// Field symbolic name (null-terminated string)
@@ -176,7 +168,6 @@ namespace Regula.DocumentReader.WebClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class VisualExtendedFieldItem {\n");
-            sb.Append("  FieldType: ").Append(FieldType).Append("\n");
             sb.Append("  WFieldType: ").Append(WFieldType).Append("\n");
             sb.Append("  FieldName: ").Append(FieldName).Append("\n");
             sb.Append("  StringsCount: ").Append(StringsCount).Append("\n");

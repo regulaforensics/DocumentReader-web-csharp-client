@@ -408,6 +408,11 @@ namespace Regula.DocumentReader.WebClient.Model
         ATR = 400,
 
         /// <summary>
+        /// Enum DIR for value: 401
+        /// </summary>
+        DIR = 401,
+
+        /// <summary>
         /// Enum _E_SIGN_PK for value: 500
         /// </summary>
         _E_SIGN_PK = 500,
@@ -433,9 +438,14 @@ namespace Regula.DocumentReader.WebClient.Model
         DEFECT_LIST = 602,
 
         /// <summary>
-        /// Enum BLACK_LIST for value: 603
+        /// Enum DEVIATION_LIST for value: 603
         /// </summary>
-        BLACK_LIST = 603,
+        DEVIATION_LIST = 603,
+
+        /// <summary>
+        /// Enum BLACK_LIST for value: 604
+        /// </summary>
+        BLACK_LIST = 604,
 
         /// <summary>
         /// Enum APP_DIRECTORY for value: 700
@@ -456,6 +466,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum CHIP_PROPERTIES for value: 703
         /// </summary>
         CHIP_PROPERTIES = 703,
+
+        /// <summary>
+        /// Enum DTC_INFO for value: 704
+        /// </summary>
+        DTC_INFO = 704,
 
         /// <summary>
         /// Enum POST_CA_RESPONSE for value: 710
@@ -486,6 +501,31 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum POST_CA_CHECK_SK for value: 715
         /// </summary>
         POST_CA_CHECK_SK = 715,
+
+        /// <summary>
+        /// Enum SAM_DATA for value: 800
+        /// </summary>
+        SAM_DATA = 800,
+
+        /// <summary>
+        /// Enum SAM_DATA_MAX for value: 832
+        /// </summary>
+        SAM_DATA_MAX = 832,
+
+        /// <summary>
+        /// Enum VDS for value: 900
+        /// </summary>
+        VDS = 900,
+
+        /// <summary>
+        /// Enum VDS_NC for value: 901
+        /// </summary>
+        VDS_NC = 901,
+
+        /// <summary>
+        /// Enum DS for value: 902
+        /// </summary>
+        DS = 902,
 
         /// <summary>
         /// Enum USER_DEFINED for value: 1000

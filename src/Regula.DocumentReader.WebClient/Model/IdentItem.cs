@@ -59,8 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonImage">etalonImage (required).</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="elementID">elementID.</param>
-        /// <param name="result">result.</param>
-        public IdentItem(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int elementID = default(int), int result = default(int))
+        public IdentItem(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int elementID = default(int))
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;
@@ -79,7 +78,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Area = area;
             this.AreaList = areaList;
             this.ElementID = elementID;
-            this.Result = result;
         }
 
         /// <summary>
@@ -113,12 +111,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public int? ElementID { get; set; }
 
         /// <summary>
-        /// Gets or Sets Result
-        /// </summary>
-        [DataMember(Name = "Result", EmitDefaultValue = false)]
-        public int? Result { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,7 +125,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  EtalonImage: ").Append(EtalonImage).Append("\n");
             sb.Append("  AreaList: ").Append(AreaList).Append("\n");
             sb.Append("  ElementID: ").Append(ElementID).Append("\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

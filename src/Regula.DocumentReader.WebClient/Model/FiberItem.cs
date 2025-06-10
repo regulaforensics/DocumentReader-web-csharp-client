@@ -55,8 +55,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="length">Fibers length value for located areas (in pixels) (required).</param>
         /// <param name="area">Fibers value for areas (in pixels) (required).</param>
         /// <param name="colorValues">Fibers color value (required).</param>
-        /// <param name="errorCode">errorCode.</param>
-        public FiberItem(int rectCount = default(int), int expectedCount = default(int), Light? lightValue = default(Light?), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), int errorCode = default(int))
+        public FiberItem(int rectCount = default(int), int expectedCount = default(int), Light? lightValue = default(Light?), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>))
         {
             this.RectCount = rectCount;
             this.ExpectedCount = expectedCount;
@@ -92,7 +91,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ColorValues = colorValues;
             this.LightValue = lightValue;
             this.LightDisp = lightDisp;
-            this.ErrorCode = errorCode;
         }
 
         /// <summary>
@@ -155,12 +153,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<int> ColorValues { get; set; }
 
         /// <summary>
-        /// Gets or Sets ErrorCode
-        /// </summary>
-        [DataMember(Name = "ErrorCode", EmitDefaultValue = false)]
-        public int? ErrorCode { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -177,7 +169,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Length: ").Append(Length).Append("\n");
             sb.Append("  Area: ").Append(Area).Append("\n");
             sb.Append("  ColorValues: ").Append(ColorValues).Append("\n");
-            sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
