@@ -54,9 +54,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldTypesList">fieldTypesList.</param>
         /// <param name="step">step.</param>
         /// <param name="angle">angle.</param>
-        /// <param name="result">result.</param>
         /// <param name="reserved3">reserved3.</param>
-        public PhotoIdentItem(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int result = default(int), int reserved3 = default(int))
+        public PhotoIdentItem(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved3 = default(int))
         {
             this.LightIndex = lightIndex;
             // to ensure "area" is required (not null)
@@ -81,7 +80,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.FieldTypesList = fieldTypesList;
             this.Step = step;
             this.Angle = angle;
-            this.Result = result;
             this.Reserved3 = reserved3;
         }
 
@@ -128,12 +126,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public int? Angle { get; set; }
 
         /// <summary>
-        /// Gets or Sets Result
-        /// </summary>
-        [DataMember(Name = "Result", EmitDefaultValue = false)]
-        public int? Result { get; set; }
-
-        /// <summary>
         /// Gets or Sets Reserved3
         /// </summary>
         [DataMember(Name = "Reserved3", EmitDefaultValue = false)]
@@ -155,7 +147,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  FieldTypesList: ").Append(FieldTypesList).Append("\n");
             sb.Append("  Step: ").Append(Step).Append("\n");
             sb.Append("  Angle: ").Append(Angle).Append("\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  Reserved3: ").Append(Reserved3).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

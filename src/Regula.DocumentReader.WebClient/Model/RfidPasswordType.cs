@@ -65,7 +65,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum SAI for value: 6
         /// </summary>
-        SAI = 6
+        SAI = 6,
+
+        /// <summary>
+        /// Enum MRZ_HASH for value: 7
+        /// </summary>
+        MRZ_HASH = 7
     }
 
 }

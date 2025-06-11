@@ -478,6 +478,31 @@ namespace Regula.DocumentReader.WebClient.Model
         ntfLDS_ICAO_Certificate_Subject_CommonNameNonCompliant = 2415919695,
 
         /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_Chain_Country_NonMatching for value: 2415919696
+        /// </summary>
+        ntfLDS_ICAO_Certificate_Chain_Country_NonMatching = 2415919696,
+
+        /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_VisualMrz_Country_NonMatching for value: 2415919697
+        /// </summary>
+        ntfLDS_ICAO_Certificate_VisualMrz_Country_NonMatching = 2415919697,
+
+        /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching for value: 2415919698
+        /// </summary>
+        ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching = 2415919698,
+
+        /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase for value: 2415919699
+        /// </summary>
+        ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase = 2415919699,
+
+        /// <summary>
+        /// Enum ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase for value: 2415919700
+        /// </summary>
+        ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase = 2415919700,
+
+        /// <summary>
         /// Enum ntfLDS_ICAO_COM_LDS_Version_Incorrect for value: 2415919136
         /// </summary>
         ntfLDS_ICAO_COM_LDS_Version_Incorrect = 2415919136,
@@ -803,6 +828,11 @@ namespace Regula.DocumentReader.WebClient.Model
         ntfLDS_MRZ_Incorrect = 139288,
 
         /// <summary>
+        /// Enum ntfLDS_MRZ_CountryCode_VisualMrz_NonMatching for value: 139289
+        /// </summary>
+        ntfLDS_MRZ_CountryCode_VisualMrz_NonMatching = 139289,
+
+        /// <summary>
         /// Enum ntfLDS_Biometrics_FormatOwner_Missing for value: 2415984640
         /// </summary>
         ntfLDS_Biometrics_FormatOwner_Missing = 2415984640,
@@ -858,6 +888,11 @@ namespace Regula.DocumentReader.WebClient.Model
         ntfLDS_Biometrics_BDB_DataLength_Incorrect = 2416640000,
 
         /// <summary>
+        /// Enum ntfLDS_Biometrics_BDB_Data_Incorrect for value: 2416705536
+        /// </summary>
+        ntfLDS_Biometrics_BDB_Data_Incorrect = 2416705536,
+
+        /// <summary>
         /// Enum ntfLDS_Biometrics_BDB_Data_Gender for value: 2416967680
         /// </summary>
         ntfLDS_Biometrics_BDB_Data_Gender = 2416967680,
@@ -911,6 +946,496 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum ntfLDS_Biometrics_BDB_Data_ImageDataType for value: 2417623040
         /// </summary>
         ntfLDS_Biometrics_BDB_Data_ImageDataType = 2417623040,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Data_Incorrect for value: 2449539072
+        /// </summary>
+        ntfLDS_Biometrics_RB_Data_Incorrect = 2449539072,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Item_Incorrect for value: 2449604608
+        /// </summary>
+        ntfLDS_Biometrics_RB_Item_Incorrect = 2449604608,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Item_Missing for value: 2449670144
+        /// </summary>
+        ntfLDS_Biometrics_RB_Item_Missing = 2449670144,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Item_Unexpected for value: 2449735680
+        /// </summary>
+        ntfLDS_Biometrics_RB_Item_Unexpected = 2449735680,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_RID_Incorrect for value: 2449801232
+        /// </summary>
+        ntfLDS_Biometrics_RB_RID_Incorrect = 2449801232,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_ImageR_Incorrect for value: 2449801248
+        /// </summary>
+        ntfLDS_Biometrics_RB_ImageR_Incorrect = 2449801248,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Item_Incorrect for value: 2449801264
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Item_Incorrect = 2449801264,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Item_Missing for value: 2449801265
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Item_Missing = 2449801265,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Item_Unexpected for value: 2449801266
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Item_Unexpected = 2449801266,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Item_Incorrect for value: 2449801280
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Item_Incorrect = 2449801280,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Item_Missing for value: 2449801281
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Item_Missing = 2449801281,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Item_Unexpected for value: 2449801282
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Item_Unexpected = 2449801282,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Format_Incorrect for value: 2449801283
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Format_Incorrect = 2449801283,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Format_Unsupported for value: 2449801284
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Format_Unsupported = 2449801284,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Kind_Incorrect for value: 2449801285
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Kind_Incorrect = 2449801285,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Kind_Unsupported for value: 2449801286
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Kind_Unsupported = 2449801286,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_PostAPB_Incorrect for value: 2449801287
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_PostAPB_Incorrect = 2449801287,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_LossyTA_Incorrect for value: 2449801288
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_LossyTA_Incorrect = 2449801288,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_LossyTA_Unsupported for value: 2449801289
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_LossyTA_Unsupported = 2449801289,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Cam2Subj_Unsupported for value: 2449801290
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Cam2Subj_Unsupported = 2449801290,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_SensDiag_Unsupported for value: 2449801291
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_SensDiag_Unsupported = 2449801291,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_LensF_Unsupported for value: 2449801292
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_LensF_Unsupported = 2449801292,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_ImSize_Incorrect for value: 2449801293
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_ImSize_Incorrect = 2449801293,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_ImSize_Unsupported for value: 2449801294
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_ImSize_Unsupported = 2449801294,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_ImMeas_Incorrect for value: 2449801295
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_ImMeas_Incorrect = 2449801295,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Color_Incorrect for value: 2449801296
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Color_Incorrect = 2449801296,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_Color_Unsupported for value: 2449801297
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_Color_Unsupported = 2449801297,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Info_ColorMap_Incorrect for value: 2449801298
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Info_ColorMap_Incorrect = 2449801298,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Capt_Item_Incorrect for value: 2449801312
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Capt_Item_Incorrect = 2449801312,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Capt_Item_Unexpected for value: 2449801313
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Capt_Item_Unexpected = 2449801313,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Capt_Spectral_Unsupported for value: 2449801314
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Capt_Spectral_Unsupported = 2449801314,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Capt_TechCode_Incorrect for value: 2449801315
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Capt_TechCode_Incorrect = 2449801315,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Image_Capt_TechCode_Unsupported for value: 2449801316
+        /// </summary>
+        ntfLDS_Biometrics_RB_Image_Capt_TechCode_Unsupported = 2449801316,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Date_Item_Incorrect for value: 2449801328
+        /// </summary>
+        ntfLDS_Biometrics_RB_Date_Item_Incorrect = 2449801328,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Date_Item_Missing for value: 2449801329
+        /// </summary>
+        ntfLDS_Biometrics_RB_Date_Item_Missing = 2449801329,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Date_Item_Unexpected for value: 2449801330
+        /// </summary>
+        ntfLDS_Biometrics_RB_Date_Item_Unexpected = 2449801330,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Date_Incorrect for value: 2449801331
+        /// </summary>
+        ntfLDS_Biometrics_RB_Date_Incorrect = 2449801331,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_Item_Incorrect for value: 2449801344
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_Item_Incorrect = 2449801344,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_Item_Missing for value: 2449801345
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_Item_Missing = 2449801345,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_Item_Unexpected for value: 2449801346
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_Item_Unexpected = 2449801346,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_AlgID_Item_Incorrect for value: 2449801347
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_AlgID_Item_Incorrect = 2449801347,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_SoE_Item_Incorrect for value: 2449801348
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_SoE_Item_Incorrect = 2449801348,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_Score_Item_Incorrect for value: 2449801349
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_Score_Item_Incorrect = 2449801349,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_Error_Item_Incorrect for value: 2449801350
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_Error_Item_Incorrect = 2449801350,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Quality_Error_Item_Unsupported for value: 2449801351
+        /// </summary>
+        ntfLDS_Biometrics_RB_Quality_Error_Item_Unsupported = 2449801351,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Item_Incorrect for value: 2449801360
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Item_Incorrect = 2449801360,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Item_Unexpected for value: 2449801361
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Item_Unexpected = 2449801361,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Decision_Item_Incorrect for value: 2449801362
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Decision_Item_Incorrect = 2449801362,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Decision_Item_Unsupported for value: 2449801363
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Decision_Item_Unsupported = 2449801363,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Score_Item_Incorrect for value: 2449801364
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Score_Item_Incorrect = 2449801364,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Score_RegID_Item_Incorrect for value: 2449801365
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Score_RegID_Item_Incorrect = 2449801365,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_SoE_Item_Incorrect for value: 2449801366
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_SoE_Item_Incorrect = 2449801366,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_SoE_Score_Item_Incorrect for value: 2449801367
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_SoE_Score_Item_Incorrect = 2449801367,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_SoE_Error_Item_Incorrect for value: 2449801368
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_SoE_Error_Item_Incorrect = 2449801368,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_SoE_Error_Item_Unsupported for value: 2449801369
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_SoE_Error_Item_Unsupported = 2449801369,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_ExtData_Item_Incorrect for value: 2449801370
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_ExtData_Item_Incorrect = 2449801370,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_ExtData_Type_Item_Incorrect for value: 2449801371
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_ExtData_Type_Item_Incorrect = 2449801371,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Context_Item_Incorrect for value: 2449801372
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Context_Item_Incorrect = 2449801372,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Context_Item_Unsupported for value: 2449801373
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Context_Item_Unsupported = 2449801373,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_SLevel_Item_Incorrect for value: 2449801374
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_SLevel_Item_Incorrect = 2449801374,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_SLevel_Item_Unsupported for value: 2449801375
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_SLevel_Item_Unsupported = 2449801375,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_RiskLevel_Item_Incorrect for value: 2449801376
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_RiskLevel_Item_Incorrect = 2449801376,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Criteria_Item_Incorrect for value: 2449801377
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Criteria_Item_Incorrect = 2449801377,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Criteria_Item_Unsupported for value: 2449801378
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Criteria_Item_Unsupported = 2449801378,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Date_Item_Incorrect for value: 2449801379
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Date_Item_Incorrect = 2449801379,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Date_Item_Missing for value: 2449801380
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Date_Item_Missing = 2449801380,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Date_Item_Unexpected for value: 2449801381
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Date_Item_Unexpected = 2449801381,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_PAD_Date_Incorrect for value: 2449801382
+        /// </summary>
+        ntfLDS_Biometrics_RB_PAD_Date_Incorrect = 2449801382,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_SessionID_Incorrect for value: 2449801392
+        /// </summary>
+        ntfLDS_Biometrics_RB_SessionID_Incorrect = 2449801392,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Derived_Incorrect for value: 2449801408
+        /// </summary>
+        ntfLDS_Biometrics_RB_Derived_Incorrect = 2449801408,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Device_Incorrect for value: 2449801424
+        /// </summary>
+        ntfLDS_Biometrics_RB_Device_Incorrect = 2449801424,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Device_Item_Unexpected for value: 2449801425
+        /// </summary>
+        ntfLDS_Biometrics_RB_Device_Item_Unexpected = 2449801425,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Device_ModelID_Item_Incorrect for value: 2449801426
+        /// </summary>
+        ntfLDS_Biometrics_RB_Device_ModelID_Item_Incorrect = 2449801426,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Device_CertID_Item_Incorrect for value: 2449801427
+        /// </summary>
+        ntfLDS_Biometrics_RB_Device_CertID_Item_Incorrect = 2449801427,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Item_Incorrect for value: 2449801440
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Item_Incorrect = 2449801440,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Item_Unexpected for value: 2449801441
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Item_Unexpected = 2449801441,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Gender_Item_Incorrect for value: 2449801442
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Gender_Item_Incorrect = 2449801442,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Gender_Item_Unsupported for value: 2449801443
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Gender_Item_Unsupported = 2449801443,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Eye_Item_Incorrect for value: 2449801444
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Eye_Item_Incorrect = 2449801444,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Eye_Item_Unsupported for value: 2449801445
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Eye_Item_Unsupported = 2449801445,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Hair_Item_Incorrect for value: 2449801446
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Hair_Item_Incorrect = 2449801446,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Hair_Item_Unsupported for value: 2449801447
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Hair_Item_Unsupported = 2449801447,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Height_Item_Incorrect for value: 2449801448
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Height_Item_Incorrect = 2449801448,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Props_Item_Incorrect for value: 2449801449
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Props_Item_Incorrect = 2449801449,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Props_Item_Unexpected for value: 2449801450
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Props_Item_Unexpected = 2449801450,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Express_Item_Incorrect for value: 2449801451
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Express_Item_Incorrect = 2449801451,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Express_Item_Unexpected for value: 2449801452
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Express_Item_Unexpected = 2449801452,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Pose_Item_Incorrect for value: 2449801453
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Pose_Item_Incorrect = 2449801453,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_Metadata_Pose_Item_Unexpected for value: 2449801454
+        /// </summary>
+        ntfLDS_Biometrics_RB_Metadata_Pose_Item_Unexpected = 2449801454,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Item_Incorrect for value: 2449801456
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Item_Incorrect = 2449801456,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Item_Missing for value: 2449801457
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Item_Missing = 2449801457,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Item_Unexpected for value: 2449801458
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Item_Unexpected = 2449801458,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Kind_Item_Incorrect for value: 2449801459
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Kind_Item_Incorrect = 2449801459,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Mpeg4_Item_Incorrect for value: 2449801460
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Mpeg4_Item_Incorrect = 2449801460,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Mpeg4_Item_Unsupported for value: 2449801461
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Mpeg4_Item_Unsupported = 2449801461,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_AntrL_Item_Incorrect for value: 2449801462
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_AntrL_Item_Incorrect = 2449801462,
+
+        /// <summary>
+        /// Enum ntfLDS_Biometrics_RB_LandMark_Coord_Item_Incorrect for value: 2449801463
+        /// </summary>
+        ntfLDS_Biometrics_RB_LandMark_Coord_Item_Incorrect = 2449801463,
+
+        /// <summary>
+        /// Enum ntfLDS_DTC_ContentInfo_Version_Incorrect for value: 2415919872
+        /// </summary>
+        ntfLDS_DTC_ContentInfo_Version_Incorrect = 2415919872,
 
         /// <summary>
         /// Enum ntfLDS_SI_PACE_Info_UnsupportedStdParameters for value: 2432696320
@@ -1120,37 +1645,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum ntfLDS_Auth_MLSignerInfo_Certificate_SignatureInvalid for value: 2449473817
         /// </summary>
-        ntfLDS_Auth_MLSignerInfo_Certificate_SignatureInvalid = 2449473817,
-
-        /// <summary>
-        /// Enum ntfLDS_ICAO_Certificate_Chain_Country_NonMatching for value: 2415919696
-        /// </summary>
-        ntfLDS_ICAO_Certificate_Chain_Country_NonMatching = 2415919696,
-
-        /// <summary>
-        /// Enum ntfLDS_ICAO_Certificate_VisualMrz_Country_NonMatching for value: 2415919697
-        /// </summary>
-        ntfLDS_ICAO_Certificate_VisualMrz_Country_NonMatching = 2415919697,
-
-        /// <summary>
-        /// Enum ntfLDS_MRZ_CountryCode_VisualMrz_NonMatching for value: 139289
-        /// </summary>
-        ntfLDS_MRZ_CountryCode_VisualMrz_NonMatching = 139289,
-
-        /// <summary>
-        /// Enum ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching for value: 2415919698
-        /// </summary>
-        ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching = 2415919698,
-
-        /// <summary>
-        /// Enum ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase for value: 2415919699
-        /// </summary>
-        ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase = 2415919699,
-
-        /// <summary>
-        /// Enum ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase for value: 2415919700
-        /// </summary>
-        ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase = 2415919700
+        ntfLDS_Auth_MLSignerInfo_Certificate_SignatureInvalid = 2449473817
     }
 
 }

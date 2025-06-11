@@ -33,574 +33,584 @@ namespace Regula.DocumentReader.WebClient.Model
     public enum RFIDErrorCodes: long
     {
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_FILE_EOF1 for value: 2147508866
+        /// Enum RFID_Error_NoError for value: 1
         /// </summary>
-        RFID_ERROR_LAYER6_FILE_EOF1 = 2147508866,
+        RFID_Error_NoError = 1,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_DEACTIVATED for value: 2147508867
+        /// Enum RFID_Error_AlreadyDone for value: 2
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_DEACTIVATED = 2147508867,
+        RFID_Error_AlreadyDone = 2,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_BLOCKED for value: 2147509184
+        /// Enum RFID_Error_Failed for value: 4294967295
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_BLOCKED = 2147509184,
+        RFID_Error_Failed = 4294967295,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_SUSPEND for value: 2147509185
+        /// Enum RFID_Error_NoChipDetected for value: 2147549185
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_SUSPEND = 2147509185,
+        RFID_Error_NoChipDetected = 2147549185,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_BLOCKED2 for value: 2147510659
+        /// Enum RFID_Error_NotAvailable for value: 2147549186
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_BLOCKED2 = 2147510659,
+        RFID_Error_NotAvailable = 2147549186,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_DEACTIVATED2 for value: 2147510660
+        /// Enum RFID_Error_InvalidParameter for value: 2147549188
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_DEACTIVATED2 = 2147510660,
+        RFID_Error_InvalidParameter = 2147549188,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_SUSPEND2 for value: 2147510661
+        /// Enum RFID_Error_NotInitialized for value: 2147549189
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_SUSPEND2 = 2147510661,
+        RFID_Error_NotInitialized = 2147549189,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_INCORRECT_PARAMS for value: 2147510912
+        /// Enum RFID_Error_NotEnoughMemory for value: 2147549190
         /// </summary>
-        RFID_ERROR_LAYER6_INCORRECT_PARAMS = 2147510912,
+        RFID_Error_NotEnoughMemory = 2147549190,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_FILE_NOT_FOUND for value: 2147510914
+        /// Enum RFID_Error_NotEnoughData for value: 2147549191
         /// </summary>
-        RFID_ERROR_LAYER6_FILE_NOT_FOUND = 2147510914,
+        RFID_Error_NotEnoughData = 2147549191,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_NO_REFERENCE_DATA for value: 2147510920
+        /// Enum RFID_Error_InvalidDirectory for value: 2147549192
         /// </summary>
-        RFID_ERROR_LAYER6_NO_REFERENCE_DATA = 2147510920,
+        RFID_Error_InvalidDirectory = 2147549192,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_FILE_EOF2 for value: 2147511040
+        /// Enum RFID_Error_UnknownCommand for value: 2147549193
         /// </summary>
-        RFID_ERROR_LAYER6_FILE_EOF2 = 2147511040,
+        RFID_Error_UnknownCommand = 2147549193,
 
         /// <summary>
-        /// Enum RFID_ERROR_NO_CHIP_DETECTED for value: 2147549185
+        /// Enum RFID_Error_FileIOError for value: 2147549194
         /// </summary>
-        RFID_ERROR_NO_CHIP_DETECTED = 2147549185,
+        RFID_Error_FileIOError = 2147549194,
 
         /// <summary>
-        /// Enum RFID_ERROR_NOT_AVAILABLE for value: 2147549186
+        /// Enum RFID_Error_Busy for value: 2147549195
         /// </summary>
-        RFID_ERROR_NOT_AVAILABLE = 2147549186,
+        RFID_Error_Busy = 2147549195,
 
         /// <summary>
-        /// Enum RFID_ERROR_INVALID_PARAMETER for value: 2147549188
+        /// Enum RFID_Error_OldFirmware for value: 2147549196
         /// </summary>
-        RFID_ERROR_INVALID_PARAMETER = 2147549188,
+        RFID_Error_OldFirmware = 2147549196,
 
         /// <summary>
-        /// Enum RFID_ERROR_NOT_INITIALIZED for value: 2147549189
+        /// Enum RFID_Error_PCSC_Failed for value: 2147614720
         /// </summary>
-        RFID_ERROR_NOT_INITIALIZED = 2147549189,
+        RFID_Error_PCSC_Failed = 2147614720,
 
         /// <summary>
-        /// Enum RFID_ERROR_NOT_ENOUGH_MEMORY for value: 2147549190
+        /// Enum RFID_Error_PCSC_ReaderNotAvailable for value: 2147614721
         /// </summary>
-        RFID_ERROR_NOT_ENOUGH_MEMORY = 2147549190,
+        RFID_Error_PCSC_ReaderNotAvailable = 2147614721,
 
         /// <summary>
-        /// Enum RFID_ERROR_INVALID_DIRECTORY for value: 2147549192
+        /// Enum RFID_Error_PCSC_CantConnectCard for value: 2147614722
         /// </summary>
-        RFID_ERROR_INVALID_DIRECTORY = 2147549192,
+        RFID_Error_PCSC_CantConnectCard = 2147614722,
 
         /// <summary>
-        /// Enum RFID_ERROR_UNKNOWN_COMMAND for value: 2147549193
+        /// Enum RFID_Error_PCSC_CardIsNotConnected for value: 2147614723
         /// </summary>
-        RFID_ERROR_UNKNOWN_COMMAND = 2147549193,
+        RFID_Error_PCSC_CardIsNotConnected = 2147614723,
 
         /// <summary>
-        /// Enum RFID_ERROR_FILE_IO_ERROR for value: 2147549194
+        /// Enum RFID_Error_PCSC_OperationCancelled for value: 2147614724
         /// </summary>
-        RFID_ERROR_FILE_IO_ERROR = 2147549194,
+        RFID_Error_PCSC_OperationCancelled = 2147614724,
 
         /// <summary>
-        /// Enum RFID_ERROR_BUSY for value: 2147549195
+        /// Enum RFID_Error_PCSC_CardIsBusy for value: 2147614725
         /// </summary>
-        RFID_ERROR_BUSY = 2147549195,
+        RFID_Error_PCSC_CardIsBusy = 2147614725,
 
         /// <summary>
-        /// Enum RFID_ERROR_OLD_FIRMWARE for value: 2147549196
+        /// Enum RFID_Error_PCSC_FailedSCard for value: 2147614726
         /// </summary>
-        RFID_ERROR_OLD_FIRMWARE = 2147549196,
+        RFID_Error_PCSC_FailedSCard = 2147614726,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_FAILED for value: 2147614720
+        /// Enum RFID_Error_PCSC_ExtLe_Failed for value: 2147614736
         /// </summary>
-        RFID_ERROR_PCSC_FAILED = 2147614720,
+        RFID_Error_PCSC_ExtLe_Failed = 2147614736,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_READER_NOT_AVAILABLE for value: 2147614721
+        /// Enum RFID_LAYER6_SECURITY_MANAGER for value: 2248146944
         /// </summary>
-        RFID_ERROR_PCSC_READER_NOT_AVAILABLE = 2147614721,
+        RFID_LAYER6_SECURITY_MANAGER = 2248146944,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_CANT_CONNECT_CARD for value: 2147614722
+        /// Enum RFID_LAYER6_APP_SELECTION_FAILURE for value: 2248146945
         /// </summary>
-        RFID_ERROR_PCSC_CANT_CONNECT_CARD = 2147614722,
+        RFID_LAYER6_APP_SELECTION_FAILURE = 2248146945,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_CARD_IS_NOT_CONNECTED for value: 2147614723
+        /// Enum RFID_LAYER6_MUTUAL_AUTH_MAC_FAIL for value: 2248147200
         /// </summary>
-        RFID_ERROR_PCSC_CARD_IS_NOT_CONNECTED = 2147614723,
+        RFID_LAYER6_MUTUAL_AUTH_MAC_FAIL = 2248147200,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_OPERATION_CANCELLED for value: 2147614724
+        /// Enum RFID_LAYER6_MUTUAL_AUTH_ENC_FAIL for value: 2248147201
         /// </summary>
-        RFID_ERROR_PCSC_OPERATION_CANCELLED = 2147614724,
+        RFID_LAYER6_MUTUAL_AUTH_ENC_FAIL = 2248147201,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_CARD_IS_BUSY for value: 2147614725
+        /// Enum RFID_LAYER6_MUTUAL_AUTH_FAILURE for value: 2248147202
         /// </summary>
-        RFID_ERROR_PCSC_CARD_IS_BUSY = 2147614725,
+        RFID_LAYER6_MUTUAL_AUTH_FAILURE = 2248147202,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_FAILED_SCARD for value: 2147614726
+        /// Enum RFID_LAYER6_MUTUAL_AUTH_FAILURE_DATA for value: 2248147203
         /// </summary>
-        RFID_ERROR_PCSC_FAILED_SCARD = 2147614726,
+        RFID_LAYER6_MUTUAL_AUTH_FAILURE_DATA = 2248147203,
 
         /// <summary>
-        /// Enum RFID_ERROR_PCSC_EXT_LE_FAILED for value: 2147614736
+        /// Enum RFID_LAYER6_SM_DO8E_MISSING for value: 2248147456
         /// </summary>
-        RFID_ERROR_PCSC_EXT_LE_FAILED = 2147614736,
+        RFID_LAYER6_SM_DO8E_MISSING = 2248147456,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PWD_FAILED for value: 2148557760
+        /// Enum RFID_LAYER6_SM_DO87_MISSING for value: 2248147457
         /// </summary>
-        RFID_ERROR_LAYER6_PWD_FAILED = 2148557760,
+        RFID_LAYER6_SM_DO87_MISSING = 2248147457,
 
         /// <summary>
-        /// Enum RFID_ERROR_NOT_PERFORMED for value: 2197815296
+        /// Enum RFID_LAYER6_SM_DO99_MISSING for value: 2248147458
         /// </summary>
-        RFID_ERROR_NOT_PERFORMED = 2197815296,
+        RFID_LAYER6_SM_DO99_MISSING = 2248147458,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_IS_CLOSED for value: 2197815297
+        /// Enum RFID_LAYER6_SM_MAC_INCORRECT for value: 2248147459
         /// </summary>
-        RFID_ERROR_SESSION_IS_CLOSED = 2197815297,
+        RFID_LAYER6_SM_MAC_INCORRECT = 2248147459,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_TERMINAL_UNSUPPORTED_OPERATION for value: 2197815298
+        /// Enum RFID_LAYER6_SM_DO87_INCORRECT for value: 2248147460
         /// </summary>
-        RFID_ERROR_SESSION_TERMINAL_UNSUPPORTED_OPERATION = 2197815298,
+        RFID_LAYER6_SM_DO87_INCORRECT = 2248147460,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_TERMINAL_TYPE_UNKNOWN for value: 2197815312
+        /// Enum RFID_LAYER6_NON_TLV_RESPONSE_DATA for value: 2248147712
         /// </summary>
-        RFID_ERROR_SESSION_TERMINAL_TYPE_UNKNOWN = 2197815312,
+        RFID_LAYER6_NON_TLV_RESPONSE_DATA = 2248147712,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_TERMINAL_TYPE_BAD_CERTIFICATE for value: 2197815313
+        /// Enum RFID_LAYER6_WRONG_RND_ICC_LENGTH for value: 2248147713
         /// </summary>
-        RFID_ERROR_SESSION_TERMINAL_TYPE_BAD_CERTIFICATE = 2197815313,
+        RFID_LAYER6_WRONG_RND_ICC_LENGTH = 2248147713,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_TERMINAL_TYPE_NOT_SET for value: 2197815314
+        /// Enum RFID_LAYER6_INT_AUTH_FAILURE for value: 2248147714
         /// </summary>
-        RFID_ERROR_SESSION_TERMINAL_TYPE_NOT_SET = 2197815314,
+        RFID_LAYER6_INT_AUTH_FAILURE = 2248147714,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_PROCEDURE_TYPE_UNKNOWN for value: 2197815315
+        /// Enum RFID_LAYER6_MSE_SET_KAT_FAILURE for value: 2248147715
         /// </summary>
-        RFID_ERROR_SESSION_PROCEDURE_TYPE_UNKNOWN = 2197815315,
+        RFID_LAYER6_MSE_SET_KAT_FAILURE = 2248147715,
 
         /// <summary>
-        /// Enum RFID_ERROR_Session_Procedure_Type_Unsupported for value: 2197815316
+        /// Enum RFID_LAYER6_MSE_SET_DST_FAILURE for value: 2248147716
         /// </summary>
-        RFID_ERROR_Session_Procedure_Type_Unsupported = 2197815316,
+        RFID_LAYER6_MSE_SET_DST_FAILURE = 2248147716,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_PROCEDURE_TYPE_NOT_SET for value: 2197815317
+        /// Enum RFID_LAYER6_PSO_CERTIFICATE_FAILURE for value: 2248147717
         /// </summary>
-        RFID_ERROR_SESSION_PROCEDURE_TYPE_NOT_SET = 2197815317,
+        RFID_LAYER6_PSO_CERTIFICATE_FAILURE = 2248147717,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_KEY_UNKNOWN_TYPE for value: 2197815318
+        /// Enum RFID_LAYER6_MSE_SET_AT_FAILURE for value: 2248147718
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_KEY_UNKNOWN_TYPE = 2197815318,
+        RFID_LAYER6_MSE_SET_AT_FAILURE = 2248147718,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_KEY_UNSUPPORTED_SM_TYPE for value: 2197815319
+        /// Enum RFID_LAYER6_GET_CHALLENGE_FAILURE for value: 2248147719
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_KEY_UNSUPPORTED_SM_TYPE = 2197815319,
+        RFID_LAYER6_GET_CHALLENGE_FAILURE = 2248147719,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_KEY_INCORRECT_SM_TYPE for value: 2197815320
+        /// Enum RFID_LAYER6_EXT_AUTH_FAILURE for value: 2248147720
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_KEY_INCORRECT_SM_TYPE = 2197815320,
+        RFID_LAYER6_EXT_AUTH_FAILURE = 2248147720,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_KEY_RESTRICTED for value: 2197815321
+        /// Enum RFID_LAYER6_GENERAL_AUTH_FAILURE for value: 2248147721
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_KEY_RESTRICTED = 2197815321,
+        RFID_LAYER6_GENERAL_AUTH_FAILURE = 2248147721,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_KEY_INCORRECT_DATA for value: 2197815322
+        /// Enum RFID_LAYER6_FILE_NOT_FOUND for value: 2147510914
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_KEY_INCORRECT_DATA = 2197815322,
+        RFID_LAYER6_FILE_NOT_FOUND = 2147510914,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_KEY_NOT_SET for value: 2197815323
+        /// Enum RFID_LAYER6_FILE_EOF1 for value: 2147508866
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_KEY_NOT_SET = 2197815323,
+        RFID_LAYER6_FILE_EOF1 = 2147508866,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_PWD_MANAGEMENT_NOT_AUTHORIZED for value: 2197815324
+        /// Enum RFID_LAYER6_FILE_EOF2 for value: 2147511040
         /// </summary>
-        RFID_ERROR_SESSION_PWD_MANAGEMENT_NOT_AUTHORIZED = 2197815324,
+        RFID_LAYER6_FILE_EOF2 = 2147511040,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_UNKNOWN_TYPE for value: 2197815328
+        /// Enum RFID_LAYER6_WRONG_LENGTH for value: 2147510016
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_UNKNOWN_TYPE = 2197815328,
+        RFID_LAYER6_WRONG_LENGTH = 2147510016,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_SM for value: 2197815329
+        /// Enum RFID_LAYER6_INCORRECT_PARAMS for value: 2147510912
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_SM = 2197815329,
+        RFID_LAYER6_INCORRECT_PARAMS = 2147510912,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_PACE for value: 2197815330
+        /// Enum RFID_LAYER6_NO_REFERENCE_DATA for value: 2147510920
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_PACE = 2197815330,
+        RFID_LAYER6_NO_REFERENCE_DATA = 2147510920,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_CA_KEYS for value: 2197815331
+        /// Enum RFID_LAYER6_PWD_SUSPENDED for value: 2147509185
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_CA_KEYS = 2197815331,
+        RFID_LAYER6_PWD_SUSPENDED = 2147509185,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_TA for value: 2197815332
+        /// Enum RFID_LAYER6_PWD_BLOCKED for value: 2147509184
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_TA = 2197815332,
+        RFID_LAYER6_PWD_BLOCKED = 2147509184,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_CA for value: 2197815333
+        /// Enum RFID_LAYER6_PWD_DEACTIVATED for value: 2147508867
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_REQUIRES_CA = 2197815333,
+        RFID_LAYER6_PWD_DEACTIVATED = 2147508867,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_INCORRECT_OPTION_CA for value: 2197815334
+        /// Enum RFID_LAYER6_PWD_BLOCKED_2 for value: 2147510659
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_INCORRECT_OPTION_CA = 2197815334,
+        RFID_LAYER6_PWD_BLOCKED_2 = 2147510659,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_CA_FAILED for value: 2197815335
+        /// Enum RFID_LAYER6_PWD_DEACTIVATED_2 for value: 2147510660
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_CA_FAILED = 2197815335,
+        RFID_LAYER6_PWD_DEACTIVATED_2 = 2147510660,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_TA_FAILED for value: 2197815336
+        /// Enum RFID_LAYER6_PWD_SUSPENDED_2 for value: 2147510661
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_TA_FAILED = 2197815336,
+        RFID_LAYER6_PWD_SUSPENDED_2 = 2147510661,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_AA_FAILED for value: 2197815337
+        /// Enum RFID_LAYER6_PWD_FAILED for value: 2148557760
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_AA_FAILED = 2197815337,
+        RFID_LAYER6_PWD_FAILED = 2148557760,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_ACCESS_CONTROL_RI_FAILED for value: 2197815338
+        /// Enum RFID_Error_NotPerformed for value: 2197815296
         /// </summary>
-        RFID_ERROR_SESSION_ACCESS_CONTROL_RI_FAILED = 2197815338,
+        RFID_Error_NotPerformed = 2197815296,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_PA_SIGNATURE_CHECK_FAILED for value: 2197815344
+        /// Enum RFID_Error_Session_IsClosed for value: 2197815297
         /// </summary>
-        RFID_ERROR_SESSION_PA_SIGNATURE_CHECK_FAILED = 2197815344,
+        RFID_Error_Session_IsClosed = 2197815297,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_PA_HASH_CHECK_FAILED for value: 2197815345
+        /// Enum RFID_Error_Session_Terminal_UnsupportedOperation for value: 2197815298
         /// </summary>
-        RFID_ERROR_SESSION_PA_HASH_CHECK_FAILED = 2197815345,
+        RFID_Error_Session_Terminal_UnsupportedOperation = 2197815298,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_INVALID_AUX_DATA_DATE_OF_EXPIRY for value: 2197815360
+        /// Enum RFID_Error_Session_TerminalType_Unknown for value: 2197815312
         /// </summary>
-        RFID_ERROR_SESSION_INVALID_AUX_DATA_DATE_OF_EXPIRY = 2197815360,
+        RFID_Error_Session_TerminalType_Unknown = 2197815312,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_INVALID_AUX_DATA_DATE_OF_BIRTH for value: 2197815361
+        /// Enum RFID_Error_Session_TerminalType_BadCertificate for value: 2197815313
         /// </summary>
-        RFID_ERROR_SESSION_INVALID_AUX_DATA_DATE_OF_BIRTH = 2197815361,
+        RFID_Error_Session_TerminalType_BadCertificate = 2197815313,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_INVALID_AUX_DATA_COMMUNITY_ID for value: 2197815362
+        /// Enum RFID_Error_Session_TerminalType_NotSet for value: 2197815314
         /// </summary>
-        RFID_ERROR_SESSION_INVALID_AUX_DATA_COMMUNITY_ID = 2197815362,
+        RFID_Error_Session_TerminalType_NotSet = 2197815314,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_E_SIGN_REQUIRES_APP_SELECTION for value: 2197815376
+        /// Enum RFID_Error_Session_ProcedureType_Unknown for value: 2197815315
         /// </summary>
-        RFID_ERROR_SESSION_E_SIGN_REQUIRES_APP_SELECTION = 2197815376,
+        RFID_Error_Session_ProcedureType_Unknown = 2197815315,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_E_SIGN_PIN_NOT_SET for value: 2197815377
+        /// Enum RFID_Error_Session_ProcedureType_Unsupported for value: 2197815316
         /// </summary>
-        RFID_ERROR_SESSION_E_SIGN_PIN_NOT_SET = 2197815377,
+        RFID_Error_Session_ProcedureType_Unsupported = 2197815316,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_E_SIGN_PIN_NOT_VERIFIED for value: 2197815378
+        /// Enum RFID_Error_Session_ProcedureType_NotSet for value: 2197815317
         /// </summary>
-        RFID_ERROR_SESSION_E_SIGN_PIN_NOT_VERIFIED = 2197815378,
+        RFID_Error_Session_ProcedureType_NotSet = 2197815317,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_INCORRECT_DATA for value: 2197815392
+        /// Enum RFID_Error_Session_AccessKey_UnknownType for value: 2197815318
         /// </summary>
-        RFID_ERROR_SESSION_INCORRECT_DATA = 2197815392,
+        RFID_Error_Session_AccessKey_UnknownType = 2197815318,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_NOT_ENOUGH_DATA for value: 2197880832
+        /// Enum RFID_Error_Session_AccessKey_UnsupportedSMType for value: 2197815319
         /// </summary>
-        RFID_ERROR_SESSION_FILE_NOT_ENOUGH_DATA = 2197880832,
+        RFID_Error_Session_AccessKey_UnsupportedSMType = 2197815319,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_INCORRECT_DATA for value: 2197946368
+        /// Enum RFID_Error_Session_AccessKey_IncorrectSMType for value: 2197815320
         /// </summary>
-        RFID_ERROR_SESSION_FILE_INCORRECT_DATA = 2197946368,
+        RFID_Error_Session_AccessKey_IncorrectSMType = 2197815320,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_UNEXPECTED_DATA for value: 2198011904
+        /// Enum RFID_Error_Session_AccessKey_Restricted for value: 2197815321
         /// </summary>
-        RFID_ERROR_SESSION_FILE_UNEXPECTED_DATA = 2198011904,
+        RFID_Error_Session_AccessKey_Restricted = 2197815321,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_CONTENTS_UNEXPECTED_DATA for value: 2198077440
+        /// Enum RFID_Error_Session_AccessKey_IncorrectData for value: 2197815322
         /// </summary>
-        RFID_ERROR_SESSION_FILE_CONTENTS_UNEXPECTED_DATA = 2198077440,
+        RFID_Error_Session_AccessKey_IncorrectData = 2197815322,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_WRONG_TAG for value: 2198142976
+        /// Enum RFID_Error_Session_AccessKey_NotSet for value: 2197815323
         /// </summary>
-        RFID_ERROR_SESSION_FILE_WRONG_TAG = 2198142976,
+        RFID_Error_Session_AccessKey_NotSet = 2197815323,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_CANT_USE_DATA for value: 2198208512
+        /// Enum RFID_Error_Session_PwdManagement_NotAuthorized for value: 2197815324
         /// </summary>
-        RFID_ERROR_SESSION_FILE_CANT_USE_DATA = 2198208512,
+        RFID_Error_Session_PwdManagement_NotAuthorized = 2197815324,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_CANT_READ_DATA for value: 2198274048
+        /// Enum RFID_Error_Session_AccessControl_UnknownType for value: 2197815328
         /// </summary>
-        RFID_ERROR_SESSION_FILE_CANT_READ_DATA = 2198274048,
+        RFID_Error_Session_AccessControl_UnknownType = 2197815328,
 
         /// <summary>
-        /// Enum RFID_ERROR_SESSION_FILE_ACCESS_DENIED for value: 2198339584
+        /// Enum RFID_Error_Session_AccessControl_RequiresSM for value: 2197815329
         /// </summary>
-        RFID_ERROR_SESSION_FILE_ACCESS_DENIED = 2198339584,
+        RFID_Error_Session_AccessControl_RequiresSM = 2197815329,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_NO_ERROR for value: 2214592512
+        /// Enum RFID_Error_Session_AccessControl_RequiresPACE for value: 2197815330
         /// </summary>
-        RFID_ERROR_LAYER34_NO_ERROR = 2214592512,
+        RFID_Error_Session_AccessControl_RequiresPACE = 2197815330,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_TIME_OUT for value: 2214658048
+        /// Enum RFID_Error_Session_AccessControl_RequiresCAKeys for value: 2197815331
         /// </summary>
-        RFID_ERROR_LAYER34_TIME_OUT = 2214658048,
+        RFID_Error_Session_AccessControl_RequiresCAKeys = 2197815331,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_COLLISION for value: 2214723584
+        /// Enum RFID_Error_Session_AccessControl_RequiresTA for value: 2197815332
         /// </summary>
-        RFID_ERROR_LAYER34_COLLISION = 2214723584,
+        RFID_Error_Session_AccessControl_RequiresTA = 2197815332,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_CRC for value: 2214789120
+        /// Enum RFID_Error_Session_AccessControl_RequiresCA for value: 2197815333
         /// </summary>
-        RFID_ERROR_LAYER34_CRC = 2214789120,
+        RFID_Error_Session_AccessControl_RequiresCA = 2197815333,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_DATA_INTEGRITY for value: 2214854656
+        /// Enum RFID_Error_Session_AccessControl_IncorrectOptionCA for value: 2197815334
         /// </summary>
-        RFID_ERROR_LAYER34_DATA_INTEGRITY = 2214854656,
+        RFID_Error_Session_AccessControl_IncorrectOptionCA = 2197815334,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_DATA_LENGTH for value: 2214920192
+        /// Enum RFID_Error_Session_AccessControl_CA_Failed for value: 2197815335
         /// </summary>
-        RFID_ERROR_LAYER34_DATA_LENGTH = 2214920192,
+        RFID_Error_Session_AccessControl_CA_Failed = 2197815335,
 
         /// <summary>
-        /// Enum RFID_ERROR_Layer34_RFU for value: 2214985728
+        /// Enum RFID_Error_Session_AccessControl_TA_Failed for value: 2197815336
         /// </summary>
-        RFID_ERROR_Layer34_RFU = 2214985728,
+        RFID_Error_Session_AccessControl_TA_Failed = 2197815336,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_COLLISION_TOO_MANY for value: 2215051264
+        /// Enum RFID_Error_Session_AccessControl_AA_Failed for value: 2197815337
         /// </summary>
-        RFID_ERROR_LAYER34_COLLISION_TOO_MANY = 2215051264,
+        RFID_Error_Session_AccessControl_AA_Failed = 2197815337,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_PROTOCOL_B for value: 2215116800
+        /// Enum RFID_Error_Session_AccessControl_RI_Failed for value: 2197815338
         /// </summary>
-        RFID_ERROR_LAYER34_PROTOCOL_B = 2215116800,
+        RFID_Error_Session_AccessControl_RI_Failed = 2197815338,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_DATA_CONTENTS for value: 2215182336
+        /// Enum RFID_Error_Session_PA_SignatureCheckFailed for value: 2197815344
         /// </summary>
-        RFID_ERROR_LAYER34_DATA_CONTENTS = 2215182336,
+        RFID_Error_Session_PA_SignatureCheckFailed = 2197815344,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_PROTOCOL for value: 2215247872
+        /// Enum RFID_Error_Session_PA_HashCheckFailed for value: 2197815345
         /// </summary>
-        RFID_ERROR_LAYER34_PROTOCOL = 2215247872,
+        RFID_Error_Session_PA_HashCheckFailed = 2197815345,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_GLOBAL_TIME_OUT for value: 2215313408
+        /// Enum RFID_Error_Session_InvalidAuxData_DateOfExpiry for value: 2197815360
         /// </summary>
-        RFID_ERROR_LAYER34_GLOBAL_TIME_OUT = 2215313408,
+        RFID_Error_Session_InvalidAuxData_DateOfExpiry = 2197815360,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_MIFARE_AUTH for value: 2215378944
+        /// Enum RFID_Error_Session_InvalidAuxData_DateOfBirth for value: 2197815361
         /// </summary>
-        RFID_ERROR_LAYER34_MIFARE_AUTH = 2215378944,
+        RFID_Error_Session_InvalidAuxData_DateOfBirth = 2197815361,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_SAM_ERROR for value: 2215444480
+        /// Enum RFID_Error_Session_InvalidAuxData_CommunityID for value: 2197815362
         /// </summary>
-        RFID_ERROR_LAYER34_SAM_ERROR = 2215444480,
+        RFID_Error_Session_InvalidAuxData_CommunityID = 2197815362,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_SAM_COLLISION for value: 2215510016
+        /// Enum RFID_Error_Session_eSign_RequiresAppSelection for value: 2197815376
         /// </summary>
-        RFID_ERROR_LAYER34_SAM_COLLISION = 2215510016,
+        RFID_Error_Session_eSign_RequiresAppSelection = 2197815376,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER34_SAM_ACKNOWLEDGE for value: 2215575552
+        /// Enum RFID_Error_Session_eSign_PIN_NotSet for value: 2197815377
         /// </summary>
-        RFID_ERROR_LAYER34_SAM_ACKNOWLEDGE = 2215575552,
+        RFID_Error_Session_eSign_PIN_NotSet = 2197815377,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_SECURITY_MANAGER for value: 2248146944
+        /// Enum RFID_Error_Session_eSign_PIN_NotVerified for value: 2197815378
         /// </summary>
-        RFID_ERROR_LAYER6_SECURITY_MANAGER = 2248146944,
+        RFID_Error_Session_eSign_PIN_NotVerified = 2197815378,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_APP_SELECTION_FAILURE for value: 2248146945
+        /// Enum RFID_Error_Session_IncorrectData for value: 2197815392
         /// </summary>
-        RFID_ERROR_LAYER6_APP_SELECTION_FAILURE = 2248146945,
+        RFID_Error_Session_IncorrectData = 2197815392,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MUTUAL_AUTH_MAC_FAIL for value: 2248147200
+        /// Enum RFID_Error_Session_File_NotEnoughData for value: 2197880832
         /// </summary>
-        RFID_ERROR_LAYER6_MUTUAL_AUTH_MAC_FAIL = 2248147200,
+        RFID_Error_Session_File_NotEnoughData = 2197880832,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MUTUAL_AUTH_ENC_FAIL for value: 2248147201
+        /// Enum RFID_Error_Session_File_IncorrectData for value: 2197946368
         /// </summary>
-        RFID_ERROR_LAYER6_MUTUAL_AUTH_ENC_FAIL = 2248147201,
+        RFID_Error_Session_File_IncorrectData = 2197946368,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MUTUAL_AUTH_FAILURE for value: 2248147202
+        /// Enum RFID_Error_Session_File_UnexpectedData for value: 2198011904
         /// </summary>
-        RFID_ERROR_LAYER6_MUTUAL_AUTH_FAILURE = 2248147202,
+        RFID_Error_Session_File_UnexpectedData = 2198011904,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MUTUAL_AUTH_FAILURE_DATA for value: 2248147203
+        /// Enum RFID_Error_Session_File_Contents_UnexpectedData for value: 2198077440
         /// </summary>
-        RFID_ERROR_LAYER6_MUTUAL_AUTH_FAILURE_DATA = 2248147203,
+        RFID_Error_Session_File_Contents_UnexpectedData = 2198077440,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_SM_DO_8E_MISSING for value: 2248147456
+        /// Enum RFID_Error_Session_File_WrongTag for value: 2198142976
         /// </summary>
-        RFID_ERROR_LAYER6_SM_DO_8E_MISSING = 2248147456,
+        RFID_Error_Session_File_WrongTag = 2198142976,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_SM_DO_87_MISSING for value: 2248147457
+        /// Enum RFID_Error_Session_File_CantUseData for value: 2198208512
         /// </summary>
-        RFID_ERROR_LAYER6_SM_DO_87_MISSING = 2248147457,
+        RFID_Error_Session_File_CantUseData = 2198208512,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_SM_DO_99_MISSING for value: 2248147458
+        /// Enum RFID_Error_Session_File_CantReadData for value: 2198274048
         /// </summary>
-        RFID_ERROR_LAYER6_SM_DO_99_MISSING = 2248147458,
+        RFID_Error_Session_File_CantReadData = 2198274048,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_SM_MAC_INCORRECT for value: 2248147459
+        /// Enum RFID_Error_Session_File_AccessDenied for value: 2198339584
         /// </summary>
-        RFID_ERROR_LAYER6_SM_MAC_INCORRECT = 2248147459,
+        RFID_Error_Session_File_AccessDenied = 2198339584,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_SM_DO_87_INCORRECT for value: 2248147460
+        /// Enum RFID_Error_Layer34_NoError for value: 2214592512
         /// </summary>
-        RFID_ERROR_LAYER6_SM_DO_87_INCORRECT = 2248147460,
+        RFID_Error_Layer34_NoError = 2214592512,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_NON_TLV_RESPONSE_DATA for value: 2248147712
+        /// Enum RFID_Error_Layer34_TimeOut for value: 2214658048
         /// </summary>
-        RFID_ERROR_LAYER6_NON_TLV_RESPONSE_DATA = 2248147712,
+        RFID_Error_Layer34_TimeOut = 2214658048,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_WRONG_RND_ICC_LENGTH for value: 2248147713
+        /// Enum RFID_Error_Layer34_Collision for value: 2214723584
         /// </summary>
-        RFID_ERROR_LAYER6_WRONG_RND_ICC_LENGTH = 2248147713,
+        RFID_Error_Layer34_Collision = 2214723584,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_INT_AUTH_FAILURE for value: 2248147714
+        /// Enum RFID_Error_Layer34_CRC for value: 2214789120
         /// </summary>
-        RFID_ERROR_LAYER6_INT_AUTH_FAILURE = 2248147714,
+        RFID_Error_Layer34_CRC = 2214789120,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MSE_SET_KAT_FAILURE for value: 2248147715
+        /// Enum RFID_Error_Layer34_DataIntegrity for value: 2214854656
         /// </summary>
-        RFID_ERROR_LAYER6_MSE_SET_KAT_FAILURE = 2248147715,
+        RFID_Error_Layer34_DataIntegrity = 2214854656,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MSE_SET_DST_FAILURE for value: 2248147716
+        /// Enum RFID_Error_Layer34_DataLength for value: 2214920192
         /// </summary>
-        RFID_ERROR_LAYER6_MSE_SET_DST_FAILURE = 2248147716,
+        RFID_Error_Layer34_DataLength = 2214920192,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_PSO_CERTIFICATE_FAILURE for value: 2248147717
+        /// Enum RFID_Error_Layer34_RFU for value: 2214985728
         /// </summary>
-        RFID_ERROR_LAYER6_PSO_CERTIFICATE_FAILURE = 2248147717,
+        RFID_Error_Layer34_RFU = 2214985728,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_MSE_SET_AT_FAILURE for value: 2248147718
+        /// Enum RFID_Error_Layer34_Collision_TooMany for value: 2215051264
         /// </summary>
-        RFID_ERROR_LAYER6_MSE_SET_AT_FAILURE = 2248147718,
+        RFID_Error_Layer34_Collision_TooMany = 2215051264,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_GET_CHALLENGE_FAILURE for value: 2248147719
+        /// Enum RFID_Error_Layer34_ProtocolB for value: 2215116800
         /// </summary>
-        RFID_ERROR_LAYER6_GET_CHALLENGE_FAILURE = 2248147719,
+        RFID_Error_Layer34_ProtocolB = 2215116800,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_EXT_AUTH_FAILURE for value: 2248147720
+        /// Enum RFID_Error_Layer34_DataContents for value: 2215182336
         /// </summary>
-        RFID_ERROR_LAYER6_EXT_AUTH_FAILURE = 2248147720,
+        RFID_Error_Layer34_DataContents = 2215182336,
 
         /// <summary>
-        /// Enum RFID_ERROR_LAYER6_GENERAL_AUTH_FAILURE for value: 2248147721
+        /// Enum RFID_Error_Layer34_Protocol for value: 2215247872
         /// </summary>
-        RFID_ERROR_LAYER6_GENERAL_AUTH_FAILURE = 2248147721,
+        RFID_Error_Layer34_Protocol = 2215247872,
 
         /// <summary>
-        /// Enum RFID_ERROR_FAILED for value: 4294967295
+        /// Enum RFID_Error_Layer34_GlobalTimeOut for value: 2215313408
         /// </summary>
-        RFID_ERROR_FAILED = 4294967295,
+        RFID_Error_Layer34_GlobalTimeOut = 2215313408,
 
         /// <summary>
-        /// Enum RFID_ERROR_NO_ERROR for value: 1
+        /// Enum RFID_Error_Layer34_MIFARE_Auth for value: 2215378944
         /// </summary>
-        RFID_ERROR_NO_ERROR = 1,
+        RFID_Error_Layer34_MIFARE_Auth = 2215378944,
 
         /// <summary>
-        /// Enum RFID_ERROR_ALREADY_DONE for value: 2
+        /// Enum RFID_Error_Layer34_SAM_Error for value: 2215444480
         /// </summary>
-        RFID_ERROR_ALREADY_DONE = 2
+        RFID_Error_Layer34_SAM_Error = 2215444480,
+
+        /// <summary>
+        /// Enum RFID_Error_Layer34_SAM_Collision for value: 2215510016
+        /// </summary>
+        RFID_Error_Layer34_SAM_Collision = 2215510016,
+
+        /// <summary>
+        /// Enum RFID_Error_Layer34_SAM_Acknowledge for value: 2215575552
+        /// </summary>
+        RFID_Error_Layer34_SAM_Acknowledge = 2215575552
     }
 
 }
