@@ -38,6 +38,16 @@ namespace Regula.DocumentReader.WebClient.Model
         OFF = 0,
 
         /// <summary>
+        /// Enum WHITE_TOP for value: 2
+        /// </summary>
+        WHITE_TOP = 2,
+
+        /// <summary>
+        /// Enum WHITE_SIDE for value: 4
+        /// </summary>
+        WHITE_SIDE = 4,
+
+        /// <summary>
         /// Enum WHITE for value: 6
         /// </summary>
         WHITE = 6,
@@ -53,9 +63,9 @@ namespace Regula.DocumentReader.WebClient.Model
         UV = 128,
 
         /// <summary>
-        /// Enum AXIAL_WHITE_FULL for value: 3072
+        /// Enum AXIAL_WHITE for value: 3072
         /// </summary>
-        AXIAL_WHITE_FULL = 3072
+        AXIAL_WHITE = 3072
     }
 
 }

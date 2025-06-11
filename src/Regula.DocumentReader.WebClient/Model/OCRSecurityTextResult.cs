@@ -45,6 +45,18 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "LightType", IsRequired = true, EmitDefaultValue = true)]
         public Light LightType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EtalonFieldType
+        /// </summary>
+        [DataMember(Name = "EtalonFieldType", IsRequired = true, EmitDefaultValue = true)]
+        public TextFieldType EtalonFieldType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EtalonLightType
+        /// </summary>
+        [DataMember(Name = "EtalonLightType", IsRequired = true, EmitDefaultValue = true)]
+        public Light EtalonLightType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OCRSecurityTextResult" /> class.
         /// </summary>
@@ -56,20 +68,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag (required).</param>
         /// <param name="lightType">lightType (required).</param>
         /// <param name="fieldRect">fieldRect (required).</param>
-        /// <param name="etalonResultType">etalonResultType (required).</param>
+        /// <param name="etalonResultType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="etalonFieldType">etalonFieldType (required).</param>
         /// <param name="etalonLightType">etalonLightType (required).</param>
         /// <param name="etalonFieldRect">etalonFieldRect (required).</param>
         /// <param name="securityTextResultOCR">securityTextResultOCR (required).</param>
         /// <param name="etalonResultOCR">etalonResultOCR (required).</param>
-        /// <param name="resultCode">resultCode.</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="type">type (required) (default to AuthenticityResultType.OCR_SECURITY_TEXT).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public OCRSecurityTextResult(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = default(int), int etalonFieldType = default(int), int etalonLightType = default(int), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int resultCode = default(int), int reserved1 = default(int), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.OCR_SECURITY_TEXT, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public OCRSecurityTextResult(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = 0, TextFieldType etalonFieldType = default(TextFieldType), Light etalonLightType = default(Light), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.OCR_SECURITY_TEXT, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;
@@ -100,7 +111,6 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("etalonResultOCR is a required property for OCRSecurityTextResult and cannot be null");
             }
             this.EtalonResultOCR = etalonResultOCR;
-            this.ResultCode = resultCode;
             this.Reserved1 = reserved1;
             this.Reserved2 = reserved2;
         }
@@ -112,22 +122,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public RectangleCoordinates FieldRect { get; set; }
 
         /// <summary>
-        /// Gets or Sets EtalonResultType
+        /// Same as Result type, but used for safe parsing of not-described values. See Result type.
         /// </summary>
+        /// <value>Same as Result type, but used for safe parsing of not-described values. See Result type.</value>
         [DataMember(Name = "EtalonResultType", IsRequired = true, EmitDefaultValue = true)]
         public int EtalonResultType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EtalonFieldType
-        /// </summary>
-        [DataMember(Name = "EtalonFieldType", IsRequired = true, EmitDefaultValue = true)]
-        public int EtalonFieldType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EtalonLightType
-        /// </summary>
-        [DataMember(Name = "EtalonLightType", IsRequired = true, EmitDefaultValue = true)]
-        public int EtalonLightType { get; set; }
 
         /// <summary>
         /// Gets or Sets EtalonFieldRect
@@ -146,12 +145,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "EtalonResultOCR", IsRequired = true, EmitDefaultValue = true)]
         public string EtalonResultOCR { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ResultCode
-        /// </summary>
-        [DataMember(Name = "ResultCode", EmitDefaultValue = false)]
-        public int? ResultCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved1
@@ -183,7 +176,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  EtalonFieldRect: ").Append(EtalonFieldRect).Append("\n");
             sb.Append("  SecurityTextResultOCR: ").Append(SecurityTextResultOCR).Append("\n");
             sb.Append("  EtalonResultOCR: ").Append(EtalonResultOCR).Append("\n");
-            sb.Append("  ResultCode: ").Append(ResultCode).Append("\n");
             sb.Append("  Reserved1: ").Append(Reserved1).Append("\n");
             sb.Append("  Reserved2: ").Append(Reserved2).Append("\n");
             sb.Append("}\n");

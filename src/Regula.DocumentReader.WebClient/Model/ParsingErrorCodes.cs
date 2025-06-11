@@ -183,6 +183,46 @@ namespace Regula.DocumentReader.WebClient.Model
         errLDS_ASN_SignerInfo_UnsignedAttrs_IncorrectData = 2147483687,
 
         /// <summary>
+        /// Enum errLDS_ASN_DTC_SignerInfo_IncorrectData for value: 2147483712
+        /// </summary>
+        errLDS_ASN_DTC_SignerInfo_IncorrectData = 2147483712,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_SignerInfo_Certificate_IncorrectData for value: 2147483713
+        /// </summary>
+        errLDS_ASN_DTC_SignerInfo_Certificate_IncorrectData = 2147483713,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_SignerInfo_DigestAlg_IncorrectData for value: 2147483714
+        /// </summary>
+        errLDS_ASN_DTC_SignerInfo_DigestAlg_IncorrectData = 2147483714,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_SignerInfo_SignedAttrs_IncorrectData for value: 2147483715
+        /// </summary>
+        errLDS_ASN_DTC_SignerInfo_SignedAttrs_IncorrectData = 2147483715,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_SignerInfo_SignAlg_IncorrectData for value: 2147483716
+        /// </summary>
+        errLDS_ASN_DTC_SignerInfo_SignAlg_IncorrectData = 2147483716,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_SignerInfo_Signature_IncorrectData for value: 2147483717
+        /// </summary>
+        errLDS_ASN_DTC_SignerInfo_Signature_IncorrectData = 2147483717,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_SecurityInfo_IncorrectData for value: 2147483718
+        /// </summary>
+        errLDS_ASN_DTC_SecurityInfo_IncorrectData = 2147483718,
+
+        /// <summary>
+        /// Enum errLDS_ASN_DTC_ContentInfo_IncorrectData for value: 2147483719
+        /// </summary>
+        errLDS_ASN_DTC_ContentInfo_IncorrectData = 2147483719,
+
+        /// <summary>
         /// Enum errLDS_ICAO_LDSObject_UnsupportedDigestAlgorithm for value: 2147483696
         /// </summary>
         errLDS_ICAO_LDSObject_UnsupportedDigestAlgorithm = 2147483696,

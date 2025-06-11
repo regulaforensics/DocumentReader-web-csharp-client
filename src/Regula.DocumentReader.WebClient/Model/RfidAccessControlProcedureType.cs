@@ -70,7 +70,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum CARD_INFO for value: 10
         /// </summary>
-        CARD_INFO = 10
+        CARD_INFO = 10,
+
+        /// <summary>
+        /// Enum DTC_INFO for value: 11
+        /// </summary>
+        DTC_INFO = 11
     }
 
 }

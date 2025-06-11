@@ -70,7 +70,27 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum BLS for value: 7
         /// </summary>
-        BLS = 7
+        BLS = 7,
+
+        /// <summary>
+        /// Enum LDS2 for value: 8
+        /// </summary>
+        LDS2 = 8,
+
+        /// <summary>
+        /// Enum BCS for value: 9
+        /// </summary>
+        BCS = 9,
+
+        /// <summary>
+        /// Enum BCS_NC for value: 10
+        /// </summary>
+        BCS_NC = 10,
+
+        /// <summary>
+        /// Enum DTCS for value: 11
+        /// </summary>
+        DTCS = 11
     }
 
 }

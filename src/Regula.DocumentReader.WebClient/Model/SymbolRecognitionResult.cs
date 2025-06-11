@@ -45,8 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listOfCandidates">Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability) (required).</param>
         /// <param name="baseLineBottom">baseLineBottom.</param>
         /// <param name="baseLineTop">baseLineTop.</param>
-        /// <param name="reserved">reserved.</param>
-        public SymbolRecognitionResult(RectangleCoordinates symbolRect = default(RectangleCoordinates), decimal candidatesCount = default(decimal), List<SymbolCandidate> listOfCandidates = default(List<SymbolCandidate>), int baseLineBottom = default(int), int baseLineTop = default(int), int reserved = default(int))
+        public SymbolRecognitionResult(RectangleCoordinates symbolRect = default(RectangleCoordinates), decimal candidatesCount = default(decimal), List<SymbolCandidate> listOfCandidates = default(List<SymbolCandidate>), int baseLineBottom = default(int), int baseLineTop = default(int))
         {
             this.CandidatesCount = candidatesCount;
             // to ensure "listOfCandidates" is required (not null)
@@ -58,7 +57,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.SymbolRect = symbolRect;
             this.BaseLineBottom = baseLineBottom;
             this.BaseLineTop = baseLineTop;
-            this.Reserved = reserved;
         }
 
         /// <summary>
@@ -94,12 +92,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public int? BaseLineTop { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reserved
-        /// </summary>
-        [DataMember(Name = "Reserved", EmitDefaultValue = false)]
-        public int? Reserved { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,7 +104,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ListOfCandidates: ").Append(ListOfCandidates).Append("\n");
             sb.Append("  BaseLineBottom: ").Append(BaseLineBottom).Append("\n");
             sb.Append("  BaseLineTop: ").Append(BaseLineTop).Append("\n");
-            sb.Append("  Reserved: ").Append(Reserved).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

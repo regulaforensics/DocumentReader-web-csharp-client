@@ -55,7 +55,22 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum RFBR_848 for value: 8
         /// </summary>
-        RFBR_848 = 8
+        RFBR_848 = 8,
+
+        /// <summary>
+        /// Enum RFBR_1695 for value: 16
+        /// </summary>
+        RFBR_1695 = 16,
+
+        /// <summary>
+        /// Enum RFBR_3390 for value: 32
+        /// </summary>
+        RFBR_3390 = 32,
+
+        /// <summary>
+        /// Enum RFBR_6780 for value: 64
+        /// </summary>
+        RFBR_6780 = 64
     }
 
 }

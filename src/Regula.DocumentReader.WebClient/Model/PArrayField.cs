@@ -34,6 +34,12 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
+        /// Gets or Sets BcTextFieldType
+        /// </summary>
+        [DataMember(Name = "bcTextFieldType", EmitDefaultValue = false)]
+        public TextFieldType? BcTextFieldType { get; set; }
+
+        /// <summary>
         /// Gets or Sets BcTypeDECODE
         /// </summary>
         [DataMember(Name = "bcType_DECODE", IsRequired = true, EmitDefaultValue = true)]
@@ -56,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bcTextFieldType">bcTextFieldType.</param>
         /// <param name="bcTypeDECODE">bcTypeDECODE (required).</param>
         /// <param name="bcTypeDETECT">bcTypeDETECT (required).</param>
-        public PArrayField(float bcAngleDETECT = default(float), int bcCodeResult = default(int), int bcCountModule = default(int), List<DataModule> bcDataModule = default(List<DataModule>), BcPDF417INFO bcPDF417INFO = default(BcPDF417INFO), BcROIDETECT bcROIDETECT = default(BcROIDETECT), int bcTextDecoderTypes = default(int), int bcTextFieldType = default(int), BarcodeType bcTypeDECODE = default(BarcodeType), int bcTypeDETECT = default(int))
+        public PArrayField(float bcAngleDETECT = default(float), int bcCodeResult = default(int), int bcCountModule = default(int), List<DataModule> bcDataModule = default(List<DataModule>), BcPDF417INFO bcPDF417INFO = default(BcPDF417INFO), BcROIDETECT bcROIDETECT = default(BcROIDETECT), int bcTextDecoderTypes = default(int), TextFieldType? bcTextFieldType = default(TextFieldType?), BarcodeType bcTypeDECODE = default(BarcodeType), int bcTypeDETECT = default(int))
         {
             this.BcAngleDETECT = bcAngleDETECT;
             this.BcCodeResult = bcCodeResult;
@@ -121,12 +127,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "bcTextDecoderTypes", EmitDefaultValue = false)]
         public int? BcTextDecoderTypes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BcTextFieldType
-        /// </summary>
-        [DataMember(Name = "bcTextFieldType", EmitDefaultValue = false)]
-        public int? BcTextFieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets BcTypeDETECT

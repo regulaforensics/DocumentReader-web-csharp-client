@@ -123,6 +123,31 @@ namespace Regula.DocumentReader.WebClient.Model
         SOD = 119,
 
         /// <summary>
+        /// Enum DG17 for value: 113
+        /// </summary>
+        DG17 = 113,
+
+        /// <summary>
+        /// Enum DG18 for value: 114
+        /// </summary>
+        DG18 = 114,
+
+        /// <summary>
+        /// Enum DG22 for value: 115
+        /// </summary>
+        DG22 = 115,
+
+        /// <summary>
+        /// Enum DG23 for value: 116
+        /// </summary>
+        DG23 = 116,
+
+        /// <summary>
+        /// Enum DG24 for value: 98
+        /// </summary>
+        DG24 = 98,
+
+        /// <summary>
         /// Enum EID_DG1 for value: 97
         /// </summary>
         EID_DG1 = 97,
@@ -238,9 +263,9 @@ namespace Regula.DocumentReader.WebClient.Model
         EDL_SOD = 119,
 
         /// <summary>
-        /// Enum EDL_CE for value: 119
+        /// Enum EDL_CE for value: 83
         /// </summary>
-        EDL_CE = 119,
+        EDL_CE = 83,
 
         /// <summary>
         /// Enum EDL_DG1 for value: 97

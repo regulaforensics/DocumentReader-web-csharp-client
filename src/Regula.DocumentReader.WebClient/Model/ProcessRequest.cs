@@ -52,8 +52,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
         /// <param name="dtc">Digital Travel Credential (DTC-VC) data in base64 format for processing.</param>
         /// <param name="imageUrls">URLs to the document images for processing..</param>
-        /// <param name="lcidFilter">The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default..</param>
-        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), string dtc = default(string), List<string> imageUrls = default(List<string>), List<LCID> lcidFilter = default(List<LCID>))
+        public ProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), string dtc = default(string), List<string> imageUrls = default(List<string>))
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)
@@ -72,7 +71,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.PassBackObject = passBackObject;
             this.Dtc = dtc;
             this.ImageUrls = imageUrls;
-            this.LcidFilter = lcidFilter;
         }
 
         /// <summary>
@@ -162,13 +160,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<string>? ImageUrls { get; set; }
 
         /// <summary>
-        /// The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.
-        /// </summary>
-        /// <value>The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.</value>
-        [DataMember(Name = "lcidFilter", EmitDefaultValue = false)]
-        public List<LCID>? LcidFilter { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -188,7 +179,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  PassBackObject: ").Append(PassBackObject).Append("\n");
             sb.Append("  Dtc: ").Append(Dtc).Append("\n");
             sb.Append("  ImageUrls: ").Append(ImageUrls).Append("\n");
-            sb.Append("  LcidFilter: ").Append(LcidFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
