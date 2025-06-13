@@ -53,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="wLCID">wLCID.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        public DocVisualExtendedField(RectangleCoordinates fieldRect = default(RectangleCoordinates), TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), string fieldMask = default(string), int validity = default(int), int inComparison = default(int), int wLCID = default(int), int reserved2 = default(int), int reserved3 = default(int)) : base(wFieldType, fieldName, stringsCount, stringsResult, bufLength, bufText, fieldMask, validity, inComparison, wLCID, reserved2, reserved3)
+        public DocVisualExtendedField(RectangleCoordinates fieldRect = default(RectangleCoordinates), TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), string fieldMask = default(string), int validity = default(int), int inComparison = default(int), LCID? wLCID = default(LCID?), int reserved2 = default(int), int reserved3 = default(int)) : base(wFieldType, fieldName, stringsCount, stringsResult, bufLength, bufText, fieldMask, validity, inComparison, wLCID, reserved2, reserved3)
         {
             // to ensure "fieldRect" is required (not null)
             if (fieldRect == null)

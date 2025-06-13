@@ -38,6 +38,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "wFieldType", IsRequired = true, EmitDefaultValue = true)]
         public TextFieldType WFieldType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets WLCID
+        /// </summary>
+        [DataMember(Name = "wLCID", EmitDefaultValue = false)]
+        public LCID? WLCID { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="VisualExtendedFieldItem" /> class.
         /// </summary>
@@ -58,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="wLCID">wLCID.</param>
         /// <param name="reserved2">reserved2.</param>
         /// <param name="reserved3">reserved3.</param>
-        public VisualExtendedFieldItem(TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), string fieldMask = default(string), int validity = default(int), int inComparison = default(int), int wLCID = default(int), int reserved2 = default(int), int reserved3 = default(int))
+        public VisualExtendedFieldItem(TextFieldType wFieldType = default(TextFieldType), string fieldName = default(string), decimal stringsCount = default(decimal), List<StringRecognitionResult> stringsResult = default(List<StringRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), string fieldMask = default(string), int validity = default(int), int inComparison = default(int), LCID? wLCID = default(LCID?), int reserved2 = default(int), int reserved3 = default(int))
         {
             this.WFieldType = wFieldType;
             // to ensure "fieldName" is required (not null)
@@ -141,12 +147,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "InComparison", EmitDefaultValue = false)]
         public int? InComparison { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WLCID
-        /// </summary>
-        [DataMember(Name = "wLCID", EmitDefaultValue = false)]
-        public int? WLCID { get; set; }
 
         /// <summary>
         /// Gets or Sets Reserved2

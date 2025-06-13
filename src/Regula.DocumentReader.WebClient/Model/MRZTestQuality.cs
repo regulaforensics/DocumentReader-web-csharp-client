@@ -32,6 +32,42 @@ namespace Regula.DocumentReader.WebClient.Model
     [DataContract(Name = "MRZTestQuality")]
     public partial class MRZTestQuality : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets CHECK_SUMS
+        /// </summary>
+        [DataMember(Name = "CHECK_SUMS", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult CHECK_SUMS { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CONTRAST_PRINT
+        /// </summary>
+        [DataMember(Name = "CONTRAST_PRINT", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult CONTRAST_PRINT { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PRINT_POSITION
+        /// </summary>
+        [DataMember(Name = "PRINT_POSITION", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult PRINT_POSITION { get; set; }
+
+        /// <summary>
+        /// Gets or Sets STAIN_MRZ
+        /// </summary>
+        [DataMember(Name = "STAIN_MRZ", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult STAIN_MRZ { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SYMBOLS_PARAM
+        /// </summary>
+        [DataMember(Name = "SYMBOLS_PARAM", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult SYMBOLS_PARAM { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TEXTUAL_FILLING
+        /// </summary>
+        [DataMember(Name = "TEXTUAL_FILLING", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult TEXTUAL_FILLING { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MRZTestQuality" /> class.
         /// </summary>
@@ -50,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="strCount">strCount (required).</param>
         /// <param name="strings">strings (required).</param>
         /// <param name="tEXTUALFILLING">tEXTUALFILLING (required).</param>
-        public MRZTestQuality(int cHECKSUMS = default(int), int cONTRASTPRINT = default(int), int dOCFORMAT = default(int), int mRZFORMAT = default(int), int pRINTPOSITION = default(int), int sTAINMRZ = default(int), int sYMBOLSPARAM = default(int), int strCount = default(int), List<StringItem> strings = default(List<StringItem>), int tEXTUALFILLING = default(int))
+        public MRZTestQuality(CheckResult cHECKSUMS = default(CheckResult), CheckResult cONTRASTPRINT = default(CheckResult), int dOCFORMAT = default(int), int mRZFORMAT = default(int), CheckResult pRINTPOSITION = default(CheckResult), CheckResult sTAINMRZ = default(CheckResult), CheckResult sYMBOLSPARAM = default(CheckResult), int strCount = default(int), List<StringItem> strings = default(List<StringItem>), CheckResult tEXTUALFILLING = default(CheckResult))
         {
             this.CHECK_SUMS = cHECKSUMS;
             this.CONTRAST_PRINT = cONTRASTPRINT;
@@ -70,18 +106,6 @@ namespace Regula.DocumentReader.WebClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets CHECK_SUMS
-        /// </summary>
-        [DataMember(Name = "CHECK_SUMS", IsRequired = true, EmitDefaultValue = true)]
-        public int CHECK_SUMS { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CONTRAST_PRINT
-        /// </summary>
-        [DataMember(Name = "CONTRAST_PRINT", IsRequired = true, EmitDefaultValue = true)]
-        public int CONTRAST_PRINT { get; set; }
-
-        /// <summary>
         /// Gets or Sets DOC_FORMAT
         /// </summary>
         [DataMember(Name = "DOC_FORMAT", IsRequired = true, EmitDefaultValue = true)]
@@ -94,24 +118,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public int MRZ_FORMAT { get; set; }
 
         /// <summary>
-        /// Gets or Sets PRINT_POSITION
-        /// </summary>
-        [DataMember(Name = "PRINT_POSITION", IsRequired = true, EmitDefaultValue = true)]
-        public int PRINT_POSITION { get; set; }
-
-        /// <summary>
-        /// Gets or Sets STAIN_MRZ
-        /// </summary>
-        [DataMember(Name = "STAIN_MRZ", IsRequired = true, EmitDefaultValue = true)]
-        public int STAIN_MRZ { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SYMBOLS_PARAM
-        /// </summary>
-        [DataMember(Name = "SYMBOLS_PARAM", IsRequired = true, EmitDefaultValue = true)]
-        public int SYMBOLS_PARAM { get; set; }
-
-        /// <summary>
         /// Gets or Sets StrCount
         /// </summary>
         [DataMember(Name = "StrCount", IsRequired = true, EmitDefaultValue = true)]
@@ -122,12 +128,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "Strings", IsRequired = true, EmitDefaultValue = true)]
         public List<StringItem> Strings { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TEXTUAL_FILLING
-        /// </summary>
-        [DataMember(Name = "TEXTUAL_FILLING", IsRequired = true, EmitDefaultValue = true)]
-        public int TEXTUAL_FILLING { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

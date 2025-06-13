@@ -134,7 +134,6 @@ src/Regula.DocumentReader.WebClient/Model/MRZTestQualityItem.cs
 src/Regula.DocumentReader.WebClient/Model/MRZTestQualityResult.cs
 src/Regula.DocumentReader.WebClient/Model/MeasureSystem.cs
 src/Regula.DocumentReader.WebClient/Model/MrzDetectModeEnum.cs
-src/Regula.DocumentReader.WebClient/Model/MrzPosition.cs
 src/Regula.DocumentReader.WebClient/Model/MrzPositionItem.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextItem.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs

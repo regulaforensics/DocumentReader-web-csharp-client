@@ -413,14 +413,14 @@ namespace Regula.DocumentReader.WebClient.Model
         DIR = 401,
 
         /// <summary>
-        /// Enum _E_SIGN_PK for value: 500
+        /// Enum E_SIGN_PK for value: 500
         /// </summary>
-        _E_SIGN_PK = 500,
+        E_SIGN_PK = 500,
 
         /// <summary>
-        /// Enum _E_SIGN_SIGNED_DATA for value: 501
+        /// Enum E_SIGN_SIGNED_DATA for value: 501
         /// </summary>
-        _E_SIGN_SIGNED_DATA = 501,
+        E_SIGN_SIGNED_DATA = 501,
 
         /// <summary>
         /// Enum CERTIFICATE for value: 600
