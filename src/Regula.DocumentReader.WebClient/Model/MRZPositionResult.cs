@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.MRZ_POSITION).</param>
-        public MRZPositionResult(MrzPosition mrzPosition = default(MrzPosition), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.MRZ_POSITION) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public MRZPositionResult(DocumentPosition mrzPosition = default(DocumentPosition), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.MRZ_POSITION) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "mrzPosition" is required (not null)
             if (mrzPosition == null)
@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets MrzPosition
         /// </summary>
         [DataMember(Name = "MrzPosition", IsRequired = true, EmitDefaultValue = true)]
-        public MrzPosition MrzPosition { get; set; }
+        public DocumentPosition MrzPosition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

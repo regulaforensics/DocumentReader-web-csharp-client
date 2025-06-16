@@ -32,6 +32,48 @@ namespace Regula.DocumentReader.WebClient.Model
     [DataContract(Name = "StringItem")]
     public partial class StringItem : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ALIGNMENT_SYMBOLS_IN_STRING
+        /// </summary>
+        [DataMember(Name = "ALIGNMENT_SYMBOLS_IN_STRING", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult ALIGNMENT_SYMBOLS_IN_STRING { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CHECK_SUMS
+        /// </summary>
+        [DataMember(Name = "CHECK_SUMS", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult CHECK_SUMS { get; set; }
+
+        /// <summary>
+        /// Gets or Sets STRINGS_DISTANCE
+        /// </summary>
+        [DataMember(Name = "STRINGS_DISTANCE", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult STRINGS_DISTANCE { get; set; }
+
+        /// <summary>
+        /// Gets or Sets STRINGS_INTERVAL
+        /// </summary>
+        [DataMember(Name = "STRINGS_INTERVAL", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult STRINGS_INTERVAL { get; set; }
+
+        /// <summary>
+        /// Gets or Sets STRING_FILLING
+        /// </summary>
+        [DataMember(Name = "STRING_FILLING", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult STRING_FILLING { get; set; }
+
+        /// <summary>
+        /// Gets or Sets STRINGS_POSITION
+        /// </summary>
+        [DataMember(Name = "STRINGS_POSITION", EmitDefaultValue = false)]
+        public CheckResult? STRINGS_POSITION { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SYMBOLS_PARAM
+        /// </summary>
+        [DataMember(Name = "SYMBOLS_PARAM", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult SYMBOLS_PARAM { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="StringItem" /> class.
         /// </summary>
@@ -48,7 +90,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sTRINGSDISTANCE">sTRINGSDISTANCE (required).</param>
         /// <param name="sTRINGSINTERVAL">sTRINGSINTERVAL (required).</param>
         /// <param name="sTRINGFILLING">sTRINGFILLING (required).</param>
-        /// <param name="sTRINGPOSITION">sTRINGPOSITION (required).</param>
+        /// <param name="sTRINGSPOSITION">sTRINGSPOSITION.</param>
         /// <param name="sYMBOLSPARAM">sYMBOLSPARAM (required).</param>
         /// <param name="sizeErrorALIGNMENT">sizeErrorALIGNMENT (required).</param>
         /// <param name="sizeErrorDISTANCE">sizeErrorDISTANCE (required).</param>
@@ -57,7 +99,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="stringBorders">stringBorders (required).</param>
         /// <param name="symbolsCount">symbolsCount (required).</param>
         /// <param name="symbolsEstimations">symbolsEstimations (required).</param>
-        public StringItem(int aLIGNMENTSYMBOLSINSTRING = default(int), int cHECKSUMS = default(int), ErrorCoordinates errorPOSITION = default(ErrorCoordinates), int fieldCount = default(int), List<FieldItem> fields = default(List<FieldItem>), int sTRINGSDISTANCE = default(int), int sTRINGSINTERVAL = default(int), int sTRINGFILLING = default(int), int sTRINGPOSITION = default(int), int sYMBOLSPARAM = default(int), decimal sizeErrorALIGNMENT = default(decimal), decimal sizeErrorDISTANCE = default(decimal), decimal sizeErrorINTERVAL = default(decimal), decimal stringAngle = default(decimal), RectangleCoordinates stringBorders = default(RectangleCoordinates), int symbolsCount = default(int), List<SymbolEstimationItem> symbolsEstimations = default(List<SymbolEstimationItem>))
+        public StringItem(CheckResult aLIGNMENTSYMBOLSINSTRING = default(CheckResult), CheckResult cHECKSUMS = default(CheckResult), ErrorCoordinates errorPOSITION = default(ErrorCoordinates), int fieldCount = default(int), List<FieldItem> fields = default(List<FieldItem>), CheckResult sTRINGSDISTANCE = default(CheckResult), CheckResult sTRINGSINTERVAL = default(CheckResult), CheckResult sTRINGFILLING = default(CheckResult), CheckResult? sTRINGSPOSITION = default(CheckResult?), CheckResult sYMBOLSPARAM = default(CheckResult), decimal sizeErrorALIGNMENT = default(decimal), decimal sizeErrorDISTANCE = default(decimal), decimal sizeErrorINTERVAL = default(decimal), decimal stringAngle = default(decimal), RectangleCoordinates stringBorders = default(RectangleCoordinates), int symbolsCount = default(int), List<SymbolEstimationItem> symbolsEstimations = default(List<SymbolEstimationItem>))
         {
             this.ALIGNMENT_SYMBOLS_IN_STRING = aLIGNMENTSYMBOLSINSTRING;
             this.CHECK_SUMS = cHECKSUMS;
@@ -77,7 +119,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.STRINGS_DISTANCE = sTRINGSDISTANCE;
             this.STRINGS_INTERVAL = sTRINGSINTERVAL;
             this.STRING_FILLING = sTRINGFILLING;
-            this.STRING_POSITION = sTRINGPOSITION;
             this.SYMBOLS_PARAM = sYMBOLSPARAM;
             this.SizeErrorALIGNMENT = sizeErrorALIGNMENT;
             this.SizeErrorDISTANCE = sizeErrorDISTANCE;
@@ -96,19 +137,8 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("symbolsEstimations is a required property for StringItem and cannot be null");
             }
             this.SymbolsEstimations = symbolsEstimations;
+            this.STRINGS_POSITION = sTRINGSPOSITION;
         }
-
-        /// <summary>
-        /// Gets or Sets ALIGNMENT_SYMBOLS_IN_STRING
-        /// </summary>
-        [DataMember(Name = "ALIGNMENT_SYMBOLS_IN_STRING", IsRequired = true, EmitDefaultValue = true)]
-        public int ALIGNMENT_SYMBOLS_IN_STRING { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CHECK_SUMS
-        /// </summary>
-        [DataMember(Name = "CHECK_SUMS", IsRequired = true, EmitDefaultValue = true)]
-        public int CHECK_SUMS { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorPOSITION
@@ -127,36 +157,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "Fields", IsRequired = true, EmitDefaultValue = true)]
         public List<FieldItem> Fields { get; set; }
-
-        /// <summary>
-        /// Gets or Sets STRINGS_DISTANCE
-        /// </summary>
-        [DataMember(Name = "STRINGS_DISTANCE", IsRequired = true, EmitDefaultValue = true)]
-        public int STRINGS_DISTANCE { get; set; }
-
-        /// <summary>
-        /// Gets or Sets STRINGS_INTERVAL
-        /// </summary>
-        [DataMember(Name = "STRINGS_INTERVAL", IsRequired = true, EmitDefaultValue = true)]
-        public int STRINGS_INTERVAL { get; set; }
-
-        /// <summary>
-        /// Gets or Sets STRING_FILLING
-        /// </summary>
-        [DataMember(Name = "STRING_FILLING", IsRequired = true, EmitDefaultValue = true)]
-        public int STRING_FILLING { get; set; }
-
-        /// <summary>
-        /// Gets or Sets STRING_POSITION
-        /// </summary>
-        [DataMember(Name = "STRING_POSITION", IsRequired = true, EmitDefaultValue = true)]
-        public int STRING_POSITION { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SYMBOLS_PARAM
-        /// </summary>
-        [DataMember(Name = "SYMBOLS_PARAM", IsRequired = true, EmitDefaultValue = true)]
-        public int SYMBOLS_PARAM { get; set; }
 
         /// <summary>
         /// Gets or Sets SizeErrorALIGNMENT
@@ -216,7 +216,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  STRINGS_DISTANCE: ").Append(STRINGS_DISTANCE).Append("\n");
             sb.Append("  STRINGS_INTERVAL: ").Append(STRINGS_INTERVAL).Append("\n");
             sb.Append("  STRING_FILLING: ").Append(STRING_FILLING).Append("\n");
-            sb.Append("  STRING_POSITION: ").Append(STRING_POSITION).Append("\n");
+            sb.Append("  STRINGS_POSITION: ").Append(STRINGS_POSITION).Append("\n");
             sb.Append("  SYMBOLS_PARAM: ").Append(SYMBOLS_PARAM).Append("\n");
             sb.Append("  SizeErrorALIGNMENT: ").Append(SizeErrorALIGNMENT).Append("\n");
             sb.Append("  SizeErrorDISTANCE: ").Append(SizeErrorDISTANCE).Append("\n");
