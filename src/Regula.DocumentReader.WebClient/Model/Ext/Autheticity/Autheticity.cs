@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
@@ -88,36 +86,36 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         }
 
 
-        private static AuthenticityCheckResult resultByType(this AuthenticityCheckList auth, int type)
+        private static AuthenticityCheckResult resultByType(this AuthenticityCheckList auth, AuthenticityResultType type)
         {
             return auth?.List.FirstOrDefault(t => t.Type == type);
         }
 
-        private static FiberChecks filberOrNull(this AuthenticityCheckList auth, int type)
+        private static FiberChecks filberOrNull(this AuthenticityCheckList auth, AuthenticityResultType type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
             return result != null ? new FiberChecks(result) : null;
         }
 
-        private static IdentChecks identOrNull(this AuthenticityCheckList auth, int type)
+        private static IdentChecks identOrNull(this AuthenticityCheckList auth, AuthenticityResultType type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
             return result != null ? new IdentChecks(result) : null;
         }
 
-        private static ImageIdentChecks imageIdentOrNull(this AuthenticityCheckList auth, int type)
+        private static ImageIdentChecks imageIdentOrNull(this AuthenticityCheckList auth, AuthenticityResultType type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
             return result != null ? new ImageIdentChecks(result) : null;
         }
 
-        private static OCRSecurityTextChecks ocrSecurityTextOrNull(this AuthenticityCheckList auth, int type)
+        private static OCRSecurityTextChecks ocrSecurityTextOrNull(this AuthenticityCheckList auth, AuthenticityResultType type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
             return result != null ? new OCRSecurityTextChecks(result) : null;
         }
 
-        private static SecurityFeatureChecks securityFeatureOrNull(this AuthenticityCheckList auth, int type)
+        private static SecurityFeatureChecks securityFeatureOrNull(this AuthenticityCheckList auth, AuthenticityResultType type)
         {
             AuthenticityCheckResult result = auth.resultByType(type);
             return result != null ? new SecurityFeatureChecks(result) : null;

@@ -4,7 +4,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
 {
     public static class ImagesExtensions
     {
-        public static ImagesField GetField(this Images imgs, int fieldType) 
+        public static ImagesField GetField(this Images imgs, GraphicFieldType fieldType) 
         {
             foreach (var field in imgs.FieldList) 
             {
@@ -14,7 +14,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return null;
         }
         
-        public static List<ImagesField> GetFields(this Images imgs, int fieldType) 
+        public static List<ImagesField> GetFields(this Images imgs, GraphicFieldType fieldType) 
         {
             var fields = new List<ImagesField>();
             

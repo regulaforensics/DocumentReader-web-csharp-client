@@ -1,5 +1,4 @@
 using System;
-using System.Transactions;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
 {

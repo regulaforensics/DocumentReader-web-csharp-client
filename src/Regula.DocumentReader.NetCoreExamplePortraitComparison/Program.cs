@@ -1,15 +1,14 @@
 ﻿using Regula.DocumentReader.WebClient.Api;
+using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
-using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
+using System.Text;
 
 namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 {
 	internal static class Program
 	{
 		private const string API_BASE_PATH = "API_BASE_PATH";
-		private const string TEST_LICENSE = "TEST_LICENSE";
-		private const string LICENSE_FILE_NAME = "regula.license";
 
 		public static void Main()
 		{
@@ -19,15 +18,9 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			// ************************************************************************************************
 			
 			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
-
-			var licenseFromEnv =
-				Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
-			var licenseFromFile = File.Exists(LICENSE_FILE_NAME)
-				? File.ReadAllBytes(LICENSE_FILE_NAME)
-				: null;
-
+   
 			var whitePage0 = File.ReadAllBytes("WHITE.jpg");
-
+   
 			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
 				// .WithResultTypeOutput(new List<int>
@@ -42,10 +35,15 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 				.WithAuthParam(new AuthParams(checkPhotoComparison: true))
 				.WithLog(false);
 			
-			
-			var api = licenseFromEnv != null
-				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
-				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
+			var configuration = new Configuration
+			{
+				BasePath = apiBaseUrl,
+				// DefaultHeaders = new Dictionary<string, string>
+				// {
+				// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" },
+				// }
+			};
+			var api = new DocumentReaderApi(configuration);
 			
 			var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
 			{
@@ -54,10 +52,6 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			request.ExtPortrait = Convert.ToBase64String(File.ReadAllBytes("portrait.png"));
 			
 			var response = api.Process(request);
-			// var authHeaders = new Dictionary<string, string>()
-			// {
-			// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" }
-			// };
 			var comparison = response.PortraitComparison();
    
             Console.WriteLine(response.Log());
@@ -68,11 +62,10 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
    
 			var docType = response.DocumentType();
-			var info = api.Ping();
-			// var info = api.Ping(headers: authHeaders);
+			var info = api.Health();
 			
 			Console.WriteLine("-----------------------------------------------------------------");
-			Console.WriteLine($"                API Version: {info.Version}");
+			Console.WriteLine($"                API Version: {info.VarVersion}");
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
 			Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");
@@ -84,7 +77,7 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
 				Console.WriteLine($"Source: {field.FieldName}, Value: {field.Value}");	
 			}
 			Console.WriteLine("-----------------------------------------------------------------");
-
+   
    
 			// images results     
 			var documentImage = response.Images().GetField(GraphicFieldType.DOCUMENT_FRONT).GetValue();
@@ -93,7 +86,6 @@ namespace Regula.DocumentReader.NetCoreExamplePortraitComparison
    
 			File.WriteAllBytes("document-image.jpg", documentImage);
 			File.WriteAllBytes("portrait.jpg", portraitFromVisual);
-			
 		}
 	}
 }

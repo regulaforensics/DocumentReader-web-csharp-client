@@ -1,9 +1,10 @@
 {
   "packageName": "Regula.DocumentReader.WebClient",
-  "typeMappings": {
-    "boolean": "bool?"
-  },
+  "library": "httpclient",
   "nullableReferenceTypes": true,
-  "optionalAssemblyInfo": true,
-  "isRestSharp_106_10_1_above" :true
+  "targetFramework": "net8.0",
+  "typeMappings" : {
+    "ContainerListListInner": "ResultItem",
+    "AuthenticityCheckResultListInner": "AuthenticityCheckResultItem"
+  }
 }

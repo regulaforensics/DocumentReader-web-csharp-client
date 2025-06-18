@@ -2,28 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using Regula.DocumentReader.WebClient.Api;
+using Regula.DocumentReader.WebClient.Client;
 using Regula.DocumentReader.WebClient.Model;
 using Regula.DocumentReader.WebClient.Model.Ext;
-using Regula.DocumentReader.WebClient.Model.Ext.Autheticity;
 
 namespace Regula.DocumentReader.NetCoreExample
 {
 	internal static class Program
 	{
 		private const string API_BASE_PATH = "API_BASE_PATH";
-		private const string TEST_LICENSE = "TEST_LICENSE";
-		private const string LICENSE_FILE_NAME = "regula.license";
 
-		public static void Main()
+		public static async Task Main()
 		{
 			var apiBaseUrl = Environment.GetEnvironmentVariable(API_BASE_PATH) ?? "https://api.regulaforensics.com";
-
-			var licenseFromEnv =
-				Environment.GetEnvironmentVariable(TEST_LICENSE); // optional, used here only for smoke test purposes
-			var licenseFromFile = File.Exists(LICENSE_FILE_NAME)
-				? File.ReadAllBytes(LICENSE_FILE_NAME)
-				: null;
 
 			var whitePage0 = File.ReadAllBytes("WHITE.jpg");
 			var irPage0 = File.ReadAllBytes("IR.jpg");
@@ -31,7 +24,7 @@ namespace Regula.DocumentReader.NetCoreExample
 
 			var requestParams = new RecognitionParams { AlreadyCropped = true }
 				.WithScenario(Scenario.FULL_PROCESS)
-				// .WithResultTypeOutput(new List<int>
+				// .WithResultTypeOutput(new List<Result>
 				// {
 				// 	// actual results
 				// 	Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
@@ -50,17 +43,18 @@ namespace Regula.DocumentReader.NetCoreExample
 				// new ProcessRequestImage(new ImageDataExt(irPage0), Light.IR),
 				// new ProcessRequestImage(new ImageDataExt(uvPage0), Light.UV)
 			});
-			var api = licenseFromEnv != null
-				? new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromEnv)
-				: new DocumentReaderApi(apiBaseUrl).WithLicense(licenseFromFile);
 
-			var response = api.Process(request);
+			var configuration = new Configuration
+			{
+				BasePath = apiBaseUrl,
+				// DefaultHeaders = new Dictionary<string, string>
+				// {
+				// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" },
+				// }
+			};
+			var api = new DocumentReaderApi(configuration);
 
-			// var authHeaders = new Dictionary<string, string>()
-			// {
-			// 	{ "Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes("USER:PASSWORD"))}" }
-			// };
-			// var response = api.Process(request, headers: authHeaders);
+			var response = await api.ProcessAsync(request);
 
             Console.WriteLine(response.Log());
 
@@ -69,11 +63,11 @@ namespace Regula.DocumentReader.NetCoreExample
 			var docOverallStatus = status.OverallStatus == CheckResult.OK ? "valid" : "not valid";
 			var docOpticalTextStatus = status.DetailsOptical.Text == CheckResult.OK ? "valid" : "not valid";
 
-			var docType = response.DocumentType(); var info = api.Ping();
-			// var info = api.Ping(headers: authHeaders);
+			var docType = response.DocumentType(); 
+			var info = api.Health();
 			
 			Console.WriteLine("-----------------------------------------------------------------");
-			Console.WriteLine($"                API Version: {info.Version}");
+			Console.WriteLine($"                API Version: {info.VarVersion}");
 			Console.WriteLine("-----------------------------------------------------------------");
 			Console.WriteLine($"           Document Overall Status: {docOverallStatus}");
 			Console.WriteLine($"      Document Optical Text Status: {docOpticalTextStatus}");

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext
@@ -9,7 +8,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             CustomParams = customParams;
             return this;
         }
-        public RecognitionParams WithResultTypeOutput(List<int> resultTypes) {
+        public RecognitionParams WithResultTypeOutput(List<Result> resultTypes) {
             ResultTypeOutput = resultTypes;
             return this;
         }
@@ -25,7 +24,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return this;
         }
 
-        public RecognitionParams WithScenario(string scenario)
+        public RecognitionParams WithScenario(Scenario scenario)
         {
             Scenario = scenario;
             return this;
@@ -37,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             return this;
         }
 
-        public RecognitionParams WithProcessAuth(int processAuth)
+        public RecognitionParams WithProcessAuth(long processAuth)
         {
             ProcessAuth = processAuth;
             return this;
