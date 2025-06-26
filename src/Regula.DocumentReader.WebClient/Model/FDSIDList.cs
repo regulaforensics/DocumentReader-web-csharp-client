@@ -53,13 +53,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="FDSIDList" /> class.
         /// </summary>
         /// <param name="iCAOCode">ICAO code of the issuing country (required).</param>
-        /// <param name="count">Number of elements in the List (required).</param>
-        /// <param name="list">Document identifiers in &#39;Information Reference Systems&#39; (required).</param>
+        /// <param name="count">Number of elements in the List.</param>
+        /// <param name="list">Document identifiers in &#39;Information Reference Systems&#39;.</param>
         /// <param name="dType">dType (required).</param>
         /// <param name="dFormat">dFormat (required).</param>
         /// <param name="dMRZ">Flag indicating the presence of MRZ on the document (required).</param>
         /// <param name="dDescription">Document description.</param>
-        /// <param name="dYear">Year of publication of the document (required).</param>
+        /// <param name="dYear">Year of publication of the document.</param>
         /// <param name="dCountryName">Issuing country name (required).</param>
         /// <param name="dStateCode">Issuing state code.</param>
         /// <param name="dStateName">Issuing state name.</param>
@@ -72,22 +72,9 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("iCAOCode is a required property for FDSIDList and cannot be null");
             }
             this.ICAOCode = iCAOCode;
-            this.Count = count;
-            // to ensure "list" is required (not null)
-            if (list == null)
-            {
-                throw new ArgumentNullException("list is a required property for FDSIDList and cannot be null");
-            }
-            this.List = list;
             this.DType = dType;
             this.DFormat = dFormat;
             this.DMRZ = dMRZ;
-            // to ensure "dYear" is required (not null)
-            if (dYear == null)
-            {
-                throw new ArgumentNullException("dYear is a required property for FDSIDList and cannot be null");
-            }
-            this.DYear = dYear;
             // to ensure "dCountryName" is required (not null)
             if (dCountryName == null)
             {
@@ -95,7 +82,10 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             this.DCountryName = dCountryName;
             this.IsDeprecated = isDeprecated;
+            this.Count = count;
+            this.List = list;
             this.DDescription = dDescription;
+            this.DYear = dYear;
             this.DStateCode = dStateCode;
             this.DStateName = dStateName;
         }
@@ -111,15 +101,15 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Number of elements in the List
         /// </summary>
         /// <value>Number of elements in the List</value>
-        [DataMember(Name = "Count", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Count { get; set; }
+        [DataMember(Name = "Count", EmitDefaultValue = false)]
+        public decimal? Count { get; set; }
 
         /// <summary>
         /// Document identifiers in &#39;Information Reference Systems&#39;
         /// </summary>
         /// <value>Document identifiers in &#39;Information Reference Systems&#39;</value>
-        [DataMember(Name = "List", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> List { get; set; }
+        [DataMember(Name = "List", EmitDefaultValue = false)]
+        public List<int>? List { get; set; }
 
         /// <summary>
         /// Flag indicating the presence of MRZ on the document
@@ -139,8 +129,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Year of publication of the document
         /// </summary>
         /// <value>Year of publication of the document</value>
-        [DataMember(Name = "dYear", IsRequired = true, EmitDefaultValue = true)]
-        public string DYear { get; set; }
+        [DataMember(Name = "dYear", EmitDefaultValue = false)]
+        public string? DYear { get; set; }
 
         /// <summary>
         /// Issuing country name
