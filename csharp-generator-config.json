@@ -2,7 +2,7 @@
   "packageName": "Regula.DocumentReader.WebClient",
   "library": "httpclient",
   "nullableReferenceTypes": true,
-  "targetFramework": "net8.0",
+  "targetFramework": "netstandard2.0",
   "typeMappings" : {
     "ContainerListListInner": "ResultItem",
     "AuthenticityCheckResultListInner": "AuthenticityCheckResultItem"
