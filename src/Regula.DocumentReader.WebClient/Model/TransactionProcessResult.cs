@@ -50,13 +50,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets OutData
         /// </summary>
-        [DataMember(Name = "OutData", EmitDefaultValue = false)]
+        [DataMember(Name = "outData", EmitDefaultValue = false)]
         public OutData? OutData { get; set; }
 
         /// <summary>
         /// Gets or Sets InData
         /// </summary>
-        [DataMember(Name = "InData", EmitDefaultValue = false)]
+        [DataMember(Name = "inData", EmitDefaultValue = false)]
         public InData? InData { get; set; }
 
         /// <summary>
