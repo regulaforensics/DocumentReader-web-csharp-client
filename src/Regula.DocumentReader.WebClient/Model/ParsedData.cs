@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ParsedData" /> class.
         /// </summary>
         /// <param name="parsingNotifications">parsingNotifications.</param>
-        public ParsedData(List<long> parsingNotifications = default(List<long>))
+        public ParsedData(List<ParsingNotificationCodes> parsingNotifications = default(List<ParsingNotificationCodes>))
         {
             this.ParsingNotifications = parsingNotifications;
         }
@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets ParsingNotifications
         /// </summary>
         [DataMember(Name = "ParsingNotifications", EmitDefaultValue = false)]
-        public List<long>? ParsingNotifications { get; set; }
+        public List<ParsingNotificationCodes>? ParsingNotifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
