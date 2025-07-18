@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sessionProcedure">sessionProcedure (required).</param>
         /// <param name="securityObjects">List of containers to store information about the detected document security objects (required).</param>
         /// <param name="status">status.</param>
-        public RfidSessionData(string virtualMode = default(string), string sDKVersion = default(string), string driverVersion = default(string), string firmwareVersion = default(string), List<RfidApplication> applications = default(List<RfidApplication>), List<RfidAccessControlInfo> accessControls = default(List<RfidAccessControlInfo>), RfidCardPropertiesExt cardProperties = default(RfidCardPropertiesExt), RFIDErrorCodes extLeSupport = default(RFIDErrorCodes), decimal processTime = default(decimal), List<Object> rootFiles = default(List<Object>), decimal totalBytesSent = default(decimal), decimal totalBytesReceived = default(decimal), RfidAccessKey sessionKey = default(RfidAccessKey), RfidTerminal sessionTerminal = default(RfidTerminal), RfidAuthenticationProcedureType sessionProcedure = default(RfidAuthenticationProcedureType), List<RfidSecurityObject> securityObjects = default(List<RfidSecurityObject>), CheckResult? status = default(CheckResult?))
+        public RfidSessionData(bool virtualMode = default(bool), string sDKVersion = default(string), string driverVersion = default(string), string firmwareVersion = default(string), List<RfidApplication> applications = default(List<RfidApplication>), List<RfidAccessControlInfo> accessControls = default(List<RfidAccessControlInfo>), RfidCardPropertiesExt cardProperties = default(RfidCardPropertiesExt), RFIDErrorCodes extLeSupport = default(RFIDErrorCodes), decimal processTime = default(decimal), List<Object> rootFiles = default(List<Object>), decimal totalBytesSent = default(decimal), decimal totalBytesReceived = default(decimal), RfidAccessKey sessionKey = default(RfidAccessKey), RfidTerminal sessionTerminal = default(RfidTerminal), RfidAuthenticationProcedureType sessionProcedure = default(RfidAuthenticationProcedureType), List<RfidSecurityObject> securityObjects = default(List<RfidSecurityObject>), CheckResult? status = default(CheckResult?))
         {
             // to ensure "applications" is required (not null)
             if (applications == null)
@@ -136,7 +136,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Sign of virtual session when working with loaded data from a previous communication session with the electronic document</value>
         [DataMember(Name = "VirtualMode", EmitDefaultValue = false)]
-        public string? VirtualMode { get; set; }
+        public bool? VirtualMode { get; set; }
 
         /// <summary>
         /// Text SDKVersion value in format A.B (e.g. 3.1)
