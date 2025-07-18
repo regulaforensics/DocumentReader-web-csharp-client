@@ -70,7 +70,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum BL for value: 7
         /// </summary>
-        BL = 7
+        BL = 7,
+
+        /// <summary>
+        /// Enum LDIF_TA for value: 8
+        /// </summary>
+        LDIF_TA = 8,
+
+        /// <summary>
+        /// Enum ML_TA for value: 9
+        /// </summary>
+        ML_TA = 9
     }
 
 }
