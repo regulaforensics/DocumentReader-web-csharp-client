@@ -8,7 +8,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
         {
             foreach (var field in imgs.FieldList) 
             {
-                if (field.FieldType == fieldType) return field;
+                if (field.FieldType == (int)fieldType) return field;
             }
             
             return null;
@@ -20,7 +20,7 @@ namespace Regula.DocumentReader.WebClient.Model.Ext
             
             foreach (var field in imgs.FieldList) 
             {
-                if (field.FieldType == fieldType)
+                if (field.FieldType == (int)fieldType)
                     fields.Add(field);
             }
             
