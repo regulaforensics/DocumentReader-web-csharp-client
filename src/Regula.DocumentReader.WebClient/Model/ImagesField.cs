@@ -32,6 +32,12 @@ namespace Regula.DocumentReader.WebClient.Model
     [DataContract(Name = "ImagesField")]
     public partial class ImagesField : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets FieldType
+        /// </summary>
+        [DataMember(Name = "fieldType", IsRequired = true, EmitDefaultValue = true)]
+        public GraphicFieldType FieldType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ImagesField" /> class.
         /// </summary>
@@ -41,10 +47,10 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ImagesField" /> class.
         /// </summary>
         /// <param name="fieldName">Human readable field name. Do not bind to this name - use GraphicFieldType instead. (required).</param>
-        /// <param name="fieldType">The value can be from GraphicFieldType or TextFieldType enum. (required).</param>
+        /// <param name="fieldType">fieldType (required).</param>
         /// <param name="valueList">valueList (required).</param>
         /// <param name="valueCount">Field value count.</param>
-        public ImagesField(string fieldName = default(string), int fieldType = default(int), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>), decimal valueCount = default(decimal))
+        public ImagesField(string fieldName = default(string), GraphicFieldType fieldType = default(GraphicFieldType), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>), decimal valueCount = default(decimal))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -68,13 +74,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <value>Human readable field name. Do not bind to this name - use GraphicFieldType instead.</value>
         [DataMember(Name = "fieldName", IsRequired = true, EmitDefaultValue = true)]
         public string FieldName { get; set; }
-
-        /// <summary>
-        /// The value can be from GraphicFieldType or TextFieldType enum.
-        /// </summary>
-        /// <value>The value can be from GraphicFieldType or TextFieldType enum.</value>
-        [DataMember(Name = "fieldType", IsRequired = true, EmitDefaultValue = true)]
-        public int FieldType { get; set; }
 
         /// <summary>
         /// Gets or Sets ValueList
