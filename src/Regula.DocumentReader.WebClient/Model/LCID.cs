@@ -293,9 +293,9 @@ namespace Regula.DocumentReader.WebClient.Model
         ESTONIAN = 1061,
 
         /// <summary>
-        /// Enum FAEROESE for value: 1080
+        /// Enum FAROESE for value: 1080
         /// </summary>
-        FAEROESE = 1080,
+        FAROESE = 1080,
 
         /// <summary>
         /// Enum FARSI for value: 1065

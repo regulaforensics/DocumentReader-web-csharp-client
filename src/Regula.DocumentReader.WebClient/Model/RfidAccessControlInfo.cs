@@ -55,9 +55,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="type">type (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="activeOptionIdx">Index of the active variant of the procedure.</param>
-        /// <param name="notifications">List of remarks arisen during the procedure. (required).</param>
+        /// <param name="notifications">List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
         /// <param name="accessControlOptions">List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document.</param>
-        public RfidAccessControlInfo(RfidAccessControlProcedureType type = default(RfidAccessControlProcedureType), RFIDErrorCodes status = default(RFIDErrorCodes), decimal activeOptionIdx = default(decimal), List<ParsingNotificationCodes> notifications = default(List<ParsingNotificationCodes>), List<Object> accessControlOptions = default(List<Object>))
+        public RfidAccessControlInfo(RfidAccessControlProcedureType type = default(RfidAccessControlProcedureType), RFIDErrorCodes status = default(RFIDErrorCodes), decimal activeOptionIdx = default(decimal), List<int> notifications = default(List<int>), List<Object> accessControlOptions = default(List<Object>))
         {
             this.Type = type;
             this.Status = status;
@@ -79,11 +79,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public decimal? ActiveOptionIdx { get; set; }
 
         /// <summary>
-        /// List of remarks arisen during the procedure.
+        /// List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.
         /// </summary>
-        /// <value>List of remarks arisen during the procedure.</value>
+        /// <value>List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.</value>
         [DataMember(Name = "Notifications", IsRequired = true, EmitDefaultValue = true)]
-        public List<ParsingNotificationCodes> Notifications { get; set; }
+        public List<int> Notifications { get; set; }
 
         /// <summary>
         /// List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document

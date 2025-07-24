@@ -3264,7 +3264,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum FT_NATIONALITY_CODE_ALPHA2 for value: 697
         /// </summary>
-        FT_NATIONALITY_CODE_ALPHA2 = 697
+        FT_NATIONALITY_CODE_ALPHA2 = 697,
+
+        /// <summary>
+        /// Enum FT_FIRST_ISSUE_DATE_CHECK_DIGIT for value: 698
+        /// </summary>
+        FT_FIRST_ISSUE_DATE_CHECK_DIGIT = 698,
+
+        /// <summary>
+        /// Enum FT_FIRST_ISSUE_DATE_CHECKSUM for value: 699
+        /// </summary>
+        FT_FIRST_ISSUE_DATE_CHECKSUM = 699
     }
 
 }

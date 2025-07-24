@@ -64,13 +64,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="readingStatus">readingStatus (required).</param>
         /// <param name="readingTime">Time of reading, milliseconds.</param>
         /// <param name="pAStatus">pAStatus.</param>
-        /// <param name="notifications">List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure..</param>
+        /// <param name="notifications">List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum..</param>
         /// <param name="docFieldsText">List of document text fields formed on the basis of the file contents.</param>
         /// <param name="docFieldsGraphics">List of document graphic fields formed on the basis of the file contents.</param>
         /// <param name="docFieldsOriginals">List of the original binary representation of graphic document fields formed on the basis of the file contents.</param>
         /// <param name="parsedData">parsedData.</param>
         /// <param name="securityObjectCertificates">securityObjectCertificates.</param>
-        public RfidDataFile(string fileID = default(string), RfidDataFileType type = default(RfidDataFileType), TrfFtBytes fileData = default(TrfFtBytes), RFIDErrorCodes readingStatus = default(RFIDErrorCodes), decimal readingTime = default(decimal), RFIDErrorCodes? pAStatus = default(RFIDErrorCodes?), List<ParsingNotificationCodes> notifications = default(List<ParsingNotificationCodes>), List<TextFieldType> docFieldsText = default(List<TextFieldType>), List<GraphicFieldType> docFieldsGraphics = default(List<GraphicFieldType>), List<GraphicFieldType> docFieldsOriginals = default(List<GraphicFieldType>), ParsedData parsedData = default(ParsedData), SecurityObjectCertificates securityObjectCertificates = default(SecurityObjectCertificates))
+        public RfidDataFile(string fileID = default(string), RfidDataFileType type = default(RfidDataFileType), TrfFtBytes fileData = default(TrfFtBytes), RFIDErrorCodes readingStatus = default(RFIDErrorCodes), decimal readingTime = default(decimal), RFIDErrorCodes? pAStatus = default(RFIDErrorCodes?), List<int> notifications = default(List<int>), List<TextFieldType> docFieldsText = default(List<TextFieldType>), List<GraphicFieldType> docFieldsGraphics = default(List<GraphicFieldType>), List<GraphicFieldType> docFieldsOriginals = default(List<GraphicFieldType>), ParsedData parsedData = default(ParsedData), SecurityObjectCertificates securityObjectCertificates = default(SecurityObjectCertificates))
         {
             this.Type = type;
             this.ReadingStatus = readingStatus;
@@ -107,11 +107,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public decimal? ReadingTime { get; set; }
 
         /// <summary>
-        /// List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.
+        /// List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.
         /// </summary>
-        /// <value>List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.</value>
+        /// <value>List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.</value>
         [DataMember(Name = "Notifications", EmitDefaultValue = false)]
-        public List<ParsingNotificationCodes>? Notifications { get; set; }
+        public List<int>? Notifications { get; set; }
 
         /// <summary>
         /// List of document text fields formed on the basis of the file contents

@@ -57,8 +57,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pAStatus">pAStatus (required).</param>
         /// <param name="certificateChain">Certificate chain, used for the digital signature verification. (required).</param>
         /// <param name="dataToHash">Binary data array used to calculate the hash value for digital signature verification. Base64 encoded. (required).</param>
-        /// <param name="notifications">notifications (required).</param>
-        public RfidSignerInfoEx(decimal varVersion = default(decimal), RfidDistinguishedName issuer = default(RfidDistinguishedName), TrfFtBytes serialNumber = default(TrfFtBytes), TrfFtBytes subjectKeyIdentifier = default(TrfFtBytes), string digestAlgorithm = default(string), List<RfidAttributeData> signedAttributes = default(List<RfidAttributeData>), string signatureAlgorithm = default(string), TrfFtBytes signature = default(TrfFtBytes), RFIDErrorCodes pAStatus = default(RFIDErrorCodes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string dataToHash = default(string), List<ParsingNotificationCodes> notifications = default(List<ParsingNotificationCodes>))
+        /// <param name="notifications">Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
+        public RfidSignerInfoEx(decimal varVersion = default(decimal), RfidDistinguishedName issuer = default(RfidDistinguishedName), TrfFtBytes serialNumber = default(TrfFtBytes), TrfFtBytes subjectKeyIdentifier = default(TrfFtBytes), string digestAlgorithm = default(string), List<RfidAttributeData> signedAttributes = default(List<RfidAttributeData>), string signatureAlgorithm = default(string), TrfFtBytes signature = default(TrfFtBytes), RFIDErrorCodes pAStatus = default(RFIDErrorCodes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string dataToHash = default(string), List<int> notifications = default(List<int>))
         {
             this.VarVersion = varVersion;
             // to ensure "issuer" is required (not null)
@@ -191,10 +191,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public string DataToHash { get; set; }
 
         /// <summary>
-        /// Gets or Sets Notifications
+        /// Can be ParsingErrorCodes or ParsingNotificationCodes enum.
         /// </summary>
+        /// <value>Can be ParsingErrorCodes or ParsingNotificationCodes enum.</value>
         [DataMember(Name = "Notifications", IsRequired = true, EmitDefaultValue = true)]
-        public List<ParsingNotificationCodes> Notifications { get; set; }
+        public List<int> Notifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

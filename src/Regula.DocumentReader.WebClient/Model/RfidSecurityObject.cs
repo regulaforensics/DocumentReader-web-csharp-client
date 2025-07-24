@@ -43,9 +43,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="varVersion">Security object version (required).</param>
         /// <param name="objectType">Identifier of the security object (required).</param>
         /// <param name="fileReference">Reference to the source file of the security object data (required).</param>
-        /// <param name="notifications">List of remarks arisen during the analysis of SO data structure. (required).</param>
+        /// <param name="notifications">List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
         /// <param name="signerInfos">List of containers to store information about digital signature objects contained in the SO (required).</param>
-        public RfidSecurityObject(decimal varVersion = default(decimal), string objectType = default(string), decimal fileReference = default(decimal), List<ParsingNotificationCodes> notifications = default(List<ParsingNotificationCodes>), List<RfidSignerInfoEx> signerInfos = default(List<RfidSignerInfoEx>))
+        public RfidSecurityObject(decimal varVersion = default(decimal), string objectType = default(string), decimal fileReference = default(decimal), List<int> notifications = default(List<int>), List<RfidSignerInfoEx> signerInfos = default(List<RfidSignerInfoEx>))
         {
             this.VarVersion = varVersion;
             // to ensure "objectType" is required (not null)
@@ -91,11 +91,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public decimal FileReference { get; set; }
 
         /// <summary>
-        /// List of remarks arisen during the analysis of SO data structure.
+        /// List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.
         /// </summary>
-        /// <value>List of remarks arisen during the analysis of SO data structure.</value>
+        /// <value>List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.</value>
         [DataMember(Name = "Notifications", IsRequired = true, EmitDefaultValue = true)]
-        public List<ParsingNotificationCodes> Notifications { get; set; }
+        public List<int> Notifications { get; set; }
 
         /// <summary>
         /// List of containers to store information about digital signature objects contained in the SO

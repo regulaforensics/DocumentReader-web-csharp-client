@@ -66,12 +66,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="subject">subject (required).</param>
         /// <param name="subjectPKAlgorithm">Certificate public key algorithm identifier (OID); String in the format S1 (S2), where S1 – algorithm name, S2 – identifier (OID string). (required).</param>
         /// <param name="extensions">List of the certificate extensions (required).</param>
-        /// <param name="notifications">List of remarks arisen during the analysis of the certificate data structure and its validity verification. (required).</param>
+        /// <param name="notifications">List of remarks arisen during the analysis of the certificate data structure and its validity verification. Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
         /// <param name="origin">origin (required).</param>
         /// <param name="type">type (required).</param>
         /// <param name="fileName">fileName (required).</param>
         /// <param name="pAStatus">pAStatus (required).</param>
-        public RfidCertificateEx(decimal varVersion = default(decimal), string serialNumber = default(string), string signatureAlgorithm = default(string), RfidDistinguishedName issuer = default(RfidDistinguishedName), RfidValidity validity = default(RfidValidity), RfidDistinguishedName subject = default(RfidDistinguishedName), string subjectPKAlgorithm = default(string), List<RfidPkiExtension> extensions = default(List<RfidPkiExtension>), List<ParsingNotificationCodes> notifications = default(List<ParsingNotificationCodes>), RfidCertificateOrigin origin = default(RfidCertificateOrigin), RfidCertificateType type = default(RfidCertificateType), TrfFtString fileName = default(TrfFtString), RFIDErrorCodes pAStatus = default(RFIDErrorCodes))
+        public RfidCertificateEx(decimal varVersion = default(decimal), string serialNumber = default(string), string signatureAlgorithm = default(string), RfidDistinguishedName issuer = default(RfidDistinguishedName), RfidValidity validity = default(RfidValidity), RfidDistinguishedName subject = default(RfidDistinguishedName), string subjectPKAlgorithm = default(string), List<RfidPkiExtension> extensions = default(List<RfidPkiExtension>), List<int> notifications = default(List<int>), RfidCertificateOrigin origin = default(RfidCertificateOrigin), RfidCertificateType type = default(RfidCertificateType), TrfFtString fileName = default(TrfFtString), RFIDErrorCodes pAStatus = default(RFIDErrorCodes))
         {
             this.VarVersion = varVersion;
             // to ensure "serialNumber" is required (not null)
@@ -187,11 +187,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<RfidPkiExtension> Extensions { get; set; }
 
         /// <summary>
-        /// List of remarks arisen during the analysis of the certificate data structure and its validity verification.
+        /// List of remarks arisen during the analysis of the certificate data structure and its validity verification. Can be ParsingErrorCodes or ParsingNotificationCodes enum.
         /// </summary>
-        /// <value>List of remarks arisen during the analysis of the certificate data structure and its validity verification.</value>
+        /// <value>List of remarks arisen during the analysis of the certificate data structure and its validity verification. Can be ParsingErrorCodes or ParsingNotificationCodes enum.</value>
         [DataMember(Name = "Notifications", IsRequired = true, EmitDefaultValue = true)]
-        public List<ParsingNotificationCodes> Notifications { get; set; }
+        public List<int> Notifications { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
