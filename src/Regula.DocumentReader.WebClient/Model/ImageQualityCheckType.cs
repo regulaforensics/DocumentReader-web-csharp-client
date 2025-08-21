@@ -68,6 +68,11 @@ namespace Regula.DocumentReader.WebClient.Model
         Portrait = 7,
 
         /// <summary>
+        /// Enum Handwritten for value: 8
+        /// </summary>
+        Handwritten = 8,
+
+        /// <summary>
         /// Enum Brightness for value: 9
         /// </summary>
         Brightness = 9,
