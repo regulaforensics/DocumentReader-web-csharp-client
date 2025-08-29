@@ -428,6 +428,11 @@ namespace Regula.DocumentReader.WebClient.Model
         TEXT_SHOULD_BE_BLACK = 133,
 
         /// <summary>
+        /// Enum TEXT_IS_ABSENT for value: 134
+        /// </summary>
+        TEXT_IS_ABSENT = 134,
+
+        /// <summary>
         /// Enum BARCODE_WAS_READ_WITH_ERRORS for value: 140
         /// </summary>
         BARCODE_WAS_READ_WITH_ERRORS = 140,
