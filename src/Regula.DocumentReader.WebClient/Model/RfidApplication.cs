@@ -34,12 +34,6 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
-        public RfidApplicationType Type { get; set; }
-
-        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "Status", IsRequired = true, EmitDefaultValue = true)]
@@ -59,7 +53,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="unicodeVersion">Unicode version for application (required).</param>
         /// <param name="dataHashAlgorithm">Algorithm for calculating hash values for files for the procedure of PA (required).</param>
         /// <param name="files">List of containers to store information about the read files of the application (required).</param>
-        public RfidApplication(RfidApplicationType type = default(RfidApplicationType), RFIDErrorCodes status = default(RFIDErrorCodes), string applicationID = default(string), string varVersion = default(string), string unicodeVersion = default(string), string dataHashAlgorithm = default(string), List<RfidDataFile> files = default(List<RfidDataFile>))
+        public RfidApplication(int type = default(int), RFIDErrorCodes status = default(RFIDErrorCodes), string applicationID = default(string), string varVersion = default(string), string unicodeVersion = default(string), string dataHashAlgorithm = default(string), List<RfidDataFile> files = default(List<RfidDataFile>))
         {
             this.Type = type;
             this.Status = status;
@@ -94,6 +88,12 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             this.Files = files;
         }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
+        public int Type { get; set; }
 
         /// <summary>
         /// Application identifier
