@@ -191,7 +191,6 @@ src/Regula.DocumentReader.WebClient/Model/RfidCertificateType.cs
 src/Regula.DocumentReader.WebClient/Model/RfidDG1.cs
 src/Regula.DocumentReader.WebClient/Model/RfidDataFile.cs
 src/Regula.DocumentReader.WebClient/Model/RfidDataFileType.cs
-src/Regula.DocumentReader.WebClient/Model/RfidDataGroupTypeTag.cs
 src/Regula.DocumentReader.WebClient/Model/RfidDistinguishedName.cs
 src/Regula.DocumentReader.WebClient/Model/RfidLocation.cs
 src/Regula.DocumentReader.WebClient/Model/RfidOrigin.cs

@@ -33,9 +33,9 @@ namespace Regula.DocumentReader.WebClient.Model
     public enum RfidApplicationType
     {
         /// <summary>
-        /// Enum UNSPECIFIED for value: 0
+        /// Enum ROOT_FILES for value: 0
         /// </summary>
-        UNSPECIFIED = 0,
+        ROOT_FILES = 0,
 
         /// <summary>
         /// Enum E_PASSPORT for value: 1
@@ -75,12 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum eDTC_PC for value: 8
         /// </summary>
-        eDTC_PC = 8,
-
-        /// <summary>
-        /// Enum ROOT_FILES for value: 0
-        /// </summary>
-        ROOT_FILES = 0
+        eDTC_PC = 8
     }
 
 }
