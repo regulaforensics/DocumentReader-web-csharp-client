@@ -27,39 +27,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// BarcodePositionItem
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "BarcodePositionItem")]
+    public partial class BarcodePositionItem : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="BarcodePositionItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
+        protected BarcodePositionItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="BarcodePositionItem" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="barcodePosition">barcodePosition (required).</param>
+        public BarcodePositionItem(DocumentPosition barcodePosition = default(DocumentPosition))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            // to ensure "barcodePosition" is required (not null)
+            if (barcodePosition == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
+                throw new ArgumentNullException("barcodePosition is a required property for BarcodePositionItem and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.BarcodePosition = barcodePosition;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets BarcodePosition
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@1c224bac</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "BarcodePosition", IsRequired = true, EmitDefaultValue = true)]
+        public DocumentPosition BarcodePosition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +64,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class BarcodePositionItem {\n");
+            sb.Append("  BarcodePosition: ").Append(BarcodePosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

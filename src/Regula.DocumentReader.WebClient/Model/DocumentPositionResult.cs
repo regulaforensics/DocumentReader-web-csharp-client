@@ -46,8 +46,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.BARCODE_POSITION).</param>
-        public DocumentPositionResult(DocumentPosition documentPosition = default(DocumentPosition), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.BARCODE_POSITION) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.DOCUMENT_POSITION).</param>
+        public DocumentPositionResult(DocumentPosition documentPosition = default(DocumentPosition), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.DOCUMENT_POSITION) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "documentPosition" is required (not null)
             if (documentPosition == null)
