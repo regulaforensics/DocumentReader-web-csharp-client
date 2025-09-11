@@ -34,12 +34,6 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
-        public RfidDataGroupTypeTag Type { get; set; }
-
-        /// <summary>
         /// Gets or Sets DocumentID
         /// </summary>
         [DataMember(Name = "DocumentID", IsRequired = true, EmitDefaultValue = true)]
@@ -68,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="optionalData">DO’s personal number or other additional data (required).</param>
         /// <param name="checkDigitOptionalData">Check digit of additional data (required).</param>
         /// <param name="checkDigitComposite">General check digit (required).</param>
-        public RfidDG1(RfidDataGroupTypeTag type = default(RfidDataGroupTypeTag), DocumentFormat documentID = default(DocumentFormat), string documentType = default(string), string state = default(string), string holder = default(string), string documentNumber = default(string), decimal checkDigitDocumentNumber = default(decimal), string nationality = default(string), string birthday = default(string), decimal checkDigitBirthday = default(decimal), string sex = default(string), string expiryDate = default(string), decimal checkDigitExpiryDate = default(decimal), string optionalData = default(string), decimal checkDigitOptionalData = default(decimal), decimal checkDigitComposite = default(decimal))
+        public RfidDG1(int type = default(int), DocumentFormat documentID = default(DocumentFormat), string documentType = default(string), string state = default(string), string holder = default(string), string documentNumber = default(string), decimal checkDigitDocumentNumber = default(decimal), string nationality = default(string), string birthday = default(string), decimal checkDigitBirthday = default(decimal), string sex = default(string), string expiryDate = default(string), decimal checkDigitExpiryDate = default(decimal), string optionalData = default(string), decimal checkDigitOptionalData = default(decimal), decimal checkDigitComposite = default(decimal))
         {
             this.Type = type;
             this.DocumentID = documentID;
@@ -132,6 +126,12 @@ namespace Regula.DocumentReader.WebClient.Model
             this.CheckDigitOptionalData = checkDigitOptionalData;
             this.CheckDigitComposite = checkDigitComposite;
         }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
+        public int Type { get; set; }
 
         /// <summary>
         /// Symbolic code of document type

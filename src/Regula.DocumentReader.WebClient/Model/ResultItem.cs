@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
     [JsonSubtypes.KnownSubType(typeof(LicenseResult), "50")]
     [JsonSubtypes.KnownSubType(typeof(GraphicsResult), "6")]
     [JsonSubtypes.KnownSubType(typeof(MRZPositionResult), "61")]
-    [JsonSubtypes.KnownSubType(typeof(DocumentPositionResult), "62")]
+    [JsonSubtypes.KnownSubType(typeof(BarcodePositionResult), "62")]
     [JsonSubtypes.KnownSubType(typeof(MRZTestQualityResult), "7")]
     [JsonSubtypes.KnownSubType(typeof(DocumentTypesCandidatesResult), "8")]
     [JsonSubtypes.KnownSubType(typeof(DocumentPositionResult), "85")]
