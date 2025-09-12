@@ -13,16 +13,23 @@ and use next command from the project root.
 
 ## Generator configuration Features
 
-1. The generator does not generate long enums, the problem 
-is solved by adding the edited template modelEnum.mustache.
-2. When generating oneOf schemas, the generator creates its 
+1. Two client generation modes have been added: 
+strict (for client testing) and lenient (for release). 
+In strict mode, the client will throw an exception if the 
+types do not match or the required fields are missing; 
+in lenient mode, error data will be output as a warning to 
+the console. The templates for generating these modes 
+are located in the generator-templates folder.
+2. The generator does not generate long enums, the problem 
+is solved by adding the edited template modelEnum.mustache (for both modes).
+3. When generating oneOf schemas, the generator creates its 
 own abstract class, which does not look like it would like. 
 The problem was solved by replacing the abstract generator 
 class with ours using typeMappings in the generator config.
-3. The generator sets the discriminator name incorrectly, the problem 
-is solved by adding and editing the modelGeneric.mustache template.
-4. Changes have also been made to modelsGeneric.mustache to exclude 
-unspecified fields from JSON when serializing a class.
+4. The generator sets the discriminator name incorrectly, the problem 
+is solved by adding and editing the modelGeneric.mustache template (for both modes).
+5. Changes have also been made to modelsGeneric.mustache to exclude 
+unspecified fields from JSON when serializing a class (for both modes).
 
 ## Problem solving 
 
