@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded data</value>
         /*
-        <example>[B@4333699a</example>
+        <example>[B@1a81e6d9</example>
         */
         [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
         public byte[] License { get; set; }

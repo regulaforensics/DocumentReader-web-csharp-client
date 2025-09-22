@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="stringsCount">Number of StringsResult array elements (required).</param>
         /// <param name="stringsResult">Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results. (required).</param>
         /// <param name="bufLength">Buf_Text text string length (required).</param>
-        /// <param name="bufText">Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39; (required).</param>
+        /// <param name="bufText">Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;.</param>
         /// <param name="fieldMask">fieldMask.</param>
         /// <param name="validity">validity.</param>
         /// <param name="inComparison">inComparison.</param>
