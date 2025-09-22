@@ -70,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="rootFiles">List of containers to store information about the read files of the root Master File (required).</param>
         /// <param name="totalBytesSent">Total number of bytes transmitted to the RFID-chip during the whole session (required).</param>
         /// <param name="totalBytesReceived">Total number of bytes received from the RFID-chip during the whole session (required).</param>
-        /// <param name="sessionKey">sessionKey (required).</param>
+        /// <param name="sessionKey">sessionKey.</param>
         /// <param name="sessionTerminal">sessionTerminal (required).</param>
         /// <param name="sessionProcedure">sessionProcedure (required).</param>
         /// <param name="securityObjects">List of containers to store information about the detected document security objects (required).</param>
@@ -105,12 +105,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.RootFiles = rootFiles;
             this.TotalBytesSent = totalBytesSent;
             this.TotalBytesReceived = totalBytesReceived;
-            // to ensure "sessionKey" is required (not null)
-            if (sessionKey == null)
-            {
-                throw new ArgumentNullException("sessionKey is a required property for RfidSessionData and cannot be null");
-            }
-            this.SessionKey = sessionKey;
             // to ensure "sessionTerminal" is required (not null)
             if (sessionTerminal == null)
             {
@@ -128,6 +122,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.SDKVersion = sDKVersion;
             this.DriverVersion = driverVersion;
             this.FirmwareVersion = firmwareVersion;
+            this.SessionKey = sessionKey;
             this.Status = status;
         }
 
@@ -210,8 +205,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Gets or Sets SessionKey
         /// </summary>
-        [DataMember(Name = "Session_key", IsRequired = true, EmitDefaultValue = true)]
-        public RfidAccessKey SessionKey { get; set; }
+        [DataMember(Name = "Session_key", EmitDefaultValue = false)]
+        public RfidAccessKey? SessionKey { get; set; }
 
         /// <summary>
         /// Gets or Sets SessionTerminal
