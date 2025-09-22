@@ -67,7 +67,19 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum EXTERNAL for value: EXTERNAL
         /// </summary>
         [EnumMember(Value = "EXTERNAL")]
-        EXTERNAL = 6
+        EXTERNAL = 6,
+
+        /// <summary>
+        /// Enum LIVE for value: LIVE
+        /// </summary>
+        [EnumMember(Value = "LIVE")]
+        LIVE = 7,
+
+        /// <summary>
+        /// Enum FINGERPRINT for value: FINGERPRINT
+        /// </summary>
+        [EnumMember(Value = "FINGERPRINT")]
+        FINGERPRINT = 8
     }
 
 }
