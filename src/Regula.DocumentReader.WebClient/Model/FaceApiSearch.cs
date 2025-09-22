@@ -38,7 +38,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="limit">The maximum number of results to be returned..</param>
         /// <param name="threshold">The similarity threshold..</param>
         /// <param name="groupIds"> The groups where to conduct the search..</param>
-        public FaceApiSearch(int limit = default(int), float threshold = default(float), List<int> groupIds = default(List<int>))
+        public FaceApiSearch(int limit = default(int), float threshold = default(float), List<string> groupIds = default(List<string>))
         {
             this.Limit = limit;
             this.Threshold = threshold;
@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value> The groups where to conduct the search.</value>
         [DataMember(Name = "group_ids", EmitDefaultValue = false)]
-        public List<int>? GroupIds { get; set; }
+        public List<string>? GroupIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
