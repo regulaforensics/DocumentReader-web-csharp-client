@@ -169,6 +169,18 @@ namespace Regula.DocumentReader.WebClient.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
+        /// with the <see cref="BarcodePositionResult" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of BarcodePositionResult.</param>
+        public ContainerListListInner(BarcodePositionResult actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
         /// with the <see cref="DocumentPositionResult" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of DocumentPositionResult.</param>
@@ -329,6 +341,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(BarcodePositionResult) || value is BarcodePositionResult)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(ByteArrayResult) || value is ByteArrayResult)
                 {
                     this._actualInstance = value;
@@ -419,7 +435,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult");
                 }
             }
         }
@@ -532,6 +548,16 @@ namespace Regula.DocumentReader.WebClient.Model
         public ImageQualityResult GetImageQualityResult()
         {
             return (ImageQualityResult)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `BarcodePositionResult`. If the actual instance is not `BarcodePositionResult`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of BarcodePositionResult</returns>
+        public BarcodePositionResult GetBarcodePositionResult()
+        {
+            return (BarcodePositionResult)this.ActualInstance;
         }
 
         /// <summary>
@@ -710,6 +736,26 @@ namespace Regula.DocumentReader.WebClient.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AuthenticityResult: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(BarcodePositionResult).GetProperty("AdditionalProperties") == null)
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<BarcodePositionResult>(jsonString, ContainerListListInner.SerializerSettings));
+                }
+                else
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<BarcodePositionResult>(jsonString, ContainerListListInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("BarcodePositionResult");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into BarcodePositionResult: {1}", jsonString, exception.ToString()));
             }
 
             try
