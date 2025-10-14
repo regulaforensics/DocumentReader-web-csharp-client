@@ -283,6 +283,16 @@ namespace Regula.DocumentReader.WebClient.Model
         FIELD_POS_CORRECTOR_INCORRECT_HEAD_POSITION = 86,
 
         /// <summary>
+        /// Enum FIELD_POS_CORRECTOR_AGE_CHECK_ERROR for value: 87
+        /// </summary>
+        FIELD_POS_CORRECTOR_AGE_CHECK_ERROR = 87,
+
+        /// <summary>
+        /// Enum FIELD_POS_CORRECTOR_SEX_CHECK_ERROR for value: 88
+        /// </summary>
+        FIELD_POS_CORRECTOR_SEX_CHECK_ERROR = 88,
+
+        /// <summary>
         /// Enum OVI_IR_INVISIBLE for value: 90
         /// </summary>
         OVI_IR_INVISIBLE = 90,
