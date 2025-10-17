@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded data</value>
         /*
-        <example>[B@18909ee8</example>
+        <example>[B@5083a7e</example>
         */
         [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
         public byte[] EncryptedRCL { get; set; }
