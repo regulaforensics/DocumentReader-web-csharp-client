@@ -89,6 +89,7 @@ src/Regula.DocumentReader.WebClient/Model/FiberResult.cs
 src/Regula.DocumentReader.WebClient/Model/FieldItem.cs
 src/Regula.DocumentReader.WebClient/Model/FileImage.cs
 src/Regula.DocumentReader.WebClient/Model/GetTransactionsByTagResponse.cs
+src/Regula.DocumentReader.WebClient/Model/GlaresCheckParams.cs
 src/Regula.DocumentReader.WebClient/Model/GraphData.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicField.cs
 src/Regula.DocumentReader.WebClient/Model/GraphicFieldType.cs
