@@ -27,39 +27,36 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// DatabaseDocumentList
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "DatabaseDocumentList")]
+    public partial class DatabaseDocumentList : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="DatabaseDocumentList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
+        protected DatabaseDocumentList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="DatabaseDocumentList" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="items">The list of documents stored in the database. (required).</param>
+        public DatabaseDocumentList(List<DatabaseDocument> items = default(List<DatabaseDocument>))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            // to ensure "items" is required (not null)
+            if (items == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
+                throw new ArgumentNullException("items is a required property for DatabaseDocumentList and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.Items = items;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// The list of documents stored in the database.
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@6df9aa4a</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        /// <value>The list of documents stored in the database.</value>
+        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        public List<DatabaseDocument> Items { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +65,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class DatabaseDocumentList {\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

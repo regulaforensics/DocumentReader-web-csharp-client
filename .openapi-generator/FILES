@@ -1,3 +1,4 @@
+src/Regula.DocumentReader.WebClient/Api/DefaultApi.cs
 src/Regula.DocumentReader.WebClient/Api/HealthcheckApi.cs
 src/Regula.DocumentReader.WebClient/Api/ProcessApi.cs
 src/Regula.DocumentReader.WebClient/Api/TransactionApi.cs
@@ -49,6 +50,8 @@ src/Regula.DocumentReader.WebClient/Model/ContainerListListInner.cs
 src/Regula.DocumentReader.WebClient/Model/Critical.cs
 src/Regula.DocumentReader.WebClient/Model/CrossSourceValueComparison.cs
 src/Regula.DocumentReader.WebClient/Model/DataModule.cs
+src/Regula.DocumentReader.WebClient/Model/DatabaseDocument.cs
+src/Regula.DocumentReader.WebClient/Model/DatabaseDocumentList.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsOptical.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsRFID.cs
 src/Regula.DocumentReader.WebClient/Model/DeviceInfo.cs
