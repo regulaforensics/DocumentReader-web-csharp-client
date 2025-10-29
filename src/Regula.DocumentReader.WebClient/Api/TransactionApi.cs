@@ -107,8 +107,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <returns>TransactionProcessResult</returns>
-        TransactionProcessResult ApiV2TransactionTransactionIdProcessPost(Guid transactionId, TransactionProcessRequest transactionProcessRequest);
+        TransactionProcessResult ApiV2TransactionTransactionIdProcessPost(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default);
 
         /// <summary>
         /// Reprocess
@@ -119,8 +120,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <returns>ApiResponse of TransactionProcessResult</returns>
-        ApiResponse<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostWithHttpInfo(Guid transactionId, TransactionProcessRequest transactionProcessRequest);
+        ApiResponse<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostWithHttpInfo(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default);
         /// <summary>
         /// Get Reprocess transaction result
         /// </summary>
@@ -253,9 +255,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionProcessResult</returns>
-        System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reprocess
@@ -266,9 +269,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionProcessResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Reprocess transaction result
         /// </summary>
@@ -963,10 +967,11 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <returns>TransactionProcessResult</returns>
-        public TransactionProcessResult ApiV2TransactionTransactionIdProcessPost(Guid transactionId, TransactionProcessRequest transactionProcessRequest)
+        public TransactionProcessResult ApiV2TransactionTransactionIdProcessPost(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default)
         {
-            Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> localVarResponse = ApiV2TransactionTransactionIdProcessPostWithHttpInfo(transactionId, transactionProcessRequest);
+            Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> localVarResponse = ApiV2TransactionTransactionIdProcessPostWithHttpInfo(transactionId, transactionProcessRequest, useCache);
             return localVarResponse.Data;
         }
 
@@ -976,8 +981,9 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <returns>ApiResponse of TransactionProcessResult</returns>
-        public Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostWithHttpInfo(Guid transactionId, TransactionProcessRequest transactionProcessRequest)
+        public Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostWithHttpInfo(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default)
         {
             // verify the required parameter 'transactionProcessRequest' is set
             if (transactionProcessRequest == null)
@@ -1001,6 +1007,10 @@ namespace Regula.DocumentReader.WebClient.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("transactionId", Regula.DocumentReader.WebClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
+            if (useCache != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Regula.DocumentReader.WebClient.Client.ClientUtils.ParameterToMultiMap("", "useCache", useCache));
+            }
             localVarRequestOptions.Data = transactionProcessRequest;
 
 
@@ -1022,11 +1032,12 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionProcessResult</returns>
-        public async System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<TransactionProcessResult> ApiV2TransactionTransactionIdProcessPostAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> localVarResponse = await ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(transactionId, transactionProcessRequest, cancellationToken).ConfigureAwait(false);
+            Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult> localVarResponse = await ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(transactionId, transactionProcessRequest, useCache, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1036,9 +1047,10 @@ namespace Regula.DocumentReader.WebClient.Api
         /// <exception cref="Regula.DocumentReader.WebClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Transaction id</param>
         /// <param name="transactionProcessRequest"></param>
+        /// <param name="useCache">Get processed values from storage in case transaction has already processed. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionProcessResult)</returns>
-        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Regula.DocumentReader.WebClient.Client.ApiResponse<TransactionProcessResult>> ApiV2TransactionTransactionIdProcessPostWithHttpInfoAsync(Guid transactionId, TransactionProcessRequest transactionProcessRequest, bool? useCache = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'transactionProcessRequest' is set
             if (transactionProcessRequest == null)
@@ -1064,6 +1076,10 @@ namespace Regula.DocumentReader.WebClient.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("transactionId", Regula.DocumentReader.WebClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
+            if (useCache != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Regula.DocumentReader.WebClient.Client.ClientUtils.ParameterToMultiMap("", "useCache", useCache));
+            }
             localVarRequestOptions.Data = transactionProcessRequest;
 
 
