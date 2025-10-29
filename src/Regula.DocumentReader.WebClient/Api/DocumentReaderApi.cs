@@ -12,17 +12,20 @@ namespace Regula.DocumentReader.WebClient.Api
     {
         private readonly HealthcheckApi _healthcheckApi;
         private readonly ProcessApi _processApi;
+        private readonly ResourcesApi _resourcesApi;
 
         public DocumentReaderApi(string basePath)
         {
             this._healthcheckApi = new HealthcheckApi(basePath);
             this._processApi = new ProcessApi(basePath);
+            this._resourcesApi = new ResourcesApi(basePath);
         }
         
         public DocumentReaderApi(Configuration configuration)
         {
             this._healthcheckApi = new HealthcheckApi(configuration);
             this._processApi = new ProcessApi(configuration);
+            this._resourcesApi = new ResourcesApi(configuration);
         }
 
         public IReadableConfiguration Configuration
@@ -32,6 +35,7 @@ namespace Regula.DocumentReader.WebClient.Api
             {
                 this._healthcheckApi.Configuration = value;
                 this._processApi.Configuration = value;
+                this._resourcesApi.Configuration = value;
             }
         }
 
@@ -73,6 +77,21 @@ namespace Regula.DocumentReader.WebClient.Api
             var response = await this._processApi.ApiProcessWithHttpInfoAsync(processRequest, xRequestID, cancellationToken);
 
             return new RecognitionResponse(response);
+        }
+
+        public DatabaseDocumentList Doclist()
+        {
+            return this._resourcesApi.Doclist();
+        }
+
+        public async Task<DatabaseDocumentList> DoclistAsync()
+        {
+            return await DoclistAsync(new CancellationToken());
+        }
+
+        public async Task<DatabaseDocumentList> DoclistAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await this._resourcesApi.DoclistAsync(cancellationToken);
         }
 
         public DeviceInfo Ping(string xRequestID)
