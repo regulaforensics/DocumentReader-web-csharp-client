@@ -27,39 +27,41 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// GlaresCheckParams
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "GlaresCheckParams")]
+    public partial class GlaresCheckParams : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="GlaresCheckParams" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
-        /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="imgMarginPart">Margin from the edges of the image. 0.35 &#x3D; 35%.</param>
+        /// <param name="maxGlaringPart">The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%.</param>
+        public GlaresCheckParams(float imgMarginPart = default(float), float maxGlaringPart = default(float))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
-            {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
-            }
-            this.EncryptedRCL = encryptedRCL;
+            this.ImgMarginPart = imgMarginPart;
+            this.MaxGlaringPart = maxGlaringPart;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Margin from the edges of the image. 0.35 &#x3D; 35%
         /// </summary>
-        /// <value>Base64 encoded data</value>
+        /// <value>Margin from the edges of the image. 0.35 &#x3D; 35%</value>
         /*
-        <example>[B@31f29086</example>
+        <example>0.35</example>
         */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "imgMarginPart", EmitDefaultValue = false)]
+        public float? ImgMarginPart { get; set; }
+
+        /// <summary>
+        /// The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%
+        /// </summary>
+        /// <value>The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%</value>
+        /*
+        <example>0.0</example>
+        */
+        [DataMember(Name = "maxGlaringPart", EmitDefaultValue = false)]
+        public float? MaxGlaringPart { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +70,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class GlaresCheckParams {\n");
+            sb.Append("  ImgMarginPart: ").Append(ImgMarginPart).Append("\n");
+            sb.Append("  MaxGlaringPart: ").Append(MaxGlaringPart).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

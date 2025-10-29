@@ -44,7 +44,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="moireCheck">This option enables screen capture (moire patterns) check while performing image quality validation..</param>
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
         /// <param name="expectedPass">This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process..</param>
-        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), int documentPositionIndent = default(int), List<InputImageQualityChecks> expectedPass = default(List<InputImageQualityChecks>))
+        /// <param name="glaresCheckParams">glaresCheckParams.</param>
+        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), int documentPositionIndent = default(int), List<InputImageQualityChecks> expectedPass = default(List<InputImageQualityChecks>), GlaresCheckParams glaresCheckParams = default(GlaresCheckParams))
         {
             this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;
@@ -55,6 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.MoireCheck = moireCheck;
             this.DocumentPositionIndent = documentPositionIndent;
             this.ExpectedPass = expectedPass;
+            this.GlaresCheckParams = glaresCheckParams;
         }
 
         /// <summary>
@@ -121,6 +123,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<InputImageQualityChecks>? ExpectedPass { get; set; }
 
         /// <summary>
+        /// Gets or Sets GlaresCheckParams
+        /// </summary>
+        [DataMember(Name = "glaresCheckParams", EmitDefaultValue = false)]
+        public GlaresCheckParams? GlaresCheckParams { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +145,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  MoireCheck: ").Append(MoireCheck).Append("\n");
             sb.Append("  DocumentPositionIndent: ").Append(DocumentPositionIndent).Append("\n");
             sb.Append("  ExpectedPass: ").Append(ExpectedPass).Append("\n");
+            sb.Append("  GlaresCheckParams: ").Append(GlaresCheckParams).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
