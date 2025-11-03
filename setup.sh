@@ -1,4 +1,4 @@
-dotnet build .src/Regula.DocumentReader.NetCoreExample -c Release
+dotnet build ./src/Regula.DocumentReader.NetCoreExample -c Release
 
 cd  ./src/Regula.DocumentReader.NetCoreExample || exit
 
