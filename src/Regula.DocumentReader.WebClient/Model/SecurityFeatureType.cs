@@ -305,7 +305,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum LIVENESS_GEOMETRY_CHECK for value: 55
         /// </summary>
-        LIVENESS_GEOMETRY_CHECK = 55
+        LIVENESS_GEOMETRY_CHECK = 55,
+
+        /// <summary>
+        /// Enum AGE_CHECK for value: 56
+        /// </summary>
+        AGE_CHECK = 56,
+
+        /// <summary>
+        /// Enum SEX_CHECK for value: 57
+        /// </summary>
+        SEX_CHECK = 57
     }
 
 }
