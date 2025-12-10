@@ -1,6 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 <PropertyGroup>
-  <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
   <TargetFramework>netstandard2.0</TargetFramework>
   <PackageId>Regula.DocumentReader.WebClient</PackageId>
   <Authors>Alexander Satsukevich</Authors>
