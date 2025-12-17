@@ -35,26 +35,16 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrfFtString" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TrfFtString() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TrfFtString" /> class.
-        /// </summary>
         /// <param name="type">type.</param>
         /// <param name="status">Result of logical analysis of compliance of the contents of the field with the requirements of the specification.</param>
         /// <param name="format">Mask of format of text information (for example, «YYMMDD» for date of birth).</param>
-        /// <param name="data">Numeric value. (required).</param>
+        /// <param name="data">Numeric value..</param>
         public TrfFtString(int type = default(int), int status = default(int), string format = default(string), string data = default(string))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for TrfFtString and cannot be null");
-            }
-            this.Data = data;
             this.Type = type;
             this.Status = status;
             this.Format = format;
+            this.Data = data;
         }
 
         /// <summary>
@@ -81,8 +71,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Numeric value.
         /// </summary>
         /// <value>Numeric value.</value>
-        [DataMember(Name = "Data", IsRequired = true, EmitDefaultValue = true)]
-        public string Data { get; set; }
+        [DataMember(Name = "Data", EmitDefaultValue = false)]
+        public string? Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
