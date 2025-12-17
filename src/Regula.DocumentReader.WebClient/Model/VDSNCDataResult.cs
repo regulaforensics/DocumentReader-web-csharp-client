@@ -28,44 +28,40 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Contains license
+    /// VDSNCDataResult
     /// </summary>
-    [DataContract(Name = "LicenseResult")]
-    public partial class LicenseResult : ResultItem, IValidatableObject
+    [DataContract(Name = "VDSNCDataResult")]
+    public partial class VDSNCDataResult : ResultItem, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="VDSNCDataResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LicenseResult() { }
+        protected VDSNCDataResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="VDSNCDataResult" /> class.
         /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
+        /// <param name="dftVDSNC">dftVDSNC (required).</param>
         /// <param name="bufLength">bufLength.</param>
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.LICENSE).</param>
-        public LicenseResult(byte[] license = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.LICENSE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.VDS_NC).</param>
+        public VDSNCDataResult(VDSNCData dftVDSNC = default(VDSNCData), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.VDS_NC) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
+            // to ensure "dftVDSNC" is required (not null)
+            if (dftVDSNC == null)
             {
-                throw new ArgumentNullException("license is a required property for LicenseResult and cannot be null");
+                throw new ArgumentNullException("dftVDSNC is a required property for VDSNCDataResult and cannot be null");
             }
-            this.License = license;
+            this.DftVDSNC = dftVDSNC;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets DftVDSNC
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@5713fdbb</example>
-        */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        [DataMember(Name = "dftVDS_NC", IsRequired = true, EmitDefaultValue = true)]
+        public VDSNCData DftVDSNC { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +70,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseResult {\n");
+            sb.Append("class VDSNCDataResult {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("  DftVDSNC: ").Append(DftVDSNC).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
