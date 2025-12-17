@@ -20,7 +20,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = Regula.DocumentReader.WebClient.Client.FileParameter;
 using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
@@ -28,44 +27,41 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Contains license
+    /// Message
     /// </summary>
-    [DataContract(Name = "LicenseResult")]
-    public partial class LicenseResult : ResultItem, IValidatableObject
+    [DataContract(Name = "Message")]
+    public partial class Message : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="Message" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LicenseResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
-        /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
-        /// <param name="bufLength">bufLength.</param>
-        /// <param name="light">light.</param>
-        /// <param name="listIdx">listIdx.</param>
-        /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.LICENSE).</param>
-        public LicenseResult(byte[] license = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.LICENSE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="pid">pid.</param>
+        /// <param name="uvci">uvci.</param>
+        /// <param name="ve">ve.</param>
+        public Message(PID pid = default(PID), string uvci = default(string), List<VEItem> ve = default(List<VEItem>))
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
-            {
-                throw new ArgumentNullException("license is a required property for LicenseResult and cannot be null");
-            }
-            this.License = license;
+            this.Pid = pid;
+            this.Uvci = uvci;
+            this.Ve = ve;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets Pid
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@5713fdbb</example>
-        */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        [DataMember(Name = "pid", EmitDefaultValue = false)]
+        public PID? Pid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Uvci
+        /// </summary>
+        [DataMember(Name = "uvci", EmitDefaultValue = false)]
+        public string? Uvci { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Ve
+        /// </summary>
+        [DataMember(Name = "ve", EmitDefaultValue = false)]
+        public List<VEItem>? Ve { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +70,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("class Message {\n");
+            sb.Append("  Pid: ").Append(Pid).Append("\n");
+            sb.Append("  Uvci: ").Append(Uvci).Append("\n");
+            sb.Append("  Ve: ").Append(Ve).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,7 +82,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -97,20 +94,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in base.BaseValidate(validationContext))
-            {
-                yield return x;
-            }
             yield break;
         }
     }
