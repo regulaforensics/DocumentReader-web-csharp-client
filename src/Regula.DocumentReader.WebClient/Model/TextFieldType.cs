@@ -3274,7 +3274,22 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum FT_FIRST_ISSUE_DATE_CHECKSUM for value: 699
         /// </summary>
-        FT_FIRST_ISSUE_DATE_CHECKSUM = 699
+        FT_FIRST_ISSUE_DATE_CHECKSUM = 699,
+
+        /// <summary>
+        /// Enum FT_COMMERCIAL_INDICATOR for value: 701
+        /// </summary>
+        FT_COMMERCIAL_INDICATOR = 701,
+
+        /// <summary>
+        /// Enum FT_NON_DOMICILED_INDICATOR for value: 702
+        /// </summary>
+        FT_NON_DOMICILED_INDICATOR = 702,
+
+        /// <summary>
+        /// Enum FT_JURISDICTION_SPECIFIC_DATA for value: 703
+        /// </summary>
+        FT_JURISDICTION_SPECIFIC_DATA = 703
     }
 
 }

@@ -52,6 +52,7 @@ src/Regula.DocumentReader.WebClient/Model/CrossSourceValueComparison.cs
 src/Regula.DocumentReader.WebClient/Model/DataModule.cs
 src/Regula.DocumentReader.WebClient/Model/DatabaseDocument.cs
 src/Regula.DocumentReader.WebClient/Model/DatabaseDocumentList.cs
+src/Regula.DocumentReader.WebClient/Model/DetailsAge.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsOptical.cs
 src/Regula.DocumentReader.WebClient/Model/DetailsRFID.cs
 src/Regula.DocumentReader.WebClient/Model/DeviceInfo.cs
@@ -131,6 +132,9 @@ src/Regula.DocumentReader.WebClient/Model/ListVerifiedFields.cs
 src/Regula.DocumentReader.WebClient/Model/ListVerifiedFieldsItem.cs
 src/Regula.DocumentReader.WebClient/Model/LivenessParams.cs
 src/Regula.DocumentReader.WebClient/Model/LogLevel.cs
+src/Regula.DocumentReader.WebClient/Model/MDLDeviceEngagement.cs
+src/Regula.DocumentReader.WebClient/Model/MDLDeviceRetrieval.cs
+src/Regula.DocumentReader.WebClient/Model/MDLServerRetrieval.cs
 src/Regula.DocumentReader.WebClient/Model/MRZDetectorResult.cs
 src/Regula.DocumentReader.WebClient/Model/MRZFormat.cs
 src/Regula.DocumentReader.WebClient/Model/MRZPositionResult.cs

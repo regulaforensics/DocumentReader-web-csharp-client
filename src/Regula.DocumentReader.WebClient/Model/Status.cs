@@ -62,6 +62,18 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         [DataMember(Name = "stopList", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult StopList { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Age
+        /// </summary>
+        [DataMember(Name = "age", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult Age { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MDL
+        /// </summary>
+        [DataMember(Name = "mDL", IsRequired = true, EmitDefaultValue = true)]
+        public CheckResult MDL { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Status" /> class.
         /// </summary>
@@ -77,7 +89,10 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="stopList">stopList (required).</param>
         /// <param name="detailsRFID">detailsRFID.</param>
         /// <param name="detailsOptical">detailsOptical (required).</param>
-        public Status(CheckResult overallStatus = default(CheckResult), CheckResult optical = default(CheckResult), CheckResult portrait = default(CheckResult), CheckResult rfid = default(CheckResult), CheckResult stopList = default(CheckResult), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical))
+        /// <param name="age">age (required).</param>
+        /// <param name="detailsAge">detailsAge (required).</param>
+        /// <param name="mDL">mDL (required).</param>
+        public Status(CheckResult overallStatus = default(CheckResult), CheckResult optical = default(CheckResult), CheckResult portrait = default(CheckResult), CheckResult rfid = default(CheckResult), CheckResult stopList = default(CheckResult), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical), CheckResult age = default(CheckResult), DetailsAge detailsAge = default(DetailsAge), CheckResult mDL = default(CheckResult))
         {
             this.OverallStatus = overallStatus;
             this.Optical = optical;
@@ -90,6 +105,14 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("detailsOptical is a required property for Status and cannot be null");
             }
             this.DetailsOptical = detailsOptical;
+            this.Age = age;
+            // to ensure "detailsAge" is required (not null)
+            if (detailsAge == null)
+            {
+                throw new ArgumentNullException("detailsAge is a required property for Status and cannot be null");
+            }
+            this.DetailsAge = detailsAge;
+            this.MDL = mDL;
             this.DetailsRFID = detailsRFID;
         }
 
@@ -106,6 +129,12 @@ namespace Regula.DocumentReader.WebClient.Model
         public DetailsOptical DetailsOptical { get; set; }
 
         /// <summary>
+        /// Gets or Sets DetailsAge
+        /// </summary>
+        [DataMember(Name = "detailsAge", IsRequired = true, EmitDefaultValue = true)]
+        public DetailsAge DetailsAge { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +149,9 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  StopList: ").Append(StopList).Append("\n");
             sb.Append("  DetailsRFID: ").Append(DetailsRFID).Append("\n");
             sb.Append("  DetailsOptical: ").Append(DetailsOptical).Append("\n");
+            sb.Append("  Age: ").Append(Age).Append("\n");
+            sb.Append("  DetailsAge: ").Append(DetailsAge).Append("\n");
+            sb.Append("  MDL: ").Append(MDL).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
