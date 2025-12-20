@@ -28,44 +28,40 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Contains encrypted result container list
+    /// MDLResult
     /// </summary>
-    [DataContract(Name = "EncryptedRCLResult")]
-    public partial class EncryptedRCLResult : ResultItem, IValidatableObject
+    [DataContract(Name = "MDLResult")]
+    public partial class MDLResult : ResultItem, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLResult" /> class.
+        /// Initializes a new instance of the <see cref="MDLResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLResult() { }
+        protected MDLResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLResult" /> class.
+        /// Initializes a new instance of the <see cref="MDLResult" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
+        /// <param name="mDLParsedResponse">mDLParsedResponse (required).</param>
         /// <param name="bufLength">bufLength.</param>
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.ENCRYPTED_RCL).</param>
-        public EncryptedRCLResult(byte[] encryptedRCL = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.ENCRYPTED_RCL) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.MDL_DEVICE_PARSED_RESPONSE).</param>
+        public MDLResult(Dictionary<string, Object> mDLParsedResponse = default(Dictionary<string, Object>), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.MDL_DEVICE_PARSED_RESPONSE) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            // to ensure "mDLParsedResponse" is required (not null)
+            if (mDLParsedResponse == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLResult and cannot be null");
+                throw new ArgumentNullException("mDLParsedResponse is a required property for MDLResult and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.MDLParsedResponse = mDLParsedResponse;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets MDLParsedResponse
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@15773356</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "MDLParsedResponse", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, Object> MDLParsedResponse { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +70,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLResult {\n");
+            sb.Append("class MDLResult {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("  MDLParsedResponse: ").Append(MDLParsedResponse).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

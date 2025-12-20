@@ -20,7 +20,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = Regula.DocumentReader.WebClient.Client.FileParameter;
 using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
@@ -28,44 +27,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Contains encrypted result container list
+    /// MDLItem
     /// </summary>
-    [DataContract(Name = "EncryptedRCLResult")]
-    public partial class EncryptedRCLResult : ResultItem, IValidatableObject
+    [DataContract(Name = "MDLItem")]
+    public partial class MDLItem : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLResult" /> class.
+        /// Initializes a new instance of the <see cref="MDLItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLResult() { }
+        protected MDLItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLResult" /> class.
+        /// Initializes a new instance of the <see cref="MDLItem" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        /// <param name="bufLength">bufLength.</param>
-        /// <param name="light">light.</param>
-        /// <param name="listIdx">listIdx.</param>
-        /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.ENCRYPTED_RCL).</param>
-        public EncryptedRCLResult(byte[] encryptedRCL = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.ENCRYPTED_RCL) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="mDLParsedResponse">mDLParsedResponse (required).</param>
+        public MDLItem(Dictionary<string, Object> mDLParsedResponse = default(Dictionary<string, Object>))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            // to ensure "mDLParsedResponse" is required (not null)
+            if (mDLParsedResponse == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLResult and cannot be null");
+                throw new ArgumentNullException("mDLParsedResponse is a required property for MDLItem and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.MDLParsedResponse = mDLParsedResponse;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets MDLParsedResponse
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@15773356</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "MDLParsedResponse", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, Object> MDLParsedResponse { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +64,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class MDLItem {\n");
+            sb.Append("  MDLParsedResponse: ").Append(MDLParsedResponse).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -97,20 +86,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in base.BaseValidate(validationContext))
-            {
-                yield return x;
-            }
             yield break;
         }
     }

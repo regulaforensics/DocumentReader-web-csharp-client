@@ -135,6 +135,8 @@ src/Regula.DocumentReader.WebClient/Model/LivenessParams.cs
 src/Regula.DocumentReader.WebClient/Model/LogLevel.cs
 src/Regula.DocumentReader.WebClient/Model/MDLDeviceEngagement.cs
 src/Regula.DocumentReader.WebClient/Model/MDLDeviceRetrieval.cs
+src/Regula.DocumentReader.WebClient/Model/MDLItem.cs
+src/Regula.DocumentReader.WebClient/Model/MDLResult.cs
 src/Regula.DocumentReader.WebClient/Model/MDLServerRetrieval.cs
 src/Regula.DocumentReader.WebClient/Model/MRZDetectorResult.cs
 src/Regula.DocumentReader.WebClient/Model/MRZFormat.cs
