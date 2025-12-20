@@ -347,6 +347,18 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
+        /// with the <see cref="MDLResult" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of MDLResult.</param>
+        public ContainerListListInner(MDLResult actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -425,6 +437,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(MDLResult) || value is MDLResult)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(MRZDetectorResult) || value is MRZDetectorResult)
                 {
                     this._actualInstance = value;
@@ -467,7 +483,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult, VDSDataResult, VDSNCDataResult");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MDLResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult, VDSDataResult, VDSNCDataResult");
                 }
             }
         }
@@ -730,6 +746,16 @@ namespace Regula.DocumentReader.WebClient.Model
         public VDSDataResult GetVDSDataResult()
         {
             return (VDSDataResult)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `MDLResult`. If the actual instance is not `MDLResult`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of MDLResult</returns>
+        public MDLResult GetMDLResult()
+        {
+            return (MDLResult)this.ActualInstance;
         }
 
         /// <summary>
@@ -1088,6 +1114,26 @@ namespace Regula.DocumentReader.WebClient.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LicenseResult: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(MDLResult).GetProperty("AdditionalProperties") == null)
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<MDLResult>(jsonString, ContainerListListInner.SerializerSettings));
+                }
+                else
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<MDLResult>(jsonString, ContainerListListInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("MDLResult");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into MDLResult: {1}", jsonString, exception.ToString()));
             }
 
             try
