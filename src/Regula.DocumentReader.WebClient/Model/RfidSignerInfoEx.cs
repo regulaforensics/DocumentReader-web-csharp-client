@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="certificateChain">Certificate chain, used for the digital signature verification. (required).</param>
         /// <param name="dataToHash">Binary data array used to calculate the hash value for digital signature verification. Base64 encoded. (required).</param>
         /// <param name="notifications">Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
-        public RfidSignerInfoEx(decimal varVersion = default(decimal), RfidDistinguishedName issuer = default(RfidDistinguishedName), TrfFtBytes serialNumber = default(TrfFtBytes), TrfFtBytes subjectKeyIdentifier = default(TrfFtBytes), string digestAlgorithm = default(string), List<RfidAttributeData> signedAttributes = default(List<RfidAttributeData>), string signatureAlgorithm = default(string), TrfFtBytes signature = default(TrfFtBytes), RFIDErrorCodes pAStatus = default(RFIDErrorCodes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string dataToHash = default(string), List<int> notifications = default(List<int>))
+        public RfidSignerInfoEx(decimal varVersion = default(decimal), RfidDistinguishedName issuer = default(RfidDistinguishedName), TrfFtBytes serialNumber = default(TrfFtBytes), TrfFtBytes subjectKeyIdentifier = default(TrfFtBytes), string digestAlgorithm = default(string), List<RfidAttributeData> signedAttributes = default(List<RfidAttributeData>), string signatureAlgorithm = default(string), TrfFtBytes signature = default(TrfFtBytes), RFIDErrorCodes pAStatus = default(RFIDErrorCodes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string dataToHash = default(string), List<long> notifications = default(List<long>))
         {
             this.VarVersion = varVersion;
             // to ensure "issuer" is required (not null)
@@ -195,7 +195,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Can be ParsingErrorCodes or ParsingNotificationCodes enum.</value>
         [DataMember(Name = "Notifications", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> Notifications { get; set; }
+        public List<long> Notifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
