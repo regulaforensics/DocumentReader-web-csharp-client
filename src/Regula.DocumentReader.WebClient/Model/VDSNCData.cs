@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="signatureAlg">signatureAlg.</param>
         /// <param name="type">type.</param>
         /// <param name="varVersion">varVersion.</param>
-        public VDSNCData(TrfFtBytes certificate = default(TrfFtBytes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string issuingCountry = default(string), Message message = default(Message), List<int> notifications = default(List<int>), TrfFtBytes signature = default(TrfFtBytes), string signatureAlg = default(string), string type = default(string), int varVersion = default(int))
+        public VDSNCData(TrfFtBytes certificate = default(TrfFtBytes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string issuingCountry = default(string), Message message = default(Message), List<long> notifications = default(List<long>), TrfFtBytes signature = default(TrfFtBytes), string signatureAlg = default(string), string type = default(string), int varVersion = default(int))
         {
             this.Certificate = certificate;
             this.CertificateChain = certificateChain;
@@ -85,7 +85,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Gets or Sets Notifications
         /// </summary>
         [DataMember(Name = "Notifications", EmitDefaultValue = false)]
-        public List<int>? Notifications { get; set; }
+        public List<long>? Notifications { get; set; }
 
         /// <summary>
         /// Gets or Sets Signature

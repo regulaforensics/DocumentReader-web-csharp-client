@@ -212,24 +212,9 @@ namespace Regula.DocumentReader.WebClient.Model
         DTC_VC = 109,
 
         /// <summary>
-        /// Enum MDL_DEVICE_RAW_RESPONSE for value: 120
+        /// Enum MDL_PARSED_RESPONSE for value: 121
         /// </summary>
-        MDL_DEVICE_RAW_RESPONSE = 120,
-
-        /// <summary>
-        /// Enum MDL_DEVICE_PARSED_RESPONSE for value: 121
-        /// </summary>
-        MDL_DEVICE_PARSED_RESPONSE = 121,
-
-        /// <summary>
-        /// Enum MDL_SERVER_RAW_RESPONSE for value: 122
-        /// </summary>
-        MDL_SERVER_RAW_RESPONSE = 122,
-
-        /// <summary>
-        /// Enum MDL_SERVER_PARSED_RESPONSE for value: 123
-        /// </summary>
-        MDL_SERVER_PARSED_RESPONSE = 123,
+        MDL_PARSED_RESPONSE = 121,
 
         /// <summary>
         /// Enum VDS_NC for value: 124
