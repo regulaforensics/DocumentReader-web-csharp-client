@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
@@ -10,9 +11,9 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
             return auth.securityFeatureOrNull(AuthenticityResultType.UV_LUMINESCENCE);
         }
         
-        public static SecurityFeatureChecks LivenessChecks(this AuthenticityCheckList auth)
+        public static IdentChecks LivenessChecks(this AuthenticityCheckList auth)
         {
-            return auth.securityFeatureOrNull(AuthenticityResultType.LIVENESS);
+            return auth.identOrNull(AuthenticityResultType.LIVENESS);
         }
 
         public static SecurityFeatureChecks IrB900Checks(this AuthenticityCheckList auth)
