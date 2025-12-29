@@ -27,39 +27,49 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// PID
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "PID")]
+    public partial class PID : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="PID" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
-        /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="dob">dob.</param>
+        /// <param name="i">i.</param>
+        /// <param name="n">n.</param>
+        /// <param name="sex">sex.</param>
+        public PID(string dob = default(string), string i = default(string), string n = default(string), string sex = default(string))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
-            {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
-            }
-            this.EncryptedRCL = encryptedRCL;
+            this.Dob = dob;
+            this.I = i;
+            this.N = n;
+            this.Sex = sex;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets Dob
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@ee2d3fa</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "dob", EmitDefaultValue = false)]
+        public string? Dob { get; set; }
+
+        /// <summary>
+        /// Gets or Sets I
+        /// </summary>
+        [DataMember(Name = "i", EmitDefaultValue = false)]
+        public string? I { get; set; }
+
+        /// <summary>
+        /// Gets or Sets N
+        /// </summary>
+        [DataMember(Name = "n", EmitDefaultValue = false)]
+        public string? N { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Sex
+        /// </summary>
+        [DataMember(Name = "sex", EmitDefaultValue = false)]
+        public string? Sex { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +78,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class PID {\n");
+            sb.Append("  Dob: ").Append(Dob).Append("\n");
+            sb.Append("  I: ").Append(I).Append("\n");
+            sb.Append("  N: ").Append(N).Append("\n");
+            sb.Append("  Sex: ").Append(Sex).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

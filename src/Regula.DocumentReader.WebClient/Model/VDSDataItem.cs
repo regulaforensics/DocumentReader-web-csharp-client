@@ -27,39 +27,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// VDSDataItem
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "VDSDataItem")]
+    public partial class VDSDataItem : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="VDSDataItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
+        protected VDSDataItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="VDSDataItem" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="dftVDS">dftVDS (required).</param>
+        public VDSDataItem(VDSData dftVDS = default(VDSData))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            // to ensure "dftVDS" is required (not null)
+            if (dftVDS == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
+                throw new ArgumentNullException("dftVDS is a required property for VDSDataItem and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.DftVDS = dftVDS;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets DftVDS
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@ee2d3fa</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "dftVDS", IsRequired = true, EmitDefaultValue = true)]
+        public VDSData DftVDS { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +64,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class VDSDataItem {\n");
+            sb.Append("  DftVDS: ").Append(DftVDS).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

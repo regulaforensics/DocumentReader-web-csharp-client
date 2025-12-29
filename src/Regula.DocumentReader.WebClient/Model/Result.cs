@@ -209,7 +209,22 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum DTC_VC for value: 109
         /// </summary>
-        DTC_VC = 109
+        DTC_VC = 109,
+
+        /// <summary>
+        /// Enum MDL_PARSED_RESPONSE for value: 121
+        /// </summary>
+        MDL_PARSED_RESPONSE = 121,
+
+        /// <summary>
+        /// Enum VDS_NC for value: 124
+        /// </summary>
+        VDS_NC = 124,
+
+        /// <summary>
+        /// Enum VDS for value: 125
+        /// </summary>
+        VDS = 125
     }
 
 }

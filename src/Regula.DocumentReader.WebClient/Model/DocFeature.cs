@@ -27,39 +27,43 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// DocFeature
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "DocFeature")]
+    public partial class DocFeature : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="DocFeature" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
+        protected DocFeature() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="DocFeature" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="type">type (required).</param>
+        /// <param name="data">data (required).</param>
+        public DocFeature(decimal type = default(decimal), TrfFtBytes data = default(TrfFtBytes))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            this.Type = type;
+            // to ensure "data" is required (not null)
+            if (data == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
+                throw new ArgumentNullException("data is a required property for DocFeature and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.Data = data;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets Type
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@ee2d3fa</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "Type", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name = "Data", IsRequired = true, EmitDefaultValue = true)]
+        public TrfFtBytes Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +72,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class DocFeature {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

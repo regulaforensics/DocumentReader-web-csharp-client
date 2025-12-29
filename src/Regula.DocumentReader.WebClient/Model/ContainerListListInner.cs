@@ -323,6 +323,42 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
+        /// with the <see cref="VDSNCDataResult" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VDSNCDataResult.</param>
+        public ContainerListListInner(VDSNCDataResult actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
+        /// with the <see cref="VDSDataResult" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VDSDataResult.</param>
+        public ContainerListListInner(VDSDataResult actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
+        /// with the <see cref="MDLResult" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of MDLResult.</param>
+        public ContainerListListInner(MDLResult actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -401,6 +437,10 @@ namespace Regula.DocumentReader.WebClient.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(MDLResult) || value is MDLResult)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(MRZDetectorResult) || value is MRZDetectorResult)
                 {
                     this._actualInstance = value;
@@ -433,9 +473,17 @@ namespace Regula.DocumentReader.WebClient.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(VDSDataResult) || value is VDSDataResult)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(VDSNCDataResult) || value is VDSNCDataResult)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MDLResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult, VDSDataResult, VDSNCDataResult");
                 }
             }
         }
@@ -678,6 +726,36 @@ namespace Regula.DocumentReader.WebClient.Model
         public RFIDTextDataResult GetRFIDTextDataResult()
         {
             return (RFIDTextDataResult)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VDSNCDataResult`. If the actual instance is not `VDSNCDataResult`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VDSNCDataResult</returns>
+        public VDSNCDataResult GetVDSNCDataResult()
+        {
+            return (VDSNCDataResult)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VDSDataResult`. If the actual instance is not `VDSDataResult`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VDSDataResult</returns>
+        public VDSDataResult GetVDSDataResult()
+        {
+            return (VDSDataResult)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `MDLResult`. If the actual instance is not `MDLResult`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of MDLResult</returns>
+        public MDLResult GetMDLResult()
+        {
+            return (MDLResult)this.ActualInstance;
         }
 
         /// <summary>
@@ -1041,6 +1119,26 @@ namespace Regula.DocumentReader.WebClient.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(MDLResult).GetProperty("AdditionalProperties") == null)
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<MDLResult>(jsonString, ContainerListListInner.SerializerSettings));
+                }
+                else
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<MDLResult>(jsonString, ContainerListListInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("MDLResult");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into MDLResult: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(MRZDetectorResult).GetProperty("AdditionalProperties") == null)
                 {
                     newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<MRZDetectorResult>(jsonString, ContainerListListInner.SerializerSettings));
@@ -1196,6 +1294,46 @@ namespace Regula.DocumentReader.WebClient.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TextResult: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VDSDataResult).GetProperty("AdditionalProperties") == null)
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<VDSDataResult>(jsonString, ContainerListListInner.SerializerSettings));
+                }
+                else
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<VDSDataResult>(jsonString, ContainerListListInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VDSDataResult");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VDSDataResult: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VDSNCDataResult).GetProperty("AdditionalProperties") == null)
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<VDSNCDataResult>(jsonString, ContainerListListInner.SerializerSettings));
+                }
+                else
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<VDSNCDataResult>(jsonString, ContainerListListInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VDSNCDataResult");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VDSNCDataResult: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

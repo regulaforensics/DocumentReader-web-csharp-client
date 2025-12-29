@@ -27,39 +27,41 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// Message
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "Message")]
+    public partial class Message : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="Message" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
-        /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="pid">pid.</param>
+        /// <param name="uvci">uvci.</param>
+        /// <param name="ve">ve.</param>
+        public Message(PID pid = default(PID), string uvci = default(string), List<VEItem> ve = default(List<VEItem>))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
-            {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
-            }
-            this.EncryptedRCL = encryptedRCL;
+            this.Pid = pid;
+            this.Uvci = uvci;
+            this.Ve = ve;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets Pid
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@ee2d3fa</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "pid", EmitDefaultValue = false)]
+        public PID? Pid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Uvci
+        /// </summary>
+        [DataMember(Name = "uvci", EmitDefaultValue = false)]
+        public string? Uvci { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Ve
+        /// </summary>
+        [DataMember(Name = "ve", EmitDefaultValue = false)]
+        public List<VEItem>? Ve { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +70,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class Message {\n");
+            sb.Append("  Pid: ").Append(Pid).Append("\n");
+            sb.Append("  Uvci: ").Append(Uvci).Append("\n");
+            sb.Append("  Ve: ").Append(Ve).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

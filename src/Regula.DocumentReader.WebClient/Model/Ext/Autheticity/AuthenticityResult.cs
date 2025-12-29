@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
 {
@@ -19,8 +20,11 @@ namespace Regula.DocumentReader.WebClient.Model.Ext.Autheticity
         public List<T> Items()
         {
             var ls = this.authenticityCheckResult.List;
-
-            return ls as List<T>;
+            if (ls is List<AuthenticityCheckResultItem> items)
+            {
+                return items.OfType<T>().ToList();
+            }
+            return new List<T>();
         }        
     }
 }
