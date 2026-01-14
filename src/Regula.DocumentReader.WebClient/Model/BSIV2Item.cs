@@ -20,7 +20,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = Regula.DocumentReader.WebClient.Client.FileParameter;
 using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
@@ -28,44 +27,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Contains license
+    /// BSIV2Item
     /// </summary>
-    [DataContract(Name = "LicenseResult")]
-    public partial class LicenseResult : ResultItem, IValidatableObject
+    [DataContract(Name = "BSIV2Item")]
+    public partial class BSIV2Item : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LicenseResult() { }
+        protected BSIV2Item() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
-        /// <param name="bufLength">bufLength.</param>
-        /// <param name="light">light.</param>
-        /// <param name="listIdx">listIdx.</param>
-        /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.LICENSE).</param>
-        public LicenseResult(byte[] license = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.LICENSE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="xMLBuffer">xMLBuffer (required).</param>
+        public BSIV2Item(string xMLBuffer = default(string))
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
+            // to ensure "xMLBuffer" is required (not null)
+            if (xMLBuffer == null)
             {
-                throw new ArgumentNullException("license is a required property for LicenseResult and cannot be null");
+                throw new ArgumentNullException("xMLBuffer is a required property for BSIV2Item and cannot be null");
             }
-            this.License = license;
+            this.XMLBuffer = xMLBuffer;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets XMLBuffer
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@3e12f2fa</example>
-        */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        [DataMember(Name = "XML_buffer", IsRequired = true, EmitDefaultValue = true)]
+        public string XMLBuffer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +64,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseResult {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("class BSIV2Item {\n");
+            sb.Append("  XMLBuffer: ").Append(XMLBuffer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,7 +74,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -97,20 +86,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in base.BaseValidate(validationContext))
-            {
-                yield return x;
-            }
             yield break;
         }
     }

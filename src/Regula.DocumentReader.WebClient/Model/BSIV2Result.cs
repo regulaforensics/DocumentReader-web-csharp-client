@@ -28,44 +28,40 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Contains license
+    /// BSIV2Result
     /// </summary>
-    [DataContract(Name = "LicenseResult")]
-    public partial class LicenseResult : ResultItem, IValidatableObject
+    [DataContract(Name = "BSIV2Result")]
+    public partial class BSIV2Result : ResultItem, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Result" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LicenseResult() { }
+        protected BSIV2Result() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseResult" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Result" /> class.
         /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
+        /// <param name="xMLBuffer">xMLBuffer (required).</param>
         /// <param name="bufLength">bufLength.</param>
         /// <param name="light">light.</param>
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
-        /// <param name="resultType">resultType (required) (default to Result.LICENSE).</param>
-        public LicenseResult(byte[] license = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.LICENSE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        /// <param name="resultType">resultType (required) (default to Result.BSI_XML_V2).</param>
+        public BSIV2Result(string xMLBuffer = default(string), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.BSI_XML_V2) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
+            // to ensure "xMLBuffer" is required (not null)
+            if (xMLBuffer == null)
             {
-                throw new ArgumentNullException("license is a required property for LicenseResult and cannot be null");
+                throw new ArgumentNullException("xMLBuffer is a required property for BSIV2Result and cannot be null");
             }
-            this.License = license;
+            this.XMLBuffer = xMLBuffer;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets XMLBuffer
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@3e12f2fa</example>
-        */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        [DataMember(Name = "XML_buffer", IsRequired = true, EmitDefaultValue = true)]
+        public string XMLBuffer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +70,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseResult {\n");
+            sb.Append("class BSIV2Result {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("  XMLBuffer: ").Append(XMLBuffer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
