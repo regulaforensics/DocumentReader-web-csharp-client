@@ -359,6 +359,18 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerListListInner" /> class
+        /// with the <see cref="BSIV2Result" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of BSIV2Result.</param>
+        public ContainerListListInner(BSIV2Result actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -374,6 +386,10 @@ namespace Regula.DocumentReader.WebClient.Model
             set
             {
                 if (value.GetType() == typeof(AuthenticityResult) || value is AuthenticityResult)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(BSIV2Result) || value is BSIV2Result)
                 {
                     this._actualInstance = value;
                 }
@@ -483,7 +499,7 @@ namespace Regula.DocumentReader.WebClient.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MDLResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult, VDSDataResult, VDSNCDataResult");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthenticityResult, BSIV2Result, BarcodePositionResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MDLResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult, VDSDataResult, VDSNCDataResult");
                 }
             }
         }
@@ -759,6 +775,16 @@ namespace Regula.DocumentReader.WebClient.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `BSIV2Result`. If the actual instance is not `BSIV2Result`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of BSIV2Result</returns>
+        public BSIV2Result GetBSIV2Result()
+        {
+            return (BSIV2Result)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -814,6 +840,26 @@ namespace Regula.DocumentReader.WebClient.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AuthenticityResult: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(BSIV2Result).GetProperty("AdditionalProperties") == null)
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<BSIV2Result>(jsonString, ContainerListListInner.SerializerSettings));
+                }
+                else
+                {
+                    newContainerListListInner = new ContainerListListInner(JsonConvert.DeserializeObject<BSIV2Result>(jsonString, ContainerListListInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("BSIV2Result");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into BSIV2Result: {1}", jsonString, exception.ToString()));
             }
 
             try

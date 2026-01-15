@@ -27,39 +27,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// EncryptedRCLItem
+    /// BSIV2Item
     /// </summary>
-    [DataContract(Name = "EncryptedRCLItem")]
-    public partial class EncryptedRCLItem : IValidatableObject
+    [DataContract(Name = "BSIV2Item")]
+    public partial class BSIV2Item : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EncryptedRCLItem() { }
+        protected BSIV2Item() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
-        /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        /// <param name="xMLBuffer">xMLBuffer (required).</param>
+        public BSIV2Item(string xMLBuffer = default(string))
         {
-            // to ensure "encryptedRCL" is required (not null)
-            if (encryptedRCL == null)
+            // to ensure "xMLBuffer" is required (not null)
+            if (xMLBuffer == null)
             {
-                throw new ArgumentNullException("encryptedRCL is a required property for EncryptedRCLItem and cannot be null");
+                throw new ArgumentNullException("xMLBuffer is a required property for BSIV2Item and cannot be null");
             }
-            this.EncryptedRCL = encryptedRCL;
+            this.XMLBuffer = xMLBuffer;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Gets or Sets XMLBuffer
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@1b7f14f</example>
-        */
-        [DataMember(Name = "EncryptedRCL", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] EncryptedRCL { get; set; }
+        [DataMember(Name = "XML_buffer", IsRequired = true, EmitDefaultValue = true)]
+        public string XMLBuffer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +64,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EncryptedRCLItem {\n");
-            sb.Append("  EncryptedRCL: ").Append(EncryptedRCL).Append("\n");
+            sb.Append("class BSIV2Item {\n");
+            sb.Append("  XMLBuffer: ").Append(XMLBuffer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

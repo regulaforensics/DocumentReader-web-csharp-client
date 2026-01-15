@@ -143,7 +143,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="disableAuthResolutionFilter">This parameter if enabled will ignore the minimum barcode resolution needed to start processing..</param>
         /// <param name="strictSecurityChecks">When enabled, this parameter marks security checks that don’t meet minimum requirements as &#39;Failed&#39; (instead of &#39;WasNotDone&#39;), which causes the overall security status to be &#39;Failed&#39;..</param>
         /// <param name="returnTransliteratedFields">Allows transliteration to be turned on or off; by default, it is enabled..</param>
-        public ProcessParams(bool generateDTCVC = default(bool), List<LCID> lcidFilter = default(List<LCID>), bool checkLiveness = default(bool), List<LCID> lcidIgnoreFilter = default(List<LCID>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), Scenario scenario = default(Scenario), List<Result> resultTypeOutput = default(List<Result>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<TextFieldType> fieldTypesFilter = default(List<TextFieldType>), List<TextFieldType> fieldTypesIgnoreFilter = default(List<TextFieldType>), string dateFormat = default(string), MeasureSystem? measureSystem = default(MeasureSystem?), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), LogLevel? logLevel = default(LogLevel?), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool strictImageQuality = default(bool), bool respectImageQuality = default(bool), DocumentFormat? forceDocFormat = default(DocumentFormat?), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<MRZFormat> mrzFormatsFilter = default(List<MRZFormat>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), TextPostProcessing? convertCase = default(TextPostProcessing?), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<DocumentType> documentGroupFilter = default(List<DocumentType>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum? mrzDetectMode = default(MrzDetectModeEnum?), bool generateNumericCodes = default(bool), bool strictBarcodeDigitalSignatureCheck = default(bool), bool selectLongestNames = default(bool), List<InputBarcodeType> doBarcodes = default(List<InputBarcodeType>), bool strictDLCategoryExpiry = default(bool), bool generateAlpha2Codes = default(bool), int pdfPagesLimit = default(int), bool disableAuthResolutionFilter = default(bool), bool strictSecurityChecks = default(bool), bool returnTransliteratedFields = default(bool))
+        /// <param name="bsiTr03135Results">When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results..</param>
+        /// <param name="checkHoldersSignature">When enabled, activates detection of the document holder’s signature presence..</param>
+        public ProcessParams(bool generateDTCVC = default(bool), List<LCID> lcidFilter = default(List<LCID>), bool checkLiveness = default(bool), List<LCID> lcidIgnoreFilter = default(List<LCID>), bool oneShotIdentification = default(bool), bool useFaceApi = default(bool), FaceApi faceApi = default(FaceApi), bool doDetectCan = default(bool), int imageOutputMaxHeight = default(int), int imageOutputMaxWidth = default(int), Scenario scenario = default(Scenario), List<Result> resultTypeOutput = default(List<Result>), bool doublePageSpread = default(bool), bool generateDoublePageSpreadImage = default(bool), List<TextFieldType> fieldTypesFilter = default(List<TextFieldType>), List<TextFieldType> fieldTypesIgnoreFilter = default(List<TextFieldType>), string dateFormat = default(string), MeasureSystem? measureSystem = default(MeasureSystem?), int imageDpiOutMax = default(int), bool alreadyCropped = default(bool), Dictionary<string, Object> customParams = default(Dictionary<string, Object>), List<PerDocumentConfig> config = default(List<PerDocumentConfig>), bool log = default(bool), LogLevel? logLevel = default(LogLevel?), int forceDocID = default(int), bool matchTextFieldMask = default(bool), bool fastDocDetect = default(bool), bool updateOCRValidityByGlare = default(bool), bool checkRequiredTextFields = default(bool), bool returnCroppedBarcode = default(bool), ImageQA imageQa = default(ImageQA), bool strictImageQuality = default(bool), bool respectImageQuality = default(bool), DocumentFormat? forceDocFormat = default(DocumentFormat?), bool noGraphics = default(bool), bool depersonalizeLog = default(bool), bool multiDocOnImage = default(bool), int shiftExpiryDate = default(int), int minimalHolderAge = default(int), bool returnUncroppedImage = default(bool), List<MRZFormat> mrzFormatsFilter = default(List<MRZFormat>), bool forceReadMrzBeforeLocate = default(bool), bool parseBarcodes = default(bool), TextPostProcessing? convertCase = default(TextPostProcessing?), bool splitNames = default(bool), bool disablePerforationOCR = default(bool), List<DocumentType> documentGroupFilter = default(List<DocumentType>), long processAuth = default(long), int deviceId = default(int), int deviceType = default(int), string deviceTypeHex = default(string), bool ignoreDeviceIdFromImage = default(bool), List<int> documentIdList = default(List<int>), ProcessParamsRfid rfid = default(ProcessParamsRfid), bool checkAuth = default(bool), AuthParams authParams = default(AuthParams), MrzDetectModeEnum? mrzDetectMode = default(MrzDetectModeEnum?), bool generateNumericCodes = default(bool), bool strictBarcodeDigitalSignatureCheck = default(bool), bool selectLongestNames = default(bool), List<InputBarcodeType> doBarcodes = default(List<InputBarcodeType>), bool strictDLCategoryExpiry = default(bool), bool generateAlpha2Codes = default(bool), int pdfPagesLimit = default(int), bool disableAuthResolutionFilter = default(bool), bool strictSecurityChecks = default(bool), bool returnTransliteratedFields = default(bool), bool bsiTr03135Results = default(bool), bool checkHoldersSignature = default(bool))
         {
             this.Scenario = scenario;
             this.GenerateDTCVC = generateDTCVC;
@@ -212,6 +214,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.DisableAuthResolutionFilter = disableAuthResolutionFilter;
             this.StrictSecurityChecks = strictSecurityChecks;
             this.ReturnTransliteratedFields = returnTransliteratedFields;
+            this.BsiTr03135Results = bsiTr03135Results;
+            this.CheckHoldersSignature = checkHoldersSignature;
         }
 
         /// <summary>
@@ -644,6 +648,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? ReturnTransliteratedFields { get; set; }
 
         /// <summary>
+        /// When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results.
+        /// </summary>
+        /// <value>When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results.</value>
+        [DataMember(Name = "bsiTr03135Results", EmitDefaultValue = false)]
+        public bool? BsiTr03135Results { get; set; }
+
+        /// <summary>
+        /// When enabled, activates detection of the document holder’s signature presence.
+        /// </summary>
+        /// <value>When enabled, activates detection of the document holder’s signature presence.</value>
+        [DataMember(Name = "checkHoldersSignature", EmitDefaultValue = false)]
+        public bool? CheckHoldersSignature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -718,6 +736,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  DisableAuthResolutionFilter: ").Append(DisableAuthResolutionFilter).Append("\n");
             sb.Append("  StrictSecurityChecks: ").Append(StrictSecurityChecks).Append("\n");
             sb.Append("  ReturnTransliteratedFields: ").Append(ReturnTransliteratedFields).Append("\n");
+            sb.Append("  BsiTr03135Results: ").Append(BsiTr03135Results).Append("\n");
+            sb.Append("  CheckHoldersSignature: ").Append(CheckHoldersSignature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

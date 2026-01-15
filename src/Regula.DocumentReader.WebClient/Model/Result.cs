@@ -167,6 +167,11 @@ namespace Regula.DocumentReader.WebClient.Model
         BARCODE_POSITION = 62,
 
         /// <summary>
+        /// Enum BSI_XML_V2 for value: 73
+        /// </summary>
+        BSI_XML_V2 = 73,
+
+        /// <summary>
         /// Enum DOCUMENT_POSITION for value: 85
         /// </summary>
         DOCUMENT_POSITION = 85,
