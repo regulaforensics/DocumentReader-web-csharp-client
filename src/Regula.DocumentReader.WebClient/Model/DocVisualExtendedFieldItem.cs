@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="DocVisualExtendedFieldItem" /> class.
         /// </summary>
         /// <param name="fieldRect">fieldRect (required).</param>
-        public DocVisualExtendedFieldItem(RectangleCoordinates fieldRect = default(RectangleCoordinates))
+        public DocVisualExtendedFieldItem(RectangleCoordinates fieldRect = default)
         {
             // to ensure "fieldRect" is required (not null)
             if (fieldRect == null)

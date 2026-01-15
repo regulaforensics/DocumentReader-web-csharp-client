@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="varVersion">Database version. (required).</param>
         /// <param name="exportDate">Date of database creation. (required).</param>
         /// <param name="description">Description of the database contents, such as the list of supported countries and documents. (required).</param>
-        public DeviceInfoDocumentsDatabase(string id = default(string), string varVersion = default(string), string exportDate = default(string), string description = default(string))
+        public DeviceInfoDocumentsDatabase(string id = default, string varVersion = default, string exportDate = default, string description = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)

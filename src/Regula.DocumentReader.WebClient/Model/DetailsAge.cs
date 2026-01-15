@@ -76,7 +76,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="over21">over21 (required).</param>
         /// <param name="over25">over25 (required).</param>
         /// <param name="over65">over65 (required).</param>
-        public DetailsAge(int threshold = default(int), CheckResult overThreshold = default(CheckResult), CheckResult over18 = default(CheckResult), CheckResult over21 = default(CheckResult), CheckResult over25 = default(CheckResult), CheckResult over65 = default(CheckResult))
+        public DetailsAge(int threshold = default, CheckResult overThreshold = default, CheckResult over18 = default, CheckResult over21 = default, CheckResult over25 = default, CheckResult over65 = default)
         {
             this.Threshold = threshold;
             this.OverThreshold = overThreshold;

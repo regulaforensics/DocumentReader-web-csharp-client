@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="year">The year when the document was issued..</param>
         /// <param name="sovereignty">Guardian country..</param>
         /// <param name="deprecated">Whether the document is no longer in circulation..</param>
-        public DatabaseDocument(bool barcodeFields = default(bool), string country = default(string), string createad = default(string), DocumentType docType = default(DocumentType), string document = default(string), bool graphicFields = default(bool), int id = default(int), bool mrz = default(bool), string region = default(string), bool rfidChip = default(bool), bool textFields = default(bool), string updated = default(string), string year = default(string), string sovereignty = default(string), bool deprecated = default(bool))
+        public DatabaseDocument(bool barcodeFields = default, string country = default, string createad = default, DocumentType docType = default, string document = default, bool graphicFields = default, int id = default, bool mrz = default, string? region = default, bool rfidChip = default, bool textFields = default, string updated = default, string? year = default, string? sovereignty = default, bool? deprecated = default)
         {
             this.BarcodeFields = barcodeFields;
             // to ensure "country" is required (not null)

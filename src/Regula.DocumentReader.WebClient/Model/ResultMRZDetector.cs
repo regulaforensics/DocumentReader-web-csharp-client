@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mRZRows">mRZRows (required).</param>
         /// <param name="mRZRowsNum">mRZRowsNum (required).</param>
         /// <param name="boundingQuadrangle">boundingQuadrangle (required).</param>
-        public ResultMRZDetector(int mRZFormat = default(int), List<MRZRowsItem> mRZRows = default(List<MRZRowsItem>), int mRZRowsNum = default(int), List<decimal> boundingQuadrangle = default(List<decimal>))
+        public ResultMRZDetector(int mRZFormat = default, List<MRZRowsItem> mRZRows = default, int mRZRowsNum = default, List<decimal> boundingQuadrangle = default)
         {
             this.MRZFormat = mRZFormat;
             // to ensure "mRZRows" is required (not null)

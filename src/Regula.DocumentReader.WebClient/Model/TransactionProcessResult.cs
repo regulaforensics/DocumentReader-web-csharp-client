@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="inData">inData.</param>
         /// <param name="tag">tag.</param>
         /// <param name="transactionId">transactionId.</param>
-        public TransactionProcessResult(OutData outData = default(OutData), InData inData = default(InData), string tag = default(string), Guid transactionId = default(Guid))
+        public TransactionProcessResult(OutData? outData = default, InData? inData = default, string? tag = default, Guid? transactionId = default)
         {
             this.OutData = outData;
             this.InData = inData;

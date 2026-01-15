@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="StatusItem" /> class.
         /// </summary>
         /// <param name="status">status (required).</param>
-        public StatusItem(Status status = default(Status))
+        public StatusItem(Status status = default)
         {
             // to ensure "status" is required (not null)
             if (status == null)

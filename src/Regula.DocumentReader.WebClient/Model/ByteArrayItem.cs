@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ByteArrayItem" /> class.
         /// </summary>
         /// <param name="byteArray">Byte array in base64 (required).</param>
-        public ByteArrayItem(string byteArray = default(string))
+        public ByteArrayItem(string byteArray = default)
         {
             // to ensure "byteArray" is required (not null)
             if (byteArray == null)

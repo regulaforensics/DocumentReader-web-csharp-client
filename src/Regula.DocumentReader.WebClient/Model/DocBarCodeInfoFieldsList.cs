@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="nFields">Count of array fields (required).</param>
         /// <param name="pArrayFields">Data from barcode (required).</param>
-        public DocBarCodeInfoFieldsList(int nFields = default(int), List<PArrayField> pArrayFields = default(List<PArrayField>))
+        public DocBarCodeInfoFieldsList(int nFields = default, List<PArrayField> pArrayFields = default)
         {
             this.NFields = nFields;
             // to ensure "pArrayFields" is required (not null)

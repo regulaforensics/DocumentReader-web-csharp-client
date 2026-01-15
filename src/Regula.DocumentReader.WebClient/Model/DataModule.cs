@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mReserved1">mReserved1.</param>
         /// <param name="mReserver2">mReserver2.</param>
         /// <param name="mType">mType (required).</param>
-        public DataModule(string mData = default(string), int mLength = default(int), int mReserved1 = default(int), int mReserver2 = default(int), BarCodeModuleType mType = default(BarCodeModuleType))
+        public DataModule(string mData = default, int mLength = default, int? mReserved1 = default, int? mReserver2 = default, BarCodeModuleType mType = default)
         {
             // to ensure "mData" is required (not null)
             if (mData == null)

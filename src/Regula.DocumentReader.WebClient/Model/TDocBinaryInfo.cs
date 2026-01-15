@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="rFIDBINARYDATA">rFIDBINARYDATA.</param>
         /// <param name="rFIDRAWDATA">rFIDRAWDATA.</param>
-        public TDocBinaryInfo(BinaryData rFIDBINARYDATA = default(BinaryData), List<RfidRawData> rFIDRAWDATA = default(List<RfidRawData>))
+        public TDocBinaryInfo(BinaryData? rFIDBINARYDATA = default, List<RfidRawData> rFIDRAWDATA = default)
         {
             this.RFID_BINARY_DATA = rFIDBINARYDATA;
             this.RFID_RAW_DATA = rFIDRAWDATA;

@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">Page index of the image from input list.</param>
         /// <param name="url">Image url.</param>
-        public InDataTransactionImagesFieldValue(Light? light = default(Light?), int listIdx = default(int), int pageIdx = default(int), string url = default(string))
+        public InDataTransactionImagesFieldValue(Light? light = default, int? listIdx = default, int? pageIdx = default, string? url = default)
         {
             this.Light = light;
             this.ListIdx = listIdx;

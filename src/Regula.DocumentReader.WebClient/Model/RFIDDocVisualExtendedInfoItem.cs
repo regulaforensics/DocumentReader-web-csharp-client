@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="RFIDDocVisualExtendedInfoItem" /> class.
         /// </summary>
         /// <param name="docVisualExtendedInfo">docVisualExtendedInfo (required).</param>
-        public RFIDDocVisualExtendedInfoItem(RFIDDocVisualExtendedInfo docVisualExtendedInfo = default(RFIDDocVisualExtendedInfo))
+        public RFIDDocVisualExtendedInfoItem(RFIDDocVisualExtendedInfo docVisualExtendedInfo = default)
         {
             // to ensure "docVisualExtendedInfo" is required (not null)
             if (docVisualExtendedInfo == null)

@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="pointCount">pointCount.</param>
         /// <param name="pointsList">pointsList (required).</param>
-        public PointsContainer(int pointCount = default(int), List<Point> pointsList = default(List<Point>))
+        public PointsContainer(int? pointCount = default, List<Point> pointsList = default)
         {
             // to ensure "pointsList" is required (not null)
             if (pointsList == null)

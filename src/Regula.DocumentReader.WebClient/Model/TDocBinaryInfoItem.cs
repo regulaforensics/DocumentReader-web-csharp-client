@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="TDocBinaryInfoItem" /> class.
         /// </summary>
         /// <param name="tDocBinaryInfo">tDocBinaryInfo (required).</param>
-        public TDocBinaryInfoItem(TDocBinaryInfo tDocBinaryInfo = default(TDocBinaryInfo))
+        public TDocBinaryInfoItem(TDocBinaryInfo tDocBinaryInfo = default)
         {
             // to ensure "tDocBinaryInfo" is required (not null)
             if (tDocBinaryInfo == null)

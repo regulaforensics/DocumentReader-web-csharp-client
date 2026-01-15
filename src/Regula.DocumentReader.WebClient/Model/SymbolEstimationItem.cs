@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sizeErrorSymbolHeight">sizeErrorSymbolHeight (required).</param>
         /// <param name="sizeErrorSymbolWidth">sizeErrorSymbolWidth (required).</param>
         /// <param name="symbolBounds">symbolBounds (required).</param>
-        public SymbolEstimationItem(int aLIGNMENTNEARESTSYMBOLS = default(int), int cONTRASTPRINT = default(int), int cONTRASTSYMBOL = default(int), int charSymbol = default(int), int eDGE = default(int), int eMPTINESS = default(int), int sTAIN = default(int), int sYMBOLSINTERVAL = default(int), int sYMBOLPARAM = default(int), int sYMBOLSIZE = default(int), decimal sizeErrorAlignWithNext = default(decimal), decimal sizeErrorAlignWithPrev = default(decimal), decimal sizeErrorIntervWithNext = default(decimal), decimal sizeErrorIntervWithPrev = default(decimal), decimal sizeErrorSymbolHeight = default(decimal), decimal sizeErrorSymbolWidth = default(decimal), RectangleCoordinates symbolBounds = default(RectangleCoordinates))
+        public SymbolEstimationItem(int aLIGNMENTNEARESTSYMBOLS = default, int cONTRASTPRINT = default, int cONTRASTSYMBOL = default, int charSymbol = default, int eDGE = default, int eMPTINESS = default, int sTAIN = default, int sYMBOLSINTERVAL = default, int sYMBOLPARAM = default, int sYMBOLSIZE = default, decimal sizeErrorAlignWithNext = default, decimal sizeErrorAlignWithPrev = default, decimal sizeErrorIntervWithNext = default, decimal sizeErrorIntervWithPrev = default, decimal sizeErrorSymbolHeight = default, decimal sizeErrorSymbolWidth = default, RectangleCoordinates symbolBounds = default)
         {
             this.ALIGNMENT_NEAREST_SYMBOLS = aLIGNMENTNEARESTSYMBOLS;
             this.CONTRAST_PRINT = cONTRASTPRINT;

@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="count">Number of pFieldMaps array elements (required).</param>
         /// <param name="pFieldMaps">pFieldMaps (required).</param>
         /// <param name="pDateFormat">pDateFormat.</param>
-        public ListVerifiedFields(decimal count = default(decimal), List<VerifiedFieldMap> pFieldMaps = default(List<VerifiedFieldMap>), string pDateFormat = default(string))
+        public ListVerifiedFields(decimal count = default, List<VerifiedFieldMap> pFieldMaps = default, string? pDateFormat = default)
         {
             this.Count = count;
             // to ensure "pFieldMaps" is required (not null)

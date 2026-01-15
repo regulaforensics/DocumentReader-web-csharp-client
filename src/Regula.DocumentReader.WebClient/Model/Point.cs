@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="x">x (required).</param>
         /// <param name="y">y (required).</param>
-        public Point(int x = default(int), int y = default(int))
+        public Point(int x = default, int y = default)
         {
             this.X = x;
             this.Y = y;

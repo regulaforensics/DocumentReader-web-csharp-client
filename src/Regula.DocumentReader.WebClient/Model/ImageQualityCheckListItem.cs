@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ImageQualityCheckListItem" /> class.
         /// </summary>
         /// <param name="imageQualityCheckList">imageQualityCheckList (required).</param>
-        public ImageQualityCheckListItem(ImageQualityCheckList imageQualityCheckList = default(ImageQualityCheckList))
+        public ImageQualityCheckListItem(ImageQualityCheckList imageQualityCheckList = default)
         {
             // to ensure "imageQualityCheckList" is required (not null)
             if (imageQualityCheckList == null)

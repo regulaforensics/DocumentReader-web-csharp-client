@@ -54,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="source">source (required).</param>
         /// <param name="status">status (required).</param>
-        public SourceValidity(Source source = default(Source), CheckResult status = default(CheckResult))
+        public SourceValidity(Source source = default, CheckResult status = default)
         {
             this.Source = source;
             this.Status = status;

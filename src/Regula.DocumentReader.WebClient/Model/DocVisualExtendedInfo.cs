@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="nFields">Number of pArrayFields array elements (required).</param>
         /// <param name="pArrayFields">pArrayFields (required).</param>
-        public DocVisualExtendedInfo(decimal nFields = default(decimal), List<DocVisualExtendedField> pArrayFields = default(List<DocVisualExtendedField>))
+        public DocVisualExtendedInfo(decimal nFields = default, List<DocVisualExtendedField> pArrayFields = default)
         {
             this.NFields = nFields;
             // to ensure "pArrayFields" is required (not null)

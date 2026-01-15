@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="type">Attribute identifier (OID ASCII string); contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string) (required).</param>
         /// <param name="value">value (required).</param>
-        public RfidAttributeName(string type = default(string), TrfFtString value = default(TrfFtString))
+        public RfidAttributeName(string type = default, TrfFtString value = default)
         {
             // to ensure "type" is required (not null)
             if (type == null)

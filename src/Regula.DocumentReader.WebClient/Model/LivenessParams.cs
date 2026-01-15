@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkBlackAndWhiteCopy">This parameter is used to enable Black and white copy check.</param>
         /// <param name="checkDynaprint">This parameter is used to enable Dynaprint check.</param>
         /// <param name="checkGeometry">This parameter is used to enable Geometry check.</param>
-        public LivenessParams(bool checkOVI = default(bool), bool checkMLI = default(bool), bool checkHolo = default(bool), bool checkED = default(bool), bool checkBlackAndWhiteCopy = default(bool), bool checkDynaprint = default(bool), bool checkGeometry = default(bool))
+        public LivenessParams(bool? checkOVI = default, bool? checkMLI = default, bool? checkHolo = default, bool? checkED = default, bool? checkBlackAndWhiteCopy = default, bool? checkDynaprint = default, bool? checkGeometry = default)
         {
             this.CheckOVI = checkOVI;
             this.CheckMLI = checkMLI;

@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="imgMarginPart">Margin from the edges of the image. 0.35 &#x3D; 35%.</param>
         /// <param name="maxGlaringPart">The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%.</param>
-        public GlaresCheckParams(float imgMarginPart = default(float), float maxGlaringPart = default(float))
+        public GlaresCheckParams(float? imgMarginPart = default, float? maxGlaringPart = default)
         {
             this.ImgMarginPart = imgMarginPart;
             this.MaxGlaringPart = maxGlaringPart;

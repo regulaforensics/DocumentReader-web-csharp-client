@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="nFields">Number of pArrayFields array elements (required).</param>
         /// <param name="pArrayFields">pArrayFields (required).</param>
-        public RFIDDocVisualExtendedInfo(decimal nFields = default(decimal), List<RFIDDocVisualExtendedField> pArrayFields = default(List<RFIDDocVisualExtendedField>))
+        public RFIDDocVisualExtendedInfo(decimal nFields = default, List<RFIDDocVisualExtendedField> pArrayFields = default)
         {
             this.NFields = nFields;
             // to ensure "pArrayFields" is required (not null)

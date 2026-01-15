@@ -93,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required).</param>
-        public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = default(Result))
+        public ResultItem(int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = default)
         {
             this.ResultType = resultType;
             this.BufLength = bufLength;

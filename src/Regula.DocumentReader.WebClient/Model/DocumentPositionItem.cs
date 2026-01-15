@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="DocumentPositionItem" /> class.
         /// </summary>
         /// <param name="documentPosition">documentPosition (required).</param>
-        public DocumentPositionItem(DocumentPosition documentPosition = default(DocumentPosition))
+        public DocumentPositionItem(DocumentPosition documentPosition = default)
         {
             // to ensure "documentPosition" is required (not null)
             if (documentPosition == null)

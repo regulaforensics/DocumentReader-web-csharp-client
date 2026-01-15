@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="exportDate">Date the document database was created.</param>
         /// <param name="iD">Document database identifier.</param>
         /// <param name="varVersion">Document database version.</param>
-        public DocumentsDatabase(string description = default(string), string exportDate = default(string), string iD = default(string), string varVersion = default(string))
+        public DocumentsDatabase(string? description = default, string? exportDate = default, string? iD = default, string? varVersion = default)
         {
             this.Description = description;
             this.ExportDate = exportDate;

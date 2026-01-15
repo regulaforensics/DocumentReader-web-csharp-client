@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="originDGTag">originDGTag (required).</param>
         /// <param name="originEntryView">originEntryView (required).</param>
         /// <param name="originTagEntry">originTagEntry (required).</param>
-        public GraphData(int fieldType = default(int), FileImage fileImage = default(FileImage), int graphicsType = default(int), int originDG = default(int), int originDGTag = default(int), int originEntryView = default(int), int originTagEntry = default(int))
+        public GraphData(int fieldType = default, FileImage fileImage = default, int graphicsType = default, int originDG = default, int originDGTag = default, int originEntryView = default, int originTagEntry = default)
         {
             this.FieldType = fieldType;
             // to ensure "fileImage" is required (not null)

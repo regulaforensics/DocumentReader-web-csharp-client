@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="BarcodePositionItem" /> class.
         /// </summary>
         /// <param name="barcodePosition">barcodePosition (required).</param>
-        public BarcodePositionItem(DocumentPosition barcodePosition = default(DocumentPosition))
+        public BarcodePositionItem(DocumentPosition barcodePosition = default)
         {
             // to ensure "barcodePosition" is required (not null)
             if (barcodePosition == null)

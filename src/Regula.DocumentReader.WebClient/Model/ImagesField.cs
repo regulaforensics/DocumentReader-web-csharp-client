@@ -50,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="valueList">valueList (required).</param>
         /// <param name="valueCount">Field value count.</param>
-        public ImagesField(string fieldName = default(string), GraphicFieldType fieldType = default(GraphicFieldType), List<ImagesFieldValue> valueList = default(List<ImagesFieldValue>), decimal valueCount = default(decimal))
+        public ImagesField(string fieldName = default, GraphicFieldType fieldType = default, List<ImagesFieldValue> valueList = default, decimal? valueCount = default)
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)

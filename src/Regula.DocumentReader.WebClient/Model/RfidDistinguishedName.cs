@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="data">Contents of the identifier in binary form. Base64 encoded. (required).</param>
         /// <param name="friendlyName">friendlyName (required).</param>
         /// <param name="attributes">List of individual attributes contained in the identifier (required).</param>
-        public RfidDistinguishedName(string data = default(string), TrfFtString friendlyName = default(TrfFtString), List<RfidAttributeName> attributes = default(List<RfidAttributeName>))
+        public RfidDistinguishedName(string data = default, TrfFtString friendlyName = default, List<RfidAttributeName> attributes = default)
         {
             // to ensure "data" is required (not null)
             if (data == null)

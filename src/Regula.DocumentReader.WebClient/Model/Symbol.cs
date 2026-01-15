@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="Symbol" /> class.
         /// </summary>
         /// <param name="boundingRect">boundingRect (required).</param>
-        public Symbol(List<int> boundingRect = default(List<int>))
+        public Symbol(List<int> boundingRect = default)
         {
             // to ensure "boundingRect" is required (not null)
             if (boundingRect == null)

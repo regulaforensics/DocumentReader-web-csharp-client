@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="EncryptedRCLItem" /> class.
         /// </summary>
         /// <param name="encryptedRCL">Base64 encoded data (required).</param>
-        public EncryptedRCLItem(byte[] encryptedRCL = default(byte[]))
+        public EncryptedRCLItem(byte[] encryptedRCL = default)
         {
             // to ensure "encryptedRCL" is required (not null)
             if (encryptedRCL == null)
