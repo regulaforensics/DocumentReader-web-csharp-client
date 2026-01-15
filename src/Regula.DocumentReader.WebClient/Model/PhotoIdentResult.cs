@@ -60,7 +60,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public PhotoIdentResult(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved3 = default(int), AuthenticityResultType type = AuthenticityResultType.IPI, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public PhotoIdentResult(Light lightIndex = default, RectangleCoordinates area = default, ImageData sourceImage = default, RawImageContainerList resultImages = default, int? fieldTypesCount = default, List<int> fieldTypesList = default, int? step = default, int? angle = default, int? reserved3 = default, AuthenticityResultType type = AuthenticityResultType.IPI, CheckResult? elementResult = default, CheckDiagnose? elementDiagnose = default, int? percentValue = default) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.LightIndex = lightIndex;
             // to ensure "area" is required (not null)

@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="count">Count of items in List (required).</param>
         /// <param name="list">Authenticity Check (required).</param>
-        public AuthenticityCheckList(int count = default(int), List<AuthenticityCheckResult> list = default(List<AuthenticityCheckResult>))
+        public AuthenticityCheckList(int count = default, List<AuthenticityCheckResult> list = default)
         {
             this.Count = count;
             // to ensure "list" is required (not null)

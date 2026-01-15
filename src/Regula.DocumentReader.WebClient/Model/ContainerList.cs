@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="count">Length of list (Count for items).</param>
         /// <param name="list">list (required).</param>
-        public ContainerList(int count = default(int), List<ResultItem> list = default(List<ResultItem>))
+        public ContainerList(int? count = default, List<ResultItem> list = default)
         {
             // to ensure "list" is required (not null)
             if (list == null)

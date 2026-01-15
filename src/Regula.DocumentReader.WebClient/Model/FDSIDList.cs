@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dStateCode">Issuing state code.</param>
         /// <param name="dStateName">Issuing state name.</param>
         /// <param name="isDeprecated">Whether the document is deprecated (required).</param>
-        public FDSIDList(string iCAOCode = default(string), decimal count = default(decimal), List<int> list = default(List<int>), DocumentType dType = default(DocumentType), DocumentFormat dFormat = default(DocumentFormat), bool dMRZ = default(bool), string dDescription = default(string), string dYear = default(string), string dCountryName = default(string), string dStateCode = default(string), string dStateName = default(string), bool isDeprecated = default(bool))
+        public FDSIDList(string iCAOCode = default, decimal? count = default, List<int> list = default, DocumentType dType = default, DocumentFormat dFormat = default, bool dMRZ = default, string? dDescription = default, string? dYear = default, string dCountryName = default, string? dStateCode = default, string? dStateName = default, bool isDeprecated = default)
         {
             // to ensure "iCAOCode" is required (not null)
             if (iCAOCode == null)

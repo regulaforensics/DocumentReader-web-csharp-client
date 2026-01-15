@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listOfCandidates">Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability) (required).</param>
         /// <param name="baseLineBottom">baseLineBottom.</param>
         /// <param name="baseLineTop">baseLineTop.</param>
-        public SymbolRecognitionResult(RectangleCoordinates symbolRect = default(RectangleCoordinates), decimal candidatesCount = default(decimal), List<SymbolCandidate> listOfCandidates = default(List<SymbolCandidate>), int baseLineBottom = default(int), int baseLineTop = default(int))
+        public SymbolRecognitionResult(RectangleCoordinates? symbolRect = default, decimal candidatesCount = default, List<SymbolCandidate> listOfCandidates = default, int? baseLineBottom = default, int? baseLineTop = default)
         {
             this.CandidatesCount = candidatesCount;
             // to ensure "listOfCandidates" is required (not null)

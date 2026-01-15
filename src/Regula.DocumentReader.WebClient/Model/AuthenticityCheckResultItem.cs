@@ -86,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public AuthenticityCheckResultItem(AuthenticityResultType type = default(AuthenticityResultType), CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int))
+        public AuthenticityCheckResultItem(AuthenticityResultType type = default, CheckResult? elementResult = default, CheckDiagnose? elementDiagnose = default, int? percentValue = default)
         {
             this.Type = type;
             this.ElementResult = elementResult;

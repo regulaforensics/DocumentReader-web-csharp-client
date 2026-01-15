@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ProcessParamsRfid" /> class.
         /// </summary>
         /// <param name="paIgnoreNotificationCodes">A list of notification codes that should be ignored during passive authentication (PA).</param>
-        public ProcessParamsRfid(List<ParsingNotificationCodes> paIgnoreNotificationCodes = default(List<ParsingNotificationCodes>))
+        public ProcessParamsRfid(List<ParsingNotificationCodes> paIgnoreNotificationCodes = default)
         {
             this.PaIgnoreNotificationCodes = paIgnoreNotificationCodes;
         }

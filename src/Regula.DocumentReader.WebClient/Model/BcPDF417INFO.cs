@@ -46,7 +46,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bcRow">bcRow (required).</param>
         /// <param name="minX">minX (required).</param>
         /// <param name="minY">minY (required).</param>
-        public BcPDF417INFO(float angle = default(float), int bcColumn = default(int), int bcErrorLevel = default(int), int bcRow = default(int), float minX = default(float), float minY = default(float))
+        public BcPDF417INFO(float angle = default, int bcColumn = default, int bcErrorLevel = default, int bcRow = default, float minX = default, float minY = default)
         {
             this.Angle = angle;
             this.BcColumn = bcColumn;

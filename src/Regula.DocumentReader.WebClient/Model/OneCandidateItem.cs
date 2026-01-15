@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="OneCandidateItem" /> class.
         /// </summary>
         /// <param name="oneCandidate">oneCandidate (required).</param>
-        public OneCandidateItem(OneCandidate oneCandidate = default(OneCandidate))
+        public OneCandidateItem(OneCandidate oneCandidate = default)
         {
             // to ensure "oneCandidate" is required (not null)
             if (oneCandidate == null)

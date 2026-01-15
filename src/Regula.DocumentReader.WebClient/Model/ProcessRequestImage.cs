@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageData">imageData.</param>
         /// <param name="light">light.</param>
         /// <param name="pageIdx">page/image number.</param>
-        public ProcessRequestImage(ImageData imageData = default(ImageData), Light? light = default(Light?), int pageIdx = default(int))
+        public ProcessRequestImage(ImageData? imageData = default, Light? light = default, int? pageIdx = default)
         {
             this.ImageData = imageData;
             this.Light = light;

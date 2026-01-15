@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
         /// <param name="source">source (required).</param>
-        public ImagesAvailableSource(int containerType = 0, Source source = default(Source))
+        public ImagesAvailableSource(int containerType = 0, Source source = default)
         {
             this.ContainerType = containerType;
             this.Source = source;

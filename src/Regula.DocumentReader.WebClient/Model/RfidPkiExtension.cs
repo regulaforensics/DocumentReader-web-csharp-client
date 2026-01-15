@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="type">Extension identifier (OID, ASCII string); Contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string) (required).</param>
         /// <param name="data">Extension binary data. Base64 encoded. (required).</param>
-        public RfidPkiExtension(string type = default(string), string data = default(string))
+        public RfidPkiExtension(string type = default, string data = default)
         {
             // to ensure "type" is required (not null)
             if (type == null)

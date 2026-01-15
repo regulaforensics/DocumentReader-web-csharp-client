@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="systemInfo">systemInfo.</param>
         /// <param name="passBackObject">Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs..</param>
         /// <param name="dtc">Digital Travel Credential (DTC-VC) data in base64 format for processing.</param>
-        public TransactionProcessRequest(ProcessParams processParam = default(ProcessParams), List<ProcessRequestImage> list = default(List<ProcessRequestImage>), string tag = default(string), string tenant = default(string), string env = default(string), string livePortrait = default(string), string extPortrait = default(string), ContainerList containerList = default(ContainerList), ProcessSystemInfo systemInfo = default(ProcessSystemInfo), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), string dtc = default(string))
+        public TransactionProcessRequest(ProcessParams processParam = default, List<ProcessRequestImage> list = default, string? tag = default, string? tenant = default, string? env = default, string? livePortrait = default, string? extPortrait = default, ContainerList? containerList = default, ProcessSystemInfo? systemInfo = default, Dictionary<string, Object> passBackObject = default, string? dtc = default)
         {
             // to ensure "processParam" is required (not null)
             if (processParam == null)

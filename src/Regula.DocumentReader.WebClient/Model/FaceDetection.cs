@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="res">res (required).</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        public FaceDetection(int count = default(int), int countFalseDetection = default(int), List<FaceItem> res = default(List<FaceItem>), int reserved1 = default(int), int reserved2 = default(int))
+        public FaceDetection(int count = default, int countFalseDetection = default, List<FaceItem> res = default, int? reserved1 = default, int? reserved2 = default)
         {
             this.Count = count;
             this.CountFalseDetection = countFalseDetection;

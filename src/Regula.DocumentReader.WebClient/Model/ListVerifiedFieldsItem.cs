@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ListVerifiedFieldsItem" /> class.
         /// </summary>
         /// <param name="listVerifiedFields">listVerifiedFields (required).</param>
-        public ListVerifiedFieldsItem(ListVerifiedFields listVerifiedFields = default(ListVerifiedFields))
+        public ListVerifiedFieldsItem(ListVerifiedFields listVerifiedFields = default)
         {
             // to ensure "listVerifiedFields" is required (not null)
             if (listVerifiedFields == null)

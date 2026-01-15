@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="code">Unicode symbol code (required).</param>
         /// <param name="probability">Probability of correctness reading of a single character (required).</param>
         /// <param name="rect">rect.</param>
-        public OriginalSymbol(long code = default(long), int probability = default(int), RectangleCoordinates rect = default(RectangleCoordinates))
+        public OriginalSymbol(long code = default, int probability = default, RectangleCoordinates? rect = default)
         {
             this.Code = code;
             this.Probability = probability;

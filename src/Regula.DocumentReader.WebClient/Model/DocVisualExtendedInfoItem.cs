@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="DocVisualExtendedInfoItem" /> class.
         /// </summary>
         /// <param name="docVisualExtendedInfo">docVisualExtendedInfo (required).</param>
-        public DocVisualExtendedInfoItem(DocVisualExtendedInfo docVisualExtendedInfo = default(DocVisualExtendedInfo))
+        public DocVisualExtendedInfoItem(DocVisualExtendedInfo docVisualExtendedInfo = default)
         {
             // to ensure "docVisualExtendedInfo" is required (not null)
             if (docVisualExtendedInfo == null)

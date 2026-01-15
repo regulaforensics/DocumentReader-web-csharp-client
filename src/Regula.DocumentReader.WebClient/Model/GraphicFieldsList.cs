@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="pArrayFields">pArrayFields (required).</param>
         /// <param name="nFields">Number of pArrayFields array elements (required).</param>
-        public GraphicFieldsList(List<GraphicField> pArrayFields = default(List<GraphicField>), decimal nFields = default(decimal))
+        public GraphicFieldsList(List<GraphicField> pArrayFields = default, decimal nFields = default)
         {
             // to ensure "pArrayFields" is required (not null)
             if (pArrayFields == null)

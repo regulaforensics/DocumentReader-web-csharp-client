@@ -55,7 +55,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="step">step.</param>
         /// <param name="angle">angle.</param>
         /// <param name="reserved3">reserved3.</param>
-        public PhotoIdentItem(Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData sourceImage = default(ImageData), RawImageContainerList resultImages = default(RawImageContainerList), int fieldTypesCount = default(int), List<int> fieldTypesList = default(List<int>), int step = default(int), int angle = default(int), int reserved3 = default(int))
+        public PhotoIdentItem(Light lightIndex = default, RectangleCoordinates area = default, ImageData sourceImage = default, RawImageContainerList resultImages = default, int? fieldTypesCount = default, List<int> fieldTypesList = default, int? step = default, int? angle = default, int? reserved3 = default)
         {
             this.LightIndex = lightIndex;
             // to ensure "area" is required (not null)

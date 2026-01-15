@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="proxyType">Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;..</param>
         /// <param name="childAgeThreshold">The age threshold for the portrait comparison. Default: 13..</param>
         /// <param name="childDocValidityYears">Estimated duration of validity for a child&#39;s passport, years. Default: 5..</param>
-        public FaceApi(string url = default(string), string mode = default(string), FaceApiSearch search = default(FaceApiSearch), int threshold = default(int), int serviceTimeout = default(int), string proxy = default(string), string proxyUserpwd = default(string), int proxyType = default(int), int childAgeThreshold = default(int), int childDocValidityYears = default(int))
+        public FaceApi(string? url = default, string? mode = default, FaceApiSearch? search = default, int? threshold = default, int? serviceTimeout = default, string? proxy = default, string? proxyUserpwd = default, int? proxyType = default, int? childAgeThreshold = default, int? childDocValidityYears = default)
         {
             this.Url = url;
             this.Mode = mode;

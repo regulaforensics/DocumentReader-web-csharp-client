@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="count">count (required).</param>
         /// <param name="images">images (required).</param>
-        public RawImageContainerList(int count = default(int), List<ImageData> images = default(List<ImageData>))
+        public RawImageContainerList(int count = default, List<ImageData> images = default)
         {
             this.Count = count;
             // to ensure "images" is required (not null)

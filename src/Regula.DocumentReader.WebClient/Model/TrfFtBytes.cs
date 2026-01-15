@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="status">Result of logical analysis of compliance of the contents of the field with the requirements of the specification (required).</param>
         /// <param name="length">Length of Data array (required).</param>
         /// <param name="data">Binary data array. Base64 encoded. (required).</param>
-        public TrfFtBytes(int type = default(int), decimal status = default(decimal), decimal length = default(decimal), string data = default(string))
+        public TrfFtBytes(int type = default, decimal status = default, decimal length = default, string data = default)
         {
             this.Type = type;
             this.Status = status;

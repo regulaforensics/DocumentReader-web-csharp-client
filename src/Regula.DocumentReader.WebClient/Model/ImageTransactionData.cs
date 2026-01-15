@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ImageTransactionData" /> class.
         /// </summary>
         /// <param name="image">image.</param>
-        public ImageTransactionData(ImagesFieldValue image = default(ImagesFieldValue))
+        public ImageTransactionData(ImagesFieldValue? image = default)
         {
             this.Image = image;
         }

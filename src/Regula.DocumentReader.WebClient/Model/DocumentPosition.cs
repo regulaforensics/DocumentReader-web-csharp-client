@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="objIntAngleDev">objIntAngleDev.</param>
         /// <param name="perspectiveTr">perspectiveTr.</param>
         /// <param name="resultStatus">resultStatus.</param>
-        public DocumentPosition(DocumentFormat docFormat = default(DocumentFormat), decimal angle = default(decimal), int width = default(int), int height = default(int), Point center = default(Point), Point leftBottom = default(Point), Point leftTop = default(Point), Point rightBottom = default(Point), Point rightTop = default(Point), int dpi = default(int), int inverse = default(int), int objArea = default(int), int objIntAngleDev = default(int), int perspectiveTr = default(int), int resultStatus = default(int))
+        public DocumentPosition(DocumentFormat docFormat = default, decimal angle = default, int width = default, int height = default, Point center = default, Point leftBottom = default, Point leftTop = default, Point rightBottom = default, Point rightTop = default, int dpi = default, int? inverse = default, int? objArea = default, int? objIntAngleDev = default, int? perspectiveTr = default, int? resultStatus = default)
         {
             this.DocFormat = docFormat;
             this.Angle = angle;

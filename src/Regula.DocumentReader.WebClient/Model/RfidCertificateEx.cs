@@ -71,7 +71,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="type">type (required).</param>
         /// <param name="fileName">fileName (required).</param>
         /// <param name="pAStatus">pAStatus (required).</param>
-        public RfidCertificateEx(decimal varVersion = default(decimal), string serialNumber = default(string), string signatureAlgorithm = default(string), RfidDistinguishedName issuer = default(RfidDistinguishedName), RfidValidity validity = default(RfidValidity), RfidDistinguishedName subject = default(RfidDistinguishedName), string subjectPKAlgorithm = default(string), List<RfidPkiExtension> extensions = default(List<RfidPkiExtension>), List<long> notifications = default(List<long>), RfidCertificateOrigin origin = default(RfidCertificateOrigin), RfidCertificateType type = default(RfidCertificateType), TrfFtString fileName = default(TrfFtString), RFIDErrorCodes pAStatus = default(RFIDErrorCodes))
+        public RfidCertificateEx(decimal varVersion = default, string serialNumber = default, string signatureAlgorithm = default, RfidDistinguishedName issuer = default, RfidValidity validity = default, RfidDistinguishedName subject = default, string subjectPKAlgorithm = default, List<RfidPkiExtension> extensions = default, List<long> notifications = default, RfidCertificateOrigin origin = default, RfidCertificateType type = default, TrfFtString fileName = default, RFIDErrorCodes pAStatus = default)
         {
             this.VarVersion = varVersion;
             // to ensure "serialNumber" is required (not null)

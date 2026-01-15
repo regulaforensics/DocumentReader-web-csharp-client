@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.MRZ_DETECTOR).</param>
-        public MRZDetectorResult(ResultMRZDetector resultMRZDetector = default(ResultMRZDetector), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.MRZ_DETECTOR) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public MRZDetectorResult(ResultMRZDetector resultMRZDetector = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.MRZ_DETECTOR) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "resultMRZDetector" is required (not null)
             if (resultMRZDetector == null)

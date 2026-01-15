@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="MrzPositionItem" /> class.
         /// </summary>
         /// <param name="mrzPosition">mrzPosition (required).</param>
-        public MrzPositionItem(DocumentPosition mrzPosition = default(DocumentPosition))
+        public MrzPositionItem(DocumentPosition mrzPosition = default)
         {
             // to ensure "mrzPosition" is required (not null)
             if (mrzPosition == null)

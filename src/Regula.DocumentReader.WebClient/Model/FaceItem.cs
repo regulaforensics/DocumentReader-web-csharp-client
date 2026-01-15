@@ -54,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="lightType">lightType (required).</param>
         /// <param name="orientation">orientation (required).</param>
         /// <param name="probability">probability (required).</param>
-        public FaceItem(int coincidenceToPhotoArea = default(int), RectangleCoordinates faceRect = default(RectangleCoordinates), RectangleCoordinates fieldRect = default(RectangleCoordinates), int graphFieldNumber = default(int), List<Point> landmarks = default(List<Point>), Light lightType = default(Light), int orientation = default(int), int probability = default(int))
+        public FaceItem(int coincidenceToPhotoArea = default, RectangleCoordinates faceRect = default, RectangleCoordinates fieldRect = default, int graphFieldNumber = default, List<Point> landmarks = default, Light lightType = default, int orientation = default, int probability = default)
         {
             this.CoincidenceToPhotoArea = coincidenceToPhotoArea;
             // to ensure "faceRect" is required (not null)

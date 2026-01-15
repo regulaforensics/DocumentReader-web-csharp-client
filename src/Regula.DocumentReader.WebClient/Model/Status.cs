@@ -92,7 +92,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="age">age (required).</param>
         /// <param name="detailsAge">detailsAge (required).</param>
         /// <param name="mDL">mDL (required).</param>
-        public Status(CheckResult overallStatus = default(CheckResult), CheckResult optical = default(CheckResult), CheckResult portrait = default(CheckResult), CheckResult rfid = default(CheckResult), CheckResult stopList = default(CheckResult), DetailsRFID detailsRFID = default(DetailsRFID), DetailsOptical detailsOptical = default(DetailsOptical), CheckResult age = default(CheckResult), DetailsAge detailsAge = default(DetailsAge), CheckResult mDL = default(CheckResult))
+        public Status(CheckResult overallStatus = default, CheckResult optical = default, CheckResult portrait = default, CheckResult rfid = default, CheckResult stopList = default, DetailsRFID? detailsRFID = default, DetailsOptical detailsOptical = default, CheckResult age = default, DetailsAge detailsAge = default, CheckResult mDL = default)
         {
             this.OverallStatus = overallStatus;
             this.Optical = optical;

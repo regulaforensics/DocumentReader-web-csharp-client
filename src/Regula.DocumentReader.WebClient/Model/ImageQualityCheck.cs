@@ -65,7 +65,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="mean">Check mean value (required).</param>
         /// <param name="stdDev">Check deviation value (required).</param>
         /// <param name="probability">Check probability value (required).</param>
-        public ImageQualityCheck(ImageQualityCheckType type = default(ImageQualityCheckType), CheckResult result = default(CheckResult), SecurityFeatureType featureType = default(SecurityFeatureType), AreaArray areas = default(AreaArray), float mean = default(float), float stdDev = default(float), int probability = default(int))
+        public ImageQualityCheck(ImageQualityCheckType type = default, CheckResult result = default, SecurityFeatureType featureType = default, AreaArray? areas = default, float mean = default, float stdDev = default, int probability = default)
         {
             this.Type = type;
             this.Result = result;

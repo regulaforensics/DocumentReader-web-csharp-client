@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.MDL_PARSED_RESPONSE).</param>
-        public MDLResult(Dictionary<string, Object> mDLParsedResponse = default(Dictionary<string, Object>), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.MDL_PARSED_RESPONSE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public MDLResult(Dictionary<string, Object> mDLParsedResponse = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.MDL_PARSED_RESPONSE) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "mDLParsedResponse" is required (not null)
             if (mDLParsedResponse == null)

@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="MRZTestQualityItem" /> class.
         /// </summary>
         /// <param name="mRZTestQuality">mRZTestQuality (required).</param>
-        public MRZTestQualityItem(MRZTestQuality mRZTestQuality = default(MRZTestQuality))
+        public MRZTestQualityItem(MRZTestQuality mRZTestQuality = default)
         {
             // to ensure "mRZTestQuality" is required (not null)
             if (mRZTestQuality == null)

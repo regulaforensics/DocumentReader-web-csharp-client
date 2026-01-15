@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="VDSDataItem" /> class.
         /// </summary>
         /// <param name="dftVDS">dftVDS (required).</param>
-        public VDSDataItem(VDSData dftVDS = default(VDSData))
+        public VDSDataItem(VDSData dftVDS = default)
         {
             // to ensure "dftVDS" is required (not null)
             if (dftVDS == null)

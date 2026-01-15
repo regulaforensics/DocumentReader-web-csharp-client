@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="supportedScenarios">List of supported scenarios..</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="documentsDatabase">documentsDatabase.</param>
-        public DeviceInfo(string appName = default(string), string varVersion = default(string), string licenseId = default(string), string licenseSerial = default(string), string licenseType = default(string), DateTime validUntil = default(DateTime), string serverTime = default(string), List<string> supportedScenarios = default(List<string>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), DeviceInfoDocumentsDatabase documentsDatabase = default(DeviceInfoDocumentsDatabase))
+        public DeviceInfo(string? appName = default, string? varVersion = default, string? licenseId = default, string? licenseSerial = default, string? licenseType = default, DateTime? validUntil = default, string? serverTime = default, List<string> supportedScenarios = default, Dictionary<string, Object> metadata = default, DeviceInfoDocumentsDatabase? documentsDatabase = default)
         {
             this.AppName = appName;
             this.VarVersion = varVersion;

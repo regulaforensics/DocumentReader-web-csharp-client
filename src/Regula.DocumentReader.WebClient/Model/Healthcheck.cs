@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="varVersion">Product version. (required).</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="documentsDatabase">documentsDatabase.</param>
-        public Healthcheck(string app = default(string), string licenseId = default(string), string licenseType = default(string), string licenseSerial = default(string), DateTime? licenseValidUntil = default(DateTime?), List<string> scenarios = default(List<string>), string varVersion = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), HealthcheckDocumentsDatabase documentsDatabase = default(HealthcheckDocumentsDatabase))
+        public Healthcheck(string app = default, string licenseId = default, string licenseType = default, string licenseSerial = default, DateTime? licenseValidUntil = default, List<string> scenarios = default, string varVersion = default, Dictionary<string, Object> metadata = default, HealthcheckDocumentsDatabase? documentsDatabase = default)
         {
             // to ensure "app" is required (not null)
             if (app == null)

@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="DocGraphicsInfoItem" /> class.
         /// </summary>
         /// <param name="docGraphicsInfo">docGraphicsInfo (required).</param>
-        public DocGraphicsInfoItem(GraphicFieldsList docGraphicsInfo = default(GraphicFieldsList))
+        public DocGraphicsInfoItem(GraphicFieldsList docGraphicsInfo = default)
         {
             // to ensure "docGraphicsInfo" is required (not null)
             if (docGraphicsInfo == null)

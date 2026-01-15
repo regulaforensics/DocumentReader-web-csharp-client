@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dgTag">Index of the source record of the image with biometric information in the information data group (required).</param>
         /// <param name="tagEntry">Index of the template in the record with biometric data (required).</param>
         /// <param name="entryView">Index of the variant of the biometric data template (required).</param>
-        public RfidOrigin(int dg = default(int), int dgTag = default(int), int tagEntry = default(int), int entryView = default(int))
+        public RfidOrigin(int dg = default, int dgTag = default, int tagEntry = default, int entryView = default)
         {
             this.Dg = dg;
             this.DgTag = dgTag;

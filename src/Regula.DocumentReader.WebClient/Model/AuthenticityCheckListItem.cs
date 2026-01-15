@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="AuthenticityCheckListItem" /> class.
         /// </summary>
         /// <param name="authenticityCheckList">authenticityCheckList (required).</param>
-        public AuthenticityCheckListItem(AuthenticityCheckList authenticityCheckList = default(AuthenticityCheckList))
+        public AuthenticityCheckListItem(AuthenticityCheckList authenticityCheckList = default)
         {
             // to ensure "authenticityCheckList" is required (not null)
             if (authenticityCheckList == null)

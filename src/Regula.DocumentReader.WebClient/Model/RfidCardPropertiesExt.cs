@@ -78,7 +78,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bitRateS">bitRateS (required).</param>
         /// <param name="bitRateR">bitRateR (required).</param>
         /// <param name="aTR">ATR-string of RFID-chip (required).</param>
-        public RfidCardPropertiesExt(RfidType rFIDType = default(RfidType), string baudrate1 = default(string), string baudrate2 = default(string), bool support4 = default(bool), RfidAChip chipTypeA = default(RfidAChip), bool supportMifare = default(bool), decimal mifareMemory = default(decimal), string uID = default(string), Object aTQA = default(Object), Object sAK = default(Object), Object aTQB = default(Object), RfidBaudRate bitRateS = default(RfidBaudRate), RfidBaudRate bitRateR = default(RfidBaudRate), string aTR = default(string))
+        public RfidCardPropertiesExt(RfidType rFIDType = default, string baudrate1 = default, string baudrate2 = default, bool support4 = default, RfidAChip chipTypeA = default, bool supportMifare = default, decimal mifareMemory = default, string uID = default, Object aTQA = default, Object sAK = default, Object aTQB = default, RfidBaudRate bitRateS = default, RfidBaudRate bitRateR = default, string aTR = default)
         {
             this.RFIDType = rFIDType;
             // to ensure "baudrate1" is required (not null)

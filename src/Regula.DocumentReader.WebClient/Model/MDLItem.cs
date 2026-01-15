@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="MDLItem" /> class.
         /// </summary>
         /// <param name="mDLParsedResponse">mDLParsedResponse (required).</param>
-        public MDLItem(Dictionary<string, Object> mDLParsedResponse = default(Dictionary<string, Object>))
+        public MDLItem(Dictionary<string, Object> mDLParsedResponse = default)
         {
             // to ensure "mDLParsedResponse" is required (not null)
             if (mDLParsedResponse == null)

@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
         /// <param name="xMLBuffer">xMLBuffer (required).</param>
-        public BSIV2Item(string xMLBuffer = default(string))
+        public BSIV2Item(string xMLBuffer = default)
         {
             // to ensure "xMLBuffer" is required (not null)
             if (xMLBuffer == null)

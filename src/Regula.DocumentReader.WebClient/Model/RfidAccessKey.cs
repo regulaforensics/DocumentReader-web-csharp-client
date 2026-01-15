@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="keyType">keyType (required).</param>
         /// <param name="accessType">accessType (required).</param>
         /// <param name="checkFullKeyMatching">Logical sign of the need for a full comparison of AccessKey contents with the contents of DG1 (MRZ) data group (required).</param>
-        public RfidAccessKey(string accessKey = default(string), RfidPasswordType keyType = default(RfidPasswordType), RfidAccessControlProcedureType accessType = default(RfidAccessControlProcedureType), bool checkFullKeyMatching = default(bool))
+        public RfidAccessKey(string accessKey = default, RfidPasswordType keyType = default, RfidAccessControlProcedureType accessType = default, bool checkFullKeyMatching = default)
         {
             // to ensure "accessKey" is required (not null)
             if (accessKey == null)

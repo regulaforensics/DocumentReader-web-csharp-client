@@ -46,7 +46,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="tESTRESULT">tESTRESULT (required).</param>
         /// <param name="validCheckSum">validCheckSum (required).</param>
         /// <param name="reserved">reserved (required).</param>
-        public FieldItem(int fieldLength = default(int), int fieldPos = default(int), int fieldType = default(int), int tESTRESULT = default(int), int validCheckSum = default(int), int reserved = default(int))
+        public FieldItem(int fieldLength = default, int fieldPos = default, int fieldType = default, int tESTRESULT = default, int validCheckSum = default, int reserved = default)
         {
             this.FieldLength = fieldLength;
             this.FieldPos = fieldPos;

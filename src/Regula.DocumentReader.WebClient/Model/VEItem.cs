@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dis">dis.</param>
         /// <param name="nam">nam.</param>
         /// <param name="vd">vd.</param>
-        public VEItem(string des = default(string), string dis = default(string), string nam = default(string), List<VDItem> vd = default(List<VDItem>))
+        public VEItem(string? des = default, string? dis = default, string? nam = default, List<VDItem> vd = default)
         {
             this.Des = des;
             this.Dis = dis;
