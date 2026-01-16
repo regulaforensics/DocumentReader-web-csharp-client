@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="LicenseItem" /> class.
         /// </summary>
         /// <param name="license">Base64 encoded data (required).</param>
-        public LicenseItem(byte[] license = default(byte[]))
+        public LicenseItem(byte[] license = default)
         {
             // to ensure "license" is required (not null)
             if (license == null)
@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded data</value>
         /*
-        <example>[B@55b11357</example>
+        <example>[B@5a95b08a</example>
         */
         [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
         public byte[] License { get; set; }

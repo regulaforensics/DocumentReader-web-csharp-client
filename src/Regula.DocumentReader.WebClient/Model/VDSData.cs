@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="signer">signer.</param>
         /// <param name="type">type.</param>
         /// <param name="varVersion">varVersion.</param>
-        public VDSData(string certificate = default(string), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), List<DocFeature> docFeatures = default(List<DocFeature>), string docIssueDate = default(string), int docType = default(int), int featureRef = default(int), string issuingCountry = default(string), List<long> notifications = default(List<long>), TrfFtBytes signature = default(TrfFtBytes), string signatureDate = default(string), string signer = default(string), int type = default(int), int varVersion = default(int))
+        public VDSData(string? certificate = default, List<RfidCertificateEx> certificateChain = default, List<DocFeature> docFeatures = default, string? docIssueDate = default, int? docType = default, int? featureRef = default, string? issuingCountry = default, List<long> notifications = default, TrfFtBytes? signature = default, string? signatureDate = default, string? signer = default, int? type = default, int? varVersion = default)
         {
             this.Certificate = certificate;
             this.CertificateChain = certificateChain;

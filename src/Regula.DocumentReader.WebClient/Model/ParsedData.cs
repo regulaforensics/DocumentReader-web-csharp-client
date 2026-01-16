@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ParsedData" /> class.
         /// </summary>
         /// <param name="parsingNotifications">parsingNotifications.</param>
-        public ParsedData(List<ParsingNotificationCodes> parsingNotifications = default(List<ParsingNotificationCodes>))
+        public ParsedData(List<ParsingNotificationCodes> parsingNotifications = default)
         {
             this.ParsingNotifications = parsingNotifications;
         }

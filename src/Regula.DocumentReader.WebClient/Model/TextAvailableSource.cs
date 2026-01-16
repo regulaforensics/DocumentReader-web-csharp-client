@@ -55,7 +55,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="source">source (required).</param>
         /// <param name="validityStatus">validityStatus (required).</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
-        public TextAvailableSource(Source source = default(Source), CheckResult validityStatus = default(CheckResult), int containerType = 0)
+        public TextAvailableSource(Source source = default, CheckResult validityStatus = default, int? containerType = 0)
         {
             this.Source = source;
             this.ValidityStatus = validityStatus;

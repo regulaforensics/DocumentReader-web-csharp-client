@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="license">Base64 encoded license file.</param>
         /// <param name="recaptchaToken">For internal use. Demo-sites recaptcha token..</param>
-        public ProcessSystemInfo(string license = default(string), string recaptchaToken = default(string))
+        public ProcessSystemInfo(string? license = default, string? recaptchaToken = default)
         {
             this.License = license;
             this.RecaptchaToken = recaptchaToken;

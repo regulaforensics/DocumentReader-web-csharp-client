@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bufLength">Buf_Text text string length.</param>
         /// <param name="bufText">Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;.</param>
         /// <param name="reserved">reserved.</param>
-        public StringRecognitionResult(decimal symbolsCount = default(decimal), List<SymbolRecognitionResult> stringResult = default(List<SymbolRecognitionResult>), decimal bufLength = default(decimal), string bufText = default(string), int reserved = default(int))
+        public StringRecognitionResult(decimal symbolsCount = default, List<SymbolRecognitionResult> stringResult = default, decimal? bufLength = default, string? bufText = default, int? reserved = default)
         {
             this.SymbolsCount = symbolsCount;
             // to ensure "stringResult" is required (not null)

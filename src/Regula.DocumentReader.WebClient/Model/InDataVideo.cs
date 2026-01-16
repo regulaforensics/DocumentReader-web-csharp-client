@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="metadata">A free-form object containing video&#39;s extended attributes..</param>
         /// <param name="url">Video url.</param>
-        public InDataVideo(Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string url = default(string))
+        public InDataVideo(Dictionary<string, Object> metadata = default, string? url = default)
         {
             this.Metadata = metadata;
             this.Url = url;

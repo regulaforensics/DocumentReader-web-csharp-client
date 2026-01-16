@@ -59,7 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonImage">etalonImage (required).</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="elementID">elementID.</param>
-        public IdentItem(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int elementID = default(int))
+        public IdentItem(SecurityFeatureType elementType = default, Light lightIndex = default, RectangleCoordinates? area = default, ImageData image = default, ImageData etalonImage = default, AreaContainer? areaList = default, int? elementID = default)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;

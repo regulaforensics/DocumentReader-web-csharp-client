@@ -86,7 +86,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="strCount">strCount (required).</param>
         /// <param name="strings">strings (required).</param>
         /// <param name="tEXTUALFILLING">tEXTUALFILLING (required).</param>
-        public MRZTestQuality(CheckResult cHECKSUMS = default(CheckResult), CheckResult cONTRASTPRINT = default(CheckResult), int dOCFORMAT = default(int), int mRZFORMAT = default(int), CheckResult pRINTPOSITION = default(CheckResult), CheckResult sTAINMRZ = default(CheckResult), CheckResult sYMBOLSPARAM = default(CheckResult), int strCount = default(int), List<StringItem> strings = default(List<StringItem>), CheckResult tEXTUALFILLING = default(CheckResult))
+        public MRZTestQuality(CheckResult cHECKSUMS = default, CheckResult cONTRASTPRINT = default, int dOCFORMAT = default, int mRZFORMAT = default, CheckResult pRINTPOSITION = default, CheckResult sTAINMRZ = default, CheckResult sYMBOLSPARAM = default, int strCount = default, List<StringItem> strings = default, CheckResult tEXTUALFILLING = default)
         {
             this.CHECK_SUMS = cHECKSUMS;
             this.CONTRAST_PRINT = cONTRASTPRINT;

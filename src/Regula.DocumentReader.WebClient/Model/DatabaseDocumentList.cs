@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="DatabaseDocumentList" /> class.
         /// </summary>
         /// <param name="items">The list of documents stored in the database. (required).</param>
-        public DatabaseDocumentList(List<DatabaseDocument> items = default(List<DatabaseDocument>))
+        public DatabaseDocumentList(List<DatabaseDocument> items = default)
         {
             // to ensure "items" is required (not null)
             if (items == null)

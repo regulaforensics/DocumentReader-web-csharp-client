@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="DocBarCodeInfoItem" /> class.
         /// </summary>
         /// <param name="docBarCodeInfo">docBarCodeInfo (required).</param>
-        public DocBarCodeInfoItem(DocBarCodeInfoFieldsList docBarCodeInfo = default(DocBarCodeInfoFieldsList))
+        public DocBarCodeInfoItem(DocBarCodeInfoFieldsList docBarCodeInfo = default)
         {
             // to ensure "docBarCodeInfo" is required (not null)
             if (docBarCodeInfo == null)

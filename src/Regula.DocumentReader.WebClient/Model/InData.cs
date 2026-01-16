@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="video">video.</param>
         /// <param name="images">images.</param>
-        public InData(InDataVideo video = default(InDataVideo), List<InDataTransactionImagesFieldValue> images = default(List<InDataTransactionImagesFieldValue>))
+        public InData(InDataVideo? video = default, List<InDataTransactionImagesFieldValue> images = default)
         {
             this.Video = video;
             this.Images = images;

@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldRect">fieldRect.</param>
         /// <param name="rfidOrigin">rfidOrigin.</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
-        public TextFieldValue(Source source = default(Source), string value = default(string), string originalValue = default(string), CheckResult originalValidity = default(CheckResult), List<OriginalSymbol> originalSymbols = default(List<OriginalSymbol>), int pageIndex = default(int), int probability = default(int), RectangleCoordinates fieldRect = default(RectangleCoordinates), RfidOrigin rfidOrigin = default(RfidOrigin), int containerType = 0)
+        public TextFieldValue(Source source = default, string value = default, string? originalValue = default, CheckResult originalValidity = default, List<OriginalSymbol> originalSymbols = default, int pageIndex = default, int probability = default, RectangleCoordinates? fieldRect = default, RfidOrigin? rfidOrigin = default, int? containerType = 0)
         {
             this.Source = source;
             // to ensure "value" is required (not null)

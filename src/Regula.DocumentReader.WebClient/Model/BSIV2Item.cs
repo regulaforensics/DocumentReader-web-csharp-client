@@ -27,46 +27,35 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// CrossSourceValueComparison
+    /// BSIV2Item
     /// </summary>
-    [DataContract(Name = "CrossSourceValueComparison")]
-    public partial class CrossSourceValueComparison : IValidatableObject
+    [DataContract(Name = "BSIV2Item")]
+    public partial class BSIV2Item : IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets SourceLeft
-        /// </summary>
-        [DataMember(Name = "sourceLeft", IsRequired = true, EmitDefaultValue = true)]
-        public Source SourceLeft { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SourceRight
-        /// </summary>
-        [DataMember(Name = "sourceRight", IsRequired = true, EmitDefaultValue = true)]
-        public Source SourceRight { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public CheckResult Status { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CrossSourceValueComparison() { }
+        protected BSIV2Item() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Item" /> class.
         /// </summary>
-        /// <param name="sourceLeft">sourceLeft (required).</param>
-        /// <param name="sourceRight">sourceRight (required).</param>
-        /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(Source sourceLeft = default, Source sourceRight = default, CheckResult status = default)
+        /// <param name="xMLBuffer">xMLBuffer (required).</param>
+        public BSIV2Item(string xMLBuffer = default)
         {
-            this.SourceLeft = sourceLeft;
-            this.SourceRight = sourceRight;
-            this.Status = status;
+            // to ensure "xMLBuffer" is required (not null)
+            if (xMLBuffer == null)
+            {
+                throw new ArgumentNullException("xMLBuffer is a required property for BSIV2Item and cannot be null");
+            }
+            this.XMLBuffer = xMLBuffer;
         }
+
+        /// <summary>
+        /// Gets or Sets XMLBuffer
+        /// </summary>
+        [DataMember(Name = "XML_buffer", IsRequired = true, EmitDefaultValue = true)]
+        public string XMLBuffer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,10 +64,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CrossSourceValueComparison {\n");
-            sb.Append("  SourceLeft: ").Append(SourceLeft).Append("\n");
-            sb.Append("  SourceRight: ").Append(SourceRight).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class BSIV2Item {\n");
+            sb.Append("  XMLBuffer: ").Append(XMLBuffer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

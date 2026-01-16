@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="CandidatesListItem" /> class.
         /// </summary>
         /// <param name="candidatesList">candidatesList.</param>
-        public CandidatesListItem(DocumentTypesCandidatesList candidatesList = default(DocumentTypesCandidatesList))
+        public CandidatesListItem(DocumentTypesCandidatesList? candidatesList = default)
         {
             this.CandidatesList = candidatesList;
         }

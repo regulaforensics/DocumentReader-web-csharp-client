@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="TextItem" /> class.
         /// </summary>
         /// <param name="text">text (required).</param>
-        public TextItem(Text text = default(Text))
+        public TextItem(Text text = default)
         {
             // to ensure "text" is required (not null)
             if (text == null)

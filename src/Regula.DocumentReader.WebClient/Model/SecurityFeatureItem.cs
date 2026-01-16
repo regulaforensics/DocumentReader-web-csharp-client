@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="criticalFlag">criticalFlag (required).</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="reserved2">reserved2.</param>
-        public SecurityFeatureItem(SecurityFeatureType elementType = default(SecurityFeatureType), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility visibility = default(Visibility), Critical criticalFlag = default(Critical), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int))
+        public SecurityFeatureItem(SecurityFeatureType elementType = default, RectangleCoordinates elementRect = default, Visibility visibility = default, Critical criticalFlag = default, AreaContainer? areaList = default, int? reserved2 = default)
         {
             this.ElementType = elementType;
             // to ensure "elementRect" is required (not null)

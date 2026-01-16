@@ -20,6 +20,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = Regula.DocumentReader.WebClient.Client.FileParameter;
 using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateConverter;
@@ -27,46 +28,40 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// CrossSourceValueComparison
+    /// BSIV2Result
     /// </summary>
-    [DataContract(Name = "CrossSourceValueComparison")]
-    public partial class CrossSourceValueComparison : IValidatableObject
+    [DataContract(Name = "BSIV2Result")]
+    public partial class BSIV2Result : ResultItem, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets SourceLeft
-        /// </summary>
-        [DataMember(Name = "sourceLeft", IsRequired = true, EmitDefaultValue = true)]
-        public Source SourceLeft { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SourceRight
-        /// </summary>
-        [DataMember(Name = "sourceRight", IsRequired = true, EmitDefaultValue = true)]
-        public Source SourceRight { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public CheckResult Status { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Result" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CrossSourceValueComparison() { }
+        protected BSIV2Result() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CrossSourceValueComparison" /> class.
+        /// Initializes a new instance of the <see cref="BSIV2Result" /> class.
         /// </summary>
-        /// <param name="sourceLeft">sourceLeft (required).</param>
-        /// <param name="sourceRight">sourceRight (required).</param>
-        /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(Source sourceLeft = default, Source sourceRight = default, CheckResult status = default)
+        /// <param name="xMLBuffer">xMLBuffer (required).</param>
+        /// <param name="bufLength">bufLength.</param>
+        /// <param name="light">light.</param>
+        /// <param name="listIdx">listIdx.</param>
+        /// <param name="pageIdx">pageIdx.</param>
+        /// <param name="resultType">resultType (required) (default to Result.BSI_XML_V2).</param>
+        public BSIV2Result(string xMLBuffer = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.BSI_XML_V2) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
-            this.SourceLeft = sourceLeft;
-            this.SourceRight = sourceRight;
-            this.Status = status;
+            // to ensure "xMLBuffer" is required (not null)
+            if (xMLBuffer == null)
+            {
+                throw new ArgumentNullException("xMLBuffer is a required property for BSIV2Result and cannot be null");
+            }
+            this.XMLBuffer = xMLBuffer;
         }
+
+        /// <summary>
+        /// Gets or Sets XMLBuffer
+        /// </summary>
+        [DataMember(Name = "XML_buffer", IsRequired = true, EmitDefaultValue = true)]
+        public string XMLBuffer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,10 +70,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CrossSourceValueComparison {\n");
-            sb.Append("  SourceLeft: ").Append(SourceLeft).Append("\n");
-            sb.Append("  SourceRight: ").Append(SourceRight).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class BSIV2Result {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  XMLBuffer: ").Append(XMLBuffer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +81,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -99,6 +93,20 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in base.BaseValidate(validationContext))
+            {
+                yield return x;
+            }
             yield break;
         }
     }

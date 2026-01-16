@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fileReference">Reference to the source file of the security object data (required).</param>
         /// <param name="notifications">List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
         /// <param name="signerInfos">List of containers to store information about digital signature objects contained in the SO (required).</param>
-        public RfidSecurityObject(decimal varVersion = default(decimal), string objectType = default(string), decimal fileReference = default(decimal), List<long> notifications = default(List<long>), List<RfidSignerInfoEx> signerInfos = default(List<RfidSignerInfoEx>))
+        public RfidSecurityObject(decimal varVersion = default, string objectType = default, decimal fileReference = default, List<long> notifications = default, List<RfidSignerInfoEx> signerInfos = default)
         {
             this.VarVersion = varVersion;
             // to ensure "objectType" is required (not null)

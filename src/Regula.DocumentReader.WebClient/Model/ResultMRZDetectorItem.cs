@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ResultMRZDetectorItem" /> class.
         /// </summary>
         /// <param name="resultMRZDetector">resultMRZDetector (required).</param>
-        public ResultMRZDetectorItem(ResultMRZDetector resultMRZDetector = default(ResultMRZDetector))
+        public ResultMRZDetectorItem(ResultMRZDetector resultMRZDetector = default)
         {
             // to ensure "resultMRZDetector" is required (not null)
             if (resultMRZDetector == null)

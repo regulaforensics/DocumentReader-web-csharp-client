@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="termType">termType (required).</param>
         /// <param name="authReq">Declared (set) combination of flags of access rights to the functionality of the document (combination of eRfidTerminalAuthorizationRequirement values) (required).</param>
         /// <param name="authReq2">Declared (set) combination of flags of access rights to the functionality of the document (combination of RfidTerminalAuthorizationRequirement values) (required).</param>
-        public RfidTerminal(RfidTerminalType termType = default(RfidTerminalType), decimal authReq = default(decimal), decimal authReq2 = default(decimal))
+        public RfidTerminal(RfidTerminalType termType = default, decimal authReq = default, decimal authReq2 = default)
         {
             this.TermType = termType;
             this.AuthReq = authReq;

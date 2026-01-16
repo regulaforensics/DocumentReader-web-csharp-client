@@ -49,7 +49,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="result">result (required).</param>
         /// <param name="list">list (required).</param>
         /// <param name="count">Number of List array elements (required).</param>
-        public ImageQualityCheckList(CheckResult result = default(CheckResult), List<ImageQualityCheck> list = default(List<ImageQualityCheck>), decimal count = default(decimal))
+        public ImageQualityCheckList(CheckResult result = default, List<ImageQualityCheck> list = default, decimal count = default)
         {
             this.Result = result;
             // to ensure "list" is required (not null)

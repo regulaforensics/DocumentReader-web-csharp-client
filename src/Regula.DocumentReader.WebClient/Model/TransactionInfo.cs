@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="transactionID">Transaction identifier.</param>
         /// <param name="userName">User name.</param>
         /// <param name="varVersion">SDK version.</param>
-        public TransactionInfo(string computerName = default(string), string dateTime = default(string), DocumentsDatabase documentsDatabase = default(DocumentsDatabase), string systemInfo = default(string), string tag = default(string), string transactionID = default(string), string userName = default(string), string varVersion = default(string))
+        public TransactionInfo(string? computerName = default, string? dateTime = default, DocumentsDatabase? documentsDatabase = default, string? systemInfo = default, string? tag = default, string? transactionID = default, string? userName = default, string? varVersion = default)
         {
             this.ComputerName = computerName;
             this.DateTime = dateTime;

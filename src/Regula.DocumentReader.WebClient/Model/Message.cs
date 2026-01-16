@@ -38,7 +38,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pid">pid.</param>
         /// <param name="uvci">uvci.</param>
         /// <param name="ve">ve.</param>
-        public Message(PID pid = default(PID), string uvci = default(string), List<VEItem> ve = default(List<VEItem>))
+        public Message(PID? pid = default, string? uvci = default, List<VEItem> ve = default)
         {
             this.Pid = pid;
             this.Uvci = uvci;

@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.TEXT).</param>
-        public TextResult(Text text = default(Text), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.TEXT) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public TextResult(Text text = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.TEXT) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "text" is required (not null)
             if (text == null)

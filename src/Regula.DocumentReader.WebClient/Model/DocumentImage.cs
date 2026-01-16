@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="image">Base64 encoded image.</param>
         /// <param name="format">Image format.</param>
-        public DocumentImage(string image = default(string), string format = default(string))
+        public DocumentImage(string? image = default, string? format = default)
         {
             this.Image = image;
             this.Format = format;

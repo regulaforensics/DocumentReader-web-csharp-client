@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="length">length (required).</param>
         /// <param name="maxLength">maxLength (required).</param>
         /// <param name="symbols">symbols (required).</param>
-        public MRZRowsItem(int length = default(int), int maxLength = default(int), List<Symbol> symbols = default(List<Symbol>))
+        public MRZRowsItem(int length = default, int maxLength = default, List<Symbol> symbols = default)
         {
             this.Length = length;
             this.MaxLength = maxLength;

@@ -51,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkPhotoComparison">This parameter is used to enable Portrait comparison check.</param>
         /// <param name="checkLetterScreen">This parameter is used to enable LetterScreen check.</param>
         /// <param name="checkSecurityText">This parameter is used to enable Security text check.</param>
-        public AuthParams(bool checkLiveness = default(bool), LivenessParams livenessParams = default(LivenessParams), bool checkUVLuminiscence = default(bool), bool checkIRB900 = default(bool), bool checkImagePatterns = default(bool), bool checkFibers = default(bool), bool checkExtMRZ = default(bool), bool checkExtOCR = default(bool), bool checkAxial = default(bool), bool checkBarcodeFormat = default(bool), bool checkIRVisibility = default(bool), bool checkIPI = default(bool), bool checkPhotoEmbedding = default(bool), bool checkPhotoComparison = default(bool), bool checkLetterScreen = default(bool), bool checkSecurityText = default(bool))
+        public AuthParams(bool? checkLiveness = default, LivenessParams? livenessParams = default, bool? checkUVLuminiscence = default, bool? checkIRB900 = default, bool? checkImagePatterns = default, bool? checkFibers = default, bool? checkExtMRZ = default, bool? checkExtOCR = default, bool? checkAxial = default, bool? checkBarcodeFormat = default, bool? checkIRVisibility = default, bool? checkIPI = default, bool? checkPhotoEmbedding = default, bool? checkPhotoComparison = default, bool? checkLetterScreen = default, bool? checkSecurityText = default)
         {
             this.CheckLiveness = checkLiveness;
             this.LivenessParams = livenessParams;

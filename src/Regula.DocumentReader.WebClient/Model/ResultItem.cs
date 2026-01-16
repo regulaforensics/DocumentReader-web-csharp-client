@@ -66,6 +66,7 @@ namespace Regula.DocumentReader.WebClient.Model
     [JsonSubtypes.KnownSubType(typeof(MRZPositionResult), "61")]
     [JsonSubtypes.KnownSubType(typeof(BarcodePositionResult), "62")]
     [JsonSubtypes.KnownSubType(typeof(MRZTestQualityResult), "7")]
+    [JsonSubtypes.KnownSubType(typeof(BSIV2Result), "73")]
     [JsonSubtypes.KnownSubType(typeof(DocumentTypesCandidatesResult), "8")]
     [JsonSubtypes.KnownSubType(typeof(DocumentPositionResult), "85")]
     [JsonSubtypes.KnownSubType(typeof(MRZDetectorResult), "87")]
@@ -92,7 +93,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required).</param>
-        public ResultItem(int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = default(Result))
+        public ResultItem(int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = default)
         {
             this.ResultType = resultType;
             this.BufLength = bufLength;

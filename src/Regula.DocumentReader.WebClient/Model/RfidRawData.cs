@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="fieldType">fieldType (required).</param>
-        public RfidRawData(string data = default(string), int fieldType = default(int))
+        public RfidRawData(string data = default, int fieldType = default)
         {
             // to ensure "data" is required (not null)
             if (data == null)

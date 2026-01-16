@@ -315,7 +315,27 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum SEX_CHECK for value: 57
         /// </summary>
-        SEX_CHECK = 57
+        SEX_CHECK = 57,
+
+        /// <summary>
+        /// Enum PORTRAIT_COMPARISON_RFID_VS_GHOST for value: 58
+        /// </summary>
+        PORTRAIT_COMPARISON_RFID_VS_GHOST = 58,
+
+        /// <summary>
+        /// Enum PORTRAIT_COMPARISON_BARCODE_VS_GHOST for value: 59
+        /// </summary>
+        PORTRAIT_COMPARISON_BARCODE_VS_GHOST = 59,
+
+        /// <summary>
+        /// Enum PORTRAIT_COMPARISON_GHOST_VS_LIVE for value: 60
+        /// </summary>
+        PORTRAIT_COMPARISON_GHOST_VS_LIVE = 60,
+
+        /// <summary>
+        /// Enum PORTRAIT_COMPARISON_EXT_VS_GHOST for value: 61
+        /// </summary>
+        PORTRAIT_COMPARISON_EXT_VS_GHOST = 61
     }
 
 }

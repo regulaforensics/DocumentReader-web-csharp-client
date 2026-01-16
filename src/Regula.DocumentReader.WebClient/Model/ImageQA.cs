@@ -45,7 +45,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
         /// <param name="expectedPass">This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process..</param>
         /// <param name="glaresCheckParams">glaresCheckParams.</param>
-        public ImageQA(double brightnessThreshold = default(double), int dpiThreshold = default(int), int angleThreshold = default(int), bool focusCheck = default(bool), bool glaresCheck = default(bool), bool colornessCheck = default(bool), bool moireCheck = default(bool), int documentPositionIndent = default(int), List<InputImageQualityChecks> expectedPass = default(List<InputImageQualityChecks>), GlaresCheckParams glaresCheckParams = default(GlaresCheckParams))
+        public ImageQA(double? brightnessThreshold = default, int? dpiThreshold = default, int? angleThreshold = default, bool? focusCheck = default, bool? glaresCheck = default, bool? colornessCheck = default, bool? moireCheck = default, int? documentPositionIndent = default, List<InputImageQualityChecks> expectedPass = default, GlaresCheckParams? glaresCheckParams = default)
         {
             this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;

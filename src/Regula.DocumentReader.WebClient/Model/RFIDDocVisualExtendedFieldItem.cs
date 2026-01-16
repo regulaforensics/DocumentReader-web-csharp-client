@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="originDGTag">originDGTag.</param>
         /// <param name="originTagEntry">Record index of the text field source in the data group (required).</param>
         /// <param name="originEntryView">originEntryView.</param>
-        public RFIDDocVisualExtendedFieldItem(int originDG = default(int), int originDGTag = default(int), decimal originTagEntry = default(decimal), int originEntryView = default(int))
+        public RFIDDocVisualExtendedFieldItem(int originDG = default, int? originDGTag = default, decimal originTagEntry = default, int? originEntryView = default)
         {
             this.OriginDG = originDG;
             this.OriginTagEntry = originTagEntry;

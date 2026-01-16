@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.DOCUMENT_TYPE).</param>
-        public ChosenDocumentTypeResult(OneCandidate oneCandidate = default(OneCandidate), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.DOCUMENT_TYPE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public ChosenDocumentTypeResult(OneCandidate oneCandidate = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.DOCUMENT_TYPE) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "oneCandidate" is required (not null)
             if (oneCandidate == null)

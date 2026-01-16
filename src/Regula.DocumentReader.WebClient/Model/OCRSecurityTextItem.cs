@@ -75,7 +75,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="etalonResultOCR">etalonResultOCR (required).</param>
         /// <param name="reserved1">reserved1.</param>
         /// <param name="reserved2">reserved2.</param>
-        public OCRSecurityTextItem(Critical criticalFlag = default(Critical), Light lightType = default(Light), RectangleCoordinates fieldRect = default(RectangleCoordinates), int etalonResultType = 0, TextFieldType etalonFieldType = default(TextFieldType), Light etalonLightType = default(Light), RectangleCoordinates etalonFieldRect = default(RectangleCoordinates), string securityTextResultOCR = default(string), string etalonResultOCR = default(string), int reserved1 = default(int), int reserved2 = default(int))
+        public OCRSecurityTextItem(Critical criticalFlag = default, Light lightType = default, RectangleCoordinates fieldRect = default, int etalonResultType = 0, TextFieldType etalonFieldType = default, Light etalonLightType = default, RectangleCoordinates etalonFieldRect = default, string securityTextResultOCR = default, string etalonResultOCR = default, int? reserved1 = default, int? reserved2 = default)
         {
             this.CriticalFlag = criticalFlag;
             this.LightType = lightType;

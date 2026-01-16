@@ -58,7 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="authenticityNecessaryLights">Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity (required).</param>
         /// <param name="oVIExp">Camera exposure value necessary when obtaining document images of the given type for AXIAL lighting scheme (required).</param>
         /// <param name="rotationAngle">rotationAngle.</param>
-        public ChosenDocumentType(string documentName = default(string), int iD = default(int), decimal p = default(decimal), int rotated180 = default(int), RfidLocation rFIDPresence = default(RfidLocation), FDSIDList fDSIDList = default(FDSIDList), int necessaryLights = default(int), int checkAuthenticity = default(int), int uVExp = default(int), int authenticityNecessaryLights = default(int), decimal oVIExp = default(decimal), int rotationAngle = default(int))
+        public ChosenDocumentType(string? documentName = default, int iD = default, decimal p = default, int rotated180 = default, RfidLocation rFIDPresence = default, FDSIDList? fDSIDList = default, int necessaryLights = default, int checkAuthenticity = default, int uVExp = default, int authenticityNecessaryLights = default, decimal oVIExp = default, int? rotationAngle = default)
         {
             this.ID = iD;
             this.P = p;

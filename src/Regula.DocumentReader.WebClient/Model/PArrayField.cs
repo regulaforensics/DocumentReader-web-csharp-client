@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bcTextFieldType">bcTextFieldType.</param>
         /// <param name="bcTypeDECODE">bcTypeDECODE (required).</param>
         /// <param name="bcTypeDETECT">bcTypeDETECT (required).</param>
-        public PArrayField(float bcAngleDETECT = default(float), int bcCodeResult = default(int), int bcCountModule = default(int), List<DataModule> bcDataModule = default(List<DataModule>), BcPDF417INFO bcPDF417INFO = default(BcPDF417INFO), BcROIDETECT bcROIDETECT = default(BcROIDETECT), int bcTextDecoderTypes = default(int), TextFieldType? bcTextFieldType = default(TextFieldType?), BarcodeType bcTypeDECODE = default(BarcodeType), int bcTypeDETECT = default(int))
+        public PArrayField(float bcAngleDETECT = default, int bcCodeResult = default, int bcCountModule = default, List<DataModule> bcDataModule = default, BcPDF417INFO? bcPDF417INFO = default, BcROIDETECT bcROIDETECT = default, int? bcTextDecoderTypes = default, TextFieldType? bcTextFieldType = default, BarcodeType bcTypeDECODE = default, int bcTypeDETECT = default)
         {
             this.BcAngleDETECT = bcAngleDETECT;
             this.BcCodeResult = bcCodeResult;

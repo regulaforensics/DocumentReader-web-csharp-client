@@ -52,7 +52,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">Page index of the image from input list.</param>
         /// <param name="url">Image url.</param>
-        public OutDataTransactionImagesFieldValue(GraphicFieldType? fieldType = default(GraphicFieldType?), Light? light = default(Light?), int listIdx = default(int), int pageIdx = default(int), string url = default(string))
+        public OutDataTransactionImagesFieldValue(GraphicFieldType? fieldType = default, Light? light = default, int? listIdx = default, int? pageIdx = default, string? url = default)
         {
             this.FieldType = fieldType;
             this.Light = light;

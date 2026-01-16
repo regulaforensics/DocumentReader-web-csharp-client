@@ -89,7 +89,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="pA">pA (required).</param>
         /// <param name="pACE">pACE (required).</param>
         /// <param name="tA">tA (required).</param>
-        public DetailsRFID(CheckResult overallStatus = default(CheckResult), CheckResult aA = default(CheckResult), CheckResult bAC = default(CheckResult), CheckResult cA = default(CheckResult), CheckResult pA = default(CheckResult), CheckResult pACE = default(CheckResult), CheckResult tA = default(CheckResult))
+        public DetailsRFID(CheckResult overallStatus = default, CheckResult aA = default, CheckResult bAC = default, CheckResult cA = default, CheckResult pA = default, CheckResult pACE = default, CheckResult tA = default)
         {
             this.OverallStatus = overallStatus;
             this.AA = aA;

@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="FaceDetectionItem" /> class.
         /// </summary>
         /// <param name="faceDetection">faceDetection.</param>
-        public FaceDetectionItem(FaceDetection faceDetection = default(FaceDetection))
+        public FaceDetectionItem(FaceDetection? faceDetection = default)
         {
             this.FaceDetection = faceDetection;
         }

@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="status">Result of logical analysis of compliance of the contents of the field with the requirements of the specification.</param>
         /// <param name="format">Mask of format of text information (for example, «YYMMDD» for date of birth).</param>
         /// <param name="data">Numeric value..</param>
-        public TrfFtString(int type = default(int), int status = default(int), string format = default(string), string data = default(string))
+        public TrfFtString(int? type = default, int? status = default, string? format = default, string? data = default)
         {
             this.Type = type;
             this.Status = status;

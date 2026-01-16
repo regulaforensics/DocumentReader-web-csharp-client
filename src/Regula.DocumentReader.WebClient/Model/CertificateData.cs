@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="length">length (required).</param>
-        public CertificateData(string data = default(string), int length = default(int))
+        public CertificateData(string data = default, int length = default)
         {
             // to ensure "data" is required (not null)
             if (data == null)

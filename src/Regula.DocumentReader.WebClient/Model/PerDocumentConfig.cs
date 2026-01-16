@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="docID">Specific template IDs, for which apply current custom configuration.</param>
         /// <param name="excludeAuthChecks">Contains items from AuthenticityResultType as sum via OR operation.</param>
-        public PerDocumentConfig(List<int> docID = default(List<int>), int excludeAuthChecks = default(int))
+        public PerDocumentConfig(List<int> docID = default, int? excludeAuthChecks = default)
         {
             this.DocID = docID;
             this.ExcludeAuthChecks = excludeAuthChecks;

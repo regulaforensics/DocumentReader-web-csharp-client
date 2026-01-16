@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dvc">dvc.</param>
         /// <param name="lot">lot.</param>
         /// <param name="seq">seq.</param>
-        public VDItem(string adm = default(string), string ctr = default(string), string dvc = default(string), string lot = default(string), int seq = default(int))
+        public VDItem(string? adm = default, string? ctr = default, string? dvc = default, string? lot = default, int? seq = default)
         {
             this.Adm = adm;
             this.Ctr = ctr;

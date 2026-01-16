@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="left">left (required).</param>
         /// <param name="right">right (required).</param>
         /// <param name="top">top (required).</param>
-        public BcROIDETECT(int bottom = default(int), int left = default(int), int right = default(int), int top = default(int))
+        public BcROIDETECT(int bottom = default, int left = default, int right = default, int top = default)
         {
             this.Bottom = bottom;
             this.Left = left;

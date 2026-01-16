@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="recResult">recResult.</param>
         /// <param name="candidates">candidates.</param>
-        public DocumentTypesCandidates(DocumentTypeRecognitionResult? recResult = default(DocumentTypeRecognitionResult?), List<OneCandidate> candidates = default(List<OneCandidate>))
+        public DocumentTypesCandidates(DocumentTypeRecognitionResult? recResult = default, List<OneCandidate> candidates = default)
         {
             this.RecResult = recResult;
             this.Candidates = candidates;
