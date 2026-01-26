@@ -638,6 +638,11 @@ namespace Regula.DocumentReader.WebClient.Model
         DOC_LIVENESS_INVALID_BARCODE_BACKGROUND = 241,
 
         /// <summary>
+        /// Enum DOC_LIVENESS_VIRTUAL_CAMERA_DETECTED for value: 242
+        /// </summary>
+        DOC_LIVENESS_VIRTUAL_CAMERA_DETECTED = 242,
+
+        /// <summary>
         /// Enum CHD_ICAO_IDB_BASE32_ERROR for value: 243
         /// </summary>
         CHD_ICAO_IDB_BASE32_ERROR = 243,
