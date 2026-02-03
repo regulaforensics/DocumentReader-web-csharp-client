@@ -27,39 +27,26 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// LicenseItem
+    /// BsiTr03135
     /// </summary>
-    [DataContract(Name = "LicenseItem")]
-    public partial class LicenseItem : IValidatableObject
+    [DataContract(Name = "BsiTr03135")]
+    public partial class BsiTr03135 : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseItem" /> class.
+        /// Initializes a new instance of the <see cref="BsiTr03135" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LicenseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseItem" /> class.
-        /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
-        public LicenseItem(byte[] license = default)
+        /// <param name="generateResult">When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results..</param>
+        public BsiTr03135(bool? generateResult = default)
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
-            {
-                throw new ArgumentNullException("license is a required property for LicenseItem and cannot be null");
-            }
-            this.License = license;
+            this.GenerateResult = generateResult;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results.
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@17552dd3</example>
-        */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        /// <value>When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results.</value>
+        [DataMember(Name = "generateResult", EmitDefaultValue = false)]
+        public bool? GenerateResult { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +55,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseItem {\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("class BsiTr03135 {\n");
+            sb.Append("  GenerateResult: ").Append(GenerateResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
