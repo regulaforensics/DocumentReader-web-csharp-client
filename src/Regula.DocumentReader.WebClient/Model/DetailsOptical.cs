@@ -91,7 +91,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="security">security (required).</param>
         /// <param name="text">text (required).</param>
         /// <param name="vds">vds.</param>
-        public DetailsOptical(CheckResult overallStatus = default(CheckResult), CheckResult docType = default(CheckResult), CheckResult expiry = default(CheckResult), CheckResult imageQA = default(CheckResult), CheckResult mrz = default(CheckResult), int pagesCount = default(int), CheckResult security = default(CheckResult), CheckResult text = default(CheckResult), int vds = default(int))
+        public DetailsOptical(CheckResult overallStatus = default, CheckResult docType = default, CheckResult expiry = default, CheckResult imageQA = default, CheckResult mrz = default, int pagesCount = default, CheckResult security = default, CheckResult text = default, int? vds = default)
         {
             this.OverallStatus = overallStatus;
             this.DocType = docType;

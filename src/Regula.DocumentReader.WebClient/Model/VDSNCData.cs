@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="signatureAlg">signatureAlg.</param>
         /// <param name="type">type.</param>
         /// <param name="varVersion">varVersion.</param>
-        public VDSNCData(TrfFtBytes certificate = default(TrfFtBytes), List<RfidCertificateEx> certificateChain = default(List<RfidCertificateEx>), string issuingCountry = default(string), Message message = default(Message), List<long> notifications = default(List<long>), TrfFtBytes signature = default(TrfFtBytes), string signatureAlg = default(string), string type = default(string), int varVersion = default(int))
+        public VDSNCData(TrfFtBytes? certificate = default, List<RfidCertificateEx> certificateChain = default, string? issuingCountry = default, Message? message = default, List<long> notifications = default, TrfFtBytes? signature = default, string? signatureAlg = default, string? type = default, int? varVersion = default)
         {
             this.Certificate = certificate;
             this.CertificateChain = certificateChain;

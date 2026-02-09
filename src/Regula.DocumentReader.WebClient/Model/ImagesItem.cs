@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="ImagesItem" /> class.
         /// </summary>
         /// <param name="images">images (required).</param>
-        public ImagesItem(Images images = default(Images))
+        public ImagesItem(Images images = default)
         {
             // to ensure "images" is required (not null)
             if (images == null)

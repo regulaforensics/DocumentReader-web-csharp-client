@@ -61,7 +61,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="sourceLeft">sourceLeft (required).</param>
         /// <param name="sourceRight">sourceRight (required).</param>
         /// <param name="status">status (required).</param>
-        public CrossSourceValueComparison(Source sourceLeft = default(Source), Source sourceRight = default(Source), CheckResult status = default(CheckResult))
+        public CrossSourceValueComparison(Source sourceLeft = default, Source sourceRight = default, CheckResult status = default)
         {
             this.SourceLeft = sourceLeft;
             this.SourceRight = sourceRight;

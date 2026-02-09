@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.LICENSE).</param>
-        public LicenseResult(byte[] license = default(byte[]), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.LICENSE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public LicenseResult(byte[] license = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.LICENSE) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "license" is required (not null)
             if (license == null)
@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <value>Base64 encoded data</value>
         /*
-        <example>[B@55b11357</example>
+        <example>[B@17552dd3</example>
         */
         [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
         public byte[] License { get; set; }

@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="i">i.</param>
         /// <param name="n">n.</param>
         /// <param name="sex">sex.</param>
-        public PID(string dob = default(string), string i = default(string), string n = default(string), string sex = default(string))
+        public PID(string? dob = default, string? i = default, string? n = default, string? sex = default)
         {
             this.Dob = dob;
             this.I = i;

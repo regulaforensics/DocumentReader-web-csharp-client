@@ -39,7 +39,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="top">top.</param>
         /// <param name="right">right.</param>
         /// <param name="bottom">bottom.</param>
-        public ErrorCoordinates(decimal left = default(decimal), decimal top = default(decimal), decimal right = default(decimal), decimal bottom = default(decimal))
+        public ErrorCoordinates(decimal? left = default, decimal? top = default, decimal? right = default, decimal? bottom = default)
         {
             this.Left = left;
             this.Top = top;

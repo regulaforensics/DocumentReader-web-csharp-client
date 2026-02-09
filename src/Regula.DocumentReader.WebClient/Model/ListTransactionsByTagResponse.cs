@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="items">items.</param>
         /// <param name="metadata">metadata.</param>
-        public ListTransactionsByTagResponse(List<GetTransactionsByTagResponse> items = default(List<GetTransactionsByTagResponse>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
+        public ListTransactionsByTagResponse(List<GetTransactionsByTagResponse> items = default, Dictionary<string, Object> metadata = default)
         {
             this.Items = items;
             this.Metadata = metadata;

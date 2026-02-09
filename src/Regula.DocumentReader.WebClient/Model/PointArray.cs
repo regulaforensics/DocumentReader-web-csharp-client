@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="PointArray" /> class.
         /// </summary>
         /// <param name="pointsList">pointsList (required).</param>
-        public PointArray(List<Point> pointsList = default(List<Point>))
+        public PointArray(List<Point> pointsList = default)
         {
             // to ensure "pointsList" is required (not null)
             if (pointsList == null)

@@ -30,6 +30,8 @@ src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultItem.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityCheckResultListInner.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResult.cs
 src/Regula.DocumentReader.WebClient/Model/AuthenticityResultType.cs
+src/Regula.DocumentReader.WebClient/Model/BSIV2Item.cs
+src/Regula.DocumentReader.WebClient/Model/BSIV2Result.cs
 src/Regula.DocumentReader.WebClient/Model/BarCodeModuleType.cs
 src/Regula.DocumentReader.WebClient/Model/BarcodePositionItem.cs
 src/Regula.DocumentReader.WebClient/Model/BarcodePositionResult.cs
@@ -37,6 +39,7 @@ src/Regula.DocumentReader.WebClient/Model/BarcodeType.cs
 src/Regula.DocumentReader.WebClient/Model/BcPDF417INFO.cs
 src/Regula.DocumentReader.WebClient/Model/BcROIDETECT.cs
 src/Regula.DocumentReader.WebClient/Model/BinaryData.cs
+src/Regula.DocumentReader.WebClient/Model/BsiTr03135.cs
 src/Regula.DocumentReader.WebClient/Model/ByteArrayItem.cs
 src/Regula.DocumentReader.WebClient/Model/ByteArrayResult.cs
 src/Regula.DocumentReader.WebClient/Model/CandidatesListItem.cs

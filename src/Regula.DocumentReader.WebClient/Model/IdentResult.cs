@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public IdentResult(SecurityFeatureType elementType = default(SecurityFeatureType), Light lightIndex = default(Light), RectangleCoordinates area = default(RectangleCoordinates), ImageData image = default(ImageData), ImageData etalonImage = default(ImageData), AreaContainer areaList = default(AreaContainer), int elementID = default(int), AuthenticityResultType type = AuthenticityResultType.IMAGE_PATTERN, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public IdentResult(SecurityFeatureType elementType = default, Light lightIndex = default, RectangleCoordinates? area = default, ImageData image = default, ImageData etalonImage = default, AreaContainer? areaList = default, int? elementID = default, AuthenticityResultType type = AuthenticityResultType.IMAGE_PATTERN, CheckResult? elementResult = default, CheckDiagnose? elementDiagnose = default, int? percentValue = default) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             this.LightIndex = lightIndex;

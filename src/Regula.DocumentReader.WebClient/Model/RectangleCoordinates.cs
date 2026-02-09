@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="top">top (required).</param>
         /// <param name="right">right (required).</param>
         /// <param name="bottom">bottom (required).</param>
-        public RectangleCoordinates(int left = default(int), int top = default(int), int right = default(int), int bottom = default(int))
+        public RectangleCoordinates(int left = default, int top = default, int right = default, int bottom = default)
         {
             this.Left = left;
             this.Top = top;

@@ -81,7 +81,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="valueList">valueList (required).</param>
         /// <param name="validityList">Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error. (required).</param>
         /// <param name="comparisonList">comparisonList (required).</param>
-        public TextField(TextFieldType fieldType = default(TextFieldType), string fieldName = default(string), LCID lcid = default(LCID), string lcidName = default(string), CheckResult status = default(CheckResult), CheckResult validityStatus = default(CheckResult), CheckResult comparisonStatus = default(CheckResult), string value = default(string), List<TextFieldValue> valueList = default(List<TextFieldValue>), List<SourceValidity> validityList = default(List<SourceValidity>), List<CrossSourceValueComparison> comparisonList = default(List<CrossSourceValueComparison>))
+        public TextField(TextFieldType fieldType = default, string fieldName = default, LCID lcid = default, string? lcidName = default, CheckResult status = default, CheckResult validityStatus = default, CheckResult comparisonStatus = default, string value = default, List<TextFieldValue> valueList = default, List<SourceValidity> validityList = default, List<CrossSourceValueComparison> comparisonList = default)
         {
             this.FieldType = fieldType;
             // to ensure "fieldName" is required (not null)

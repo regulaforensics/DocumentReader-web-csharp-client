@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="availableSourceCount">Available sources count.</param>
         /// <param name="availableSourceList">availableSourceList (required).</param>
         /// <param name="fieldList">fieldList (required).</param>
-        public Images(int fieldCount = default(int), int availableSourceCount = default(int), List<ImagesAvailableSource> availableSourceList = default(List<ImagesAvailableSource>), List<ImagesField> fieldList = default(List<ImagesField>))
+        public Images(int? fieldCount = default, int? availableSourceCount = default, List<ImagesAvailableSource> availableSourceList = default, List<ImagesField> fieldList = default)
         {
             // to ensure "availableSourceList" is required (not null)
             if (availableSourceList == null)

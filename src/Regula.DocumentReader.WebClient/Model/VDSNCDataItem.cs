@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="VDSNCDataItem" /> class.
         /// </summary>
         /// <param name="dftVDSNC">dftVDSNC (required).</param>
-        public VDSNCDataItem(VDSNCData dftVDSNC = default(VDSNCData))
+        public VDSNCDataItem(VDSNCData dftVDSNC = default)
         {
             // to ensure "dftVDSNC" is required (not null)
             if (dftVDSNC == null)

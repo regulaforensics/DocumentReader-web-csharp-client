@@ -64,7 +64,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="dateFormat">Date format (required).</param>
         /// <param name="fieldList">fieldList (required).</param>
         /// <param name="availableSourceList">availableSourceList (required).</param>
-        public Text(CheckResult status = default(CheckResult), CheckResult validityStatus = default(CheckResult), CheckResult comparisonStatus = default(CheckResult), string dateFormat = default(string), List<TextField> fieldList = default(List<TextField>), List<TextAvailableSource> availableSourceList = default(List<TextAvailableSource>))
+        public Text(CheckResult status = default, CheckResult validityStatus = default, CheckResult comparisonStatus = default, string dateFormat = default, List<TextField> fieldList = default, List<TextAvailableSource> availableSourceList = default)
         {
             this.Status = status;
             this.ValidityStatus = validityStatus;

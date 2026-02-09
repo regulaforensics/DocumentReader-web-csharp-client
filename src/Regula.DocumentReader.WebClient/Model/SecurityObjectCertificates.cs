@@ -36,7 +36,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="SecurityObjectCertificates" /> class.
         /// </summary>
         /// <param name="certificateData">certificateData.</param>
-        public SecurityObjectCertificates(CertificateData certificateData = default(CertificateData))
+        public SecurityObjectCertificates(CertificateData? certificateData = default)
         {
             this.CertificateData = certificateData;
         }

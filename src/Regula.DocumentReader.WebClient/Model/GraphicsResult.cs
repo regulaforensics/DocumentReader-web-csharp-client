@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.VISUAL_GRAPHICS).</param>
-        public GraphicsResult(GraphicFieldsList docGraphicsInfo = default(GraphicFieldsList), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.VISUAL_GRAPHICS) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public GraphicsResult(GraphicFieldsList docGraphicsInfo = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.VISUAL_GRAPHICS) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "docGraphicsInfo" is required (not null)
             if (docGraphicsInfo == null)

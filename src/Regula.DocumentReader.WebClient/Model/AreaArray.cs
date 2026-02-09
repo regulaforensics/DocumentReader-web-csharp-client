@@ -43,7 +43,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="count">Number of elements in List and Points (required).</param>
         /// <param name="list">list (required).</param>
         /// <param name="points">points (required).</param>
-        public AreaArray(decimal count = default(decimal), List<RectangleCoordinates> list = default(List<RectangleCoordinates>), List<PointArray> points = default(List<PointArray>))
+        public AreaArray(decimal count = default, List<RectangleCoordinates> list = default, List<PointArray> points = default)
         {
             this.Count = count;
             // to ensure "list" is required (not null)

@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="TOriginalRFIDGraphicsInfoItem" /> class.
         /// </summary>
         /// <param name="tOriginalRFIDGraphicsInfo">tOriginalRFIDGraphicsInfo (required).</param>
-        public TOriginalRFIDGraphicsInfoItem(TOriginalRFIDGraphicsInfo tOriginalRFIDGraphicsInfo = default(TOriginalRFIDGraphicsInfo))
+        public TOriginalRFIDGraphicsInfoItem(TOriginalRFIDGraphicsInfo tOriginalRFIDGraphicsInfo = default)
         {
             // to ensure "tOriginalRFIDGraphicsInfo" is required (not null)
             if (tOriginalRFIDGraphicsInfo == null)

@@ -57,7 +57,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="activeOptionIdx">Index of the active variant of the procedure.</param>
         /// <param name="notifications">List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum. (required).</param>
         /// <param name="accessControlOptions">List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document.</param>
-        public RfidAccessControlInfo(RfidAccessControlProcedureType type = default(RfidAccessControlProcedureType), RFIDErrorCodes status = default(RFIDErrorCodes), decimal activeOptionIdx = default(decimal), List<long> notifications = default(List<long>), List<Object> accessControlOptions = default(List<Object>))
+        public RfidAccessControlInfo(RfidAccessControlProcedureType type = default, RFIDErrorCodes status = default, decimal? activeOptionIdx = default, List<long> notifications = default, List<Object> accessControlOptions = default)
         {
             this.Type = type;
             this.Status = status;

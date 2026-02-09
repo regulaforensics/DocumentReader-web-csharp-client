@@ -62,7 +62,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="morePagesAvailable">morePagesAvailable (required).</param>
         /// <param name="elapsedTime">Time the document processing has taken, ms. (required).</param>
         /// <param name="metadata">metadata.</param>
-        public ProcessResponse(RfidLocation chipPage = default(RfidLocation), int coreLibResultCode = default(int), ProcessingStatus processingFinished = default(ProcessingStatus), ContainerList containerList = default(ContainerList), TransactionInfo transactionInfo = default(TransactionInfo), string log = default(string), Dictionary<string, Object> passBackObject = default(Dictionary<string, Object>), int morePagesAvailable = default(int), int elapsedTime = default(int), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
+        public ProcessResponse(RfidLocation chipPage = default, int? coreLibResultCode = default, ProcessingStatus processingFinished = default, ContainerList containerList = default, TransactionInfo transactionInfo = default, string? log = default, Dictionary<string, Object> passBackObject = default, int morePagesAvailable = default, int elapsedTime = default, Dictionary<string, Object> metadata = default)
         {
             this.ChipPage = chipPage;
             this.ProcessingFinished = processingFinished;

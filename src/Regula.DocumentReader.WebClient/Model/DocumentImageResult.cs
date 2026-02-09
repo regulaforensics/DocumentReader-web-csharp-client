@@ -47,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="listIdx">listIdx.</param>
         /// <param name="pageIdx">pageIdx.</param>
         /// <param name="resultType">resultType (required) (default to Result.DOCUMENT_IMAGE).</param>
-        public DocumentImageResult(ImageData rawImageContainer = default(ImageData), int bufLength = default(int), int light = default(int), int listIdx = default(int), int pageIdx = default(int), Result resultType = Result.DOCUMENT_IMAGE) : base(bufLength, light, listIdx, pageIdx, resultType)
+        public DocumentImageResult(ImageData rawImageContainer = default, int? bufLength = default, int? light = default, int? listIdx = default, int? pageIdx = default, Result resultType = Result.DOCUMENT_IMAGE) : base(bufLength, light, listIdx, pageIdx, resultType)
         {
             // to ensure "rawImageContainer" is required (not null)
             if (rawImageContainer == null)

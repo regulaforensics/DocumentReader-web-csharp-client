@@ -70,7 +70,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="docFieldsOriginals">List of the original binary representation of graphic document fields formed on the basis of the file contents.</param>
         /// <param name="parsedData">parsedData.</param>
         /// <param name="securityObjectCertificates">securityObjectCertificates.</param>
-        public RfidDataFile(string fileID = default(string), RfidDataFileType type = default(RfidDataFileType), TrfFtBytes fileData = default(TrfFtBytes), RFIDErrorCodes readingStatus = default(RFIDErrorCodes), decimal readingTime = default(decimal), RFIDErrorCodes? pAStatus = default(RFIDErrorCodes?), List<long> notifications = default(List<long>), List<TextFieldType> docFieldsText = default(List<TextFieldType>), List<GraphicFieldType> docFieldsGraphics = default(List<GraphicFieldType>), List<GraphicFieldType> docFieldsOriginals = default(List<GraphicFieldType>), ParsedData parsedData = default(ParsedData), SecurityObjectCertificates securityObjectCertificates = default(SecurityObjectCertificates))
+        public RfidDataFile(string? fileID = default, RfidDataFileType type = default, TrfFtBytes? fileData = default, RFIDErrorCodes readingStatus = default, decimal? readingTime = default, RFIDErrorCodes? pAStatus = default, List<long> notifications = default, List<TextFieldType> docFieldsText = default, List<GraphicFieldType> docFieldsGraphics = default, List<GraphicFieldType> docFieldsOriginals = default, ParsedData? parsedData = default, SecurityObjectCertificates? securityObjectCertificates = default)
         {
             this.Type = type;
             this.ReadingStatus = readingStatus;

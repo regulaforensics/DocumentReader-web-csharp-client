@@ -59,7 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="unicodeVersion">Unicode version for application (required).</param>
         /// <param name="dataHashAlgorithm">Algorithm for calculating hash values for files for the procedure of PA (required).</param>
         /// <param name="files">List of containers to store information about the read files of the application (required).</param>
-        public RfidApplication(RfidApplicationType type = default(RfidApplicationType), RFIDErrorCodes status = default(RFIDErrorCodes), string applicationID = default(string), string varVersion = default(string), string unicodeVersion = default(string), string dataHashAlgorithm = default(string), List<RfidDataFile> files = default(List<RfidDataFile>))
+        public RfidApplication(RfidApplicationType type = default, RFIDErrorCodes status = default, string applicationID = default, string varVersion = default, string unicodeVersion = default, string dataHashAlgorithm = default, List<RfidDataFile> files = default)
         {
             this.Type = type;
             this.Status = status;

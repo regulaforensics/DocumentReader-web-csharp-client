@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="type">type (required).</param>
         /// <param name="data">data (required).</param>
-        public DocFeature(decimal type = default(decimal), TrfFtBytes data = default(TrfFtBytes))
+        public DocFeature(decimal type = default, TrfFtBytes data = default)
         {
             this.Type = type;
             // to ensure "data" is required (not null)

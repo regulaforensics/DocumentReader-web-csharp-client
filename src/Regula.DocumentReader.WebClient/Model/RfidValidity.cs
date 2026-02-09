@@ -42,7 +42,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="notBefore">notBefore (required).</param>
         /// <param name="notAfter">notAfter (required).</param>
-        public RfidValidity(TrfFtString notBefore = default(TrfFtString), TrfFtString notAfter = default(TrfFtString))
+        public RfidValidity(TrfFtString notBefore = default, TrfFtString notAfter = default)
         {
             // to ensure "notBefore" is required (not null)
             if (notBefore == null)

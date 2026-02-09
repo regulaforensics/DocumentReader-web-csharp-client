@@ -69,7 +69,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public SecurityFeatureResult(SecurityFeatureType elementType = default(SecurityFeatureType), RectangleCoordinates elementRect = default(RectangleCoordinates), Visibility visibility = default(Visibility), Critical criticalFlag = default(Critical), AreaContainer areaList = default(AreaContainer), int reserved2 = default(int), AuthenticityResultType type = AuthenticityResultType.UV_LUMINESCENCE, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public SecurityFeatureResult(SecurityFeatureType elementType = default, RectangleCoordinates elementRect = default, Visibility visibility = default, Critical criticalFlag = default, AreaContainer? areaList = default, int? reserved2 = default, AuthenticityResultType type = AuthenticityResultType.UV_LUMINESCENCE, CheckResult? elementResult = default, CheckDiagnose? elementDiagnose = default, int? percentValue = default) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.ElementType = elementType;
             // to ensure "elementRect" is required (not null)

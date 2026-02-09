@@ -50,7 +50,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="fieldName">Graphic field symbolic name (required).</param>
         /// <param name="image">image (required).</param>
-        public GraphicField(RectangleCoordinates fieldRect = default(RectangleCoordinates), GraphicFieldType fieldType = default(GraphicFieldType), string fieldName = default(string), ImageData image = default(ImageData))
+        public GraphicField(RectangleCoordinates fieldRect = default, GraphicFieldType fieldType = default, string fieldName = default, ImageData image = default)
         {
             // to ensure "fieldRect" is required (not null)
             if (fieldRect == null)

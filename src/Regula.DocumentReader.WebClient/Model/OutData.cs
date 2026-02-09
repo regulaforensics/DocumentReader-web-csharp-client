@@ -37,7 +37,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="url">Response url.</param>
         /// <param name="images">images.</param>
-        public OutData(string url = default(string), List<OutDataTransactionImagesFieldValue> images = default(List<OutDataTransactionImagesFieldValue>))
+        public OutData(string? url = default, List<OutDataTransactionImagesFieldValue> images = default)
         {
             this.Url = url;
             this.Images = images;

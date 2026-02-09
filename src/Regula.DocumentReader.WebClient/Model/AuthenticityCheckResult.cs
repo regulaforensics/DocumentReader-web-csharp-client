@@ -56,7 +56,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="result">result (required).</param>
         /// <param name="count">Count of items in List.</param>
         /// <param name="list">list (required).</param>
-        public AuthenticityCheckResult(AuthenticityResultType type = default(AuthenticityResultType), CheckResult result = default(CheckResult), int count = default(int), List<AuthenticityCheckResultItem> list = default(List<AuthenticityCheckResultItem>))
+        public AuthenticityCheckResult(AuthenticityResultType type = default, CheckResult result = default, int? count = default, List<AuthenticityCheckResultItem> list = default)
         {
             this.Type = type;
             this.Result = result;

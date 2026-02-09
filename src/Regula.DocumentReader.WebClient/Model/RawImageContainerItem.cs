@@ -41,7 +41,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="RawImageContainerItem" /> class.
         /// </summary>
         /// <param name="rawImageContainer">rawImageContainer (required).</param>
-        public RawImageContainerItem(ImageData rawImageContainer = default(ImageData))
+        public RawImageContainerItem(ImageData rawImageContainer = default)
         {
             // to ensure "rawImageContainer" is required (not null)
             if (rawImageContainer == null)

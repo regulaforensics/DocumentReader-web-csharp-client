@@ -60,7 +60,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
         /// <param name="percentValue">percentValue.</param>
-        public FiberResult(int rectCount = default(int), int expectedCount = default(int), Light? lightValue = default(Light?), int lightDisp = default(int), List<RectangleCoordinates> rectArray = default(List<RectangleCoordinates>), List<int> width = default(List<int>), List<int> length = default(List<int>), List<int> area = default(List<int>), List<int> colorValues = default(List<int>), AuthenticityResultType type = AuthenticityResultType.UV_FIBERS, CheckResult? elementResult = default(CheckResult?), CheckDiagnose? elementDiagnose = default(CheckDiagnose?), int percentValue = default(int)) : base(type, elementResult, elementDiagnose, percentValue)
+        public FiberResult(int rectCount = default, int expectedCount = default, Light? lightValue = default, int? lightDisp = default, List<RectangleCoordinates> rectArray = default, List<int> width = default, List<int> length = default, List<int> area = default, List<int> colorValues = default, AuthenticityResultType type = AuthenticityResultType.UV_FIBERS, CheckResult? elementResult = default, CheckDiagnose? elementDiagnose = default, int? percentValue = default) : base(type, elementResult, elementDiagnose, percentValue)
         {
             this.RectCount = rectCount;
             this.ExpectedCount = expectedCount;
