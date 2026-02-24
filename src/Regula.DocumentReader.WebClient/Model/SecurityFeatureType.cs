@@ -335,7 +335,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum PORTRAIT_COMPARISON_EXT_VS_GHOST for value: 61
         /// </summary>
-        PORTRAIT_COMPARISON_EXT_VS_GHOST = 61
+        PORTRAIT_COMPARISON_EXT_VS_GHOST = 61,
+
+        /// <summary>
+        /// Enum SIGNATURE_PRESENCE for value: 62
+        /// </summary>
+        SIGNATURE_PRESENCE = 62
     }
 
 }

@@ -51,7 +51,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkPhotoComparison">This parameter is used to enable Portrait comparison check.</param>
         /// <param name="checkLetterScreen">This parameter is used to enable LetterScreen check.</param>
         /// <param name="checkSecurityText">This parameter is used to enable Security text check.</param>
-        public AuthParams(bool? checkLiveness = default, LivenessParams? livenessParams = default, bool? checkUVLuminiscence = default, bool? checkIRB900 = default, bool? checkImagePatterns = default, bool? checkFibers = default, bool? checkExtMRZ = default, bool? checkExtOCR = default, bool? checkAxial = default, bool? checkBarcodeFormat = default, bool? checkIRVisibility = default, bool? checkIPI = default, bool? checkPhotoEmbedding = default, bool? checkPhotoComparison = default, bool? checkLetterScreen = default, bool? checkSecurityText = default)
+        /// <param name="checkProperties">Set to true to enable detection of the document properties, such as holder&#39;s signature and other attributes..</param>
+        /// <param name="propertiesParams">propertiesParams.</param>
+        public AuthParams(bool? checkLiveness = default, LivenessParams? livenessParams = default, bool? checkUVLuminiscence = default, bool? checkIRB900 = default, bool? checkImagePatterns = default, bool? checkFibers = default, bool? checkExtMRZ = default, bool? checkExtOCR = default, bool? checkAxial = default, bool? checkBarcodeFormat = default, bool? checkIRVisibility = default, bool? checkIPI = default, bool? checkPhotoEmbedding = default, bool? checkPhotoComparison = default, bool? checkLetterScreen = default, bool? checkSecurityText = default, bool? checkProperties = default, PropertiesParams? propertiesParams = default)
         {
             this.CheckLiveness = checkLiveness;
             this.LivenessParams = livenessParams;
@@ -69,6 +71,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.CheckPhotoComparison = checkPhotoComparison;
             this.CheckLetterScreen = checkLetterScreen;
             this.CheckSecurityText = checkSecurityText;
+            this.CheckProperties = checkProperties;
+            this.PropertiesParams = propertiesParams;
         }
 
         /// <summary>
@@ -183,6 +187,19 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckSecurityText { get; set; }
 
         /// <summary>
+        /// Set to true to enable detection of the document properties, such as holder&#39;s signature and other attributes.
+        /// </summary>
+        /// <value>Set to true to enable detection of the document properties, such as holder&#39;s signature and other attributes.</value>
+        [DataMember(Name = "checkProperties", EmitDefaultValue = false)]
+        public bool? CheckProperties { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PropertiesParams
+        /// </summary>
+        [DataMember(Name = "propertiesParams", EmitDefaultValue = false)]
+        public PropertiesParams? PropertiesParams { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -206,6 +223,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckPhotoComparison: ").Append(CheckPhotoComparison).Append("\n");
             sb.Append("  CheckLetterScreen: ").Append(CheckLetterScreen).Append("\n");
             sb.Append("  CheckSecurityText: ").Append(CheckSecurityText).Append("\n");
+            sb.Append("  CheckProperties: ").Append(CheckProperties).Append("\n");
+            sb.Append("  PropertiesParams: ").Append(PropertiesParams).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
