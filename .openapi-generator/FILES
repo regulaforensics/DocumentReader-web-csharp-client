@@ -177,6 +177,7 @@ src/Regula.DocumentReader.WebClient/Model/ProcessRequestImage.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessResponse.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessSystemInfo.cs
 src/Regula.DocumentReader.WebClient/Model/ProcessingStatus.cs
+src/Regula.DocumentReader.WebClient/Model/PropertiesParams.cs
 src/Regula.DocumentReader.WebClient/Model/RFIDDocVisualExtendedField.cs
 src/Regula.DocumentReader.WebClient/Model/RFIDDocVisualExtendedFieldItem.cs
 src/Regula.DocumentReader.WebClient/Model/RFIDDocVisualExtendedInfo.cs

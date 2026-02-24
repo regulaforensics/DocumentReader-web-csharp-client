@@ -140,7 +140,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum ENCRYPTED_IPI for value: 16777216
         /// </summary>
-        ENCRYPTED_IPI = 16777216
+        ENCRYPTED_IPI = 16777216,
+
+        /// <summary>
+        /// Enum PROPERTY for value: 33554432
+        /// </summary>
+        PROPERTY = 33554432
     }
 
 }
