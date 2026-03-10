@@ -3277,6 +3277,11 @@ namespace Regula.DocumentReader.WebClient.Model
         FT_FIRST_ISSUE_DATE_CHECKSUM = 699,
 
         /// <summary>
+        /// Enum FT_EXPIRY_TIMESTAMP for value: 700
+        /// </summary>
+        FT_EXPIRY_TIMESTAMP = 700,
+
+        /// <summary>
         /// Enum FT_COMMERCIAL_INDICATOR for value: 701
         /// </summary>
         FT_COMMERCIAL_INDICATOR = 701,
@@ -3289,7 +3294,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum FT_JURISDICTION_SPECIFIC_DATA for value: 703
         /// </summary>
-        FT_JURISDICTION_SPECIFIC_DATA = 703
+        FT_JURISDICTION_SPECIFIC_DATA = 703,
+
+        /// <summary>
+        /// Enum FT_DATA_DATE_OF_EXPIRY for value: 704
+        /// </summary>
+        FT_DATA_DATE_OF_EXPIRY = 704
     }
 
 }
