@@ -61,7 +61,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="year">The year when the document was issued..</param>
         /// <param name="sovereignty">Guardian country..</param>
         /// <param name="deprecated">Whether the document is no longer in circulation..</param>
-        public DatabaseDocument(bool barcodeFields = default, string country = default, string createad = default, DocumentType docType = default, string document = default, bool graphicFields = default, int id = default, bool mrz = default, string? region = default, bool rfidChip = default, bool textFields = default, string updated = default, string? year = default, string? sovereignty = default, bool? deprecated = default)
+        /// <param name="icaoCode">ICAO country code..</param>
+        /// <param name="docCodes">Document codes..</param>
+        public DatabaseDocument(bool barcodeFields = default, string country = default, string createad = default, DocumentType docType = default, string document = default, bool graphicFields = default, int id = default, bool mrz = default, string? region = default, bool rfidChip = default, bool textFields = default, string updated = default, string? year = default, string? sovereignty = default, bool? deprecated = default, string? icaoCode = default, string? docCodes = default)
         {
             this.BarcodeFields = barcodeFields;
             // to ensure "country" is required (not null)
@@ -98,6 +100,8 @@ namespace Regula.DocumentReader.WebClient.Model
             this.Year = year;
             this.Sovereignty = sovereignty;
             this.Deprecated = deprecated;
+            this.IcaoCode = icaoCode;
+            this.DocCodes = docCodes;
         }
 
         /// <summary>
@@ -199,6 +203,20 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? Deprecated { get; set; }
 
         /// <summary>
+        /// ICAO country code.
+        /// </summary>
+        /// <value>ICAO country code.</value>
+        [DataMember(Name = "icao_code", EmitDefaultValue = false)]
+        public string? IcaoCode { get; set; }
+
+        /// <summary>
+        /// Document codes.
+        /// </summary>
+        /// <value>Document codes.</value>
+        [DataMember(Name = "doc_codes", EmitDefaultValue = false)]
+        public string? DocCodes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -221,6 +239,8 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Year: ").Append(Year).Append("\n");
             sb.Append("  Sovereignty: ").Append(Sovereignty).Append("\n");
             sb.Append("  Deprecated: ").Append(Deprecated).Append("\n");
+            sb.Append("  IcaoCode: ").Append(IcaoCode).Append("\n");
+            sb.Append("  DocCodes: ").Append(DocCodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
