@@ -151,7 +151,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum RFID for value: RFID
         /// </summary>
         [EnumMember(Value = "RFID")]
-        RFID = 20
+        RFID = 20,
+
+        /// <summary>
+        /// Enum MDL for value: mDL
+        /// </summary>
+        [EnumMember(Value = "mDL")]
+        MDL = 21
     }
 
 }

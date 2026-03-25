@@ -27,39 +27,26 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// LicenseItem
+    /// PropertiesParams
     /// </summary>
-    [DataContract(Name = "LicenseItem")]
-    public partial class LicenseItem : IValidatableObject
+    [DataContract(Name = "PropertiesParams")]
+    public partial class PropertiesParams : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseItem" /> class.
+        /// Initializes a new instance of the <see cref="PropertiesParams" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LicenseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseItem" /> class.
-        /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
-        public LicenseItem(byte[] license = default)
+        /// <param name="checkHoldersSignature">Set to true to enable detection of the document holder’s signature..</param>
+        public PropertiesParams(bool? checkHoldersSignature = default)
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
-            {
-                throw new ArgumentNullException("license is a required property for LicenseItem and cannot be null");
-            }
-            this.License = license;
+            this.CheckHoldersSignature = checkHoldersSignature;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// Set to true to enable detection of the document holder’s signature.
         /// </summary>
-        /// <value>Base64 encoded data</value>
-        /*
-        <example>[B@7696d06c</example>
-        */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        /// <value>Set to true to enable detection of the document holder’s signature.</value>
+        [DataMember(Name = "checkHoldersSignature", EmitDefaultValue = false)]
+        public bool? CheckHoldersSignature { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +55,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseItem {\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("class PropertiesParams {\n");
+            sb.Append("  CheckHoldersSignature: ").Append(CheckHoldersSignature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

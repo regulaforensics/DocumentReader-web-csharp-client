@@ -675,7 +675,22 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum CHD_INCORRECT_OBJECT_COLOR for value: 250
         /// </summary>
-        CHD_INCORRECT_OBJECT_COLOR = 250
+        CHD_INCORRECT_OBJECT_COLOR = 250,
+
+        /// <summary>
+        /// Enum PROPERTY_NO_SIGNATURE for value: 260
+        /// </summary>
+        PROPERTY_NO_SIGNATURE = 260,
+
+        /// <summary>
+        /// Enum PROPERTY_TEXT_AS_SIGNATURE for value: 261
+        /// </summary>
+        PROPERTY_TEXT_AS_SIGNATURE = 261,
+
+        /// <summary>
+        /// Enum PROPERTY_FINGERPRINT_AS_SIGNATURE for value: 262
+        /// </summary>
+        PROPERTY_FINGERPRINT_AS_SIGNATURE = 262
     }
 
 }
