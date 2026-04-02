@@ -48,7 +48,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="barcodeFields">Whether the document has a barcode. (required).</param>
         /// <param name="country">Country name. (required).</param>
-        /// <param name="createad">Date when the document description was created in the database. (required).</param>
+        /// <param name="created">Date when the document description was created in the database. (required).</param>
         /// <param name="docType">docType (required).</param>
         /// <param name="document">Document name. (required).</param>
         /// <param name="graphicFields">The presence of graphic fields in the document. (required).</param>
@@ -63,7 +63,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="deprecated">Whether the document is no longer in circulation..</param>
         /// <param name="icaoCode">ICAO country code..</param>
         /// <param name="docCodes">Document codes..</param>
-        public DatabaseDocument(bool barcodeFields = default, string country = default, string createad = default, DocumentType docType = default, string document = default, bool graphicFields = default, int id = default, bool mrz = default, string? region = default, bool rfidChip = default, bool textFields = default, string updated = default, string? year = default, string? sovereignty = default, bool? deprecated = default, string? icaoCode = default, string? docCodes = default)
+        public DatabaseDocument(bool barcodeFields = default, string country = default, string created = default, DocumentType docType = default, string document = default, bool graphicFields = default, int id = default, bool mrz = default, string? region = default, bool rfidChip = default, bool textFields = default, string updated = default, string? year = default, string? sovereignty = default, bool? deprecated = default, string? icaoCode = default, string? docCodes = default)
         {
             this.BarcodeFields = barcodeFields;
             // to ensure "country" is required (not null)
@@ -72,12 +72,12 @@ namespace Regula.DocumentReader.WebClient.Model
                 throw new ArgumentNullException("country is a required property for DatabaseDocument and cannot be null");
             }
             this.Country = country;
-            // to ensure "createad" is required (not null)
-            if (createad == null)
+            // to ensure "created" is required (not null)
+            if (created == null)
             {
-                throw new ArgumentNullException("createad is a required property for DatabaseDocument and cannot be null");
+                throw new ArgumentNullException("created is a required property for DatabaseDocument and cannot be null");
             }
-            this.Createad = createad;
+            this.Created = created;
             this.DocType = docType;
             // to ensure "document" is required (not null)
             if (document == null)
@@ -122,8 +122,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Date when the document description was created in the database.
         /// </summary>
         /// <value>Date when the document description was created in the database.</value>
-        [DataMember(Name = "createad", IsRequired = true, EmitDefaultValue = true)]
-        public string Createad { get; set; }
+        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
+        public string Created { get; set; }
 
         /// <summary>
         /// Document name.
@@ -226,7 +226,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("class DatabaseDocument {\n");
             sb.Append("  BarcodeFields: ").Append(BarcodeFields).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  Createad: ").Append(Createad).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  DocType: ").Append(DocType).Append("\n");
             sb.Append("  Document: ").Append(Document).Append("\n");
             sb.Append("  GraphicFields: ").Append(GraphicFields).Append("\n");
