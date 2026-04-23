@@ -283,6 +283,11 @@ namespace Regula.DocumentReader.WebClient.Model
         ID_DG21 = 121,
 
         /// <summary>
+        /// Enum ID_DG22 for value: 122
+        /// </summary>
+        ID_DG22 = 122,
+
+        /// <summary>
         /// Enum DL_COM for value: 150
         /// </summary>
         DL_COM = 150,
