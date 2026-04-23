@@ -948,6 +948,16 @@ namespace Regula.DocumentReader.WebClient.Model
         ntfLDS_Biometrics_BDB_Data_ImageDataType = 2417623040,
 
         /// <summary>
+        /// Enum ntfLDS_SI_Storage_CS_NonConsistant for value: 2432696593
+        /// </summary>
+        ntfLDS_SI_Storage_CS_NonConsistant = 2432696593,
+
+        /// <summary>
+        /// Enum ntfLDS_SI_Storage_CS_PACE_CAM_Key_Missing for value: 2432696594
+        /// </summary>
+        ntfLDS_SI_Storage_CS_PACE_CAM_Key_Missing = 2432696594,
+
+        /// <summary>
         /// Enum ntfLDS_Biometrics_RB_Data_Incorrect for value: 2449539072
         /// </summary>
         ntfLDS_Biometrics_RB_Data_Incorrect = 2449539072,
