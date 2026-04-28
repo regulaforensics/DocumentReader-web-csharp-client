@@ -3299,7 +3299,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum FT_DATA_DATE_OF_EXPIRY for value: 704
         /// </summary>
-        FT_DATA_DATE_OF_EXPIRY = 704
+        FT_DATA_DATE_OF_EXPIRY = 704,
+
+        /// <summary>
+        /// Enum FT_CONSUL for value: 705
+        /// </summary>
+        FT_CONSUL = 705
     }
 
 }
