@@ -117,7 +117,6 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="minimalHolderAge">This options allows specifying the minimal age in years of the document holder for the document to be considered valid..</param>
         /// <param name="returnUncroppedImage">When enabled, returns input images in output. Disabled by default..</param>
         /// <param name="mrzFormatsFilter">This option allows limiting MRZ formats to be recognized by specifying them in array..</param>
-        /// <param name="forceReadMrzBeforeLocate">When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default..</param>
         /// <param name="parseBarcodes">This option can be disabled to stop parsing after barcode is read. Enabled by default..</param>
         /// <param name="convertCase">convertCase.</param>
         /// <param name="splitNames">When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default..</param>
@@ -146,7 +145,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bsiTr03135">bsiTr03135.</param>
         /// <param name="strictExpiryDate">When disabled, date of expiry doesn&#39;t affect the MRZ and text statuses..</param>
         /// <param name="checkVDS">This parameter is used to enable Visible Digital Seal check. Disabled by default..</param>
-        public ProcessParams(bool? generateDTCVC = default, List<LCID> lcidFilter = default, bool? checkLiveness = default, List<LCID> lcidIgnoreFilter = default, bool? oneShotIdentification = default, bool? useFaceApi = default, FaceApi? faceApi = default, bool? doDetectCan = default, int? imageOutputMaxHeight = default, int? imageOutputMaxWidth = default, Scenario scenario = default, List<Result> resultTypeOutput = default, bool? doublePageSpread = default, bool? generateDoublePageSpreadImage = default, List<TextFieldType> fieldTypesFilter = default, List<TextFieldType> fieldTypesIgnoreFilter = default, string? dateFormat = default, MeasureSystem? measureSystem = default, int? imageDpiOutMax = default, bool? alreadyCropped = default, Dictionary<string, Object> customParams = default, List<PerDocumentConfig> config = default, bool? log = default, LogLevel? logLevel = default, int? forceDocID = default, bool? matchTextFieldMask = default, bool? fastDocDetect = default, bool? updateOCRValidityByGlare = default, bool? checkRequiredTextFields = default, bool? returnCroppedBarcode = default, ImageQA? imageQa = default, bool? strictImageQuality = default, bool? respectImageQuality = default, DocumentFormat? forceDocFormat = default, bool? noGraphics = default, bool? depersonalizeLog = default, bool? multiDocOnImage = default, int? shiftExpiryDate = default, int? minimalHolderAge = default, bool? returnUncroppedImage = default, List<MRZFormat> mrzFormatsFilter = default, bool? forceReadMrzBeforeLocate = default, bool? parseBarcodes = default, TextPostProcessing? convertCase = default, bool? splitNames = default, bool? disablePerforationOCR = default, List<DocumentType> documentGroupFilter = default, long? processAuth = default, int? deviceId = default, int? deviceType = default, string? deviceTypeHex = default, bool? ignoreDeviceIdFromImage = default, List<int> documentIdList = default, ProcessParamsRfid? rfid = default, bool? checkAuth = default, AuthParams? authParams = default, MrzDetectModeEnum? mrzDetectMode = default, bool? generateNumericCodes = default, bool? strictBarcodeDigitalSignatureCheck = default, bool? selectLongestNames = default, List<InputBarcodeType> doBarcodes = default, bool? strictDLCategoryExpiry = default, bool? generateAlpha2Codes = default, int? pdfPagesLimit = default, bool? disableAuthResolutionFilter = default, bool? strictSecurityChecks = default, bool? returnTransliteratedFields = default, BsiTr03135? bsiTr03135 = default, bool? strictExpiryDate = default, bool? checkVDS = default)
+        /// <param name="strictAgeCheck">When enabled, the age check status affects the overall status..</param>
+        public ProcessParams(bool? generateDTCVC = default, List<LCID> lcidFilter = default, bool? checkLiveness = default, List<LCID> lcidIgnoreFilter = default, bool? oneShotIdentification = default, bool? useFaceApi = default, FaceApi? faceApi = default, bool? doDetectCan = default, int? imageOutputMaxHeight = default, int? imageOutputMaxWidth = default, Scenario scenario = default, List<Result> resultTypeOutput = default, bool? doublePageSpread = default, bool? generateDoublePageSpreadImage = default, List<TextFieldType> fieldTypesFilter = default, List<TextFieldType> fieldTypesIgnoreFilter = default, string? dateFormat = default, MeasureSystem? measureSystem = default, int? imageDpiOutMax = default, bool? alreadyCropped = default, Dictionary<string, Object> customParams = default, List<PerDocumentConfig> config = default, bool? log = default, LogLevel? logLevel = default, int? forceDocID = default, bool? matchTextFieldMask = default, bool? fastDocDetect = default, bool? updateOCRValidityByGlare = default, bool? checkRequiredTextFields = default, bool? returnCroppedBarcode = default, ImageQA? imageQa = default, bool? strictImageQuality = default, bool? respectImageQuality = default, DocumentFormat? forceDocFormat = default, bool? noGraphics = default, bool? depersonalizeLog = default, bool? multiDocOnImage = default, int? shiftExpiryDate = default, int? minimalHolderAge = default, bool? returnUncroppedImage = default, List<MRZFormat> mrzFormatsFilter = default, bool? parseBarcodes = default, TextPostProcessing? convertCase = default, bool? splitNames = default, bool? disablePerforationOCR = default, List<DocumentType> documentGroupFilter = default, long? processAuth = default, int? deviceId = default, int? deviceType = default, string? deviceTypeHex = default, bool? ignoreDeviceIdFromImage = default, List<int> documentIdList = default, ProcessParamsRfid? rfid = default, bool? checkAuth = default, AuthParams? authParams = default, MrzDetectModeEnum? mrzDetectMode = default, bool? generateNumericCodes = default, bool? strictBarcodeDigitalSignatureCheck = default, bool? selectLongestNames = default, List<InputBarcodeType> doBarcodes = default, bool? strictDLCategoryExpiry = default, bool? generateAlpha2Codes = default, int? pdfPagesLimit = default, bool? disableAuthResolutionFilter = default, bool? strictSecurityChecks = default, bool? returnTransliteratedFields = default, BsiTr03135? bsiTr03135 = default, bool? strictExpiryDate = default, bool? checkVDS = default, bool? strictAgeCheck = default)
         {
             this.Scenario = scenario;
             this.GenerateDTCVC = generateDTCVC;
@@ -189,7 +189,6 @@ namespace Regula.DocumentReader.WebClient.Model
             this.MinimalHolderAge = minimalHolderAge;
             this.ReturnUncroppedImage = returnUncroppedImage;
             this.MrzFormatsFilter = mrzFormatsFilter;
-            this.ForceReadMrzBeforeLocate = forceReadMrzBeforeLocate;
             this.ParseBarcodes = parseBarcodes;
             this.ConvertCase = convertCase;
             this.SplitNames = splitNames;
@@ -218,6 +217,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.BsiTr03135 = bsiTr03135;
             this.StrictExpiryDate = strictExpiryDate;
             this.CheckVDS = checkVDS;
+            this.StrictAgeCheck = strictAgeCheck;
         }
 
         /// <summary>
@@ -484,13 +484,6 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<MRZFormat>? MrzFormatsFilter { get; set; }
 
         /// <summary>
-        /// When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.
-        /// </summary>
-        /// <value>When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.</value>
-        [DataMember(Name = "forceReadMrzBeforeLocate", EmitDefaultValue = false)]
-        public bool? ForceReadMrzBeforeLocate { get; set; }
-
-        /// <summary>
         /// This option can be disabled to stop parsing after barcode is read. Enabled by default.
         /// </summary>
         /// <value>This option can be disabled to stop parsing after barcode is read. Enabled by default.</value>
@@ -670,6 +663,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckVDS { get; set; }
 
         /// <summary>
+        /// When enabled, the age check status affects the overall status.
+        /// </summary>
+        /// <value>When enabled, the age check status affects the overall status.</value>
+        [DataMember(Name = "strictAgeCheck", EmitDefaultValue = false)]
+        public bool? StrictAgeCheck { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -718,7 +718,6 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  MinimalHolderAge: ").Append(MinimalHolderAge).Append("\n");
             sb.Append("  ReturnUncroppedImage: ").Append(ReturnUncroppedImage).Append("\n");
             sb.Append("  MrzFormatsFilter: ").Append(MrzFormatsFilter).Append("\n");
-            sb.Append("  ForceReadMrzBeforeLocate: ").Append(ForceReadMrzBeforeLocate).Append("\n");
             sb.Append("  ParseBarcodes: ").Append(ParseBarcodes).Append("\n");
             sb.Append("  ConvertCase: ").Append(ConvertCase).Append("\n");
             sb.Append("  SplitNames: ").Append(SplitNames).Append("\n");
@@ -747,6 +746,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  BsiTr03135: ").Append(BsiTr03135).Append("\n");
             sb.Append("  StrictExpiryDate: ").Append(StrictExpiryDate).Append("\n");
             sb.Append("  CheckVDS: ").Append(CheckVDS).Append("\n");
+            sb.Append("  StrictAgeCheck: ").Append(StrictAgeCheck).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
