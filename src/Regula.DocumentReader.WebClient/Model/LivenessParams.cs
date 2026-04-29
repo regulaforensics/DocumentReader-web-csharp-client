@@ -42,7 +42,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="checkBlackAndWhiteCopy">This parameter is used to enable Black and white copy check.</param>
         /// <param name="checkDynaprint">This parameter is used to enable Dynaprint check.</param>
         /// <param name="checkGeometry">This parameter is used to enable Geometry check.</param>
-        public LivenessParams(bool? checkOVI = default, bool? checkMLI = default, bool? checkHolo = default, bool? checkED = default, bool? checkBlackAndWhiteCopy = default, bool? checkDynaprint = default, bool? checkGeometry = default)
+        /// <param name="checkBarcodeBackground">This parameter is used to enable Barcode background check as part of the Liveness checks.</param>
+        public LivenessParams(bool? checkOVI = default, bool? checkMLI = default, bool? checkHolo = default, bool? checkED = default, bool? checkBlackAndWhiteCopy = default, bool? checkDynaprint = default, bool? checkGeometry = default, bool? checkBarcodeBackground = default)
         {
             this.CheckOVI = checkOVI;
             this.CheckMLI = checkMLI;
@@ -51,6 +52,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.CheckBlackAndWhiteCopy = checkBlackAndWhiteCopy;
             this.CheckDynaprint = checkDynaprint;
             this.CheckGeometry = checkGeometry;
+            this.CheckBarcodeBackground = checkBarcodeBackground;
         }
 
         /// <summary>
@@ -103,6 +105,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckGeometry { get; set; }
 
         /// <summary>
+        /// This parameter is used to enable Barcode background check as part of the Liveness checks
+        /// </summary>
+        /// <value>This parameter is used to enable Barcode background check as part of the Liveness checks</value>
+        [DataMember(Name = "checkBarcodeBackground", EmitDefaultValue = false)]
+        public bool? CheckBarcodeBackground { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +126,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  CheckBlackAndWhiteCopy: ").Append(CheckBlackAndWhiteCopy).Append("\n");
             sb.Append("  CheckDynaprint: ").Append(CheckDynaprint).Append("\n");
             sb.Append("  CheckGeometry: ").Append(CheckGeometry).Append("\n");
+            sb.Append("  CheckBarcodeBackground: ").Append(CheckBarcodeBackground).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
