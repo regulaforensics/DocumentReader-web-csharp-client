@@ -146,7 +146,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="bsiTr03135">bsiTr03135.</param>
         /// <param name="strictExpiryDate">When disabled, date of expiry doesn&#39;t affect the MRZ and text statuses..</param>
         /// <param name="checkVDS">This parameter is used to enable Visible Digital Seal check. Disabled by default..</param>
-        public ProcessParams(bool? generateDTCVC = default, List<LCID> lcidFilter = default, bool? checkLiveness = default, List<LCID> lcidIgnoreFilter = default, bool? oneShotIdentification = default, bool? useFaceApi = default, FaceApi? faceApi = default, bool? doDetectCan = default, int? imageOutputMaxHeight = default, int? imageOutputMaxWidth = default, Scenario scenario = default, List<Result> resultTypeOutput = default, bool? doublePageSpread = default, bool? generateDoublePageSpreadImage = default, List<TextFieldType> fieldTypesFilter = default, List<TextFieldType> fieldTypesIgnoreFilter = default, string? dateFormat = default, MeasureSystem? measureSystem = default, int? imageDpiOutMax = default, bool? alreadyCropped = default, Dictionary<string, Object> customParams = default, List<PerDocumentConfig> config = default, bool? log = default, LogLevel? logLevel = default, int? forceDocID = default, bool? matchTextFieldMask = default, bool? fastDocDetect = default, bool? updateOCRValidityByGlare = default, bool? checkRequiredTextFields = default, bool? returnCroppedBarcode = default, ImageQA? imageQa = default, bool? strictImageQuality = default, bool? respectImageQuality = default, DocumentFormat? forceDocFormat = default, bool? noGraphics = default, bool? depersonalizeLog = default, bool? multiDocOnImage = default, int? shiftExpiryDate = default, int? minimalHolderAge = default, bool? returnUncroppedImage = default, List<MRZFormat> mrzFormatsFilter = default, bool? forceReadMrzBeforeLocate = default, bool? parseBarcodes = default, TextPostProcessing? convertCase = default, bool? splitNames = default, bool? disablePerforationOCR = default, List<DocumentType> documentGroupFilter = default, long? processAuth = default, int? deviceId = default, int? deviceType = default, string? deviceTypeHex = default, bool? ignoreDeviceIdFromImage = default, List<int> documentIdList = default, ProcessParamsRfid? rfid = default, bool? checkAuth = default, AuthParams? authParams = default, MrzDetectModeEnum? mrzDetectMode = default, bool? generateNumericCodes = default, bool? strictBarcodeDigitalSignatureCheck = default, bool? selectLongestNames = default, List<InputBarcodeType> doBarcodes = default, bool? strictDLCategoryExpiry = default, bool? generateAlpha2Codes = default, int? pdfPagesLimit = default, bool? disableAuthResolutionFilter = default, bool? strictSecurityChecks = default, bool? returnTransliteratedFields = default, BsiTr03135? bsiTr03135 = default, bool? strictExpiryDate = default, bool? checkVDS = default)
+        /// <param name="strictAgeCheck">When enabled, the age check status affects the overall status..</param>
+        public ProcessParams(bool? generateDTCVC = default, List<LCID> lcidFilter = default, bool? checkLiveness = default, List<LCID> lcidIgnoreFilter = default, bool? oneShotIdentification = default, bool? useFaceApi = default, FaceApi? faceApi = default, bool? doDetectCan = default, int? imageOutputMaxHeight = default, int? imageOutputMaxWidth = default, Scenario scenario = default, List<Result> resultTypeOutput = default, bool? doublePageSpread = default, bool? generateDoublePageSpreadImage = default, List<TextFieldType> fieldTypesFilter = default, List<TextFieldType> fieldTypesIgnoreFilter = default, string? dateFormat = default, MeasureSystem? measureSystem = default, int? imageDpiOutMax = default, bool? alreadyCropped = default, Dictionary<string, Object> customParams = default, List<PerDocumentConfig> config = default, bool? log = default, LogLevel? logLevel = default, int? forceDocID = default, bool? matchTextFieldMask = default, bool? fastDocDetect = default, bool? updateOCRValidityByGlare = default, bool? checkRequiredTextFields = default, bool? returnCroppedBarcode = default, ImageQA? imageQa = default, bool? strictImageQuality = default, bool? respectImageQuality = default, DocumentFormat? forceDocFormat = default, bool? noGraphics = default, bool? depersonalizeLog = default, bool? multiDocOnImage = default, int? shiftExpiryDate = default, int? minimalHolderAge = default, bool? returnUncroppedImage = default, List<MRZFormat> mrzFormatsFilter = default, bool? forceReadMrzBeforeLocate = default, bool? parseBarcodes = default, TextPostProcessing? convertCase = default, bool? splitNames = default, bool? disablePerforationOCR = default, List<DocumentType> documentGroupFilter = default, long? processAuth = default, int? deviceId = default, int? deviceType = default, string? deviceTypeHex = default, bool? ignoreDeviceIdFromImage = default, List<int> documentIdList = default, ProcessParamsRfid? rfid = default, bool? checkAuth = default, AuthParams? authParams = default, MrzDetectModeEnum? mrzDetectMode = default, bool? generateNumericCodes = default, bool? strictBarcodeDigitalSignatureCheck = default, bool? selectLongestNames = default, List<InputBarcodeType> doBarcodes = default, bool? strictDLCategoryExpiry = default, bool? generateAlpha2Codes = default, int? pdfPagesLimit = default, bool? disableAuthResolutionFilter = default, bool? strictSecurityChecks = default, bool? returnTransliteratedFields = default, BsiTr03135? bsiTr03135 = default, bool? strictExpiryDate = default, bool? checkVDS = default, bool? strictAgeCheck = default)
         {
             this.Scenario = scenario;
             this.GenerateDTCVC = generateDTCVC;
@@ -218,6 +219,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.BsiTr03135 = bsiTr03135;
             this.StrictExpiryDate = strictExpiryDate;
             this.CheckVDS = checkVDS;
+            this.StrictAgeCheck = strictAgeCheck;
         }
 
         /// <summary>
@@ -670,6 +672,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckVDS { get; set; }
 
         /// <summary>
+        /// When enabled, the age check status affects the overall status.
+        /// </summary>
+        /// <value>When enabled, the age check status affects the overall status.</value>
+        [DataMember(Name = "strictAgeCheck", EmitDefaultValue = false)]
+        public bool? StrictAgeCheck { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -747,6 +756,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  BsiTr03135: ").Append(BsiTr03135).Append("\n");
             sb.Append("  StrictExpiryDate: ").Append(StrictExpiryDate).Append("\n");
             sb.Append("  CheckVDS: ").Append(CheckVDS).Append("\n");
+            sb.Append("  StrictAgeCheck: ").Append(StrictAgeCheck).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
