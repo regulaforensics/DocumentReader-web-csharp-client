@@ -563,6 +563,16 @@ namespace Regula.DocumentReader.WebClient.Model
         errLDS_CV_Certificate_PrivateKey_InvalidParams = 2164260965,
 
         /// <summary>
+        /// Enum errLDS_PACE_CAM_Data_Usage_Incorrect for value: 2164261163
+        /// </summary>
+        errLDS_PACE_CAM_Data_Usage_Incorrect = 2164261163,
+
+        /// <summary>
+        /// Enum errLDS_PACE_IM_MappingData_Incorrect for value: 2164261167
+        /// </summary>
+        errLDS_PACE_IM_MappingData_Incorrect = 2164261167,
+
+        /// <summary>
         /// Enum errLDS_CV_Certificate_IncorrectData for value: 2164261216
         /// </summary>
         errLDS_CV_Certificate_IncorrectData = 2164261216,

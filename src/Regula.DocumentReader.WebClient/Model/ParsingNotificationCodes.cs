@@ -83,6 +83,11 @@ namespace Regula.DocumentReader.WebClient.Model
         ntfLDS_ASN_Certificate_IncorrectIssuerSubjectDS = 2415919120,
 
         /// <summary>
+        /// Enum ntfLDS_ASN_Certificate_NonMatchingDSRole for value: 2415919121
+        /// </summary>
+        ntfLDS_ASN_Certificate_NonMatchingDSRole = 2415919121,
+
+        /// <summary>
         /// Enum ntfLDS_ASN_Certificate_DuplicatingExtensions for value: 2415919127
         /// </summary>
         ntfLDS_ASN_Certificate_DuplicatingExtensions = 2415919127,
@@ -751,6 +756,26 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Enum ntfLDS_UnsupportedImageFormat for value: 2415919386
         /// </summary>
         ntfLDS_UnsupportedImageFormat = 2415919386,
+
+        /// <summary>
+        /// Enum ntfLDS_MDL_Certificate_Chain_SoP_NonMatching for value: 2415920128
+        /// </summary>
+        ntfLDS_MDL_Certificate_Chain_SoP_NonMatching = 2415920128,
+
+        /// <summary>
+        /// Enum ntfLDS_MDL_Certificate_UnsupportedPublicKeyAlgorithm for value: 2415920129
+        /// </summary>
+        ntfLDS_MDL_Certificate_UnsupportedPublicKeyAlgorithm = 2415920129,
+
+        /// <summary>
+        /// Enum ntfLDS_MDL_Certificate_UnsupportedSignatureAlgorithm for value: 2415920130
+        /// </summary>
+        ntfLDS_MDL_Certificate_UnsupportedSignatureAlgorithm = 2415920130,
+
+        /// <summary>
+        /// Enum ntfLDS_MDL_Certificate_UnsupportedPublicKeyParams for value: 2415920131
+        /// </summary>
+        ntfLDS_MDL_Certificate_UnsupportedPublicKeyParams = 2415920131,
 
         /// <summary>
         /// Enum ntfLDS_MRZ_DocumentType_Unknown for value: 139272

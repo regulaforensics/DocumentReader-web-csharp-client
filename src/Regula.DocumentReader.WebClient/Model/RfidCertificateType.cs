@@ -90,7 +90,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum DTCS for value: 11
         /// </summary>
-        DTCS = 11
+        DTCS = 11,
+
+        /// <summary>
+        /// Enum CA for value: 12
+        /// </summary>
+        CA = 12,
+
+        /// <summary>
+        /// Enum MDLS for value: 13
+        /// </summary>
+        MDLS = 13
     }
 
 }
