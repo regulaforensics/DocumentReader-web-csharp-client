@@ -119,7 +119,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="parseBarcodes">This option can be disabled to stop parsing after barcode is read. Enabled by default..</param>
         /// <param name="convertCase">convertCase.</param>
         /// <param name="splitNames">When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default..</param>
-        /// <param name="disablePerforationOCR">When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default..</param>
+        /// <param name="disablePerforationOCR">When enabled, OCR of perforated fields in the document template will not be performed. Enabled by default..</param>
         /// <param name="documentGroupFilter">List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default..</param>
         /// <param name="processAuth">Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added..</param>
         /// <param name="deviceId">This parameter is used to specify the document reader device type from which input images were captured. Default 0..</param>
@@ -489,9 +489,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? SplitNames { get; set; }
 
         /// <summary>
-        /// When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.
+        /// When enabled, OCR of perforated fields in the document template will not be performed. Enabled by default.
         /// </summary>
-        /// <value>When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.</value>
+        /// <value>When enabled, OCR of perforated fields in the document template will not be performed. Enabled by default.</value>
         [DataMember(Name = "disablePerforationOCR", EmitDefaultValue = false)]
         public bool? DisablePerforationOCR { get; set; }
 
