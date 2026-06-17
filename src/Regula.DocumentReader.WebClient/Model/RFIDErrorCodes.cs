@@ -258,9 +258,9 @@ namespace Regula.DocumentReader.WebClient.Model
         RFID_LAYER6_FILE_EOF1 = 2147508866,
 
         /// <summary>
-        /// Enum RFID_LAYER6_FILE_EOF2 for value: 2147511040
+        /// Enum RFID_LAYER6_WRONG_PARAMS for value: 2147511040
         /// </summary>
-        RFID_LAYER6_FILE_EOF2 = 2147511040,
+        RFID_LAYER6_WRONG_PARAMS = 2147511040,
 
         /// <summary>
         /// Enum RFID_LAYER6_WRONG_LENGTH for value: 2147510016
