@@ -48,8 +48,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="scenarios">List of supported scenarios. (required).</param>
         /// <param name="varVersion">Product version. (required).</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="countryFilter">The list of country identifiers that are defined for processing in the license. If the array is empty, there are no restrictions for processing..</param>
         /// <param name="documentsDatabase">documentsDatabase.</param>
-        public Healthcheck(string app = default, string licenseId = default, string licenseType = default, string licenseSerial = default, DateTime? licenseValidUntil = default, List<string> scenarios = default, string varVersion = default, Dictionary<string, Object> metadata = default, HealthcheckDocumentsDatabase? documentsDatabase = default)
+        public Healthcheck(string app = default, string licenseId = default, string licenseType = default, string licenseSerial = default, DateTime? licenseValidUntil = default, List<string> scenarios = default, string varVersion = default, Dictionary<string, Object> metadata = default, List<string> countryFilter = default, HealthcheckDocumentsDatabase? documentsDatabase = default)
         {
             // to ensure "app" is required (not null)
             if (app == null)
@@ -94,6 +95,7 @@ namespace Regula.DocumentReader.WebClient.Model
             }
             this.VarVersion = varVersion;
             this.Metadata = metadata;
+            this.CountryFilter = countryFilter;
             this.DocumentsDatabase = documentsDatabase;
         }
 
@@ -153,6 +155,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public Dictionary<string, Object>? Metadata { get; set; }
 
         /// <summary>
+        /// The list of country identifiers that are defined for processing in the license. If the array is empty, there are no restrictions for processing.
+        /// </summary>
+        /// <value>The list of country identifiers that are defined for processing in the license. If the array is empty, there are no restrictions for processing.</value>
+        [DataMember(Name = "countryFilter", EmitDefaultValue = false)]
+        public List<string>? CountryFilter { get; set; }
+
+        /// <summary>
         /// Gets or Sets DocumentsDatabase
         /// </summary>
         [DataMember(Name = "documentsDatabase", EmitDefaultValue = false)]
@@ -174,6 +183,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  Scenarios: ").Append(Scenarios).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  CountryFilter: ").Append(CountryFilter).Append("\n");
             sb.Append("  DocumentsDatabase: ").Append(DocumentsDatabase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
