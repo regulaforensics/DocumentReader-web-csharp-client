@@ -45,7 +45,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="proxyType">Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;..</param>
         /// <param name="childAgeThreshold">The age threshold for the portrait comparison. Default: 13..</param>
         /// <param name="childDocValidityYears">Estimated duration of validity for a child&#39;s passport, years. Default: 5..</param>
-        public FaceApi(string? url = default, string? mode = default, FaceApiSearch? search = default, int? threshold = default, int? serviceTimeout = default, string? proxy = default, string? proxyUserpwd = default, int? proxyType = default, int? childAgeThreshold = default, int? childDocValidityYears = default)
+        /// <param name="livenessTransactionId">This parameter allows you to use a liveness transaction id instead of a selfie photo..</param>
+        public FaceApi(string? url = default, string? mode = default, FaceApiSearch? search = default, int? threshold = default, int? serviceTimeout = default, string? proxy = default, string? proxyUserpwd = default, int? proxyType = default, int? childAgeThreshold = default, int? childDocValidityYears = default, string? livenessTransactionId = default)
         {
             this.Url = url;
             this.Mode = mode;
@@ -57,6 +58,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.ProxyType = proxyType;
             this.ChildAgeThreshold = childAgeThreshold;
             this.ChildDocValidityYears = childDocValidityYears;
+            this.LivenessTransactionId = livenessTransactionId;
         }
 
         /// <summary>
@@ -156,6 +158,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public int? ChildDocValidityYears { get; set; }
 
         /// <summary>
+        /// This parameter allows you to use a liveness transaction id instead of a selfie photo.
+        /// </summary>
+        /// <value>This parameter allows you to use a liveness transaction id instead of a selfie photo.</value>
+        [DataMember(Name = "livenessTransactionId", EmitDefaultValue = false)]
+        public string? LivenessTransactionId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -173,6 +182,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  ProxyType: ").Append(ProxyType).Append("\n");
             sb.Append("  ChildAgeThreshold: ").Append(ChildAgeThreshold).Append("\n");
             sb.Append("  ChildDocValidityYears: ").Append(ChildDocValidityYears).Append("\n");
+            sb.Append("  LivenessTransactionId: ").Append(LivenessTransactionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
