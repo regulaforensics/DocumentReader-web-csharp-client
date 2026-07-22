@@ -3304,7 +3304,22 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum FT_CONSUL for value: 705
         /// </summary>
-        FT_CONSUL = 705
+        FT_CONSUL = 705,
+
+        /// <summary>
+        /// Enum DL_CLASS_CODE_B3_FROM for value: 706
+        /// </summary>
+        DL_CLASS_CODE_B3_FROM = 706,
+
+        /// <summary>
+        /// Enum DL_CLASS_CODE_B3_TO for value: 707
+        /// </summary>
+        DL_CLASS_CODE_B3_TO = 707,
+
+        /// <summary>
+        /// Enum DL_CLASS_CODE_B3_NOTES for value: 708
+        /// </summary>
+        DL_CLASS_CODE_B3_NOTES = 708
     }
 
 }
