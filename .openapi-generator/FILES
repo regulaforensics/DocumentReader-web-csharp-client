@@ -154,6 +154,7 @@ src/Regula.DocumentReader.WebClient/Model/MrzDetectModeEnum.cs
 src/Regula.DocumentReader.WebClient/Model/MrzPositionItem.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextItem.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
+src/Regula.DocumentReader.WebClient/Model/OcclusionCheckParams.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidateItem.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
