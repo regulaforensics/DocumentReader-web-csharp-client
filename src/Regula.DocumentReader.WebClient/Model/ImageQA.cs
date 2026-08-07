@@ -45,8 +45,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="documentPositionIndent">This parameter specifies the necessary margin. Default 0..</param>
         /// <param name="expectedPass">This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process..</param>
         /// <param name="glaresCheckParams">glaresCheckParams.</param>
+        /// <param name="occlusionCheck">This option enables the occlusion detection to identify cases where parts of a document are covered by fingers, hands, or other objects during image capture..</param>
         /// <param name="occlusionCheckParams">occlusionCheckParams.</param>
-        public ImageQA(double? brightnessThreshold = default, int? dpiThreshold = default, int? angleThreshold = default, bool? focusCheck = default, bool? glaresCheck = default, bool? colornessCheck = default, bool? moireCheck = default, int? documentPositionIndent = default, List<InputImageQualityChecks> expectedPass = default, GlaresCheckParams? glaresCheckParams = default, OcclusionCheckParams? occlusionCheckParams = default)
+        public ImageQA(double? brightnessThreshold = default, int? dpiThreshold = default, int? angleThreshold = default, bool? focusCheck = default, bool? glaresCheck = default, bool? colornessCheck = default, bool? moireCheck = default, int? documentPositionIndent = default, List<InputImageQualityChecks> expectedPass = default, GlaresCheckParams? glaresCheckParams = default, bool? occlusionCheck = default, OcclusionCheckParams? occlusionCheckParams = default)
         {
             this.BrightnessThreshold = brightnessThreshold;
             this.DpiThreshold = dpiThreshold;
@@ -58,6 +59,7 @@ namespace Regula.DocumentReader.WebClient.Model
             this.DocumentPositionIndent = documentPositionIndent;
             this.ExpectedPass = expectedPass;
             this.GlaresCheckParams = glaresCheckParams;
+            this.OcclusionCheck = occlusionCheck;
             this.OcclusionCheckParams = occlusionCheckParams;
         }
 
@@ -131,6 +133,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public GlaresCheckParams? GlaresCheckParams { get; set; }
 
         /// <summary>
+        /// This option enables the occlusion detection to identify cases where parts of a document are covered by fingers, hands, or other objects during image capture.
+        /// </summary>
+        /// <value>This option enables the occlusion detection to identify cases where parts of a document are covered by fingers, hands, or other objects during image capture.</value>
+        [DataMember(Name = "occlusionCheck", EmitDefaultValue = false)]
+        public bool? OcclusionCheck { get; set; }
+
+        /// <summary>
         /// Gets or Sets OcclusionCheckParams
         /// </summary>
         [DataMember(Name = "occlusionCheckParams", EmitDefaultValue = false)]
@@ -154,6 +163,7 @@ namespace Regula.DocumentReader.WebClient.Model
             sb.Append("  DocumentPositionIndent: ").Append(DocumentPositionIndent).Append("\n");
             sb.Append("  ExpectedPass: ").Append(ExpectedPass).Append("\n");
             sb.Append("  GlaresCheckParams: ").Append(GlaresCheckParams).Append("\n");
+            sb.Append("  OcclusionCheck: ").Append(OcclusionCheck).Append("\n");
             sb.Append("  OcclusionCheckParams: ").Append(OcclusionCheckParams).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
