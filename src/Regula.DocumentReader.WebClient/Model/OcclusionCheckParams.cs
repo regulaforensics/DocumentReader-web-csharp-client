@@ -27,39 +27,29 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// LicenseItem
+    /// OcclusionCheckParams
     /// </summary>
-    [DataContract(Name = "LicenseItem")]
-    public partial class LicenseItem : IValidatableObject
+    [DataContract(Name = "OcclusionCheckParams")]
+    public partial class OcclusionCheckParams : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseItem" /> class.
+        /// Initializes a new instance of the <see cref="OcclusionCheckParams" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LicenseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseItem" /> class.
-        /// </summary>
-        /// <param name="license">Base64 encoded data (required).</param>
-        public LicenseItem(byte[] license = default)
+        /// <param name="maxOcclusionPart">The maximum size for the occluded area of a document; only those exceeding this size will be validated.</param>
+        public OcclusionCheckParams(float? maxOcclusionPart = default)
         {
-            // to ensure "license" is required (not null)
-            if (license == null)
-            {
-                throw new ArgumentNullException("license is a required property for LicenseItem and cannot be null");
-            }
-            this.License = license;
+            this.MaxOcclusionPart = maxOcclusionPart;
         }
 
         /// <summary>
-        /// Base64 encoded data
+        /// The maximum size for the occluded area of a document; only those exceeding this size will be validated
         /// </summary>
-        /// <value>Base64 encoded data</value>
+        /// <value>The maximum size for the occluded area of a document; only those exceeding this size will be validated</value>
         /*
-        <example>[B@7d0d6740</example>
+        <example>0.01</example>
         */
-        [DataMember(Name = "License", IsRequired = true, EmitDefaultValue = true)]
-        public byte[] License { get; set; }
+        [DataMember(Name = "maxOcclusionPart", EmitDefaultValue = false)]
+        public float? MaxOcclusionPart { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,8 +58,8 @@ namespace Regula.DocumentReader.WebClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LicenseItem {\n");
-            sb.Append("  License: ").Append(License).Append("\n");
+            sb.Append("class OcclusionCheckParams {\n");
+            sb.Append("  MaxOcclusionPart: ").Append(MaxOcclusionPart).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
