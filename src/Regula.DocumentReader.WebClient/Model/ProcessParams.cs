@@ -87,7 +87,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageOutputMaxWidth">This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0..</param>
         /// <param name="scenario">scenario (required).</param>
         /// <param name="resultTypeOutput">Types of results to return in response. See &#39;Result&#39; enum for available options.</param>
-        /// <param name="doublePageSpread">Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default..</param>
+        /// <param name="doublePageSpread">This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages. If disabled, only one page is extracted..</param>
         /// <param name="generateDoublePageSpreadImage">When enabled together with \&quot;doublePageSpread\&quot; and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default..</param>
         /// <param name="fieldTypesFilter">If a document contains Visual zone, you can set the list of field types to extract. In this case, other fields are skipped during the processing, i.e. document recognition becomes faster. This filter is not applicable to the MRZ, barcode or RFID. If the fieldTypesFilter is empty, all fields are extracted. Empty by default. If fieldTypesFilter and fieldTypesIgnoreFilter are used simultaneously, fieldTypesFilter takes priority..</param>
         /// <param name="fieldTypesIgnoreFilter">If a document contains a Visual zone, you can specify a list of field types that should be excluded from extraction. All field types listed in this array are skipped during processing, while the remaining fields are recognized. This filter is not applicable to the MRZ, barcode or RFID. If the fieldTypesIgnoreFilter is empty, all fields are extracted. Empty by default. If fieldTypesFilter and fieldTypesIgnoreFilter are used simultaneously, fieldTypesFilter takes priority..</param>
@@ -288,11 +288,10 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<Result>? ResultTypeOutput { get; set; }
 
         /// <summary>
-        /// Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.
+        /// This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages. If disabled, only one page is extracted.
         /// </summary>
-        /// <value>Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.</value>
+        /// <value>This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages. If disabled, only one page is extracted.</value>
         [DataMember(Name = "doublePageSpread", EmitDefaultValue = false)]
-        [Obsolete]
         public bool? DoublePageSpread { get; set; }
 
         /// <summary>
