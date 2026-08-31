@@ -27,55 +27,29 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Enumeration contains a set of constants specifying the rate of data exchange between the reader and the RFID-chip
+    /// Defines RfidAccessControl
     /// </summary>
-    /// <value>Enumeration contains a set of constants specifying the rate of data exchange between the reader and the RFID-chip</value>
-    public enum RfidPasswordType
+    public enum RfidAccessControl
     {
         /// <summary>
-        /// Enum UNKNOWN for value: 0
+        /// Enum DEFAULT for value: 0
         /// </summary>
-        UNKNOWN = 0,
+        DEFAULT = 0,
 
         /// <summary>
-        /// Enum MRZ for value: 1
+        /// Enum CHIP_ACCESS_BAC for value: 1
         /// </summary>
-        MRZ = 1,
+        CHIP_ACCESS_BAC = 1,
 
         /// <summary>
-        /// Enum CAN for value: 2
+        /// Enum CHIP_ACCESS_PACE for value: 2
         /// </summary>
-        CAN = 2,
+        CHIP_ACCESS_PACE = 2,
 
         /// <summary>
-        /// Enum PIN for value: 3
+        /// Enum LOCAL_PIN for value: 3
         /// </summary>
-        PIN = 3,
-
-        /// <summary>
-        /// Enum PUK for value: 4
-        /// </summary>
-        PUK = 4,
-
-        /// <summary>
-        /// Enum PIN_E_SIGN for value: 5
-        /// </summary>
-        PIN_E_SIGN = 5,
-
-        /// <summary>
-        /// Enum SAI for value: 6
-        /// </summary>
-        SAI = 6,
-
-        /// <summary>
-        /// Enum MRZ_HASH for value: 7
-        /// </summary>
-        MRZ_HASH = 7,
-
-        /// <summary>
-        /// Enum PIN_LOCAL for value: 8
-        /// </summary>
-        PIN_LOCAL = 8
+        LOCAL_PIN = 3
     }
 
 }

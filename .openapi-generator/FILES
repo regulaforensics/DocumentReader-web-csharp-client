@@ -195,6 +195,7 @@ src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
 src/Regula.DocumentReader.WebClient/Model/ResultMRZDetector.cs
 src/Regula.DocumentReader.WebClient/Model/ResultMRZDetectorItem.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAChip.cs
+src/Regula.DocumentReader.WebClient/Model/RfidAccessControl.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAccessControlInfo.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAccessControlProcedureType.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAccessKey.cs
