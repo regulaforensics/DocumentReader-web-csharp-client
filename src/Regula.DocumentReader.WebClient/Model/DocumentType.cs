@@ -833,9 +833,9 @@ namespace Regula.DocumentReader.WebClient.Model
         PASSPORT_CARD = 172,
 
         /// <summary>
-        /// Enum PASSPORT_RESIDENT_CARD for value: 173
+        /// Enum PERMANENT_RESIDENT_CARD for value: 173
         /// </summary>
-        PASSPORT_RESIDENT_CARD = 173,
+        PERMANENT_RESIDENT_CARD = 173,
 
         /// <summary>
         /// Enum PERSONAL_IDENTIFICATION_VERIFICATION for value: 174
