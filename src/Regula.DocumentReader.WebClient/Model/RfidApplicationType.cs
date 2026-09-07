@@ -75,7 +75,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum eDTC_PC for value: 8
         /// </summary>
-        eDTC_PC = 8
+        eDTC_PC = 8,
+
+        /// <summary>
+        /// Enum APPLET_ROOT for value: 50
+        /// </summary>
+        APPLET_ROOT = 50,
+
+        /// <summary>
+        /// Enum USER_DEFINED for value: 100
+        /// </summary>
+        USER_DEFINED = 100
     }
 
 }

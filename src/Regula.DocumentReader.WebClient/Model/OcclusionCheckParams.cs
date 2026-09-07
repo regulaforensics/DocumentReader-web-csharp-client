@@ -27,55 +27,61 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Enumeration contains a set of constants specifying the rate of data exchange between the reader and the RFID-chip
+    /// OcclusionCheckParams
     /// </summary>
-    /// <value>Enumeration contains a set of constants specifying the rate of data exchange between the reader and the RFID-chip</value>
-    public enum RfidPasswordType
+    [DataContract(Name = "OcclusionCheckParams")]
+    public partial class OcclusionCheckParams : IValidatableObject
     {
         /// <summary>
-        /// Enum UNKNOWN for value: 0
+        /// Initializes a new instance of the <see cref="OcclusionCheckParams" /> class.
         /// </summary>
-        UNKNOWN = 0,
+        /// <param name="maxOcclusionPart">The maximum size for the occluded area of a document; only those exceeding this size will be validated.</param>
+        public OcclusionCheckParams(float? maxOcclusionPart = default)
+        {
+            this.MaxOcclusionPart = maxOcclusionPart;
+        }
 
         /// <summary>
-        /// Enum MRZ for value: 1
+        /// The maximum size for the occluded area of a document; only those exceeding this size will be validated
         /// </summary>
-        MRZ = 1,
+        /// <value>The maximum size for the occluded area of a document; only those exceeding this size will be validated</value>
+        /*
+        <example>0.01</example>
+        */
+        [DataMember(Name = "maxOcclusionPart", EmitDefaultValue = false)]
+        public float? MaxOcclusionPart { get; set; }
 
         /// <summary>
-        /// Enum CAN for value: 2
+        /// Returns the string presentation of the object
         /// </summary>
-        CAN = 2,
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class OcclusionCheckParams {\n");
+            sb.Append("  MaxOcclusionPart: ").Append(MaxOcclusionPart).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
 
         /// <summary>
-        /// Enum PIN for value: 3
+        /// Returns the JSON string presentation of the object
         /// </summary>
-        PIN = 3,
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
 
         /// <summary>
-        /// Enum PUK for value: 4
+        /// To validate all properties of the instance
         /// </summary>
-        PUK = 4,
-
-        /// <summary>
-        /// Enum PIN_E_SIGN for value: 5
-        /// </summary>
-        PIN_E_SIGN = 5,
-
-        /// <summary>
-        /// Enum SAI for value: 6
-        /// </summary>
-        SAI = 6,
-
-        /// <summary>
-        /// Enum MRZ_HASH for value: 7
-        /// </summary>
-        MRZ_HASH = 7,
-
-        /// <summary>
-        /// Enum PIN_LOCAL for value: 8
-        /// </summary>
-        PIN_LOCAL = 8
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
     }
 
 }

@@ -154,6 +154,7 @@ src/Regula.DocumentReader.WebClient/Model/MrzDetectModeEnum.cs
 src/Regula.DocumentReader.WebClient/Model/MrzPositionItem.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextItem.cs
 src/Regula.DocumentReader.WebClient/Model/OCRSecurityTextResult.cs
+src/Regula.DocumentReader.WebClient/Model/OcclusionCheckParams.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidate.cs
 src/Regula.DocumentReader.WebClient/Model/OneCandidateItem.cs
 src/Regula.DocumentReader.WebClient/Model/OriginalSymbol.cs
@@ -194,6 +195,7 @@ src/Regula.DocumentReader.WebClient/Model/ResultItem.cs
 src/Regula.DocumentReader.WebClient/Model/ResultMRZDetector.cs
 src/Regula.DocumentReader.WebClient/Model/ResultMRZDetectorItem.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAChip.cs
+src/Regula.DocumentReader.WebClient/Model/RfidAccessControl.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAccessControlInfo.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAccessControlProcedureType.cs
 src/Regula.DocumentReader.WebClient/Model/RfidAccessKey.cs
