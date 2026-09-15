@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Defines MeasureSystem
+    /// Enumeration contains a pool of constants that identify the system for measuring distances and weight
     /// </summary>
+    /// <value>Enumeration contains a pool of constants that identify the system for measuring distances and weight</value>
     public enum MeasureSystem
     {
         /// <summary>
