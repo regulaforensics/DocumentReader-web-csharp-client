@@ -40,26 +40,30 @@ namespace Regula.DocumentReader.WebClient.Model
         public Scenario Scenario { get; set; }
 
         /// <summary>
-        /// Gets or Sets MeasureSystem
+        /// This option allows you to set the system of measurement used for converting original values in document to output result values. Metric by default.
         /// </summary>
+        /// <value>This option allows you to set the system of measurement used for converting original values in document to output result values. Metric by default.</value>
         [DataMember(Name = "measureSystem", EmitDefaultValue = false)]
         public MeasureSystem? MeasureSystem { get; set; }
 
         /// <summary>
-        /// Gets or Sets LogLevel
+        /// When used together with &#39;log&#39; parameter enabled, sets the level of logs detalization. &#39;INFO&#39; by default.
         /// </summary>
+        /// <value>When used together with &#39;log&#39; parameter enabled, sets the level of logs detalization. &#39;INFO&#39; by default.</value>
         [DataMember(Name = "logLevel", EmitDefaultValue = false)]
         public LogLevel? LogLevel { get; set; }
 
         /// <summary>
-        /// Gets or Sets ForceDocFormat
+        /// Force use of specified document format when locating and recognizing document to reduce the number of candidates.
         /// </summary>
+        /// <value>Force use of specified document format when locating and recognizing document to reduce the number of candidates.</value>
         [DataMember(Name = "forceDocFormat", EmitDefaultValue = false)]
         public DocumentFormat? ForceDocFormat { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConvertCase
+        /// This option allows output text case transformation. No changes applied by default to original values.
         /// </summary>
+        /// <value>This option allows output text case transformation. No changes applied by default to original values.</value>
         [DataMember(Name = "convertCase", EmitDefaultValue = false)]
         public TextPostProcessing? ConvertCase { get; set; }
 
@@ -92,13 +96,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldTypesFilter">If a document contains Visual zone, you can set the list of field types to extract. In this case, other fields are skipped during the processing, i.e. document recognition becomes faster. This filter is not applicable to the MRZ, barcode or RFID. If the fieldTypesFilter is empty, all fields are extracted. Empty by default. If fieldTypesFilter and fieldTypesIgnoreFilter are used simultaneously, fieldTypesFilter takes priority..</param>
         /// <param name="fieldTypesIgnoreFilter">If a document contains a Visual zone, you can specify a list of field types that should be excluded from extraction. All field types listed in this array are skipped during processing, while the remaining fields are recognized. This filter is not applicable to the MRZ, barcode or RFID. If the fieldTypesIgnoreFilter is empty, all fields are extracted. Empty by default. If fieldTypesFilter and fieldTypesIgnoreFilter are used simultaneously, fieldTypesFilter takes priority..</param>
         /// <param name="dateFormat">This option allows you to set dates format so that solution will return dates in this format. For example, if you supply &#39;MM/dd/yyyy&#39;, and document have printed date &#39;09 JUL 2020&#39; for the date os issue, you will get &#39;07/09/2020&#39; as a result. By default it is set to system locale default (where the service is running)..</param>
-        /// <param name="measureSystem">measureSystem.</param>
+        /// <param name="measureSystem">This option allows you to set the system of measurement used for converting original values in document to output result values. Metric by default..</param>
         /// <param name="imageDpiOutMax">This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default..</param>
         /// <param name="alreadyCropped">This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default..</param>
         /// <param name="customParams">This option allows passing custom processing parameters that can be implemented in future without changing API..</param>
         /// <param name="config">This option allows setting additional custom configuration per document type. If recognized document has ID specified in config, processing adjusts according to designated configuration..</param>
         /// <param name="log">When enabled, results will contain transaction processing log. Disabled by default.</param>
-        /// <param name="logLevel">logLevel.</param>
+        /// <param name="logLevel">When used together with &#39;log&#39; parameter enabled, sets the level of logs detalization. &#39;INFO&#39; by default..</param>
         /// <param name="forceDocID">Force use of specific template ID and skip document type identification step..</param>
         /// <param name="matchTextFieldMask">When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default..</param>
         /// <param name="fastDocDetect">When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default..</param>
@@ -108,7 +112,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="imageQa">imageQa.</param>
         /// <param name="strictImageQuality">When enabled, the image quality check status affects the document optical and overall status. Disabled by default..</param>
         /// <param name="respectImageQuality">Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default..</param>
-        /// <param name="forceDocFormat">forceDocFormat.</param>
+        /// <param name="forceDocFormat">Force use of specified document format when locating and recognizing document to reduce the number of candidates..</param>
         /// <param name="noGraphics">When enabled, no graphic fields will be cropped from document image. Disabled by default..</param>
         /// <param name="depersonalizeLog">When enabled, all personal data will be forcibly removed from the logs. Disabled by default..</param>
         /// <param name="multiDocOnImage">This option allows locating and cropping multiple documents from one image if enabled. Disabled by default..</param>
@@ -117,7 +121,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="returnUncroppedImage">When enabled, returns input images in output. Disabled by default..</param>
         /// <param name="mrzFormatsFilter">This option allows limiting MRZ formats to be recognized by specifying them in array..</param>
         /// <param name="parseBarcodes">This option can be disabled to stop parsing after barcode is read. Enabled by default..</param>
-        /// <param name="convertCase">convertCase.</param>
+        /// <param name="convertCase">This option allows output text case transformation. No changes applied by default to original values..</param>
         /// <param name="splitNames">When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default..</param>
         /// <param name="disablePerforationOCR">When enabled, OCR of perforated fields in the document template will not be performed. Enabled by default..</param>
         /// <param name="documentGroupFilter">List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default..</param>

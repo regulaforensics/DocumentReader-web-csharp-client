@@ -34,44 +34,51 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets OverallStatus
+        /// Overall RFID checks combined status
         /// </summary>
+        /// <value>Overall RFID checks combined status</value>
         [DataMember(Name = "overallStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult OverallStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets AA
+        /// Active Authentication status
         /// </summary>
+        /// <value>Active Authentication status</value>
         [DataMember(Name = "AA", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult AA { get; set; }
 
         /// <summary>
-        /// Gets or Sets BAC
+        /// Basic Access Control (BAC) status
         /// </summary>
+        /// <value>Basic Access Control (BAC) status</value>
         [DataMember(Name = "BAC", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult BAC { get; set; }
 
         /// <summary>
-        /// Gets or Sets CA
+        /// Chip Authentication status
         /// </summary>
+        /// <value>Chip Authentication status</value>
         [DataMember(Name = "CA", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult CA { get; set; }
 
         /// <summary>
-        /// Gets or Sets PA
+        /// Passive Authentication status
         /// </summary>
+        /// <value>Passive Authentication status</value>
         [DataMember(Name = "PA", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult PA { get; set; }
 
         /// <summary>
-        /// Gets or Sets PACE
+        /// Password Authenticated Connection Establishment (PACE) status
         /// </summary>
+        /// <value>Password Authenticated Connection Establishment (PACE) status</value>
         [DataMember(Name = "PACE", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult PACE { get; set; }
 
         /// <summary>
-        /// Gets or Sets TA
+        /// Terminal Authentication status
         /// </summary>
+        /// <value>Terminal Authentication status</value>
         [DataMember(Name = "TA", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult TA { get; set; }
         /// <summary>
@@ -82,13 +89,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DetailsRFID" /> class.
         /// </summary>
-        /// <param name="overallStatus">overallStatus (required).</param>
-        /// <param name="aA">aA (required).</param>
-        /// <param name="bAC">bAC (required).</param>
-        /// <param name="cA">cA (required).</param>
-        /// <param name="pA">pA (required).</param>
-        /// <param name="pACE">pACE (required).</param>
-        /// <param name="tA">tA (required).</param>
+        /// <param name="overallStatus">Overall RFID checks combined status (required).</param>
+        /// <param name="aA">Active Authentication status (required).</param>
+        /// <param name="bAC">Basic Access Control (BAC) status (required).</param>
+        /// <param name="cA">Chip Authentication status (required).</param>
+        /// <param name="pA">Passive Authentication status (required).</param>
+        /// <param name="pACE">Password Authenticated Connection Establishment (PACE) status (required).</param>
+        /// <param name="tA">Terminal Authentication status (required).</param>
         public DetailsRFID(CheckResult overallStatus = default, CheckResult aA = default, CheckResult bAC = default, CheckResult cA = default, CheckResult pA = default, CheckResult pACE = default, CheckResult tA = default)
         {
             this.OverallStatus = overallStatus;
