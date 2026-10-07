@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Defines MDLDeviceRetrieval
+    /// Enumeration contains possible data retrieval methods from mDL
     /// </summary>
+    /// <value>Enumeration contains possible data retrieval methods from mDL</value>
     public enum MDLDeviceRetrieval
     {
         /// <summary>

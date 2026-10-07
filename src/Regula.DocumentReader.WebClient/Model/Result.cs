@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Defines Result
+    /// Enumeration contains a pool of constants which determine the type of resulting data formed during the data scanning and processing cycle and passed to the user application
     /// </summary>
+    /// <value>Enumeration contains a pool of constants which determine the type of resulting data formed during the data scanning and processing cycle and passed to the user application</value>
     public enum Result
     {
         /// <summary>

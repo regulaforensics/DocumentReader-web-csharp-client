@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Defines LogLevel
+    /// Enumeration contains identificators which determinate the level of logs detalization
     /// </summary>
+    /// <value>Enumeration contains identificators which determinate the level of logs detalization</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum LogLevel
     {

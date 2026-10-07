@@ -27,8 +27,9 @@ using OpenAPIDateConverter = Regula.DocumentReader.WebClient.Client.OpenAPIDateC
 namespace Regula.DocumentReader.WebClient.Model
 {
     /// <summary>
-    /// Defines GraphicFieldType
+    /// Enumeration contains identifiers determining the logical type of the graphic data obtained while reading document filling fields or barcodes
     /// </summary>
+    /// <value>Enumeration contains identifiers determining the logical type of the graphic data obtained while reading document filling fields or barcodes</value>
     public enum GraphicFieldType
     {
         /// <summary>
