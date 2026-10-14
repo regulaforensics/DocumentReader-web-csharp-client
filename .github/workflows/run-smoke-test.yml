@@ -22,9 +22,13 @@ jobs:
           dotnet build src/Regula.DocumentReader.NetCoreExamplePortraitComparison -c Release    
         
       - name: Run basic sample
+        env:
+          API_BASE_PATH: ${{ github.base_ref == 'develop' && 'https://nightly-api.regulaforensics.com' || github.base_ref == 'stable' && 'https://rc-api.regulaforensics.com' || github.base_ref == 'master' && 'https://api.regulaforensics.com' || 'https://nightly-api.regulaforensics.com' }}
         run: ./Regula.DocumentReader.NetCoreExample
         working-directory: src/Regula.DocumentReader.NetCoreExample/bin/Release/net8.0/
           
       - name: Run Portrait comparison
+        env:
+          API_BASE_PATH: ${{ github.base_ref == 'develop' && 'https://nightly-api.regulaforensics.com' || github.base_ref == 'stable' && 'https://rc-api.regulaforensics.com' || github.base_ref == 'master' && 'https://api.regulaforensics.com' || 'https://nightly-api.regulaforensics.com' }}
         run: ./Regula.DocumentReader.NetCoreExamplePortraitComparison
         working-directory: src/Regula.DocumentReader.NetCoreExamplePortraitComparison/bin/Release/net8.0/        
