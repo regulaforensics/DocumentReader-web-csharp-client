@@ -58,14 +58,94 @@ namespace Regula.DocumentReader.WebClient.Model
         IR = 24,
 
         /// <summary>
+        /// Enum TRANSMITTED for value: 32
+        /// </summary>
+        TRANSMITTED = 32,
+
+        /// <summary>
+        /// Enum TRANSMITTED_IR for value: 64
+        /// </summary>
+        TRANSMITTED_IR = 64,
+
+        /// <summary>
         /// Enum UV for value: 128
         /// </summary>
         UV = 128,
 
         /// <summary>
+        /// Enum WHITE_UV for value: 134
+        /// </summary>
+        WHITE_UV = 134,
+
+        /// <summary>
+        /// Enum IR_LUMINESCENCE for value: 256
+        /// </summary>
+        IR_LUMINESCENCE = 256,
+
+        /// <summary>
         /// Enum AXIAL_WHITE for value: 3072
         /// </summary>
-        AXIAL_WHITE = 3072
+        AXIAL_WHITE = 3072,
+
+        /// <summary>
+        /// Enum IR_720 for value: 4096
+        /// </summary>
+        IR_720 = 4096,
+
+        /// <summary>
+        /// Enum IR_940 for value: 8192
+        /// </summary>
+        IR_940 = 8192,
+
+        /// <summary>
+        /// Enum ANTI_STOKES for value: 65536
+        /// </summary>
+        ANTI_STOKES = 65536,
+
+        /// <summary>
+        /// Enum UVC for value: 524288
+        /// </summary>
+        UVC = 524288,
+
+        /// <summary>
+        /// Enum UVB for value: 1048576
+        /// </summary>
+        UVB = 1048576,
+
+        /// <summary>
+        /// Enum WHITE_OBL for value: 2097152
+        /// </summary>
+        WHITE_OBL = 2097152,
+
+        /// <summary>
+        /// Enum WHITE_SPECIAL for value: 4194304
+        /// </summary>
+        WHITE_SPECIAL = 4194304,
+
+        /// <summary>
+        /// Enum OVD for value: 67108864
+        /// </summary>
+        OVD = 67108864,
+
+        /// <summary>
+        /// Enum IR_870_OBL for value: 268435456
+        /// </summary>
+        IR_870_OBL = 268435456,
+
+        /// <summary>
+        /// Enum HR_WHITE for value: 1073741830
+        /// </summary>
+        HR_WHITE = 1073741830,
+
+        /// <summary>
+        /// Enum HR_IR for value: 1073741848
+        /// </summary>
+        HR_IR = 1073741848,
+
+        /// <summary>
+        /// Enum HR_UV for value: 1073741952
+        /// </summary>
+        HR_UV = 1073741952
     }
 
 }

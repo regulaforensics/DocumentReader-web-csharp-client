@@ -34,8 +34,9 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets RFIDPresence
+        /// Indication of the presence of an RFID chip in the document (electronic document indicator)
         /// </summary>
+        /// <value>Indication of the presence of an RFID chip in the document (electronic document indicator)</value>
         [DataMember(Name = "RFID_Presence", IsRequired = true, EmitDefaultValue = true)]
         public RfidLocation RFIDPresence { get; set; }
         /// <summary>
@@ -50,7 +51,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="iD">Unique document type template identifier (Regula&#39;s internal numeric code) (required).</param>
         /// <param name="p">A measure of the likelihood of correct recognition in the analysis of this type of document (required).</param>
         /// <param name="rotated180">Indicates if the document of the given type is rotated by 180 degrees (required).</param>
-        /// <param name="rFIDPresence">rFIDPresence (required).</param>
+        /// <param name="rFIDPresence">Indication of the presence of an RFID chip in the document (electronic document indicator) (required).</param>
         /// <param name="fDSIDList">fDSIDList.</param>
         /// <param name="necessaryLights">Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document (required).</param>
         /// <param name="checkAuthenticity">Set of authentication options provided for this type of document (combination of Authenticity enum) (required).</param>

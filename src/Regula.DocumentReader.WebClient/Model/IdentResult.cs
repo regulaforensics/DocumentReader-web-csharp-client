@@ -56,8 +56,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="elementType">elementType (required).</param>
         /// <param name="lightIndex">lightIndex (required).</param>
         /// <param name="area">area.</param>
-        /// <param name="image">image (required).</param>
-        /// <param name="etalonImage">etalonImage (required).</param>
+        /// <param name="image">Original image (required).</param>
+        /// <param name="etalonImage">Reference image (required).</param>
         /// <param name="areaList">areaList.</param>
         /// <param name="elementID">elementID.</param>
         /// <param name="type">type (required) (default to AuthenticityResultType.IMAGE_PATTERN).</param>
@@ -92,14 +92,16 @@ namespace Regula.DocumentReader.WebClient.Model
         public RectangleCoordinates? Area { get; set; }
 
         /// <summary>
-        /// Gets or Sets Image
+        /// Original image
         /// </summary>
+        /// <value>Original image</value>
         [DataMember(Name = "Image", IsRequired = true, EmitDefaultValue = true)]
         public ImageData Image { get; set; }
 
         /// <summary>
-        /// Gets or Sets EtalonImage
+        /// Reference image
         /// </summary>
+        /// <value>Reference image</value>
         [DataMember(Name = "EtalonImage", IsRequired = true, EmitDefaultValue = true)]
         public ImageData EtalonImage { get; set; }
 

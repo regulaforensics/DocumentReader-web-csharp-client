@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolRecognitionResult" /> class.
         /// </summary>
-        /// <param name="symbolRect">symbolRect.</param>
+        /// <param name="symbolRect">Coordinates of the symbol in the normalized image of the document.</param>
         /// <param name="candidatesCount">Number of significant elements of ListOfCandidates array (required).</param>
         /// <param name="listOfCandidates">Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability) (required).</param>
         /// <param name="baseLineBottom">baseLineBottom.</param>
@@ -60,8 +60,9 @@ namespace Regula.DocumentReader.WebClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets SymbolRect
+        /// Coordinates of the symbol in the normalized image of the document
         /// </summary>
+        /// <value>Coordinates of the symbol in the normalized image of the document</value>
         [DataMember(Name = "SymbolRect", EmitDefaultValue = false)]
         public RectangleCoordinates? SymbolRect { get; set; }
 

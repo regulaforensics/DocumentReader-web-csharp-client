@@ -68,6 +68,11 @@ namespace Regula.DocumentReader.WebClient.Model
         ID3_X2 = 5,
 
         /// <summary>
+        /// Enum ID2_TURKEY for value: 6
+        /// </summary>
+        ID2_TURKEY = 6,
+
+        /// <summary>
         /// Enum ID1_90 for value: 10
         /// </summary>
         ID1_90 = 10,

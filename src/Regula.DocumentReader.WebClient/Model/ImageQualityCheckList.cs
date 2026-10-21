@@ -34,8 +34,9 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets Result
+        /// Overall image quality status, combined from check statuses in the list.
         /// </summary>
+        /// <value>Overall image quality status, combined from check statuses in the list.</value>
         [DataMember(Name = "result", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Result { get; set; }
         /// <summary>
@@ -46,7 +47,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageQualityCheckList" /> class.
         /// </summary>
-        /// <param name="result">result (required).</param>
+        /// <param name="result">Overall image quality status, combined from check statuses in the list. (required).</param>
         /// <param name="list">list (required).</param>
         /// <param name="count">Number of List array elements (required).</param>
         public ImageQualityCheckList(CheckResult result = default, List<ImageQualityCheck> list = default, decimal count = default)

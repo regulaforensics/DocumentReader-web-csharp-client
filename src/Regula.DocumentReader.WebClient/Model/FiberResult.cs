@@ -35,8 +35,9 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets LightValue
+        /// For UV_Background authentication result type
         /// </summary>
+        /// <value>For UV_Background authentication result type</value>
         [DataMember(Name = "LightValue", EmitDefaultValue = false)]
         public Light? LightValue { get; set; }
         /// <summary>
@@ -49,13 +50,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="rectCount">For UV_Fibers authenticity result type (required).</param>
         /// <param name="expectedCount">Expected fibers number. For UV_Fibers authentication result type (required).</param>
-        /// <param name="lightValue">lightValue.</param>
+        /// <param name="lightValue">For UV_Background authentication result type.</param>
         /// <param name="lightDisp">For UV_Background authentication result type.</param>
         /// <param name="rectArray">Coordinates of located areas for defined fibers type (required).</param>
         /// <param name="width">Fibers width value for located areas (in pixels) (required).</param>
         /// <param name="length">Fibers length value for located areas (in pixels) (required).</param>
         /// <param name="area">Fibers value for areas (in pixels) (required).</param>
-        /// <param name="colorValues">Fibers color value (required).</param>
+        /// <param name="colorValues">Fibers color value. Example: [BLUE, GREEN, RED] (required).</param>
         /// <param name="type">type (required) (default to AuthenticityResultType.UV_FIBERS).</param>
         /// <param name="elementResult">elementResult.</param>
         /// <param name="elementDiagnose">elementDiagnose.</param>
@@ -148,11 +149,11 @@ namespace Regula.DocumentReader.WebClient.Model
         public List<int> Area { get; set; }
 
         /// <summary>
-        /// Fibers color value
+        /// Fibers color value. Example: [BLUE, GREEN, RED]
         /// </summary>
-        /// <value>Fibers color value</value>
+        /// <value>Fibers color value. Example: [BLUE, GREEN, RED]</value>
         /*
-        <example>[BLUE, GREEN, RED]</example>
+        <example>[233, 120, 201]</example>
         */
         [DataMember(Name = "ColorValues", IsRequired = true, EmitDefaultValue = true)]
         public List<int> ColorValues { get; set; }

@@ -46,20 +46,23 @@ namespace Regula.DocumentReader.WebClient.Model
         public LCID Lcid { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Overall status of all checks from all values
         /// </summary>
+        /// <value>Overall status of all checks from all values</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValidityStatus
+        /// Overall status of validity from all values
         /// </summary>
+        /// <value>Overall status of validity from all values</value>
         [DataMember(Name = "validityStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult ValidityStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets ComparisonStatus
+        /// Overall status of data comparison from different sources
         /// </summary>
+        /// <value>Overall status of data comparison from different sources</value>
         [DataMember(Name = "comparisonStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult ComparisonStatus { get; set; }
         /// <summary>
@@ -74,9 +77,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="fieldName">Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup. (required).</param>
         /// <param name="lcid">lcid (required).</param>
         /// <param name="lcidName">LCID name.</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="validityStatus">validityStatus (required).</param>
-        /// <param name="comparisonStatus">comparisonStatus (required).</param>
+        /// <param name="status">Overall status of all checks from all values (required).</param>
+        /// <param name="validityStatus">Overall status of validity from all values (required).</param>
+        /// <param name="comparisonStatus">Overall status of data comparison from different sources (required).</param>
         /// <param name="value">The most confidence value, selected from valueList (required).</param>
         /// <param name="valueList">valueList (required).</param>
         /// <param name="validityList">Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error. (required).</param>
