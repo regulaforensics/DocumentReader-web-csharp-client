@@ -3319,7 +3319,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum DL_CLASS_CODE_B3_NOTES for value: 708
         /// </summary>
-        DL_CLASS_CODE_B3_NOTES = 708
+        DL_CLASS_CODE_B3_NOTES = 708,
+
+        /// <summary>
+        /// Enum FT_ADDRESS_POST_OFFICE for value: 709
+        /// </summary>
+        FT_ADDRESS_POST_OFFICE = 709
     }
 
 }
