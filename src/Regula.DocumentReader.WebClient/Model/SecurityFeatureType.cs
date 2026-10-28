@@ -340,7 +340,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum SIGNATURE_PRESENCE for value: 62
         /// </summary>
-        SIGNATURE_PRESENCE = 62
+        SIGNATURE_PRESENCE = 62,
+
+        /// <summary>
+        /// Enum DAMAGE_CHECK for value: 63
+        /// </summary>
+        DAMAGE_CHECK = 63
     }
 
 }
