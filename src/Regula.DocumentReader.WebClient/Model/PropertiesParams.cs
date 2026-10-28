@@ -36,9 +36,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="PropertiesParams" /> class.
         /// </summary>
         /// <param name="checkHoldersSignature">Set to true to enable detection of the document holder’s signature..</param>
-        public PropertiesParams(bool? checkHoldersSignature = default)
+        /// <param name="checkDocumentDamage">Set to true to enable detection of damaged or defaced documents..</param>
+        public PropertiesParams(bool? checkHoldersSignature = default, bool? checkDocumentDamage = default)
         {
             this.CheckHoldersSignature = checkHoldersSignature;
+            this.CheckDocumentDamage = checkDocumentDamage;
         }
 
         /// <summary>
@@ -49,6 +51,13 @@ namespace Regula.DocumentReader.WebClient.Model
         public bool? CheckHoldersSignature { get; set; }
 
         /// <summary>
+        /// Set to true to enable detection of damaged or defaced documents.
+        /// </summary>
+        /// <value>Set to true to enable detection of damaged or defaced documents.</value>
+        [DataMember(Name = "checkDocumentDamage", EmitDefaultValue = false)]
+        public bool? CheckDocumentDamage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -57,6 +66,7 @@ namespace Regula.DocumentReader.WebClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PropertiesParams {\n");
             sb.Append("  CheckHoldersSignature: ").Append(CheckHoldersSignature).Append("\n");
+            sb.Append("  CheckDocumentDamage: ").Append(CheckDocumentDamage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
