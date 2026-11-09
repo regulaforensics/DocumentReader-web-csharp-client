@@ -3324,7 +3324,12 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum FT_ADDRESS_POST_OFFICE for value: 709
         /// </summary>
-        FT_ADDRESS_POST_OFFICE = 709
+        FT_ADDRESS_POST_OFFICE = 709,
+
+        /// <summary>
+        /// Enum FT_ADDRESS_LOT for value: 710
+        /// </summary>
+        FT_ADDRESS_LOT = 710
     }
 
 }
