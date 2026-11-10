@@ -40,8 +40,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValidityStatus
+        /// Overall status of validity from all fields for given source
         /// </summary>
+        /// <value>Overall status of validity from all fields for given source</value>
         [DataMember(Name = "validityStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult ValidityStatus { get; set; }
         /// <summary>
@@ -53,7 +54,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// Initializes a new instance of the <see cref="TextAvailableSource" /> class.
         /// </summary>
         /// <param name="source">source (required).</param>
-        /// <param name="validityStatus">validityStatus (required).</param>
+        /// <param name="validityStatus">Overall status of validity from all fields for given source (required).</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
         public TextAvailableSource(Source source = default, CheckResult validityStatus = default, int? containerType = 0)
         {

@@ -54,13 +54,13 @@ namespace Regula.DocumentReader.WebClient.Model
         /// </summary>
         /// <param name="source">source (required).</param>
         /// <param name="value">Base64 encoded image.</param>
-        /// <param name="originalValue">Base64 encoded image.</param>
+        /// <param name="originalValue">Only for images from RFID. Image as was originally stored in the RFID chip..</param>
         /// <param name="originalPageIndex">Original page index.</param>
         /// <param name="pageIndex">Page index of the image from input list (required).</param>
         /// <param name="lightIndex">lightIndex (required).</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (required) (default to 0).</param>
-        /// <param name="fieldRect">fieldRect.</param>
-        /// <param name="rfidOrigin">rfidOrigin.</param>
+        /// <param name="fieldRect">Only for images from VISUAL. Coordinates of the image in the normalized image of the document..</param>
+        /// <param name="rfidOrigin">Only for images from RFID. Image location in RFID chip..</param>
         public ImagesFieldValue(Source source = default, string? value = default, string? originalValue = default, int? originalPageIndex = default, int pageIndex = default, Light lightIndex = default, int containerType = 0, RectangleCoordinates? fieldRect = default, RfidOrigin? rfidOrigin = default)
         {
             this.Source = source;
@@ -85,9 +85,9 @@ namespace Regula.DocumentReader.WebClient.Model
         public string? Value { get; set; }
 
         /// <summary>
-        /// Base64 encoded image
+        /// Only for images from RFID. Image as was originally stored in the RFID chip.
         /// </summary>
-        /// <value>Base64 encoded image</value>
+        /// <value>Only for images from RFID. Image as was originally stored in the RFID chip.</value>
         /*
         <example>Base64 encoded image</example>
         */
@@ -116,14 +116,16 @@ namespace Regula.DocumentReader.WebClient.Model
         public int ContainerType { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldRect
+        /// Only for images from VISUAL. Coordinates of the image in the normalized image of the document.
         /// </summary>
+        /// <value>Only for images from VISUAL. Coordinates of the image in the normalized image of the document.</value>
         [DataMember(Name = "fieldRect", EmitDefaultValue = false)]
         public RectangleCoordinates? FieldRect { get; set; }
 
         /// <summary>
-        /// Gets or Sets RfidOrigin
+        /// Only for images from RFID. Image location in RFID chip.
         /// </summary>
+        /// <value>Only for images from RFID. Image location in RFID chip.</value>
         [DataMember(Name = "rfidOrigin", EmitDefaultValue = false)]
         public RfidOrigin? RfidOrigin { get; set; }
 

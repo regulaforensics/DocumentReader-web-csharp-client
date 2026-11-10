@@ -40,7 +40,7 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocVisualExtendedField" /> class.
         /// </summary>
-        /// <param name="fieldRect">fieldRect (required).</param>
+        /// <param name="fieldRect">Coordinates of the text field in the normalized image of the document. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results. (required).</param>
         /// <param name="wFieldType">wFieldType (required).</param>
         /// <param name="fieldName">Field symbolic name (null-terminated string) (required).</param>
         /// <param name="stringsCount">Number of StringsResult array elements (required).</param>
@@ -64,8 +64,9 @@ namespace Regula.DocumentReader.WebClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets FieldRect
+        /// Coordinates of the text field in the normalized image of the document. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.
         /// </summary>
+        /// <value>Coordinates of the text field in the normalized image of the document. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.</value>
         [DataMember(Name = "FieldRect", IsRequired = true, EmitDefaultValue = true)]
         public RectangleCoordinates FieldRect { get; set; }
 

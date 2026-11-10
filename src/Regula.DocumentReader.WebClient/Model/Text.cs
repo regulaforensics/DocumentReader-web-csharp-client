@@ -34,20 +34,23 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Overall status of all checks from all text fields
         /// </summary>
+        /// <value>Overall status of all checks from all text fields</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValidityStatus
+        /// Overall status of validity from all text fields from all sources
         /// </summary>
+        /// <value>Overall status of validity from all text fields from all sources</value>
         [DataMember(Name = "validityStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult ValidityStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets ComparisonStatus
+        /// Overall status of data comparison from different sources for each text field
         /// </summary>
+        /// <value>Overall status of data comparison from different sources for each text field</value>
         [DataMember(Name = "comparisonStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult ComparisonStatus { get; set; }
         /// <summary>
@@ -58,9 +61,9 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Text" /> class.
         /// </summary>
-        /// <param name="status">status (required).</param>
-        /// <param name="validityStatus">validityStatus (required).</param>
-        /// <param name="comparisonStatus">comparisonStatus (required).</param>
+        /// <param name="status">Overall status of all checks from all text fields (required).</param>
+        /// <param name="validityStatus">Overall status of validity from all text fields from all sources (required).</param>
+        /// <param name="comparisonStatus">Overall status of data comparison from different sources for each text field (required).</param>
         /// <param name="dateFormat">Date format (required).</param>
         /// <param name="fieldList">fieldList (required).</param>
         /// <param name="availableSourceList">availableSourceList (required).</param>

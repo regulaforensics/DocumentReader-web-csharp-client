@@ -34,14 +34,15 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets RecResult
+        /// Overall recognition result
         /// </summary>
+        /// <value>Overall recognition result</value>
         [DataMember(Name = "RecResult", EmitDefaultValue = false)]
         public DocumentTypeRecognitionResult? RecResult { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentTypesCandidates" /> class.
         /// </summary>
-        /// <param name="recResult">recResult.</param>
+        /// <param name="recResult">Overall recognition result.</param>
         /// <param name="candidates">candidates.</param>
         public DocumentTypesCandidates(DocumentTypeRecognitionResult? recResult = default, List<OneCandidate> candidates = default)
         {

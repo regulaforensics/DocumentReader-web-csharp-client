@@ -34,32 +34,37 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets OverallStatus
+        /// Overall checks status. Rootx status
         /// </summary>
+        /// <value>Overall checks status. Rootx status</value>
         [DataMember(Name = "overallStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult OverallStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets Optical
+        /// Overall optical checks combined status
         /// </summary>
+        /// <value>Overall optical checks combined status</value>
         [DataMember(Name = "optical", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Optical { get; set; }
 
         /// <summary>
-        /// Gets or Sets Portrait
+        /// Portrait comparison status
         /// </summary>
+        /// <value>Portrait comparison status</value>
         [DataMember(Name = "portrait", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Portrait { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rfid
+        /// Overall RFID checks combined status
         /// </summary>
+        /// <value>Overall RFID checks combined status</value>
         [DataMember(Name = "rfid", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Rfid { get; set; }
 
         /// <summary>
-        /// Gets or Sets StopList
+        /// Stop list check status
         /// </summary>
+        /// <value>Stop list check status</value>
         [DataMember(Name = "stopList", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult StopList { get; set; }
 
@@ -82,11 +87,11 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Status" /> class.
         /// </summary>
-        /// <param name="overallStatus">overallStatus (required).</param>
-        /// <param name="optical">optical (required).</param>
-        /// <param name="portrait">portrait (required).</param>
-        /// <param name="rfid">rfid (required).</param>
-        /// <param name="stopList">stopList (required).</param>
+        /// <param name="overallStatus">Overall checks status. Rootx status (required).</param>
+        /// <param name="optical">Overall optical checks combined status (required).</param>
+        /// <param name="portrait">Portrait comparison status (required).</param>
+        /// <param name="rfid">Overall RFID checks combined status (required).</param>
+        /// <param name="stopList">Stop list check status (required).</param>
         /// <param name="detailsRFID">detailsRFID.</param>
         /// <param name="detailsOptical">detailsOptical (required).</param>
         /// <param name="age">age (required).</param>

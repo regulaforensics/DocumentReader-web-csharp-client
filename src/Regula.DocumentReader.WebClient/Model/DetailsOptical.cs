@@ -34,44 +34,51 @@ namespace Regula.DocumentReader.WebClient.Model
     {
 
         /// <summary>
-        /// Gets or Sets OverallStatus
+        /// Overall optical checks combined status
         /// </summary>
+        /// <value>Overall optical checks combined status</value>
         [DataMember(Name = "overallStatus", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult OverallStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocType
+        /// Status of document type recognition
         /// </summary>
+        /// <value>Status of document type recognition</value>
         [DataMember(Name = "docType", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult DocType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Expiry
+        /// Status of document expiration
         /// </summary>
+        /// <value>Status of document expiration</value>
         [DataMember(Name = "expiry", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Expiry { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImageQA
+        /// Status of document image quality check
         /// </summary>
+        /// <value>Status of document image quality check</value>
         [DataMember(Name = "imageQA", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult ImageQA { get; set; }
 
         /// <summary>
-        /// Gets or Sets Mrz
+        /// Status of document MRZ
         /// </summary>
+        /// <value>Status of document MRZ</value>
         [DataMember(Name = "mrz", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Mrz { get; set; }
 
         /// <summary>
-        /// Gets or Sets Security
+        /// Authenticity verification status
         /// </summary>
+        /// <value>Authenticity verification status</value>
         [DataMember(Name = "security", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Security { get; set; }
 
         /// <summary>
-        /// Gets or Sets Text
+        /// Status of text fields analysis
         /// </summary>
+        /// <value>Status of text fields analysis</value>
         [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public CheckResult Text { get; set; }
         /// <summary>
@@ -82,14 +89,14 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DetailsOptical" /> class.
         /// </summary>
-        /// <param name="overallStatus">overallStatus (required).</param>
-        /// <param name="docType">docType (required).</param>
-        /// <param name="expiry">expiry (required).</param>
-        /// <param name="imageQA">imageQA (required).</param>
-        /// <param name="mrz">mrz (required).</param>
+        /// <param name="overallStatus">Overall optical checks combined status (required).</param>
+        /// <param name="docType">Status of document type recognition (required).</param>
+        /// <param name="expiry">Status of document expiration (required).</param>
+        /// <param name="imageQA">Status of document image quality check (required).</param>
+        /// <param name="mrz">Status of document MRZ (required).</param>
         /// <param name="pagesCount">Number of processed pages in the document (required).</param>
-        /// <param name="security">security (required).</param>
-        /// <param name="text">text (required).</param>
+        /// <param name="security">Authenticity verification status (required).</param>
+        /// <param name="text">Status of text fields analysis (required).</param>
         /// <param name="vds">vds.</param>
         public DetailsOptical(CheckResult overallStatus = default, CheckResult docType = default, CheckResult expiry = default, CheckResult imageQA = default, CheckResult mrz = default, int pagesCount = default, CheckResult security = default, CheckResult text = default, int? vds = default)
         {

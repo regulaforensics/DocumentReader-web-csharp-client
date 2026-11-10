@@ -59,8 +59,8 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <param name="originalSymbols">originalSymbols.</param>
         /// <param name="pageIndex">Page index of the image from input list (required).</param>
         /// <param name="probability">Min recognition probability. Combined minimum probability from single characters probabilities (required).</param>
-        /// <param name="fieldRect">fieldRect.</param>
-        /// <param name="rfidOrigin">rfidOrigin.</param>
+        /// <param name="fieldRect">Only for visual and mrz results. Coordinates of the rectangle region on a document image(result type 1). Represented by two points - (left, top) + (right, bottom).</param>
+        /// <param name="rfidOrigin">Only for RFID images. Text location in RFID chip..</param>
         /// <param name="containerType">Same as Result type, but used for safe parsing of not-described values. See Result type. (default to 0).</param>
         public TextFieldValue(Source source = default, string value = default, string? originalValue = default, CheckResult originalValidity = default, List<OriginalSymbol> originalSymbols = default, int pageIndex = default, int probability = default, RectangleCoordinates? fieldRect = default, RfidOrigin? rfidOrigin = default, int? containerType = 0)
         {
@@ -116,14 +116,16 @@ namespace Regula.DocumentReader.WebClient.Model
         public int Probability { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldRect
+        /// Only for visual and mrz results. Coordinates of the rectangle region on a document image(result type 1). Represented by two points - (left, top) + (right, bottom)
         /// </summary>
+        /// <value>Only for visual and mrz results. Coordinates of the rectangle region on a document image(result type 1). Represented by two points - (left, top) + (right, bottom)</value>
         [DataMember(Name = "fieldRect", EmitDefaultValue = false)]
         public RectangleCoordinates? FieldRect { get; set; }
 
         /// <summary>
-        /// Gets or Sets RfidOrigin
+        /// Only for RFID images. Text location in RFID chip.
         /// </summary>
+        /// <value>Only for RFID images. Text location in RFID chip.</value>
         [DataMember(Name = "rfidOrigin", EmitDefaultValue = false)]
         public RfidOrigin? RfidOrigin { get; set; }
 

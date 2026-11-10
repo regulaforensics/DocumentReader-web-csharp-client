@@ -690,7 +690,17 @@ namespace Regula.DocumentReader.WebClient.Model
         /// <summary>
         /// Enum PROPERTY_FINGERPRINT_AS_SIGNATURE for value: 262
         /// </summary>
-        PROPERTY_FINGERPRINT_AS_SIGNATURE = 262
+        PROPERTY_FINGERPRINT_AS_SIGNATURE = 262,
+
+        /// <summary>
+        /// Enum PROPERTY_DOCUMENT_DAMAGED for value: 263
+        /// </summary>
+        PROPERTY_DOCUMENT_DAMAGED = 263,
+
+        /// <summary>
+        /// Enum PROPERTY_DOCUMENT_CANCELLED for value: 264
+        /// </summary>
+        PROPERTY_DOCUMENT_CANCELLED = 264
     }
 
 }
