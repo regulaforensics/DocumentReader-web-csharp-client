@@ -44,6 +44,7 @@ namespace Regula.DocumentReader.WebClient.Model
     [JsonSubtypes.KnownSubType(typeof(IdentResult), "262144")]
     [JsonSubtypes.KnownSubType(typeof(IdentResult), "32")]
     [JsonSubtypes.KnownSubType(typeof(IdentResult), "32768")]
+    [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), "33554432")]
     [JsonSubtypes.KnownSubType(typeof(IdentResult), "4")]
     [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), "4096")]
     [JsonSubtypes.KnownSubType(typeof(SecurityFeatureResult), "4194304")]
